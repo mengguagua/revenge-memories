@@ -194,8 +194,11 @@ func process(delta: float) -> void:
 func direction(dir: Vector2i) -> void:
 	if ui.view == "hub_choice":
 		if not choices.is_empty():
-			choice_index = posmod(choice_index + (dir.y if dir.y else dir.x),choices.size())
-			ui.audio.play_sfx("menu_move")
+			if dir.x and choices.size() > 5:
+				_change_choice_page(dir.x)
+			else:
+				choice_index = posmod(choice_index + (dir.y if dir.y else dir.x),choices.size())
+				ui.audio.play_sfx("menu_move")
 		return
 	if ui.view != "hub" or script_id >= 0 or motion_left > 0:
 		return
@@ -409,6 +412,21 @@ func _talk(actor: int) -> void:
 		game.save_game())
 
 func _start_script(id: int) -> void:
+	if id == 55:
+		var readiness: Dictionary = game.final_battle_readiness()
+		if not bool(readiness.ready):
+			# Only the final merge is irreversible. Celica's earlier altar
+			# encounter still runs unchanged. Keep the leader on the approach
+			# side, so preparing equipment and returning retriggers this gate.
+			var approach := Vector2i(roundi(motion_origin.x / TILE), roundi(motion_origin.y / TILE))
+			var gap: Vector2i = approach - game.hub_position
+			if motion_actor != 1 or absi(gap.x) + absi(gap.y) != 1 or not _ground(approach):
+				approach = Vector2i(11,25)
+			game.hub_position = approach
+			render_position = Vector2(approach) * TILE
+			_message(str(readiness.message))
+			game.save_game()
+			return
 	script_id = id
 	program = game.hubs.scripts.get(str(id),{}).get("instructions",[])
 	pc = 0
@@ -728,11 +746,16 @@ func _sail() -> void:
 func open_system_menu() -> void:
 	if ui.view != "hub" or script_id >= 0 or motion_left > 0:
 		return
-	_choose("队伍",[{"label":"查看人物","value":"status"},{"label":"交换道具","value":"exchange"},{"label":"整理行囊","value":"convoy"},{"label":"记录进度","value":"save"},{"label":"继续探索","value":"close"}],func(value):
+	var options := [{"label":"查看人物","value":"status"},{"label":"交换道具","value":"exchange"},{"label":"整理行囊","value":"convoy"},{"label":"调整顺序","value":"formation"},{"label":"记录进度","value":"save"}]
+	if _can_joint_prepare(): options.append({"label":"双方整备","value":"joint_prepare"})
+	options.append({"label":"继续探索","value":"close"})
+	_choose("队伍",options,func(value):
 		match str(value):
 			"status": open_status()
 			"exchange": _exchange_first()
 			"convoy": _convoy_menu()
+			"formation": _formation_menu()
+			"joint_prepare": _joint_preparation_menu()
 			"save":
 				_message("进度已经记录。" if game.save_game() else "保存失败，请重试。")
 		return)
@@ -764,6 +787,85 @@ func _exchange_first() -> void:
 			if game.exchange_items(str(first),str(second)):
 				game.save_game()
 				_message("两人的道具已经交换。")))
+
+func _formation_options(except_id: String = "", army: String = "") -> Array:
+	if army.is_empty(): army = str(game.route)
+	var options: Array = []
+	var slot := 0
+	var members: Array = game.party if army == game.route else game.parties[army]
+	for id in members:
+		var unit: Dictionary = game.roster[id]
+		if bool(unit.get("dead",false)) or int(unit.get("hp",0)) <= 0: continue
+		slot += 1
+		if str(id) != army and str(id) != except_id:
+			options.append({"label":"第%d位 · %s" % [slot,_unit_name(str(id))],"value":id})
+	return options
+
+func _formation_menu(army: String = "") -> void:
+	if army.is_empty(): army = str(game.route)
+	var options := _formation_options("",army)
+	if options.size() < 2:
+		_message("没有其他能够交换顺序的队员。领队保持首位。")
+		return
+	_choose(("调整顺序" if army == game.route else _unit_name(army)+"队调整顺序")+"：选择第一人",options,func(first):
+		_choose("选择交换顺序的队员",_formation_options(str(first),army),func(second):
+			var members: Array = game.party if army == game.route else game.parties[army].duplicate()
+			var first_index: int = members.find(first)
+			var second_index: int = members.find(second)
+			if first_index <= 0 or second_index <= 0: return
+			members[first_index] = second
+			members[second_index] = first
+			game.parties[army] = members.duplicate()
+			if army == game.route: game.party = members
+			game.save_game()
+			_message("出战顺序已调整。前十名存活队员将出战。")))
+
+func _can_joint_prepare() -> bool:
+	return game.chapter == 5 and game.route == "alm" and game.hub_id == 37
+
+func _joint_preparation_menu() -> void:
+	if not _can_joint_prepare(): return
+	_choose("双方整备",[{"label":"领取道具","value":"convoy"},{"label":"调整顺序","value":"formation"}],func(action):
+		var options := []
+		for army in ["alm","celica"]:
+			options.append({"label":_unit_name(army)+("队行囊" if action == "convoy" else "队出战顺序"),"value":army})
+		_choose("选择行囊" if action == "convoy" else "选择队伍",options,func(army):
+			if action == "convoy": _joint_convoy_items(str(army))
+			else: _formation_menu(str(army))))
+
+func _joint_convoy_items(army: String) -> void:
+	var options: Array = []
+	for i in range(game.convoy[army].size()):
+		options.append({"label":str(Items.item(int(game.convoy[army][i])).name_zh),"value":i})
+	_choose(_unit_name(army)+"队行囊：领取道具",options,func(index):
+		var people: Array = []
+		for id in game.party:
+			var unit: Dictionary = game.roster[id]
+			if bool(unit.get("dead",false)) or int(unit.get("hp",0)) <= 0: continue
+			var item_id := int(unit.get("item_id",0))
+			var label := _unit_name(str(id))
+			if item_id: label += " · " + str(Items.item(item_id).name_zh)
+			people.append({"label":label,"value":id})
+		_choose("交给阿尔姆队的谁？",people,func(id):
+			var held := int(game.roster[id].get("item_id",0))
+			if held == 0:
+				_receive_joint_item(army,int(index),str(id))
+			else:
+				_choose(_unit_name(str(id))+"已携带"+str(Items.item(held).name_zh),[{"label":"交换携带道具","value":"swap"},{"label":"取消","value":"cancel"}],func(action):
+					if action == "swap": _receive_joint_item(army,int(index),str(id)))))
+
+func _receive_joint_item(army: String, index: int, id: String) -> void:
+	if not _can_joint_prepare() or index < 0 or index >= game.convoy[army].size(): return
+	var item_id := int(game.convoy[army][index])
+	var held := int(game.roster[id].get("item_id",0))
+	# An explicit equipment swap keeps the selected original convoy slot,
+	# so even two full40-slot stores and a full party can prepare safely.
+	if held: game.convoy[army][index] = held
+	else: game.convoy[army].remove_at(index)
+	game.roster[id].item_id = item_id
+	game.roster[id].erase("weapon_index")
+	game.save_game()
+	_message(str(Items.item(item_id).name_zh)+"已交给"+_unit_name(id)+"。")
 
 func _convoy_menu() -> void:
 	_choose("整理行囊",[{"label":"取出道具","value":"take"},{"label":"存入道具","value":"put"}],func(value):
@@ -873,8 +975,8 @@ func mouse_accept(point: Vector2) -> void:
 		accept()
 		return
 	if point.y >= 198 and point.y < 228:
-		if point.x < 36: direction(Vector2i.LEFT)
-		elif point.x > 220: direction(Vector2i.RIGHT)
+		if point.x >= 8 and point.x < 36: _change_choice_page(-1)
+		elif point.x > 220 and point.x < 248: _change_choice_page(1)
 		return
 	var row := int(floor((point.y - 68.0) / 26.0))
 	if point.x < 20 or point.x >= 236 or row < 0 or row >= 5:
@@ -883,6 +985,15 @@ func mouse_accept(point: Vector2) -> void:
 	if selected >= choices.size(): return
 	choice_index = selected
 	accept()
+
+func _change_choice_page(step: int) -> void:
+	if choices.is_empty(): return
+	var page := int(choice_index / 5)
+	var last_page := int((choices.size() - 1) / 5)
+	var next_page := clampi(page + step, 0, last_page)
+	if next_page == page: return
+	choice_index = mini(next_page * 5 + choice_index % 5, choices.size() - 1)
+	ui.audio.play_sfx("menu_move")
 
 func _draw_choices() -> void:
 	ui._panel(Rect2(8,16,240,216))
@@ -900,7 +1011,10 @@ func _draw_choices() -> void:
 			ui._text(lines[1],Vector2(40,y+9))
 		else: ui._center_text(label,Rect2(40,y,188,16))
 		if i == choice_index: ui._draw_indicator("right",Vector2(24,y+4))
-	ui._center_text("%d / %d" % [page+1,int(ceil(choices.size()/5.0))],Rect2(32,206,192,14),Color(0.7,0.7,0.7))
+	var pages_count := int(ceil(choices.size()/5.0))
+	var page_label := "%d / %d" % [page+1,pages_count]
+	if pages_count > 1: page_label = "%d/%d页  左右翻页" % [page+1,pages_count]
+	ui._center_text(page_label,Rect2(32,206,192,14),Color(0.7,0.7,0.7))
 	if page>0:ui._draw_indicator("left",Vector2(20,210))
 	if start+5<choices.size():ui._draw_indicator("right",Vector2(228,210))
 

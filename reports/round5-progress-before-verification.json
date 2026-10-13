@@ -1,0 +1,17 @@
+{
+	"checks": 16,
+	"evidence": {
+		"final_low_form_hp_fixture": 51,
+		"kind": "P1 unprepared final battle can overwrite the usable exploration checkpoint",
+		"players_without_finisher": [
+			"celica",
+			"alm"
+		],
+		"retreat_probability": 0,
+		"source": "bank009 L098A63/L098CC8; bank013 L0DB91E final trigger and L0D8ED4 door; native room40 feature0 offers source Falchion17",
+		"stage": 62,
+		"timeout": 255
+	},
+	"failures": [],
+	"scope": "Source chapter transitions and legitimate final milestone with only mandatory leaders; production final merge, move/wait/attack guard and suspend/reload; final form is a source-rule boundary fixture, not an artificial victory."
+}

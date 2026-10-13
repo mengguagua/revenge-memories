@@ -1,0 +1,106 @@
+{
+  "round": 5,
+  "finding": "P1 unprepared final battle overwrites an otherwise playable exploration checkpoint",
+  "normal_trigger": "Optional healer recruits can be skipped; the source Falchion treasure can be skipped, stored or left with a reserve member. Walking onto final altar source trigger55 then deployed a party without a usable finisher and autosaved it.",
+  "player_chain_before": {
+    "intent": "Defeat Duma and conclude the campaign.",
+    "display": "Ordinary final battlefield and movement/attack controls; no preparation requirement or way back.",
+    "operation": "Move or attack; after the source52HP boundary every actually available attack is immune. Continue and retry preserve the unprepared army.",
+    "progress_block": "No final win and no original manual/timeout retreat."
+  },
+  "primary_source": [
+    {
+      "file": "/private/tmp/fe2-analysis-20261012/src/bank009.asm",
+      "labels": [
+        "L098A63",
+        "L098CC8"
+      ],
+      "contract": "Duma low form only accepts Falchion or the original high-index Nosferatu loophole."
+    },
+    {
+      "file": "/private/tmp/fe2-analysis-20261012/src/bank013.asm",
+      "labels": [
+        "L0DB91E"
+      ],
+      "contract": "Source script55 sets flag82 and starts final62."
+    },
+    {
+      "file": "data/hubs.json",
+      "contract": "room40 feature0 is Falchion17; room37 final trigger at11,23; safe preparation door side11,25."
+    },
+    {
+      "file": "data/rules_full.json",
+      "contract": "Nosferatu42 is an attack spell with hp_cost0, unlike Recover40."
+    }
+  ],
+  "fix": {
+    "pre_entry": "Pure final_battle_readiness() mirrors the first ten living members from each route that production final merge actually deploys. A sword in storage, on a reserve, or on a dead member never passes. Source Nosferatu42 passes only when learned and usable by a deployed living class. Different missing, storage and reserve states receive actionable preparation messages.",
+    "legacy_recovery": "can_return_to_final_preparation() is available only on an unsettled merged final62 battle/defeat that began without a finisher, with a valid battle-start snapshot. return_to_final_preparation() first uses normal retry to restore the whole start transaction, then reopens source final trigger and returns to the south side11,25. No battle reward, prior-death revival or free sword is retained/generated.",
+    "prepared_loss": "A prepared battle in which the caster dies keeps original commitment; normal retry restores that current-battle casualty.",
+    "joint_preparation": "Only final-preparation Alm chapter5 room37 exposes joint inventory and route-indexed formation. Both real convoys can give an existing item to an active living Alm member; explicitly confirmed exchange replaces that original storage slot with the displaced carried item, allowing both full40-slot bags and occupied hands without duplication/loss. Either route can reorder actual source members while each leader stays first. It does not switch world routes or release captive Celica.",
+    "reload_instruction": "Readiness compares numeric item values through int(value), preserving source17 after JSON reload as17.0. It directs captured-route reserve/storage cases explicitly to the party-menu joint preparation entry instead of inaccessible current-route storage or world route switching."
+  },
+  "verification": {
+    "before_report": "reports/round5-progress-before-verification.json",
+    "after_report": "reports/round5-progress-verification.json",
+    "after_checks": 158,
+    "after_failures": 0,
+    "real_item_pickup": true,
+    "actual_source_final_floor_reentry": true,
+    "boss_low_form_boundary_fixture": 51,
+    "combat_rules_changed": false,
+    "retreat_rules_changed": false,
+    "related_regressions": [
+      {
+        "suite": "test_game_state.gd",
+        "checks": 83,
+        "failures": 0
+      },
+      {
+        "suite": "test_campaign_continuity.gd",
+        "checks": 139,
+        "failures": 0
+      },
+      {
+        "suite": "test_scenario_rules.gd",
+        "checks": 57,
+        "failures": 0
+      },
+      {
+        "suite": "test_round4_route_context.gd",
+        "checks": 32,
+        "failures": 0
+      }
+    ],
+    "integrated_hub_entry_guard_verified": true,
+    "boundary_checks": {
+      "courier_script": 41,
+      "source_courier_room": 16,
+      "remote_convoy": "celica",
+      "both_inventory_slots": 40,
+      "recipient_occupied": true,
+      "unique_falchion_count": 1,
+      "swap_cancel_no_mutation": true,
+      "confirmed_swap_no_duplication_or_loss": true,
+      "json_item_float_preserved": true,
+      "captured_route_unlocked": false,
+      "reserve_caster": "genny",
+      "reserve_slot_before": 11,
+      "actual_final_player_count_after_formation": 11,
+      "nosferatu_positive_damage_and_zero_hp_cost": true
+    }
+  },
+  "limits": [
+    "Late milestone states are source-table fixtures, not a complete natural campaign playthrough.",
+    "Recovery uses full retry rollback; it intentionally does not retain actions or gains made during the blocked final battle.",
+    "Source phase2 automatic captive vision scheduling was inspected but not changed: no proven independent progression blocker."
+  ],
+  "git_index_modified": false,
+  "commit_performed": false,
+  "push_performed": false,
+  "user_save_accessed": false,
+  "visible_game_window_started": false,
+  "diagnostics": [
+    "Sandbox macOS CA lookup warning; the final integrated158-check progress suite has no script errors or shutdown resource warnings."
+  ]
+}

@@ -329,6 +329,8 @@ func _accept() -> void:
 				elif view in ["battle", "world"]:
 					await _resolve_pending_loot()
 					await _play_story_events()
+					if view == "battle" and game.can_return_to_final_preparation():
+						_notice("无法终结多玛。按S选择返回准备，重置本战。", 8.0)
 					if game.phase == "enemy" and view == "battle": _enemy_phase()
 			else:
 				_notice("存档无法读取" if FileAccess.file_exists(game.save_path) else "暂无存档")
@@ -359,6 +361,9 @@ func _accept() -> void:
 		"victory", "defeat":
 			var items: Array = ["重试本关", "返回标题"]
 			var actions: Array = ["retry", "title"]
+			if game.can_return_to_final_preparation():
+				items.push_front("返回准备（重置本战）")
+				actions.push_front("final_prepare")
 			if view == "victory":
 				items.push_front("继续前进")
 				actions.push_front("continue_world")
@@ -705,6 +710,9 @@ func _open_system_menu() -> void:
 		if Inventory.can_retreat(game):
 			menu_items.append("撤退")
 			menu_actions.append("retreat")
+		if game.can_return_to_final_preparation():
+			menu_items.append("返回准备（重置本战）")
+			menu_actions.append("final_prepare")
 	else:
 		var items: Array = ["人物状态", "保存进度"]
 		var actions: Array = ["roster", "save"]
@@ -746,6 +754,12 @@ func _menu_action(action: String, _context: String) -> void:
 		"depart": _depart()
 		"title": _show_title()
 		"retry": _enter_battle(game.stage_id, true)
+		"final_prepare":
+			if game.return_to_final_preparation():
+				ui_mode = "inspect"
+				result_sequence_running = false
+				hub_controller.resume()
+				game.save_game()
 		"continue_world": _continue_world()
 		"save":
 			game.mode = "battle" if view == "battle" else "village"
@@ -761,11 +775,12 @@ func _menu_action(action: String, _context: String) -> void:
 		"assault": _auto_player(false)
 		"gather": _auto_player(true)
 		"roster":
-			status_id = game.party[0]
 			if view == "village":
+				status_id = game.party[0]
 				_open_menu("roster", game.party.map(func(id): return game.opening.characters[id].name_zh),
 					game.party.map(func(id): return "member:" + id), Vector2(64, 56))
 			else:
+				status_id = str(game.unit_at(game.cursor).get("id", game.leader_id()))
 				ui_mode = "status"
 		"attack":
 			target_ids = game.targets(game.find_unit(game.selected_id)).map(func(unit): return str(unit.id))
@@ -803,7 +818,7 @@ func _show_status() -> void:
 			ui_mode = "inspect" if ui_mode == "status" else "status"
 
 func _open_camp_menu() -> void:
-	var items: Array = ["部队状态", "交换道具", "仓库", "调整出战", "保存进度"]
+	var items: Array = ["部队状态", "交换道具", "仓库", "调整顺序", "保存进度"]
 	var actions: Array = ["camp:roster", "camp:trade", "camp:convoy", "camp:formation", "camp:save"]
 	if game.can_switch_route():
 		items.append("切换队伍")
@@ -814,6 +829,10 @@ func _open_camp_menu() -> void:
 
 func _camp_members(action: String, except_id: String = "") -> void:
 	var members = game.party.filter(func(id): return str(id) != except_id)
+	if members.is_empty():
+		_open_camp_menu()
+		_notice("没有其他队员")
+		return
 	_open_menu("camp_members", members.map(func(id): return str(game.roster[id].name_zh) + (" 阵亡" if bool(game.roster[id].get("dead", false)) else "")),
 		members.map(func(id): return "camp:" + action + ":" + str(id)), Vector2(64, 32))
 
@@ -1773,6 +1792,9 @@ func _draw_support_preview() -> void:
 	var spell: Dictionary = Items.spell(chosen_spell)
 	_center_text(str(spell.name_zh) + " 消耗生命" + str(Items.cost(chosen_spell)), Rect2(28, 20, 200, 16))
 	var instruction = "选择传送目的地" if ui_mode == "warp" else "选择支援对象"
+	if ui_mode == "warp":
+		var target = game.find_unit(support_target)
+		instruction = "传送" + str(target.get("name_zh", "")) + "至选定格"
 	if ui_mode == "support_target" and not target_ids.is_empty():
 		var target = game.find_unit(str(target_ids[target_index]))
 		instruction = str(target.name_zh) + " " + str(int(target.hp)) + "/" + str(int(target.max_hp))
@@ -1912,7 +1934,8 @@ func _draw_result() -> void:
 	_panel(rect)
 	_center_text("战斗胜利" if view == "victory" else "战斗失败", Rect2(34, 50, 188, 32))
 	if view == "victory":
-		_center_text(str(game.battle_data.get("name_zh", game.catalog.stages.get(str(game.stage_id), {}).get("name_zh", "战场"))) + "\n已击败全部敌军\n过关经验已结算", Rect2(34, 86, 188, 48))
+		var result_text = "敌军已投降" if game.flags.get("scenario_forced_victory", "") == "rudolf_surrender" else "已击败全部敌军"
+		_center_text(str(game.battle_data.get("name_zh", game.catalog.stages.get(str(game.stage_id), {}).get("name_zh", "战场"))) + "\n" + result_text + "\n过关经验已结算", Rect2(34, 86, 188, 48))
 	else:
 		_center_text("主将倒下了", Rect2(34, 90, 188, 24))
 	if menu_items.is_empty():

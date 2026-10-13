@@ -1,0 +1,55 @@
+{
+  "round": 5,
+  "scope": "Actual native Main battle input on original source map 1. No production files edited by this agent.",
+  "findings": [
+    {
+      "id": "battle-status-focus",
+      "priority": "P2",
+      "status": "fixed_and_verified",
+      "file": "core/main.gd",
+      "function": "_menu_action roster branch",
+      "trigger": "Focus Silque, Lukas, or brigand_1; S -> character status.",
+      "expected": "The system character-status command displays the focused unit, matching Tab/A; empty ground may fall back to route leader.",
+      "observed": "All three system-menu choices displayed Alm while Tab displayed the focused unit.",
+      "before_report": "reports/round5-battle-ui-before-verification.json",
+      "suggested_fix": "Use current cursor unit id for battle status; keep village roster list and empty-ground leader fallback.",
+      "fix": "Battle system status now shows cursor unit, with empty-ground leader fallback; village roster remains selectable."
+    },
+    {
+      "id": "warp-recipient-visibility",
+      "priority": "P2",
+      "status": "fixed_and_verified_text_audit",
+      "file": "core/main.gd",
+      "function": "_draw_support_preview",
+      "trigger": "Choose an adjacent Warp recipient and then move destination cursor.",
+      "observed": "Recipient name disappears from destination preview, which only says choose destination. The committed target remains support_target.",
+      "suggested_fix": "Keep the selected ally name visible in the destination preview and preserve clear confirm/cancel guidance.",
+      "fix": "Warp destination preview keeps the selected recipient name in its rendered instruction."
+    }
+  ],
+  "blockers_reproduced": [],
+  "passed_scenarios": [
+    "Native movement and attack target preview cancellation/commit with real keyboard and pointer.",
+    "Pointer exchange recipient -> native action settlement -> production save/title continue.",
+    "Source learned-Warp recipient selection/cancel -> occupied landing rejection -> legal exact landing -> one native HP charge/action -> title continue."
+  ],
+  "limits": "Instant animation timing; source learned-Warp and chapter milestone fixtures. Final defeat reconstructed through native leader-death commit; no natural full-campaign playthrough or pixel inspection. Parent handles screenshots.",
+  "user_save_accessed": false,
+  "visible_window_created": false,
+  "commit": false,
+  "push": false,
+  "after_report": "reports/round5-battle-ui-verification.json",
+  "after_checks": 150,
+  "after_failure_count": 0,
+  "shared_blocker_ui_integration": {
+    "id": "unprepared-old-final62-recovery",
+    "owner": "round5_progress",
+    "verified": [
+      "Unprepared source-final battle saved -> actual title continue -> S menu -> labelled reset action -> preparation hub37.",
+      "Unprepared source-final defeat saved -> actual title continue -> result menu pointer choice -> preparation hub37.",
+      "Both recovered hubs accept first real directional step, production save, title continue and another directional step.",
+      "Prepared source-final battle/defeat never offer the special recovery and retain ordinary retry."
+    ],
+    "fixture": "Source chapter1-5 transitions, no optional recruits, actual merged final deployment; source Falchion inventory checkpoint distinguishes prepared battle."
+  }
+}

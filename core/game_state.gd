@@ -616,6 +616,96 @@ func enter_world_hub() -> bool:
 	if entry.is_empty(): return false
 	return enter_hub(int(entry.hub_id), Vector2i(entry.spawn[0], entry.spawn[1]))
 
+func final_battle_readiness(checkpoint: Dictionary = {}) -> Dictionary:
+	# L098A63/L098CC8: below52HP Duma rejects ordinary weapons/spells.
+	# Check the same first ten living members per route as the final merge.
+	# This is an exploration preparation check, never a new combat ability.
+	var deployed: Array = []
+	var reserve_blade := false
+	var reserve_nosferatu := false
+	var reserve_blade_route := ""
+	var reserve_nosferatu_route := ""
+	var preparing_parties: Dictionary = checkpoint.get("parties", parties)
+	var preparing_roster: Dictionary = checkpoint.get("roster", roster)
+	var preparing_convoy: Dictionary = checkpoint.get("convoy", convoy)
+	for route_name in ["celica", "alm"]:
+		var slot := 0
+		for value in preparing_parties.get(route_name, []):
+			var key := str(value)
+			var unit: Dictionary = preparing_roster.get(key, {})
+			if unit.is_empty() or bool(unit.get("dead", false)) or int(unit.get("hp", 0)) <= 0:
+				continue
+			if slot >= 10:
+				if int(unit.get("item_id", 0)) == 17:
+					reserve_blade = true
+					reserve_blade_route = str(route_name)
+				var reserve_caster: Dictionary = unit.duplicate(true)
+				reserve_caster.hp = int(reserve_caster.max_hp)
+				if Items.spells(reserve_caster).has(42) and Items.can_use(reserve_caster, 42):
+					reserve_nosferatu = true
+					reserve_nosferatu_route = str(route_name)
+				continue
+			deployed.append(key)
+			slot += 1
+	for key in deployed:
+		var unit: Dictionary = preparing_roster[key]
+		# A deployed companion may hand the personal sword to Alm in battle.
+		if int(unit.get("item_id", 0)) == 17 and deployed.has("alm"):
+			return {"ready": true, "reason": "falchion", "deployed": deployed, "carrier": key}
+		var caster: Dictionary = unit.duplicate(true)
+		caster.hp = int(caster.max_hp)
+		if Items.spells(caster).has(42) and Items.can_use(caster, 42):
+			return {"ready": true, "reason": "nosferatu", "deployed": deployed, "caster": key}
+	if reserve_blade:
+		var army_name := "赛莉卡队" if reserve_blade_route == "celica" else "阿尔姆队"
+		return {"ready": false, "reason": "reserve_falchion", "deployed": deployed, "reserve_route": reserve_blade_route,
+			"message": "最终战无法撤退。法尔西昂在后备队员身上；请打开队伍菜单的「双方整备」，调整%s的出战顺序，再来进入。" % army_name}
+	if reserve_nosferatu:
+		var army_name := "赛莉卡队" if reserve_nosferatu_route == "celica" else "阿尔姆队"
+		return {"ready": false, "reason": "reserve_nosferatu", "deployed": deployed, "reserve_route": reserve_nosferatu_route,
+			"message": "最终战无法撤退。会吸血的队员未在出战前十人中；请打开队伍菜单的「双方整备」，调整%s的出战顺序，再来进入。" % army_name}
+	# JSON checkpoints decode numeric inventory entries as floats; Array.has
+	# does not match those with an integer item17, unlike the item consumers.
+	var alm_stores_blade: bool = preparing_convoy.get("alm", []).any(func(value): return int(value) == 17)
+	var celica_stores_blade: bool = preparing_convoy.get("celica", []).any(func(value): return int(value) == 17)
+	if alm_stores_blade or celica_stores_blade:
+		var storage_route := "alm" if alm_stores_blade else "celica"
+		var army_name := "赛莉卡队" if storage_route == "celica" else "阿尔姆队"
+		return {"ready": false, "reason": "stored_falchion", "deployed": deployed, "storage_route": storage_route,
+			"message": "最终战无法撤退。法尔西昂在%s行囊中；请打开队伍菜单的「双方整备」，取出或交换给阿尔姆，再来进入。" % army_name}
+	return {"ready": false, "reason": "missing_finisher", "deployed": deployed,
+		"message": "最终战无法撤退。当前出战队伍没有法尔西昂或吸血，无法击败多玛。请先回迷宫取剑并交给阿尔姆，再来进入。"}
+
+func can_return_to_final_preparation() -> bool:
+	# Recover old, unprepared checkpoints only. A normal final encounter keeps
+	# the source retreat rules; losing a finisher during play uses normal retry.
+	return stage_id == 62 and mode in ["battle", "defeat"] and not battle_settled \
+		and not bool(flags.get("campaign_complete", false)) and bool(flags.get("final_parties_merged", false)) \
+		and not battle_start_snapshot.is_empty() and not bool(final_battle_readiness(battle_start_snapshot).ready)
+
+func return_to_final_preparation() -> bool:
+	if not can_return_to_final_preparation() or not retry_battle():
+		return false
+	# Retry restores the complete start transaction (roster, loot, RNG, flags
+	# and armies) before reopening the entry. Do not keep mid-battle gains.
+	flags.erase("final_parties_merged")
+	flags.erase("scenario_final_merge_ready")
+	flags.erase("source_flag_82")
+	flags.celica_captive = true
+	flags.scenario_celica_story_phase = 3
+	var altar: Dictionary = hub_flags.get("37", {"actors": 0, "talk": 0, "triggers": 0})
+	altar.actors = int(altar.actors) & 127
+	altar.triggers = int(altar.triggers) | 4
+	hub_flags["37"] = altar
+	# The south side of the source final door is outside script55's tile.
+	# Returning there permits walking back through the maze without retrigger.
+	battle_return = {"mode": "hub", "hub_id": 37, "position": [11, 25], "world_node": world_node}
+	story_events.clear()
+	battle_start_snapshot.clear()
+	selected_id = ""
+	battle_settled = false
+	return enter_hub(37, Vector2i(11, 25))
+
 func enter_dungeon_battle(trigger: int) -> bool:
 	flags.erase("inventory_enemy_initiated")
 	flags.erase("inventory_attacking_group_id")

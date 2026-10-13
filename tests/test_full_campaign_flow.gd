@@ -170,6 +170,12 @@ func _test_capture_and_ending() -> void:
 	scene.hub_controller._start_script(52)
 	drain()
 	check(int(scene.game.flags.celica_captive_hp.celica) == 9, "Actual Falchion vision snapshots Celica HP")
+	# The final milestone must include its preparation item interaction,
+	# rather than skipping the source sword and entering an unwinnable army.
+	scene.hub_controller.facing = Vector2i.UP
+	scene._accept()
+	drain()
+	check(int(scene.game.roster.alm.item_id) == 17, "Source Falchion room interaction prepares the final army")
 	setup_room(37, Vector2i(7,3))
 	scene.hub_controller._start_script(55)
 	drain()

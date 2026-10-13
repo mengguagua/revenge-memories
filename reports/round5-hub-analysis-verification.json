@@ -1,0 +1,127 @@
+{
+  "round": 5,
+  "findings": [
+    {
+      "severity": "P1",
+      "finding": "Source script55 allowed an irreversible final merge with no deployed Falchion or usable Nosferatu, leaving no legal way to defeat Duma below52HP.",
+      "source_contract": [
+        "bank013 L0DB91E final merge script55",
+        "combat_rules.gd attack_blocked: Duma below52HP requires weapon17 or source index>=40",
+        "source final battle62 retreat0/255"
+      ],
+      "before_evidence": "reports/round5-hub-visual-before-verification.json",
+      "fix": "Read the actual first-ten-per-route preparation helper before script55 changes flags. Missing equipment returns the leader to the previous approach tile and explains the concrete way to prepare; actual portal return, save/load, convoy retrieval and same-gate final entry are verified.",
+      "integration_owner": "GameState readiness, old stuck-save recovery and accurate two-party messages by round5_progress; recovery Main UI by root/battle_ui; hub entry and both-party preparation by round5_hub.",
+      "preserved": "Celica first altar capture and source combat immunity remain unchanged; no HP, damage, reward or roster boost."
+    },
+    {
+      "severity": "P2",
+      "finding": "Visible previous/next-page arrows changed a single row. Clicking the next arrow in page1 of a ten-member chooser stayed on page1.",
+      "before_evidence": "reports/round5-hub-before-verification.json",
+      "fix": "Multi-page LEFT/RIGHT and native mouse arrows change complete pages and preserve the row; hidden boundary arrows do nothing, short final pages clamp. UP/DOWN remain row selection, and the footer explains left/right paging."
+    },
+    {
+      "severity": "P2",
+      "finding": "Reserve-healer readiness instruction asked the player to change deployment order, but the hub menu did not expose that operation.",
+      "before_evidence": "reports/round5-hub-visual-formation-before-verification.json",
+      "fix": "Expose the same Adjust order action in hub system menus. Two actual choices swap living members of the current party; the leader stays first, every reserve member is selectable, the current parties record is synchronized and saved. Numbered labels explain the true living deployment order. Confirmed choice can now move actual eleventh Tatiana into slot2 and admit the same source final gate.",
+      "preserved": "Other party and story route remain unchanged; both cancellation points preserve order."
+    }
+  ],
+  "candidate_ruled_out": {
+    "finding": "Same-variant actor hidden cache after flag53",
+    "reason": "Normal source flag43 runs in room44 before chapter3 reconstructs the controller room. Masked room4 NPCs are not cached at entry and are instantiated visibly when script40 unmasks them. Actual timed room44 portal -> room4 -> dialogue -> save/load -> road7 exit passes. No speculative production change."
+  },
+  "verification": {
+    "suite": "tests/test_round5_hub.gd",
+    "checks": 129,
+    "failures": [],
+    "actual_keyboard_walk_inputs": 52,
+    "non_instant_ticks": 1691,
+    "related_suites": [
+      {
+        "suite": "tests/test_hub_controller.gd",
+        "checks": 547,
+        "failures": 0
+      },
+      {
+        "suite": "tests/test_round4_hub.gd",
+        "checks": 144,
+        "failures": 0
+      },
+      {
+        "suite": "tests/test_round3_controller.gd",
+        "checks": 42,
+        "failures": 0
+      }
+    ],
+    "runtime_screenshots_before": 4,
+    "runtime_screenshots_after": 4,
+    "safe_area_errors": [],
+    "guard_loaded_before_engine_main": true,
+    "formation_runtime_screenshots_before": 1,
+    "formation_runtime_screenshots_after": 4,
+    "total_runtime_screenshots": 24,
+    "capture_groups": [
+      {
+        "phase": "before",
+        "report": "reports/round5-hub-visual-before-verification.json",
+        "captures": 4
+      },
+      {
+        "phase": "after",
+        "report": "reports/round5-hub-visual-after-verification.json",
+        "captures": 4
+      },
+      {
+        "phase": "formation-before",
+        "report": "reports/round5-hub-visual-formation-before-verification.json",
+        "captures": 1
+      },
+      {
+        "phase": "formation-after",
+        "report": "reports/round5-hub-visual-formation-after-verification.json",
+        "captures": 4
+      },
+      {
+        "phase": "joint-before",
+        "report": "reports/round5-hub-visual-joint-before-verification.json",
+        "captures": 1
+      },
+      {
+        "phase": "joint-after",
+        "report": "reports/round5-hub-visual-joint-after-verification.json",
+        "captures": 5
+      },
+      {
+        "phase": "joint-celica-after",
+        "report": "reports/round5-hub-visual-joint-celica-after-verification.json",
+        "captures": 5
+      }
+    ]
+  },
+  "files": [
+    "core/hub_controller.gd",
+    "tests/test_round5_hub.gd",
+    "tools/capture_round5_hub.gd"
+  ],
+  "user_save_accessed": false,
+  "visible_or_focused_window_started": false,
+  "commit_push_or_stage_performed": false,
+  "limits": [
+    "Chapter/room landmarks skip earlier battles; no claim of a natural full campaign playthrough.",
+    "Readiness verifies available finishing methods, not guaranteed battle victory.",
+    "Graphical guard captures are native256x240 offscreen pixels, not a focused game window."
+  ],
+  "final_joint_preparation": {
+    "scope": "Alm / chapter5 / room37 only",
+    "operations": [
+      "Select either actual convoy and withdraw to the current living Alm member.",
+      "When the recipient already carries equipment, explicitly choose swap or cancel; swap returns previous equipment to the selected original source convoy slot and preserves full40 capacity.",
+      "Select either actual party and swap two living members; each leader remains first, Alm synchronizes current party, and no route switch/captivity release occurs."
+    ],
+    "verification": "round5_progress reports158 checks0 failures, including actual source41 courier sends unique17 to captured Celica convoy; both full40 stores and full hands; old-save recovery, cancel/swap and unique-item conservation; actual gate entry; Celica eleventh Genny42 moved into deployment and positive final-form Duma damage.",
+    "ui_evidence": "reports/round5-hub-visual-joint-after-verification.json and reports/round5-hub-visual-joint-celica-after-verification.json",
+    "semantic_capture_checks": "Every input in the Celica sequence asserts expected actual view/title/choice value/readiness/deployment; wrong states abort immediately."
+  }
+}

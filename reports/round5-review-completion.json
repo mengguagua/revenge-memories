@@ -1,0 +1,106 @@
+{
+  "round": 5,
+  "status": "completed",
+  "started_at": "2026-10-13T15:26:15+08:00",
+  "completed_at": "2026-10-13T16:22:01.603864+08:00",
+  "requested_scope": "One additional review round; prioritize progression blockers and verify UI intention, player understanding and actual operations.",
+  "blocking_fix": {
+    "priority": "P1",
+    "problem": "An unprepared final army could enter an irreversible automatically saved battle without any legal finishing weapon/spell for Duma below52HP.",
+    "source": [
+      "bank009 L098A63/L098CC8",
+      "bank013 L0DB91E/L0D8ED4",
+      "source room40 Falchion17 and spell42 Nosferatu"
+    ],
+    "paths": [
+      "Neither deployed team has Falchion or Nosferatu.",
+      "Finishing caster or sword holder is outside the first ten living members of that route.",
+      "The unique Falchion was legitimately sent by source courier to the captive other-route convoy, including full40-slot stores and an occupied recipient."
+    ],
+    "fixes": [
+      "Check actual source front10+10 living deployment before final script55; keep exploration and actionable instructions when unprepared.",
+      "Recover only old unprepared final snapshots through complete retry transaction rollback, then return to legal room37 south preparation side. Normal prepared final encounters retain normal retry and source retreat restrictions.",
+      "Offer localized final-altar joint convoy access and each-route ordering without changing route/world/capture state. Occupied-recipient transfers require explicit swap and preserve the original convoy slot.",
+      "Compare persisted convoy IDs numerically, including JSON17.0, so save/reload retains an accurate operation hint."
+    ],
+    "evidence": [
+      "reports/round5-progress-before-verification.json",
+      "reports/round5-progress-verification.json",
+      "reports/round5-progress-analysis-verification.json",
+      "reports/round5-hub-verification.json"
+    ]
+  },
+  "ui_fixes": [
+    {
+      "problem": "Character-status system command always showed the leader.",
+      "result": "Cursor ally/enemy is shown; empty cell falls back to leader, consistent with Tab/A."
+    },
+    {
+      "problem": "Warp destination screen hid the selected recipient.",
+      "result": "Recipient name remains visible and matches actual target/landing settlement."
+    },
+    {
+      "problem": "Paged hub arrow moved one row.",
+      "result": "Left/right and pointer arrows switch pages; up/down select entries; page text states the operation."
+    },
+    {
+      "problem": "Preparation hints named unavailable equipment/order operations.",
+      "result": "Hub order adjustment and final joint preparation make each named action accessible; full stores use explicit equipment swap."
+    },
+    {
+      "problem": "Surrender result claimed every soldier defeated; empty two-person camp selection silently vanished.",
+      "result": "Rudolf result describes surrender; one-person actions retain camp with an explicit empty-state message, and order command is labelled accurately."
+    }
+  ],
+  "ui_audit": {
+    "steps": 8,
+    "report": "reports/round5-ui-audit.html",
+    "data": "reports/round5-ui-audit-verification.json",
+    "skill": "product-design:audit",
+    "screenshots": 36,
+    "visual_report": "reports/round5-visual-verification.json",
+    "safe_area_errors": [],
+    "keyboard_and_pointer_checked": true,
+    "full_accessibility_compliance_claimed": false
+  },
+  "verification": {
+    "headless_suites": 11,
+    "checks": 1960,
+    "failed_suites": [],
+    "regression_report": "reports/round5-regression.json",
+    "natural_late_campaign_playthrough": false,
+    "actual_hub_walk_inputs": 52,
+    "non_instant_hub_ticks": 1691,
+    "map_entry_and_settlement_fixtures": 80,
+    "full_campaign_fixture_updated": "Source Falchion feature interaction is now included before final entry instead of skipping mandatory preparation."
+  },
+  "package": {
+    "application": "/Users/gcc/gaocc/project/revenge-memories/dist/FE2Campaign.app",
+    "pck_bytes": 94465652,
+    "pck_sha256": "f6596f279e9eeb64bee36fa543ac08fe9204fa077b4c35957909ef592ba2fe28",
+    "standalone_and_embedded_match": true,
+    "signature": "codesign --verify --deep --strict: valid",
+    "external_directory_verification": "FE2_PACK_VERIFY PASS",
+    "final_gate_and_old_preparation_recovery_verified_in_pack": true,
+    "old_0_5_application_preserved": true
+  },
+  "limits": [
+    "This is a native anti-stall preparation/recovery adaptation; source Duma immunity, Nosferatu and combat retreat rules remain unchanged.",
+    "Source milestone, learned spell and resolved-death checkpoints are not a claim of naturally winning each late battle.",
+    "Runtime screenshots and keyboard/pointer probes do not establish complete assistive-technology accessibility."
+  ],
+  "candidate_ruled_out": "Source flag53 NPC refresh was checked on actual room44 -> room4 VM; no normal-flow blockage reproduced, so no speculative change.",
+  "diagnostics": [
+    "macOS sandbox CA lookup warning is recorded; standalone initial checks sometimes reported shutdown resource references after assertions.",
+    "Rejected screenshot fixtures (out-of-bounds Warp destination and invalid leon ID) were corrected to legal source-map input and actual leo ID, then recaptured and inspected.",
+    "Pack export cannot save external editor preferences under sandbox, but pack export, signature and external runtime verification passed."
+  ],
+  "user_save_accessed": false,
+  "test_save_residue": [],
+  "visible_or_focused_game_window_started": false,
+  "commit_performed": false,
+  "push_performed": false,
+  "git_index_changed": false,
+  "head_changed": false,
+  "previous_staged_work_preserved": true
+}

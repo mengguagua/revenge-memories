@@ -122,6 +122,22 @@ func run() -> void:
 	ui.game.previous_world_node = 19
 	if not ui.game.enter_world_hub() or ui.game.hub_position != Vector2i(3, 3):
 		errors.append("Packaged harbor north approach lost its source entry")
+	# Final preparation must reject a genuinely unprepared deployed army.
+	ui.game.new_game()
+	for transition in [1, 2, 3, 4]: ui.game.next_chapter(transition)
+	ui.game.world_node = 78
+	ui.game.route_positions.alm = 78
+	ui.game.mode = "world"
+	if ui.game.final_battle_readiness().ready:
+		errors.append("Packaged unprepared final army is incorrectly considered ready")
+	ui.hub_controller.enter(37, Vector2i(11, 25))
+	ui.hub_controller._start_script(55)
+	if ui.view != "hub_dialogue" or ui.game.flags.get("final_parties_merged", false):
+		errors.append("Packaged final gate fails to preserve an unprepared exploration checkpoint")
+	ui.game.apply_hub_flag(82)
+	ui.game.enter_dungeon_battle(22)
+	if not ui.game.can_return_to_final_preparation() or not ui.game.return_to_final_preparation() or ui.game.hub_id != 37:
+		errors.append("Packaged old unprepared final checkpoint cannot return to preparation")
 	if FileAccess.file_exists("res://.reference/fe2.nes") or ResourceLoader.exists("res://tests/test_flow.gd") or DirAccess.dir_exists_absolute("res://tools") or FileAccess.file_exists("res://reports/capture-save.json"):
 		errors.append("Reference/test artifacts leaked into package")
 	print("FE2_PACK_VERIFY ", "PASS" if errors.is_empty() else errors)

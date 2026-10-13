@@ -1,0 +1,18 @@
+{
+	"checks": 158,
+	"evidence": {
+		"final_low_form_hp_fixture": 51,
+		"kind": "P1 unprepared final battle previously overwrote the usable exploration checkpoint",
+		"players_without_finisher": [
+			"celica",
+			"alm"
+		],
+		"retreat_probability": 0,
+		"source": "bank009 L098A63/L098CC8; bank013 L0DB91E final trigger and L0D8ED4 door; room40 feature0 offers source Falchion17",
+		"stage": 62,
+		"timeout": 255
+	},
+	"failures": [],
+	"limits": "Final low form is a source-rule boundary witness, not an artificial victory. Earlier late-campaign wins and room traversal checkpoints are fixtures. No combat stats or boss immunity/retreat rules changed.",
+	"scope": "Source chapter transitions and legitimate final milestone with only mandatory leaders; production final merge, attack guard, first10 per-route preparation matrix, complete start-transaction rollback for old unprepared final checkpoint, actual Falchion pickup/save/return and prepared source final entry."
+}

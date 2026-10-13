@@ -1,0 +1,212 @@
+{
+  "background_guard": true,
+  "captures": [
+    {
+      "bytes": 5335,
+      "id": "01-reserve-instruction",
+      "path": "res://reports/screenshots/round5-hub-joint-celica-after-01-reserve-instruction.png",
+      "pixels": [
+        256,
+        240
+      ],
+      "safe_area_errors": [],
+      "state": {
+        "leader": [
+          11,
+          24
+        ],
+        "readiness": {
+          "deployed": [
+            "celica",
+            "mae",
+            "boey",
+            "saber",
+            "kamui",
+            "leo",
+            "valbar",
+            "palla",
+            "catria",
+            "atlas",
+            "alm"
+          ],
+          "message": "最终战无法撤退。会吸血的队员未在出战前十人中；请打开队伍菜单的「双方整备」，调整赛莉卡队的出战顺序，再来进入。",
+          "ready": false,
+          "reason": "reserve_nosferatu",
+          "reserve_route": "celica"
+        },
+        "view": "hub_dialogue"
+      },
+      "sha256": "841f603461f56ac56d0f7966613157c2eed89f8265b76a69374805bc95279ce8"
+    },
+    {
+      "bytes": 3092,
+      "id": "02-choose-army-order",
+      "path": "res://reports/screenshots/round5-hub-joint-celica-after-02-choose-army-order.png",
+      "pixels": [
+        256,
+        240
+      ],
+      "safe_area_errors": [],
+      "state": {
+        "choices": [
+          {
+            "label": "阿尔姆队出战顺序",
+            "value": "alm"
+          },
+          {
+            "label": "赛莉卡队出战顺序",
+            "value": "celica"
+          }
+        ],
+        "view": "hub_choice"
+      },
+      "sha256": "72a7b5c030c8f56b0156b680abd0cc3476ca900e75c01c86262828ac7ce6a9b4"
+    },
+    {
+      "bytes": 4547,
+      "id": "03-captured-reserve-selected",
+      "path": "res://reports/screenshots/round5-hub-joint-celica-after-03-captured-reserve-selected.png",
+      "pixels": [
+        256,
+        240
+      ],
+      "safe_area_errors": [],
+      "state": {
+        "choice_index": 9,
+        "choices": [
+          {
+            "label": "第2位 · 梅伊",
+            "value": "mae"
+          },
+          {
+            "label": "第3位 · 波伊",
+            "value": "boey"
+          },
+          {
+            "label": "第4位 · 塞巴",
+            "value": "saber"
+          },
+          {
+            "label": "第5位 · 卡姆伊",
+            "value": "kamui"
+          },
+          {
+            "label": "第6位 · 雷欧",
+            "value": "leo"
+          },
+          {
+            "label": "第7位 · 巴尔博",
+            "value": "valbar"
+          },
+          {
+            "label": "第8位 · 帕奥拉",
+            "value": "palla"
+          },
+          {
+            "label": "第9位 · 卡秋娅",
+            "value": "catria"
+          },
+          {
+            "label": "第10位 · 阿特拉斯",
+            "value": "atlas"
+          },
+          {
+            "label": "第11位 · 洁妮",
+            "value": "genny"
+          }
+        ],
+        "view": "hub_choice"
+      },
+      "sha256": "afa0b0444c2ea1bff2a97128c75fd9036f93d802e5ced8f691d5a61c73f053ce"
+    },
+    {
+      "bytes": 4069,
+      "id": "04-joint-order-result",
+      "path": "res://reports/screenshots/round5-hub-joint-celica-after-04-joint-order-result.png",
+      "pixels": [
+        256,
+        240
+      ],
+      "safe_area_errors": [],
+      "state": {
+        "alm_party": [
+          "alm"
+        ],
+        "captive": true,
+        "celica_party": [
+          "celica",
+          "genny",
+          "boey",
+          "saber",
+          "kamui",
+          "leo",
+          "valbar",
+          "palla",
+          "catria",
+          "atlas",
+          "mae"
+        ],
+        "readiness": {
+          "caster": "genny",
+          "deployed": [
+            "celica",
+            "genny",
+            "boey",
+            "saber",
+            "kamui",
+            "leo",
+            "valbar",
+            "palla",
+            "catria",
+            "atlas",
+            "alm"
+          ],
+          "ready": true,
+          "reason": "nosferatu"
+        },
+        "route": "alm",
+        "view": "hub_dialogue"
+      },
+      "sha256": "6fa8afb636a53624e0fea11da9488a08b4a26f42dfbf73dc8faf08ab1d77887f"
+    },
+    {
+      "bytes": 5203,
+      "id": "05-prepared-final-entry",
+      "path": "res://reports/screenshots/round5-hub-joint-celica-after-05-prepared-final-entry.png",
+      "pixels": [
+        256,
+        240
+      ],
+      "safe_area_errors": [],
+      "state": {
+        "deployed_genny": true,
+        "final_parties_merged": true,
+        "stage_id": 62,
+        "view": "battle"
+      },
+      "sha256": "96b744673bf8b6d6759042165d012baf8b5b8aa26733b9c033b4a37b8c108537"
+    }
+  ],
+  "guard_loaded_before_engine_main": true,
+  "limits": "Chapter landmarks skip previous battles; screenshots do not establish a natural full campaign playthrough.",
+  "safe_area_errors": [],
+  "scope": "Original256x240 status page mouse arrow and final gate screenshots at source chapter/room landmarks.",
+  "user_save_accessed": false,
+  "visible_or_focused_game_window_started": false,
+  "visual_inspection": {
+    "performed": true,
+    "text_and_bitmap_border_gaps_clear": true,
+    "choice_pointer_uses_existing_indicator": true,
+    "screenshot_sizes_recorded": true,
+    "new_runtime_art_generated": false
+  },
+  "semantic_state_assertions": {
+    "required_before_each_input": true,
+    "wrong_state_aborts_before_further_input": true,
+    "source_character_ids_verified": true,
+    "eleventh_Genny_excluded_before_preparation": true,
+    "exact_choice_values_used": true,
+    "final_actual_Genny_deployment_verified": true
+  },
+  "captures_supersede_invalid_fixture": "Initial candidate used missing key leon instead of source key leo. Invalid screenshots were rejected, source ID and each input state were asserted, and all five files were replaced and visually rechecked; only current SHA256 files count as evidence."
+}
