@@ -1,0 +1,181 @@
+{
+  "version": "0.5.0",
+  "language": "zh_CN",
+  "engine": "Godot 4.7.1",
+  "changes": [
+    "Original 24x22 second battlefield with six brigands and one archer; original deployments, terrain and stats",
+    "First victory continues through original world node2; chapter progression, growth and permanent deaths persist",
+    "New battle fully heals living party; retry restores that battle start without retaining its earned rewards",
+    "Original ordinary bow range1..3; valid ranged targets, AI shooting and range-restricted counters/follow-ups",
+    "Original archer BG poses, stationary bow draw, per-tick arrow travel, contact timing, side palettes and release sound",
+    "Both axes scroll with cursor/actions; mouse selects actual scrolled map tile; offscreen clicks rejected",
+    "v1 save migration preserves existing first-battle growth/deaths; v2 includes stage, roster, world node and retry snapshot",
+    "Original survival EXP settles once per victory, caps at99 without leveling; old completed saves are not retroactively rewarded",
+    "Chinese no-counter preview, bow range in status, stage-specific victory and continuation menus"
+  ],
+  "tests": {
+    "talk_facing": {
+      "checks": 6,
+      "failures": 0
+    },
+    "progression": {
+      "checks": 43,
+      "failures": 0
+    },
+    "state": {
+      "checks": 83,
+      "failures": 0
+    },
+    "full_flow": {
+      "checks": 118,
+      "failures": 0,
+      "outcome": "victory",
+      "turn": 3,
+      "survivors": 5
+    },
+    "second_state": {
+      "checks": 84,
+      "failures": 0
+    },
+    "second_flow": {
+      "checks": 107,
+      "failures": 0,
+      "natural_battles": [
+        {
+          "batches": 3,
+          "result": "victory",
+          "stage": 1,
+          "survivors": 5,
+          "turn": 3
+        },
+        {
+          "batches": 4,
+          "result": "victory",
+          "stage": 2,
+          "survivors": 4,
+          "turn": 4
+        }
+      ]
+    },
+    "rules": {
+      "checks": 30,
+      "failures": 0
+    },
+    "input_motion": {
+      "checks": 36,
+      "failures": 0
+    },
+    "localization_motion": {
+      "checks": 119,
+      "failures": 0
+    },
+    "audio": {
+      "passed": true
+    }
+  },
+  "visual": {
+    "screens": 45,
+    "dialogue_pages": 35,
+    "safe_area_errors": 0,
+    "health_cell_draws": 12,
+    "health_pixel_checks": {
+      "samples": [
+        {
+          "screen": "13-combat-standing",
+          "side": "enemy",
+          "hp": 26,
+          "white_pixels": 468,
+          "pixels_per_filled_hp_cell": 18
+        },
+        {
+          "screen": "13-combat-standing",
+          "side": "ally",
+          "hp": 28,
+          "white_pixels": 504,
+          "pixels_per_filled_hp_cell": 18
+        },
+        {
+          "screen": "23-health-maximum",
+          "side": "enemy",
+          "hp": 1,
+          "white_pixels": 18,
+          "pixels_per_filled_hp_cell": 18
+        },
+        {
+          "screen": "23-health-maximum",
+          "side": "ally",
+          "hp": 52,
+          "white_pixels": 936,
+          "pixels_per_filled_hp_cell": 18
+        }
+      ],
+      "one_health_point_per_cell": true,
+      "native_cell_size": [
+        4,
+        8
+      ],
+      "maximum_hp": 52,
+      "rows": 2
+    },
+    "opening_screens": 24,
+    "second_stage_screens": 21,
+    "ranged_animation": [
+      {
+        "side": "enemy",
+        "hit": true,
+        "stationary_shooter": true,
+        "correct_direction": true,
+        "contact_seen": true,
+        "completed": true,
+        "pass": true
+      },
+      {
+        "side": "player",
+        "hit": true,
+        "stationary_shooter": true,
+        "correct_direction": true,
+        "contact_seen": true,
+        "completed": true,
+        "pass": true
+      },
+      {
+        "side": "enemy",
+        "hit": false,
+        "stationary_shooter": true,
+        "correct_direction": true,
+        "contact_seen": true,
+        "completed": true,
+        "pass": true
+      }
+    ]
+  },
+  "package": {
+    "app": "dist/FE2Opening.app",
+    "resource_pack_bytes": 17626556,
+    "resource_pack_sha256": "904623b8027af112495871a0663f7056999812317ef0172d2c3f3c0c5ca1d8e9",
+    "loaded_outside_project": true,
+    "native_hp_assets_verified": true,
+    "local_signature_verified": true,
+    "window_version": "0.5",
+    "bundle_version": "0.5.0",
+    "second_stage_data_and_archer_resources_verified": true,
+    "original_bow_range_verified": true
+  },
+  "remaining_differences": [
+    "Original AI attack ranking and equal-score choices not fully restored",
+    "Original frame-exact RNG invocation schedule not reproduced",
+    "Original NES APU channel stealing not emulated in Ogg playback",
+    "Startup sword rotation/fade and some UI/world camera adaptation",
+    "Scope ends after second battle; chapter1 later battles and Celica route are not implemented"
+  ],
+  "scope": [
+    "Chinese opening and village recruitment",
+    "Ram Woods first battle",
+    "Fleecers Forest second battle"
+  ],
+  "verification_notes": [
+    "No visible or focused Godot window was launched; graphics used the prelaunch window/focus guard and offscreen SubViewport",
+    "Packaged headless startup in sandbox prints a system CA certificate access warning; native gameplay/resource/campaign verification passed",
+    "Localization fixture reports immediate-exit audio resource retention; the packaged app and timed capture shutdown release resources"
+  ]
+}

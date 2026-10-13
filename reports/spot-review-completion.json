@@ -1,0 +1,134 @@
+{
+  "date": "2026-10-13",
+  "completed_at": "2026-10-13T13:47:54.725128+08:00",
+  "status": "completed",
+  "referenced_chat": {
+    "title": "反汇编移植",
+    "thread_id": "01a12f63-6c6f-7041-98c9-2b78dd6c1513",
+    "interrupted_work": "round2 final regression/report/package closure"
+  },
+  "round_1": {
+    "status": "completed",
+    "fixed_findings": [
+      {
+        "issue": "取消魔法或交换子菜单后无法继续操作",
+        "status": "fixed_and_regression_passed"
+      },
+      {
+        "issue": "迷宫楼梯走开返回后无法再触发",
+        "status": "fixed_and_regression_passed"
+      },
+      {
+        "issue": "免疫首领错误丢失反击",
+        "status": "fixed_and_regression_passed"
+      },
+      {
+        "issue": "世界切换队伍保留另一队战场数据",
+        "status": "fixed_and_regression_passed"
+      },
+      {
+        "issue": "祭坛被捕的赛莉卡仍可切换",
+        "status": "fixed_and_regression_passed"
+      },
+      {
+        "issue": "自动战斗最终结局被重复胜利结算覆盖",
+        "status": "fixed_and_regression_passed"
+      },
+      {
+        "issue": "暗黑剑反噬的受击和HP反馈指向对手",
+        "status": "fixed_and_regression_passed"
+      }
+    ]
+  },
+  "round_2": {
+    "status": "completed",
+    "fixed_findings": [
+      {
+        "issue": "同模板多军去重、伤亡共用及撤退/胜利清理错选军队",
+        "status": "fixed_and_regression_passed"
+      },
+      {
+        "issue": "损坏存档可能在结构验证完成前部分覆盖状态，原子写入未检查写错误",
+        "status": "fixed_and_regression_passed"
+      },
+      {
+        "issue": "形式合法但不属于遭遇的敌人实例身份未拒绝",
+        "status": "fixed_and_regression_passed"
+      },
+      {
+        "issue": "旧地牢存档/重试伤亡迁移到同模板世界军",
+        "status": "fixed_and_regression_passed"
+      },
+      {
+        "issue": "新地牢遭遇复用已退却遭遇的伤亡，违背源slots14/15初始化",
+        "status": "fixed_and_regression_passed"
+      },
+      {
+        "issue": "暗黑剑自身防御抵消全部反噬时错误取消正常伤害/必杀",
+        "status": "fixed_and_regression_passed"
+      }
+    ]
+  },
+  "validation": {
+    "headless_suites": 18,
+    "checks": 3791,
+    "failed_suites": [],
+    "regression_report": "reports/spot-round2-regression.json",
+    "guarded_offscreen_screenshots": 5,
+    "layout_errors": [],
+    "visual_report": "reports/spot-visual-verification.json",
+    "maps_with_native_combat": [
+      12,
+      15,
+      32,
+      40,
+      42,
+      48,
+      62
+    ],
+    "native_combat_rounds": 19,
+    "native_combats": 117,
+    "first_two_natural_battles": "victory: map1 turn3; map2 turn4",
+    "all_80_tactical_map_entry_settlement_flow": "505 checks passed",
+    "external_directory_pack_test": "FE2_PACK_VERIFY PASS",
+    "signature": "codesign --verify --deep --strict passed"
+  },
+  "package": {
+    "application": "/Users/gcc/gaocc/project/revenge-memories/dist/FE2Campaign.app",
+    "resource_pack_bytes": 94449780,
+    "sha256": "b3687ec6d96e4caed3959477b6728585fa3ba065a80d848ecec11372e31bebf5",
+    "embedded_pack_identical": true,
+    "previous_0_5_application_preserved": true
+  },
+  "source_files_sha256": {
+    "core/main.gd": "c096942cc9fefe2132d84ec0be4bd51b7e9661377c3f2372e33825902bc673a6",
+    "core/game_state.gd": "be69959a374795b33c7f1064ce6f8fe99e2bfae5465fbc91c4cb05d05c957cf0",
+    "core/hub_controller.gd": "18676cb153a2efc4134eca93ef7e424ac06365ee43a31eaec050782feac4ec36",
+    "core/combat_rules.gd": "96ce2300aae064c052539a78d6cdf446f7ba833123270eb1450c3648f28304ce",
+    "core/campaign_save_validation.gd": "7b9f5cd01bff01b40fe7beb019355c9f30986713764f318569de4f3bc3ee5969",
+    "core/world_armies.gd": "d3664f5241ccd93f317a86d3ce00f623f5c35b839f98015f040e9acad31fc2af",
+    "core/battle_inventory.gd": "75317e8374a525a532e26c34b08f25574a13554b9650c2a9de5ca87f05465085",
+    "core/scenario_rules.gd": "f54b99b4cb34abbc155f373345069ceeb5a2d29e9176c90e58f2ddf15078320c"
+  },
+  "source_contracts": [
+    "bank008 L089FCA: ordinary slots0..12",
+    "bank008 L089D38: reserved cemetery slot13",
+    "bank008 L089D93/L08A095: fresh dungeon slots14/15 and independent survival masks",
+    "bank007 L07A52F: first attacking army",
+    "bank009 L098564-L0985BA: nonpositive recoil clears recoil flag and preserves enemy damage/critical"
+  ],
+  "user_save_accessed": false,
+  "visible_or_focused_game_window_started": false,
+  "remaining_limits": [
+    "80图主流程为入口/结算/剧情VM检查，不是80场逐一自然通关。",
+    "中后期7图的19轮、117次真实战斗中，map12胜利、其余6图败北；使用原版模板/检查点，验证流程与规则，不据此声称全部关卡平衡或自然通关。",
+    "世界援军仍按世界动作调度，未与NES逐帧随机时序对齐。",
+    "旧无独立身份存档已经合并的历史并发伤亡无法还原，各旧mask按当前战場优先单次迁移，不复制伤亡。",
+    "音频声道抢占、部分转场和画面适配保持README已列出的差异。"
+  ],
+  "benign_environment_diagnostics": [
+    "macOS system CA certificate read diagnostic during sandboxed headless startup",
+    "Godot export completed; saving editor settings outside workspace was denied and did not prevent pack creation",
+    "Some scene tests report object/resource cleanup warnings at exit, without script errors"
+  ]
+}

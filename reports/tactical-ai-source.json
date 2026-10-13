@@ -1,0 +1,51 @@
+{
+  "source_repository": "https://github.com/minirop/fe2",
+  "source_revision": "956365ef33c63751e7afd03f05e600d7728549da",
+  "implementation": "core/tactical_ai.gd",
+  "verified_rules": {
+    "one_action_skip": "L038343-L038369: flag8 is consumed before planning.",
+    "goal_modes": "L038589-L038619 and L038BB8: attack, retreat, own-first-slot follow, terrain[8,15,20,1]. HP threshold/restore mode copied from source; brigand delegates retained.",
+    "magic": "L038624-L03868B: first active lower magic bit; no last-HP spend; Cantors and lowHP Duma do not initiate ordinary attacks.",
+    "scoring": "L038843-L038A85: held weapon power, physical/magic defence, source leader slot and priest priority, tile avoid, lowHP bonus, counter-range bonus; source byte arithmetic retained.",
+    "witch": "L03841D-L038588: ordinary mode0 witch at least halfHP has25% chance; 15 joint-byte player-slot/coordinate attempts; named142/170 have37.5% witch summon instead.",
+    "support": "L038DC4-L038EC8: names167/144 Gaia12.5%; class15 Fortify25% with no Recover fallback, otherwise adjacent Recover.",
+    "summon": "L039358-L039444: Cantor50%, highest active high spell bit, sourceHPcost, strength-based count; idle Mogall/Duma1..4. Twenty slots; template11 level5 includes no-high-bit Cantor fallback.",
+    "templates": "L0899FA-L089A54: returned template index/name/class/level/AI flags/magic flags; native constructor delegated to summon_rules.gd.",
+    "map_feedback": "L068FF6/L06B569/L0FD81E/L0FC336:11 decoded OAM programs+pose/tick cycles. Invoke/Expel48-frame emphasis, source Gaia two-axis scroll."
+  },
+  "action_contract": {
+    "required": [
+      "destination:Vector2i",
+      "target:String",
+      "spell_id:int(-1 physical)",
+      "support:bool",
+      "teleport:bool"
+    ],
+    "teleport_extra": [
+      "teleport_position:Vector2i (source landing before ordinary movement)"
+    ],
+    "summon_extra": [
+      "special=summon",
+      "source_summon(class_id,count,hp_cost,capacity,level,character_id,ai_flags,magic_flags,source_template_index,no_experience,divide)"
+    ],
+    "quake_extra": [
+      "special=quake",
+      "quake(player_random_upper20,player_base10,enemy_random_upper4,enemy_base1,subtract_half_luck,hp_floor1)"
+    ],
+    "mutations": "Planning mutates only current ai_flags and consumes source decision RNG. HP, position, spawned units and final action state are settled by the caller."
+  },
+  "known_native_differences": [
+    "The weighted graph chooses deterministic predecessors; the original raster search consumes RNG for equal-cost predecessor order, so identical source RNG byte and final target ties are not guaranteed.",
+    "The first target at an equal score follows native weighted-cost/row-major order; original diamond target visitation order can break equal-score ties differently.",
+    "Runtime legal attacks additionally use the native combat rule gate (for blocked story targets and exact item legality); source planner and combat resolver can disagree on such targets.",
+    "Map feedback starts the shared divide-by-ten timer at full phase:60 frames for appearance/removal,20 target feedback,400 quake. Original timer32 remainder can shorten each by0..9 frames.",
+    "Map PPUMASK emphasis retains exact bit/tick pattern but approximates analog NES color response by0.75 attenuation of the other RGB channels.",
+    "Original PPU upload/NMI latency and sub-frame scrolling are outside native Godot playback."
+  ],
+  "verification": {
+    "ai_report": "reports/tactical-ai-tests.json",
+    "map_player_report": "reports/map-effects-tests.json",
+    "map_assets_report": "reports/map-assets-verification.json",
+    "visible_window_started": false
+  }
+}

@@ -1,0 +1,1619 @@
+{
+  "source_revision": "956365ef33c63751e7afd03f05e600d7728549da",
+  "class_id": 12,
+  "battle": {
+    "ally": {
+      "path": "res://assets/original/graphics/battle/archer_ally.png",
+      "frame_size": [
+        80,
+        64
+      ],
+      "frames": 3,
+      "anchor": [
+        40,
+        56
+      ],
+      "default_facing": "left",
+      "sequences": {
+        "idle": [
+          0
+        ],
+        "walk": [
+          0
+        ],
+        "attack": [
+          0,
+          1,
+          2,
+          0
+        ],
+        "hit": [
+          0
+        ],
+        "death": [
+          0
+        ]
+      },
+      "frame_seconds": 0.08,
+      "attack_schedule": {
+        "kind": "ranged",
+        "poses": [
+          0,
+          1,
+          2,
+          0
+        ],
+        "ticks": [
+          16,
+          16,
+          1,
+          0
+        ],
+        "durations": [
+          0.2662282774364879,
+          0.2662282774364879,
+          0.016639267339780495,
+          0
+        ],
+        "native_fps": 60.0988,
+        "release_sequence_index": 3,
+        "release_tick": 33,
+        "release_seconds": 0.5490958222127563,
+        "contact_tick": 41,
+        "contact_seconds": 0.6822099609310003,
+        "contact_pose": 0,
+        "contact_sequence_index": 3,
+        "hold_at_contact": true,
+        "approach": null,
+        "retreat": null,
+        "minimum_contact_pause_ticks": 0,
+        "recovery_ticks": 20,
+        "release_sfx": "hit",
+        "release_sound_request": "0x03",
+        "release_sound_source": "L05B27A opcode1B09 -> L00BD80[9]=L00BE1B -> $06D0=8 (request0x03)",
+        "projectile": {
+          "path": "res://assets/original/graphics/battle/archer_arrow_ally.png",
+          "size": [
+            24,
+            8
+          ],
+          "frame_size": [
+            24,
+            8
+          ],
+          "anchor": [
+            0,
+            0
+          ],
+          "default_facing": "left",
+          "launch_offset": [
+            0,
+            -25
+          ],
+          "native_origin_offset": [
+            0,
+            7
+          ],
+          "flip_origin_offset": [
+            -8,
+            0
+          ],
+          "mirror_rule": "L0FCB12-L0FCB2A: each OAM x becomes8-x and each tile is horizontally flipped; normalized24px atlas origin shifts-8 for enemy",
+          "motion": {
+            "program_id": 24,
+            "vector_ids": [
+              29
+            ],
+            "per_tick_delta": [
+              [
+                -16,
+                0
+              ],
+              [
+                -16,
+                0
+              ],
+              [
+                -14,
+                0
+              ],
+              [
+                -13,
+                0
+              ],
+              [
+                -12,
+                0
+              ],
+              [
+                -12,
+                0
+              ],
+              [
+                -12,
+                0
+              ],
+              [
+                -12,
+                0
+              ],
+              [
+                -11,
+                0
+              ],
+              [
+                -11,
+                0
+              ],
+              [
+                -11,
+                0
+              ],
+              [
+                -11,
+                0
+              ],
+              [
+                -11,
+                0
+              ],
+              [
+                -11,
+                0
+              ]
+            ],
+            "total_delta": [
+              -173,
+              0
+            ],
+            "source_tables": [
+              "L00AE84",
+              "L00B125"
+            ],
+            "native_fps": 60.0988
+          },
+          "per_tick_delta": [
+            [
+              -16,
+              0
+            ],
+            [
+              -16,
+              0
+            ],
+            [
+              -14,
+              0
+            ],
+            [
+              -13,
+              0
+            ],
+            [
+              -12,
+              0
+            ],
+            [
+              -12,
+              0
+            ],
+            [
+              -12,
+              0
+            ],
+            [
+              -12,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ]
+          ],
+          "contact_flight_tick": 8,
+          "source": "L059673/L0596C5/L0596FD: pose0,motion24,y103; L059D6D contact ±16; L0195C5 arrow OAM",
+          "contact_note": "At standard body origins x176/x64, contact threshold is crossed after eight motion ticks (projectile x69/x171). Damage resolves at this event; remaining vector deltas are source projectile travel, not extra damage.",
+          "palette_indices": [
+            15,
+            55,
+            43,
+            28
+          ]
+        },
+        "attack_program_source": "bank005:L05B27A (normal), L05B2AB (critical)",
+        "pose_source": "bank005:L05B27A opcode10, timer opcode02/03",
+        "engine_source": "L059D33 body pose; L059673 arrow spawn; L059D6D contact gate",
+        "timing_note": "16+16+1 authored wait ticks; bytecode dispatch/upload latency is omitted. Body returns to pose0 at release. Critical uses the same bow drawing script; existing damage feedback expresses critical damage. Recovery waits20 ticks after damage. No walking approach."
+      },
+      "projectile": {
+        "path": "res://assets/original/graphics/battle/archer_arrow_ally.png",
+        "size": [
+          24,
+          8
+        ],
+        "frame_size": [
+          24,
+          8
+        ],
+        "anchor": [
+          0,
+          0
+        ],
+        "default_facing": "left",
+        "launch_offset": [
+          0,
+          -25
+        ],
+        "native_origin_offset": [
+          0,
+          7
+        ],
+        "flip_origin_offset": [
+          -8,
+          0
+        ],
+        "mirror_rule": "L0FCB12-L0FCB2A: each OAM x becomes8-x and each tile is horizontally flipped; normalized24px atlas origin shifts-8 for enemy",
+        "motion": {
+          "program_id": 24,
+          "vector_ids": [
+            29
+          ],
+          "per_tick_delta": [
+            [
+              -16,
+              0
+            ],
+            [
+              -16,
+              0
+            ],
+            [
+              -14,
+              0
+            ],
+            [
+              -13,
+              0
+            ],
+            [
+              -12,
+              0
+            ],
+            [
+              -12,
+              0
+            ],
+            [
+              -12,
+              0
+            ],
+            [
+              -12,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ]
+          ],
+          "total_delta": [
+            -173,
+            0
+          ],
+          "source_tables": [
+            "L00AE84",
+            "L00B125"
+          ],
+          "native_fps": 60.0988
+        },
+        "per_tick_delta": [
+          [
+            -16,
+            0
+          ],
+          [
+            -16,
+            0
+          ],
+          [
+            -14,
+            0
+          ],
+          [
+            -13,
+            0
+          ],
+          [
+            -12,
+            0
+          ],
+          [
+            -12,
+            0
+          ],
+          [
+            -12,
+            0
+          ],
+          [
+            -12,
+            0
+          ],
+          [
+            -11,
+            0
+          ],
+          [
+            -11,
+            0
+          ],
+          [
+            -11,
+            0
+          ],
+          [
+            -11,
+            0
+          ],
+          [
+            -11,
+            0
+          ],
+          [
+            -11,
+            0
+          ]
+        ],
+        "contact_flight_tick": 8,
+        "source": "L059673/L0596C5/L0596FD: pose0,motion24,y103; L059D6D contact ±16; L0195C5 arrow OAM",
+        "contact_note": "At standard body origins x176/x64, contact threshold is crossed after eight motion ticks (projectile x69/x171). Damage resolves at this event; remaining vector deltas are source projectile travel, not extra damage.",
+        "palette_indices": [
+          15,
+          55,
+          43,
+          28
+        ]
+      },
+      "feedback": {
+        "hit": "Source current body pose, palette flash and screen displacement",
+        "death": "Current pose fades then actor removed",
+        "death_palette_steps": 4,
+        "death_step_ticks": 8
+      },
+      "animation_note": "Exact CHR6 and original background-upload pose blocks; archer body is not an OAM melee sprite. Body origin176/64,y96 and feet128. Native per-tick arrow travel restored separately."
+    },
+    "enemy": {
+      "path": "res://assets/original/graphics/battle/archer_enemy.png",
+      "frame_size": [
+        80,
+        64
+      ],
+      "frames": 4,
+      "anchor": [
+        40,
+        56
+      ],
+      "default_facing": "left",
+      "sequences": {
+        "idle": [
+          0
+        ],
+        "walk": [
+          0
+        ],
+        "attack": [
+          0,
+          1,
+          2,
+          0
+        ],
+        "hit": [
+          0
+        ],
+        "death": [
+          0
+        ]
+      },
+      "frame_seconds": 0.08,
+      "attack_schedule": {
+        "kind": "ranged",
+        "poses": [
+          0,
+          1,
+          2,
+          0
+        ],
+        "ticks": [
+          16,
+          16,
+          1,
+          0
+        ],
+        "durations": [
+          0.2662282774364879,
+          0.2662282774364879,
+          0.016639267339780495,
+          0
+        ],
+        "native_fps": 60.0988,
+        "release_sequence_index": 3,
+        "release_tick": 33,
+        "release_seconds": 0.5490958222127563,
+        "contact_tick": 41,
+        "contact_seconds": 0.6822099609310003,
+        "contact_pose": 0,
+        "contact_sequence_index": 3,
+        "hold_at_contact": true,
+        "approach": null,
+        "retreat": null,
+        "minimum_contact_pause_ticks": 0,
+        "recovery_ticks": 20,
+        "release_sfx": "hit",
+        "release_sound_request": "0x03",
+        "release_sound_source": "L05B27A opcode1B09 -> L00BD80[9]=L00BE1B -> $06D0=8 (request0x03)",
+        "projectile": {
+          "path": "res://assets/original/graphics/battle/archer_arrow_enemy.png",
+          "size": [
+            24,
+            8
+          ],
+          "frame_size": [
+            24,
+            8
+          ],
+          "anchor": [
+            0,
+            0
+          ],
+          "default_facing": "left",
+          "launch_offset": [
+            0,
+            -25
+          ],
+          "native_origin_offset": [
+            0,
+            7
+          ],
+          "flip_origin_offset": [
+            -8,
+            0
+          ],
+          "mirror_rule": "L0FCB12-L0FCB2A: each OAM x becomes8-x and each tile is horizontally flipped; normalized24px atlas origin shifts-8 for enemy",
+          "motion": {
+            "program_id": 24,
+            "vector_ids": [
+              29
+            ],
+            "per_tick_delta": [
+              [
+                -16,
+                0
+              ],
+              [
+                -16,
+                0
+              ],
+              [
+                -14,
+                0
+              ],
+              [
+                -13,
+                0
+              ],
+              [
+                -12,
+                0
+              ],
+              [
+                -12,
+                0
+              ],
+              [
+                -12,
+                0
+              ],
+              [
+                -12,
+                0
+              ],
+              [
+                -11,
+                0
+              ],
+              [
+                -11,
+                0
+              ],
+              [
+                -11,
+                0
+              ],
+              [
+                -11,
+                0
+              ],
+              [
+                -11,
+                0
+              ],
+              [
+                -11,
+                0
+              ]
+            ],
+            "total_delta": [
+              -173,
+              0
+            ],
+            "source_tables": [
+              "L00AE84",
+              "L00B125"
+            ],
+            "native_fps": 60.0988
+          },
+          "per_tick_delta": [
+            [
+              -16,
+              0
+            ],
+            [
+              -16,
+              0
+            ],
+            [
+              -14,
+              0
+            ],
+            [
+              -13,
+              0
+            ],
+            [
+              -12,
+              0
+            ],
+            [
+              -12,
+              0
+            ],
+            [
+              -12,
+              0
+            ],
+            [
+              -12,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ]
+          ],
+          "contact_flight_tick": 8,
+          "source": "L059673/L0596C5/L0596FD: pose0,motion24,y103; L059D6D contact ±16; L0195C5 arrow OAM",
+          "contact_note": "At standard body origins x176/x64, contact threshold is crossed after eight motion ticks (projectile x69/x171). Damage resolves at this event; remaining vector deltas are source projectile travel, not extra damage.",
+          "palette_indices": [
+            15,
+            56,
+            34,
+            19
+          ]
+        },
+        "attack_program_source": "bank005:L05B27A (normal), L05B2AB (critical)",
+        "pose_source": "bank005:L05B27A opcode10, timer opcode02/03",
+        "engine_source": "L059D33 body pose; L059673 arrow spawn; L059D6D contact gate",
+        "timing_note": "16+16+1 authored wait ticks; bytecode dispatch/upload latency is omitted. Body returns to pose0 at release. Critical uses the same bow drawing script; existing damage feedback expresses critical damage. Recovery waits20 ticks after damage. No walking approach."
+      },
+      "projectile": {
+        "path": "res://assets/original/graphics/battle/archer_arrow_enemy.png",
+        "size": [
+          24,
+          8
+        ],
+        "frame_size": [
+          24,
+          8
+        ],
+        "anchor": [
+          0,
+          0
+        ],
+        "default_facing": "left",
+        "launch_offset": [
+          0,
+          -25
+        ],
+        "native_origin_offset": [
+          0,
+          7
+        ],
+        "flip_origin_offset": [
+          -8,
+          0
+        ],
+        "mirror_rule": "L0FCB12-L0FCB2A: each OAM x becomes8-x and each tile is horizontally flipped; normalized24px atlas origin shifts-8 for enemy",
+        "motion": {
+          "program_id": 24,
+          "vector_ids": [
+            29
+          ],
+          "per_tick_delta": [
+            [
+              -16,
+              0
+            ],
+            [
+              -16,
+              0
+            ],
+            [
+              -14,
+              0
+            ],
+            [
+              -13,
+              0
+            ],
+            [
+              -12,
+              0
+            ],
+            [
+              -12,
+              0
+            ],
+            [
+              -12,
+              0
+            ],
+            [
+              -12,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ],
+            [
+              -11,
+              0
+            ]
+          ],
+          "total_delta": [
+            -173,
+            0
+          ],
+          "source_tables": [
+            "L00AE84",
+            "L00B125"
+          ],
+          "native_fps": 60.0988
+        },
+        "per_tick_delta": [
+          [
+            -16,
+            0
+          ],
+          [
+            -16,
+            0
+          ],
+          [
+            -14,
+            0
+          ],
+          [
+            -13,
+            0
+          ],
+          [
+            -12,
+            0
+          ],
+          [
+            -12,
+            0
+          ],
+          [
+            -12,
+            0
+          ],
+          [
+            -12,
+            0
+          ],
+          [
+            -11,
+            0
+          ],
+          [
+            -11,
+            0
+          ],
+          [
+            -11,
+            0
+          ],
+          [
+            -11,
+            0
+          ],
+          [
+            -11,
+            0
+          ],
+          [
+            -11,
+            0
+          ]
+        ],
+        "contact_flight_tick": 8,
+        "source": "L059673/L0596C5/L0596FD: pose0,motion24,y103; L059D6D contact ±16; L0195C5 arrow OAM",
+        "contact_note": "At standard body origins x176/x64, contact threshold is crossed after eight motion ticks (projectile x69/x171). Damage resolves at this event; remaining vector deltas are source projectile travel, not extra damage.",
+        "palette_indices": [
+          15,
+          56,
+          34,
+          19
+        ]
+      },
+      "feedback": {
+        "hit": "Source current body pose, palette flash and screen displacement",
+        "death": "Current pose fades then actor removed",
+        "death_palette_steps": 4,
+        "death_step_ticks": 8
+      },
+      "animation_note": "Exact CHR6 and original background-upload pose blocks; archer body is not an OAM melee sprite. Body origin176/64,y96 and feet128. Native per-tick arrow travel restored separately."
+    }
+  },
+  "source_tables": {
+    "body_class": "bank015:L0FE436/L0FE44C: PRG1,type7",
+    "body_upload_mapping": "bank001:L01A0A6/L01A0B8, type7 -> L01A13C/L01A1BC",
+    "body_upload_decoder": "bank015:L0FE4D6-L0FE575, offsets relative to tile anchor",
+    "chr": "bank005:L058E98/L058EAE[index11] = CHR6",
+    "palettes": "bank005:L058EC4[11]=60,L058EDA[11]=82; L05BCF1 palette pointers"
+  },
+  "assets": [
+    {
+      "path": "res://assets/original/graphics/battle/archer_arrow_ally.png",
+      "width": 24,
+      "height": 8,
+      "bytes": 108,
+      "kind": "archer_arrow_oam",
+      "source_oam": "bank001:L0195C5",
+      "source_oam_table": "bank001:L0180D6",
+      "chr_bank": 6,
+      "palette_indices": [
+        15,
+        55,
+        43,
+        28
+      ],
+      "palette_source": "bank005:L05BE63; bank015:L0FE49B overrides projectile OAM palette bits with shooter side"
+    },
+    {
+      "path": "res://assets/original/graphics/battle/archer_ally.png",
+      "width": 240,
+      "height": 64,
+      "bytes": 1299,
+      "kind": "archer_background_pose_sheet",
+      "frame_size": [
+        80,
+        64
+      ],
+      "frame_count": 3,
+      "source_pose_map": "L01A13C",
+      "source_background_ids": [
+        34,
+        35,
+        36
+      ],
+      "source_background_uploads": [
+        "L01A725",
+        "L01A748",
+        "L01A768"
+      ],
+      "source_relative_tiles": [
+        [
+          [
+            -8,
+            -8,
+            255
+          ],
+          [
+            0,
+            -8,
+            178
+          ],
+          [
+            -8,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            176
+          ],
+          [
+            8,
+            0,
+            177
+          ],
+          [
+            -8,
+            8,
+            255
+          ],
+          [
+            0,
+            8,
+            192
+          ],
+          [
+            8,
+            8,
+            193
+          ],
+          [
+            16,
+            8,
+            194
+          ],
+          [
+            24,
+            8,
+            255
+          ],
+          [
+            32,
+            8,
+            255
+          ],
+          [
+            -8,
+            16,
+            255
+          ],
+          [
+            0,
+            16,
+            208
+          ],
+          [
+            8,
+            16,
+            209
+          ],
+          [
+            16,
+            16,
+            210
+          ],
+          [
+            -8,
+            24,
+            255
+          ],
+          [
+            0,
+            24,
+            102
+          ],
+          [
+            8,
+            24,
+            103
+          ],
+          [
+            16,
+            24,
+            226
+          ]
+        ],
+        [
+          [
+            0,
+            -8,
+            230
+          ],
+          [
+            8,
+            -8,
+            185
+          ],
+          [
+            -8,
+            0,
+            182
+          ],
+          [
+            0,
+            0,
+            183
+          ],
+          [
+            8,
+            0,
+            184
+          ],
+          [
+            16,
+            0,
+            185
+          ],
+          [
+            -8,
+            8,
+            198
+          ],
+          [
+            0,
+            8,
+            199
+          ],
+          [
+            8,
+            8,
+            200
+          ],
+          [
+            16,
+            8,
+            201
+          ],
+          [
+            -8,
+            16,
+            214
+          ],
+          [
+            0,
+            16,
+            215
+          ],
+          [
+            8,
+            16,
+            216
+          ],
+          [
+            16,
+            16,
+            217
+          ],
+          [
+            0,
+            24,
+            231
+          ],
+          [
+            8,
+            24,
+            232
+          ]
+        ],
+        [
+          [
+            -8,
+            -8,
+            151
+          ],
+          [
+            0,
+            -8,
+            255
+          ],
+          [
+            8,
+            -8,
+            255
+          ],
+          [
+            -8,
+            0,
+            167
+          ],
+          [
+            0,
+            0,
+            169
+          ],
+          [
+            8,
+            0,
+            155
+          ],
+          [
+            16,
+            0,
+            255
+          ],
+          [
+            -8,
+            8,
+            152
+          ],
+          [
+            16,
+            8,
+            156
+          ],
+          [
+            24,
+            8,
+            157
+          ],
+          [
+            -8,
+            16,
+            168
+          ],
+          [
+            0,
+            16,
+            154
+          ],
+          [
+            8,
+            16,
+            171
+          ],
+          [
+            16,
+            16,
+            255
+          ],
+          [
+            -8,
+            24,
+            153
+          ],
+          [
+            0,
+            24,
+            170
+          ],
+          [
+            8,
+            24,
+            103
+          ]
+        ]
+      ],
+      "chr_bank": 6,
+      "palette_source": "L05BE63",
+      "palette_indices": [
+        15,
+        55,
+        43,
+        28
+      ],
+      "normalization": "none"
+    },
+    {
+      "path": "res://assets/original/graphics/battle/archer_arrow_enemy.png",
+      "width": 24,
+      "height": 8,
+      "bytes": 110,
+      "kind": "archer_arrow_oam",
+      "source_oam": "bank001:L0195C5",
+      "source_oam_table": "bank001:L0180D6",
+      "chr_bank": 6,
+      "palette_indices": [
+        15,
+        56,
+        34,
+        19
+      ],
+      "palette_source": "bank005:L05BEBF; bank015:L0FE49B overrides projectile OAM palette bits with shooter side"
+    },
+    {
+      "path": "res://assets/original/graphics/battle/archer_enemy.png",
+      "width": 320,
+      "height": 64,
+      "bytes": 1515,
+      "kind": "archer_background_pose_sheet",
+      "frame_size": [
+        80,
+        64
+      ],
+      "frame_count": 4,
+      "source_pose_map": "L01A1BC",
+      "source_background_ids": [
+        38,
+        39,
+        40,
+        37
+      ],
+      "source_background_uploads": [
+        "L01A7A8",
+        "L01A7CA",
+        "L01A7E9",
+        "L01A78C"
+      ],
+      "source_relative_tiles": [
+        [
+          [
+            8,
+            -8,
+            179
+          ],
+          [
+            16,
+            -8,
+            255
+          ],
+          [
+            0,
+            0,
+            180
+          ],
+          [
+            8,
+            0,
+            181
+          ],
+          [
+            16,
+            0,
+            255
+          ],
+          [
+            -16,
+            8,
+            255
+          ],
+          [
+            -8,
+            8,
+            195
+          ],
+          [
+            0,
+            8,
+            196
+          ],
+          [
+            8,
+            8,
+            197
+          ],
+          [
+            16,
+            8,
+            255
+          ],
+          [
+            -8,
+            16,
+            211
+          ],
+          [
+            0,
+            16,
+            212
+          ],
+          [
+            8,
+            16,
+            213
+          ],
+          [
+            16,
+            16,
+            255
+          ],
+          [
+            -8,
+            24,
+            227
+          ],
+          [
+            0,
+            24,
+            228
+          ],
+          [
+            8,
+            24,
+            229
+          ],
+          [
+            16,
+            24,
+            255
+          ]
+        ],
+        [
+          [
+            0,
+            -8,
+            186
+          ],
+          [
+            8,
+            -8,
+            237
+          ],
+          [
+            -8,
+            0,
+            186
+          ],
+          [
+            0,
+            0,
+            187
+          ],
+          [
+            8,
+            0,
+            188
+          ],
+          [
+            16,
+            0,
+            189
+          ],
+          [
+            -8,
+            8,
+            202
+          ],
+          [
+            0,
+            8,
+            203
+          ],
+          [
+            8,
+            8,
+            204
+          ],
+          [
+            16,
+            8,
+            205
+          ],
+          [
+            0,
+            16,
+            219
+          ],
+          [
+            8,
+            16,
+            220
+          ],
+          [
+            16,
+            16,
+            221
+          ],
+          [
+            0,
+            24,
+            235
+          ],
+          [
+            8,
+            24,
+            236
+          ]
+        ],
+        [
+          [
+            0,
+            -8,
+            255
+          ],
+          [
+            8,
+            -8,
+            255
+          ],
+          [
+            16,
+            -8,
+            16
+          ],
+          [
+            -8,
+            0,
+            255
+          ],
+          [
+            0,
+            0,
+            206
+          ],
+          [
+            8,
+            0,
+            207
+          ],
+          [
+            16,
+            0,
+            32
+          ],
+          [
+            -16,
+            8,
+            233
+          ],
+          [
+            -8,
+            8,
+            234
+          ],
+          [
+            16,
+            8,
+            48
+          ],
+          [
+            0,
+            16,
+            222
+          ],
+          [
+            8,
+            16,
+            223
+          ],
+          [
+            16,
+            16,
+            64
+          ],
+          [
+            0,
+            24,
+            228
+          ],
+          [
+            8,
+            24,
+            239
+          ],
+          [
+            16,
+            24,
+            15
+          ]
+        ],
+        [
+          [
+            8,
+            -8,
+            179
+          ],
+          [
+            0,
+            0,
+            224
+          ],
+          [
+            8,
+            0,
+            225
+          ],
+          [
+            -8,
+            8,
+            195
+          ],
+          [
+            0,
+            8,
+            240
+          ],
+          [
+            8,
+            8,
+            241
+          ],
+          [
+            -8,
+            16,
+            211
+          ],
+          [
+            0,
+            16,
+            242
+          ],
+          [
+            8,
+            16,
+            243
+          ],
+          [
+            -8,
+            24,
+            172
+          ],
+          [
+            0,
+            24,
+            173
+          ],
+          [
+            8,
+            24,
+            229
+          ]
+        ]
+      ],
+      "chr_bank": 6,
+      "palette_source": "L05BEBF",
+      "palette_indices": [
+        15,
+        56,
+        34,
+        19
+      ],
+      "normalization": "enemy original BG tile upload reflected to left-facing renderer convention"
+    },
+    {
+      "path": "res://assets/original/graphics/map_units/archer_ally.png",
+      "width": 144,
+      "height": 24,
+      "bytes": 455,
+      "kind": "tactical_map_unit",
+      "frame_size": [
+        24,
+        24
+      ],
+      "frame_count": 6,
+      "class_id": 12,
+      "source_metatile": 24,
+      "source_tile_indices": [
+        12,
+        13,
+        28,
+        29
+      ],
+      "source_chr_cycle": [
+        24,
+        25,
+        21,
+        25,
+        24,
+        25
+      ],
+      "palette_indices": [
+        15,
+        32,
+        34,
+        26
+      ],
+      "palette_source": "bank006:L06852C"
+    },
+    {
+      "path": "res://assets/original/graphics/map_units/archer_enemy.png",
+      "width": 144,
+      "height": 24,
+      "bytes": 443,
+      "kind": "tactical_map_unit",
+      "frame_size": [
+        24,
+        24
+      ],
+      "frame_count": 6,
+      "class_id": 12,
+      "source_metatile": 24,
+      "source_tile_indices": [
+        12,
+        13,
+        28,
+        29
+      ],
+      "source_chr_cycle": [
+        24,
+        25,
+        21,
+        25,
+        24,
+        25
+      ],
+      "palette_indices": [
+        15,
+        54,
+        37,
+        26
+      ],
+      "palette_source": "bank006:L06852C"
+    }
+  ],
+  "limitations": [
+    "Original attack bytecode dispatch/upload overhead is not reproduced frame-for-frame; authored waits and projectile deltas are exact.",
+    "Original PPU battle entry/exit scrolling is handled by the native renderer, not this asset extraction."
+  ],
+  "verification": {
+    "all_source_upload_blocks_consumed": true,
+    "arrow_vectors": 14,
+    "contact_motion_ticks": 8,
+    "normal_pose_wait_ticks": 33,
+    "resampling": false
+  }
+}

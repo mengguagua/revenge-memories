@@ -1,0 +1,67 @@
+{
+  "version": "0.6.0",
+  "date": "2026-10-13",
+  "status": "full_campaign_playable_test_build",
+  "application": "/Users/gcc/gaocc/project/revenge-memories/dist/FE2Campaign.app",
+  "previous_0_5_application_preserved": true,
+  "launcher": "/Users/gcc/gaocc/project/revenge-memories/运行全篇.command",
+  "bundle": {
+    "CFBundleDisplayName": "外传复刻·全篇",
+    "CFBundleExecutable": "FE2Campaign",
+    "CFBundleIdentifier": "local.fe2.campaign",
+    "CFBundleName": "外传复刻·全篇",
+    "CFBundlePackageType": "APPL",
+    "CFBundleShortVersionString": "0.6",
+    "CFBundleVersion": "0.6.0",
+    "LSApplicationCategoryType": "public.app-category.games",
+    "LSMinimumSystemVersion": "11.0",
+    "NSHighResolutionCapable": true
+  },
+  "pack": {
+    "bytes": 94449780,
+    "sha256": "b3687ec6d96e4caed3959477b6728585fa3ba065a80d848ecec11372e31bebf5"
+  },
+  "verification": {
+    "headless_test_suites": 18,
+    "failed_suites": [],
+    "external_directory_pack_test": "FE2_PACK_VERIFY PASS",
+    "signature": "codesign --verify --deep --strict: valid on disk; satisfies designated requirement",
+    "guarded_offscreen_screenshots": 21,
+    "battle_death_ending_pages_rendered": 159,
+    "layout_errors": [],
+    "headless_checks": 3791,
+    "latest_guarded_offscreen_screenshots": 5
+  },
+  "coverage": {
+    "chapters": 5,
+    "routes": [
+      "alm",
+      "celica"
+    ],
+    "tactical_maps": 80,
+    "world_locations": 80,
+    "original_asset_reuse": true,
+    "runtime_rom_or_emulator": false,
+    "save_versions_supported": [
+      1,
+      2,
+      3
+    ],
+    "old_save_backup_on_first_migration": true
+  },
+  "limits": [
+    "Later battles were tested with deployment/entry/settlement fixtures and core combat cases, not one complete natural campaign playthrough.",
+    "World army scheduling, path tie ordering, NES palette response and some presentation timing remain native approximations; see README and source audit reports."
+  ],
+  "user_save_modified_during_verification": false,
+  "visible_or_focused_game_window_started": false,
+  "latest_spot_review": {
+    "completed_at": "2026-10-13T13:47:54.725128+08:00",
+    "rounds_completed": 2,
+    "report": "reports/spot-review-completion.json",
+    "same_template_army_identities_independent": true,
+    "source_dungeon_reset_and_legacy_migration_verified": true,
+    "malformed_save_does_not_mutate_live_state": true,
+    "absorbed_dark_sword_recoil_preserves_damage_and_critical": true
+  }
+}

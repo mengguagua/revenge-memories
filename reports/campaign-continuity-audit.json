@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-13",
+  "scope": "独立审计完整战役衔接、Scenario接入、胜负结算和v1/v2/v3存档；原版源码核对；无窗口测试。",
+  "source_revision": "956365ef33c63751e7afd03f05e600d7728549da",
+  "fixed_findings": [
+    {
+      "severity": "P1",
+      "issue": "赛莉卡第二章无法从索菲亚港进入索菲亚城",
+      "evidence": "原版世界边为57→7→52；旧Celica第2章regions遗漏共享node7，world_neighbors过滤掉唯一道路。",
+      "fix": "campaign.json与extract_campaign.py加入7；GameState连续性与main左右/上方向输入回归。"
+    },
+    {
+      "severity": "P1",
+      "issue": "龙谷动态第4至6波只部署10人",
+      "evidence": "groups76/77/78有13/16/20人，动态组仅取layout2。bank008 L08A22D单军耗尽第一阵形后续layout3；两军时各按容量结束。",
+      "fix": "parent修动态单组第二阵形溢出；13/16/20人及非重叠回归。"
+    },
+    {
+      "severity": "P1",
+      "issue": "赛莉卡祭坛捕获后错误返回旧hub且剧情队列未消费",
+      "evidence": "Scenario切到Alm/world但旧battle_return仍hub；main_continue_world按旧返程跳回祭坛；hub.special5另绕过main分发。",
+      "fix": "parent修返程和main模式分发；hub agent统一特殊5/8走_begin_existing_battle；真实script49→world36及story queue已回归。"
+    },
+    {
+      "severity": "P1",
+      "issue": "v3扩展存档及重试快照结构未验证",
+      "evidence": "load_game直接读取parties/route_positions/world_armies/convoy/hub_flags/hub_changes/hub_used/等，错误结构可能部分写入或恢复时报错。",
+      "fix": "新增campaign_save_validation.gd并由parent接入；校验v3必需字段、原版武器/饰品范围、VM恢复结构，保留v1/v2及旧快照升级兼容。"
+    },
+    {
+      "severity": "P2",
+      "issue": "第三章误用无关flag42；地图feature状态未按源推进",
+      "evidence": "L0CAC05只写$6E08=(old&254)|2，属于hub9地形feature位；flag42反而清hub12杰西招募trigger。L0CAC4B写$6E0E|1，对应hub15水门地形。",
+      "fix": "parent删除猜测flag42；Scenario初始化9:0=true、第三章9:0=false/9:1=true、第四章15:0=true；hub agent按原版pattern渲染实际道路开闭。"
+    },
+    {
+      "severity": "P2",
+      "issue": "移动援军缺少进攻方及退却前一节点",
+      "evidence": "L06B7B7以$7477选择玩家或敌军主动方，再由$6D16返回前节点；单纯当前node无法执行40/60回合超时退却。",
+      "fix": "world_mobile_armies保留previous_node，敌军进入活跃队伍节点记录initiative/group/origin；生成波记录源据点并清该组前次伤亡记录。"
+    }
+  ],
+  "stale_tests_corrected": [
+    "前两关独立坐标fixtures由错误[y,x]修为源[x,y]；旧存档已走位置仍原样。",
+    "第3关从未实现改成已存在但不得跨越世界节点。",
+    "new_game源门禁flag不是空字典；JSON数值flags用递归数值等价比较。",
+    "v1 fixture只保留真实v1字段，移除伪带的v3 battle_settled=false等新字段。",
+    "弓兵新动作fixture在前一exchange已消耗行动后显式重置acted，符合当前AI拒绝重复行动。"
+  ],
+  "source_route_audit": {
+    "all_80_world_nodes_assigned": true,
+    "confirmed_main_paths": [
+      "Alm1:49→52",
+      "Celica2:53→57→7→52",
+      "Alm3:52→67",
+      "Celica3:18→63",
+      "Alm4:32→78",
+      "Celica4:26→63→hub15北出口→43→77"
+    ],
+    "hub_edges_required": true,
+    "note": "世界regions是地理/章节目录，单看world_neighbors不能判断地牢/据点间通路。主线端点在加入据点边界/门传送与源门禁后可达；本次另以真实main测试米拉北口43。"
+  },
+  "verification": {
+    "test_campaign_data.py": {
+      "checks": 602,
+      "failures": 0
+    },
+    "test_game_state.gd": {
+      "checks": 83,
+      "failures": 0
+    },
+    "test_second_battle_state.gd": {
+      "checks": 84,
+      "failures": 0
+    },
+    "test_campaign_content.gd": {
+      "checks": 72,
+      "failures": 0
+    },
+    "test_scenario_rules.gd": {
+      "checks": 57,
+      "failures": 0
+    },
+    "test_campaign_continuity.gd": {
+      "checks": 138,
+      "failures": 0
+    },
+    "test_full_campaign_flow.gd": {
+      "checks": 505,
+      "failures": 0,
+      "tactical_maps": 80
+    }
+  },
+  "withdrawn_findings": [
+    {
+      "issue": "勇者class23会导致存档拒绝",
+      "reason": "核对unit_progression后撤回：23仅转职基础属性索引，阿尔姆实际保留runtime class21和promoted=true；该表示的存取已测试。"
+    }
+  ],
+  "remaining_limits": [
+    "全地图入口/结算fixture不等于80场自然战斗逐步通关。没有修改角色数值来冒充完整实战验证。",
+    "未进行可见窗口或图形截图验收；所有Godot运行均headless，不抢用户焦点。",
+    "世界援军按行动步调度，未复现NES逐帧时间与所有随机同优先级路径选择。",
+    "world_armies仍以group_id表示军队，同模板多个同时存活实例没有独立instance_id；同章重生已清旧伤亡，但同模板并发军队的独立伤亡身份仍需进一步核对。",
+    "源地图组66的声明条数损坏保持valid=false，不伪造62名敌兵；源其他地图容量/TMX异常保留说明。"
+  ],
+  "later_review": {
+    "report": "reports/spot-review-completion.json",
+    "resolved_limit": "world_armies group_id-only identity limitation superseded by independent per-army identities; old missing-history ambiguity remains documented"
+  }
+}

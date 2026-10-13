@@ -1,0 +1,2025 @@
+{
+  "schema_version": 1,
+  "source_project": "https://github.com/minirop/fe2",
+  "source_commit": "956365ef33c63751e7afd03f05e600d7728549da",
+  "title": {
+    "name_ja": "ファイアーエムブレム 外伝",
+    "name_zh": "火焰之纹章 外传",
+    "options_ja": [
+      "さいしょから",
+      "つづきをする"
+    ],
+    "options_provenance": [
+      {
+        "file": "src/bank011.asm",
+        "label": "L0BA11C",
+        "line": 4410
+      },
+      {
+        "file": "src/bank011.asm",
+        "label": "L0BA123",
+        "line": 4414
+      }
+    ],
+    "options_zh": [
+      "开始新游戏",
+      "继续游戏"
+    ]
+  },
+  "attract_intro": {
+    "presentation": "original_scrolling_lore; optional title attract sequence",
+    "paragraphs_ja": [
+      "かつて このちじょうに\nかみとよばれる そんざいがあった",
+      "バレンシアとよばれる\nこのへんきょうのしまにも\nドーマと ミラという\nふたりのきょうだいしんがいた",
+      "しかし",
+      "ちからこそすべてと しんじる ドーマは\nひとびとが だらくすることを ゆるさず",
+      "いきものたちが じゆうに\nあそびたわむれるらくえんを ゆめみる\nいもうとのミラと はげしくあらそっていた",
+      "ながいながい あんこくのときをへて···",
+      "ようやく かれらのあいだに\nひとつのめいやくが むすばれる",
+      "バレンシアのだいちを ふたつにわかち\nきたをドーマのしはいに\n  みなみを ミラのしはいにと····",
+      "そして いくせんねんのときがながれ",
+      "それぞれのかみの しはいのもとに\nふたつの おうこくがうまれる",
+      "ゆたかなるがゆえに だらくした\nみなみのソフィアおうこくと",
+      "たくましきがゆえに やさしさを\nわすれた きたのリゲルていこく",
+      "それぞれに むじゅんを はらんで\nときはながれ",
+      "そして ついに",
+      "リゲルとソフィアの りょうおうけに\nバレンシアのうんめいをかえる\nふたつのいのちが たんじょうする",
+      "そのひを さかいに バレンシアのれきしは\nふたたび うごきはじめ\nはげしい せんらんのじだいを むかえてゆく"
+    ],
+    "source": {
+      "file": "src/bank004.asm",
+      "label": "L04A0C2",
+      "line": 3391
+    },
+    "confidence": "source_text; paragraph boundaries follow repeated NEWLINE controls",
+    "paragraphs_zh": [
+      "很久以前，这片大地上存在着被称为神的生命。",
+      "在名为瓦伦西亚的偏远岛屿上，也有多玛与米拉这对兄妹神。",
+      "然而……",
+      "多玛坚信力量高于一切，绝不允许人们堕落。",
+      "而他的妹妹米拉，梦想着一个万物都能自由嬉戏的乐园。为此，兄妹之间展开了激烈的争斗。",
+      "经过漫长、漫长的黑暗岁月……",
+      "他们终于缔结了一项盟约。",
+      "将瓦伦西亚一分为二：北方由多玛统治，南方由米拉统治……",
+      "此后，数千年的时光流逝。",
+      "在两位神各自的统治下，诞生了两个王国。",
+      "南方的索菲亚王国，因富足而堕落。",
+      "北方的利盖尔帝国，因强大而忘却了温柔。",
+      "两个国家各自埋藏着矛盾，岁月不断流逝。",
+      "终于……",
+      "利盖尔与索菲亚的王室中，诞生了两个将改变瓦伦西亚命运的生命。",
+      "从那一天起，瓦伦西亚的历史再次转动，迎来了战火纷飞的时代。"
+    ]
+  },
+  "chapter": {
+    "number": 1,
+    "title_ja": "ソフィアへ!",
+    "title_zh": "前往索菲亚！",
+    "source": {
+      "file": "src/bank012.asm",
+      "label": "L0CB13D",
+      "line": 2267
+    }
+  },
+  "village": {
+    "width": 24,
+    "height": 15,
+    "tile_size": 16,
+    "tileset": "buildings.tsx",
+    "tiles": [
+      211,
+      178,
+      159,
+      210,
+      210,
+      210,
+      210,
+      210,
+      210,
+      210,
+      210,
+      210,
+      210,
+      210,
+      210,
+      210,
+      210,
+      210,
+      210,
+      210,
+      210,
+      210,
+      210,
+      210,
+      210,
+      189,
+      209,
+      209,
+      209,
+      209,
+      209,
+      209,
+      209,
+      209,
+      209,
+      209,
+      209,
+      209,
+      209,
+      209,
+      209,
+      209,
+      209,
+      209,
+      209,
+      209,
+      181,
+      211,
+      211,
+      178,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      64,
+      65,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      159,
+      210,
+      210,
+      189,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      64,
+      68,
+      68,
+      65,
+      1,
+      1,
+      1,
+      1,
+      1,
+      64,
+      65,
+      1,
+      181,
+      211,
+      211,
+      178,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      66,
+      68,
+      68,
+      68,
+      65,
+      1,
+      1,
+      1,
+      1,
+      66,
+      69,
+      1,
+      159,
+      210,
+      210,
+      189,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      70,
+      68,
+      72,
+      67,
+      1,
+      1,
+      1,
+      1,
+      64,
+      69,
+      1,
+      181,
+      211,
+      211,
+      178,
+      1,
+      1,
+      1,
+      1,
+      64,
+      65,
+      1,
+      1,
+      1,
+      66,
+      67,
+      1,
+      1,
+      1,
+      1,
+      1,
+      64,
+      68,
+      68,
+      65,
+      159,
+      210,
+      210,
+      189,
+      1,
+      64,
+      71,
+      71,
+      68,
+      68,
+      65,
+      1,
+      1,
+      1,
+      1,
+      64,
+      71,
+      65,
+      64,
+      71,
+      68,
+      68,
+      68,
+      68,
+      209,
+      209,
+      211,
+      178,
+      1,
+      66,
+      68,
+      68,
+      68,
+      68,
+      69,
+      1,
+      1,
+      1,
+      1,
+      70,
+      68,
+      67,
+      66,
+      68,
+      68,
+      68,
+      68,
+      69,
+      1,
+      1,
+      210,
+      189,
+      1,
+      64,
+      68,
+      68,
+      68,
+      68,
+      68,
+      65,
+      1,
+      1,
+      1,
+      66,
+      67,
+      1,
+      1,
+      66,
+      67,
+      66,
+      68,
+      69,
+      208,
+      208,
+      211,
+      178,
+      1,
+      66,
+      68,
+      68,
+      68,
+      68,
+      68,
+      67,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      64,
+      65,
+      66,
+      67,
+      181,
+      211,
+      210,
+      189,
+      1,
+      1,
+      66,
+      72,
+      72,
+      72,
+      67,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      70,
+      69,
+      1,
+      1,
+      159,
+      210,
+      211,
+      178,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      66,
+      67,
+      1,
+      1,
+      181,
+      211,
+      210,
+      189,
+      208,
+      208,
+      208,
+      208,
+      208,
+      208,
+      208,
+      208,
+      208,
+      208,
+      208,
+      208,
+      208,
+      208,
+      208,
+      208,
+      208,
+      208,
+      208,
+      208,
+      159,
+      210,
+      211,
+      211,
+      211,
+      211,
+      211,
+      211,
+      211,
+      211,
+      211,
+      211,
+      211,
+      211,
+      211,
+      211,
+      211,
+      211,
+      211,
+      211,
+      211,
+      211,
+      211,
+      211,
+      211,
+      211
+    ],
+    "source": "maps/0C8070.tmx",
+    "tile_indexing": "zero_based_atlas_id; TMX firstgid 1 subtracted",
+    "id": "ram_village",
+    "map_id": 1,
+    "name_ja": "ラムのむら",
+    "name_zh": "拉姆村",
+    "objects": [
+      {
+        "kind": "house_left",
+        "x": 3,
+        "y": 0,
+        "source_map": "house-left.tmx",
+        "tileset_index": 3,
+        "map": {
+          "width": 5,
+          "height": 7,
+          "tile_size": 16,
+          "tileset": "buildings.tsx",
+          "tiles": [
+            119,
+            120,
+            102,
+            117,
+            121,
+            122,
+            116,
+            103,
+            118,
+            123,
+            114,
+            26,
+            26,
+            11,
+            115,
+            114,
+            40,
+            40,
+            25,
+            115,
+            124,
+            125,
+            247,
+            124,
+            125,
+            126,
+            127,
+            248,
+            126,
+            127,
+            77,
+            78,
+            63,
+            77,
+            78
+          ],
+          "source": "maps/house-left.tmx",
+          "tile_indexing": "zero_based_atlas_id; TMX firstgid 1 subtracted"
+        }
+      },
+      {
+        "kind": "house_right",
+        "x": 13,
+        "y": 0,
+        "source_map": "0C8188.tmx",
+        "tileset_index": 2,
+        "map": {
+          "width": 5,
+          "height": 7,
+          "tile_size": 16,
+          "tileset": "buildings.tsx",
+          "tiles": [
+            119,
+            120,
+            102,
+            117,
+            121,
+            122,
+            116,
+            103,
+            118,
+            123,
+            114,
+            26,
+            26,
+            11,
+            115,
+            114,
+            40,
+            40,
+            25,
+            115,
+            110,
+            111,
+            247,
+            110,
+            111,
+            108,
+            109,
+            248,
+            108,
+            109,
+            77,
+            78,
+            63,
+            77,
+            78
+          ],
+          "source": "maps/0C8188.tmx",
+          "tile_indexing": "zero_based_atlas_id; TMX firstgid 1 subtracted"
+        }
+      },
+      {
+        "kind": "house_shadow_left",
+        "x": 8,
+        "y": 2,
+        "source_map": "house-shadow.tmx",
+        "tileset_index": 4,
+        "map": {
+          "width": 1,
+          "height": 4,
+          "tile_size": 16,
+          "tileset": "buildings.tsx",
+          "tiles": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "source": "maps/house-shadow.tmx",
+          "tile_indexing": "zero_based_atlas_id; TMX firstgid 1 subtracted"
+        }
+      },
+      {
+        "kind": "house_shadow_right",
+        "x": 18,
+        "y": 2,
+        "source_map": "house-shadow.tmx",
+        "tileset_index": 4,
+        "map": {
+          "width": 1,
+          "height": 4,
+          "tile_size": 16,
+          "tileset": "buildings.tsx",
+          "tiles": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "source": "maps/house-shadow.tmx",
+          "tile_indexing": "zero_based_atlas_id; TMX firstgid 1 subtracted"
+        }
+      },
+      {
+        "kind": "tree",
+        "x": 11,
+        "y": 10,
+        "source_map": "tree.tmx",
+        "tileset_index": 5,
+        "map": {
+          "width": 1,
+          "height": 2,
+          "tile_size": 16,
+          "tileset": "buildings.tsx",
+          "tiles": [
+            208,
+            209
+          ],
+          "source": "maps/tree.tmx",
+          "tile_indexing": "zero_based_atlas_id; TMX firstgid 1 subtracted"
+        }
+      },
+      {
+        "kind": "tree",
+        "x": 12,
+        "y": 10,
+        "source_map": "tree.tmx",
+        "tileset_index": 5,
+        "map": {
+          "width": 1,
+          "height": 2,
+          "tile_size": 16,
+          "tileset": "buildings.tsx",
+          "tiles": [
+            208,
+            209
+          ],
+          "source": "maps/tree.tmx",
+          "tile_indexing": "zero_based_atlas_id; TMX firstgid 1 subtracted"
+        }
+      }
+    ],
+    "spawn": [
+      5,
+      10
+    ],
+    "npcs": [
+      {
+        "id": "mycen",
+        "actor_id": 2,
+        "position": [
+          5,
+          11
+        ],
+        "sprite_id": 3,
+        "raw_movement_flags": 1,
+        "raw_interaction_flags": 0,
+        "raw": [
+          11,
+          5,
+          4,
+          7,
+          3,
+          8,
+          3,
+          1,
+          0
+        ],
+        "provenance": [
+          {
+            "file": "src/bank010.asm",
+            "label": "L0A8D33",
+            "line": 1687
+          },
+          {
+            "file": "src/bank010.asm",
+            "label": "L0A8B49",
+            "line": 1429
+          }
+        ],
+        "confidence": "source_NPC_table_and_loader"
+      },
+      {
+        "id": "kliff",
+        "actor_id": 3,
+        "position": [
+          18,
+          7
+        ],
+        "sprite_id": 13,
+        "raw_movement_flags": 3,
+        "raw_interaction_flags": 0,
+        "raw": [
+          7,
+          18,
+          15,
+          3,
+          7,
+          3,
+          13,
+          3,
+          0
+        ],
+        "provenance": [
+          {
+            "file": "src/bank010.asm",
+            "label": "L0A8D33",
+            "line": 1687
+          },
+          {
+            "file": "src/bank010.asm",
+            "label": "L0A8B49",
+            "line": 1429
+          }
+        ],
+        "confidence": "source_NPC_table_and_loader"
+      },
+      {
+        "id": "tobin",
+        "actor_id": 4,
+        "position": [
+          20,
+          7
+        ],
+        "sprite_id": 12,
+        "raw_movement_flags": 3,
+        "raw_interaction_flags": 0,
+        "raw": [
+          7,
+          20,
+          7,
+          3,
+          7,
+          3,
+          12,
+          3,
+          0
+        ],
+        "provenance": [
+          {
+            "file": "src/bank010.asm",
+            "label": "L0A8D33",
+            "line": 1687
+          },
+          {
+            "file": "src/bank010.asm",
+            "label": "L0A8B49",
+            "line": 1429
+          }
+        ],
+        "confidence": "source_NPC_table_and_loader"
+      },
+      {
+        "id": "gray",
+        "actor_id": 5,
+        "position": [
+          20,
+          9
+        ],
+        "sprite_id": 14,
+        "raw_movement_flags": 1,
+        "raw_interaction_flags": 0,
+        "raw": [
+          9,
+          20,
+          5,
+          9,
+          9,
+          20,
+          14,
+          1,
+          0
+        ],
+        "provenance": [
+          {
+            "file": "src/bank010.asm",
+            "label": "L0A8D33",
+            "line": 1687
+          },
+          {
+            "file": "src/bank010.asm",
+            "label": "L0A8B49",
+            "line": 1429
+          }
+        ],
+        "confidence": "source_NPC_table_and_loader"
+      },
+      {
+        "id": "lukas",
+        "actor_id": 6,
+        "position": [
+          21,
+          8
+        ],
+        "sprite_id": 7,
+        "raw_movement_flags": 4,
+        "raw_interaction_flags": 0,
+        "raw": [
+          8,
+          21,
+          2,
+          6,
+          16,
+          24,
+          7,
+          4,
+          0
+        ],
+        "provenance": [
+          {
+            "file": "src/bank010.asm",
+            "label": "L0A8D33",
+            "line": 1687
+          },
+          {
+            "file": "src/bank010.asm",
+            "label": "L0A8B49",
+            "line": 1429
+          }
+        ],
+        "confidence": "source_NPC_table_and_loader"
+      }
+    ],
+    "coordinate_order": "x,y; source records store y,x",
+    "layout_provenance": {
+      "file": "src/bank012.asm",
+      "label": "L0CA23D",
+      "line": 345
+    },
+    "spawn_provenance": {
+      "file": "src/bank013.asm",
+      "label": "L0D853B",
+      "line": 356
+    },
+    "confidence": "source_map_and_composition; spawn and initial NPC positions source_verified"
+  },
+  "characters": {
+    "alm": {
+      "id": 1,
+      "name_ja": "アルム",
+      "name_zh": "阿尔姆",
+      "class_id": 21,
+      "class": "fighter",
+      "level": 1,
+      "hp": 28,
+      "max_hp": 28,
+      "exp": 0,
+      "strength": 10,
+      "skill": 7,
+      "speed": 6,
+      "luck": 7,
+      "defence": 6,
+      "magic_flags": 0,
+      "item_id": 0,
+      "move": 5,
+      "growths": {
+        "strength": 35,
+        "skill": 40,
+        "speed": 30,
+        "luck": 20,
+        "defence": 30,
+        "hp": 50
+      },
+      "raw": [
+        1,
+        21,
+        1,
+        28,
+        0,
+        10,
+        7,
+        6,
+        7,
+        6,
+        0,
+        0
+      ],
+      "provenance": [
+        {
+          "file": "src/bank008.asm",
+          "label": "L0890E2",
+          "line": 1517
+        },
+        {
+          "file": "src/bank009.asm",
+          "label": "L098E2D",
+          "line": 1924
+        },
+        {
+          "file": "src/bank015.asm",
+          "label": "L0FEDD3",
+          "line": 7435
+        }
+      ],
+      "confidence": "source_table; movement semantic inferred from class table usage"
+    },
+    "mycen": {
+      "id": 3,
+      "name_ja": "マイセン",
+      "name_zh": "麦森",
+      "class_id": 7,
+      "class": "gold_knight",
+      "level": 7,
+      "hp": 44,
+      "max_hp": 44,
+      "exp": 0,
+      "strength": 22,
+      "skill": 14,
+      "speed": 11,
+      "luck": 3,
+      "defence": 18,
+      "magic_flags": 0,
+      "item_id": 0,
+      "move": 9,
+      "growths": {
+        "strength": 5,
+        "skill": 5,
+        "speed": 5,
+        "luck": 0,
+        "defence": 5,
+        "hp": 20
+      },
+      "raw": [
+        3,
+        7,
+        7,
+        44,
+        0,
+        22,
+        14,
+        11,
+        3,
+        18,
+        0,
+        0
+      ],
+      "provenance": [
+        {
+          "file": "src/bank008.asm",
+          "label": "L0890FA",
+          "line": 1525
+        },
+        {
+          "file": "src/bank009.asm",
+          "label": "L098E39",
+          "line": 1930
+        },
+        {
+          "file": "src/bank015.asm",
+          "label": "L0FEDD3",
+          "line": 7435
+        }
+      ],
+      "confidence": "source_table; movement semantic inferred from class table usage"
+    },
+    "lukas": {
+      "id": 5,
+      "name_ja": "ルカ",
+      "name_zh": "卢卡斯",
+      "class_id": 6,
+      "class": "soldier",
+      "level": 2,
+      "hp": 22,
+      "max_hp": 22,
+      "exp": 0,
+      "strength": 10,
+      "skill": 4,
+      "speed": 4,
+      "luck": 2,
+      "defence": 6,
+      "magic_flags": 0,
+      "item_id": 0,
+      "move": 4,
+      "growths": {
+        "strength": 15,
+        "skill": 35,
+        "speed": 15,
+        "luck": 20,
+        "defence": 20,
+        "hp": 40
+      },
+      "raw": [
+        5,
+        6,
+        2,
+        22,
+        0,
+        10,
+        4,
+        4,
+        2,
+        6,
+        0,
+        0
+      ],
+      "provenance": [
+        {
+          "file": "src/bank008.asm",
+          "label": "L089112",
+          "line": 1533
+        },
+        {
+          "file": "src/bank009.asm",
+          "label": "L098E45",
+          "line": 1936
+        },
+        {
+          "file": "src/bank015.asm",
+          "label": "L0FEDD3",
+          "line": 7435
+        }
+      ],
+      "confidence": "source_table; movement semantic inferred from class table usage"
+    },
+    "kliff": {
+      "id": 6,
+      "name_ja": "クリフ",
+      "name_zh": "克里夫",
+      "class_id": 14,
+      "class": "villager",
+      "level": 1,
+      "hp": 20,
+      "max_hp": 20,
+      "exp": 0,
+      "strength": 7,
+      "skill": 1,
+      "speed": 2,
+      "luck": 10,
+      "defence": 3,
+      "magic_flags": 0,
+      "item_id": 0,
+      "move": 4,
+      "growths": {
+        "strength": 20,
+        "skill": 40,
+        "speed": 50,
+        "luck": 20,
+        "defence": 40,
+        "hp": 50
+      },
+      "raw": [
+        6,
+        14,
+        1,
+        20,
+        0,
+        7,
+        1,
+        2,
+        10,
+        3,
+        0,
+        0
+      ],
+      "provenance": [
+        {
+          "file": "src/bank008.asm",
+          "label": "L08911E",
+          "line": 1537
+        },
+        {
+          "file": "src/bank009.asm",
+          "label": "L098E4B",
+          "line": 1939
+        },
+        {
+          "file": "src/bank015.asm",
+          "label": "L0FEDD3",
+          "line": 7435
+        }
+      ],
+      "confidence": "source_table; movement semantic inferred from class table usage"
+    },
+    "tobin": {
+      "id": 7,
+      "name_ja": "ロビン",
+      "name_zh": "托宾",
+      "class_id": 14,
+      "class": "villager",
+      "level": 2,
+      "hp": 22,
+      "max_hp": 22,
+      "exp": 0,
+      "strength": 7,
+      "skill": 2,
+      "speed": 6,
+      "luck": 4,
+      "defence": 3,
+      "magic_flags": 0,
+      "item_id": 0,
+      "move": 4,
+      "growths": {
+        "strength": 10,
+        "skill": 40,
+        "speed": 15,
+        "luck": 30,
+        "defence": 10,
+        "hp": 30
+      },
+      "raw": [
+        7,
+        14,
+        2,
+        22,
+        0,
+        7,
+        2,
+        6,
+        4,
+        3,
+        0,
+        0
+      ],
+      "provenance": [
+        {
+          "file": "src/bank008.asm",
+          "label": "L08912A",
+          "line": 1541
+        },
+        {
+          "file": "src/bank009.asm",
+          "label": "L098E51",
+          "line": 1942
+        },
+        {
+          "file": "src/bank015.asm",
+          "label": "L0FEDD3",
+          "line": 7435
+        }
+      ],
+      "confidence": "source_table; movement semantic inferred from class table usage"
+    },
+    "gray": {
+      "id": 8,
+      "name_ja": "グレイ",
+      "name_zh": "格雷",
+      "class_id": 14,
+      "class": "villager",
+      "level": 5,
+      "hp": 24,
+      "max_hp": 24,
+      "exp": 0,
+      "strength": 9,
+      "skill": 4,
+      "speed": 4,
+      "luck": 2,
+      "defence": 4,
+      "magic_flags": 0,
+      "item_id": 0,
+      "move": 4,
+      "growths": {
+        "strength": 30,
+        "skill": 20,
+        "speed": 10,
+        "luck": 10,
+        "defence": 20,
+        "hp": 40
+      },
+      "raw": [
+        8,
+        14,
+        5,
+        24,
+        0,
+        9,
+        4,
+        4,
+        2,
+        4,
+        0,
+        0
+      ],
+      "provenance": [
+        {
+          "file": "src/bank008.asm",
+          "label": "L089136",
+          "line": 1545
+        },
+        {
+          "file": "src/bank009.asm",
+          "label": "L098E57",
+          "line": 1945
+        },
+        {
+          "file": "src/bank015.asm",
+          "label": "L0FEDD3",
+          "line": 7435
+        }
+      ],
+      "confidence": "source_table; movement semantic inferred from class table usage"
+    }
+  },
+  "dialogues": {
+    "training": [
+      {
+        "speaker": "mycen",
+        "face": "mycen",
+        "text_ja": "アルム ひとやすみしよう",
+        "source_label": "L039770",
+        "text_zh": "阿尔姆，休息一下吧。"
+      },
+      {
+        "speaker": "mycen",
+        "face": "mycen",
+        "text_ja": "けんのしゅぎょうは おわりだ\nもう あそびにいってもいいぞ",
+        "source_label": "L039770",
+        "text_zh": "今天的剑术修行就到这里。你可以去玩了。"
+      },
+      {
+        "speaker": "mycen",
+        "face": "mycen",
+        "text_ja": "だが むらのそとへは ゆくな",
+        "source_label": "L039770",
+        "text_zh": "不过，不许到村子外面去。"
+      },
+      {
+        "speaker": "mycen",
+        "face": "mycen",
+        "text_ja": "さいきんは このへんにも\nさんぞくが うろついてるからな",
+        "source_label": "L039770",
+        "text_zh": "最近，连这附近也有山贼出没。"
+      }
+    ],
+    "friends_greeting": [
+      {
+        "speaker": "",
+        "face": "",
+        "text_ja": "やあ アルム\nいいところにきたな",
+        "source_label": "L0397D9",
+        "text_zh": "嗨，阿尔姆，你来得正好。"
+      },
+      {
+        "speaker": "",
+        "face": "",
+        "text_ja": "おまえも このひとのはなしをきけよ",
+        "source_label": "L0397D9",
+        "text_zh": "你也来听听这位先生说的事吧。"
+      }
+    ],
+    "lukas_report": [
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "あの あくめいたかい\nドゼーしょうぐんが ついに\nクーデターを おこしたのです",
+        "source_label": "L0397FE",
+        "text_zh": "那个臭名昭著的德赛将军，终于发动了政变。"
+      },
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "ソフィアのしろは ドゼーぐんに\nせんりょうされ こくおうも\nころされてしまいました",
+        "source_label": "L0397FE",
+        "text_zh": "索菲亚城被德赛的军队占领，国王也惨遭杀害。"
+      },
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "ドゼーは ざんぎゃくなおとこで\nまいにち おおくのひとたちが\nひどいめに あっている",
+        "source_label": "L0397FE",
+        "text_zh": "德赛是个残暴的人。每天都有许多人遭受他的迫害。"
+      },
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "ぼくたちは かいほうぐんをつくって\nドゼーと たたかっているのですが\nざんねんながら うまくいきません",
+        "source_label": "L0397FE",
+        "text_zh": "我们组织了解放军，与德赛作战。可惜，战况一直不顺利。"
+      },
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "それで マイセンしょうぐんの\nおちからを かりに きたのです",
+        "source_label": "L0397FE",
+        "text_zh": "所以，我来这里，是想请麦森将军助我们一臂之力。"
+      }
+    ],
+    "kliff_reaction": [
+      {
+        "speaker": "kliff",
+        "face": "kliff",
+        "text_ja": "へぇー おまえのじいちゃんって\nむかしは しょうぐんだったのか",
+        "source_label": "L0398F4",
+        "text_zh": "哎，你爷爷以前居然是个将军啊？"
+      }
+    ],
+    "tobin_encouragement": [
+      {
+        "speaker": "tobin",
+        "face": "tobin",
+        "text_ja": "なあ アルム\nくにの みんなが こまってるんだ\nみんなで たすけにいこうぜ",
+        "source_label": "L039918",
+        "text_zh": "阿尔姆，全国的人都在受苦。我们一起去帮他们吧！"
+      }
+    ],
+    "gray_advice": [
+      {
+        "speaker": "gray",
+        "face": "gray",
+        "text_ja": "おれたちは ここでまってるから\nじいちゃんに たのんでみろよ",
+        "source_label": "L039943",
+        "text_zh": "我们在这里等你，你去求求爷爷吧。"
+      }
+    ],
+    "mycen_refusal": [
+      {
+        "speaker": "mycen",
+        "face": "mycen",
+        "text_ja": "なに かいほうぐんにはいるだと!",
+        "source_label": "L039966",
+        "text_zh": "什么？你说要加入解放军！"
+      },
+      {
+        "speaker": "mycen",
+        "face": "mycen",
+        "text_ja": "だめだ.ゆるさん!!",
+        "source_label": "L039966",
+        "text_zh": "不行！我绝不允许！"
+      },
+      {
+        "speaker": "mycen",
+        "face": "mycen",
+        "text_ja": "おまえは たたかってはならぬ\nかなしいおもいを するだけだ",
+        "source_label": "L039966",
+        "text_zh": "你不能去战斗，那只会让你伤心。"
+      }
+    ],
+    "alm_volunteers": [
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "だめでしたか··ざんねんです",
+        "source_label": "L0399AF",
+        "text_zh": "他不肯答应吗……真遗憾。"
+      },
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "マイセンどのも としをとられて\nおくびょうに なられたのですね",
+        "source_label": "L0399AF",
+        "text_zh": "看来麦森将军上了年纪，也变得胆怯了。"
+      },
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "かつては ソフィアいちの\nゆうしゃとして こくみんから\nそんけいされていたのに···",
+        "source_label": "L0399AF",
+        "text_zh": "他曾是索菲亚最出色的勇士，深受国民敬重啊……"
+      },
+      {
+        "speaker": "alm",
+        "face": "alm",
+        "text_ja": "まって じいちゃんのかわりに\nぼくが かいほうぐんにはいるよ",
+        "source_label": "L0399AF",
+        "text_zh": "等等！我替爷爷加入解放军！"
+      },
+      {
+        "speaker": "lukas",
+        "face": "alm",
+        "text_ja": "えっ! \nきみが マイセンしょうぐんの\nかわりに きてくれるのか",
+        "source_label": "L0399AF",
+        "text_zh": "什么！你愿意代替麦森将军，跟我们一起去吗？"
+      },
+      {
+        "speaker": "lukas",
+        "face": "alm",
+        "text_ja": "ありがとう.なかまたちも\nきっと よろこぶよ",
+        "source_label": "L0399AF",
+        "text_zh": "谢谢你！伙伴们也一定会很高兴。"
+      },
+      {
+        "speaker": "lukas",
+        "face": "alm",
+        "text_ja": "じゃあ ぼくといっしょに\nかいほうぐんのアジトまでいこう",
+        "source_label": "L0399AF",
+        "text_zh": "那就跟我一起，去解放军的据点吧。"
+      }
+    ],
+    "lukas_join_repeat": [
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "ありがとう.なかまたちも\nきっと よろこぶよ",
+        "source_label": "L039A69",
+        "text_zh": "谢谢你！伙伴们也一定会很高兴。"
+      },
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "じゃあ ぼくといっしょに\nかいほうぐんのアジトまでいこう",
+        "source_label": "L039A69",
+        "text_zh": "那就跟我一起，去解放军的据点吧。"
+      }
+    ],
+    "gray_joins": [
+      {
+        "speaker": "gray",
+        "face": "gray",
+        "text_ja": "アルム ぼくもゆくよ",
+        "source_label": "L039AA6",
+        "text_zh": "阿尔姆，我也去。"
+      },
+      {
+        "speaker": "gray",
+        "face": "gray",
+        "text_ja": "このラムのむらだって\nいつかは おそわれるはずだろ",
+        "source_label": "L039AA6",
+        "text_zh": "这座拉姆村，迟早也会遭到袭击吧？"
+      },
+      {
+        "speaker": "gray",
+        "face": "gray",
+        "text_ja": "それなら さきに\nそのドゼーとかいうやつを\nやっつけちまおうぜ",
+        "source_label": "L039AA6",
+        "text_zh": "既然这样，我们先去打倒那个叫德赛的家伙！"
+      }
+    ],
+    "tobin_joins": [
+      {
+        "speaker": "tobin",
+        "face": "tobin",
+        "text_ja": "アルムは おれたちのリーダーだろ\nもちろん ひとりでゆかせないぜ",
+        "source_label": "L039AFB",
+        "text_zh": "阿尔姆，你可是我们的领头人。我们当然不能让你一个人去！"
+      },
+      {
+        "speaker": "tobin",
+        "face": "tobin",
+        "text_ja": "いっしょに ソフィアのしろを\nとりもどそう",
+        "source_label": "L039AFB",
+        "text_zh": "一起夺回索菲亚城吧！"
+      }
+    ],
+    "kliff_joins": [
+      {
+        "speaker": "kliff",
+        "face": "kliff",
+        "text_ja": "おれ!?·· どうしょうかな··",
+        "source_label": "L039B3F",
+        "text_zh": "我！？……让我想想……"
+      },
+      {
+        "speaker": "kliff",
+        "face": "kliff",
+        "text_ja": "まぁいいや,いっしょにゆくよ",
+        "source_label": "L039B3F",
+        "text_zh": "好吧，我也跟你们一起去。"
+      },
+      {
+        "speaker": "kliff",
+        "face": "kliff",
+        "text_ja": "だけど あぶなくなったら\nたすけてくれよ",
+        "source_label": "L039B3F",
+        "text_zh": "不过，遇到危险的时候，可一定要救我啊。"
+      },
+      {
+        "speaker": "kliff",
+        "face": "kliff",
+        "text_ja": "おれたちは おまえとはちがって\nまだ うまくたたかえないからな",
+        "source_label": "L039B3F",
+        "text_zh": "我们不像你，还不太会战斗呢。"
+      }
+    ]
+  },
+  "dialogues_by_label": {
+    "L039770": [
+      {
+        "speaker": "mycen",
+        "face": "mycen",
+        "text_ja": "アルム ひとやすみしよう",
+        "source_label": "L039770",
+        "text_zh": "阿尔姆，休息一下吧。"
+      },
+      {
+        "speaker": "mycen",
+        "face": "mycen",
+        "text_ja": "けんのしゅぎょうは おわりだ\nもう あそびにいってもいいぞ",
+        "source_label": "L039770",
+        "text_zh": "今天的剑术修行就到这里。你可以去玩了。"
+      },
+      {
+        "speaker": "mycen",
+        "face": "mycen",
+        "text_ja": "だが むらのそとへは ゆくな",
+        "source_label": "L039770",
+        "text_zh": "不过，不许到村子外面去。"
+      },
+      {
+        "speaker": "mycen",
+        "face": "mycen",
+        "text_ja": "さいきんは このへんにも\nさんぞくが うろついてるからな",
+        "source_label": "L039770",
+        "text_zh": "最近，连这附近也有山贼出没。"
+      }
+    ],
+    "L0397D9": [
+      {
+        "speaker": "",
+        "face": "",
+        "text_ja": "やあ アルム\nいいところにきたな",
+        "source_label": "L0397D9",
+        "text_zh": "嗨，阿尔姆，你来得正好。"
+      },
+      {
+        "speaker": "",
+        "face": "",
+        "text_ja": "おまえも このひとのはなしをきけよ",
+        "source_label": "L0397D9",
+        "text_zh": "你也来听听这位先生说的事吧。"
+      }
+    ],
+    "L0397FE": [
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "あの あくめいたかい\nドゼーしょうぐんが ついに\nクーデターを おこしたのです",
+        "source_label": "L0397FE",
+        "text_zh": "那个臭名昭著的德赛将军，终于发动了政变。"
+      },
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "ソフィアのしろは ドゼーぐんに\nせんりょうされ こくおうも\nころされてしまいました",
+        "source_label": "L0397FE",
+        "text_zh": "索菲亚城被德赛的军队占领，国王也惨遭杀害。"
+      },
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "ドゼーは ざんぎゃくなおとこで\nまいにち おおくのひとたちが\nひどいめに あっている",
+        "source_label": "L0397FE",
+        "text_zh": "德赛是个残暴的人。每天都有许多人遭受他的迫害。"
+      },
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "ぼくたちは かいほうぐんをつくって\nドゼーと たたかっているのですが\nざんねんながら うまくいきません",
+        "source_label": "L0397FE",
+        "text_zh": "我们组织了解放军，与德赛作战。可惜，战况一直不顺利。"
+      },
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "それで マイセンしょうぐんの\nおちからを かりに きたのです",
+        "source_label": "L0397FE",
+        "text_zh": "所以，我来这里，是想请麦森将军助我们一臂之力。"
+      }
+    ],
+    "L0398F4": [
+      {
+        "speaker": "kliff",
+        "face": "kliff",
+        "text_ja": "へぇー おまえのじいちゃんって\nむかしは しょうぐんだったのか",
+        "source_label": "L0398F4",
+        "text_zh": "哎，你爷爷以前居然是个将军啊？"
+      }
+    ],
+    "L039918": [
+      {
+        "speaker": "tobin",
+        "face": "tobin",
+        "text_ja": "なあ アルム\nくにの みんなが こまってるんだ\nみんなで たすけにいこうぜ",
+        "source_label": "L039918",
+        "text_zh": "阿尔姆，全国的人都在受苦。我们一起去帮他们吧！"
+      }
+    ],
+    "L039943": [
+      {
+        "speaker": "gray",
+        "face": "gray",
+        "text_ja": "おれたちは ここでまってるから\nじいちゃんに たのんでみろよ",
+        "source_label": "L039943",
+        "text_zh": "我们在这里等你，你去求求爷爷吧。"
+      }
+    ],
+    "L039966": [
+      {
+        "speaker": "mycen",
+        "face": "mycen",
+        "text_ja": "なに かいほうぐんにはいるだと!",
+        "source_label": "L039966",
+        "text_zh": "什么？你说要加入解放军！"
+      },
+      {
+        "speaker": "mycen",
+        "face": "mycen",
+        "text_ja": "だめだ.ゆるさん!!",
+        "source_label": "L039966",
+        "text_zh": "不行！我绝不允许！"
+      },
+      {
+        "speaker": "mycen",
+        "face": "mycen",
+        "text_ja": "おまえは たたかってはならぬ\nかなしいおもいを するだけだ",
+        "source_label": "L039966",
+        "text_zh": "你不能去战斗，那只会让你伤心。"
+      }
+    ],
+    "L0399AF": [
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "だめでしたか··ざんねんです",
+        "source_label": "L0399AF",
+        "text_zh": "他不肯答应吗……真遗憾。"
+      },
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "マイセンどのも としをとられて\nおくびょうに なられたのですね",
+        "source_label": "L0399AF",
+        "text_zh": "看来麦森将军上了年纪，也变得胆怯了。"
+      },
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "かつては ソフィアいちの\nゆうしゃとして こくみんから\nそんけいされていたのに···",
+        "source_label": "L0399AF",
+        "text_zh": "他曾是索菲亚最出色的勇士，深受国民敬重啊……"
+      },
+      {
+        "speaker": "alm",
+        "face": "alm",
+        "text_ja": "まって じいちゃんのかわりに\nぼくが かいほうぐんにはいるよ",
+        "source_label": "L0399AF",
+        "text_zh": "等等！我替爷爷加入解放军！"
+      },
+      {
+        "speaker": "lukas",
+        "face": "alm",
+        "text_ja": "えっ! \nきみが マイセンしょうぐんの\nかわりに きてくれるのか",
+        "source_label": "L0399AF",
+        "text_zh": "什么！你愿意代替麦森将军，跟我们一起去吗？"
+      },
+      {
+        "speaker": "lukas",
+        "face": "alm",
+        "text_ja": "ありがとう.なかまたちも\nきっと よろこぶよ",
+        "source_label": "L0399AF",
+        "text_zh": "谢谢你！伙伴们也一定会很高兴。"
+      },
+      {
+        "speaker": "lukas",
+        "face": "alm",
+        "text_ja": "じゃあ ぼくといっしょに\nかいほうぐんのアジトまでいこう",
+        "source_label": "L0399AF",
+        "text_zh": "那就跟我一起，去解放军的据点吧。"
+      }
+    ],
+    "L039A69": [
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "ありがとう.なかまたちも\nきっと よろこぶよ",
+        "source_label": "L039A69",
+        "text_zh": "谢谢你！伙伴们也一定会很高兴。"
+      },
+      {
+        "speaker": "lukas",
+        "face": "lukas",
+        "text_ja": "じゃあ ぼくといっしょに\nかいほうぐんのアジトまでいこう",
+        "source_label": "L039A69",
+        "text_zh": "那就跟我一起，去解放军的据点吧。"
+      }
+    ],
+    "L039AA6": [
+      {
+        "speaker": "gray",
+        "face": "gray",
+        "text_ja": "アルム ぼくもゆくよ",
+        "source_label": "L039AA6",
+        "text_zh": "阿尔姆，我也去。"
+      },
+      {
+        "speaker": "gray",
+        "face": "gray",
+        "text_ja": "このラムのむらだって\nいつかは おそわれるはずだろ",
+        "source_label": "L039AA6",
+        "text_zh": "这座拉姆村，迟早也会遭到袭击吧？"
+      },
+      {
+        "speaker": "gray",
+        "face": "gray",
+        "text_ja": "それなら さきに\nそのドゼーとかいうやつを\nやっつけちまおうぜ",
+        "source_label": "L039AA6",
+        "text_zh": "既然这样，我们先去打倒那个叫德赛的家伙！"
+      }
+    ],
+    "L039AFB": [
+      {
+        "speaker": "tobin",
+        "face": "tobin",
+        "text_ja": "アルムは おれたちのリーダーだろ\nもちろん ひとりでゆかせないぜ",
+        "source_label": "L039AFB",
+        "text_zh": "阿尔姆，你可是我们的领头人。我们当然不能让你一个人去！"
+      },
+      {
+        "speaker": "tobin",
+        "face": "tobin",
+        "text_ja": "いっしょに ソフィアのしろを\nとりもどそう",
+        "source_label": "L039AFB",
+        "text_zh": "一起夺回索菲亚城吧！"
+      }
+    ],
+    "L039B3F": [
+      {
+        "speaker": "kliff",
+        "face": "kliff",
+        "text_ja": "おれ!?·· どうしょうかな··",
+        "source_label": "L039B3F",
+        "text_zh": "我！？……让我想想……"
+      },
+      {
+        "speaker": "kliff",
+        "face": "kliff",
+        "text_ja": "まぁいいや,いっしょにゆくよ",
+        "source_label": "L039B3F",
+        "text_zh": "好吧，我也跟你们一起去。"
+      },
+      {
+        "speaker": "kliff",
+        "face": "kliff",
+        "text_ja": "だけど あぶなくなったら\nたすけてくれよ",
+        "source_label": "L039B3F",
+        "text_zh": "不过，遇到危险的时候，可一定要救我啊。"
+      },
+      {
+        "speaker": "kliff",
+        "face": "kliff",
+        "text_ja": "おれたちは おまえとはちがって\nまだ うまくたたかえないからな",
+        "source_label": "L039B3F",
+        "text_zh": "我们不像你，还不太会战斗呢。"
+      }
+    ]
+  },
+  "npc_actor_ids": {
+    "alm": 1,
+    "mycen": 2,
+    "kliff": 3,
+    "tobin": 4,
+    "gray": 5,
+    "lukas": 6
+  },
+  "initial_party": [
+    "alm"
+  ],
+  "default_recruit_order": [
+    "lukas",
+    "gray",
+    "tobin",
+    "kliff"
+  ],
+  "flow": [
+    {
+      "id": "training",
+      "dialogue": "training",
+      "script_label": "L0DB697",
+      "automatic": true
+    },
+    {
+      "id": "lukas_report",
+      "dialogue": "lukas_report",
+      "actor": "lukas",
+      "set_flag": "heard_lukas",
+      "required": true
+    },
+    {
+      "id": "mycen_refusal",
+      "dialogue": "mycen_refusal",
+      "actor": "mycen",
+      "requires": [
+        "heard_lukas"
+      ],
+      "set_flag": "mycen_refused",
+      "required": true
+    },
+    {
+      "id": "alm_volunteers",
+      "dialogue": "alm_volunteers",
+      "actor": "lukas",
+      "requires": [
+        "mycen_refused"
+      ],
+      "recruit": "lukas",
+      "set_flag": "joined_deliverance",
+      "required": true
+    },
+    {
+      "id": "gray_joins",
+      "dialogue": "gray_joins",
+      "actor": "gray",
+      "requires": [
+        "joined_deliverance"
+      ],
+      "recruit": "gray",
+      "required": false
+    },
+    {
+      "id": "tobin_joins",
+      "dialogue": "tobin_joins",
+      "actor": "tobin",
+      "requires": [
+        "joined_deliverance"
+      ],
+      "recruit": "tobin",
+      "required": false
+    },
+    {
+      "id": "kliff_joins",
+      "dialogue": "kliff_joins",
+      "actor": "kliff",
+      "requires": [
+        "joined_deliverance"
+      ],
+      "recruit": "kliff",
+      "required": false
+    },
+    {
+      "id": "depart",
+      "requires": [
+        "joined_deliverance"
+      ],
+      "next": "ram_woods"
+    }
+  ],
+  "original_event_triggers": [
+    {
+      "x_or_npc_sentinel": 255,
+      "y_or_actor": 6,
+      "script_index": 1
+    },
+    {
+      "x_or_npc_sentinel": 255,
+      "y_or_actor": 3,
+      "script_index": 2
+    },
+    {
+      "x_or_npc_sentinel": 255,
+      "y_or_actor": 4,
+      "script_index": 3
+    },
+    {
+      "x_or_npc_sentinel": 255,
+      "y_or_actor": 5,
+      "script_index": 4
+    },
+    {
+      "x_or_npc_sentinel": 10,
+      "y_or_actor": 5,
+      "script_index": 0
+    },
+    {
+      "x_or_npc_sentinel": 255,
+      "y_or_actor": 2,
+      "script_index": 17
+    },
+    {
+      "x_or_npc_sentinel": 255,
+      "y_or_actor": 6,
+      "script_index": 35
+    }
+  ],
+  "original_event_scripts": {
+    "L0DB697": {
+      "raw": [
+        1,
+        19,
+        145,
+        17,
+        209,
+        19,
+        209,
+        17,
+        210,
+        19,
+        210,
+        160,
+        17,
+        0,
+        2,
+        48,
+        0,
+        0,
+        239
+      ],
+      "provenance": {
+        "file": "src/bank013.asm",
+        "label": "L0DB697",
+        "line": 7008
+      }
+    },
+    "L0DB6AA": {
+      "raw": [
+        6,
+        48,
+        7,
+        112,
+        5,
+        96,
+        160,
+        1,
+        0,
+        239
+      ],
+      "provenance": {
+        "file": "src/bank013.asm",
+        "label": "L0DB6AA",
+        "line": 7013
+      }
+    },
+    "L0DB6B4": {
+      "raw": [
+        3,
+        48,
+        11,
+        112,
+        6,
+        96,
+        160,
+        2,
+        0,
+        239
+      ],
+      "provenance": {
+        "file": "src/bank013.asm",
+        "label": "L0DB6B4",
+        "line": 7017
+      }
+    },
+    "L0DB6BE": {
+      "raw": [
+        4,
+        48,
+        10,
+        112,
+        7,
+        96,
+        160,
+        3,
+        0,
+        239
+      ],
+      "provenance": {
+        "file": "src/bank013.asm",
+        "label": "L0DB6BE",
+        "line": 7021
+      }
+    },
+    "L0DB6C8": {
+      "raw": [
+        5,
+        48,
+        9,
+        112,
+        8,
+        96,
+        160,
+        4,
+        0,
+        239
+      ],
+      "provenance": {
+        "file": "src/bank013.asm",
+        "label": "L0DB6C8",
+        "line": 7025
+      }
+    },
+    "L0DB746": {
+      "raw": [
+        2,
+        48,
+        6,
+        160,
+        19,
+        0,
+        6,
+        96,
+        129,
+        0,
+        5,
+        96,
+        131,
+        0,
+        239
+      ],
+      "provenance": {
+        "file": "src/bank013.asm",
+        "label": "L0DB746",
+        "line": 7073
+      }
+    }
+  },
+  "provenance": [
+    {
+      "file": "src/bank012.asm",
+      "label": "L0CA13F",
+      "line": 203
+    },
+    {
+      "file": "src/bank012.asm",
+      "label": "L0CA23D",
+      "line": 345
+    },
+    {
+      "file": "src/bank013.asm",
+      "label": "L0DB55E",
+      "line": 6853
+    },
+    {
+      "file": "src/bank013.asm",
+      "label": "L0DB61B",
+      "line": 6944
+    }
+  ],
+  "music_ids": {
+    "title": 113,
+    "opening": 114,
+    "ram_village": 166
+  },
+  "unverified": [
+    "Original title menu exact glyphs and save-slot layout",
+    "NPC random walk timing and direction flags",
+    "Named flow flags summarize original bitfield states; exact state transitions require runtime verification",
+    "Recruitment order is player selected, not fixed"
+  ]
+}

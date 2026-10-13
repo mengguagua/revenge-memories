@@ -1,0 +1,17 @@
+{
+  "checks": 72,
+  "failures": [],
+  "limits": "Bounded milestone fixtures, not complete natural playthroughs; no graphics or audio listening.",
+  "scenarios": [
+    "pending loot -> loaded choice -> resave -> retry; party death storage",
+    "Invoke suspend/caster death/retry; retreat suspend/re-entry casualty and loot",
+    "Rudolf immediate surrender before settlement -> load -> settle once -> retry",
+    "actual title continue: full convoy loot -> cancel by closing -> confirm -> next load",
+    "actual combat -> level-up reward pause -> title continue; progression/action persist exactly once",
+    "actual title continue during enemy phase with completed and outstanding slots",
+    "actual title continue after Rudolf victory; close within source dialogue; resume without repeat reward",
+    "actual title continue within chapter-event VM dialogue, then chapter-two route transition",
+    "level20 Alm automated final Falchion hit -> nested result controller -> ending persistence"
+  ],
+  "scope": "headless real GameState and main title-continue; actual suspended UI decisions and phase continuation; isolated save only"
+}

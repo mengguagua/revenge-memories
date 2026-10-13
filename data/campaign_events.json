@@ -1,0 +1,2578 @@
+{
+  "schema_version": 1,
+  "source_revision": "956365ef33c63751e7afd03f05e600d7728549da",
+  "events": {
+    "desert_choice": {
+      "route": "celica",
+      "chapter": 3,
+      "branches": [
+        {
+          "defeat_character_id": 136,
+          "defeat_map_id": 22,
+          "set_event_flag": 28,
+          "set_world_branch_bits": 128,
+          "surviving_group_id": 23,
+          "retire_group_to_world_node": 61,
+          "recruit_character_id": 25,
+          "recruit_key": "sonya",
+          "hub_script_id": 25
+        },
+        {
+          "defeat_character_id": 157,
+          "defeat_map_id": 23,
+          "set_event_flag": 29,
+          "set_world_branch_bits": 64,
+          "surviving_group_id": 22,
+          "retire_group_to_world_node": 61,
+          "recruit_character_id": 26,
+          "recruit_key": "deen",
+          "hub_script_id": 24
+        }
+      ],
+      "behavior_zh": "击败迪恩后索妮娅撤往吉斯要塞并可招募；击败索妮娅后迪恩可招募。撤退者不算死亡，不获得击杀经验。另一侧道路仍可通行，但不再生成原首领军。",
+      "recruitment": "Only at liberated Grieth stronghold through the original survivor dialogue; never recruit both through this branch.",
+      "sources": [
+        {
+          "file": "src/bank009.asm",
+          "label": "L098CAB",
+          "line": 1716
+        },
+        {
+          "file": "src/bank007.asm",
+          "label": "L07A47C",
+          "line": 4687
+        },
+        {
+          "file": "src/bank007.asm",
+          "label": "L07A478",
+          "line": 4681
+        },
+        {
+          "file": "src/bank013.asm",
+          "label": "L0DB795",
+          "line": 7101
+        },
+        {
+          "file": "src/bank013.asm",
+          "label": "L0DB79F",
+          "line": 7105
+        }
+      ]
+    },
+    "tatiana_zeke": {
+      "map_id": 34,
+      "required_enemy_groups": [
+        34,
+        35
+      ],
+      "required_event_flag": 31,
+      "source_bit": {
+        "address": "6DB2",
+        "mask": 1
+      },
+      "flag_set_by": {
+        "hub_id": 23,
+        "hub_script_id": 43,
+        "recruit_character_id": 30
+      },
+      "friendly_group_id": 34,
+      "hostile_group_id": 35,
+      "friendly_side": "npc",
+      "npc_name_id_map": {
+        "139": 39,
+        "196": 40,
+        "183": 41,
+        "180": 42
+      },
+      "npc_ai_flags_or": 4,
+      "deployment_groups_after_conversion": {
+        "enemy_layout_0": 35,
+        "npc_layout_1": 34
+      },
+      "player_controlled_on_conversion": false,
+      "recruitment": {
+        "hub_id": 21,
+        "hub_script_id": 45,
+        "character_id": 34,
+        "key": "zeke",
+        "requires_surviving_zeke": true
+      },
+      "behavior_zh": "救出并招募蒂塔后，吉克军在利盖尔平原改为自动行动的盟军，战后前往利盖尔村招募吉克。原判定使用持久旗帜，不额外要求蒂塔当前存活。",
+      "sources": [
+        {
+          "file": "src/bank007.asm",
+          "label": "L079F7D",
+          "line": 4015
+        },
+        {
+          "file": "src/bank008.asm",
+          "label": "L08A14F",
+          "line": 3386
+        },
+        {
+          "file": "src/bank008.asm",
+          "label": "L08A29D",
+          "line": 3553
+        },
+        {
+          "file": "src/bank008.asm",
+          "label": "L08A2B7",
+          "line": 3567
+        },
+        {
+          "file": "src/bank008.asm",
+          "label": "L08A2BB",
+          "line": 3570
+        },
+        {
+          "file": "src/bank013.asm",
+          "label": "L0DB88C",
+          "line": 7180
+        },
+        {
+          "file": "src/bank013.asm",
+          "label": "L0DB8A2",
+          "line": 7188
+        }
+      ]
+    },
+    "delthea_rescue": {
+      "map_id": 32,
+      "controller_character_id": 143,
+      "captive_enemy_character_id": 145,
+      "when": "controller_dies_and_captive_is_alive",
+      "battle_event_id": 12,
+      "effects": [
+        {
+          "type": "remove_enemy_without_death",
+          "character_id": 145
+        },
+        {
+          "type": "mark_rescued",
+          "character_key": "delthea"
+        }
+      ],
+      "captive_dies_instead": {
+        "event_flag": 34,
+        "recruitment_allowed": false
+      },
+      "recruitment": {
+        "hub_id": 19,
+        "hub_script_id": 29,
+        "character_id": 29,
+        "key": "delthea",
+        "requires_rescued": true
+      },
+      "behavior_zh": "先击败塔塔拉且迪尔德仍存活，播放恢复神智对白并让她离开敌阵；她不计为被杀，不掉落戒指，不给击杀经验。水门据点对话后加入。",
+      "sources": [
+        {
+          "file": "src/bank009.asm",
+          "label": "L098C5C",
+          "line": 1677
+        },
+        {
+          "file": "src/bank015.asm",
+          "label": "L0FF21F",
+          "line": 8314
+        },
+        {
+          "file": "src/bank006.asm",
+          "label": "L069E48",
+          "line": 3570
+        },
+        {
+          "file": "src/bank006.asm",
+          "label": "L069E82",
+          "line": 3595
+        },
+        {
+          "file": "src/bank013.asm",
+          "label": "L0DB7C7",
+          "line": 7121
+        }
+      ]
+    },
+    "zofia_body_double": {
+      "map_id": 7,
+      "real_desaix_character_id": 129,
+      "body_double_character_id": 155,
+      "slayde_character_id": 147,
+      "branches": [
+        {
+          "defeated": 147,
+          "surviving_target": 155,
+          "battle_event_id": 1
+        },
+        {
+          "defeated": 155,
+          "surviving_target": 147,
+          "battle_event_id": 10
+        }
+      ],
+      "effect": "Remove every surviving enemy record matching target character ID as retreat, not as a kill.",
+      "behavior_zh": "斯雷达倒下时多哲替身撤退；主动击倒替身会触发斯雷达承认替身并撤退。真正的多哲ID129仍在第三章。",
+      "sources": [
+        {
+          "file": "src/bank009.asm",
+          "label": "L098C5C",
+          "line": 1677
+        },
+        {
+          "file": "src/bank015.asm",
+          "label": "L0FF216",
+          "line": 8305
+        },
+        {
+          "file": "src/bank015.asm",
+          "label": "L0FF219",
+          "line": 8308
+        },
+        {
+          "file": "src/bank006.asm",
+          "label": "L069E82",
+          "line": 3595
+        }
+      ]
+    },
+    "pirate_leader_retreat": {
+      "map_id": 11,
+      "defeated_character_id": 150,
+      "surviving_target_character_id": 190,
+      "battle_event_id": 11,
+      "effect": "Remove surviving matching brigands without EXP or loot; other enemy classes remain.",
+      "sources": [
+        {
+          "file": "src/bank015.asm",
+          "label": "L0FF21C",
+          "line": 8311
+        },
+        {
+          "file": "src/bank006.asm",
+          "label": "L069E67",
+          "line": 3584
+        }
+      ]
+    },
+    "rudolf": {
+      "map_id": 42,
+      "character_id": 133,
+      "alm_character_id": 1,
+      "combat": "Rudolf does not attack Alm in melee; apply Rules.attack_blocked.",
+      "death_quote_index": 53,
+      "death_effects": [
+        {
+          "type": "battle_victory",
+          "reason": "commander_defeated"
+        },
+        {
+          "type": "retire_remaining_enemy_armies",
+          "award_kill_exp": false,
+          "award_items": false
+        }
+      ],
+      "victory_requires_defeating_every_enemy": false,
+      "next": {
+        "world_node": 78,
+        "hub_id": 30,
+        "hub_script_id": 53
+      },
+      "behavior_zh": "鲁道夫战死即结束战斗，剩余军队投降；遗言揭示阿尔姆身世。进利盖尔城与麦森交谈，麦森加入后进入地下终章。",
+      "sources": [
+        {
+          "file": "src/bank009.asm",
+          "label": "L098D25",
+          "line": 1783
+        },
+        {
+          "file": "src/bank006.asm",
+          "label": "L069F2F",
+          "line": 3689
+        },
+        {
+          "file": "src/bank006.asm",
+          "label": "L06B706",
+          "line": 7041
+        },
+        {
+          "file": "src/bank001.asm",
+          "label": "L01BDC4",
+          "line": 5134
+        },
+        {
+          "file": "src/bank013.asm",
+          "label": "L0DB902",
+          "line": 7220
+        }
+      ]
+    },
+    "jedah": {
+      "character_id": 134,
+      "vulnerable_turn_modulus": 4,
+      "vulnerable_turn_remainder": 0,
+      "rule_api": "Rules.boss_guard(unit, turn)",
+      "behavior_zh": "朱达仅在第4、8、12等回合能受到普通命中；这按回合计数，不是累计攻击次数。",
+      "sources": [
+        {
+          "file": "src/bank009.asm",
+          "label": "L098D25",
+          "line": 1783
+        }
+      ]
+    },
+    "dragon_valley": {
+      "world_node": 36,
+      "generator_index": 6,
+      "origin_hub_world_node": 79,
+      "group_progression": [
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ],
+      "probabilities_percent": [
+        100,
+        100,
+        100,
+        50,
+        30,
+        10
+      ],
+      "force_generator_while_gate_bit_5_set": true,
+      "release": {
+        "when": "celica_enters_altar_alone_after_jedah_special_5",
+        "battle_map_id": 62,
+        "required_story_phase": 3,
+        "required_player_party_count": 1,
+        "required_party": "celica",
+        "clear_world_gate_bits": 33,
+        "set_global_story_bit": {
+          "address": "6E5C",
+          "mask": 128
+        },
+        "activate_route": "alm"
+      },
+      "behavior_zh": "龙谷军由独立生成器逐步加强。赛莉卡接受朱达条件并独自抵达祭坛时，原流程切回阿尔姆，同时解除龙谷两端封锁及强制龙群生成。不能以击败一队龙群永久代替这个剧情条件。",
+      "sources": [
+        {
+          "file": "src/bank008.asm",
+          "label": "L089F4A",
+          "line": 3100
+        },
+        {
+          "file": "src/bank008.asm",
+          "label": "L089349",
+          "line": 1760
+        },
+        {
+          "file": "src/bank006.asm",
+          "label": "L068DFB",
+          "line": 1361
+        },
+        {
+          "file": "src/bank013.asm",
+          "label": "L0D9633",
+          "line": 2729
+        }
+      ]
+    },
+    "falchion": {
+      "item_id": 17,
+      "name_zh": "法尔西昂",
+      "hub_id": 40,
+      "treasure_position": [
+        7,
+        2
+      ],
+      "approach_positions": [
+        [
+          7,
+          3
+        ],
+        [
+          8,
+          3
+        ]
+      ],
+      "hub_script_id": 52,
+      "script_effects": [
+        {
+          "special_id": 7,
+          "action": "show_captive_celica_scene"
+        },
+        {
+          "special_id": 6,
+          "action": "snapshot_celica_party_hp"
+        }
+      ],
+      "take_treasure": "Grant item17 through existing inventory/treasure flow; do not grant it merely for entering final chapter.",
+      "sources": [
+        {
+          "file": "src/bank013.asm",
+          "label": "L0DB8F5",
+          "line": 7216
+        },
+        {
+          "file": "src/bank013.asm",
+          "label": "L0D96CC",
+          "line": 2802
+        },
+        {
+          "file": "src/bank013.asm",
+          "label": "L0D9751",
+          "line": 2877
+        }
+      ]
+    },
+    "final_merge": {
+      "battle_map_id": 62,
+      "enemy_group_ids": [
+        86
+      ],
+      "hub_script_id": 55,
+      "special_id": 8,
+      "required_state": "Celica is held at altar (story_phase3), Alm reaches final entrance after the underground route.",
+      "effects": [
+        {
+          "type": "merge_for_battle_only",
+          "party_order": [
+            "celica",
+            "alm"
+          ],
+          "keep_rosters_separate": true
+        },
+        {
+          "type": "set_story_phase",
+          "value": 4
+        }
+      ],
+      "deployment": {
+        "celica_layout_index": 0,
+        "alm_layout_index": 1,
+        "max_per_route": 10,
+        "retain_user_party_order": true
+      },
+      "opening_battle_event_id": 14,
+      "celica_hp": "Use the captive party HP snapshot from special6 when source party state is4; other living entries use normal deployment healing.",
+      "behavior_zh": "最终战两支队伍各部署最多10人，赛莉卡使用第一玩家队形、阿尔姆使用第二玩家队形。合流后可共同作战，但不能将两队名单互相覆盖。",
+      "sources": [
+        {
+          "file": "src/bank013.asm",
+          "label": "L0DB91E",
+          "line": 7229
+        },
+        {
+          "file": "src/bank013.asm",
+          "label": "L0D9698",
+          "line": 2777
+        },
+        {
+          "file": "src/bank006.asm",
+          "label": "L068BD5",
+          "line": 1052
+        },
+        {
+          "file": "src/bank006.asm",
+          "label": "L068DA3",
+          "line": 1319
+        },
+        {
+          "file": "src/bank008.asm",
+          "label": "L08BB73",
+          "line": 6075
+        }
+      ]
+    },
+    "duma_ending": {
+      "battle_map_id": 62,
+      "character_id": 167,
+      "class_id": 21,
+      "initial_hp": 182,
+      "final_phase_hp_below": 52,
+      "allowed_final_phase_weapon_ids": [
+        17,
+        42
+      ],
+      "when": "duma_true_hp_reaches_zero",
+      "priority": "after_Alm_and_Celica_survival_check",
+      "requires_killing_other_enemies": false,
+      "effects": [
+        {
+          "type": "stop_battle_inputs_and_enemy_ai"
+        },
+        {
+          "type": "persist_campaign_complete"
+        },
+        {
+          "type": "show_final_scene"
+        },
+        {
+          "type": "show_character_endings",
+          "preserve_death_and_relationship_flags": true
+        },
+        {
+          "type": "show_credits"
+        }
+      ],
+      "behavior_zh": "多玛倒下即进入结局，不能继续要求清光杂兵；保留全部角色的生死与关系状态用于分支尾声。",
+      "sources": [
+        {
+          "file": "src/bank009.asm",
+          "label": "L098D58",
+          "line": 1811
+        },
+        {
+          "file": "src/bank009.asm",
+          "label": "L098D06",
+          "line": 1767
+        },
+        {
+          "file": "src/bank005.asm",
+          "label": "L058519",
+          "line": 713
+        },
+        {
+          "file": "src/bank005.asm",
+          "label": "L0583D8",
+          "line": 543
+        }
+      ]
+    },
+    "victory_experience": {
+      "when": "ordinary_victory_or_Rudolf_commander_victory",
+      "base_enemy_exp_value": 20,
+      "formula": "ceil(class_coefficient * level_coefficient * 20 / 100), easy_mode doubles then cap100",
+      "eligible": "living deployed player units; exclude AI flag4 NPCs and level20 units",
+      "result_exp": "min(99, current_exp + award)",
+      "can_level_up": false,
+      "sources": [
+        {
+          "file": "src/bank006.asm",
+          "label": "L06B74B",
+          "line": 7083
+        },
+        {
+          "file": "src/bank009.asm",
+          "label": "L098B74",
+          "line": 1547
+        }
+      ]
+    }
+  },
+  "battle_allied_npcs": [
+    {
+      "map_id": 29,
+      "character_id": 19,
+      "position": [
+        15,
+        1
+      ],
+      "side": "npc",
+      "ai_flags": 132,
+      "player_controlled": false,
+      "only_first_visit_opening_event": true,
+      "death_is_persistent": true,
+      "sources": [
+        {
+          "file": "src/bank006.asm",
+          "label": "L068B48",
+          "line": 980
+        },
+        {
+          "file": "src/bank015.asm",
+          "label": "L0FF17E",
+          "line": 8155
+        }
+      ]
+    },
+    {
+      "map_id": 19,
+      "character_id": 32,
+      "position": [
+        10,
+        1
+      ],
+      "side": "npc",
+      "ai_flags": 132,
+      "player_controlled": false,
+      "only_first_visit_opening_event": true,
+      "death_is_persistent": true,
+      "sources": [
+        {
+          "file": "src/bank006.asm",
+          "label": "L068B48",
+          "line": 980
+        },
+        {
+          "file": "src/bank015.asm",
+          "label": "L0FF181",
+          "line": 8159
+        }
+      ]
+    },
+    {
+      "map_id": 19,
+      "character_id": 31,
+      "position": [
+        10,
+        2
+      ],
+      "side": "npc",
+      "ai_flags": 132,
+      "player_controlled": false,
+      "only_first_visit_opening_event": true,
+      "death_is_persistent": true,
+      "sources": [
+        {
+          "file": "src/bank006.asm",
+          "label": "L068B48",
+          "line": 980
+        },
+        {
+          "file": "src/bank015.asm",
+          "label": "L0FF181",
+          "line": 8159
+        }
+      ]
+    },
+    {
+      "map_id": 11,
+      "character_id": 18,
+      "position": [
+        3,
+        5
+      ],
+      "side": "npc",
+      "ai_flags": 132,
+      "player_controlled": false,
+      "only_first_visit_opening_event": true,
+      "death_is_persistent": true,
+      "sources": [
+        {
+          "file": "src/bank006.asm",
+          "label": "L068B48",
+          "line": 980
+        },
+        {
+          "file": "src/bank015.asm",
+          "label": "L0FF186",
+          "line": 8164
+        }
+      ]
+    },
+    {
+      "map_id": 11,
+      "character_id": 17,
+      "position": [
+        4,
+        5
+      ],
+      "side": "npc",
+      "ai_flags": 132,
+      "player_controlled": false,
+      "only_first_visit_opening_event": true,
+      "death_is_persistent": true,
+      "sources": [
+        {
+          "file": "src/bank006.asm",
+          "label": "L068B48",
+          "line": 980
+        },
+        {
+          "file": "src/bank015.asm",
+          "label": "L0FF186",
+          "line": 8164
+        }
+      ]
+    },
+    {
+      "map_id": 11,
+      "character_id": 21,
+      "position": [
+        5,
+        5
+      ],
+      "side": "npc",
+      "ai_flags": 132,
+      "player_controlled": false,
+      "only_first_visit_opening_event": true,
+      "death_is_persistent": true,
+      "sources": [
+        {
+          "file": "src/bank006.asm",
+          "label": "L068B48",
+          "line": 980
+        },
+        {
+          "file": "src/bank015.asm",
+          "label": "L0FF186",
+          "line": 8164
+        }
+      ]
+    }
+  ],
+  "chapter_transitions": {
+    "1": {
+      "trigger_hub_script": 16,
+      "from_chapter": 1,
+      "to_display_chapter": 2,
+      "source_chapter_counter": 2,
+      "destination_hub": 5,
+      "active_route": "celica",
+      "freeze_routes": [
+        "alm"
+      ],
+      "initial_new_route_party": [
+        "celica"
+      ],
+      "world_gate_and_mask": 251,
+      "world_gate_or_mask": 0,
+      "initialize_chapter_armies": 2,
+      "source": {
+        "file": "src/bank012.asm",
+        "label": "L0CABD3",
+        "line": 1589
+      }
+    },
+    "2": {
+      "trigger_hub_script": 19,
+      "from_chapter": 2,
+      "to_display_chapter": 3,
+      "source_chapter_counter": 3,
+      "destination_hub": 44,
+      "active_route": "alm",
+      "unfreeze_routes": [
+        "alm",
+        "celica"
+      ],
+      "route_world_nodes": {
+        "alm": 16,
+        "celica": 18
+      },
+      "world_gate_and_mask": 239,
+      "world_gate_or_mask": 4,
+      "initialize_chapter_armies": 3,
+      "source": {
+        "file": "src/bank012.asm",
+        "label": "L0CAC05",
+        "line": 1611
+      },
+      "feature_state_updates": [
+        {
+          "hub_id": 9,
+          "index": 0,
+          "consumed": false
+        },
+        {
+          "hub_id": 9,
+          "index": 1,
+          "consumed": true
+        }
+      ],
+      "feature_state_source": "L0CAC05: $6E08=($6E08&254)|2; feature bits at $6E00+hub_id-1"
+    },
+    "3": {
+      "trigger_hub_script": 38,
+      "from_chapter": 3,
+      "to_display_chapter": 4,
+      "source_chapter_counter": 4,
+      "destination_hub": 19,
+      "requires_hub_trigger_enabled_by_event_flag": 48,
+      "flag48_set_by_hub_script": 36,
+      "active_route": "alm",
+      "world_gate_and_mask": 4,
+      "world_gate_or_mask": 0,
+      "initialize_chapter_armies": 4,
+      "source": {
+        "file": "src/bank012.asm",
+        "label": "L0CAC4B",
+        "line": 1643
+      },
+      "feature_state_updates": [
+        {
+          "hub_id": 15,
+          "index": 0,
+          "consumed": true
+        }
+      ],
+      "feature_state_source": "L0CAC4B: $6E0E|=1; hub15 sluice pattern"
+    },
+    "4": {
+      "trigger_hub_script": 53,
+      "from_chapter": 4,
+      "to_display_chapter": 5,
+      "source_chapter_counter": 4,
+      "destination_hub": 30,
+      "recruit_character_id": 3,
+      "active_route": "alm",
+      "initialize_chapter_armies": null,
+      "preserve_other_route_progress": true,
+      "source": {
+        "file": "src/bank012.asm",
+        "label": "L0CAC6A",
+        "line": 1658
+      }
+    }
+  },
+  "world_blocked_edge_bits": [
+    {
+      "bit": 0,
+      "mask": 1,
+      "edge": [
+        36,
+        35
+      ]
+    },
+    {
+      "bit": 1,
+      "mask": 2,
+      "edge": [
+        33,
+        32
+      ]
+    },
+    {
+      "bit": 2,
+      "mask": 4,
+      "edge": [
+        7,
+        57
+      ]
+    },
+    {
+      "bit": 3,
+      "mask": 8,
+      "edge": [
+        9,
+        19
+      ]
+    },
+    {
+      "bit": 4,
+      "mask": 16,
+      "edge": [
+        16,
+        17
+      ]
+    },
+    {
+      "bit": 5,
+      "mask": 32,
+      "edge": [
+        36,
+        37
+      ]
+    },
+    {
+      "bit": 6,
+      "mask": 64,
+      "edge": [
+        4,
+        6
+      ]
+    },
+    {
+      "bit": 7,
+      "mask": 128,
+      "edge": [
+        4,
+        6
+      ]
+    }
+  ],
+  "initial_world_gate_bits": 22,
+  "deployment_sort": {
+    "field": "enemy_groups[group_id].deployment_priority",
+    "swap_two_groups_if": "first_priority >= second_priority",
+    "source": {
+      "file": "src/bank007.asm",
+      "label": "L079F39",
+      "line": 3979
+    }
+  },
+  "army_movement_paths": [
+    [
+      48,
+      47,
+      46
+    ],
+    [
+      45,
+      44,
+      43
+    ],
+    [
+      42,
+      41,
+      37
+    ],
+    [
+      26,
+      25,
+      20,
+      19,
+      18
+    ],
+    [
+      24,
+      22,
+      21,
+      20,
+      19,
+      18
+    ],
+    [
+      24,
+      23,
+      21,
+      20,
+      19,
+      18
+    ],
+    [
+      40,
+      39,
+      38,
+      33,
+      32,
+      31,
+      30,
+      29,
+      28,
+      27,
+      17,
+      16
+    ],
+    [
+      29,
+      28,
+      27,
+      17,
+      16
+    ]
+  ],
+  "queued_world_armies": [
+    {
+      "queue_bit": 0,
+      "group_id": 32,
+      "origin_world_node": 67
+    },
+    {
+      "queue_bit": 1,
+      "group_id": 50,
+      "origin_world_node": 40
+    }
+  ],
+  "chapter_armies": {
+    "1": [
+      {
+        "group_id": 1,
+        "world_node": 1,
+        "map_id": 1,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892A1",
+            "line": 1680
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892AA",
+            "line": 1684
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 2,
+        "world_node": 2,
+        "map_id": 2,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892A1",
+            "line": 1680
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892AA",
+            "line": 1684
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 3,
+        "world_node": 3,
+        "map_id": 3,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892A1",
+            "line": 1680
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892AA",
+            "line": 1684
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 4,
+        "world_node": 4,
+        "map_id": 4,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892A1",
+            "line": 1680
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892AA",
+            "line": 1684
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 5,
+        "world_node": 5,
+        "map_id": 5,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892A1",
+            "line": 1680
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892AA",
+            "line": 1684
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 6,
+        "world_node": 6,
+        "map_id": 6,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892A1",
+            "line": 1680
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892AA",
+            "line": 1684
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 49,
+        "world_node": 7,
+        "map_id": 7,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892A1",
+            "line": 1680
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892AA",
+            "line": 1684
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 7,
+        "world_node": 7,
+        "map_id": 7,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892A1",
+            "line": 1680
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892AA",
+            "line": 1684
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      }
+    ],
+    "2": [
+      {
+        "group_id": 9,
+        "world_node": 9,
+        "map_id": 9,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892B2",
+            "line": 1687
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892BA",
+            "line": 1690
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 10,
+        "world_node": 10,
+        "map_id": 10,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892B2",
+            "line": 1687
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892BA",
+            "line": 1690
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 11,
+        "world_node": 11,
+        "map_id": 11,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892B2",
+            "line": 1687
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892BA",
+            "line": 1690
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 12,
+        "world_node": 12,
+        "map_id": 12,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892B2",
+            "line": 1687
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892BA",
+            "line": 1690
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 13,
+        "world_node": 13,
+        "map_id": 13,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892B2",
+            "line": 1687
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892BA",
+            "line": 1690
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 14,
+        "world_node": 14,
+        "map_id": 14,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892B2",
+            "line": 1687
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892BA",
+            "line": 1690
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 15,
+        "world_node": 15,
+        "map_id": 15,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892B2",
+            "line": 1687
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892BA",
+            "line": 1690
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      }
+    ],
+    "3": [
+      {
+        "group_id": 17,
+        "world_node": 17,
+        "map_id": 17,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892C1",
+            "line": 1693
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892CF",
+            "line": 1697
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 26,
+        "world_node": 26,
+        "map_id": 26,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892C1",
+            "line": 1693
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892CF",
+            "line": 1697
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 18,
+        "world_node": 19,
+        "map_id": 19,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892C1",
+            "line": 1693
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892CF",
+            "line": 1697
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 21,
+        "world_node": 21,
+        "map_id": 21,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892C1",
+            "line": 1693
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892CF",
+            "line": 1697
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 22,
+        "world_node": 22,
+        "map_id": 22,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892C1",
+            "line": 1693
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892CF",
+            "line": 1697
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 23,
+        "world_node": 23,
+        "map_id": 23,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892C1",
+            "line": 1693
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892CF",
+            "line": 1697
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 24,
+        "world_node": 24,
+        "map_id": 24,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892C1",
+            "line": 1693
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892CF",
+            "line": 1697
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 25,
+        "world_node": 25,
+        "map_id": 25,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892C1",
+            "line": 1693
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892CF",
+            "line": 1697
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 28,
+        "world_node": 28,
+        "map_id": 28,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892C1",
+            "line": 1693
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892CF",
+            "line": 1697
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 27,
+        "world_node": 27,
+        "map_id": 27,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892C1",
+            "line": 1693
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892CF",
+            "line": 1697
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 29,
+        "world_node": 29,
+        "map_id": 29,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892C1",
+            "line": 1693
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892CF",
+            "line": 1697
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 30,
+        "world_node": 30,
+        "map_id": 30,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892C1",
+            "line": 1693
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892CF",
+            "line": 1697
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 31,
+        "world_node": 31,
+        "map_id": 31,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892C1",
+            "line": 1693
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892CF",
+            "line": 1697
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      }
+    ],
+    "4": [
+      {
+        "group_id": 33,
+        "world_node": 33,
+        "map_id": 33,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892DC",
+            "line": 1701
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892EA",
+            "line": 1705
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 34,
+        "world_node": 34,
+        "map_id": 34,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892DC",
+            "line": 1701
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892EA",
+            "line": 1705
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 35,
+        "world_node": 34,
+        "map_id": 34,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892DC",
+            "line": 1701
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892EA",
+            "line": 1705
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 37,
+        "world_node": 37,
+        "map_id": 37,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892DC",
+            "line": 1701
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892EA",
+            "line": 1705
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 48,
+        "world_node": 48,
+        "map_id": 48,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892DC",
+            "line": 1701
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892EA",
+            "line": 1705
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 39,
+        "world_node": 39,
+        "map_id": 39,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892DC",
+            "line": 1701
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892EA",
+            "line": 1705
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 40,
+        "world_node": 40,
+        "map_id": 40,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892DC",
+            "line": 1701
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892EA",
+            "line": 1705
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 41,
+        "world_node": 41,
+        "map_id": 41,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892DC",
+            "line": 1701
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892EA",
+            "line": 1705
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 42,
+        "world_node": 42,
+        "map_id": 42,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892DC",
+            "line": 1701
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892EA",
+            "line": 1705
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 43,
+        "world_node": 43,
+        "map_id": 43,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892DC",
+            "line": 1701
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892EA",
+            "line": 1705
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 45,
+        "world_node": 45,
+        "map_id": 45,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892DC",
+            "line": 1701
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892EA",
+            "line": 1705
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 47,
+        "world_node": 47,
+        "map_id": 47,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892DC",
+            "line": 1701
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892EA",
+            "line": 1705
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      },
+      {
+        "group_id": 46,
+        "world_node": 38,
+        "map_id": 38,
+        "provenance": [
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892DC",
+            "line": 1701
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L0892EA",
+            "line": 1705
+          },
+          {
+            "file": "src/bank008.asm",
+            "label": "L089EC6",
+            "line": 3033
+          }
+        ]
+      }
+    ]
+  },
+  "reinforcement_generators": [
+    {
+      "generator_index": 0,
+      "origin_hub_world_node": 61,
+      "origin_battle_map_id": 24,
+      "waves": [
+        {
+          "group_id": 62,
+          "probability_percent": 15
+        },
+        {
+          "group_id": 61,
+          "probability_percent": 20
+        }
+      ],
+      "provenance": {
+        "file": "src/bank008.asm",
+        "label": "L089331",
+        "line": 1742
+      }
+    },
+    {
+      "generator_index": 1,
+      "origin_hub_world_node": 65,
+      "origin_battle_map_id": 29,
+      "waves": [
+        {
+          "group_id": 65,
+          "probability_percent": 30
+        }
+      ],
+      "provenance": {
+        "file": "src/bank008.asm",
+        "label": "L089335",
+        "line": 1745
+      }
+    },
+    {
+      "generator_index": 2,
+      "origin_hub_world_node": 63,
+      "origin_battle_map_id": 26,
+      "waves": [
+        {
+          "group_id": 63,
+          "probability_percent": 5
+        },
+        {
+          "group_id": 68,
+          "probability_percent": 20
+        },
+        {
+          "group_id": 67,
+          "probability_percent": 15
+        }
+      ],
+      "provenance": {
+        "file": "src/bank008.asm",
+        "label": "L089337",
+        "line": 1748
+      }
+    },
+    {
+      "generator_index": 3,
+      "origin_hub_world_node": 67,
+      "origin_battle_map_id": 32,
+      "waves": [
+        {
+          "group_id": 64,
+          "probability_percent": 5
+        },
+        {
+          "group_id": 68,
+          "probability_percent": 20
+        },
+        {
+          "group_id": 67,
+          "probability_percent": 15
+        },
+        {
+          "group_id": 32,
+          "probability_percent": 0
+        }
+      ],
+      "provenance": {
+        "file": "src/bank008.asm",
+        "label": "L08933D",
+        "line": 1751
+      }
+    },
+    {
+      "generator_index": 4,
+      "origin_hub_world_node": 71,
+      "origin_battle_map_id": 40,
+      "waves": [
+        {
+          "group_id": 70,
+          "probability_percent": 40
+        }
+      ],
+      "provenance": {
+        "file": "src/bank008.asm",
+        "label": "L089345",
+        "line": 1754
+      }
+    },
+    {
+      "generator_index": 5,
+      "origin_hub_world_node": 78,
+      "origin_battle_map_id": 42,
+      "waves": [
+        {
+          "group_id": 11,
+          "probability_percent": 20
+        }
+      ],
+      "provenance": {
+        "file": "src/bank008.asm",
+        "label": "L089347",
+        "line": 1757
+      }
+    },
+    {
+      "generator_index": 6,
+      "origin_hub_world_node": 79,
+      "origin_battle_map_id": 36,
+      "waves": [
+        {
+          "group_id": 73,
+          "probability_percent": 100
+        },
+        {
+          "group_id": 74,
+          "probability_percent": 100
+        },
+        {
+          "group_id": 75,
+          "probability_percent": 100
+        },
+        {
+          "group_id": 76,
+          "probability_percent": 50
+        },
+        {
+          "group_id": 77,
+          "probability_percent": 30
+        },
+        {
+          "group_id": 78,
+          "probability_percent": 10
+        }
+      ],
+      "provenance": {
+        "file": "src/bank008.asm",
+        "label": "L089349",
+        "line": 1760
+      }
+    },
+    {
+      "generator_index": 7,
+      "origin_hub_world_node": 74,
+      "origin_battle_map_id": 45,
+      "waves": [
+        {
+          "group_id": 69,
+          "probability_percent": 30
+        }
+      ],
+      "provenance": {
+        "file": "src/bank008.asm",
+        "label": "L089355",
+        "line": 1764
+      }
+    },
+    {
+      "generator_index": 8,
+      "origin_hub_world_node": 77,
+      "origin_battle_map_id": 48,
+      "waves": [
+        {
+          "group_id": 71,
+          "probability_percent": 30
+        },
+        {
+          "group_id": 72,
+          "probability_percent": 70
+        }
+      ],
+      "provenance": {
+        "file": "src/bank008.asm",
+        "label": "L089357",
+        "line": 1767
+      }
+    }
+  ],
+  "battle_opening_events": [
+    {
+      "map_id": 7,
+      "event_index": 0,
+      "script_index": 0,
+      "map_change_index": 0
+    },
+    {
+      "map_id": 29,
+      "event_index": 1,
+      "script_index": 3,
+      "map_change_index": 1
+    },
+    {
+      "map_id": 17,
+      "event_index": 2,
+      "script_index": 4,
+      "map_change_index": 0
+    },
+    {
+      "map_id": 19,
+      "event_index": 3,
+      "script_index": 5,
+      "map_change_index": 2
+    },
+    {
+      "map_id": 11,
+      "event_index": 4,
+      "script_index": 6,
+      "map_change_index": 3
+    },
+    {
+      "map_id": 24,
+      "event_index": 5,
+      "script_index": 7,
+      "map_change_index": 0
+    },
+    {
+      "map_id": 32,
+      "event_index": 6,
+      "script_index": 8,
+      "map_change_index": 0
+    },
+    {
+      "map_id": 26,
+      "event_index": 7,
+      "script_index": 9,
+      "map_change_index": 0
+    },
+    {
+      "map_id": 62,
+      "event_index": 8,
+      "script_index": 13,
+      "map_change_index": 0
+    },
+    {
+      "map_id": 42,
+      "event_index": 9,
+      "script_index": 15,
+      "map_change_index": 0
+    },
+    {
+      "map_id": 40,
+      "event_index": 10,
+      "script_index": 16,
+      "map_change_index": 0
+    },
+    {
+      "map_id": 45,
+      "event_index": 11,
+      "script_index": 17,
+      "map_change_index": 0
+    },
+    {
+      "map_id": 34,
+      "event_index": 12,
+      "script_index": 19,
+      "map_change_index": 0
+    }
+  ],
+  "character_death_events": [
+    {
+      "character_id": 12,
+      "action_code": 1,
+      "parameter": 59,
+      "cpu_address": "0xf18d",
+      "handler_label": "L098C51",
+      "action": "set_event_flag",
+      "flag_index": 59
+    },
+    {
+      "character_id": 12,
+      "action_code": 1,
+      "parameter": 60,
+      "cpu_address": "0xf190",
+      "handler_label": "L098C51",
+      "action": "set_event_flag",
+      "flag_index": 60
+    },
+    {
+      "character_id": 147,
+      "action_code": 2,
+      "parameter": 0,
+      "cpu_address": "0xf193",
+      "handler_label": "L098C5C",
+      "action": "dispatch_surviving_unit_battle_event",
+      "target_character_id": 155,
+      "set_flag_if_not_255": 255,
+      "battle_event_id": 1
+    },
+    {
+      "character_id": 32,
+      "action_code": 1,
+      "parameter": 38,
+      "cpu_address": "0xf196",
+      "handler_label": "L098C51",
+      "action": "set_event_flag",
+      "flag_index": 38
+    },
+    {
+      "character_id": 31,
+      "action_code": 1,
+      "parameter": 39,
+      "cpu_address": "0xf199",
+      "handler_label": "L098C51",
+      "action": "set_event_flag",
+      "flag_index": 39
+    },
+    {
+      "character_id": 11,
+      "action_code": 1,
+      "parameter": 7,
+      "cpu_address": "0xf19c",
+      "handler_label": "L098C51",
+      "action": "set_event_flag",
+      "flag_index": 7
+    },
+    {
+      "character_id": 19,
+      "action_code": 1,
+      "parameter": 33,
+      "cpu_address": "0xf19f",
+      "handler_label": "L098C51",
+      "action": "set_event_flag",
+      "flag_index": 33
+    },
+    {
+      "character_id": 18,
+      "action_code": 1,
+      "parameter": 15,
+      "cpu_address": "0xf1a2",
+      "handler_label": "L098C51",
+      "action": "set_event_flag",
+      "flag_index": 15
+    },
+    {
+      "character_id": 17,
+      "action_code": 1,
+      "parameter": 13,
+      "cpu_address": "0xf1a5",
+      "handler_label": "L098C51",
+      "action": "set_event_flag",
+      "flag_index": 13
+    },
+    {
+      "character_id": 21,
+      "action_code": 1,
+      "parameter": 14,
+      "cpu_address": "0xf1a8",
+      "handler_label": "L098C51",
+      "action": "set_event_flag",
+      "flag_index": 14
+    },
+    {
+      "character_id": 145,
+      "action_code": 1,
+      "parameter": 34,
+      "cpu_address": "0xf1ab",
+      "handler_label": "L098C51",
+      "action": "set_event_flag",
+      "flag_index": 34
+    },
+    {
+      "character_id": 155,
+      "action_code": 2,
+      "parameter": 1,
+      "cpu_address": "0xf1ae",
+      "handler_label": "L098C5C",
+      "action": "dispatch_surviving_unit_battle_event",
+      "target_character_id": 147,
+      "set_flag_if_not_255": 255,
+      "battle_event_id": 10
+    },
+    {
+      "character_id": 157,
+      "action_code": 1,
+      "parameter": 29,
+      "cpu_address": "0xf1b1",
+      "handler_label": "L098C51",
+      "action": "set_event_flag",
+      "flag_index": 29
+    },
+    {
+      "character_id": 157,
+      "action_code": 3,
+      "parameter": 1,
+      "cpu_address": "0xf1b4",
+      "handler_label": "L098CAB",
+      "action": "set_world_branch_bits",
+      "bitmask": 64
+    },
+    {
+      "character_id": 136,
+      "action_code": 1,
+      "parameter": 28,
+      "cpu_address": "0xf1b7",
+      "handler_label": "L098C51",
+      "action": "set_event_flag",
+      "flag_index": 28
+    },
+    {
+      "character_id": 136,
+      "action_code": 3,
+      "parameter": 2,
+      "cpu_address": "0xf1ba",
+      "handler_label": "L098CAB",
+      "action": "set_world_branch_bits",
+      "bitmask": 128
+    },
+    {
+      "character_id": 150,
+      "action_code": 2,
+      "parameter": 2,
+      "cpu_address": "0xf1bd",
+      "handler_label": "L098C5C",
+      "action": "dispatch_surviving_unit_battle_event",
+      "target_character_id": 190,
+      "set_flag_if_not_255": 255,
+      "battle_event_id": 11
+    },
+    {
+      "character_id": 143,
+      "action_code": 2,
+      "parameter": 3,
+      "cpu_address": "0xf1c0",
+      "handler_label": "L098C5C",
+      "action": "dispatch_surviving_unit_battle_event",
+      "target_character_id": 145,
+      "set_flag_if_not_255": 255,
+      "battle_event_id": 12
+    },
+    {
+      "character_id": 158,
+      "action_code": 1,
+      "parameter": 37,
+      "cpu_address": "0xf1c3",
+      "handler_label": "L098C51",
+      "action": "set_event_flag",
+      "flag_index": 37
+    },
+    {
+      "character_id": 57,
+      "action_code": 1,
+      "parameter": 68,
+      "cpu_address": "0xf1c6",
+      "handler_label": "L098C51",
+      "action": "set_event_flag",
+      "flag_index": 68
+    },
+    {
+      "character_id": 139,
+      "action_code": 1,
+      "parameter": 68,
+      "cpu_address": "0xf1c9",
+      "handler_label": "L098C51",
+      "action": "set_event_flag",
+      "flag_index": 68
+    },
+    {
+      "character_id": 139,
+      "action_code": 1,
+      "parameter": 31,
+      "cpu_address": "0xf1cc",
+      "handler_label": "L098C51",
+      "action": "set_event_flag",
+      "flag_index": 31
+    },
+    {
+      "character_id": 205,
+      "action_code": 1,
+      "parameter": 72,
+      "cpu_address": "0xf1cf",
+      "handler_label": "L098C51",
+      "action": "set_event_flag",
+      "flag_index": 72
+    },
+    {
+      "character_id": 215,
+      "action_code": 2,
+      "parameter": 4,
+      "cpu_address": "0xf1d2",
+      "handler_label": "L098C5C",
+      "action": "dispatch_surviving_unit_battle_event",
+      "target_character_id": 134,
+      "set_flag_if_not_255": 255,
+      "battle_event_id": 18
+    },
+    {
+      "character_id": 158,
+      "action_code": 0,
+      "parameter": 1,
+      "cpu_address": "0xf1d5",
+      "handler_label": "L098C17",
+      "action": "set_reinforcement_state",
+      "generator_index": 0,
+      "generator_state": 1
+    },
+    {
+      "character_id": 156,
+      "action_code": 0,
+      "parameter": 9,
+      "cpu_address": "0xf1d8",
+      "handler_label": "L098C17",
+      "action": "set_reinforcement_state",
+      "generator_index": 1,
+      "generator_state": 1
+    },
+    {
+      "character_id": 129,
+      "action_code": 0,
+      "parameter": 2,
+      "cpu_address": "0xf1db",
+      "handler_label": "L098C17",
+      "action": "set_reinforcement_state",
+      "generator_index": 0,
+      "generator_state": 2
+    },
+    {
+      "character_id": 156,
+      "action_code": 0,
+      "parameter": 25,
+      "cpu_address": "0xf1de",
+      "handler_label": "L098C17",
+      "action": "set_reinforcement_state",
+      "generator_index": 3,
+      "generator_state": 1
+    },
+    {
+      "character_id": 148,
+      "action_code": 0,
+      "parameter": 26,
+      "cpu_address": "0xf1e1",
+      "handler_label": "L098C17",
+      "action": "set_reinforcement_state",
+      "generator_index": 3,
+      "generator_state": 2
+    },
+    {
+      "character_id": 130,
+      "action_code": 0,
+      "parameter": 27,
+      "cpu_address": "0xf1e4",
+      "handler_label": "L098C17",
+      "action": "set_reinforcement_state",
+      "generator_index": 3,
+      "generator_state": 3
+    },
+    {
+      "character_id": 129,
+      "action_code": 0,
+      "parameter": 128,
+      "cpu_address": "0xf1e7",
+      "handler_label": "L098C17",
+      "action": "queue_world_army",
+      "generator_index": 0,
+      "generator_state": 0
+    },
+    {
+      "character_id": 158,
+      "action_code": 0,
+      "parameter": 17,
+      "cpu_address": "0xf1ea",
+      "handler_label": "L098C17",
+      "action": "set_reinforcement_state",
+      "generator_index": 2,
+      "generator_state": 1
+    },
+    {
+      "character_id": 130,
+      "action_code": 0,
+      "parameter": 18,
+      "cpu_address": "0xf1ed",
+      "handler_label": "L098C17",
+      "action": "set_reinforcement_state",
+      "generator_index": 2,
+      "generator_state": 2
+    },
+    {
+      "character_id": 143,
+      "action_code": 0,
+      "parameter": 19,
+      "cpu_address": "0xf1f0",
+      "handler_label": "L098C17",
+      "action": "set_reinforcement_state",
+      "generator_index": 2,
+      "generator_state": 3
+    },
+    {
+      "character_id": 152,
+      "action_code": 0,
+      "parameter": 33,
+      "cpu_address": "0xf1f3",
+      "handler_label": "L098C17",
+      "action": "set_reinforcement_state",
+      "generator_index": 4,
+      "generator_state": 1
+    },
+    {
+      "character_id": 169,
+      "action_code": 0,
+      "parameter": 57,
+      "cpu_address": "0xf1f6",
+      "handler_label": "L098C17",
+      "action": "set_reinforcement_state",
+      "generator_index": 7,
+      "generator_state": 1
+    },
+    {
+      "character_id": 131,
+      "action_code": 0,
+      "parameter": 66,
+      "cpu_address": "0xf1f9",
+      "handler_label": "L098C17",
+      "action": "set_reinforcement_state",
+      "generator_index": 8,
+      "generator_state": 2
+    },
+    {
+      "character_id": 203,
+      "action_code": 0,
+      "parameter": 50,
+      "cpu_address": "0xf1fc",
+      "handler_label": "L098C17",
+      "action": "set_reinforcement_state",
+      "generator_index": 6,
+      "generator_state": 2
+    },
+    {
+      "character_id": 204,
+      "action_code": 0,
+      "parameter": 51,
+      "cpu_address": "0xf1ff",
+      "handler_label": "L098C17",
+      "action": "set_reinforcement_state",
+      "generator_index": 6,
+      "generator_state": 3
+    },
+    {
+      "character_id": 205,
+      "action_code": 0,
+      "parameter": 52,
+      "cpu_address": "0xf202",
+      "handler_label": "L098C17",
+      "action": "set_reinforcement_state",
+      "generator_index": 6,
+      "generator_state": 4
+    },
+    {
+      "character_id": 206,
+      "action_code": 0,
+      "parameter": 53,
+      "cpu_address": "0xf205",
+      "handler_label": "L098C17",
+      "action": "set_reinforcement_state",
+      "generator_index": 6,
+      "generator_state": 5
+    },
+    {
+      "character_id": 207,
+      "action_code": 0,
+      "parameter": 54,
+      "cpu_address": "0xf208",
+      "handler_label": "L098C17",
+      "action": "set_reinforcement_state",
+      "generator_index": 6,
+      "generator_state": 6
+    }
+  ],
+  "transit_battlefields": {
+    "map_ids": [
+      16,
+      18,
+      35,
+      46
+    ],
+    "fixed_armies": [],
+    "behavior": "No fixed army is created by chapter tables. A moving army chooses this terrain only when colliding with the player."
+  },
+  "event_flag_indexing": "One-based: event_flag N applies hubs.flag_updates[N-1] via L0FFACC.",
+  "remaining_runtime_parity_limits": [
+    "Exact original world AI tie breaking and schedule/frame RNG coupling",
+    "Frame-exact cinematic movement and timing",
+    "Original malformed enemy group66 is retained but not instantiated"
+  ],
+  "source_contract_note": "Pure data contracts, not a claim that every native consumer or visual sequence is implemented."
+}

@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "date": "2026-10-12",
+  "engine": "Godot 4.7.1",
+  "test": "res://tests/test_progression_feedback.gd",
+  "command": "/Applications/Godot.app/Contents/MacOS/Godot --headless --path . --log-file /private/tmp/fe2-progression-feedback.log --script tests/test_progression_feedback.gd",
+  "checks": 43,
+  "failures": 0,
+  "exit_code": 0,
+  "run_mode": "headless",
+  "save_isolation": "res://reports/test-progression-save.json; removed after the run",
+  "verified_behaviors": [
+    "普通伤害、普通击杀和敌方回合反击均结算原版经验，并展示经验奖励。",
+    "经验达到100提升一级，保留剩余经验，并应用对应属性成长。",
+    "生命成长同时增加最大生命与当前生命，不额外治疗此前损失的生命。",
+    "20级上限保持原版规则，不增加经验或触发升级。",
+    "奖励数据记录获得前后经验与等级，可用于真实累计展示。",
+    "普通奖励确认后保持正确的当前阶段，并保存获得的经验。",
+    "最后击杀先展示升级奖励，再显示战斗胜利。",
+    "自动批次奖励允许确认关闭，同时保留批次锁，避免重复行动。",
+    "经验和升级结果在奖励画面出现前已写入存档。",
+    "奖励期间退出后，从标题继续直接进入正确胜利画面，保留等级、经验和属性。",
+    "继续最后奖励期间的存档会同步首战完成标记并持久保存。"
+  ],
+  "original_values_checked": {
+    "alm_kill_experience": 15,
+    "alm_eight_hp_nonlethal_damage_experience": 3,
+    "alm_sixteen_hp_nonlethal_damage_experience": 5,
+    "level_threshold": 100,
+    "maximum_level": 20
+  },
+  "fixture_notes": "测试内使用保证命中、零暴击和100成长率的独立角色副本，以验证反馈与持久化；未修改运行角色数据或原版规则数值。",
+  "visual_verification": "由本轮后台视口截图和布局检查另行记录。"
+}

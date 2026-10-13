@@ -1,0 +1,94 @@
+{
+  "checks": 75,
+  "details": {
+    "cap_reward": {
+      "exp_after": 2,
+      "exp_before": 99,
+      "gain": 3,
+      "growths": {
+        "defence": 0,
+        "hp": 0,
+        "luck": 0,
+        "skill": 0,
+        "speed": 0,
+        "strength": 0
+      },
+      "learned": [],
+      "level_after": 20,
+      "level_before": 19,
+      "leveled": true,
+      "unit": "alm"
+    },
+    "nosferatu": [
+      {
+        "attacker": "silque",
+        "critical": false,
+        "critical_roll": 42,
+        "damage": 3,
+        "defender": "brigand_1",
+        "distance": 1,
+        "heal": 3,
+        "hit": true,
+        "hit_roll": 21,
+        "hp_after": 0,
+        "hp_before": 3,
+        "hp_cost": 0,
+        "ranged": false,
+        "self_damage": 0,
+        "source_hp_after": 8,
+        "source_hp_before": 5,
+        "weapon_index": 42
+      }
+    ],
+    "thunder": [
+      {
+        "attacker": "mae",
+        "critical": false,
+        "critical_roll": 50,
+        "damage": 5,
+        "defender": "g15_02",
+        "distance": 3,
+        "heal": 0,
+        "hit": true,
+        "hit_roll": 29,
+        "hp_after": 23,
+        "hp_before": 28,
+        "hp_cost": 2,
+        "ranged": false,
+        "self_damage": 0,
+        "source_hp_after": 3,
+        "source_hp_before": 5,
+        "weapon_index": 24
+      },
+      {
+        "attacker": "mae",
+        "critical": false,
+        "critical_roll": 93,
+        "damage": 0,
+        "defender": "g15_02",
+        "distance": 3,
+        "heal": 0,
+        "hit": false,
+        "hit_roll": 72,
+        "hp_after": 23,
+        "hp_before": 23,
+        "hp_cost": 2,
+        "ranged": false,
+        "self_damage": 0,
+        "source_hp_after": 1,
+        "source_hp_before": 3,
+        "weapon_index": 24
+      }
+    ]
+  },
+  "errors": [],
+  "scope": "Original maps15/1 and source actors with reachable HP/growth states; actual plan/commit/support/level settlement; all13 promotion thresholds and spell-training continuity; no saves or visible windows.",
+  "source": [
+    "bank009 L09877E HP cost per strike",
+    "bank009 L09896E repeated Recover",
+    "bank009 L0986AA actual Nosferatu damage healing",
+    "bank009 L098858 stat growth and Lv20",
+    "bank008 L08A804/L08A96C promotion",
+    "bank001 L01ADDE spell training"
+  ]
+}

@@ -1,0 +1,312 @@
+class_name FeCampaignSaveValidation
+extends RefCounted
+## Validate checkpoints before load_game converts or mutates any live fields.
+## Old retry snapshots remain legal after a v1/v2 save is upgraded to v3.
+
+const EXTENDED_FIELDS = ["chapter", "route", "parties", "route_positions", "previous_world_node",
+	"world_armies", "convoy", "hub_id", "hub_position", "hub_flags", "hub_changes", "hub_used",
+	"battle_return", "battle_settled", "story_events", "encounter_groups"]
+const Items = preload("res://core/item_rules.gd")
+
+static func valid(game, state: Dictionary) -> bool:
+	if not _integer(state.get("version", 0), 1, 3):
+		return false
+	if not state.get("source_revision") is String: return false
+	if not _base(game, state) or not _expanded(game, state, int(state.version) == 3):
+		return false
+	var snapshot = state.get("battle_start_snapshot", {})
+	return snapshot is Dictionary and _base(game, snapshot) and _expanded(game, snapshot, false)
+
+static func _base(game, state: Dictionary) -> bool:
+	# Validate before callers convert or assign values. A malformed checkpoint
+	# must not partially replace the current party, then fail on a later field.
+	for key in ["stage_id", "world_node"]:
+		if state.has(key) and not _integer(state[key], 1, 80): return false
+	for key in ["rng_state", "frame_counter"]:
+		if state.has(key) and not _integer(state[key], 0, 255): return false
+	for key in ["turn", "kills"]:
+		if state.has(key) and not _integer(state[key], 1 if key == "turn" else 0, 2147483647): return false
+	if state.has("mode") and state.mode not in ["title", "chapter", "village", "hub", "world", "battle", "victory", "defeat", "ending"]: return false
+	if state.has("phase") and state.phase not in ["player", "enemy"]: return false
+	if state.has("battle_outcome") and state.battle_outcome not in ["", "victory", "defeat", "retreat", "enemy_retreat"]: return false
+	if state.has("village_position") and not _point(state.village_position): return false
+	if state.has("party"):
+		if not state.party is Array or state.party.is_empty() or state.party[0] not in ["alm", "celica"]: return false
+		var seen: Array = []
+		for id in state.party:
+			if not id is String or not game.characters.has(id) or seen.has(id): return false
+			seen.append(id)
+	if state.has("units"):
+		if not state.units is Array: return false
+		var seen: Array = []
+		var stage: Dictionary = game.stages[int(state.get("stage_id", 1))]
+		for unit in state.units:
+			if not _unit(unit, true) or seen.has(unit.id): return false
+			seen.append(unit.id)
+			if int(unit.position[0]) < 0 or int(unit.position[1]) < 0 or int(unit.position[0]) >= int(stage.map.width) or int(unit.position[1]) >= int(stage.map.height): return false
+	if state.has("roster"):
+		if not state.roster is Dictionary: return false
+		for id in state.roster:
+			if not id is String or not game.characters.has(id) or not _unit(state.roster[id], false): return false
+	if state.has("cleared_stages"):
+		if not state.cleared_stages is Array: return false
+		for stage in state.cleared_stages:
+			if not _integer(stage, 1, 80): return false
+	if state.has("victory_rewards"):
+		if not state.victory_rewards is Array: return false
+		for reward in state.victory_rewards:
+			if not reward is Dictionary or not reward.get("unit") is String: return false
+			for key in ["gain", "exp_before", "exp_after", "actual_gain"]:
+				if reward.has(key) and not _integer(reward[key], 0, 65535): return false
+	if state.has("flags") and not _flags(game, state.flags, state): return false
+	return true
+
+static func _unit(unit: Variant, tactical: bool) -> bool:
+	if not unit is Dictionary or not unit.get("id") is String or unit.id.is_empty(): return false
+	if unit.get("side") not in ["player", "enemy"] or not unit.get("acted") is bool: return false
+	for key in ["hp", "strength", "skill", "speed", "luck", "defence", "move"]:
+		if not _integer(unit.get(key), 0, 255): return false
+	if not _integer(unit.get("max_hp"), 1, 255 if unit.side == "enemy" else 52) or int(unit.hp) > int(unit.max_hp): return false
+	if not _integer(unit.get("class_id"), 1, 22) or not _integer(unit.get("level"), 1, 20): return false
+	if tactical and not _point(unit.get("position")): return false
+	for key in ["exp", "magic_level", "magic_flags", "raw_magic_flags", "character_id", "name_id", "resistance", "ai_flags", "raw_ai_flags", "record_index", "group_id", "exp_value", "weapon_index"]:
+		if unit.has(key) and not _integer(unit[key], 0, 65535 if key == "exp" else 255): return false
+	for key in ["player_slot", "enemy_slot"]:
+		if unit.has(key) and not _integer(unit[key], 0, 19): return false
+	if unit.has("item_id") and not (_integer(unit.item_id, 0, 0) or _carried_item(unit.item_id)): return false
+	for key in ["dead", "temporary", "no_drop", "no_experience", "neutral", "controllable", "promoted", "retreated", "rescued", "vanished", "zeke_npc"]:
+		if unit.has(key) and not unit[key] is bool: return false
+	for key in ["name_zh", "class", "death_place", "summoner_id", "army_instance"]:
+		if unit.has(key) and not unit[key] is String: return false
+	if unit.has("army_instance") and not _instance_id(unit.army_instance): return false
+	if unit.has("route") and unit.route not in ["alm", "celica"]: return false
+	if unit.has("growths"):
+		if not unit.growths is Dictionary: return false
+		for key in unit.growths:
+			if not _integer(unit.growths[key], 0, 255): return false
+	return true
+
+static func _loot_record(value: Variant) -> bool:
+	return value is Dictionary and value.get("kind") in ["loot", "death_storage"] and _carried_item(value.get("item_id")) and value.get("unit_id") is String and not value.unit_id.is_empty() and value.get("route") in ["alm", "celica"]
+
+static func _flags(game, flags: Variant, state: Dictionary) -> bool:
+	if not flags is Dictionary: return false
+	for key in ["pending_loot", "loot_notifications"]:
+		if not flags.has(key): continue
+		if not flags[key] is Array: return false
+		for record in flags[key]:
+			if not _loot_record(record): return false
+	for key in ["inventory_processed_deaths", "inventory_defeated_enemy_records"]:
+		if not flags.has(key): continue
+		if not flags[key] is Dictionary: return false
+		for id in flags[key]:
+			if not id is String or not flags[key][id] is bool: return false
+	if flags.has("celica_captive_hp"):
+		if not flags.celica_captive_hp is Dictionary: return false
+		for id in flags.celica_captive_hp:
+			if not id is String or not game.characters.has(id) or not _integer(flags.celica_captive_hp[id], 0, 52): return false
+	if flags.has("world_mobile_armies"):
+		if not flags.world_mobile_armies is Array: return false
+		for army in flags.world_mobile_armies:
+			if not army is Dictionary or not _node(game, army.get("node")) or not _groups(game, [army.get("group_id")]): return false
+			if army.has("previous_node") and not (_integer(army.previous_node, -1, -1) or _node(game, army.previous_node)): return false
+			if army.has("instance_id") and not _instance_id(army.instance_id): return false
+	if flags.has("world_army_next_id") and not _integer(flags.world_army_next_id, 1, 2147483647): return false
+	if flags.has("world_random_army_instance"):
+		if not flags.world_random_army_instance is String: return false
+		if flags.world_random_army_instance != "" and not _instance_id(flags.world_random_army_instance): return false
+	if flags.has("dungeon_army_instances"):
+		if not flags.dungeon_army_instances is Dictionary: return false
+		for key in flags.dungeon_army_instances:
+			if not key is String or not _instance_id(flags.dungeon_army_instances[key]): return false
+	if flags.has("world_army_instances"):
+		if not flags.world_army_instances is Dictionary: return false
+		var seen: Array = []
+		var armies = state.get("world_armies", {})
+		if not armies is Dictionary: return false
+		for node in flags.world_army_instances:
+			var ids = flags.world_army_instances[node]
+			if not _numeric_key(node) or not _node(game, int(node)) or not ids is Array: return false
+			if not armies.get(node, []) is Array or ids.size() != armies.get(node, []).size(): return false
+			for id in ids:
+				if not _instance_id(id) or seen.has(id): return false
+				seen.append(id)
+		for node in armies:
+			if not flags.world_army_instances.has(node): return false
+	if flags.has("battle_army_instances"):
+		if not flags.battle_army_instances is Array: return false
+		var groups = state.get("encounter_groups", [])
+		if not groups is Array or flags.battle_army_instances.size() != groups.size(): return false
+		var seen: Array = []
+		for id in flags.battle_army_instances:
+			if not _instance_id(id) or seen.has(id): return false
+			seen.append(id)
+	return true
+
+static func _instance_id(value: Variant) -> bool:
+	if not value is String or not value.begins_with("army_"): return false
+	var serial: String = value.substr(5)
+	return _numeric_key(serial) and _integer(int(serial), 1, 2147483647)
+
+static func _battle_unit_instances(state: Dictionary) -> bool:
+	var flags: Dictionary = state.get("flags", {})
+	# Pre-instance v1/v2/v3 checkpoints are bound during migration. Once
+	# explicit identities exist, a soldier cannot point at another army or
+	# an orphan identity: its casualty would otherwise disappear on re-entry.
+	if not flags.has("battle_army_instances"): return true
+	var identities: Array = flags.battle_army_instances
+	var groups: Array = state.get("encounter_groups", [])
+	for unit in state.get("units", []):
+		if unit.side != "enemy" or not unit.has("army_instance"): continue
+		var index := identities.find(unit.army_instance)
+		if index < 0 or (unit.has("group_id") and int(unit.group_id) != int(groups[index])): return false
+	return true
+
+static func _integer(value: Variant, minimum: int, maximum: int) -> bool:
+	return typeof(value) in [TYPE_INT, TYPE_FLOAT] and is_finite(float(value)) and float(value) == floor(float(value)) and float(value) >= minimum and float(value) <= maximum
+
+static func _point(value: Variant) -> bool:
+	return value is Array and value.size() == 2 and _integer(value[0], -256, 512) and _integer(value[1], -256, 512)
+
+static func _node(game, value: Variant) -> bool:
+	return _integer(value, 1, 80) and game.catalog.world_nodes.has(str(int(value)))
+
+static func _room(game, value: Variant) -> bool:
+	return _integer(value, 1, 255) and game.hubs.rooms.has(str(int(value)))
+
+static func _carried_item(value: Variant) -> bool:
+	return _integer(value, 1, 58) and str(Items.data().items[int(value)].kind) in ["weapon", "accessory"]
+
+static func _hub_used(game, value: Variant) -> bool:
+	if not value is Dictionary:
+		return false
+	if value.has("leader_facing"):
+		if not _point(value.leader_facing):
+			return false
+		if absi(int(value.leader_facing[0])) + absi(int(value.leader_facing[1])) != 1:
+			return false
+	if value.has("event_vm"):
+		var vm = value.event_vm
+		if not vm is Dictionary:
+			return false
+		if vm.is_empty():
+			return true
+		if not _integer(vm.get("script_id"), 0, 255) or not game.hubs.scripts.has(str(int(vm.script_id))) or not _room(game, vm.get("hub_id")):
+			return false
+		if not _integer(vm.get("pc"), 0, game.hubs.scripts[str(int(vm.script_id))].instructions.size()) or not vm.get("actors") is Dictionary:
+			return false
+		for key in vm.actors:
+			var actor = vm.actors[key]
+			if not _numeric_key(key) or not actor is Dictionary or not _point(actor.get("position")) or not _integer(actor.get("sprite_id"), 0, 255):
+				return false
+			if actor.has("facing") and not _integer(actor.facing, 1, 4): return false
+			if actor.has("movement_flags") and not _integer(actor.movement_flags, 0, 255): return false
+			for flag in ["hidden", "spawned"]:
+				if actor.has(flag) and not actor[flag] is bool: return false
+	return true
+
+static func _numeric_key(value: Variant) -> bool:
+	return value is String and value.is_valid_int() and str(int(value)) == value
+
+static func _groups(game, value: Variant) -> bool:
+	if not value is Array or value.size() > 2:
+		return false
+	for group in value:
+		if not _integer(group, 0, 255) or not bool(game.catalog.enemy_groups.get(str(int(group)), {}).get("valid", false)):
+			return false
+	return true
+
+static func _parties(game, value: Variant) -> bool:
+	if not value is Dictionary or not value.has("alm") or not value.has("celica"):
+		return false
+	var seen: Array[String] = []
+	for route in ["alm", "celica"]:
+		var members = value[route]
+		if not members is Array or (not members.is_empty() and (not members[0] is String or members[0] != route)):
+			return false
+		for member in members:
+			if not member is String or not game.characters.has(member) or seen.has(member):
+				return false
+			seen.append(member)
+	return true
+
+static func _expanded(game, state: Dictionary, required: bool) -> bool:
+	if required:
+		for key in EXTENDED_FIELDS:
+			if not state.has(key):
+				return false
+	if state.has("chapter") and not _integer(state.chapter, 1, 5):
+		return false
+	if state.has("route") and state.route not in ["alm", "celica"]:
+		return false
+	if state.has("parties") and not _parties(game, state.parties):
+		return false
+	if state.has("route_positions"):
+		if not state.route_positions is Dictionary:
+			return false
+		for route in ["alm", "celica"]:
+			if not _node(game, state.route_positions.get(route, null)):
+				return false
+	if state.has("previous_world_node") and not _node(game, state.previous_world_node):
+		return false
+	if state.has("world_armies"):
+		if not state.world_armies is Dictionary:
+			return false
+		for key in state.world_armies:
+			if not _numeric_key(key) or not _node(game, int(key)) or not _groups(game, state.world_armies[key]):
+				return false
+	if state.has("encounter_groups") and not _groups(game, state.encounter_groups):
+		return false
+	if state.has("convoy"):
+		if not state.convoy is Dictionary:
+			return false
+		for route in ["alm", "celica"]:
+			if not state.convoy.get(route) is Array:
+				return false
+			for item in state.convoy[route]:
+				if not _carried_item(item):
+					return false
+	if state.has("hub_id") and not _room(game, state.hub_id):
+		return false
+	if state.has("hub_position") and not _point(state.hub_position):
+		return false
+	if state.has("hub_flags"):
+		if not state.hub_flags is Dictionary:
+			return false
+		for key in state.hub_flags:
+			if not _numeric_key(key) or not _room(game, int(key)) or not state.hub_flags[key] is Dictionary:
+				return false
+			for flag in ["actors", "talk", "triggers"]:
+				if not _integer(state.hub_flags[key].get(flag), 0, 255):
+					return false
+	if state.has("hub_changes"):
+		if not state.hub_changes is Dictionary:
+			return false
+		for key in state.hub_changes:
+			if not _numeric_key(key) or not _room(game, int(key)) or not state.hub_changes[key] is Dictionary:
+				return false
+			for cell in state.hub_changes[key]:
+				if not _numeric_key(cell) or not _integer(int(cell), 0, game.hubs.rooms[key].tiles.size() - 1) or not _integer(state.hub_changes[key][cell], 0, 255):
+					return false
+	if state.has("hub_used") and not _hub_used(game, state.hub_used):
+		return false
+	if state.has("battle_settled") and not state.battle_settled is bool:
+		return false
+	if state.has("battle_return"):
+		var back = state.battle_return
+		if not back is Dictionary:
+			return false
+		if not back.is_empty():
+			if back.get("mode", "") not in ["world", "hub"] or not _node(game, back.get("world_node")):
+				return false
+			if back.mode == "hub" and (not _room(game, back.get("hub_id")) or not _point(back.get("position"))):
+				return false
+	if state.has("story_events"):
+		if not state.story_events is Array:
+			return false
+		for event in state.story_events:
+			if not event is Dictionary or event.get("kind", "") not in ["dialogue", "ending"]:
+				return false
+			if event.kind == "dialogue" and (event.get("group", "") not in ["events", "death_quotes"] or not _numeric_key(event.get("key"))):
+				return false
+	return _battle_unit_instances(state)

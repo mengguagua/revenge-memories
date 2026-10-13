@@ -1,0 +1,198 @@
+{
+  "date": "2026-10-13",
+  "headless": true,
+  "audio_driver": "Dummy",
+  "results": [
+    {
+      "test": "tests/test_audio.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": []
+    },
+    {
+      "test": "tests/test_battle_inventory.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "FE_BATTLE_INVENTORY_CHECK 171 checks; failures=[]"
+      ]
+    },
+    {
+      "test": "tests/test_campaign_content.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "CAMPAIGN CONTENT: 72 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "tests/test_campaign_continuity.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "CAMPAIGN CONTINUITY: 138 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "tests/test_campaign_runtime.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "FE2 FULL RUNTIME 5170 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "tests/test_flow.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "FE2 flow: 118 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "tests/test_full_animation_contract.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "{\"checks\":156,\"failures\":[],\"scope\":\"headless renderer contract:44 identities,4 melee families, far counter formation, heavy target timing, javelin, distinct spells,3 Duma attacks, support, promoted identity, clipping\"}"
+      ]
+    },
+    {
+      "test": "tests/test_full_audio.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "FE_FULL_AUDIO_ROUTING_CHECK 138 checks; failures=[]"
+      ]
+    },
+    {
+      "test": "tests/test_full_battle_controller.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "{\"checks\":64,\"failure_count\":0,\"failures\":[],\"limits\":\"Flat-map fixtures verify the new controller integration, not full campaign tactics, visible graphics, or real-time timing.\",\"scenarios\":[\"_run_ai_unit physical combat -> source animation -> death/drop -> instant loot storage\",\"_play_support40 close-up and _run_ai_unit Recover35 map feedback\",\"Invoke45 -> player source slots -> actual autonomous-ally/enemy phase -> dynamic Cantor slots\",\"_run_ai_unit ordinary witch teleport and Duma Gaia with original map feedback\",\"real loot accept, full40-item convoy confirmation and cancellation\"],\"scope\":\"headless real main/state/renderer/audio controllers; instant timing; isolated save; seeded actions and one complete player-auto/enemy/player phase\"}"
+      ]
+    },
+    {
+      "test": "tests/test_full_campaign_flow.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "FULL CAMPAIGN FLOW: 505 checks, 0 failures, 80 maps"
+      ]
+    },
+    {
+      "test": "tests/test_full_rules.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "FE2 full rules: 92 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "tests/test_game_state.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "FE2 state: 83 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "tests/test_hub_controller.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "FE2 hub controller: 547 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "tests/test_input_motion.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "FE2 native input/motion: 36 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "tests/test_localization_motion.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "FE2 localization/motion: 119 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "tests/test_map_effects.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "{\"checks\":89,\"failure_count\":0,\"failures\":[]}"
+      ]
+    },
+    {
+      "test": "tests/test_progression_feedback.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "FE2 progression feedback: 43 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "tests/test_rules.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "FE2 rules: 30 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "tests/test_scenario_rules.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "SCENARIO RULES: 57 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "tests/test_second_battle_state.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "FE2 second battle state: 84 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "tests/test_second_stage_flow.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "FE2 second-stage flow: 107 checks, 0 failures"
+      ]
+    },
+    {
+      "test": "tests/test_summon_rules.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "FE_SUMMON_RULES_CHECK 31 checks; failures=[]"
+      ]
+    },
+    {
+      "test": "tests/test_tactical_ai.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "{\"checks\":75,\"failure_count\":0,\"failures\":[]}"
+      ]
+    },
+    {
+      "test": "tests/test_talk_facing.gd",
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "FE2 facing interaction: 6 checks, 0 failures"
+      ]
+    }
+  ],
+  "failures": []
+}

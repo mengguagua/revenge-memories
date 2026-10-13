@@ -1,0 +1,80 @@
+{
+  "verified_date": "2026-10-12",
+  "timezone": "Asia/Shanghai",
+  "engine": "Godot 4.6.2.stable official 71f334935",
+  "execution": "Headless / Dummy audio, no visible game/editor window",
+  "save_isolation": "res://reports/test-save.json; created and removed by tests; no user save changed",
+  "source_rom_sha1": "2153ae9a7b1c63e8d4d83a807f1c8c1f482f7293",
+  "tests": {
+    "state": {
+      "script": "res://tests/test_game_state.gd",
+      "command": [
+        "/Applications/Godot-4.6.2.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/gcc/gaocc/project/revenge-memories",
+        "--log-file",
+        "/private/tmp/fe2-state-final.log",
+        "--script",
+        "tests/test_game_state.gd"
+      ],
+      "checks": 83,
+      "failures": 0,
+      "exit_code": 0,
+      "log": "/private/tmp/fe2-state-final.log",
+      "audio_exit_leak_reported": false,
+      "script_error_reported": false
+    },
+    "flow": {
+      "script": "res://tests/test_flow.gd",
+      "command": [
+        "/Applications/Godot-4.6.2.app/Contents/MacOS/Godot",
+        "--headless",
+        "--path",
+        "/Users/gcc/gaocc/project/revenge-memories",
+        "--log-file",
+        "/private/tmp/fe2-flow-final.log",
+        "--script",
+        "tests/test_flow.gd"
+      ],
+      "checks": 118,
+      "failures": 0,
+      "exit_code": 0,
+      "log": "/private/tmp/fe2-flow-final.log",
+      "audio_exit_leak_reported": false,
+      "script_error_reported": false,
+      "natural_full_party_run": {
+        "outcome": "victory",
+        "automatic_batches": 3,
+        "final_turn": 3,
+        "player_survivors": 5
+      }
+    }
+  },
+  "audio_contract": {
+    "script": "res://tests/test_audio.gd",
+    "assertions": 30,
+    "failures": 0,
+    "verified_log": "/private/tmp/fe2-audio-final.log",
+    "exit_code": 0,
+    "audio_exit_leak_reported": false
+  },
+  "verified_behavior": [
+    "Native title, chapter, original training dialogue, village walking, NPC story progression and recruitment, world node choice, complete first battle",
+    "Weighted forest movement, friend crossing without stacking, enemy blocking, cancel restores movement origin",
+    "Strict zero hit, death suppresses counters, source EXP and growth, per-phase recovery and terminal freeze",
+    "Atomic isolated save/load and rollback of unconfirmed movement in save snapshots",
+    "Action/target status shortcut cannot turn a pending move into a free action",
+    "Controller busy/batch locks, automatic player/enemy turns, natural victory",
+    "Result retry, controlled level-up reward screen, controlled Alm defeat screen",
+    "Music pause/resume, original loop offsets, jingle interruption, muted-track pending start, candidate cue prohibition and normal shutdown"
+  ],
+  "remaining_limits": [
+    "Exact original RNG/frame timing and complete AI tie-breaking are not claimed",
+    "Independent Ogg music/effects do not reproduce original NES APU channel stealing sample-for-sample",
+    "Single-frame Godot --quit can report an audio-server teardown warning; natural flow and normal delayed shutdown are leak-free"
+  ],
+  "environment_messages": [
+    "Godot reports macOS system CA-certificate access failure in this sandbox; scripts and assertions still run successfully"
+  ]
+}

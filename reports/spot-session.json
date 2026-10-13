@@ -1,0 +1,31 @@
+{
+  "started_at_utc": "2026-10-13T03:31:27+00:00",
+  "one_hour_mark_utc": "2026-10-13T04:31:27+00:00",
+  "instruction": "Finish each review round, check cumulative task elapsed time; if under one hour continue next review round.",
+  "round_1": {
+    "status": "completed",
+    "findings": [
+      "battle submenu cancel softlock",
+      "dungeon return trigger remains permanently guarded",
+      "protected boss loses counterattack",
+      "world route switch retains mismatched tactical units",
+      "captured Celica remains selectable",
+      "ending overwritten by repeated result handling",
+      "Dark Sword recoil feedback points at opponent"
+    ]
+  },
+  "round_2": {
+    "status": "completed",
+    "completed_at": "2026-10-13T13:47:54.725128+08:00",
+    "checks": 3791,
+    "headless_suites": 18,
+    "completion_report": "reports/spot-review-completion.json"
+  },
+  "resumption": {
+    "completed_at": "2026-10-13T13:47:54.725128+08:00",
+    "original_one_hour_mark_passed": true,
+    "elapsed_since_original_start_seconds": 8187,
+    "interruption_downtime_included": true,
+    "decision": "Finish interrupted round2 and close; original wall-clock one-hour mark already passed."
+  }
+}
