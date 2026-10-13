@@ -1,0 +1,62 @@
+{
+  "scope": "current round4 candidate, bounded save/resume regression; one new suite plus three existing related suites; headless Dummy audio only",
+  "suites": [
+    {
+      "script": "res://tests/test_round4_resume.gd",
+      "report": "res://reports/round4-resume-verification.json",
+      "checks": 185,
+      "passed": 185,
+      "failures": [],
+      "exit_code": 0,
+      "script_error_count": 0,
+      "log": "/private/tmp/round4-final-resume.log",
+      "log_issues": [],
+      "isolated_save_residue": []
+    },
+    {
+      "script": "res://tests/test_spot_save.gd",
+      "report": "res://reports/spot-save-verification.json",
+      "checks": 72,
+      "passed": 72,
+      "failures": [],
+      "exit_code": 0,
+      "script_error_count": 0,
+      "log": "/private/tmp/round4-final-spot-save.log",
+      "log_issues": [],
+      "isolated_save_residue": []
+    },
+    {
+      "script": "res://tests/test_campaign_continuity.gd",
+      "report": "res://reports/campaign-continuity-verification.json",
+      "checks": 139,
+      "passed": 139,
+      "failures": [],
+      "exit_code": 0,
+      "script_error_count": 0,
+      "log": "/private/tmp/round4-final-campaign-continuity.log",
+      "log_issues": [],
+      "isolated_save_residue": []
+    },
+    {
+      "script": "res://tests/test_round3_save.gd",
+      "report": "res://reports/round3-save-verification.json",
+      "checks": 146,
+      "passed": 146,
+      "failures": [],
+      "exit_code": 0,
+      "script_error_count": 0,
+      "log": "/private/tmp/round4-final-round3-save.log",
+      "log_issues": [],
+      "isolated_save_residue": []
+    }
+  ],
+  "checks": 542,
+  "passed": 542,
+  "failures": 0,
+  "script_error_count": 0,
+  "notes": [
+    "test_spot_save exits 0 with 72 assertions passing, then reports 4 ObjectDB instances and 1 resource still referenced at engine cleanup; retained as a shutdown warning, not hidden as clean log",
+    "No real user saves, visible windows, production edits, staging, commit or push; only isolated save paths used",
+    "No natural complete campaign playthrough or new graphic review in this verification"
+  ]
+}

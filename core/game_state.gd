@@ -8,6 +8,7 @@ const Items = preload("res://core/item_rules.gd")
 const Progression = preload("res://core/unit_progression.gd")
 const Scenario = preload("res://core/scenario_rules.gd")
 const WorldArmies = preload("res://core/world_armies.gd")
+const WORLD_ENCOUNTER_FLAGS = ["inventory_enemy_initiated", "inventory_attacking_group_id", "inventory_attacker_previous_node", "inventory_attacking_instance_id"]
 const Summons = preload("res://core/summon_rules.gd")
 const TacticalAI = preload("res://core/tactical_ai.gd")
 const Inventory = preload("res://core/battle_inventory.gd")
@@ -94,6 +95,8 @@ func new_game() -> void:
 	parties = {"alm": ["alm"], "celica": []}
 	route_positions = {"alm": 49, "celica": 53}
 	previous_world_node = 49
+	flags.world_route_previous_nodes = {"alm": 49, "celica": 53}
+	flags.world_route_encounters = {}
 	convoy = {"alm": [], "celica": []}
 	hub_id = 1
 	hub_position = Vector2i(5, 10)
@@ -233,10 +236,12 @@ func travel_to(node: int) -> bool:
 	flags.erase("inventory_attacking_group_id")
 	flags.erase("inventory_attacker_previous_node")
 	flags.erase("inventory_attacking_instance_id")
+	flags.erase("world_route_approach_recovered_" + route)
 	previous_world_node = world_node
 	world_node = node
 	route_positions[route] = node
 	Scenario.on_travel(self)
+	remember_world_approach()
 	return true
 
 func world_has_battle(node: int) -> bool:
@@ -254,18 +259,64 @@ func can_switch_route() -> bool:
 func switch_route() -> bool:
 	if not can_switch_route():
 		return false
+	remember_world_approach()
 	parties[route] = party.duplicate()
 	route_positions[route] = world_node
 	route = "celica" if route == "alm" else "alm"
 	party = parties[route].duplicate()
 	world_node = int(route_positions[route])
-	previous_world_node = world_node
+	restore_world_approach()
 	units.clear()
 	selected_id = ""
 	battle_outcome = ""
 	battle_return = {"mode": "world", "world_node": world_node}
 	mode = "world"
 	return true
+
+func remember_world_approach() -> void:
+	# L06B7A6/L06B7C6 use $6D16,X: each route keeps its own previous node.
+	var previous: Dictionary = flags.get("world_route_previous_nodes", {})
+	previous[route] = previous_world_node
+	flags.world_route_previous_nodes = previous
+	var encounters: Dictionary = flags.get("world_route_encounters", {})
+	var encounter: Dictionary = {}
+	for key in WORLD_ENCOUNTER_FLAGS:
+		if flags.has(key): encounter[key] = flags[key]
+	encounters[route] = encounter
+	flags.world_route_encounters = encounters
+
+func restore_world_approach() -> void:
+	_restore_world_previous_node()
+	var encounters: Dictionary = flags.get("world_route_encounters", {})
+	var encounter: Dictionary = encounters.get(route, {})
+	for key in WORLD_ENCOUNTER_FLAGS:
+		flags.erase(key)
+		if encounter.has(key): flags[key] = encounter[key]
+
+func _restore_world_previous_node(recover_legacy: bool = false) -> void:
+	var previous: Dictionary = flags.get("world_route_previous_nodes", {})
+	previous_world_node = int(previous.get(route, world_node))
+	if previous_world_node != world_node: return
+	# A known self-origin is legitimate just after a retreat. Only infer
+	# history for legacy/unrecorded routes; never rewrite a new checkpoint.
+	if previous.has(route) and not recover_legacy: return
+	# Older switches discarded this history. Recover a source-legal clear
+	# adjacent exit when possible, rather than retaining an impossible self
+	# retreat. Ambiguous old histories cannot reveal the exact original path.
+	var allowed := allowed_world_nodes()
+	var neighbors: Array = catalog.world_nodes[str(world_node)].get("neighbors", [])
+	var recovery: Array = []
+	var entry: Dictionary = hubs.world_entries.get(str(world_node), {})
+	var fallback: Dictionary = entry.get("fallback_approach_by_chapter", {})
+	if fallback.has(str(chapter)) and neighbors.has(int(fallback[str(chapter)])):
+		recovery.append(int(fallback[str(chapter)]))
+	recovery.append_array(neighbors)
+	for candidate in recovery:
+		var node := int(candidate)
+		if node in allowed and not world_has_battle(node) and Scenario.can_travel(self, world_node, node):
+			previous_world_node = node
+			flags["world_route_approach_recovered_" + route] = true
+			break
 
 func available_stage(id: int) -> bool:
 	return stages.has(id) and not stages[id].is_empty()
@@ -545,10 +596,24 @@ func enter_hub(id: int, at: Vector2i) -> bool:
 	units.clear()
 	return true
 
-func enter_world_hub() -> bool:
+func world_hub_entry() -> Dictionary:
 	var entry: Dictionary = hubs.world_entries.get(str(world_node), {})
-	if entry.is_empty():
-		return false
+	entry = entry.duplicate(true)
+	var approaches: Dictionary = entry.get("approach_entries", {})
+	if not approaches.is_empty():
+		var approach := str(previous_world_node)
+		if not approaches.has(approach):
+			var fallback: Dictionary = entry.get("fallback_approach_by_chapter", {})
+			approach = str(int(fallback.get(str(chapter), int(approaches.keys()[0]))))
+		var arrival: Dictionary = approaches.get(approach, {})
+		if not arrival.is_empty():
+			entry.spawn = arrival.spawn.duplicate()
+			entry.facing = int(arrival.facing)
+	return entry
+
+func enter_world_hub() -> bool:
+	var entry := world_hub_entry()
+	if entry.is_empty(): return false
 	return enter_hub(int(entry.hub_id), Vector2i(entry.spawn[0], entry.spawn[1]))
 
 func enter_dungeon_battle(trigger: int) -> bool:
@@ -586,6 +651,7 @@ func _capture_battle_start() -> Dictionary:
 	return {"stage_id": stage_id, "units": units.duplicate(true), "roster": roster.duplicate(true),
 		"party": party.duplicate(),
 		"chapter": chapter, "route": route, "world_node": world_node, "world_armies": world_armies.duplicate(true),
+		"previous_world_node": previous_world_node,
 		"battle_return": battle_return.duplicate(true), "encounter_groups": encounter_groups.duplicate(),
 		"parties": parties.duplicate(true), "route_positions": route_positions.duplicate(true),
 		"hub_flags": hub_flags.duplicate(true), "story_events": story_events.duplicate(true),
@@ -617,6 +683,7 @@ func retry_battle() -> bool:
 	roster = snapshot.roster.duplicate(true)
 	cleared_stages = snapshot.cleared_stages.duplicate()
 	flags = snapshot.flags.duplicate(true)
+	previous_world_node = int(snapshot.get("previous_world_node", flags.get("world_route_previous_nodes", {}).get(route, previous_world_node)))
 	rng_state = int(snapshot.rng_state)
 	frame_counter = int(snapshot.frame_counter)
 	turn = 1
@@ -1163,6 +1230,12 @@ func load_game() -> bool:
 	if mode == "world":
 		# Repair0.6 world suspends that kept the previous route's unit cache.
 		units.clear()
+		var previous: Dictionary = flags.get("world_route_previous_nodes", {})
+		var recover_legacy := not previous.has(route)
+		if not previous.has(route): previous[route] = previous_world_node
+		flags.world_route_previous_nodes = previous
+		_restore_world_previous_node(recover_legacy)
+		remember_world_approach()
 	elif not units.is_empty():
 		var leader = find_unit(leader_id())
 		if not leader.is_empty(): cursor = pos(leader)
@@ -1264,6 +1337,9 @@ func _migrate_v1_campaign() -> void:
 	var current_turn := turn
 	var current_kills := kills
 	var current_outcome := battle_outcome
+	# The retry snapshot built by start_battle must include every saved v1
+	# recruit, not the constructor's default one-member Alm party.
+	parties = {"alm": party.duplicate(), "celica": []}
 	start_battle(1)
 	units = current_units
 	rng_state = current_rng

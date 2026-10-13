@@ -1,0 +1,26 @@
+{
+  "checks": 185,
+  "failures": [],
+  "issues_observed_before_fix": [],
+  "limits": "source-derived milestone fixtures, not natural full-campaign playthroughs; no graphics; no real user save read or written",
+  "scenarios": [
+    "source chapter 2/3/4/5 hub checkpoints retain route and can continue",
+    "stages 1/2/29/32/34/36/42 production suspend, retry, select, wait, resave",
+    "real leader/NPC casualty -> load -> retry; source final boss death -> settlement -> load -> retry",
+    "full source Alm ten-member deployment plus Zeke ten-member NPC alliance remains saveable and actionable",
+    "historical v1 stage1, v2 stages1/2 -> load -> retry -> v3 save/load -> select/wait",
+    "actual title Continue v2 second-battle -> retry -> wait -> resave -> title Continue"
+  ],
+  "scope": "bounded legitimate chapter/hub/world/battle/defeat/final-victory checkpoints; production save/load; historical v2 first/second-battle structure then retry/resave; actual title-continue and wait",
+  "final_candidate_reverification": {
+    "checks": 185,
+    "passed": 185,
+    "failures": 0,
+    "headless": true,
+    "audio_driver": "Dummy",
+    "exit_code": 0,
+    "script_error_count": 0,
+    "log": "/private/tmp/round4-final-resume.log",
+    "related_suite_report": "res://reports/round4-resume-related-verification.json"
+  }
+}

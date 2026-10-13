@@ -48,6 +48,7 @@ static func _base(game, state: Dictionary) -> bool:
 		if not state.roster is Dictionary: return false
 		for id in state.roster:
 			if not id is String or not game.characters.has(id) or not _unit(state.roster[id], false): return false
+			if state.roster[id].id != id or state.roster[id].side != "player": return false
 	if state.has("cleared_stages"):
 		if not state.cleared_stages is Array: return false
 		for stage in state.cleared_stages:
@@ -69,12 +70,15 @@ static func _unit(unit: Variant, tactical: bool) -> bool:
 	if not _integer(unit.get("max_hp"), 1, 255 if unit.side == "enemy" else 52) or int(unit.hp) > int(unit.max_hp): return false
 	if not _integer(unit.get("class_id"), 1, 22) or not _integer(unit.get("level"), 1, 20): return false
 	if tactical and not _point(unit.get("position")): return false
-	for key in ["exp", "magic_level", "magic_flags", "raw_magic_flags", "character_id", "name_id", "resistance", "ai_flags", "raw_ai_flags", "record_index", "group_id", "exp_value", "weapon_index"]:
+	for key in ["exp", "magic_level", "magic_flags", "raw_magic_flags", "character_id", "name_id", "resistance", "ai_flags", "raw_ai_flags", "record_index", "group_id", "exp_value", "weapon_index", "source_enemy_character_id"]:
 		if unit.has(key) and not _integer(unit[key], 0, 65535 if key == "exp" else 255): return false
+	# Personal resistance is consumed by promotion after resume. A source
+	# Dread Fighter may have a negative personal baseline after bonus removal.
+	if unit.has("personal_resistance") and not _integer(unit.personal_resistance, -15, 255): return false
 	for key in ["player_slot", "enemy_slot"]:
 		if unit.has(key) and not _integer(unit[key], 0, 19): return false
 	if unit.has("item_id") and not (_integer(unit.item_id, 0, 0) or _carried_item(unit.item_id)): return false
-	for key in ["dead", "temporary", "no_drop", "no_experience", "neutral", "controllable", "promoted", "retreated", "rescued", "vanished", "zeke_npc"]:
+	for key in ["dead", "temporary", "no_drop", "no_experience", "neutral", "controllable", "promoted", "retreated", "rescued", "vanished", "zeke_npc", "rescue_npc"]:
 		if unit.has(key) and not unit[key] is bool: return false
 	for key in ["name_zh", "class", "death_place", "summoner_id", "army_instance"]:
 		if unit.has(key) and not unit[key] is String: return false
@@ -91,6 +95,26 @@ static func _loot_record(value: Variant) -> bool:
 
 static func _flags(game, flags: Variant, state: Dictionary) -> bool:
 	if not flags is Dictionary: return false
+	if flags.has("world_route_previous_nodes"):
+		if not flags.world_route_previous_nodes is Dictionary: return false
+		for route in flags.world_route_previous_nodes:
+			if route not in ["alm", "celica"] or not _node(game, flags.world_route_previous_nodes[route]): return false
+	if flags.has("world_route_encounters"):
+		if not flags.world_route_encounters is Dictionary: return false
+		for route in flags.world_route_encounters:
+			var record = flags.world_route_encounters[route]
+			if route not in ["alm", "celica"] or not record is Dictionary: return false
+			for key in record:
+				match key:
+					"inventory_enemy_initiated":
+						if not record[key] is bool: return false
+					"inventory_attacking_group_id":
+						if not _integer(record[key], 0, 255): return false
+					"inventory_attacker_previous_node":
+						if not (_integer(record[key], -1, -1) or _node(game, record[key])): return false
+					"inventory_attacking_instance_id":
+						if not _instance_id(record[key]): return false
+					_: return false
 	for key in ["pending_loot", "loot_notifications"]:
 		if not flags.has(key): continue
 		if not flags[key] is Array: return false
@@ -180,6 +204,7 @@ static func _carried_item(value: Variant) -> bool:
 static func _hub_used(game, value: Variant) -> bool:
 	if not value is Dictionary:
 		return false
+	if value.has("dungeon_visited") and not _integer(value.dungeon_visited, 0, 255): return false
 	if value.has("leader_facing"):
 		if not _point(value.leader_facing):
 			return false
@@ -193,14 +218,30 @@ static func _hub_used(game, value: Variant) -> bool:
 			return true
 		if not _integer(vm.get("script_id"), 0, 255) or not game.hubs.scripts.has(str(int(vm.script_id))) or not _room(game, vm.get("hub_id")):
 			return false
-		if not _integer(vm.get("pc"), 0, game.hubs.scripts[str(int(vm.script_id))].instructions.size()) or not vm.get("actors") is Dictionary:
+		var program: Array = game.hubs.scripts[str(int(vm.script_id))].instructions
+		if not _integer(vm.get("pc"), 0, program.size()) or not vm.get("actors") is Dictionary:
+			return false
+		# The controller persists the dialogue instruction itself, or the
+		# instruction after a choice. Other PCs would skip/replay story effects.
+		var pc := int(vm.pc)
+		if not ((pc < program.size() and program[pc].kind == "dialogue") or (pc > 0 and program[pc - 1].kind == "choice")):
 			return false
 		for key in vm.actors:
 			var actor = vm.actors[key]
-			if not _numeric_key(key) or not actor is Dictionary or not _point(actor.get("position")) or not _integer(actor.get("sprite_id"), 0, 255):
+			if not _numeric_key(key) or not _integer(int(key), 2, 255) or not actor is Dictionary or not _point(actor.get("position")) or not _integer(actor.get("sprite_id"), 0, 255):
 				return false
+			if actor.has("actor_id") and (not _integer(actor.actor_id, 2, 255) or int(actor.actor_id) != int(key)): return false
 			if actor.has("facing") and not _integer(actor.facing, 1, 4): return false
 			if actor.has("movement_flags") and not _integer(actor.movement_flags, 0, 255): return false
+			if actor.has("interaction_flags") and not _integer(actor.interaction_flags, 0, 255): return false
+			if actor.has("wander_bounds"):
+				if not actor.wander_bounds is Array or actor.wander_bounds.size() != 4: return false
+				for coordinate in actor.wander_bounds:
+					if not _integer(coordinate, -256, 512): return false
+			if actor.has("render_position"):
+				if not actor.render_position is Array or actor.render_position.size() != 2: return false
+				for coordinate in actor.render_position:
+					if not typeof(coordinate) in [TYPE_INT, TYPE_FLOAT] or not is_finite(float(coordinate)) or float(coordinate) < -4096 or float(coordinate) > 8192: return false
 			for flag in ["hidden", "spawned"]:
 				if actor.has(flag) and not actor[flag] is bool: return false
 	return true
@@ -241,6 +282,17 @@ static func _expanded(game, state: Dictionary, required: bool) -> bool:
 		return false
 	if state.has("parties") and not _parties(game, state.parties):
 		return false
+	if state.has("party") and state.has("route") and state.party[0] != state.route:
+		return false
+	if state.has("parties"):
+		# Final battle deployment and revived companions may span routes;
+		# membership must exist in the union, rather than only the active team.
+		var members: Array = state.parties.alm + state.parties.celica
+		for id in state.get("party", []):
+			if not members.has(id): return false
+		if state.has("roster"):
+			for id in members:
+				if not state.roster.has(id): return false
 	if state.has("route_positions"):
 		if not state.route_positions is Dictionary:
 			return false
@@ -290,6 +342,8 @@ static func _expanded(game, state: Dictionary, required: bool) -> bool:
 					return false
 	if state.has("hub_used") and not _hub_used(game, state.hub_used):
 		return false
+	if state.has("hub_id") and not state.get("hub_used", {}).get("event_vm", {}).is_empty():
+		if int(state.hub_used.event_vm.hub_id) != int(state.hub_id): return false
 	if state.has("battle_settled") and not state.battle_settled is bool:
 		return false
 	if state.has("battle_return"):

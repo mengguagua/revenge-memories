@@ -1,0 +1,34 @@
+{
+	"checks": 35,
+	"failures": [
+		"Dialogue owns input when shortcut 4194306 is pressed",
+		"Dialogue owns input when shortcut 65 is pressed",
+		"Dialogue owns input when shortcut 83 is pressed",
+		"Dialogue still completes original transition into chapter two",
+		"Completed transition releases its VM checkpoint",
+		"VM choice owns input when shortcut 4194306 is pressed",
+		"Shortcut 4194306 preserves original progress choice callback",
+		"VM choice owns input when shortcut 65 is pressed",
+		"Shortcut 65 preserves original progress choice callback",
+		"VM choice owns input when shortcut 83 is pressed",
+		"Shortcut 83 preserves original progress choice callback",
+		"Training resumes and releases keyboard ownership",
+		"Training's original final flag is applied",
+		"Shortcut 4194306 cannot replace a pending free hub choice",
+		"Shortcut 65 cannot replace a pending free hub choice",
+		"Shortcut 83 cannot replace a pending free hub choice",
+		"System shortcut cannot replace the pending status page",
+		"Shortcut 4194306 cannot replace an in-progress native step",
+		"Shortcut 65 cannot replace an in-progress native step",
+		"Shortcut 83 cannot replace an in-progress native step",
+		"Real movement reaches its target and leaves input unlocked"
+	],
+	"scenarios": [
+		"source script16 dialogue + TAB/A/S -> original chapter transition",
+		"source training progress choice + TAB/A/S -> original continuation",
+		"idle system/status access; pending choices and pages protected",
+		"real timed source movement + TAB/A/S -> complete target position"
+	],
+	"scope": "Actual main keyboard input and original hub VM/dialogue/choice; one real timed step; isolated save, headless.",
+	"user_save_accessed": false
+}

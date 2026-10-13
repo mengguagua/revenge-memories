@@ -1,0 +1,37 @@
+{
+  "checks": 49,
+  "failures": [],
+  "limits": "Deterministic boundary probes and source inspection, not a full natural campaign playthrough or GUI/animation inspection.",
+  "reproduced_before_fix": {
+    "failed_checks": 5,
+    "log": "/private/tmp/fe2-round3-inventory-before.log",
+    "native_map4_live_enemies_after_commander_removed": 6,
+    "reported_free_before": 14,
+    "source_free_expected": 13
+  },
+  "samples": [
+    {
+      "available": 13,
+      "expected": 13,
+      "live_enemies": 6,
+      "probe": "commander_removed"
+    },
+    {
+      "convoy_after": 40,
+      "probe": "full_convoy_fifo_suspend",
+      "queue_after": 0,
+      "queue_before": 2
+    }
+  ],
+  "scope": "New native-State probes: FIFO loot across full convoy suspend/resume, automatic death/neutral overflow conservation, neutral-to-formal recruitment, Cantor vanish versus combat drops, original enemy deployment slot reservation after casualties/reorder, ineligible rare drops do not advance RNG.",
+  "source": [
+    "bank003.asm:L0392BF-L0392E2",
+    "bank003.asm:L03941B-L039444",
+    "bank003.asm:L039496-L039544",
+    "bank003.asm:L03956A-L0395E9",
+    "bank006.asm:L069D28-L069DD1",
+    "bank006.asm:L06AA62",
+    "bank006.asm:L06B0E8-L06B13C",
+    "bank008.asm:L08A3EE"
+  ]
+}

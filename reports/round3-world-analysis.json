@@ -1,0 +1,100 @@
+{
+  "round": 3,
+  "findings": [
+    {
+      "problem": "同次旅行在已排队军生成后继续概率援军，或失败后落入另一军生成，违背单次排队分配优先。",
+      "reproduction": "queued_army_0=true、reinforcement_state_3=1、rng_state=146：修前节点32同时出现group32与64；双排队bit0/bit1同tick一起消耗；目标32已两队时还在24生成普通援军。",
+      "fix": "首个有效queue仅尝试一次；成功清bit、失败保留bit，随后返回，不再消耗概率RNG。",
+      "file": "core/scenario_rules.gd",
+      "source": "/private/tmp/fe2-analysis-20261012/src/bank008.asm:L089F15-L089F44 -> L089FBC -> L089FCA -> L08A027"
+    },
+    {
+      "problem": "脚本queue的固定塔塔拉(group32)与group50被移动元数据标成游军，会移到相邻玩家节点并制造敌方先手。",
+      "reproduction": "节点31玩家、queue0生成水门32；第二次travel tick修前group32从32移到31。group50在40也会攻击39。",
+      "fix": "_add_army仅group>=60建立mobile元数据；_advance_mobile_armies也跳过<60，兼容旧存档。",
+      "file": "core/scenario_rules.gd",
+      "source": "/private/tmp/fe2-analysis-20261012/src/bank008.asm:L08A130/L08A133；bank007.asm:L07A4F3/L07A540"
+    },
+    {
+      "problem": "龙谷gate32强制第6生成器仍先掷一次普通生成器选择随机数，改变后续龙军概率结果。",
+      "reproduction": "第四波50%、rng_state=146：源唯一概率roll78应拒绝；修前多选择roll后概率变成0，错误生成group76。seed0时虽两者都生成，但修前多推进一次RNG。",
+      "fix": "forced_dragon分支直接选generator6；普通分支才进行随机选择。",
+      "file": "core/scenario_rules.gd",
+      "source": "/private/tmp/fe2-analysis-20261012/src/bank008.asm:L089F4A-L089F5F -> L089F83；forced路径不执行L089F64-L089F75后的L0FC068生成器选择"
+    }
+  ],
+  "new_checks": {
+    "before": {
+      "checks": 79,
+      "failures": [
+        "Scripted water-gate queue takes the sole allocation before a successful random wave",
+        "A queued allocation does not consume probabilistic generator RNG",
+        "Two queued source bits allocate only the lower bit per world action",
+        "Higher queued bit waits until the next world action",
+        "Failed queued allocation does not fall through to another generator",
+        "Failed queued allocation does not advance unrelated wave RNG",
+        "Queued Tatara group32 has source mobility0",
+        "Stationary scripted boss remains at the water gate across travel ticks",
+        "Stationary scripted boss cannot create a false enemy-initiated encounter",
+        "Queued group50 also keeps source mobility0 beside a player party",
+        "True source reinforcement group62 retains movement metadata"
+      ],
+      "limits": "Deterministic checkpoints and source-table travel steps, not frame-exact RNG scheduling, all natural battles or graphics.",
+      "scope": "Native queued army allocation and failed allocation priority; fixed boss mobility; partial casualties after enemy retreat and route switching; all five cemetery variants in chapters3/4; chapter ID lifecycle and source slot capacity.",
+      "source_contract": "bank008 L089F15-L089F44/L089FBC selects one queued army before probability generators; L08A130 sets group<60 mobility0; bank007 L07A4F3 skips mobility0; bank008 L089D38 cemetery slot13, L089FCA ordinary13 slots; L08A095 per-army masks."
+    },
+    "after": {
+      "checks": 87,
+      "failures": [],
+      "limits": "Deterministic checkpoints and source-table travel steps, not frame-exact RNG scheduling, all natural battles or graphics.",
+      "scope": "Native queued army allocation and failed allocation priority; fixed boss mobility; forced dragon-gate generator RNG; partial casualties after enemy retreat and route switching; all five cemetery variants in chapters3/4; chapter ID lifecycle and source slot capacity.",
+      "source_contract": "bank008 L089F15-L089F44/L089FBC selects one queued army before probability generators; L08A130 sets group<60 mobility0; bank007 L07A4F3 skips mobility0; bank008 L089F4A jumps past generator selection for the dragon gate; L089D38 cemetery slot13, L089FCA ordinary13 slots; L08A095 per-army masks."
+    },
+    "dragon_before": {
+      "checks": 87,
+      "failures": [
+        "Forced dragon gate uses the first source probability roll and rejects roll78 for the50-percent fourth wave",
+        "Forced dragon generator bypasses the ordinary generator selection RNG",
+        "Forced dragon wave accepts its first roll21 and consumes exactly one RNG step"
+      ],
+      "limits": "Deterministic checkpoints and source-table travel steps, not frame-exact RNG scheduling, all natural battles or graphics.",
+      "scope": "Native queued army allocation and failed allocation priority; fixed boss mobility; forced dragon-gate generator RNG; partial casualties after enemy retreat and route switching; all five cemetery variants in chapters3/4; chapter ID lifecycle and source slot capacity.",
+      "source_contract": "bank008 L089F15-L089F44/L089FBC selects one queued army before probability generators; L08A130 sets group<60 mobility0; bank007 L07A4F3 skips mobility0; bank008 L089F4A jumps past generator selection for the dragon gate; L089D38 cemetery slot13, L089FCA ordinary13 slots; L08A095 per-army masks."
+    }
+  },
+  "focused_regression": {
+    "test_spot_world.gd": {
+      "checks": 67,
+      "failures": 0
+    },
+    "test_scenario_rules.gd": {
+      "checks": 57,
+      "failures": 0
+    }
+  },
+  "verified_scenarios": [
+    "两路切换及独立存档重载保留军ID",
+    "同模板一静一动汇合后敌方退却与再次遭遇",
+    "退却伤亡仍只附属于原军实例",
+    "chapter3和chapter4全部5种墓地变体保留slot13，清除墓地不释放ordinary13容量",
+    "章切换重建军队不复用旧ID，移动元数据归零",
+    "龙谷强制生成器跳过选择RNG，第四波50%边界成功/失败，普通援军仍保留两次随机推进"
+  ],
+  "limitations": [
+    "只headless，未做新增视觉改动或窗口启动",
+    "确定性源合法检查点与source route step，非帧级随机调度完全复刻",
+    "未自然逐关通关全80关"
+  ],
+  "logs": [
+    "/private/tmp/round3-world-before.log",
+    "/private/tmp/round3-world-after.log",
+    "/private/tmp/round3-world-regression.log",
+    "/private/tmp/round3-scenario-regression.log",
+    "/private/tmp/round3-dragon-before.log"
+  ],
+  "save_paths": [
+    "res://reports/test-round3-world-save.json",
+    "res://reports/test-spot-world-save.json"
+  ],
+  "git": "未stage、commit、push"
+}

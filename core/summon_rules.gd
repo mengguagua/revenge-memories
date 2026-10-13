@@ -70,14 +70,17 @@ static func spawn_unit(caster: Dictionary, cid: int, spec: Dictionary = {}, rout
 static func available_slots(game, side: String) -> int:
 	# L0392BF keeps dead formal-player slots occupied, but reuses dead
 	# phantoms. L03941B reserves enemy slot0 and reuses other dead slots.
-	var occupied := 0
+	# Reserve the physical enemy slot0 even when its dead commander was
+	# pruned during survivor restoration. Array order is not slot identity.
+	var occupied := 1 if side == "enemy" else 0
 	var first_enemy := true
 	for unit in game.units:
 		if str(unit.get("side","")) != side: continue
 		if side == "player":
 			if int(unit.get("character_id",0)) != 35 or int(unit.get("hp",0)) > 0: occupied += 1
 		else:
-			if first_enemy or int(unit.get("hp",0)) > 0: occupied += 1
+			var commander := int(unit.enemy_slot) == 0 if unit.has("enemy_slot") else first_enemy
+			if not commander and int(unit.get("hp",0)) > 0: occupied += 1
 			first_enemy = false
 	return maxi(0,CAPACITY-occupied)
 

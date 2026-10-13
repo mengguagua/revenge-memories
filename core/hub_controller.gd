@@ -55,7 +55,7 @@ func enter_world() -> bool:
 	game.hub_used["dungeon_visited"] = 0
 	if not game.enter_world_hub():
 		return false
-	var entry: Dictionary = game.hubs.world_entries.get(str(game.world_node), {})
+	var entry: Dictionary = game.world_hub_entry()
 	facing = DIRS[clampi(int(entry.get("facing",3)),1,4)]
 	_setup(true)
 	return true
@@ -101,7 +101,9 @@ func _setup(check_entry: bool) -> void:
 	ui.menu_items.clear()
 	ui.view = "hub"
 	game.mode = "hub"
-	# Zero/255 boundary spawns are source shorthand for the opposite edge.
+	# Internal portals can still use source boundary shorthand coordinates.
+	if not check_entry and game.hub_used.get("event_vm", {}).is_empty():
+		game.hub_position = _recover_closed_gate_exterior(game.hub_position)
 	game.hub_position = _entry_position(game.hub_position)
 	render_position = Vector2(game.hub_position) * TILE
 	portal_guard_position = game.hub_position
@@ -111,6 +113,21 @@ func _setup(check_entry: bool) -> void:
 		_check_room_encounter()
 		if ui.view == "hub":
 			_check_cell()
+
+func _recover_closed_gate_exterior(at: Vector2i) -> Vector2i:
+	# Older world-entry decoding interpreted a conditional-entry selector as
+	# a coordinate. Recover only the resulting isolated, closed gate exterior;
+	# ordinary room positions, open gates and resumable source scripts stay put.
+	if not _ground(at):
+		return at
+	if game.hub_id == 9 and at.x >= 0 and at.x < 9:
+		if at.y <= 1 and _tile(Vector2i(3,1)) == 207:
+			return Vector2i(3,12)
+		if at.y >= 13 and _tile(Vector2i(3,13)) == 207:
+			return Vector2i(3,3)
+	if game.hub_id == 15 and at.y <= 1 and not _ground(Vector2i(11,1)):
+		return Vector2i(11,19)
+	return at
 
 func _entry_position(at: Vector2i) -> Vector2i:
 	var p := at
@@ -356,6 +373,7 @@ func _leave_world(destination: int = 0) -> void:
 		game.previous_world_node = game.world_node
 		game.world_node = destination
 		game.route_positions[game.route] = destination
+	game.remember_world_approach()
 	game.mode = "world"
 	game.hub_used.erase("event_vm")
 	ui.view = "world"
@@ -508,10 +526,12 @@ func _special(effect: int) -> bool:
 		3: shake_left = 160.0/60.0988
 		4:
 			game.flags.celica_captive = true
+			game.remember_world_approach()
 			game.parties[game.route] = game.party.duplicate()
 			game.route = "alm"
 			game.party = game.parties.alm.duplicate()
 			game.world_node = int(game.route_positions.alm)
+			game.restore_world_approach()
 			_finish_script()
 			_leave_world()
 			return true
@@ -706,7 +726,7 @@ func _sail() -> void:
 		if int(value): _leave_world(destination))
 
 func open_system_menu() -> void:
-	if script_id >= 0 or motion_left > 0:
+	if ui.view != "hub" or script_id >= 0 or motion_left > 0:
 		return
 	_choose("队伍",[{"label":"查看人物","value":"status"},{"label":"交换道具","value":"exchange"},{"label":"整理行囊","value":"convoy"},{"label":"记录进度","value":"save"},{"label":"继续探索","value":"close"}],func(value):
 		match str(value):
@@ -714,11 +734,14 @@ func open_system_menu() -> void:
 			"exchange": _exchange_first()
 			"convoy": _convoy_menu()
 			"save":
-				game.save_game()
-				_message("进度已经记录。")
+				_message("进度已经记录。" if game.save_game() else "保存失败，请重试。")
 		return)
 
 func open_status() -> void:
+	# Dialogue/choice callbacks and movement retain input until they finish.
+	# Replacing them with a shortcut menu can strand the active source VM.
+	if ui.view != "hub" or script_id >= 0 or motion_left > 0:
+		return
 	var options: Array = []
 	for id in game.party:
 		if not bool(game.roster[id].get("dead",false)):

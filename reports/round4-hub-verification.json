@@ -1,0 +1,26 @@
+{
+	"checks": 144,
+	"failures": [],
+	"limits": "Road/chapter landmarks skip preceding battles; no HP/enemy/reward changes and no claim of a natural full-campaign playthrough or graphical rendering.",
+	"non_instant_simulated_ticks": 5202,
+	"old_world_missing_approach_recovery": {
+		"position": [
+			11,
+			10
+		],
+		"previous_node": 15
+	},
+	"real_keyboard_walk_inputs": 236,
+	"scenarios": [
+		"Five conditional world entries / eleven original L0CB5B8 triples and facing values",
+		"Chapter2 real gate7->harbor travel; UP/walk/NPC/save/reload/cancel/confirm south exit",
+		"Chapter3 opposite harbor approach / closed south gate / actual north exit / route-switch and world-reload approach persistence / old missing-approach fallback",
+		"Real source37 promotion walk -> correct Mila entrance -> source36 sluice/NPC walk/wait -> save/reload/return portal -> source38 chapter4",
+		"Old version3 chapter3 world harbor save with self previous-node and missing per-route approach; production load, source interior entrance, legal return road and actual content walk",
+		"Old literal selector -> harbor/Mila closed exterior -> production save/load -> limited recovery and real content walking; open gate stays at its saved position",
+		"Original training choice cancel -> six non-instant steps -> source final dialogue/flag -> input release"
+	],
+	"scope": "Actual Main keyboard/controller, production travel/route/save APIs, original NPC/event programs, timed movement and source gates.",
+	"user_save_accessed": false,
+	"visible_or_focused_window": false
+}

@@ -1,0 +1,122 @@
+{
+  "round": 4,
+  "severity": "P1",
+  "finding": "Conditional world-entry selector was treated as a literal hub coordinate, stranding players outside closed story gates.",
+  "source_contract": {
+    "file": "/private/tmp/fe2-analysis-20261012/src/bank012.asm",
+    "routine": "L0CACD2-L0CAD35",
+    "tables": [
+      "L0CB5B8",
+      "L0CB5C2",
+      "L0CB5C8",
+      "L0CB5CE",
+      "L0CB5D7",
+      "L0CB5DD"
+    ],
+    "rule": "When packed entry row is zero, column selects a pointer to previous-node/packed-row-facing/column triples; five selectors contain eleven approaches."
+  },
+  "reproductions": [
+    {
+      "scenario": "Chapter2 source transition, gate7 road landmark with original armies unchanged, actual travel_to(57), actual main RIGHT/DOWN input",
+      "before": {
+        "spawn": [
+          2,
+          0
+        ],
+        "after_RIGHT": [
+          2,
+          0
+        ],
+        "after_DOWN": [
+          2,
+          0
+        ],
+        "closed_gate_tile": 207
+      },
+      "expected_source_spawn": [
+        3,
+        12
+      ],
+      "before_evidence": "reports/round4-hub-entry-reproduction-verification.json"
+    },
+    {
+      "scenario": "Chapter3 Celica temple; replay previous literal selector [4,0] -> normal setup -> production v3 save/load",
+      "before": {
+        "normalized_spawn": [
+          4,
+          1
+        ],
+        "actual_RIGHT_position": [
+          5,
+          1
+        ],
+        "content_path": false
+      },
+      "after": {
+        "resume_spawn": [
+          11,
+          19
+        ],
+        "actual_content_walk": true
+      }
+    },
+    {
+      "scenario": "Old chapter3 world harbor v3 save with self previous-node and no per-route approach",
+      "after": {
+        "position": [
+          11,
+          10
+        ],
+        "previous_node": 15
+      },
+      "progression": "Actual walk to harbor content and original north exit -> western road19; existing encounter can start.",
+      "limit": "Historical approach is missing and cannot be reconstructed exactly; use a legal clear road and a source interior entrance."
+    }
+  ],
+  "fixes": [
+    "Decode and retain all eleven original conditional approaches and packed facing values, preserving original selector metadata and all unrelated hub data.",
+    "Production GameState helper and controller both resolve the source arrival; route-specific predecessor state and hub world exits retain approach across route switches, saves and retries.",
+    "For missing approach metadata, use source chapter entrance fallback; for old hub resumes, recover only walkable isolated exterior tiles beyond a closed harbor/Mila gate and only with no active event_vm.",
+    "Keep normally reachable positions, open gates, pending source scripts, NPC/feature flags and tile changes intact."
+  ],
+  "modified_files": [
+    "core/hub_controller.gd",
+    "tools/extract_hubs.py",
+    "data/hubs.json",
+    "tests/test_round4_hub.gd"
+  ],
+  "root_integration_files": [
+    "core/game_state.gd",
+    "core/campaign_save_validation.gd"
+  ],
+  "verification": {
+    "checks": 144,
+    "failures": [],
+    "actual_keyboard_walk_inputs": 236,
+    "non_instant_ticks": 5202,
+    "source_scripts_reached_by_real_walking": [
+      0,
+      37,
+      36,
+      38
+    ],
+    "chapter4_reached": true,
+    "open_gate_position_preserved": true,
+    "production_legacy_save_load": true,
+    "NPC_feature_tile_progress_preserved": true,
+    "tool_syntax": "Python AST parsed; extracted unrelated data fields match source output"
+  },
+  "user_save_accessed": false,
+  "visible_or_focused_game_window_started": false,
+  "commit_or_push_performed": false,
+  "limits": [
+    "Chapter and road landmarks skip preceding battles; enemies/HP/rewards were not changed to claim progression.",
+    "Headless verification establishes input and VM progress, not graphical screenshot rendering.",
+    "No claim of a natural full-campaign playthrough or source frame timing equivalence.",
+    "Missing historical route approach can only be recovered conservatively, not exactly."
+  ],
+  "unfixed_low_priority_observation": {
+    "issue": "Source flag53 unmasks room4 NPCs while _refresh_actors can retain their prior hidden property in the same actor variant.",
+    "status": "Read-only candidate; not established as a campaign blocker and not changed in this round."
+  }
+}

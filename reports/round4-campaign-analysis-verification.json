@@ -1,0 +1,131 @@
+{
+  "round": 4,
+  "focus": "Campaign progression blockers, especially occupied world nodes after route switches",
+  "findings": [
+    {
+      "priority": "P1",
+      "problem": "Switching away from an occupied road and back forgets the current route's entry road. World travel, probability retreat and timeout retreat all lose the legal exit.",
+      "reproduction": [
+        "Native new_game -> next_chapter(1) -> recruit Mae -> next_chapter(2).",
+        "Alm travels castle52 -> 16 -> occupied17. Switch to Celica; travel18 -> occupied19.",
+        "Save via production writer to isolated report save, reload via production reader, switch back to Alm.",
+        "Before fix previous_world_node is set to17 although the source entry was16. world_neighbors=[]; retreat_destination17; roll0 cannot offer retreat; map17 turn40 timeout returns missing_player_origin."
+      ],
+      "root_cause": "A single previous_world_node is reused between routes, and switch_route replaces it with the target's current position. Source previous-node table $6D16,X is per player route/army.",
+      "source": [
+        "src/bank006.asm L069164: LDX $6D11; LDA $6D16,X (normal retreat).",
+        "src/bank006.asm L06B7C6-L06B7C9: player route index selects $6D16,X for timeout retreat.",
+        "src/bank006.asm L068907-L068921: encounter return also selects source previous-node table."
+      ],
+      "fix": "GameState remembers and restores independent per-route entry nodes and incoming-army context; production save/load and retry retain them. Scenario first Celica altar handoff calls the same remember/restore helpers.",
+      "files": [
+        "core/game_state.gd",
+        "core/scenario_rules.gd"
+      ]
+    },
+    {
+      "priority": "P1",
+      "problem": "The active route's enemy-initiated encounter flags could be reused after switching to another party already standing on an enemy road, so retreats could select the wrong initiator and army.",
+      "evidence": "Before-fix code inspection showed switch_route retained the four global inventory encounter flags. After-fix executable case allocates a legal group64 army at29, real travel27->28 moves it onto Alm, switches to Celica's player-initiated19, saves/reloads it, switches back and times out the native stacked battle28.",
+      "fix": "The same per-route encounter helper retains the real allocated attacking instance and restores or clears the four flags for the target route.",
+      "verification": "Celica keeps source previous18/player initiative; Alm restores its incoming allocated army; timeout moves only that army to29 while stationary forest28 defenders remain.",
+      "files": [
+        "core/game_state.gd"
+      ],
+      "source": "bank006 L069127/L06B7A6 uses $7477 and per-source-army previous position; bank007 L07A52F records the first incoming attacker."
+    }
+  ],
+  "before": {
+    "checks": 50,
+    "failures": [
+      "Reloaded occupied Alm route restores its original entry road16",
+      "Switched-back player battle retains its source retreat destination16",
+      "Source probability roll0 offers retreat after route switch",
+      "Actual probability retreat exits to original road16",
+      "Source turn-limit retreat also preserves route entry road16",
+      "Returning to saved Celica restores its independent road18 entry"
+    ],
+    "limits": "Headless actual State/controller with source-valid milestone checkpoints for earlier resolved armies. No combat stat changes, no claim of natural full-campaign victory, no graphical rendering or frame-exact world RNG scheduling.",
+    "scope": "Chapter2 freeze and chapter3 independent routes after reload; actual Mila sluice VM, actual watergate chapter4 VM and north exit; actual dragon-valley trap, route switch, first Celica altar VM, saved capture checkpoint and legal escape road.",
+    "source_contract": "bank012 L0CABD3/L0CAC05/L0CAC4B; bank013 L0DB808/L0DB83C/L0DB8DB and L0D9633; bank006 L068DFB clears dragon gate bits33 only after Celica altar capture; bank006 L06B715 excludes valley36 from permanent generator shutdown."
+  },
+  "already_passed": [
+    "Actual Mila script36 enables source_flag48 and allows the source watergate chapter transition.",
+    "Actual watergate script38/chapter confirmation/north leave choice reaches road32 and can enter the source occupied border33.",
+    "Dragon entry correctly closes both roads while Celica remains selectable. Actual Celica altar script49 returns to Alm36, releases gate bits33, clears dialogue busy state and survives save/load.",
+    "Surviving dragons are retained at capture; a separate source-valid resolved-wave checkpoint admits road37, which still has its real source army."
+  ],
+  "focused_regression": {
+    "test_round3_world.gd": {
+      "checks": 87,
+      "failures": 0,
+      "log": "/private/tmp/round4-final-world.log"
+    },
+    "test_scenario_rules.gd": {
+      "checks": 57,
+      "failures": 0,
+      "log": "/private/tmp/round4-final-scenario.log"
+    },
+    "test_full_campaign_flow.gd": {
+      "checks": 505,
+      "failures": 0,
+      "entered_maps": 80,
+      "log": "/private/tmp/round4-final-flow.log",
+      "limits": "Native source milestone/map entry/result fixtures; no natural play-through claim."
+    }
+  },
+  "limits": [
+    "Only headless State/controller; no visible game window or graphics.",
+    "Earlier road victories are source-table checkpoints, never stat/damage changes or a claim of natural full-campaign play.",
+    "No real user save accessed.",
+    "No commit or push."
+  ],
+  "test": "tests/test_round4_campaign.gd",
+  "save": "res://reports/test-round4-campaign-save.json",
+  "logs": [
+    "/private/tmp/round4-campaign-before.log",
+    "/private/tmp/round4-campaign-after.log",
+    "/private/tmp/round4-final-campaign.log",
+    "/private/tmp/round4-final-world.log",
+    "/private/tmp/round4-final-scenario.log",
+    "/private/tmp/round4-final-flow.log"
+  ],
+  "after": {
+    "checks": 68,
+    "failures": [],
+    "limits": "Headless actual State/controller with source-valid milestone checkpoints for earlier resolved armies. No combat stat changes, no claim of natural full-campaign victory, no graphical rendering or frame-exact world RNG scheduling.",
+    "scope": "Chapter2 freeze and chapter3 independent routes/entry roads after reload; probability and timeout retreats after route switching; actual allocated mobile attacker context across route switch and reload; actual Mila sluice VM, watergate chapter4 VM and north exit; actual dragon-valley trap, first Celica altar VM, saved capture checkpoint and legal resolved-wave escape road.",
+    "source_contract": "bank006 L069164/L06B7C6 uses route-indexed previous-node table $6D16,X; bank007 L07A52F records first incoming attacker; bank012 L0CABD3/L0CAC05/L0CAC4B; bank013 L0DB808/L0DB83C/L0DB8DB and L0D9633; bank006 L068DFB clears dragon gate bits33 only after Celica altar capture; bank006 L06B715 excludes valley36 from permanent generator shutdown."
+  },
+  "additional_source_guard": "Dragon valley36 has source retreat chance0 and timeout255. The test preserves these restrictions; source capture restores Alm approach35 and only a separate legal resolved-wave checkpoint may exit toward37.",
+  "final_candidate": {
+    "tests": {
+      "test_round4_campaign.gd": {
+        "checks": 68,
+        "failures": 0,
+        "log": "/private/tmp/round4-final-campaign.log"
+      },
+      "test_round3_world.gd": {
+        "checks": 87,
+        "failures": 0,
+        "log": "/private/tmp/round4-final-world.log"
+      },
+      "test_scenario_rules.gd": {
+        "checks": 57,
+        "failures": 0,
+        "log": "/private/tmp/round4-final-scenario.log"
+      },
+      "test_full_campaign_flow.gd": {
+        "checks": 505,
+        "failures": 0,
+        "entered_maps": 80,
+        "log": "/private/tmp/round4-final-flow.log",
+        "limits": "Native source milestone/map entry/result fixtures; no natural play-through claim."
+      }
+    },
+    "checks": 717,
+    "failures": 0,
+    "runtime": "Godot4.7.1 --headless --audio-driver Dummy",
+    "review": "Independently reviewed travel/switch/save-load/retry and scenario62/hub special4 automatic route handoffs. No additional certain gameplay blocker found."
+  }
+}

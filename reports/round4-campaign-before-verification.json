@@ -1,0 +1,14 @@
+{
+  "checks": 50,
+  "failures": [
+    "Reloaded occupied Alm route restores its original entry road16",
+    "Switched-back player battle retains its source retreat destination16",
+    "Source probability roll0 offers retreat after route switch",
+    "Actual probability retreat exits to original road16",
+    "Source turn-limit retreat also preserves route entry road16",
+    "Returning to saved Celica restores its independent road18 entry"
+  ],
+  "limits": "Headless actual State/controller with source-valid milestone checkpoints for earlier resolved armies. No combat stat changes, no claim of natural full-campaign victory, no graphical rendering or frame-exact world RNG scheduling.",
+  "scope": "Chapter2 freeze and chapter3 independent routes after reload; actual Mila sluice VM, actual watergate chapter4 VM and north exit; actual dragon-valley trap, route switch, first Celica altar VM, saved capture checkpoint and legal escape road.",
+  "source_contract": "bank012 L0CABD3/L0CAC05/L0CAC4B; bank013 L0DB808/L0DB83C/L0DB8DB and L0D9633; bank006 L068DFB clears dragon gate bits33 only after Celica altar capture; bank006 L06B715 excludes valley36 from permanent generator shutdown."
+}

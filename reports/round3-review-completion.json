@@ -1,0 +1,143 @@
+{
+  "round": 3,
+  "status": "completed",
+  "started_at": "2026-10-13T14:14:01+08:00",
+  "completed_at": "2026-10-13T14:37:47.021044+08:00",
+  "request_scope": "One additional review/analysis/fix round; no commit or push.",
+  "change_scale": "Targeted shared save, campaign VM/input, reinforcement and summon-rule changes; meaningful new reproductions plus risk-related existing regression.",
+  "fixed_findings": [
+    {
+      "severity": "P1",
+      "issue": "Hub TAB/A shortcuts replaced pending dialogue or choices and stranded the source VM",
+      "fix": "Status/system menus open only during idle hub exploration without active VM or motion. Existing callback remains until completion.",
+      "files": [
+        "core/hub_controller.gd"
+      ],
+      "evidence": "reports/round3-controller-reproduction.json"
+    },
+    {
+      "severity": "P2",
+      "issue": "Hub manual save claimed success after failed write",
+      "fix": "Display the actual production save_game result; failed write creates neither save nor temporary file.",
+      "files": [
+        "core/hub_controller.gd"
+      ],
+      "evidence": "reports/round3-save-feedback-reproduction.json"
+    },
+    {
+      "severity": "P1",
+      "issue": "v1 migration captured a one-member route party in the retry snapshot despite existing recruits",
+      "fix": "Synchronize the actual v1 party before start_battle captures the retry checkpoint. Upgrade/resave/reload/retry preserves grown characters.",
+      "files": [
+        "core/game_state.gd"
+      ],
+      "evidence": "reports/round3-save-verification.json"
+    },
+    {
+      "severity": "P1",
+      "issue": "Suspend and retry preflight accepted contradictory route/party/roster identities and unsafe unit metadata",
+      "fix": "Validate leader, membership union, roster key/unit identity/side and missing numeric/boolean metadata before mutating live state. Keep final merged parties and old missing fields compatible.",
+      "files": [
+        "core/campaign_save_validation.gd"
+      ],
+      "evidence": "reports/round3-save-verification.json"
+    },
+    {
+      "severity": "P1",
+      "issue": "Story VM accepted another room, unsupported continuation PC and malformed NPC metadata",
+      "fix": "Validate current room, actual dialogue/choice checkpoint PC boundaries and actor movement/render metadata. Authentic dialogue and choice resume still reach chapter2.",
+      "files": [
+        "core/campaign_save_validation.gd"
+      ],
+      "evidence": "reports/round3-save-verification.json"
+    },
+    {
+      "severity": "P2",
+      "issue": "One world action could allocate multiple queued armies plus an ordinary probability wave",
+      "fix": "Attempt only the first queued army; retain on failure and skip ordinary wave generation when a queue exists.",
+      "source": "bank008 L089F15-L089F44",
+      "files": [
+        "core/scenario_rules.gd"
+      ],
+      "evidence": "reports/round3-world-reproduction.json"
+    },
+    {
+      "severity": "P2",
+      "issue": "Source stationary army templates below60 were incorrectly moved",
+      "fix": "Keep fixed armies at their locations, including saves containing old movement metadata.",
+      "source": "bank008 L08A130; bank007 L07A4F3",
+      "files": [
+        "core/scenario_rules.gd"
+      ],
+      "evidence": "reports/round3-world-analysis.json"
+    },
+    {
+      "severity": "P2",
+      "issue": "Forced Dragon Valley generator consumed an extra selection RNG roll",
+      "fix": "Skip ordinary generator selection for forced generator6. Seed146 wave4 now rejects at source roll78; previously the extra roll advanced to0 and spawned group76.",
+      "source": "bank008 L089F4A-L089F83",
+      "files": [
+        "core/scenario_rules.gd"
+      ],
+      "evidence": "reports/round3-dragon-reproduction.json"
+    },
+    {
+      "severity": "P2",
+      "issue": "Enemy summon capacity counted commander slot0 incorrectly after casualty pruning or array reordering",
+      "fix": "Always reserve physical slot0 and prioritize enemy_slot metadata. The actual allocator already restricted slots1..19; no extra monster was claimed to have spawned.",
+      "source": "bank003 L03941B",
+      "files": [
+        "core/summon_rules.gd"
+      ],
+      "evidence": "reports/round3-inventory-verification.json"
+    }
+  ],
+  "validation": {
+    "headless_suites": 16,
+    "checks": 2337,
+    "new_scenario_checks": 324,
+    "failed_suites": [],
+    "regression_report": "reports/round3-regression.json",
+    "first_two_natural_battles": "map1 victory turn3; map2 victory turn4; unmodified enemies",
+    "all_80_map_entry_and_settlement_flow": "505 checks passed; milestone fixtures",
+    "guarded_offscreen_screenshots": 3,
+    "safe_area_errors": [],
+    "visual_report": "reports/round3-visual-verification.json",
+    "external_directory_pack_test": "FE2_PACK_VERIFY PASS; source army identities and new hub shortcut guard verified in packaged bytecode",
+    "signature": "codesign --verify --deep --strict passed",
+    "git_diff_whitespace_check": "passed"
+  },
+  "package": {
+    "application": "/Users/gcc/gaocc/project/revenge-memories/dist/FE2Campaign.app",
+    "resource_pack_bytes": 94451524,
+    "sha256": "e4427ab3a4214fdfed823d843063badd11294b7b9dda43f03410c3ae6380d993",
+    "embedded_pack_identical": true,
+    "previous_0_5_application_preserved": true
+  },
+  "source_files_sha256": {
+    "core/hub_controller.gd": "23209c8ce47624a26d048ee913d78f6b39baf7773f0f33bc5906ddaf248c7bda",
+    "core/game_state.gd": "55f9cf265352e0695d2d70c803a8f25ea3c63f55f6097cc24674af08c42fe7cb",
+    "core/campaign_save_validation.gd": "314be820365e6feba412cb993e4c3c8dea7afff51e34dba2cfc5e2763eb79c1a",
+    "core/scenario_rules.gd": "2600a6baced6cdefac688aaaed169380e597b78d070696a21796a6a31a808eec",
+    "core/summon_rules.gd": "93df8a9fb5943269ab10b2172d912da5890d40a6cc274fee823990729a7571f9"
+  },
+  "fixture_corrections": [
+    {
+      "file": "tests/test_second_stage_flow.gd",
+      "change": "Use real recruit() before capturing the retry snapshot, rather than assigning party while leaving parties.alm at its default; natural battle statistics unchanged."
+    }
+  ],
+  "user_save_accessed": false,
+  "visible_or_focused_game_window_started": false,
+  "commit_or_push_performed": false,
+  "remaining_limits": [
+    "All80 entry/story/settlement fixtures do not establish one natural playthrough of all80 battles.",
+    "World armies still use world-action scheduling rather than original per-frame random ordering.",
+    "Save preflight covers the tested realistic malformed state/identity/VM cases, not arbitrary hostile dictionaries.",
+    "Missing historical per-army casualty identity in old saves cannot be reconstructed. Existing audio and presentation approximations remain."
+  ],
+  "environment_diagnostics": [
+    "macOS CA read diagnostic; some old scene suites report object/resource cleanup warnings without script errors.",
+    "Resource pack export succeeds; sandbox refuses writing external Godot editor settings without affecting external-directory pack verification."
+  ]
+}

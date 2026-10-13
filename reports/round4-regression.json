@@ -1,0 +1,176 @@
+{
+  "round": 4,
+  "completed_at_utc": "2026-10-13T07:23:25.358994+00:00",
+  "suites": [
+    {
+      "suite": "test_round4_hub",
+      "checks": 144,
+      "exit_code": 0,
+      "errors": [],
+      "diagnostics": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ],
+      "headless": true,
+      "audio_driver": "Dummy",
+      "engine": "Godot4.7.1",
+      "log": "/private/tmp/round4-final-official-test_round4_hub-output.log"
+    },
+    {
+      "suite": "test_hub_controller",
+      "checks": 547,
+      "exit_code": 0,
+      "errors": [],
+      "diagnostics": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ],
+      "headless": true,
+      "audio_driver": "Dummy",
+      "engine": "Godot4.7.1",
+      "log": "/private/tmp/round4-final-official-test_hub_controller-output.log"
+    },
+    {
+      "suite": "test_round3_controller",
+      "checks": 42,
+      "exit_code": 0,
+      "errors": [],
+      "diagnostics": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ],
+      "headless": true,
+      "audio_driver": "Dummy",
+      "engine": "Godot4.7.1",
+      "log": "/private/tmp/round4-final-official-test_round3_controller-output.log"
+    },
+    {
+      "suite": "test_round4_campaign",
+      "checks": 68,
+      "exit_code": 0,
+      "errors": [],
+      "diagnostics": [],
+      "headless": true,
+      "audio_driver": "Dummy",
+      "engine": "Godot4.7.1",
+      "log": "/private/tmp/round4-final-campaign.log"
+    },
+    {
+      "suite": "test_round3_world",
+      "checks": 87,
+      "exit_code": 0,
+      "errors": [],
+      "diagnostics": [],
+      "headless": true,
+      "audio_driver": "Dummy",
+      "engine": "Godot4.7.1",
+      "log": "/private/tmp/round4-final-world.log"
+    },
+    {
+      "suite": "test_scenario_rules",
+      "checks": 57,
+      "exit_code": 0,
+      "errors": [],
+      "diagnostics": [],
+      "headless": true,
+      "audio_driver": "Dummy",
+      "engine": "Godot4.7.1",
+      "log": "/private/tmp/round4-final-scenario.log"
+    },
+    {
+      "suite": "test_full_campaign_flow",
+      "checks": 505,
+      "exit_code": 0,
+      "errors": [],
+      "diagnostics": [],
+      "headless": true,
+      "audio_driver": "Dummy",
+      "engine": "Godot4.7.1",
+      "log": "/private/tmp/round4-final-flow.log"
+    },
+    {
+      "suite": "test_round4_resume",
+      "checks": 185,
+      "exit_code": 0,
+      "errors": [],
+      "diagnostics": [],
+      "headless": true,
+      "audio_driver": "Dummy",
+      "engine": "Godot4.7.1",
+      "log": "/private/tmp/round4-final-resume.log"
+    },
+    {
+      "suite": "test_spot_save",
+      "checks": 72,
+      "exit_code": 0,
+      "errors": [],
+      "diagnostics": [],
+      "headless": true,
+      "audio_driver": "Dummy",
+      "engine": "Godot4.7.1",
+      "log": "/private/tmp/round4-final-spot-save.log"
+    },
+    {
+      "suite": "test_campaign_continuity",
+      "checks": 139,
+      "exit_code": 0,
+      "errors": [],
+      "diagnostics": [],
+      "headless": true,
+      "audio_driver": "Dummy",
+      "engine": "Godot4.7.1",
+      "log": "/private/tmp/round4-final-campaign-continuity.log"
+    },
+    {
+      "suite": "test_round3_save",
+      "checks": 146,
+      "exit_code": 0,
+      "errors": [],
+      "diagnostics": [],
+      "headless": true,
+      "audio_driver": "Dummy",
+      "engine": "Godot4.7.1",
+      "log": "/private/tmp/round4-final-round3-save.log"
+    },
+    {
+      "suite": "test_game_state",
+      "checks": 83,
+      "exit_code": 0,
+      "errors": [],
+      "diagnostics": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ],
+      "headless": true,
+      "audio_driver": "Dummy",
+      "engine": "Godot4.7.1",
+      "log": "/private/tmp/round4-final-test_game_state-output.log"
+    },
+    {
+      "suite": "test_second_stage_flow",
+      "checks": 107,
+      "exit_code": 0,
+      "errors": [],
+      "diagnostics": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ],
+      "headless": true,
+      "audio_driver": "Dummy",
+      "engine": "Godot4.7.1",
+      "log": "/private/tmp/round4-final-test_second_stage_flow-output.log"
+    },
+    {
+      "suite": "test_round4_route_context",
+      "checks": 32,
+      "exit_code": 0,
+      "errors": [],
+      "diagnostics": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ],
+      "headless": true,
+      "audio_driver": "Dummy",
+      "engine": "Godot4.7.1",
+      "log": "/private/tmp/round4-final-route-context-output.log"
+    }
+  ],
+  "total_checks": 2214,
+  "failed_suites": [],
+  "user_save_accessed": false,
+  "scope": "Progression blockers: conditional hub entrances, per-route entry roads and attacker context, source VM handoffs, suspend/retry and related native campaign flows. Only selected related suites; no complete natural campaign claim."
+}

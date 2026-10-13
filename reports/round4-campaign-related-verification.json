@@ -1,0 +1,39 @@
+{
+  "round": 4,
+  "scope": "Campaign/world-route final candidate integration",
+  "checks": 717,
+  "failures": 0,
+  "tests": {
+    "test_round4_campaign.gd": {
+      "checks": 68,
+      "failures": 0,
+      "log": "/private/tmp/round4-final-campaign.log"
+    },
+    "test_round3_world.gd": {
+      "checks": 87,
+      "failures": 0,
+      "log": "/private/tmp/round4-final-world.log"
+    },
+    "test_scenario_rules.gd": {
+      "checks": 57,
+      "failures": 0,
+      "log": "/private/tmp/round4-final-scenario.log"
+    },
+    "test_full_campaign_flow.gd": {
+      "checks": 505,
+      "failures": 0,
+      "entered_maps": 80,
+      "log": "/private/tmp/round4-final-flow.log",
+      "limits": "Native source milestone/map entry/result fixtures; no natural play-through claim."
+    }
+  },
+  "analysis_report": "reports/round4-campaign-analysis-verification.json",
+  "limits": [
+    "Only headless State/controller; no visible game window or graphics.",
+    "Earlier road victories are source-table checkpoints, never stat/damage changes or a claim of natural full-campaign play.",
+    "No real user save accessed.",
+    "No commit or push."
+  ],
+  "not_natural_full_campaign": true,
+  "read_review": "travel -> switch -> world load; per-route predecessor and initiating army context; battle retry snapshot; automatic scenario62 and hub special4 handoffs."
+}

@@ -93,10 +93,14 @@ static func on_battle_start(game) -> void:
 			game.flags.scenario_celica_story_phase = 3
 			game.flags.dragon_valley_released = true
 			game.flags.world_gate_bits = int(game.flags.get("world_gate_bits", 22)) & ~33
+			if game.has_method("remember_world_approach"):
+				game.remember_world_approach()
 			game.parties.celica = game.party.duplicate()
 			game.route = "alm"
 			game.party = game.parties.alm.duplicate()
 			game.world_node = int(game.route_positions.get("alm", 36))
+			if game.has_method("restore_world_approach"):
+				game.restore_world_approach()
 			game.mode = "world"
 			game.units.clear()
 			_dialogue(game, "events", 13, "celica_first_altar")
@@ -340,6 +344,10 @@ static func on_travel(game) -> void:
 				break
 		if _add_army(game, target, int(queued.group_id), origin):
 			game.flags.erase(flag)
+		# L089F15-L089F44 picks the first set queue bit and jumps directly
+		# to L089FBC. One allocation is attempted per source action, even
+		# if it fails; a queued army never also rolls an ordinary wave.
+		return
 	# Probabilistic reinforcement selection uses one active generator per
 	# world action, matching the source structure (not source frame timing).
 	var active: Array = []
@@ -351,9 +359,13 @@ static func on_travel(game) -> void:
 	if active.is_empty():
 		return
 	var forced_dragon := (int(game.flags.get("world_gate_bits", 0)) & 32) != 0
-	var generator: Dictionary = active[game.random_bounded(active.size())]
+	var generator: Dictionary
 	if forced_dragon:
+		# L089F4A jumps to L089F83 with generator6 already chosen;
+		# the extra selection roll would change the wave probability RNG.
 		generator = data().reinforcement_generators[6]
+	else:
+		generator = active[game.random_bounded(active.size())]
 	var index := int(generator.generator_index)
 	var state := clampi(int(game.flags.get("reinforcement_state_" + str(index), 1)), 1, generator.waves.size())
 	var wave: Dictionary = generator.waves[state - 1]
@@ -361,7 +373,9 @@ static func on_travel(game) -> void:
 		_add_army(game, int(generator.origin_battle_map_id), int(wave.group_id), int(generator.origin_hub_world_node))
 
 static func _add_army(game, node: int, group_id: int, previous_node: int = -1) -> bool:
-	return not WorldArmies.add(game,node,group_id,previous_node).is_empty()
+	# L08A130 initializes mobility0 for templates below60. Scripted
+	# queues32/50 are fixed encounters, unlike the mobile wave templates.
+	return not WorldArmies.add(game,node,group_id,previous_node,group_id >= 60).is_empty()
 
 static func _advance_mobile_armies(game) -> void:
 	WorldArmies.ensure(game)
@@ -370,6 +384,9 @@ static func _advance_mobile_armies(game) -> void:
 		var node := int(record.node)
 		var group_id := int(record.group_id)
 		var identity := str(record.instance_id)
+		# Honor that source restriction for saves made before queued boss
+		# armies stopped receiving movement metadata as well.
+		if group_id < 60: continue
 		if WorldArmies.locate(game,identity).is_empty():
 			continue
 		if node == int(game.world_node):

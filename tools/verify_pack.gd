@@ -8,6 +8,7 @@ func _initialize() -> void:
 func run() -> void:
 	var errors: Array[String] = []
 	ui = load("res://scenes/main.tscn").instantiate()
+	ui.game.save_path = "/private/tmp/fe2-pack-verify-save.json"
 	root.add_child(ui)
 	if not ui.get_window().title.ends_with("0.6"):
 		errors.append("Packaged window does not identify version0.6")
@@ -90,10 +91,43 @@ func run() -> void:
 		for identity in army_ids:
 			if not ui.game.living("enemy").any(func(unit): return str(unit.get("army_instance", "")) == str(identity)):
 				errors.append("Packaged encounter lost army " + str(identity))
+	# Exercise the new hub shortcut guard in the delivered bytecode, using
+	# only a disposable save for the source VM's own checkpoint writes.
+	ui.game.new_game()
+	ui.instant_mode = true
+	ui.hub_controller.enter(1, Vector2i(5, 10))
+	var progress_choice := JSON.stringify(ui.hub_controller.choices)
+	ui._show_status()
+	if ui.view != "hub_choice" or not ui.hub_controller.choice_title.contains("记录进度") or JSON.stringify(ui.hub_controller.choices) != progress_choice:
+		errors.append("Packaged status shortcut replaces the source progress VM")
+	# Both occupied routes must retain their own exit after a roundtrip.
+	ui.game.new_game()
+	ui.game.recruit("lukas")
+	ui.game.next_chapter(1)
+	ui.game.recruit("mae")
+	ui.game.next_chapter(2)
+	ui.game.mode = "world"
+	if not (ui.game.travel_to(16) and ui.game.travel_to(17) and ui.game.switch_route() and ui.game.travel_to(19) and ui.game.switch_route()):
+		errors.append("Packaged independent route travel failed")
+	elif ui.game.world_node != 17 or ui.game.previous_world_node != 16 or not ui.game.world_neighbors().has(16):
+		errors.append("Packaged route roundtrip lost the occupied node's exit")
+	# The original zero-row value is an entry-table selector, not a tile.
+	ui.game.new_game()
+	ui.game.next_chapter(1)
+	ui.game.world_node = 57
+	ui.game.previous_world_node = 7
+	if not ui.game.enter_world_hub() or ui.game.hub_id != 9 or ui.game.hub_position != Vector2i(3, 12):
+		errors.append("Packaged harbor south approach remains outside its closed gate")
+	ui.game.chapter = 3
+	ui.game.previous_world_node = 19
+	if not ui.game.enter_world_hub() or ui.game.hub_position != Vector2i(3, 3):
+		errors.append("Packaged harbor north approach lost its source entry")
 	if FileAccess.file_exists("res://.reference/fe2.nes") or ResourceLoader.exists("res://tests/test_flow.gd") or DirAccess.dir_exists_absolute("res://tools") or FileAccess.file_exists("res://reports/capture-save.json"):
 		errors.append("Reference/test artifacts leaked into package")
 	print("FE2_PACK_VERIFY ", "PASS" if errors.is_empty() else errors)
 	ui.audio.stop_all()
 	ui.queue_free()
 	await create_timer(0.25).timeout
+	DirAccess.remove_absolute("/private/tmp/fe2-pack-verify-save.json")
+	DirAccess.remove_absolute("/private/tmp/fe2-pack-verify-save.json.tmp")
 	quit(0 if errors.is_empty() else 1)

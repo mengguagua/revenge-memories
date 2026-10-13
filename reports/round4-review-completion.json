@@ -1,0 +1,92 @@
+{
+  "round": 4,
+  "status": "completed",
+  "started_at": "2026-10-13T14:40:16+08:00",
+  "completed_at": "2026-10-13T15:23:25.358994+08:00",
+  "requested_focus": "Blockers: stuck controls and movable states that cannot advance the game.",
+  "fixed_findings": [
+    {
+      "priority": "P1",
+      "problem": "Conditional world-hub entry selector was treated as a coordinate; port and Mila arrivals were outside closed gates.",
+      "fix": "Decode source bank012 L0CACD2-L0CAD35 and eleven approaches for five world entries; restore only known isolated closed-gate exterior hub saves without an active VM.",
+      "evidence": "reports/round4-hub-entry-reproduction-verification.json",
+      "analysis": "reports/round4-hub-analysis-verification.json"
+    },
+    {
+      "priority": "P1",
+      "problem": "Switching away from and back to an occupied road discarded the entry node, removing the exit and manual/timeout retreat.",
+      "fix": "Persist each route predecessor; restore on manual switching and both source altar handoffs. Save/retry preserve the origin. Legacy absent history recovers a legal clear adjacent exit when possible.",
+      "before": "reports/round4-campaign-before-verification.json",
+      "after": [
+        "reports/round4-campaign-verification.json",
+        "reports/round4-route-context-verification.json"
+      ]
+    },
+    {
+      "priority": "P1",
+      "problem": "Enemy initiative and attacking army identity from one route leaked to the other route, choosing the wrong retreat initiator or army.",
+      "fix": "Keep the four incoming-army flags independently per route and restore the allocated attacking instance.",
+      "analysis": "reports/round4-campaign-analysis-verification.json"
+    }
+  ],
+  "verification": {
+    "headless_suites": 14,
+    "checks": 2214,
+    "failures": [],
+    "regression_report": "reports/round4-regression.json",
+    "source_approaches_checked": 11,
+    "real_keyboard_walk_inputs": 236,
+    "non_instant_ticks": 5202,
+    "guarded_screenshots": 3,
+    "safe_area_errors": [],
+    "visual_report": "reports/round4-visual-verification.json",
+    "milestone_scripts": [
+      0,
+      36,
+      37,
+      38,
+      49,
+      50
+    ],
+    "source_dragon_trap_preserved": true,
+    "known_self_origin_after_retreat_preserved": true,
+    "legacy_save_versions_checked": [
+      1,
+      2,
+      3
+    ]
+  },
+  "package": {
+    "application": "/Users/gcc/gaocc/project/revenge-memories/dist/FE2Campaign.app",
+    "pck_bytes": 94457364,
+    "pck_sha256": "fc672bb106e09f798b336e96085352ff06d419e3c94ff460bf6a1f2fd579f157",
+    "embedded_and_standalone_match": true,
+    "external_directory_verification": "FE2_PACK_VERIFY PASS",
+    "signature": "codesign --verify --deep --strict: valid",
+    "pack_verify_checks": [
+      "resources and licenses",
+      "independent armies",
+      "source VM shortcut ownership",
+      "both occupied route exits",
+      "two harbor source approaches"
+    ],
+    "old_0_5_application_preserved": true
+  },
+  "limits": [
+    "80-map deployment/settlement and late-game checkpoint fixtures do not establish natural victory in every late battle.",
+    "Missing old route history is ambiguous: conservative legal-road recovery cannot reconstruct the exact original route.",
+    "Source dragon valley deliberately has retreat chance0 and timeout255; preserved rather than mistaken for a bug."
+  ],
+  "diagnostics": [
+    "macOS CA lookup warning under sandbox is recorded per test; spot_save retains shutdown ObjectDB/resource references after passing assertions.",
+    "Pack export could not persist external Godot editor preferences under sandbox; export succeeded and independent pack/signature verification passed."
+  ],
+  "read_only_candidate": "Room4 same-variant NPC hidden-property refresh after source flag53 remains unconfirmed as a blocker; not changed.",
+  "git_remote": "git@github.com:mengguagua/revenge-memories.git",
+  "commit_performed": false,
+  "push_performed": false,
+  "index_changed": false,
+  "user_save_accessed": false,
+  "test_save_residue": [],
+  "visible_or_focused_game_window_started": false
+}

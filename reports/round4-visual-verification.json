@@ -1,0 +1,104 @@
+{
+  "background_guard": true,
+  "captures": [
+    {
+      "bytes": 6546,
+      "id": "01-harbor-source-entry",
+      "path": "res://reports/screenshots/round4-01-harbor-source-entry.png",
+      "pixels": [
+        256,
+        240
+      ],
+      "safe_area_errors": [],
+      "state": {
+        "chapter": 2,
+        "leader": [
+          3,
+          12
+        ],
+        "northern_gate_tile": 207,
+        "previous_world": 7,
+        "room": 9,
+        "route": "celica",
+        "world": 57
+      },
+      "sha256": "bd7e599206c1047bf53c2a93ce735bbf345ef89352c07426e43e498c9456aa3e",
+      "visual_inspection": "passed",
+      "visual_notes": "Original harbor tiles/NPCs/sprites render intact. Celica is at the source south interior entrance, clear of the closed north gate and visible at the correct tile."
+    },
+    {
+      "bytes": 6849,
+      "id": "02-mila-legacy-resume",
+      "path": "res://reports/screenshots/round4-02-mila-legacy-resume.png",
+      "pixels": [
+        256,
+        240
+      ],
+      "safe_area_errors": [],
+      "state": {
+        "chapter": 3,
+        "legacy_saved_leader": [
+          4,
+          1
+        ],
+        "northern_gate_open": false,
+        "resumed_leader": [
+          11,
+          19
+        ],
+        "room": 15,
+        "route": "celica",
+        "world": 63
+      },
+      "sha256": "b3b1d494a49071cd15aee047aaf61f6cad13214fd9d5c9ce754dc3029e06dacf",
+      "visual_inspection": "passed",
+      "visual_notes": "Original temple columns, water, door and floor render intact. Celica is recovered on the lower interior floor below the source door, with the correct source sprite and no overlay overlap."
+    },
+    {
+      "bytes": 13091,
+      "id": "03-world-route-return-arrows",
+      "path": "res://reports/screenshots/round4-03-world-route-return-arrows.png",
+      "pixels": [
+        256,
+        240
+      ],
+      "safe_area_errors": [],
+      "state": {
+        "available_roads": [
+          16
+        ],
+        "chapter": 3,
+        "journey": "Alm52->16->17; Celica18->19; return Alm17",
+        "per_route_previous": {
+          "alm": 16,
+          "celica": 18
+        },
+        "previous_world": 16,
+        "route": "alm",
+        "world": 17
+      },
+      "sha256": "d2697b3468def8140cabb4e08b38c4abd4769b724acbf858093d525e5b363c68",
+      "visual_inspection": "passed",
+      "visual_notes": "Original world tiles, army sprites and the permitted return-road arrow render intact. All three Chinese lines sit visibly inside the panel border with clear top, side and bottom spacing; no clipping or text overlap."
+    }
+  ],
+  "guard_loaded_before_engine_main": true,
+  "limits": "Original source chapter/road landmarks for earlier battles; runtime screenshots are not a natural full-campaign playthrough.",
+  "safe_area_errors": [],
+  "scope": "Three original256x240 runtime SubViewport captures: conditional harbor entrance, old closed Mila gate resume recovery, actual independent-world-route road arrows.",
+  "user_save_accessed": false,
+  "visible_or_focused_game_window_started": false,
+  "pixel_inspection": "All three PNGs viewed at original256x240 resolution; distinct colors, intact native pixel contours, nonblank runtime content.",
+  "text_background_safe_area": "World panel original Chinese title, route name and action hint visibly fit the panel; automated runtime safe-area audit reported no errors. Hub screenshots contain no text panel.",
+  "headless_related_regression": {
+    "test_round4_hub": 144,
+    "test_hub_controller": 547,
+    "test_round3_controller": 42,
+    "checks": 733,
+    "failures": 0
+  },
+  "capture_test_save_cleaned": true,
+  "guard_probe": "BACKGROUND_GUARD=1 before graphical launch; all native window ordering and app activation hooks were suppressed before engine main.",
+  "render_engine": "Godot4.7.1 / OpenGL4.1 compatibility / Apple M1 Max",
+  "headless_engine": "Godot4.7.1 (final verification); auxiliary4.6.2 also passed"
+}

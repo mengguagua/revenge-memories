@@ -1,0 +1,36 @@
+{
+  "checks": 146,
+  "failures": [],
+  "issues_observed_before_fix": [
+    "conflicting suspend/retry route, party, and roster identities were accepted",
+    "unsafe resumed unit and hub actor metadata were accepted",
+    "source VM accepted another room and non-checkpoint continuation PCs",
+    "v1 migration captured the default one-member party in its generated retry snapshot"
+  ],
+  "limits": "bounded local fixtures and headless controllers, not every arbitrary dictionary or complete natural campaign; no real user save accessed",
+  "rejected_cases": [
+    "suspend conflicting route",
+    "suspend conflicting party",
+    "suspend conflicting roster_id",
+    "suspend conflicting roster_side",
+    "suspend conflicting active_parties",
+    "retry conflicting route",
+    "retry conflicting party",
+    "retry conflicting roster_id",
+    "retry conflicting roster_side",
+    "retry conflicting active_parties",
+    "suspend wrong existing personal_resistance type",
+    "retry wrong existing personal_resistance type",
+    "suspend wrong existing source_enemy_character_id type",
+    "retry wrong existing source_enemy_character_id type",
+    "suspend wrong existing rescue_npc type",
+    "retry wrong existing rescue_npc type",
+    "corrupted source VM hub_id",
+    "corrupted source VM pc",
+    "corrupted source VM wander_bounds",
+    "corrupted source VM interaction_flags",
+    "corrupted source VM render_position",
+    "corrupted source VM dungeon_visited"
+  ],
+  "scope": "production GameState.save_game; one-field suspend/retry corruption; authentic source hub dialogue VM and continued chapter transition"
+}

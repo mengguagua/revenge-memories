@@ -1,0 +1,19 @@
+{
+	"checks": 79,
+	"failures": [
+		"Scripted water-gate queue takes the sole allocation before a successful random wave",
+		"A queued allocation does not consume probabilistic generator RNG",
+		"Two queued source bits allocate only the lower bit per world action",
+		"Higher queued bit waits until the next world action",
+		"Failed queued allocation does not fall through to another generator",
+		"Failed queued allocation does not advance unrelated wave RNG",
+		"Queued Tatara group32 has source mobility0",
+		"Stationary scripted boss remains at the water gate across travel ticks",
+		"Stationary scripted boss cannot create a false enemy-initiated encounter",
+		"Queued group50 also keeps source mobility0 beside a player party",
+		"True source reinforcement group62 retains movement metadata"
+	],
+	"limits": "Deterministic checkpoints and source-table travel steps, not frame-exact RNG scheduling, all natural battles or graphics.",
+	"scope": "Native queued army allocation and failed allocation priority; fixed boss mobility; partial casualties after enemy retreat and route switching; all five cemetery variants in chapters3/4; chapter ID lifecycle and source slot capacity.",
+	"source_contract": "bank008 L089F15-L089F44/L089FBC selects one queued army before probability generators; L08A130 sets group<60 mobility0; bank007 L07A4F3 skips mobility0; bank008 L089D38 cemetery slot13, L089FCA ordinary13 slots; L08A095 per-army masks."
+}

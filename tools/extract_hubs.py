@@ -209,6 +209,28 @@ def main():
     hub_ids = db(13, 'L0DB98C')[:32]
     world_entries = {str(49 + i): {'hub_id': hub, 'spawn': [entries[i * 2 + 1], entries[i * 2] & 63],
                                       'facing': ((entries[i * 2] >> 6) + 1)} for i, hub in enumerate(hub_ids)}
+    # L0CACD2-L0CAD35: a zero entry row selects L0CB5B8, rather than a
+    # literal boundary spawn. Its triples are previous world node, packed
+    # row/facing, column. Keep the original selector and every approach.
+    approach_labels = ptrs(12, 'L0CB5B8')
+    for node, entry in world_entries.items():
+        if entry['spawn'][1] != 0:
+            continue
+        label = approach_labels[entry['spawn'][0]]
+        raw = db(12, label)
+        entry['approach_entries'] = {
+            str(raw[i]): {'spawn': [raw[i + 2], raw[i + 1] & 63],
+                          'facing': (raw[i + 1] >> 6) + 1, 'source_label': label}
+            for i in range(0, len(raw), 3)
+        }
+        # Old saves and older route-switch state can lack the previous node.
+        # Choose an entrance behind the open chapter gate in that case.
+        defaults = {'52': 7, '54': 8, '57': 7, '63': 26, '69': 34}
+        entry['fallback_approach_by_chapter'] = {
+            str(chapter): (19 if node == '57' and chapter >= 3 else
+                           43 if node == '63' and chapter >= 4 else defaults[node])
+            for chapter in range(1, 6)
+        }
     transition_labels = ptrs(13, 'L0DBEF0')
     transitions = {str(i + 1): {'hub_id': db(13, label)[0], 'spawn': [db(13, label)[2], db(13, label)[1]]}
                    for i, label in enumerate(transition_labels)}
@@ -234,6 +256,7 @@ def main():
               'tile_actions': db(13, 'L0D8B11'), 'tile_change_patterns': patterns,
               'spawn_templates': spawn_templates, 'room_encounters': room_encounters,
               'source_rules': {'edges':'north,south,west,east; 0 blocked, 1..49 world node, >=50 next hub = value-50',
+                               'world_entry_zero_row':'L0CACD2-L0CAD35: y=0 selects L0CB5B8 approach triples by previous world node; x is a selector, not a coordinate.',
                                'choice_opcode':'0x9N shows chapter N title/save menu; it does not select a recruit or branch the event program.',
                                'courier_opcode':'0xFN transfers one carried item to opposite army convoy; cancellation does not consume courier.',
                                'room36_shared_triggers':'Rooms35/36 share room37 trigger table but have no enabled masks; retain original coordinates.'},

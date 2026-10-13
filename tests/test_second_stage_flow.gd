@@ -52,7 +52,9 @@ func _run() -> void:
 
 func _fresh_party() -> void:
 	scene.game.new_game()
-	scene.game.party = ["alm", "lukas", "gray", "tobin", "kliff"]
+	# Use the production recruit path so roster and both route parties agree
+	# before the battle constructor captures the retry checkpoint.
+	for id in ["lukas", "gray", "tobin", "kliff"]: scene.game.recruit(id)
 	scene.game.flags.joined_deliverance = true
 	scene.game.save_path = SAVE
 	scene._clear_menu()
