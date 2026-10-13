@@ -78,6 +78,11 @@ func sprite(unit: Dictionary) -> Dictionary:
 		result = battle.get("promoted_alm_ally", result)
 	elif side == "ally" and cid == 11 and (promoted or sid == 37 or int(unit.get("class_id", 0)) == 24):
 		result = battle.get("promoted_celica_ally", result)
+	# New recovery body sheets retain cumulative source BG tile uploads.
+	# The action-specific pose is used only for the active caster.
+	if str(active_event.get("attacker", "")) == str(unit.get("id", "")):
+		var body_key = str(result.get("spell_body_variants", {}).get(str(int(active_event.get("weapon_index", -1))), ""))
+		if not body_key.is_empty(): result = battle.get(body_key, result)
 	if side == "enemy" and cid == 21:
 		# L05952D entry sequence ends on pose9 intact, pose5 below52HP.
 		result = result.duplicate(false)

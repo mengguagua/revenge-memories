@@ -121,6 +121,9 @@ def main(root):
     for c,normal,drain in [(17,52,49),(18,23,46),(19,51,50)]:
         for item,effect in enumerate(src.b[5]['L058F93']['db'],40):
             jobs.append((c,'ally',drain if item==42 else normal,effect,item,f'class_{c}_ally_item_{item}'))
+    # Priestess/Celica can learn Recover40. L058AAD -> L058BC3 ->
+    # L058B39 keeps class11's program29 and selects white effect5.
+    jobs.append((11,'ally',29,src.b[5]['L058F93']['db'][0],40,'class_11_ally_item_40'))
     # Duma's documented beam path and native eye/magic attack, kept distinct
     # from human mage casting. Other boss attacks remain source programs.
     jobs.extend([(21,'enemy',41,33,0,'class_21_enemy_beam'),(21,'enemy',37,13,0,'class_21_enemy_eye')])
@@ -186,6 +189,10 @@ def main(root):
     data={'source_revision':meta['source_revision'],'native_fps':FPS,'spells':results,'variants':variants,'sprites':assets,'failures':failures,'source_note':'Original bank005 caster/effect bytecode, bank000 pose timers/motion, bank001 effect trajectory, bank004 OAM; frame-by-frame offline original-routine execution. Damage pause omitted at event boundary. No CPU or ROM at runtime.'}
     (ROOT/'data/full_animation_effects.json').write_text(json.dumps(data,ensure_ascii=False,separators=(',',':'))+'\n')
     DATA.write_text(json.dumps(meta,ensure_ascii=False,indent=2)+'\n')
+    # Compile complete priestess recovery bodies after source upload frames;
+    # the dedicated helper keeps partial BG writes from dropping body tiles.
+    from patch_priestess_recovery import main as recover_priestess
+    recover_priestess(root)
     print(json.dumps({'spells':len(results),'variants':len(variants),'sprites':len(assets),'failures':failures},ensure_ascii=False))
 
 if __name__=='__main__':

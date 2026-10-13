@@ -1,0 +1,84 @@
+{
+  "round": 7,
+  "status": "completed",
+  "saved_at": "2026-10-13T19:49:55.116228+08:00",
+  "completed": {
+    "natural_battles_after_declared_preparation_checkpoint": [
+      {
+        "stage": 43.0,
+        "name": "\u4ea1\u8005\u6cbc\u6cfd",
+        "outcome": "victory",
+        "turn": 10.0
+      },
+      {
+        "stage": 44.0,
+        "name": "\u6cbc\u6cfd\u5893\u5730",
+        "outcome": "victory",
+        "turn": 3.0
+      },
+      {
+        "stage": 45.0,
+        "name": "\u591a\u9c81\u514b\u8981\u585e",
+        "outcome": "victory",
+        "turn": 7.0
+      }
+    ],
+    "forest_walk": "Actual input:fortress26 ->25 ->115 ->28 ->world46 ->47.",
+    "stage47_defeat": "Tactical defeat on turn3; not an input/progression stall.",
+    "retry": "Actual title continue -> defeat menu ->Retry ->player turn1 with20 original enemies and7 allies; commander select/cancel works.",
+    "input_events": 2790,
+    "failures": [],
+    "screenshots": 0
+  },
+  "resume": {
+    "save": "reports/round7-late-playthrough-save.json",
+    "report": "reports/round7-late-playthrough.json",
+    "current_mode": "battle",
+    "current_stage": 47,
+    "current_turn": 1,
+    "do_not_repeat_completed_battles": [
+      43,
+      44,
+      45
+    ],
+    "preserved_offline_source": "/Users/gcc/gaocc/project/revenge-memories/.reference/fe2-source-956365ef"
+  },
+  "app_size_answer": {
+    "app_bytes": 440959949,
+    "engine_bytes": 346490096,
+    "resource_pack_bytes": 94466596,
+    "rom_bytes": 393232,
+    "cause": "Full Godot editor universal arm64+x86_64 copied by current packaging script.",
+    "optimization_performed": false
+  },
+  "limits": [
+    "Prior levels and source-minimum promotions are declared checkpoints,not a natural opening-to-end campaign.",
+    "Stage47 and subsequent late battles have not been naturally won.",
+    "Round is not fully completed:the identified healing-animation feedback repair remains."
+  ],
+  "process_status": "All three known round7 Godot command sessions returned completion; no task process remains running. System-wide ps inventory was unavailable under sandbox.",
+  "user_save_accessed": false,
+  "commit_performed": false,
+  "push_performed": false,
+  "completed_at": "2026-10-13T22:26:15.159125+08:00",
+  "completion_report": "reports/round7-review-completion.json",
+  "resolved": [
+    {
+      "problem": "Class11/Celica Recover40 heals correctly but original action variant is absent.",
+      "source": "bank005 L058AAD -> L058BC3 -> L058B39; class11,program29,effect5,item40. Probe:152 ticks,one contact at89.",
+      "next_steps": [
+        "Run tools/patch_priestess_recovery.py --source .reference/fe2-source-956365ef, checking exact reuse of existing effect sprites before saving.",
+        "Verify actual healing action/HP settlement with only targeted checks and new feedback screenshots if necessary.",
+        "Update the local package after the repair passes."
+      ],
+      "prepared_files": [
+        "tools/patch_priestess_recovery.py",
+        "tools/extract_full_effects.py"
+      ],
+      "patch_generator_executed": true,
+      "runtime_animation_data_changed": true,
+      "resolution": "Completed and delivered; see round7-review-completion.json."
+    }
+  ],
+  "pending": []
+}

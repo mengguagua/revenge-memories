@@ -1,0 +1,137 @@
+{
+  "round": 7,
+  "status": "completed",
+  "completed_at": "2026-10-13T22:26:15.159125+08:00",
+  "resumed_at": "2026-10-13T22:02:33.557324+08:00",
+  "requested_scope": "Finish only the shutdown handoff; no replay of passed battles, no repeated broad checks/screenshots.",
+  "previous_work_preserved": {
+    "natural_battles_after_declared_preparation_checkpoint": [
+      {
+        "stage": 43.0,
+        "name": "亡者沼泽",
+        "outcome": "victory",
+        "turn": 10.0
+      },
+      {
+        "stage": 44.0,
+        "name": "沼泽墓地",
+        "outcome": "victory",
+        "turn": 3.0
+      },
+      {
+        "stage": 45.0,
+        "name": "多鲁克要塞",
+        "outcome": "victory",
+        "turn": 7.0
+      }
+    ],
+    "forest_walk": "Actual input:fortress26 ->25 ->115 ->28 ->world46 ->47.",
+    "stage47_defeat": "Tactical defeat on turn3; not an input/progression stall.",
+    "retry": "Actual title continue -> defeat menu ->Retry ->player turn1 with20 original enemies and7 allies; commander select/cancel works.",
+    "input_events": 2790,
+    "failures": [],
+    "screenshots": 0
+  },
+  "resumed_work": {
+    "problem": "Class11 priestess/Celica Recover40 had no original casting action.",
+    "fix": "Six source layouts use original program29/effect5/item40. Partial background tile writes50..56 are accumulated into complete body frames, retaining untouched tiles and applying explicit blank writes.",
+    "source_program": 29,
+    "source_effect": 5,
+    "source_item": 40,
+    "frames": 152,
+    "visual_contact_tick": 89,
+    "visual_contact_count": 1,
+    "gameplay_heal_cost_and_action": "Native support settlement once; visual contact never adds a second heal.",
+    "runtime_rom_or_cpu": false,
+    "variant_report": "reports/round7-recovery-source-verification.json",
+    "new_body_atlases": [
+      {
+        "path": "assets/original/graphics/battle/class_11_ally_recover40_body.png",
+        "pixels": [
+          720,
+          72
+        ],
+        "bytes": 1390,
+        "unique_body_frames": 9,
+        "source_palette": "L05BE5F"
+      },
+      {
+        "path": "assets/original/graphics/battle/promoted_celica_ally_recover40_body.png",
+        "pixels": [
+          720,
+          72
+        ],
+        "bytes": 1390,
+        "unique_body_frames": 9,
+        "source_palette": "L05BE5F"
+      },
+      {
+        "path": "assets/original/graphics/battle/class_11_ally_name_35_recover40_body.png",
+        "pixels": [
+          720,
+          72
+        ],
+        "bytes": 1387,
+        "unique_body_frames": 9,
+        "source_palette": "L05BF2F"
+      }
+    ],
+    "existing_effect_sprites_exactly_reused": 13,
+    "existing_effect_sprites_changed": false,
+    "old_non_recovery_animation_variants_changed": false,
+    "raw_generated_body_images": ".reference/generated/round7-recovery/"
+  },
+  "verification": {
+    "targeted_checks": 61,
+    "targeted_failures": [],
+    "report": "reports/round7-recovery-verification.json",
+    "pack_checks": 5,
+    "pack_failures": [],
+    "package_report": "reports/round7-package-verification.json",
+    "full_regression_run": false,
+    "passed_battles_replayed": [],
+    "playthrough_checkpoint_unchanged": true,
+    "recorded_playthrough_report_unchanged": true
+  },
+  "visual_verification": {
+    "accepted_unique_screenshots": 1,
+    "prior_screens_recaptured": 0,
+    "path": "res://reports/screenshots/round7-celica-recovery.png",
+    "pixels": [
+      256,
+      240
+    ],
+    "bytes": 3780,
+    "safe_area_errors": [],
+    "background_guard": true,
+    "visible_window": false,
+    "report": "reports/round7-recovery-visual-verification.json",
+    "corrective_capture": "Initial new frame exposed sparse body uploads; rejected it and replaced only that changed frame after fixing cumulative writes.",
+    "inspection": "Complete caster/recipient silhouettes and existing bitmap panels, HP labels and recovery label checked in actual-size viewport screenshot.",
+    "limits": "One representative new source frame; real-input timing and settlement checked separately. No full accessibility claim."
+  },
+  "package": {
+    "application": "/Users/gcc/gaocc/project/revenge-memories/dist/FE2Campaign.app",
+    "pck_bytes": 94789700,
+    "pck_sha256": "0f07096b0207f21762599123140e9846f7c698434783c38158af8fc87f73d503",
+    "embedded_pack_matches": true,
+    "codesign": "--verify --deep --strict passed",
+    "external_working_directory": "/private/tmp",
+    "accepted_smoke_script_errors": false,
+    "size_optimization_performed": false
+  },
+  "remaining_scope": [
+    "Stage47 and subsequent late battles have not been naturally won; they were not replayed or extended during this closure.",
+    "Earlier recruitment/levels/source-minimum promotions are declared checkpoints, not a natural opening-to-ending campaign."
+  ],
+  "diagnostics": [
+    "macOS sandbox CA/editor-preference messages occurred during headless export; pack, signature and external runtime verification passed.",
+    "The earlier handoff hypothesis omitted persistent background tile state; source-frame visual inspection caught and corrected it."
+  ],
+  "user_save_accessed": false,
+  "test_save_residue": [],
+  "commit_performed": false,
+  "push_performed": false,
+  "head_changed": false,
+  "git_index_changed": false
+}
