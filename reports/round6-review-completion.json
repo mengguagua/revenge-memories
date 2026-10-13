@@ -1,0 +1,141 @@
+{
+  "round": 6,
+  "status": "completed",
+  "completed_at": "2026-10-13T17:09:31.742940+08:00",
+  "baseline_saved_at": "2026-10-13T16:53:23.417809+08:00",
+  "requested_scope": "Continue one review round, prioritize blocking progression and verify UI prompts/player understanding/actual operations; avoid repeated checks and screenshots.",
+  "fixes": [
+    {
+      "id": "R6-1",
+      "priority": "P1",
+      "surface": "自动行动/敌方回合升级页",
+      "prompt": "确认继续",
+      "before": "busy/batch_running先拦截鼠标；升级页要求明确确认，不自动消失。",
+      "after": "鼠标进入与键盘相同的确认入口，只确认奖励，由原回合协程完成剩余行动并释放锁。",
+      "evidence": [
+        "reports/round6-phase-before-verification.json",
+        "reports/round6-phase-after-verification.json"
+      ]
+    },
+    {
+      "id": "R6-2",
+      "priority": "P2",
+      "surface": "世界仓库等主菜单长列表",
+      "prompt": "上下箭头",
+      "before": "点击下箭头被换算成尚未显示的第11项并确认，鼠标不能按预期浏览后续道具。",
+      "after": "独立页脚与原位图箭头负责滚动，显示可见范围；只确认可见条目。",
+      "evidence": [
+        "reports/round6-menu-before-verification.json",
+        "reports/round6-menu-after-verification.json"
+      ]
+    },
+    {
+      "id": "R6-3",
+      "priority": "P2",
+      "surface": "战斗系统菜单、战利品确认菜单",
+      "prompt": "菜单边框/空白",
+      "before": "边框点击被夹到选项编号，会误结束回合；同一处理还影响道具去向和丢弃确认。",
+      "after": "边框、页脚和留白不命中；可见行仍通过真实鼠标输入确认。",
+      "evidence": [
+        "reports/round6-menu-before-verification.json",
+        "reports/round6-menu-after-verification.json",
+        "reports/round6-loot-verification.json"
+      ]
+    }
+  ],
+  "implementation": {
+    "runtime_files": [
+      "core/main.gd"
+    ],
+    "new_runtime_assets": 0,
+    "retained_art": "Original bitmap panels and arrows; dedicated safe footer for long-list range.",
+    "unchanged_systems": [
+      "Combat rules",
+      "Campaign state/save format",
+      "Source AI and enemy attributes",
+      "Hub controller"
+    ]
+  },
+  "verification": {
+    "focused_checks": 72,
+    "suites": [
+      {
+        "path": "reports/round6-menu-after-verification.json",
+        "checks": 49,
+        "scope": "New long-menu pointer paging, visible item binding,1/10/11/17/40 rows, keyboard wrap, cancellation, and battle frame click."
+      },
+      {
+        "path": "reports/round6-loot-verification.json",
+        "checks": 7,
+        "scope": "Only the newly affected shared loot pointer hit zones, explicit discard confirmation/cancel."
+      },
+      {
+        "path": "reports/round6-phase-after-verification.json",
+        "checks": 16,
+        "scope": "New real-timed enemy suspend/title continue -> counterattack level -> mouse acknowledgement -> phase complete -> save/title continue."
+      }
+    ],
+    "packaged_bytecode_checks": 5,
+    "package_report": "reports/round6-package-verification.json",
+    "failures": [],
+    "full_regression_rerun": false,
+    "previous_round_suites_rerun": 0,
+    "natural_late_campaign_playthrough": false,
+    "timing": "Native await/timers with animation_speed100; source stage1 and native enemy AI/attributes.99EXP, player position and acted enemy suspend checkpoints isolate the branch.",
+    "before_reproductions": [
+      "reports/round6-menu-before-verification.json",
+      "reports/round6-phase-before-verification.json"
+    ]
+  },
+  "ui_audit": {
+    "report": "reports/round6-ui-audit.html",
+    "data": "reports/round6-ui-audit-verification.json",
+    "skill": "product-design:audit",
+    "accepted_unique_screenshots": 3,
+    "previous_round_screens_recaptured": 0,
+    "safe_area_errors": [],
+    "screenshot_bytes": [
+      7514,
+      6216,
+      4749
+    ],
+    "complete_accessibility_claimed": false
+  },
+  "screenshot_policy": {
+    "ordinary_recapture": false,
+    "correction_only": "One newly added range label lacked a source '-' glyph; changed to existing '至' and re-rendered only the changed page. Receipt result reused.",
+    "rejected_fixture": "A missing CLI separator initially produced2 wrong-state captures, rejected and replaced."
+  },
+  "package": {
+    "application": "/Users/gcc/gaocc/project/revenge-memories/dist/FE2Campaign.app",
+    "pck": {
+      "bytes": 94466596,
+      "sha256": "e54d25a5cada2181e6e4cbf910036effe15817a3979fb97adeeecfb95516756b"
+    },
+    "embedded_pck": {
+      "bytes": 94466596,
+      "sha256": "e54d25a5cada2181e6e4cbf910036effe15817a3979fb97adeeecfb95516756b"
+    },
+    "codesign": "--verify --deep --strict passed",
+    "external_directory": "/private/tmp",
+    "external_runtime_result": "ROUND6 PACK:5 checks,0 failures; no GDScript errors in accepted run."
+  },
+  "diagnostics": [
+    "Default sandbox graphical initialization aborted before rendering; the preloaded background guard was retained for the automatically approved graphical execution.",
+    "Some instant fixtures reported shutdown RefCounted/resource references after assertions; real timed phase-resume test exited cleanly.",
+    "Export could not save sandbox-external editor preferences; the actual pack, app copy, signature and external bytecode verification succeeded.",
+    "First external smoke used an incomplete reward Dictionary; fixed the fixture and repeated only package smoke, with no final script errors."
+  ],
+  "limits": [
+    "This round establishes the three identified mouse paths; it does not claim all progression blockers resolved.",
+    "No broad campaign replay or previously reviewed UI recapture.",
+    "Three preserved images are newly reviewed long-menu flow states; reward input ownership is verified by real timed operations without a duplicate upgrade screenshot."
+  ],
+  "user_save_accessed": false,
+  "test_save_residue": [],
+  "visible_or_focused_game_window_started": false,
+  "head_changed": false,
+  "git_index_changed": false,
+  "commit_performed": false,
+  "push_performed": false
+}

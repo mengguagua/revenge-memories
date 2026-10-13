@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><title>第六轮抽查：新增鼠标分支</title>
+<style>body{background:#101727;color:#eaf0f8;font:16px/1.65 system-ui,sans-serif;max-width:1060px;margin:40px auto;padding:0 24px}h1{font-size:28px}h2{font-size:22px;margin-top:30px}a{color:#99cdfc}article{display:grid;grid-template-columns:300px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid #344153}img{width:256px;height:240px;image-rendering:pixelated;background:#000}.meta{color:#aebdce;font-size:14px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #344153;padding:12px;text-align:left;vertical-align:top}@media(max-width:680px){article{display:block}}</style>
+<h1>第六轮抽查：新增鼠标分支</h1>
+<p>已修复升级页无法用鼠标继续、长列表箭头误确认、菜单边框误触操作。仅运行新增分支和共享点击处理的定向检查，72项通过。保留3张关键画面，旧轮界面未重拍。</p>
+<p class="meta">引擎后台SubViewport捕获，没有可见游戏窗口。40件行囊、99经验和敌方暂停存档用于隔离操作分支，不代表自然获得或后期逐关通关。</p>
+<article><div><img src="screenshots/round6-01-before-long-list.png" alt="旧长列表：下箭头确认了未显示的道具"><p class="meta">256×240 · 7514 bytes · 文字安全区通过</p></div><div><h2>1. 旧长列表：下箭头确认了未显示的道具</h2><p><b>玩家目标：</b>滚动到后十项，继续寻找需要领取的道具。</p><p><b>原问题：</b>画面仅显示第1至10项，点击下箭头却进入第11项魔道戒的领取人选择。</p><p><b>结果：</b>下箭头现只改变可见范围，未选择或移动物品。</p></div></article>
+<article><div><img src="screenshots/round6-02-after-visible-page.png" alt="修复后：可见范围与鼠标选择一致"><p class="meta">256×240 · 6216 bytes · 文字安全区通过</p></div><div><h2>2. 修复后：可见范围与鼠标选择一致</h2><p><b>玩家目标：</b>点击上下箭头浏览，再点击屏上实际显示的道具。</p><p><b>原问题：</b>旧菜单没有范围说明，箭头和边框都被换算成选项。</p><p><b>结果：</b>两次点击到达21至30/40，法尔西昂明确显示；页脚和边框不确认隐藏条目。</p></div></article>
+<article><div><img src="screenshots/round6-03-after-received-item.png" alt="领取结果：实际装备与所选道具一致"><p class="meta">256×240 · 4749 bytes · 文字安全区通过</p></div><div><h2>3. 领取结果：实际装备与所选道具一致</h2><p><b>玩家目标：</b>把屏上可见的法尔西昂交给阿尔姆。</p><p><b>原问题：</b>旧箭头会把未显示的第11项当作已选道具。</p><p><b>结果：</b>领取第21项法尔西昂，行囊由40变39，第11项魔道戒仍保留；存档续读保持一次结算。</p></div></article>
+<h2>提示、理解与操作对照</h2>
+<table><tr><th>问题</th><th>提示/理解</th><th>实际修复与证据</th></tr>
+<tr><td>P1 自动行动/敌方回合升级页</td><td>确认继续<br>用一直使用的鼠标确认，然后返回战场。</td><td>鼠标进入与键盘相同的确认入口，只确认奖励，由原回合协程完成剩余行动并释放锁。<br><a href="round6-phase-before-verification.json">定向记录1</a>、<a href="round6-phase-after-verification.json">定向记录2</a></td></tr>
+<tr><td>P2 世界仓库等主菜单长列表</td><td>上下箭头<br>浏览更早或更晚的条目。</td><td>独立页脚与原位图箭头负责滚动，显示可见范围；只确认可见条目。<br><a href="round6-menu-before-verification.json">定向记录1</a>、<a href="round6-menu-after-verification.json">定向记录2</a></td></tr>
+<tr><td>P2 战斗系统菜单、战利品确认菜单</td><td>菜单边框/空白<br>装饰与留白不表示确认操作。</td><td>边框、页脚和留白不命中；可见行仍通过真实鼠标输入确认。<br><a href="round6-menu-before-verification.json">定向记录1</a>、<a href="round6-menu-after-verification.json">定向记录2</a>、<a href="round6-loot-verification.json">定向记录3</a></td></tr>
+</table>
+<h2>验收边界</h2><p>真实计时的升级分支实际完成敌方剩余行动、下一回合和保存续玩。为规避重复截图，已有升级页仅检查新增输入与回调。文字、位图箭头和页脚留白结合运行画面及布局校验核对；没有全量回归或后期自然通关结论，也未证明屏幕阅读器或完整无障碍合规。</p>
+<p class="meta">范围标签使用已有汉字「至」，保证完整字形。图像保持原尺寸和清晰像素，没有新增运行美术素材。</p></html>

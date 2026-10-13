@@ -1,0 +1,216 @@
+{
+  "scope": "新增鼠标分支的提示→理解→操作→结果审查；沿用原位图、字号与256×240画面。",
+  "steps": [
+    {
+      "step": 1,
+      "title": "旧长列表：下箭头确认了未显示的道具",
+      "intent": "滚动到后十项，继续寻找需要领取的道具。",
+      "problem": "画面仅显示第1至10项，点击下箭头却进入第11项魔道戒的领取人选择。",
+      "result": "下箭头现只改变可见范围，未选择或移动物品。",
+      "capture": {
+        "arrow_result_context": "camp_members",
+        "arrow_result_item_index": "10",
+        "bytes": 7514,
+        "id": "01-before-long-list",
+        "items": [
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "魔道戒",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "法尔西昂",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪"
+        ],
+        "menu_context": "stored_items",
+        "operation": "S → 仓库 → 领取道具；旧下箭头点击会确认未显示的第11项",
+        "path": "res://reports/screenshots/round6-01-before-long-list.png",
+        "pixels": [
+          256,
+          240
+        ],
+        "safe_area_errors": [],
+        "scroll": 0,
+        "selected": 0
+      }
+    },
+    {
+      "step": 2,
+      "title": "修复后：可见范围与鼠标选择一致",
+      "intent": "点击上下箭头浏览，再点击屏上实际显示的道具。",
+      "problem": "旧菜单没有范围说明，箭头和边框都被换算成选项。",
+      "result": "两次点击到达21至30/40，法尔西昂明确显示；页脚和边框不确认隐藏条目。",
+      "capture": {
+        "bytes": 6216,
+        "id": "02-after-visible-page",
+        "items": [
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "魔道戒",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "法尔西昂",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪",
+          "钢枪"
+        ],
+        "menu_context": "stored_items",
+        "operation": "两次点击下箭头 → 第21-30项；没有进入领取确认或改变库存",
+        "path": "res://reports/screenshots/round6-02-after-visible-page.png",
+        "pixels": [
+          256,
+          240
+        ],
+        "safe_area_errors": [],
+        "scroll": 20,
+        "selected": 20
+      }
+    },
+    {
+      "step": 3,
+      "title": "领取结果：实际装备与所选道具一致",
+      "intent": "把屏上可见的法尔西昂交给阿尔姆。",
+      "problem": "旧箭头会把未显示的第11项当作已选道具。",
+      "result": "领取第21项法尔西昂，行囊由40变39，第11项魔道戒仍保留；存档续读保持一次结算。",
+      "capture": {
+        "bytes": 4749,
+        "id": "03-after-received-item",
+        "items": [],
+        "menu_context": "",
+        "operation": "点击可见第21项法尔西昂 → 阿尔姆领取 → 部队状态核对实际装备",
+        "path": "res://reports/screenshots/round6-03-after-received-item.png",
+        "pixels": [
+          256,
+          240
+        ],
+        "safe_area_errors": [],
+        "scroll": 0,
+        "selected": 0
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "R6-1",
+      "priority": "P1",
+      "surface": "自动行动/敌方回合升级页",
+      "prompt": "确认继续",
+      "understanding": "用一直使用的鼠标确认，然后返回战场。",
+      "before": "busy/batch_running先拦截鼠标；升级页要求明确确认，不自动消失。",
+      "after": "鼠标进入与键盘相同的确认入口，只确认奖励，由原回合协程完成剩余行动并释放锁。",
+      "evidence": [
+        "round6-phase-before-verification.json",
+        "round6-phase-after-verification.json"
+      ],
+      "limits": "已有升级页外观本轮不重复截图；以真实计时输入、回合完成和存档续玩验证。"
+    },
+    {
+      "id": "R6-2",
+      "priority": "P2",
+      "surface": "世界仓库等主菜单长列表",
+      "prompt": "上下箭头",
+      "understanding": "浏览更早或更晚的条目。",
+      "before": "点击下箭头被换算成尚未显示的第11项并确认，鼠标不能按预期浏览后续道具。",
+      "after": "独立页脚与原位图箭头负责滚动，显示可见范围；只确认可见条目。",
+      "evidence": [
+        "round6-menu-before-verification.json",
+        "round6-menu-after-verification.json"
+      ],
+      "steps": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "R6-3",
+      "priority": "P2",
+      "surface": "战斗系统菜单、战利品确认菜单",
+      "prompt": "菜单边框/空白",
+      "understanding": "装饰与留白不表示确认操作。",
+      "before": "边框点击被夹到选项编号，会误结束回合；同一处理还影响道具去向和丢弃确认。",
+      "after": "边框、页脚和留白不命中；可见行仍通过真实鼠标输入确认。",
+      "evidence": [
+        "round6-menu-before-verification.json",
+        "round6-menu-after-verification.json",
+        "round6-loot-verification.json"
+      ]
+    }
+  ],
+  "accepted_unique_screenshots": 3,
+  "prior_round_screens_recaptured": 0,
+  "safe_area_errors": [],
+  "accessibility": {
+    "verified": "位图箭头、可见范围、文字/控件留白、键盘选择/取消、鼠标输入。",
+    "limits": "未证明屏幕阅读器语义或完整WCAG合规；升级输入归属通过计时测试而非重复截图验证。"
+  },
+  "capture_notes": [
+    "沙盒图形初始化中止后，通过获自动批准的后台保护程序运行，禁止显示和激活窗口。",
+    "一次脚本参数缺少分隔符，2张错误状态截图已拒收并替换。",
+    "范围标签横线字形缺失，改用已有「至」字，只重渲染该修正画面，复用已验收的领取结果图。"
+  ],
+  "user_save_accessed": false
+}

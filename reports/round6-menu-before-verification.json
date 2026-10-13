@@ -1,0 +1,34 @@
+{
+  "checks": 39,
+  "failures": [
+    "Down arrow scrolls instead of confirming hidden item11",
+    "Page navigation neither commits nor stages an item choice",
+    "Top frame padding cannot confirm a row at count1",
+    "Bottom/footer padding cannot select hidden content at count1",
+    "Page cancellation returns to world at count1",
+    "Top frame padding cannot confirm a row at count10",
+    "Bottom/footer padding cannot select hidden content at count10",
+    "Top frame padding cannot confirm a row at count11",
+    "Bottom/footer padding cannot select hidden content at count11",
+    "Partial/final page keeps selected row visible at count11",
+    "Page cancellation returns to world at count11",
+    "Top frame padding cannot confirm a row at count17",
+    "Bottom/footer padding cannot select hidden content at count17",
+    "Partial/final page keeps selected row visible at count17",
+    "Page cancellation returns to world at count17",
+    "Top frame padding cannot confirm a row at count40",
+    "Bottom/footer padding cannot select hidden content at count40",
+    "Partial/final page keeps selected row visible at count40",
+    "Page cancellation returns to world at count40",
+    "Clicking battle-menu frame cannot silently end turn",
+    "Decorative frame click causes no enemy actions or HP changes"
+  ],
+  "limits": "Instant timing and checkpoint inventory; no broad campaign replay.",
+  "scenarios": [
+    "Legacy down-arrow hit incorrectly selects unseen item",
+    "1/10/11/17/40-row pointer safe zones, partial pages, keyboard wrap and cancel",
+    "Source battle S-menu frame click → no hidden end-turn commitment"
+  ],
+  "scope": "New long-menu pointer hit regions and source battle-menu frame; isolated40-item fixture.",
+  "user_save_accessed": false
+}

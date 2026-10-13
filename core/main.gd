@@ -418,12 +418,12 @@ func _mouse_accept(point: Vector2) -> void:
 		hub_controller.mouse_accept(point)
 		return
 	if view in ["loot", "loot_confirm"]:
-		var rect = _menu_rect()
-		if rect.has_point(point):
-			menu_selected = clampi(int((point.y - rect.position.y - 12) / 16), 0, menu_items.size()-1)
+		var index = _menu_pointer_index(point)
+		if index >= 0:
+			menu_selected = index
 			_loot_accept()
 		return
-	if view in ["battle_story", "hub_dialogue", "ending"]:
+	if view in ["battle_story", "hub_dialogue", "ending", "reward"]:
 		_accept()
 		return
 	if busy or batch_running:
@@ -434,9 +434,9 @@ func _mouse_accept(point: Vector2) -> void:
 			_accept()
 		return
 	if not menu_items.is_empty():
-		var rect = _menu_rect()
-		if rect.has_point(point):
-			menu_selected = clampi(menu_scroll + int((point.y - rect.position.y - 12) / 16), 0, menu_items.size() - 1)
+		var index = _menu_pointer_index(point)
+		if index >= 0:
+			menu_selected = index
 			_accept()
 		return
 	if view == "battle" and ui_mode not in ["status", "action"]:
@@ -1947,10 +1947,40 @@ func _menu_rect() -> Rect2:
 		max_width = maxf(max_width, _text_width(str(item)))
 	var width = maxf(88, max_width + 40)
 	var height = mini(10, menu_items.size()) * 16 + 28
+	if menu_items.size() > 10:
+		width = maxf(120, width)
+		height += 16
 	var at = menu_position
 	at.x = clampf(at.x, 8, 248 - width)
 	at.y = clampf(at.y, 8, 232 - height)
 	return Rect2(at, Vector2(width, height))
+
+func _menu_page_arrow_rect(step: int) -> Rect2:
+	var rect = _menu_rect()
+	var x = 10 if step < 0 else rect.size.x - 26
+	return Rect2(rect.position + Vector2(x, rect.size.y - 28), Vector2(16, 18))
+
+func _change_menu_page(step: int) -> void:
+	var next_scroll = clampi(menu_scroll + step * 10, 0, maxi(0, menu_items.size() - 10))
+	if next_scroll == menu_scroll: return
+	var row = clampi(menu_selected - menu_scroll, 0, 9)
+	menu_scroll = next_scroll
+	menu_selected = mini(menu_scroll + row, menu_items.size() - 1)
+	audio.play_sfx("menu_move")
+
+func _menu_pointer_index(point: Vector2) -> int:
+	if menu_items.is_empty(): return -1
+	var rect = _menu_rect()
+	if menu_items.size() > 10:
+		for step in [-1, 1]:
+			if _menu_page_arrow_rect(step).has_point(point):
+				_change_menu_page(step)
+				return -1
+	# Only visible rows accept confirmation. Frame padding, page arrows and
+	# the footer must never be interpreted as an unseen or clamped row.
+	var rows = Rect2(rect.position + Vector2(10, 16), Vector2(rect.size.x - 20, mini(10, menu_items.size() - menu_scroll) * 16))
+	if not rows.has_point(point): return -1
+	return menu_scroll + int((point.y - rows.position.y) / 16)
 
 func _draw_menu() -> void:
 	var rect = _menu_rect()
@@ -1958,8 +1988,11 @@ func _draw_menu() -> void:
 	for i in range(menu_scroll, mini(menu_scroll + 10, menu_items.size())):
 		_text(str(menu_items[i]), rect.position + Vector2(28, 18 + (i - menu_scroll) * 16))
 	_draw_menu_arrow(rect.position + Vector2(12, 20 + (menu_selected - menu_scroll) * 16))
-	if menu_scroll > 0: _draw_indicator("up", rect.position + Vector2(rect.size.x - 16, 8))
-	if menu_scroll + 10 < menu_items.size(): _draw_indicator("down", rect.position + Vector2(rect.size.x - 16, rect.size.y - 16))
+	if menu_items.size() > 10:
+		_center_text("%d至%d/%d" % [menu_scroll + 1, mini(menu_scroll + 10, menu_items.size()), menu_items.size()],
+			Rect2(rect.position + Vector2(24, rect.size.y - 28), Vector2(rect.size.x - 48, 16)))
+		if menu_scroll > 0: _draw_indicator("up", rect.position + Vector2(12, rect.size.y - 24))
+		if menu_scroll + 10 < menu_items.size(): _draw_indicator("down", rect.position + Vector2(rect.size.x - 20, rect.size.y - 24))
 
 func _draw_menu_arrow(at: Vector2) -> void:
 	_draw_indicator("right", at + Vector2(0, int(sin(elapsed * 5.0))))
