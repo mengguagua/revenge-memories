@@ -771,7 +771,8 @@ func retry_battle() -> bool:
 	units = snapshot.units.duplicate(true)
 	party = snapshot.get("party", party).duplicate()
 	roster = snapshot.roster.duplicate(true)
-	cleared_stages = snapshot.cleared_stages.duplicate()
+	# A loaded snapshot has JSON floats; has(int_id) requires integer IDs.
+	cleared_stages = snapshot.cleared_stages.map(func(id): return int(id))
 	flags = snapshot.flags.duplicate(true)
 	previous_world_node = int(snapshot.get("previous_world_node", flags.get("world_route_previous_nodes", {}).get(route, previous_world_node)))
 	rng_state = int(snapshot.rng_state)
@@ -843,7 +844,8 @@ func in_bounds(cell: Vector2i) -> bool:
 func category(cell: Vector2i) -> int:
 	if not in_bounds(cell):
 		return -1
-	var tile = battle_data.map.tiles[cell.y * int(battle_data.map.width) + cell.x]
+	# JSON numbers are floats; terrain tables use integer-string tile keys.
+	var tile: int = battle_data.map.tiles[cell.y * int(battle_data.map.width) + cell.x]
 	return int(battle_data.terrain.tile_categories.get(str(tile), 0))
 
 func terrain_avoid(cell: Vector2i) -> int:
@@ -856,6 +858,19 @@ func movement_cost(unit: Dictionary, cell: Vector2i) -> int:
 	var values: Array = battle_data.terrain.movement_by_class_and_category.get(str(int(unit.class_id)), [])
 	if terrain_id < 0 or terrain_id >= values.size(): return 255
 	return int(values[terrain_id])
+
+func needs_terrain_recovery() -> bool:
+	if mode != "battle" or not battle_outcome.is_empty() or battle_start_snapshot.is_empty():
+		return false
+	# Old terrain decoding allowed foot units onto water/walls. Offer the
+	# existing snapshot retry only when their original deployment was legal.
+	for unit in living("player"):
+		if not bool(unit.get("controllable", true)) or movement_cost(unit, pos(unit)) < 255:
+			continue
+		for initial in battle_start_snapshot.get("units", []):
+			if str(initial.id) == str(unit.id) and movement_cost(unit, pos(initial)) < 255:
+				return true
+	return false
 
 func reachable(unit: Dictionary, unrestricted: bool = false) -> Dictionary:
 	var start = pos(unit)

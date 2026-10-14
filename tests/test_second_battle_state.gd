@@ -160,6 +160,13 @@ func _test_campaign_and_retry() -> void:
 		var unit: Dictionary = game.stages[1].characters[pair[0]]
 		check(Rules.victory_experience_gain(unit) == int(pair[1]), "Original survival EXP fixture " + str(pair[0]))
 
+func strip_instance_metadata(state: Dictionary) -> void:
+	# Genuine v1 saves predate independent army identities. Do not produce a
+	# hybrid by retaining identity flags after removing their world/encounter tables.
+	for field in ["world_army_instances","world_army_next_id","world_random_army_instance","battle_army_instances","dungeon_army_instances","inventory_attacking_instance_id"]:
+		state.flags.erase(field)
+	for unit in state.units: unit.erase("army_instance")
+
 func _test_v1_migration() -> void:
 	var old = fresh()
 	old.find_unit("alm").level = 4
@@ -175,6 +182,7 @@ func _test_v1_migration() -> void:
 	old.save_game()
 	var state: Dictionary = GameState.read_json(SAVE)
 	state.version = 1
+	strip_instance_metadata(state)
 	for key in ["stage_id","world_node","roster","cleared_stages","battle_start_snapshot","victory_rewards",
 		"chapter","route","parties","route_positions","previous_world_node","world_armies","convoy",
 		"hub_id","hub_position","hub_flags","hub_changes","hub_used","battle_return",
@@ -200,6 +208,7 @@ func _test_v1_migration() -> void:
 	old.save_game()
 	state = GameState.read_json(SAVE)
 	state.version = 1
+	strip_instance_metadata(state)
 	for key in ["stage_id","world_node","roster","cleared_stages","battle_start_snapshot","victory_rewards",
 		"chapter","route","parties","route_positions","previous_world_node","world_armies","convoy",
 		"hub_id","hub_position","hub_flags","hub_changes","hub_used","battle_return",

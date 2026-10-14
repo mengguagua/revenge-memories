@@ -1,0 +1,208 @@
+{
+  "status": "complete",
+  "scope": "Second chapter from the preserved real monastery checkpoint to actual Sofia reunion and chapter3 suspend.",
+  "fixes": [
+    {
+      "file": "core/game_state.gd",
+      "issue": "JSON float tile IDs produced keys such as96.0 rather than96; every terrain lookup fell back to plain.",
+      "result": "Integer keys restore original water/wall restrictions, movement costs and avoidance for player/enemy pathfinding."
+    },
+    {
+      "file": "core/game_state.gd",
+      "issue": "Retry after loading JSON restored float cleared-stage IDs, so stage_cleared(int_id) failed.",
+      "result": "Snapshot retry restores integer clear IDs without replaying victories or changing prior deaths."
+    },
+    {
+      "file": "core/main.gd",
+      "issue": "Pre-fix foot units suspended on water/walls can be stranded by correct terrain.",
+      "result": "Actual continue explains the S-menu recovery; explicit confirmation uses the existing current-battle snapshot, cancellation preserves progress."
+    }
+  ],
+  "natural_new_victories": [
+    {
+      "stage": 8,
+      "name": "诺瓦墓地",
+      "turn": 6,
+      "terrain_decoding": "before_fix_all_plain"
+    },
+    {
+      "stage": 9,
+      "name": "海上一",
+      "turn": 5,
+      "terrain_decoding": "before_fix_all_plain"
+    },
+    {
+      "stage": 10,
+      "name": "海上二",
+      "turn": 11,
+      "terrain_decoding": "source_categories_after_fix"
+    },
+    {
+      "stage": 11,
+      "name": "海盗要塞",
+      "turn": 9,
+      "terrain_decoding": "source_categories_after_fix"
+    },
+    {
+      "stage": 12,
+      "name": "海上三",
+      "turn": 5,
+      "terrain_decoding": "source_categories_after_fix"
+    },
+    {
+      "stage": 13,
+      "name": "海之神殿",
+      "turn": 3,
+      "terrain_decoding": "source_categories_after_fix"
+    },
+    {
+      "stage": 50,
+      "name": "洞窟战斗",
+      "turn": 4,
+      "terrain_decoding": "source_categories_after_fix"
+    },
+    {
+      "stage": 63,
+      "name": "洞窟战斗",
+      "turn": 6,
+      "terrain_decoding": "source_categories_after_fix"
+    },
+    {
+      "stage": 14,
+      "name": "海上四",
+      "turn": 17,
+      "terrain_decoding": "source_categories_after_fix"
+    },
+    {
+      "stage": 15,
+      "name": "海上五",
+      "turn": 8,
+      "terrain_decoding": "source_categories_after_fix"
+    }
+  ],
+  "previous_passed_battles_replayed": 0,
+  "new_passed_battle_victory_replays": 0,
+  "preserved_previous_passed_stages": [
+    1,
+    2,
+    55,
+    3,
+    4,
+    5,
+    6,
+    49,
+    7,
+    43,
+    44,
+    45
+  ],
+  "real_input_events": 8776,
+  "tactical_defeats": 6,
+  "source_forced_retreats": 1,
+  "harness_interruption_after_real_item_exchange": 1,
+  "chapter2_operations": [
+    "monastery source recruitment and three shared spring uses",
+    "graveyard",
+    "Novis Saber recruitment and real harbor walk to boat",
+    "sea battles9 through15",
+    "surviving Valbar recruitment; Kamui and Leo died in the battle and were not restored",
+    "pirate steel sword",
+    "sea temple guardian and both cave encounters",
+    "shared HP springs and holy sword",
+    "internal cave return without re-entering or replaying victories",
+    "Sofia harbor NPC conversations and actual road through already-cleared gate7",
+    "Mycen conversation, castle stairs, Alm reunion and actual chapter3 transition"
+  ],
+  "checks": {
+    "source_terrain_and_real_recovery_input": {
+      "checks": 100,
+      "failures": 0,
+      "report": "reports/round9-terrain-after.json"
+    },
+    "native_ai": {
+      "checks": 75,
+      "failures": 0,
+      "log": "/private/tmp/fe2-round9-ai.log"
+    },
+    "battle_state_and_authentic_legacy_fixture": {
+      "checks": 84,
+      "failures": 0,
+      "report": "reports/round9-second-state-after.json"
+    },
+    "retry_subset_after_clear_id_fix": {
+      "checks": 20,
+      "failures": 0,
+      "log": "/private/tmp/fe2-round9-retry-subset.log"
+    },
+    "chapter3_title_continue": "reports/round9-resume-verification.json",
+    "package": {
+      "checks": 6,
+      "failures": 0,
+      "report": "reports/round9-package-verification.json"
+    }
+  },
+  "test_fixture_correction": "The old second-state v1 fixture erased world/encounter tables but kept modern independent-army identity metadata. Baseline reproduced the same rejection before the terrain change. Remove metadata using the existing authentic old-save fixture convention; production validation stays strict.",
+  "new_screenshots": 1,
+  "old_screens_recaptured": 0,
+  "visual": {
+    "path": "reports/screenshots/round9-terrain-recovery-confirm.png",
+    "size_pixels": [
+      256,
+      240
+    ],
+    "bytes": 6029,
+    "layout_errors": 0,
+    "review": "New confirmation and progress-reset notice have clear frame padding, readable full text and existing bitmap/arrow selection.",
+    "guarded_before_launch": true,
+    "capture_cleanup_callback": "Fixed the capture helper cleanup after pixels/report were saved; stopped that process without taking another screenshot."
+  },
+  "resume": {
+    "file": "reports/round9-chapter2-save.json",
+    "chapter": 3,
+    "route": "alm",
+    "world_node": 52,
+    "hub_id": 44,
+    "hub_position": [
+      6,
+      6
+    ],
+    "title_continue_and_actual_walk": true,
+    "celica_survivors": [
+      "celica",
+      "valbar"
+    ],
+    "source_save": "reports/round8-chapter1-save.json",
+    "source_save_sha256": "5b4ee476c8d9ad96544ae3e53a1b37ea5fe16988c49b2f2b780c379760e48dc7",
+    "source_save_unchanged": true,
+    "checkpoint_sha256": "9b24ab671596c27c40185727ae9d5588a0dd5646e28f44bf202185591649e401"
+  },
+  "user_save_accessed": false,
+  "synthetic_second_chapter_levels_or_growth": 0,
+  "enemy_edits": 0,
+  "forced_wins": 0,
+  "limits": [
+    "The monastery chapter2 initial party is fresh source data; chapter1 remains the previous explicitly declared checkpoint.",
+    "Stages8/9 were won before the terrain fix. They were not replayed per user instruction. Remaining eight new wins use corrected terrain.",
+    "One original40-turn forced retreat preserves earned growth and returns to world11; it was not counted as a victory. The later actual re-entry won stage12.",
+    "Deaths of Mae, Boey, Genny and Saber, and unrescued Kamui/Leo remain; no restoration or enemy changes.",
+    "This is the verified chapter2 progression chain, not a full-game no-blocker or no-casualty balance guarantee.",
+    "Existing first-chapter and late-game evidence was not replayed after this global terrain correction."
+  ],
+  "package": {
+    "status": "passed",
+    "path": "dist/FE2Campaign.app",
+    "pck_bytes": 94790260,
+    "pck_sha256": "bfa8e410d0585c96ac80e2232652ba022b61b56ab7286bd25aa55bd713cf6d93",
+    "smoke_checks": 6,
+    "smoke_failures": 0,
+    "run_outside_project": true,
+    "codesign_deep_strict": "passed",
+    "explicit_external_log": "/private/tmp/fe2-round9-package-smoke.log"
+  },
+  "git": {
+    "committed": false,
+    "pushed": false,
+    "prior_round8_edits_preserved": true
+  },
+  "completed_at": "2026-10-14T11:43:32.929371+08:00"
+}

@@ -320,6 +320,8 @@ func _accept() -> void:
 					audio.play_world(game.chapter)
 				elif view in ["battle", "victory", "defeat"]:
 					_play_phase_music()
+					if game.needs_terrain_recovery():
+						_notice("旧版地形位置异常\nS菜单可重试本关", 6.0)
 				elif view == "ending":
 					_start_ending()
 				else:
@@ -713,6 +715,9 @@ func _open_system_menu() -> void:
 		if game.can_return_to_final_preparation():
 			menu_items.append("返回准备（重置本战）")
 			menu_actions.append("final_prepare")
+		if game.needs_terrain_recovery():
+			menu_items.append("重试本关")
+			menu_actions.append("terrain_retry")
 	else:
 		var items: Array = ["人物状态", "保存进度"]
 		var actions: Array = ["roster", "save"]
@@ -754,6 +759,11 @@ func _menu_action(action: String, _context: String) -> void:
 		"depart": _depart()
 		"title": _show_title()
 		"retry": _enter_battle(game.stage_id, true)
+		"terrain_retry":
+			if game.needs_terrain_recovery():
+				_open_menu("terrain_retry_confirm", ["取消", "重试本关"], ["terrain_retry_cancel", "retry"], Vector2(64, 80))
+				_notice("重试将重置本战进度", 6.0)
+		"terrain_retry_cancel": _open_system_menu()
 		"final_prepare":
 			if game.return_to_final_preparation():
 				ui_mode = "inspect"
@@ -809,7 +819,11 @@ func _show_status() -> void:
 		return
 	if busy or batch_running or not menu_items.is_empty():
 		return
-	if view == "battle":
+	if view == "village" and village_motion_time <= 0.0:
+		_menu_action("roster", "village")
+	elif view == "world":
+		_camp_members("status")
+	elif view == "battle":
 		if ui_mode not in ["inspect", "status"]:
 			return
 		var unit = game.unit_at(game.cursor)

@@ -1,0 +1,198 @@
+{
+  "round": 8,
+  "status": "completed",
+  "completed_at": "2026-10-14T10:54:14+08:00",
+  "scope": "First chapter opening, uncovered status shortcuts, not-yet-naturally-won battles, source exploration/recruitment/transition. No passed battle or screenshot replay.",
+  "actual_game_fix_count": 1,
+  "fixed_findings": [
+    {
+      "id": "R8-1",
+      "priority": "P2",
+      "problem": "F1 says Tab:status, but native opening village and world Tab/A had no effect.",
+      "fix": "Dispatch idle village Tab/A to the existing roster action, and idle world Tab/A to the existing camp status-member chooser; preserve battle/hub input ownership.",
+      "files": [
+        "core/main.gd"
+      ],
+      "evidence": [
+        "reports/round8-opening-before.json",
+        "reports/round8-opening-after.json",
+        "reports/round8-package-verification.json"
+      ]
+    }
+  ],
+  "blocking_findings": [],
+  "candidate_ruled_out": [
+    {
+      "candidate": "Village edge might bypass required enlistment.",
+      "result": "Actual walkable topology has Lukas occupying the only corridor to x23/y8. Before recruitment the edge is unreachable; no speculative game guard added."
+    }
+  ],
+  "chapter1_acceptance": {
+    "opening": "Actual title/new-game/training and required Lukas/Mycen/Lukas conversation keys, exit and both status shortcuts.",
+    "prior_natural_wins_reused": [
+      {
+        "stage": 1,
+        "turn": 3,
+        "result": "victory",
+        "evidence": "reports/second-stage-flow-verification.json",
+        "replayed_this_round": false
+      },
+      {
+        "stage": 2,
+        "turn": 4,
+        "result": "victory",
+        "evidence": "reports/second-stage-flow-verification.json",
+        "replayed_this_round": false
+      }
+    ],
+    "new_natural_wins": [
+      {
+        "stage": 55,
+        "name": "洞窟战斗",
+        "turn": 3,
+        "survivors": 5,
+        "enemy_stats_changed": false,
+        "forced_victory": false
+      },
+      {
+        "stage": 3,
+        "name": "拉姆山谷",
+        "turn": 12,
+        "survivors": 3,
+        "enemy_stats_changed": false,
+        "forced_victory": false
+      },
+      {
+        "stage": 4,
+        "name": "南方要塞",
+        "turn": 9,
+        "survivors": 1,
+        "enemy_stats_changed": false,
+        "forced_victory": false
+      },
+      {
+        "stage": 5,
+        "name": "索菲亚南部一",
+        "turn": 7,
+        "survivors": 2,
+        "enemy_stats_changed": false,
+        "forced_victory": false
+      },
+      {
+        "stage": 6,
+        "name": "索菲亚南部二",
+        "turn": 7,
+        "survivors": 1,
+        "enemy_stats_changed": false,
+        "forced_victory": false
+      },
+      {
+        "stage": 49,
+        "name": "洞窟战斗",
+        "turn": 6,
+        "survivors": 1,
+        "enemy_stats_changed": false,
+        "forced_victory": false
+      },
+      {
+        "stage": 7,
+        "name": "索菲亚城门",
+        "turn": 11,
+        "survivors": 1,
+        "enemy_stats_changed": false,
+        "forced_victory": false
+      }
+    ],
+    "new_exploration": [
+      "Thief shrine recruit Silque -> actual Gray mercenary promotion -> exit to world2.",
+      "Explicit early Tobin level3 checkpoint -> real statue Mage promotion -> return, reusing passed dungeon visit without replay.",
+      "Southern fortress recruit Clair -> take Thunder Sword -> actual road4 exit.",
+      "Liberation cave battle49 -> talk/recruit Clive/Forsyth/Python -> actual road6 exit.",
+      "Castle gate victory -> enter castle -> take Knight Killer -> actual staircase -> talk to Mycen -> chapter2 screen/monastery opening."
+    ],
+    "final_checkpoint": {
+      "path": "reports/round8-chapter1-save.json",
+      "chapter": 2,
+      "route": "celica",
+      "mode": "hub",
+      "room": 5,
+      "world": 53,
+      "user_save": false
+    },
+    "input_events_total_including_failed_attempts": 7763,
+    "observed_tactical_defeats": {
+      "stage3": 9,
+      "stage7": 1
+    },
+    "tactical_defeats_are_game_fix_count": false,
+    "preparation": [
+      {
+        "early_growth_or_exp_added": 0.0,
+        "enemy_changes": 0.0,
+        "limit": "Previous early battle stats were not preserved; use conservative initial character templates instead of replaying passed battles.",
+        "reused_evidence": "reports/second-stage-flow-verification.json natural stages1/2 wins",
+        "scope": "Source initial five-member chapter1 checkpoint at cleared road2"
+      },
+      {
+        "early_training_level_checkpoint": 3.0,
+        "promotion": "real statue input -> source Mage minima",
+        "random_growth_stats_added": 0.0,
+        "reason": "Preceding maps1/2 growth stats were not retained; this preparation is explicitly a fixture, not an earned-growth claim.",
+        "unit": "tobin"
+      }
+    ],
+    "interpretation": "Victory and chapter progression use actual player keys, movement, combat, original AI, rewards and VM. Early preparation is explicitly isolated, not earned first-two-battle growth."
+  },
+  "verification": {
+    "targeted_shortcut_checks": 16,
+    "package_shortcut_checks": 5,
+    "failures": [],
+    "report": "reports/round8-chapter1-playthrough.json",
+    "full_regression_repeated": false,
+    "old_maps_replayed": [],
+    "screenshot_count": 0,
+    "visual_rationale": "The change routes input into unchanged roster/status panels already visually reviewed; no new layout/assets/textures or recaptured old UI."
+  },
+  "package": {
+    "path": "dist/FE2Campaign.app",
+    "pck_bytes": 94789812,
+    "pck_sha256": "09bb2e007bed607ad22237a17f9df1bccd32bceba6be6b4c472226055374596b",
+    "embedded_matches_standalone": true,
+    "codesign_deep_strict_verified": true,
+    "external_pack_smoke": "reports/round8-package-verification.json"
+  },
+  "remaining_scope": [
+    "Second chapter and later are outside this first-chapter round.",
+    "Prior map47 and later natural victories remain unfinished.",
+    "First chapter combat balance from a completely fresh save with untouched continuous growth is not established by this isolated prepared continuation.",
+    "No claim of testing every possible death/optional branch/input combination."
+  ],
+  "do_not_repeat_next_round": {
+    "passed_battles": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      49,
+      55
+    ],
+    "completed_exploration": "Use the chapter1_acceptance ledger. Repeat only where later changes introduce a specific risk.",
+    "screenshots": "No first-chapter screenshots added; do not recapture previous status/roster screens."
+  },
+  "source_sha256": {
+    "core/main.gd": "bd7c34ce0d4d73501aa3b334bb2626acff9a49bff4253fc9047cf0643c143fa5",
+    "core/main.gd_at_head": "9260bdf4a3dd209d0df6c0d76b36fb778c3b145ad64d3141f0028d88a340e2d7"
+  },
+  "git_head": "573d3b8d302b41533c0dbdec9a63db0395cb2022",
+  "commit_or_push_performed": false,
+  "user_save_accessed": false,
+  "visible_or_focused_game_window_started": false,
+  "diagnostics": [
+    "Headless macOS CA lookup and editor preference write diagnostics under the sandbox; export and signature verification succeed.",
+    "First external smoke omitted an explicit temporary log path and crashed during inaccessible default-log startup. Re-running with --log-file /private/tmp passes all5 functional checks.",
+    "External smoke reports4 ObjectDB instances and1 resource still referenced on immediate test exit; no runtime script/functional failure was observed."
+  ]
+}
