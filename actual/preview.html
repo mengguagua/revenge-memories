@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>revenge-memories · 现代像素世界地图</title>
+<link rel="stylesheet" href="preview.css">
+<body>
+<header>
+ <div><span class="eyebrow">REVENGE MEMORIES</span><h1>西大陆与东群岛</h1></div>
+ <div class="edition"><span class="light"></span>现代像素 · 世界地图审阅 01</div>
+</header>
+<main>
+ <section class="atlas" aria-label="世界地图">
+  <div class="toolbar">
+   <div class="chapter"><label for="chapter">篇章</label><select id="chapter"><option value="all">完整世界</option value="1">第一章 · 雪下的名字</option><option value="2">第二章 · 没有归来的船</option><option value="3">第三章 · 另一种胜利</option><option value="4">第四章 · 故人的另一面</option><option value="5">第五章 · 完整的天空</option></select></div>
+   <div class="tools"><button id="roads" aria-pressed="false">显示路线</button><button id="labels" aria-pressed="false">地点名称</button><button id="zoom" aria-pressed="false">放大查看</button></div>
+  </div>
+  <div id="map-scroll"><div id="map">
+   <img class="terrain" src="assets/world/world-geography.png" alt="现代像素世界：西大陆的雪谷、林地与港湾，东群岛的海灯、沙城与潮汐沼泽，上方为云间神宫。" draggable="false">
+   <svg id="routes-layer" viewBox="0 0 1176 1344" aria-hidden="true"></svg>
+   <div id="points"></div>
+  </div></div>
+  <div class="map-footer"><span>西大陆 · 胡纳普</span><span class="sea-legend">东群岛 · 艾琳</span><span>神宫 · 第五章合军</span></div>
+ </section>
+ <aside>
+  <section class="detail" aria-live="polite">
+   <div class="detail-top"><span id="region" class="eyebrow"></span><span id="id" class="id"></span></div>
+   <div class="place-hero"><img id="place-art" alt=""><div><h2 id="name"></h2><p id="kind"></p></div></div>
+   <p id="description"></p><div id="chapter-tag" class="tag"></div>
+   <div class="connections"><h3>通往这里的道路</h3><div id="connections"></div></div>
+  </section>
+  <section class="directory"><div class="directory-heading"><h3>旅途地点</h3><span id="count">39 处</span></div><div id="directory"></div></section>
+  <p class="review-note">当前预览用于确认画风与地图布局。篇章筛选展示设计范围，战斗与剧情流程将在后续接入。</p>
+ </aside>
+</main>
+<script src="data/world_map.js"></script><script src="preview.js"></script>
+</body></html>

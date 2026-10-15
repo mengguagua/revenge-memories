@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "source_repository": "https://github.com/minirop/fe2",
+  "source_revision": "956365ef33c63751e7afd03f05e600d7728549da",
+  "source_chr": "bank000.chr:first4KiB",
+  "source_chr_sha256": "e9ddd68790436f96ad45cefee480fb4545f30090f8c45eb894a857851488ad62",
+  "source_routine": "bank001:L01B2BB-L01B395",
+  "source_palette": "bank005:L05BCCD; ally background group 2, enemy group 3",
+  "source_packing": {
+    "CB": "two empty HP cells",
+    "CC": "one empty HP cell followed by terminator/background",
+    "CD": "one filled HP cell and one empty HP cell",
+    "CE": "two filled HP cells",
+    "CF": "one filled HP cell followed by terminator/background"
+  },
+  "pixel_policy": "Original 2bpp pixels split into 4x8 half-tiles. Color 0 becomes transparent; source white and side-specific empty-cell/background colors retained. No antialiasing, redrawing, or raster scaling in runtime assets.",
+  "cells": {
+    "ally": {
+      "filled": {
+        "path": "res://assets/original/graphics/health/ally_filled.png",
+        "native_size": [
+          4,
+          8
+        ],
+        "visible_body_size": [
+          3,
+          6
+        ],
+        "source_tile": "CE",
+        "source_crop": [
+          0,
+          0,
+          4,
+          8
+        ],
+        "palette_indices": [
+          15,
+          48,
+          34,
+          17
+        ],
+        "bytes": 90,
+        "alpha_values": [
+          0,
+          255
+        ],
+        "pixel_sha256": "8cb16ea9a149c727ff625f44e74f76e853bb8ed5ff3c89a4de7377197149fc42"
+      },
+      "empty": {
+        "path": "res://assets/original/graphics/health/ally_empty.png",
+        "native_size": [
+          4,
+          8
+        ],
+        "visible_body_size": [
+          3,
+          6
+        ],
+        "source_tile": "CB",
+        "source_crop": [
+          0,
+          0,
+          4,
+          8
+        ],
+        "palette_indices": [
+          15,
+          48,
+          34,
+          17
+        ],
+        "bytes": 92,
+        "alpha_values": [
+          255
+        ],
+        "pixel_sha256": "7b4946746fb0297df727e1e9900856925bc9d70809f74dadc613d27757ee54e3"
+      }
+    },
+    "enemy": {
+      "filled": {
+        "path": "res://assets/original/graphics/health/enemy_filled.png",
+        "native_size": [
+          4,
+          8
+        ],
+        "visible_body_size": [
+          3,
+          6
+        ],
+        "source_tile": "CE",
+        "source_crop": [
+          0,
+          0,
+          4,
+          8
+        ],
+        "palette_indices": [
+          15,
+          48,
+          38,
+          22
+        ],
+        "bytes": 90,
+        "alpha_values": [
+          0,
+          255
+        ],
+        "pixel_sha256": "4e8a46423ef9ca486bd83d14d823686c2b67321cca20ee229d004574948ee4c0"
+      },
+      "empty": {
+        "path": "res://assets/original/graphics/health/enemy_empty.png",
+        "native_size": [
+          4,
+          8
+        ],
+        "visible_body_size": [
+          3,
+          6
+        ],
+        "source_tile": "CB",
+        "source_crop": [
+          0,
+          0,
+          4,
+          8
+        ],
+        "palette_indices": [
+          15,
+          48,
+          38,
+          22
+        ],
+        "bytes": 92,
+        "alpha_values": [
+          255
+        ],
+        "pixel_sha256": "0890810bf92f877b474cb62e77f0018bb691754130ffa1f72ee75a4e0a44e6de"
+      }
+    }
+  },
+  "layout": {
+    "cell_pitch": [
+      4,
+      8
+    ],
+    "cell_size": [
+      4,
+      8
+    ],
+    "original_cells_per_row": 26,
+    "original_max_hp": 52,
+    "original_gauge_width": 104,
+    "recommended_cells_per_row_for_100px_safe_area": 25,
+    "source_wrap": "L01B363-L01B395: above 13 tiles/26 HP, continue in the preceding PPU row; do not merge points into percentages.",
+    "native_layout": "Draw exactly max_hp cells, with hp filled and max_hp-hp empty. Wrap every available_width/4 cells; integer pixel coordinates and nearest filtering. Keep the complete 4x8 canvas inside the existing content safe area."
+  },
+  "verification": {
+    "original_cell_packing_hp_max_pairs_checked": 1430,
+    "all_alpha_binary": true,
+    "all_cells_match_original_single_and_dual_tile_halves": true,
+    "filled_white_pixel_count": 18,
+    "empty_white_pixel_count": 0,
+    "preview": "res://assets/original/graphics/health/preview.png",
+    "preview_native_and_2x_nearest": true,
+    "preview_backgrounds": [
+      "black",
+      "light gray"
+    ],
+    "preview_bytes": 3956
+  }
+}

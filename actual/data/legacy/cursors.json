@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "source_repository": "https://github.com/minirop/fe2",
+  "source_revision": "956365ef33c63751e7afd03f05e600d7728549da",
+  "source_chr": "bank000.chr:first4KiB",
+  "source_chr_sha256": "e9ddd68790436f96ad45cefee480fb4545f30090f8c45eb894a857851488ad62",
+  "pixel_policy": "Exact 2bpp source pixels. Transparent index 0, white index 1. Only NES OAM flips; no rotation, antialiasing, crop, or redrawing.",
+  "arrows": {
+    "right": {
+      "tile": "F4",
+      "source_oam": "bank004:L049720,L04972F",
+      "transform": "none",
+      "path": "res://assets/original/graphics/cursors/right.png",
+      "native_size": [
+        8,
+        8
+      ],
+      "visible_bbox": [
+        0,
+        1,
+        7,
+        8
+      ],
+      "bytes": 106,
+      "pixel_sha256": "0cac6847c54261eb855257d16ce7fad05c7a9ef9f84d80d100f7c4a3af04f20f",
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "left": {
+      "tile": "F4",
+      "source_oam": "bank004:L049725",
+      "transform": "OAM bit 6: horizontal flip",
+      "path": "res://assets/original/graphics/cursors/left.png",
+      "native_size": [
+        8,
+        8
+      ],
+      "visible_bbox": [
+        1,
+        1,
+        8,
+        8
+      ],
+      "bytes": 93,
+      "pixel_sha256": "578059c3115c037ad598e9a3220f6eee9038851efd4f7a3bb29ea7653284a3d2",
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "down": {
+      "tile": "F3",
+      "source_oam": "bank001:L0180DA; bank004:L04A040",
+      "transform": "none",
+      "path": "res://assets/original/graphics/cursors/down.png",
+      "native_size": [
+        8,
+        8
+      ],
+      "visible_bbox": [
+        0,
+        0,
+        7,
+        7
+      ],
+      "bytes": 105,
+      "pixel_sha256": "99a653888cdb6b53753e1b8354993d9d416d8ea8c57547015aeba0422a5eed4c",
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "up": {
+      "tile": "F3",
+      "source_oam": "bank004:L048DC5 includes F3/$82",
+      "transform": "OAM bit 7: vertical flip",
+      "path": "res://assets/original/graphics/cursors/up.png",
+      "native_size": [
+        8,
+        8
+      ],
+      "visible_bbox": [
+        0,
+        1,
+        7,
+        8
+      ],
+      "bytes": 97,
+      "pixel_sha256": "d37e5ddb2d240ba3f71ea672afb1a885a72efdd0ae96c78356581bfd465c976e",
+      "alpha_values": [
+        0,
+        255
+      ]
+    }
+  },
+  "context_policy": {
+    "menu_selection": "right, placed left of the selected menu item; keep horizontal space before text.",
+    "horizontal_previous_next": "left and right on respective sides only when that direction is available.",
+    "dialogue_continue": "down, inside the dialogue content safe area at bottom right.",
+    "map_position_or_target": "down, above the selected node or unit, pointing at it."
+  },
+  "drawing": {
+    "coordinates": "All arrows use an 8x8 canvas and are drawn at native pixel coordinates with nearest texture filtering.",
+    "menu_vertical_center": "F4's visible center is y=4.5: draw at text row center minus 4.5, rounded to native pixels.",
+    "map_tip": "F3's visible tip is [3,6]; place that tip just above the selected sprite/cell.",
+    "safe_inset": "Keep the complete 8x8 canvas inside bitmap panel padding and separate it from adjacent text."
+  },
+  "verification": {
+    "native_arrow_count": 4,
+    "all_alpha_binary": true,
+    "left_is_exact_source_horizontal_flip": true,
+    "up_is_exact_source_vertical_flip": true,
+    "preview": "res://assets/original/graphics/cursors/preview.png",
+    "preview_size": [
+      256,
+      128
+    ],
+    "preview_bytes": 623,
+    "preview_columns": [
+      "left",
+      "right",
+      "up",
+      "down"
+    ],
+    "preview_rows": [
+      "dark",
+      "light"
+    ],
+    "down_matches_existing_original_cursor": true
+  }
+}

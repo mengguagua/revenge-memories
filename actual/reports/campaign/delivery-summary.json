@@ -1,0 +1,436 @@
+{
+  "round1": {
+    "passed": true,
+    "checks": 400,
+    "errors": []
+  },
+  "round2-geometry": {
+    "passed": true,
+    "checks": 1782,
+    "errors": []
+  },
+  "round3": {
+    "passed": true,
+    "failures": [],
+    "inputs": 4236
+  },
+  "medicine-play": {
+    "passed": true,
+    "failures": [],
+    "inputs": 238
+  },
+  "ui-controls": {
+    "passed": true,
+    "checks": [
+      "title continue restores chapter end",
+      "chapter menu can return to map",
+      "camp opens actual character status",
+      "status cancel restores world",
+      "real level7 archer meets original promotion threshold",
+      "promotion uses original class and movement",
+      "optional menu does not revive real casualties",
+      "rapid recruit transition cannot switch battle back to hub"
+    ],
+    "errors": []
+  },
+  "hub-paths": {
+    "passed": true,
+    "failures": []
+  },
+  "battle-resource": {
+    "passed": true,
+    "tiles": 505,
+    "terrain_sets": 6,
+    "tile_size": [
+      16,
+      16
+    ]
+  },
+  "real-screenshots": {
+    "count": 8,
+    "text_errors": 0,
+    "background_guard": true
+  },
+  "pack": {
+    "passed": true,
+    "app": "dist/RevengeMemories.app"
+  },
+  "tsx": {
+    "tilecount": "512",
+    "tilewidth": "16",
+    "registered_tiles": 505,
+    "padding_cells": 7
+  },
+  "scope": "39-node world and playable prologue/chapter one, five main and two side stages. Directed fixtures separate from actual-input play and real screenshots.",
+  "version": "0.1.3",
+  "display-fixes": {
+    "canvas_sizes": [
+      "(256, 240)",
+      "(426, 240)",
+      "(384, 240)",
+      "(560, 240)",
+      "(562, 260)"
+    ],
+    "checks": 113,
+    "errors": [],
+    "passed": true,
+    "scope": "Targeted resize, actual key walking, portrait coverage and pointer fixtures; no battle outcomes modified",
+    "walk_samples": [
+      "(92.0, 112.0)",
+      "(88.0, 112.0)",
+      "(84.0, 112.0)",
+      "(80.0, 112.0)"
+    ]
+  },
+  "actual-window-layout": {
+    "background_guard": true,
+    "passed": true,
+    "records": [
+      {
+        "aspect": 4,
+        "content_scale_size": "(426, 240)",
+        "fills_at_integer_scale": true,
+        "layout_errors": [],
+        "logical_viewport": "(426.0, 240.0)",
+        "scale_mode": 1,
+        "screen_transform": "[X: (3.0, 0.0), Y: (0.0, 3.0), O: (1.0, 0.0)]",
+        "stretch_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)]",
+        "unused_physical_pixels": "(2.0, 0.0)",
+        "window": "(1280, 720)"
+      },
+      {
+        "aspect": 4,
+        "content_scale_size": "(426, 266)",
+        "fills_at_integer_scale": true,
+        "layout_errors": [],
+        "logical_viewport": "(426.0, 266.0)",
+        "scale_mode": 1,
+        "screen_transform": "[X: (3.0, 0.0), Y: (0.0, 3.0), O: (1.0, 1.0)]",
+        "stretch_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)]",
+        "unused_physical_pixels": "(2.0, 2.0)",
+        "window": "(1280, 800)"
+      },
+      {
+        "aspect": 4,
+        "content_scale_size": "(562, 260)",
+        "fills_at_integer_scale": true,
+        "layout_errors": [],
+        "logical_viewport": "(562.0, 260.0)",
+        "scale_mode": 1,
+        "screen_transform": "[X: (3.0, 0.0), Y: (0.0, 3.0), O: (1.0, 0.0)]",
+        "stretch_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)]",
+        "unused_physical_pixels": "(2.0, 0.0)",
+        "window": "(1688, 780)"
+      }
+    ],
+    "visible_windows": false
+  },
+  "mobile_orientation": "sensor_landscape",
+  "border-integrity": {
+    "canvas_sizes": [
+      "(256, 240)",
+      "(384, 240)",
+      "(426, 240)",
+      "(426, 266)",
+      "(562, 260)"
+    ],
+    "checks": 7792,
+    "errors": [],
+    "passed": true,
+    "rooms": [
+      "P00",
+      "H01",
+      "H02",
+      "H03",
+      "H04",
+      "H05",
+      "H06",
+      "H07",
+      "H08",
+      "H09"
+    ],
+    "scope": "All 10 hubs, 7 battle art layers, world modules, and five landscape widths; border sources drawn whole, never modulo-clipped",
+    "stages": [
+      "M11",
+      "M12",
+      "M13",
+      "M14",
+      "M15",
+      "S11",
+      "S12"
+    ],
+    "world_modules": 48
+  },
+  "border-captures": {
+    "background_guard": true,
+    "failures": [],
+    "passed": true,
+    "scope": "Spot checks of 10 hubs, all 7 battle openings, 3 world viewpoints; fixtures explicitly labelled",
+    "shots": [
+      {
+        "canvas": "(384, 240)",
+        "fixture": true,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/hub-P00.png",
+        "source": "Directed room-entry fixture"
+      },
+      {
+        "canvas": "(384, 240)",
+        "fixture": true,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/hub-H01.png",
+        "source": "Directed room-entry fixture"
+      },
+      {
+        "canvas": "(384, 240)",
+        "fixture": true,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/hub-H02.png",
+        "source": "Directed room-entry fixture"
+      },
+      {
+        "canvas": "(384, 240)",
+        "fixture": true,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/hub-H03.png",
+        "source": "Directed room-entry fixture"
+      },
+      {
+        "canvas": "(384, 240)",
+        "fixture": true,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/hub-H04.png",
+        "source": "Directed room-entry fixture"
+      },
+      {
+        "canvas": "(384, 240)",
+        "fixture": true,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/hub-H05.png",
+        "source": "Directed room-entry fixture"
+      },
+      {
+        "canvas": "(384, 240)",
+        "fixture": true,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/hub-H06.png",
+        "source": "Directed room-entry fixture"
+      },
+      {
+        "canvas": "(384, 240)",
+        "fixture": true,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/hub-H07.png",
+        "source": "Directed room-entry fixture"
+      },
+      {
+        "canvas": "(384, 240)",
+        "fixture": true,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/hub-H08.png",
+        "source": "Directed room-entry fixture"
+      },
+      {
+        "canvas": "(384, 240)",
+        "fixture": true,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/hub-H09.png",
+        "source": "Directed room-entry fixture"
+      },
+      {
+        "canvas": "(426, 240)",
+        "fixture": false,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/battle-M11.png",
+        "source": "Real natural-play opening checkpoint; cursor input only"
+      },
+      {
+        "canvas": "(426, 240)",
+        "fixture": false,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/battle-M12.png",
+        "source": "Real natural-play opening checkpoint; cursor input only"
+      },
+      {
+        "canvas": "(426, 240)",
+        "fixture": false,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/battle-M13.png",
+        "source": "Real natural-play opening checkpoint; cursor input only"
+      },
+      {
+        "canvas": "(426, 240)",
+        "fixture": false,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/battle-M14.png",
+        "source": "Real natural-play opening checkpoint; cursor input only"
+      },
+      {
+        "canvas": "(426, 240)",
+        "fixture": false,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/battle-M15.png",
+        "source": "Real natural-play opening checkpoint; cursor input only"
+      },
+      {
+        "canvas": "(562, 260)",
+        "fixture": false,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/battle-S11.png",
+        "source": "Real natural-play opening checkpoint; cursor input only"
+      },
+      {
+        "canvas": "(562, 260)",
+        "fixture": false,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/battle-S12.png",
+        "source": "Real natural-play opening checkpoint; cursor input only"
+      },
+      {
+        "canvas": "(426, 240)",
+        "fixture": true,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/world-1.png",
+        "source": "Directed camera fixture, actual map layers and node 1"
+      },
+      {
+        "canvas": "(426, 240)",
+        "fixture": true,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/world-6.png",
+        "source": "Directed camera fixture, actual map layers and node 6"
+      },
+      {
+        "canvas": "(426, 240)",
+        "fixture": true,
+        "layout_errors": [],
+        "path": "res://reports/border-fixes/world-17.png",
+        "source": "Directed camera fixture, actual map layers and node 17"
+      }
+    ],
+    "visible_windows": false
+  },
+  "world-node-icons": {
+    "passed": true,
+    "nodes": 39,
+    "overwritten_fragments": [],
+    "scope": "Each node symbol layer checked against its complete original module"
+  },
+  "border-package": {
+    "passed": true,
+    "version": "0.1.2"
+  },
+  "natural-0.1.3": {
+    "geometry": {
+      "passed": true,
+      "checks": 9448,
+      "errors": [],
+      "nature_sprites": 20,
+      "exterior_placements": 3777,
+      "hubs": 10,
+      "battle_maps": 7,
+      "world_nodes": 39,
+      "world_routes": 40,
+      "world_modules": 246,
+      "route_steps": 420,
+      "scope": "Art integrity, complete footprints, road/exit/actor separation and unchanged gameplay data; appearance reviewed in engine captures"
+    },
+    "viewports": {
+      "canvas_sizes": [
+        "(256, 240)",
+        "(384, 240)",
+        "(426, 240)",
+        "(426, 266)",
+        "(562, 260)"
+      ],
+      "checks": 6736,
+      "errors": [],
+      "passed": true,
+      "scope": "Actual renderer visibility function, all 17 exterior plans plus scaled world symbols, two camera positions and five landscape sizes"
+    },
+    "hub_path": {
+      "failures": [],
+      "objects_checked": 25,
+      "passed": true,
+      "scope": "Directed room spawn fixtures, all movement performed with actual input; intact scenery footprints block walking"
+    },
+    "display": {
+      "canvas_sizes": [
+        "(256, 240)",
+        "(426, 240)",
+        "(384, 240)",
+        "(560, 240)",
+        "(562, 260)"
+      ],
+      "checks": 113,
+      "errors": [],
+      "passed": true,
+      "scope": "Targeted resize, actual key walking, portrait coverage and pointer fixtures; no battle outcomes modified",
+      "walk_samples": [
+        "(92.0, 112.0)",
+        "(88.0, 112.0)",
+        "(84.0, 112.0)",
+        "(80.0, 112.0)"
+      ]
+    },
+    "screenshots": {
+      "passed": true,
+      "count": 20,
+      "layout_errors": 0
+    },
+    "actual_windows": {
+      "background_guard": true,
+      "passed": true,
+      "records": [
+        {
+          "aspect": 4,
+          "content_scale_size": "(426, 240)",
+          "fills_at_integer_scale": true,
+          "layout_errors": [],
+          "logical_viewport": "(426.0, 240.0)",
+          "scale_mode": 1,
+          "screen_transform": "[X: (3.0, 0.0), Y: (0.0, 3.0), O: (1.0, 0.0)]",
+          "stretch_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)]",
+          "unused_physical_pixels": "(2.0, 0.0)",
+          "window": "(1280, 720)"
+        },
+        {
+          "aspect": 4,
+          "content_scale_size": "(426, 266)",
+          "fills_at_integer_scale": true,
+          "layout_errors": [],
+          "logical_viewport": "(426.0, 266.0)",
+          "scale_mode": 1,
+          "screen_transform": "[X: (3.0, 0.0), Y: (0.0, 3.0), O: (1.0, 1.0)]",
+          "stretch_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)]",
+          "unused_physical_pixels": "(2.0, 2.0)",
+          "window": "(1280, 800)"
+        },
+        {
+          "aspect": 4,
+          "content_scale_size": "(562, 260)",
+          "fills_at_integer_scale": true,
+          "layout_errors": [],
+          "logical_viewport": "(562.0, 260.0)",
+          "scale_mode": 1,
+          "screen_transform": "[X: (3.0, 0.0), Y: (0.0, 3.0), O: (1.0, 0.0)]",
+          "stretch_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)]",
+          "unused_physical_pixels": "(2.0, 0.0)",
+          "window": "(1688, 780)"
+        }
+      ],
+      "visible_windows": false
+    },
+    "pack": {
+      "failures": [],
+      "passed": true,
+      "scope": "Standalone exported PCK loaded outside source project, prologue and battle initialization",
+      "sprites": 20,
+      "version": "0.1.3",
+      "world_props": 246
+    },
+    "visual_review": "res://reports/natural-0.1.3/visual-review.json",
+    "asset_manifest": "res://reports/natural-0.1.3/image-manifest.json",
+    "scope": "Art-only iteration; previous round1/2/3 and border reports above remain historical, not newly replayed"
+  }
+}

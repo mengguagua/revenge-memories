@@ -1,0 +1,136 @@
+{
+  "version": "0.2.0",
+  "completed_local": "2026-10-15T14:47:44.325245+08:00",
+  "passed": true,
+  "playable_scope": {
+    "prologue": true,
+    "chapter1_battles": 7,
+    "chapter2_main_battles": 6,
+    "chapter2_side_battles": 2,
+    "total_battles": 15,
+    "world_nodes": 39,
+    "world_routes": 40,
+    "chapter3": false
+  },
+  "round1": {
+    "state-checks": {
+      "passed": true,
+      "checks": 675,
+      "source": "state-checks.json"
+    },
+    "hub-checks": {
+      "passed": true,
+      "checks": 59,
+      "source": "hub-checks.json"
+    },
+    "captive-guard-check": {
+      "passed": true,
+      "checks": 123,
+      "source": "captive-guard-check.json"
+    },
+    "rescue-order-check": {
+      "passed": true,
+      "checks": 17,
+      "source": "rescue-order-check.json"
+    },
+    "guard-npc-check": {
+      "passed": true,
+      "checks": 62,
+      "source": "guard-npc-check.json"
+    },
+    "equipment-claim-check": {
+      "passed": true,
+      "checks": 13,
+      "source": "equipment-claim-check.json"
+    }
+  },
+  "round2": {
+    "visual_fixture_shots": 36,
+    "layout_errors": [],
+    "portrait_resize_walking_checks": 153,
+    "hub_rooms": 7,
+    "fixture_scope": "Directed Godot scene and event states, not natural wins"
+  },
+  "round3": {
+    "passed": true,
+    "source": "play/round3-summary.json",
+    "actual_key_inputs_including_retries": 17993,
+    "true_victories": 8,
+    "stages": [
+      {
+        "code": "F21",
+        "turn": 16
+      },
+      {
+        "code": "F22",
+        "turn": 38
+      },
+      {
+        "code": "F23",
+        "turn": 13
+      },
+      {
+        "code": "S21",
+        "turn": 11
+      },
+      {
+        "code": "S22",
+        "turn": 23
+      },
+      {
+        "code": "F24",
+        "turn": 13
+      },
+      {
+        "code": "F25",
+        "turn": 15
+      },
+      {
+        "code": "F26",
+        "turn": 24
+      }
+    ],
+    "actual_casualties": [
+      "mireille",
+      "lisa"
+    ],
+    "npc_losses": [
+      "F21 injured_passengers",
+      "S22 wounded"
+    ],
+    "forced_victories": false,
+    "stat_edits": false,
+    "western_state_preserved": true
+  },
+  "screenshots": {
+    "count": 11,
+    "layout_errors": [],
+    "source": "screenshots/captures.json",
+    "images": "screenshots/image-manifest.json",
+    "gallery": "index.html",
+    "actual_play_checkpoints": true,
+    "fixture": false,
+    "background_guard": true
+  },
+  "package": {
+    "path": "dist/RevengeMemories.app",
+    "version": "0.2.0",
+    "passed": true,
+    "checks": 47,
+    "keys": 23,
+    "codesign": {
+      "passed": true,
+      "command": "codesign --verify --deep --strict --verbose=2",
+      "result": "valid on disk; satisfies its Designated Requirement"
+    },
+    "pck_sha256": "a6b6587a4608acd8b1e7d39d84f4efc2ea1a33e4801a2ad9b77168d5309af27f",
+    "scope": "Standalone exported PCK, external script, headless Dummy, title/menu inputs against isolated copies of actual chapter-end saves",
+    "source": "package-check.json"
+  },
+  "asset_manifest": "../chapter2-battles/assets-manifest.json",
+  "limitations": [
+    "Mobile landscape viewport simulated; no mobile hardware/touch acceptance or installable mobile package.",
+    "Capture and headless exit resource-release warnings retained in logs; no gameplay failure observed.",
+    "Natural play retains actual deaths and failed attempts; not a perfect-rescue or exhaustive balance certification."
+  ]
+}

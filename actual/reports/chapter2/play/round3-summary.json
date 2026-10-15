@@ -1,0 +1,266 @@
+{
+  "round": 3,
+  "passed": true,
+  "latest_attempt": 8,
+  "total_actual_key_inputs_including_retained_retries": 17993,
+  "true_victories": 8,
+  "stages": [
+    {
+      "code": "F21",
+      "outcome": "victory",
+      "final_turn": 16,
+      "source_attempt": 1,
+      "checkpoint": "natural-F21-victory-save.json",
+      "quest_objects": {
+        "plank_1": true,
+        "plank_2": true
+      },
+      "evacuated": [],
+      "npc_results": [
+        {
+          "id": "friendly_ship",
+          "hp": 28,
+          "evacuated": false
+        },
+        {
+          "id": "injured_passengers",
+          "hp": 0,
+          "evacuated": false
+        }
+      ]
+    },
+    {
+      "code": "F22",
+      "outcome": "victory",
+      "final_turn": 38,
+      "source_attempt": 6,
+      "checkpoint": "natural-F22-victory-save.json",
+      "quest_objects": {
+        "prison_door": true,
+        "reserve_bridge": true
+      },
+      "evacuated": [
+        "prisoners_0",
+        "prisoners_1",
+        "prisoners_2",
+        "lord"
+      ],
+      "npc_results": [
+        {
+          "id": "prisoners_0",
+          "hp": 24,
+          "evacuated": true
+        },
+        {
+          "id": "prisoners_1",
+          "hp": 24,
+          "evacuated": true
+        },
+        {
+          "id": "prisoners_2",
+          "hp": 24,
+          "evacuated": true
+        },
+        {
+          "id": "lord",
+          "hp": 30,
+          "evacuated": true
+        }
+      ]
+    },
+    {
+      "code": "F23",
+      "outcome": "victory",
+      "final_turn": 13,
+      "source_attempt": 6,
+      "checkpoint": "natural-F23-victory-save.json",
+      "quest_objects": {},
+      "evacuated": [],
+      "npc_results": [
+        {
+          "id": "roan",
+          "hp": 23,
+          "evacuated": false
+        },
+        {
+          "id": "fishers",
+          "hp": 26,
+          "evacuated": false
+        }
+      ]
+    },
+    {
+      "code": "S21",
+      "outcome": "victory",
+      "final_turn": 11,
+      "source_attempt": 6,
+      "checkpoint": "natural-S21-victory-save.json",
+      "quest_objects": {},
+      "evacuated": [
+        "patients0"
+      ],
+      "npc_results": [
+        {
+          "id": "patients0",
+          "hp": 28,
+          "evacuated": true
+        },
+        {
+          "id": "patients1",
+          "hp": 8,
+          "evacuated": false
+        }
+      ]
+    },
+    {
+      "code": "S22",
+      "outcome": "victory",
+      "final_turn": 23,
+      "source_attempt": 6,
+      "checkpoint": "natural-S22-victory-save.json",
+      "quest_objects": {
+        "hideout": true,
+        "relics": true
+      },
+      "evacuated": [
+        "old_sailor"
+      ],
+      "npc_results": [
+        {
+          "id": "old_sailor",
+          "hp": 24,
+          "evacuated": true
+        },
+        {
+          "id": "wounded",
+          "hp": 0,
+          "evacuated": false
+        }
+      ]
+    },
+    {
+      "code": "F24",
+      "outcome": "victory",
+      "final_turn": 13,
+      "source_attempt": 7,
+      "checkpoint": "natural-F24-victory-save.json",
+      "quest_objects": {
+        "shelter": true
+      },
+      "evacuated": [],
+      "npc_results": [
+        {
+          "id": "shia",
+          "hp": 24,
+          "evacuated": false
+        },
+        {
+          "id": "islanders",
+          "hp": 4,
+          "evacuated": false
+        }
+      ]
+    },
+    {
+      "code": "F25",
+      "outcome": "victory",
+      "final_turn": 15,
+      "source_attempt": 7,
+      "checkpoint": "natural-F25-victory-save.json",
+      "quest_objects": {
+        "myth_box": true,
+        "pilot_prison": true
+      },
+      "evacuated": [],
+      "npc_results": [
+        {
+          "id": "sailors0",
+          "hp": 24,
+          "evacuated": false
+        },
+        {
+          "id": "sailors1",
+          "hp": 24,
+          "evacuated": false
+        }
+      ]
+    },
+    {
+      "code": "F26",
+      "outcome": "victory",
+      "final_turn": 24,
+      "source_attempt": 8,
+      "checkpoint": "natural-F26-victory-save.json",
+      "quest_objects": {},
+      "evacuated": [],
+      "npc_results": []
+    }
+  ],
+  "no_stat_edits": true,
+  "no_forced_victories": true,
+  "no_direct_unit_movement": true,
+  "no_rng_reset": true,
+  "resume_policy": "Genuine input checkpoints; battle restarts only through displayed preparation menu. Failures and the complete previous successful attempt remain on disk.",
+  "starting_point": "../campaign/natural-chapter-end-save.json",
+  "final_checkpoint": "natural-chapter-end-save.json",
+  "west_roster_exactly_unchanged": true,
+  "west_member_count": 8,
+  "east_recruited": [
+    "lord",
+    "roan",
+    "shia"
+  ],
+  "permanent_east_casualties": [
+    "mireille",
+    "lisa"
+  ],
+  "final_equipment": {
+    "eileen": 16.0,
+    "carlo": 49.0,
+    "lord": 4.0,
+    "roan": 21,
+    "shia": 49
+  },
+  "evidence_flags": {
+    "F23_holy_sword_taken": true,
+    "F25_holy_bow_taken": true,
+    "S21_invited": true,
+    "S22_invited": true,
+    "sailor_rescued": true,
+    "old_sailor_rescued": true,
+    "relics_recovered": true,
+    "sea_chart_collected": true,
+    "labor_rescued": true,
+    "islanders_settled": true,
+    "islanders_survived": true,
+    "harbor_patients_treated": true,
+    "lighthouse_spring_used": true,
+    "lighthouse_spring_recipient": "eileen",
+    "carlo_promise_completed": true,
+    "east_boats_arrived": 2,
+    "chapter2_complete": true,
+    "chapter3_pending": true
+  },
+  "magic_used": [
+    23,
+    24,
+    26,
+    40
+  ],
+  "training_scope": "Visited the real training menu and magic explanation; no forced level/class promotion. Eileen earned magic flags through actual XP and used the resistance spring normally.",
+  "screenshots_available": [
+    "F22-object-reserve_bridge",
+    "F21-field",
+    "after-203",
+    "S22-field",
+    "F24-field",
+    "F25-field",
+    "F26-boats-moving",
+    "chapter-end"
+  ],
+  "limitations": [
+    "Automated directed play via actual keyboard UI, not an independent human playtest.",
+    "Successful route retains optional casualties; it is not a perfect-rescue run.",
+    "Final input count includes honest failures and retries retained in attempt reports."
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "stage": "F22",
+  "checks": {
+    "locked": {
+      "captives_reachable": {
+        "prisoners_0": false,
+        "prisoners_1": false,
+        "prisoners_2": false,
+        "lord": false
+      },
+      "exit_reachable": true,
+      "boss_reachable": true
+    },
+    "open": {
+      "captives_reachable": {
+        "prisoners_0": true,
+        "prisoners_1": true,
+        "prisoners_2": true,
+        "lord": true
+      },
+      "exit_reachable": true,
+      "boss_reachable": true
+    }
+  },
+  "npc_coordinates_and_stats_identical": true,
+  "enemy_count_and_stats_identical": true,
+  "main_aisle_continuous_width": 2,
+  "main_aisle_columns": [
+    26,
+    27
+  ],
+  "guard_relocations": [
+    {
+      "id": "F22_e1",
+      "from": [
+        25,
+        6
+      ],
+      "to": [
+        25,
+        5
+      ],
+      "reason": "Visible detention rail occupied original guard cell"
+    },
+    {
+      "id": "F22_e3",
+      "from": [
+        25,
+        15
+      ],
+      "to": [
+        27,
+        15
+      ],
+      "reason": "Visible detention rail occupied original guard cell"
+    },
+    {
+      "id": "F22_e9",
+      "from": [
+        25,
+        7
+      ],
+      "to": [
+        26,
+        7
+      ],
+      "reason": "Visible detention rail occupied original guard cell"
+    }
+  ],
+  "scope": "Static collision/visual repair; actual AI survival and escort verification owned by chapter2_state."
+}

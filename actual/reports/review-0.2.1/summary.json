@@ -1,0 +1,258 @@
+{
+  "version": "0.2.1",
+  "completed_local": "2026-10-15T15:37:39.845709+08:00",
+  "passed": true,
+  "round1": {
+    "purpose": "Baseline actual-input sampling, collision/route/terrain audit",
+    "battles": [
+      {
+        "code": "M13",
+        "outcome": "victory",
+        "turn": 11,
+        "source": "round1-play.json",
+        "keys": 967,
+        "scope": "Actual keyboard re-entry from genuine campaign checkpoint; no HP/stat/RNG/position edits"
+      },
+      {
+        "code": "S12",
+        "outcome": "victory",
+        "turn": 6,
+        "source": "round1-play.json",
+        "keys": 261,
+        "scope": "Actual keyboard re-entry from genuine campaign checkpoint; no HP/stat/RNG/position edits"
+      },
+      {
+        "code": "F24",
+        "outcome": "victory",
+        "turn": 13,
+        "source": "round1-play.json",
+        "keys": 744,
+        "scope": "Actual keyboard re-entry from genuine campaign checkpoint; no HP/stat/RNG/position edits"
+      },
+      {
+        "code": "F21",
+        "outcome": "victory",
+        "turn": 16,
+        "source": "round1-naval-play.json",
+        "keys": 840,
+        "scope": "Actual keyboard re-entry from genuine campaign checkpoint; no HP/stat/RNG/position edits"
+      }
+    ]
+  },
+  "round2": {
+    "purpose": "Recheck changed layouts, normal preparation, chokepoint/alternate-route and retreat interception play",
+    "battles": [
+      {
+        "code": "M12",
+        "outcome": "victory",
+        "turn": 13,
+        "source": "round2-play.json",
+        "keys": 806,
+        "scope": "Actual keyboard re-entry from genuine campaign checkpoint; no HP/stat/RNG/position edits"
+      },
+      {
+        "code": "F25",
+        "outcome": "victory",
+        "turn": 18,
+        "source": "round2-play.json",
+        "keys": 1289,
+        "scope": "Actual keyboard re-entry from genuine campaign checkpoint; no HP/stat/RNG/position edits"
+      },
+      {
+        "code": "F26",
+        "outcome": "victory",
+        "turn": 24,
+        "source": "round2-play.json",
+        "keys": 1950,
+        "scope": "Actual keyboard re-entry from genuine campaign checkpoint; no HP/stat/RNG/position edits"
+      },
+      {
+        "code": "M13",
+        "outcome": "victory",
+        "turn": 11,
+        "source": "round2-intercept-play.json",
+        "keys": 915,
+        "scope": "Actual keyboard re-entry from genuine campaign checkpoint; no HP/stat/RNG/position edits"
+      },
+      {
+        "code": "S22",
+        "outcome": "victory",
+        "turn": 23,
+        "source": "round2-intercept-play.json",
+        "keys": 885,
+        "scope": "Actual keyboard re-entry from genuine campaign checkpoint; no HP/stat/RNG/position edits"
+      },
+      {
+        "code": "M14",
+        "outcome": "victory",
+        "turn": 6,
+        "source": "round2-garrison-play.json",
+        "keys": 531,
+        "scope": "Actual keyboard re-entry from genuine campaign checkpoint; no HP/stat/RNG/position edits"
+      },
+      {
+        "code": "M15",
+        "outcome": "victory",
+        "turn": 11,
+        "source": "round2-tower-play.json",
+        "keys": 1200,
+        "scope": "Actual keyboard re-entry from genuine campaign checkpoint; no HP/stat/RNG/position edits"
+      }
+    ]
+  },
+  "distinct_played_battles": 10,
+  "successful_full_battle_samples": 11,
+  "actual_play_keys_including_retained_attempts": 20228,
+  "attempts": [
+    {
+      "file": "round1-naval-play.json",
+      "keys": 840,
+      "results": [
+        {
+          "code": "F21",
+          "outcome": "victory",
+          "turn": 16
+        }
+      ]
+    },
+    {
+      "file": "round1-play.json",
+      "keys": 4721,
+      "results": [
+        {
+          "code": "M13",
+          "outcome": "victory",
+          "turn": 11
+        },
+        {
+          "code": "S12",
+          "outcome": "victory",
+          "turn": 6
+        },
+        {
+          "code": "F21",
+          "outcome": "stopped",
+          "turn": 66
+        },
+        {
+          "code": "F24",
+          "outcome": "victory",
+          "turn": 13
+        }
+      ]
+    },
+    {
+      "file": "round2-garrison-play.json",
+      "keys": 531,
+      "results": [
+        {
+          "code": "M14",
+          "outcome": "victory",
+          "turn": 6
+        }
+      ]
+    },
+    {
+      "file": "round2-gate-play.json",
+      "keys": 849,
+      "results": [
+        {
+          "code": "M15",
+          "outcome": "defeat",
+          "turn": 9
+        }
+      ]
+    },
+    {
+      "file": "round2-intercept-play.json",
+      "keys": 2668,
+      "results": [
+        {
+          "code": "M13",
+          "outcome": "victory",
+          "turn": 11
+        },
+        {
+          "code": "M15",
+          "outcome": "defeat",
+          "turn": 9
+        },
+        {
+          "code": "S22",
+          "outcome": "victory",
+          "turn": 23
+        }
+      ]
+    },
+    {
+      "file": "round2-play.json",
+      "keys": 5006,
+      "results": [
+        {
+          "code": "M12",
+          "outcome": "victory",
+          "turn": 13
+        },
+        {
+          "code": "M15",
+          "outcome": "defeat",
+          "turn": 9
+        },
+        {
+          "code": "F25",
+          "outcome": "victory",
+          "turn": 18
+        },
+        {
+          "code": "F26",
+          "outcome": "victory",
+          "turn": 24
+        }
+      ]
+    },
+    {
+      "file": "round2-prepared-play.json",
+      "keys": 4413,
+      "results": [
+        {
+          "code": "M15",
+          "outcome": "stopped",
+          "turn": 66
+        }
+      ]
+    },
+    {
+      "file": "round2-tower-play.json",
+      "keys": 1200,
+      "results": [
+        {
+          "code": "M15",
+          "outcome": "victory",
+          "turn": 11
+        }
+      ]
+    }
+  ],
+  "geometry_rule_checks": 1444,
+  "all_battlefields_reviewed": 15,
+  "runtime_screenshot_count": 58,
+  "runtime_layout_errors": [],
+  "image_max_bytes": 187213,
+  "package_checks": 78,
+  "package_menu_keys": 43,
+  "source_saves_unchanged": true,
+  "codesign_passed": true,
+  "core_combat_formula_changed": false,
+  "retreat_timer_changed": false,
+  "compatibility": "Old active 0.2.0 battles retain original geometry until normal retry or preparation re-entry; new saves mark map_revision.",
+  "limitations": [
+    "Sampled ten distinct battles, not two complete no-loss campaign playthroughs.",
+    "Actual failed/stalled attempts are retained; final acceptance uses the documented successful retry for each sampled case.",
+    "Landscape layout checked at native 256x240, 426x240, 426x266 and 562x260; no mobile hardware/touch acceptance.",
+    "Optional short GPU continuation did not reach the selected north-gate pose; no such screenshot is presented."
+  ],
+  "font_display_update": {
+    "version": "0.2.2",
+    "report": "../glyph-fix-0.2.2/summary.json"
+  }
+}
