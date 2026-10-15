@@ -2,3 +2,36 @@
 *.log
 __pycache__/
 dist/
+
+# 截图原始帧和中间对比大图可重新捕获；保留正式画廊与行走动图
+/reports/display-fixes/walk-frames/
+/reports/review-0.2.1/before-ch1.png
+/reports/review-0.2.1/before-ch2.png
+/reports/world-map-godot.png
+/reports/world-map-godot-routes.png
+/reports/landmarks-light.png
+/reports/landmarks-dark.png
+
+# 测试写入的工作存档；不要忽略 natural-* 等正式回放检查点
+/reports/**/working-save.json
+/reports/**/*-working-save.json
+/reports/**/*-working.json
+/reports/**/progress-save.json
+/reports/campaign/*fixtures-save.json
+/reports/campaign/border-visual-fixture-save.json
+/reports/campaign/display-plot-resume-save.json
+/reports/campaign/hub-paths-save.json
+/reports/campaign/medicine-progress.json
+/reports/campaign/probe-save.json
+/reports/campaign/qa-capture-save.json
+/reports/campaign/round1-save.json
+/reports/campaign/round3-attempt*-save.json
+/reports/campaign/round3-progress.json
+/reports/campaign/ui-controls-save.json
+/reports/chapter2/debug-save.json
+/reports/chapter2/state-check-save.json
+
+# 早期重试的详细轨迹及历史存档副本保留本地，结论见 attempts-index.json
+# 保留 attempt-7/8 完整通关记录和顶层 natural-* 当前检查点
+/reports/chapter2/play/attempt-[1-6].json
+/reports/chapter2/play/attempt-*-checkpoints/

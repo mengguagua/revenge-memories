@@ -1,0 +1,347 @@
+{
+  "scope": "Historical attempts 1–8, extracted without replaying battles or changing outcomes. Counts are cumulative, not summed across retries.",
+  "source_commit": "4a011362c8eb1853354ec1e77f50547f87fa7137",
+  "raw_storage": "attempt-1..6.json and attempt-*-checkpoints/ remain local and ignored; attempt-7/8.json and top-level natural-* checkpoints remain tracked. Earlier files can also be recovered from source_commit.",
+  "latest_report": "attempt-8.json",
+  "latest_summary": "round3-summary.json",
+  "attempts": [
+    {
+      "attempt": 1,
+      "passed": false,
+      "inputs": 1235,
+      "failures": [
+        "Natural battle failed: S21 { \"objects\": {  }, \"evacuated\": [\"patients0\"], \"freed\": [], \"burn_streak\": 0, \"reinforced\": false, \"mid_done\": false, &\"beacon_since\": -1, &\"beacon_contested\": false, &\"boats\": [], &\"failed_reason\": \"艾琳阵亡\" }"
+      ],
+      "stat_edits": false,
+      "forced_victories": false,
+      "scope": "Chapter2 actual keyboard control from genuine chapter1 completion; directed scenario tests reported separately",
+      "file": "attempt-1.json",
+      "sha256": "bec4d3b8153546082577e82f84257b08a8fa4345fbddeb67d0b1ef10b727ffff",
+      "raw_report_in_git": false,
+      "operation_count": 94,
+      "checkpoint_count": 8,
+      "battles": [
+        {
+          "code": "F21",
+          "stage": 201,
+          "outcome": "victory",
+          "final_turn": 16
+        },
+        {
+          "code": "S21",
+          "stage": 211,
+          "outcome": "defeat",
+          "final_turn": 7
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "passed": false,
+      "inputs": 4277,
+      "failures": [
+        "Natural battle failed: S21 { \"beacon_contested\": false, \"beacon_since\": -1.0, \"boats\": [], \"burn_streak\": 0.0, \"evacuated\": [\"patients0\"], \"freed\": [], \"mid_done\": false, \"objects\": {  }, \"reinforced\": false }"
+      ],
+      "stat_edits": false,
+      "forced_victories": false,
+      "scope": "Chapter2 actual keyboard control from genuine chapter1 completion; directed scenario tests reported separately",
+      "file": "attempt-2.json",
+      "sha256": "6d6cd5a17076387cbc40ed1b2192d6fafdb0a83525edc9ed45f5f8f5766fef0f",
+      "raw_report_in_git": false,
+      "operation_count": 367,
+      "checkpoint_count": 10,
+      "battles": [
+        {
+          "code": "F21",
+          "stage": 201.0,
+          "outcome": "victory",
+          "final_turn": 16.0
+        },
+        {
+          "code": "S21",
+          "stage": 211,
+          "outcome": "",
+          "final_turn": 91
+        }
+      ]
+    },
+    {
+      "attempt": 3,
+      "passed": false,
+      "inputs": 4481,
+      "failures": [
+        "Natural battle failed: F22 { \"objects\": {  }, \"evacuated\": [], \"freed\": [], \"burn_streak\": 0, \"reinforced\": false, \"mid_done\": false, &\"beacon_since\": -1, &\"beacon_contested\": false, &\"boats\": [], &\"failed_reason\": \"无法救出三名普通俘虏\" }"
+      ],
+      "stat_edits": false,
+      "forced_victories": false,
+      "scope": "Chapter2 actual keyboard control from genuine chapter1 completion; directed scenario tests reported separately",
+      "file": "attempt-3.json",
+      "sha256": "2d21901447efef60a3936ddad5ad38b590fa192585581e3a5b36a10461ddb603",
+      "raw_report_in_git": false,
+      "operation_count": 381,
+      "checkpoint_count": 13,
+      "battles": [
+        {
+          "code": "F21",
+          "stage": 201.0,
+          "outcome": "victory",
+          "final_turn": 16.0
+        },
+        {
+          "code": "F22",
+          "stage": 202,
+          "outcome": "defeat",
+          "final_turn": 3
+        }
+      ]
+    },
+    {
+      "attempt": 4,
+      "passed": false,
+      "inputs": 6447,
+      "failures": [
+        "Natural battle failed: F23 { \"objects\": {  }, \"evacuated\": [], \"freed\": [], \"burn_streak\": 0, \"reinforced\": false, \"mid_done\": false, &\"beacon_since\": -1, &\"beacon_contested\": false, &\"boats\": [], &\"failed_reason\": \"渔民营地陷落\" }"
+      ],
+      "stat_edits": false,
+      "forced_victories": false,
+      "scope": "Chapter2 actual keyboard control from genuine chapter1 completion; directed scenario tests reported separately",
+      "file": "attempt-4.json",
+      "sha256": "e375f3a5ec19c5e96570899be9f424f1e3462a2161eaa1f4ee5e3b767fcf0712",
+      "raw_report_in_git": false,
+      "operation_count": 555,
+      "checkpoint_count": 20,
+      "battles": [
+        {
+          "code": "F21",
+          "stage": 201.0,
+          "outcome": "victory",
+          "final_turn": 16.0
+        },
+        {
+          "code": "F22",
+          "stage": 202,
+          "outcome": "victory",
+          "final_turn": 38
+        },
+        {
+          "code": "F23",
+          "stage": 203,
+          "outcome": "defeat",
+          "final_turn": 4
+        }
+      ]
+    },
+    {
+      "attempt": 5,
+      "passed": false,
+      "inputs": 6924,
+      "failures": [
+        "Natural battle failed: F22 { \"beacon_contested\": false, \"beacon_since\": -1.0, \"boats\": [], \"burn_streak\": 0.0, \"evacuated\": [], \"freed\": [], \"mid_done\": false, \"objects\": { \"prison_door\": true }, \"reinforced\": true, &\"pending_friendly_actions\": false, &\"failed_reason\": \"无法救出三名普通俘虏\" }"
+      ],
+      "stat_edits": false,
+      "forced_victories": false,
+      "scope": "Chapter2 actual keyboard control from genuine chapter1 completion; directed scenario tests reported separately",
+      "file": "attempt-5.json",
+      "sha256": "40c625dec4b6556d4bc42d69dde91e32b0d1abaf8b7f52be09de860d09ca726f",
+      "raw_report_in_git": false,
+      "operation_count": 591,
+      "checkpoint_count": 23,
+      "battles": [
+        {
+          "code": "F21",
+          "stage": 201.0,
+          "outcome": "victory",
+          "final_turn": 16.0
+        },
+        {
+          "code": "F22",
+          "stage": 202,
+          "outcome": "defeat",
+          "final_turn": 12
+        }
+      ]
+    },
+    {
+      "attempt": 6,
+      "passed": false,
+      "inputs": 11801,
+      "failures": [
+        "Natural battle failed: F24 { \"objects\": {  }, \"evacuated\": [], \"freed\": [], \"burn_streak\": 0, \"reinforced\": true, \"mid_done\": false, &\"beacon_since\": 5, &\"beacon_contested\": true, &\"boats\": [], &\"failed_reason\": \"航灯被敌军连续占据一整回合\" }"
+      ],
+      "stat_edits": false,
+      "forced_victories": false,
+      "scope": "Chapter2 actual keyboard control from genuine chapter1 completion; directed scenario tests reported separately",
+      "file": "attempt-6.json",
+      "sha256": "f1a80691f54528085bb6ea1780a69ff62a7880c06eb7e9d92167a603a7d644db",
+      "raw_report_in_git": false,
+      "operation_count": 1000,
+      "checkpoint_count": 51,
+      "battles": [
+        {
+          "code": "F21",
+          "stage": 201.0,
+          "outcome": "victory",
+          "final_turn": 16.0
+        },
+        {
+          "code": "F22",
+          "stage": 202,
+          "outcome": "victory",
+          "final_turn": 38
+        },
+        {
+          "code": "F23",
+          "stage": 203,
+          "outcome": "victory",
+          "final_turn": 13
+        },
+        {
+          "code": "S21",
+          "stage": 211,
+          "outcome": "victory",
+          "final_turn": 11
+        },
+        {
+          "code": "S22",
+          "stage": 212,
+          "outcome": "victory",
+          "final_turn": 23
+        },
+        {
+          "code": "F24",
+          "stage": 204,
+          "outcome": "defeat",
+          "final_turn": 6
+        }
+      ]
+    },
+    {
+      "attempt": 7,
+      "passed": true,
+      "inputs": 15992,
+      "failures": [],
+      "stat_edits": false,
+      "forced_victories": false,
+      "scope": "Chapter2 actual keyboard control from genuine chapter1 completion; directed scenario tests reported separately",
+      "file": "attempt-7.json",
+      "sha256": "692951e665de008fa706c30e828851e2d575095ef7e76a6ced339c2bbf4aaa99",
+      "raw_report_in_git": true,
+      "operation_count": 1276,
+      "checkpoint_count": 73,
+      "battles": [
+        {
+          "code": "F21",
+          "stage": 201.0,
+          "outcome": "victory",
+          "final_turn": 16.0
+        },
+        {
+          "code": "F22",
+          "stage": 202.0,
+          "outcome": "victory",
+          "final_turn": 38.0
+        },
+        {
+          "code": "F23",
+          "stage": 203.0,
+          "outcome": "victory",
+          "final_turn": 13.0
+        },
+        {
+          "code": "S21",
+          "stage": 211.0,
+          "outcome": "victory",
+          "final_turn": 11.0
+        },
+        {
+          "code": "S22",
+          "stage": 212.0,
+          "outcome": "victory",
+          "final_turn": 23.0
+        },
+        {
+          "code": "F24",
+          "stage": 204,
+          "outcome": "victory",
+          "final_turn": 13
+        },
+        {
+          "code": "F25",
+          "stage": 205,
+          "outcome": "victory",
+          "final_turn": 15
+        },
+        {
+          "code": "F26",
+          "stage": 206,
+          "outcome": "victory",
+          "final_turn": 27
+        }
+      ]
+    },
+    {
+      "attempt": 8,
+      "passed": true,
+      "inputs": 17993,
+      "failures": [],
+      "stat_edits": false,
+      "forced_victories": false,
+      "scope": "Chapter2 actual keyboard control from genuine chapter1 completion; directed scenario tests reported separately",
+      "file": "attempt-8.json",
+      "sha256": "2194eae4313c3636231b50ce592364a14e6abd365f6fe78f7b749455e1436c08",
+      "raw_report_in_git": true,
+      "operation_count": 1398,
+      "checkpoint_count": 82,
+      "battles": [
+        {
+          "code": "F21",
+          "stage": 201.0,
+          "outcome": "victory",
+          "final_turn": 16.0
+        },
+        {
+          "code": "F22",
+          "stage": 202.0,
+          "outcome": "victory",
+          "final_turn": 38.0
+        },
+        {
+          "code": "F23",
+          "stage": 203.0,
+          "outcome": "victory",
+          "final_turn": 13.0
+        },
+        {
+          "code": "S21",
+          "stage": 211.0,
+          "outcome": "victory",
+          "final_turn": 11.0
+        },
+        {
+          "code": "S22",
+          "stage": 212.0,
+          "outcome": "victory",
+          "final_turn": 23.0
+        },
+        {
+          "code": "F24",
+          "stage": 204.0,
+          "outcome": "victory",
+          "final_turn": 13.0
+        },
+        {
+          "code": "F25",
+          "stage": 205.0,
+          "outcome": "victory",
+          "final_turn": 15.0
+        },
+        {
+          "code": "F26",
+          "stage": 206,
+          "outcome": "victory",
+          "final_turn": 24
+        }
+      ]
+    }
+  ]
+}

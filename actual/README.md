@@ -30,5 +30,6 @@
 - [边界修复与场景抽查](reports/border-fixes/index.html)
 - [自然山林与当前实机抽查（0.1.3）](reports/natural-0.1.3/index.html) · [可复用自然物件](assets/nature/README.md)
 - [世界瓦片](assets/world_tiles/README.md) · [战斗瓦片](assets/battle_tiles/README.md)
+- [仓库文件与本地缓存保留规则](../docs/仓库文件保留说明.md)
 
 第三章及后续剧情/战斗尚未实施，世界节点保留并按章节关闭。旧大图、画风探索和地图样张保留在原子目录，当前正式入口是scenes/main.tscn。横屏适配延续0.1.x方案；移动端仍为画幅模拟验收，尚未交付移动端安装包或完成触屏真机验收。

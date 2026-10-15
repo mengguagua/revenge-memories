@@ -78,4 +78,6 @@ HP每点一格，普通人物沿用原4×8像素格；大血量首领使用2×4�
 
 源项目 [minirop/fe2](https://github.com/minirop/fe2)，提交 `956365ef33c63751e7afd03f05e600d7728549da`；参考ROM SHA-1 `2153ae9a7b1c63e8d4d83a807f1c8c1f482f7293`。源标签、坐标证据和资源表在`data/`；提取器在`tools/`。参考ROM、离线CPU工具、测试与报告均排除在运行包外。
 
+二次开发在 [actual/](actual/README.md)；代码、素材、试玩证据与本地缓存的保留规则见[仓库文件保留说明](docs/仓库文件保留说明.md)。
+
 Godot 4.7.1。逻辑测试使用`--headless --script res://tests/<test>.gd`。图形检查只通过`bash tools/background_capture/run.sh res://tools/capture_campaign.gd`；保护程序在引擎启动前禁止窗口显示及获取焦点。`tools/package_local.sh`使用本机Godot建立本地macOS应用，无需下载导出模板。打包后从工程外验证资源和签名。
