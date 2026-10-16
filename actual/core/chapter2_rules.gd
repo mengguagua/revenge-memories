@@ -149,7 +149,7 @@ static func check_outcome(g) -> String:
 	if g.battle_outcome=="defeat":return g.battle_outcome
 	for id in ["hunapu","eileen"]:
 		var hero=g.find_unit(id)
-		if not hero.is_empty() and int(hero.hp)<=0:return g._fail(str(hero.name_zh)+"阵亡")
+		if not hero.is_empty() and int(hero.hp)<=0:return g._fail(str(hero.name_zh)+"濒死，无法继续作战")
 	var q: Dictionary=g.flags.quest;var objects: Dictionary=q.objects;var evacuated: Array=q.evacuated;var ready=false
 	match g.stage_id:
 		201:
@@ -269,7 +269,7 @@ static func _mid_lines(g) -> String:
 		206:return "卡洛：已经能看见西岸了。后面的船跟紧。"
 		211:return "米蕾或艾琳：让前排护住跳板，先清出病人前面的路。"
 		212:
-			return "旧船员：我不敢回去见他们的家属。／卡洛：遗物不能留在这里。把路清出来，我陪你走。" if g.speaker_alive("卡洛") else "旧船员：那是卡洛的船牌……这些遗物，请替我交给他们的家属。／艾琳：先离开这里。家属也该知道你还活着。"
+			return "旧船员：我不敢回去见他们的家属。／卡洛：遗物不能留在这里。把路清出来，我陪你走。" if g.speaker_alive("卡洛") else "旧船员：卡洛正在接受照护？这些遗物，请替我交给他们的家属。／艾琳：先离开这里。家属也该知道你还活着。"
 	return str(g.battle_data.during)
 
 static func _end_lines(g) -> String:

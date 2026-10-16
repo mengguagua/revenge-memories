@@ -219,6 +219,9 @@ func _show_status() -> void:
 func _open_camp_menu() -> void:
 	super._open_camp_menu()
 	menu_items.insert(3,"装备说明");menu_actions.insert(3,"new:equipment")
+	var ready=game.party.filter(func(id):return game.can_deploy(game.roster[id])).size()
+	menu_items[0]="部队状态 · "+str(ready)+"/"+str(game.party.size())+"可出阵"
+	_open_menu("camp",menu_items.duplicate(),menu_actions.duplicate(),Vector2(32,48))
 
 func _small_text_width(text: String) -> float:
 	var width=0.0

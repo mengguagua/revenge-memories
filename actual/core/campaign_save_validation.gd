@@ -366,9 +366,9 @@ static func _expanded(game, state: Dictionary, required: bool) -> bool:
 
 ## Reconstructed campaign checkpoints have their own schema and character IDs.
 ## Validate every live and retry field before assigning any state. Schema 1 is
-## the shipped chapter-one format; schema 2 extends it without resetting people.
+## the shipped chapter-one format; schema 3 adds first-two-chapter injury care.
 static func campaign_valid(game, state: Dictionary, fields: Array) -> bool:
-	if state.get("campaign_id","")!=game.CAMPAIGN_ID or not _integer(state.get("schema"),1,2):return false
+	if state.get("campaign_id","")!=game.CAMPAIGN_ID or not _integer(state.get("schema"),1,3):return false
 	for key in fields:
 		if not state.has(key):return false
 	var revision=str(state.get("map_revision","0.2.0"))
@@ -393,6 +393,9 @@ static func campaign_valid(game, state: Dictionary, fields: Array) -> bool:
 		if int(snapshot.stage_id)!=int(state.stage_id) or int(snapshot.chapter)!=int(state.chapter) or snapshot.route!=state.route:return false
 	if state.mode in ["battle","victory","defeat"] and snapshot.is_empty():return false
 	if int(state.schema)==1 and (int(state.chapter)!=1 or state.route!="alm"):return false
+	if int(state.schema)==3:
+		if not game.Casualties.valid(state):return false
+		if not snapshot.is_empty() and not game.Casualties.valid(snapshot):return false
 	return true
 
 static func campaign_stage(game, id: int, revision: String="") -> Dictionary:
@@ -473,7 +476,8 @@ static func _campaign_unit(game, unit: Variant, tactical: bool) -> bool:
 	if unit.has("drop_chance") and not _integer(unit.drop_chance,0,100):return false
 	for key in ["exp","magic_level","magic_flags","raw_magic_flags","character_id","name_id","resistance","ai_flags","raw_ai_flags","record_index","exp_value","weapon_index"]:
 		if unit.has(key) and not _integer(unit[key],0,65535):return false
-	for key in ["dead","acted","neutral","controllable","temporary","locked","hidden","event_object","no_counter","no_experience","no_drop","surrendered","battle_guard"]:
+	if unit.has("treatment_count") and not _integer(unit.treatment_count,0,1):return false
+	for key in ["dead","dying","ever_dying","acted","neutral","controllable","temporary","locked","hidden","event_object","no_counter","no_experience","no_drop","surrendered","battle_guard"]:
 		if unit.has(key) and not unit[key] is bool:return false
 	if unit.has("route") and unit.route not in ["alm","celica"]:return false
 	if unit.has("growths"):

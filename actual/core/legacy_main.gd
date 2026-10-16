@@ -911,16 +911,19 @@ func _open_camp_menu() -> void:
 	_open_menu("camp", items, actions, Vector2(64, 48))
 
 func _camp_members(action: String, except_id: String = "") -> void:
-	var members = game.party.filter(func(id): return str(id) != except_id)
+	var members = game.party.filter(func(id): return str(id) != except_id and (action=="status" or game.can_deploy(game.roster[id])))
 	if members.is_empty():
 		_open_camp_menu()
 		_notice("没有其他队员")
 		return
-	_open_menu("camp_members", members.map(func(id): return str(game.roster[id].name_zh) + (" 阵亡" if bool(game.roster[id].get("dead", false)) else "")),
+	_open_menu("camp_members", members.map(func(id): return str(game.roster[id].name_zh) + (" 濒死 · 不可出阵" if game.is_dying(game.roster[id]) else "")),
 		members.map(func(id): return "camp:" + action + ":" + str(id)), Vector2(64, 32))
 
 func _camp_action(action: String) -> void:
 	var part = action.split(":")
+	if part.size()>1 and part[0] in ["trade_first","trade_second","formation_first","formation_second","deposit_member","withdraw_member"]:
+		if not game.can_deploy(game.roster.get(part[1],{})):
+			_notice("濒死成员仍在队伍中，暂不能出阵或分配装备");return
 	match part[0]:
 		"roster": _camp_members("status")
 		"status":
@@ -1968,16 +1971,29 @@ func _draw_status(unit: Dictionary) -> void:
 	_text("生命" + str(int(unit.hp)) + "/" + str(int(unit.max_hp)), Vector2(96, 72))
 	_draw_health(int(unit.hp), int(unit.max_hp), Vector2(96, 88), "ally" if unit.get("side", "player") == "player" else "enemy")
 	var stats = [["攻击", "strength"], ["技巧", "skill"], ["速度", "speed"], ["幸运", "luck"], ["防御", "defence"], ["移动", "move"]]
+	var dying := game.is_dying(unit)
+	var care_layout := unit.has("dying")
 	for i in range(stats.size()):
-		_text(stats[i][0], Vector2(32, 108 + i * 16))
-		_text(str(int(unit[stats[i][1]])), Vector2(200, 108 + i * 16))
+		var row_y := 108+int(i/2)*24 if care_layout else 108+i*16
+		var label_x := 32+104*(i%2) if care_layout else 32
+		var value_x := 104+104*(i%2) if care_layout else 200
+		if care_layout and has_method("_small_text"):
+			call("_small_text",stats[i][0],Vector2(label_x,row_y+2))
+		else:_text(stats[i][0], Vector2(label_x, row_y))
+		_text(str(int(unit[stats[i][1]])), Vector2(value_x, row_y))
 	var held = int(unit.get("item_id", 0))
 	var footer = "装备：" + str(Items.item(held).get("name_zh", "")) if held > 0 else "未携带装备（职业默认）"
 	if held <= 0 and unit.get("side", "player") == "enemy": footer = "未携带装备"
 	if held > 0 and not Items.can_use(unit, held): footer += "（不适用）"
+	if dying:
+		_center_text("濒死 · 不可出阵",Rect2(24,181,208,16))
+		_center_text("已救治过，无法再次救治" if int(unit.get("treatment_count",0))>0 else "可使用本队救治泉",Rect2(24,197,208,16))
+		return
 	if bool(unit.get("dead", false)):
 		footer = "已阵亡"
-	_center_text(footer, Rect2(24, 201, 208, 13))
+	_center_text(footer, Rect2(24, 181 if care_layout else 201, 208, 16 if care_layout else 13))
+	if care_layout and int(unit.get("treatment_count",0))>0:
+		_center_text("已接受一次救治",Rect2(24,197,208,16))
 
 func _draw_combat() -> void:
 	draw_set_transform(_canvas_offset()+Vector2(combat_shake, 0))
@@ -2181,7 +2197,8 @@ func _resolve_pending_loot() -> void:
 	busy = was_busy
 	var notices: Array = game.flags.get("loot_notifications", [])
 	if not notices.is_empty():
-		_notice("获得" + "、".join(notices.map(func(record): return str(Items.item(int(record.item_id)).name_zh))), 3.0)
+		var found=notices.filter(func(record):return record.get("kind","")!="death_storage")
+		_notice("获得"+"、".join(found.map(func(record):return str(Items.item(int(record.item_id)).name_zh))) if not found.is_empty() else "濒死成员的装备已回本队行囊",3.0)
 	game.flags.loot_notifications = []
 	game.save_game()
 

@@ -53,6 +53,7 @@ static func on_death(game, unit: Dictionary, killer: Dictionary = {}) -> Diction
 	if int(unit.get("hp", 0)) > 0 or bool(unit.get("no_drop", false)): return {}
 	var processed: Dictionary = game.flags.get("inventory_processed_deaths", {})
 	var key := str(unit.get("id", ""))
+	if _formal(unit) and game.has_method("story_on_death"): game.story_on_death(unit)
 	if processed.has(key): return {}
 	processed[key] = true
 	game.flags.inventory_processed_deaths = processed
@@ -232,7 +233,10 @@ static func _persist_participants(game) -> void:
 	for unit in game.units:
 		if _formal(unit):
 			var persistent: Dictionary = unit.duplicate(true)
-			persistent.dead = int(unit.hp) <= 0
+			if game.has_method("is_dying"):
+				if int(unit.hp)<=0:game.story_on_death(unit)
+				persistent=unit.duplicate(true);persistent.dead=false
+			else:persistent.dead = int(unit.hp) <= 0
 			persistent.acted = false
 			game.roster[str(unit.id)] = persistent
 		elif str(unit.get("side", "")) == "enemy" and int(unit.get("hp", 0)) <= 0 and not bool(unit.get("temporary", false)):

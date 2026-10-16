@@ -1,0 +1,486 @@
+{
+  "background_guard": true,
+  "checks": 25,
+  "failures": [
+    "Hub input disagrees with visual floor: (6, 3)",
+    "Ordinary world routes and church entry reach western spring",
+    "Content-safe text and glyph checks: 02-west-dying-status",
+    "Object unavailable treatment",
+    "Facing input opens treatment selection",
+    "Prompt/action missing: hub:treat_choose_fula in ",
+    "Prompt/action missing: hub:treatment in ",
+    "Prompt/action missing: hub:treat_choose_fula in ",
+    "Prompt/action missing: hub:treat_confirm_fula in ",
+    "Keyboard western treatment consumes one share and preserves EXP",
+    "Content-safe text and glyph checks: 04-west-treated-status",
+    "Content-safe text and glyph checks: 05-east-migrated-status",
+    "Facing input opens treatment selection",
+    "Prompt/action missing: hub:treat_choose_lisa in ",
+    "Prompt/action missing: hub:treat_confirm_lisa in ",
+    "Eastern share rescues only chosen member",
+    "Repeated spring interaction cannot refill"
+  ],
+  "passed": false,
+  "real_key_inputs": 42,
+  "records": [
+    {
+      "dying": [
+        "fula",
+        "lena"
+      ],
+      "kind": "loaded",
+      "party": [
+        "hunapu",
+        "daan",
+        "otto",
+        "beck",
+        "hervi",
+        "fula",
+        "lena",
+        "lance"
+      ],
+      "schema": 1.0,
+      "source": "res://reports/campaign/natural-chapter-end-save.json"
+    },
+    {
+      "exp": 1.0,
+      "kind": "west_treated",
+      "member": "fula",
+      "remaining": 1,
+      "treatment_count": 0.0
+    },
+    {
+      "dying": [
+        "mireille",
+        "lisa"
+      ],
+      "kind": "loaded",
+      "party": [
+        "eileen",
+        "mireille",
+        "lisa",
+        "carlo",
+        "lord",
+        "roan",
+        "shia"
+      ],
+      "schema": 2.0,
+      "source": "res://reports/chapter2/play/natural-after-204-save.json"
+    }
+  ],
+  "round": 1,
+  "scope": "Actual key-driven spring, preparation, status, save/reload and battle-entry spot checks from historical saves. One second-injury boundary fixture is explicitly labeled; no claim of a new full-chapter natural playthrough.",
+  "shots": [
+    {
+      "context": "Real schema-1 chapter-end save; world travel and church entrance through keys",
+      "fixture": false,
+      "layout_errors": [],
+      "path": "res://reports/casualty-0.4.0/round1/attempt1/01-west-retained-roster.png",
+      "size": [
+        426,
+        240
+      ],
+      "status_id": "",
+      "text_checks": [
+        {
+          "bounds": "[P: (-67.0, 18.0), S: (68.0, 8.0)]",
+          "font_px": 8,
+          "text": "南岗押送所 · 战后"
+        },
+        {
+          "bounds": "[P: (-67.0, 32.0), S: (44.0, 8.0)]",
+          "font_px": 8,
+          "text": "确认:军令箱"
+        },
+        {
+          "bounds": "[P: (92.0, 50.0), S: (36.0, 12.0)]",
+          "text": "胡纳普"
+        },
+        {
+          "bounds": "[P: (92.0, 66.0), S: (24.0, 12.0)]",
+          "text": "达恩"
+        },
+        {
+          "bounds": "[P: (92.0, 82.0), S: (24.0, 12.0)]",
+          "text": "奥托"
+        },
+        {
+          "bounds": "[P: (92.0, 98.0), S: (24.0, 12.0)]",
+          "text": "贝克"
+        },
+        {
+          "bounds": "[P: (92.0, 114.0), S: (24.0, 12.0)]",
+          "text": "赫维"
+        },
+        {
+          "bounds": "[P: (92.0, 130.0), S: (132.0, 12.0)]",
+          "text": "芙拉 濒死 · 不可出阵"
+        },
+        {
+          "bounds": "[P: (92.0, 146.0), S: (132.0, 12.0)]",
+          "text": "蕾娜 濒死 · 不可出阵"
+        },
+        {
+          "bounds": "[P: (92.0, 162.0), S: (24.0, 12.0)]",
+          "text": "兰斯"
+        }
+      ],
+      "view": "hub"
+    },
+    {
+      "context": "Actual historical Fula: existing level, EXP and stats visible with dying status",
+      "fixture": false,
+      "layout_errors": [
+        "Text outside content-safe rectangle: 可使用本队救治泉"
+      ],
+      "path": "res://reports/casualty-0.4.0/round1/attempt1/02-west-dying-status.png",
+      "size": [
+        426,
+        240
+      ],
+      "status_id": "fula",
+      "text_checks": [
+        {
+          "bounds": "[P: (-67.0, 18.0), S: (68.0, 8.0)]",
+          "font_px": 8,
+          "text": "南岗押送所 · 战后"
+        },
+        {
+          "bounds": "[P: (-67.0, 32.0), S: (44.0, 8.0)]",
+          "font_px": 8,
+          "text": "确认:军令箱"
+        },
+        {
+          "bounds": "[P: (100.0, 26.0), S: (56.0, 12.0)]",
+          "text": "队伍 6/8"
+        },
+        {
+          "bounds": "[P: (96.0, 40.0), S: (24.0, 12.0)]",
+          "text": "芙拉"
+        },
+        {
+          "bounds": "[P: (96.0, 56.0), S: (72.0, 12.0)]",
+          "text": "等级1 经验1"
+        },
+        {
+          "bounds": "[P: (96.0, 72.0), S: (56.0, 12.0)]",
+          "text": "生命0/18"
+        },
+        {
+          "bounds": "[P: (32.0, 104.0), S: (24.0, 12.0)]",
+          "text": "攻击"
+        },
+        {
+          "bounds": "[P: (200.0, 104.0), S: (8.0, 8.0)]",
+          "text": "8"
+        },
+        {
+          "bounds": "[P: (32.0, 118.0), S: (24.0, 12.0)]",
+          "text": "技巧"
+        },
+        {
+          "bounds": "[P: (200.0, 118.0), S: (8.0, 8.0)]",
+          "text": "3"
+        },
+        {
+          "bounds": "[P: (32.0, 132.0), S: (24.0, 12.0)]",
+          "text": "速度"
+        },
+        {
+          "bounds": "[P: (200.0, 132.0), S: (8.0, 8.0)]",
+          "text": "4"
+        },
+        {
+          "bounds": "[P: (32.0, 146.0), S: (24.0, 12.0)]",
+          "text": "幸运"
+        },
+        {
+          "bounds": "[P: (200.0, 146.0), S: (8.0, 8.0)]",
+          "text": "4"
+        },
+        {
+          "bounds": "[P: (32.0, 160.0), S: (24.0, 12.0)]",
+          "text": "防御"
+        },
+        {
+          "bounds": "[P: (200.0, 160.0), S: (8.0, 8.0)]",
+          "text": "1"
+        },
+        {
+          "bounds": "[P: (32.0, 174.0), S: (24.0, 12.0)]",
+          "text": "移动"
+        },
+        {
+          "bounds": "[P: (200.0, 174.0), S: (8.0, 8.0)]",
+          "text": "4"
+        },
+        {
+          "bounds": "[P: (78.0, 190.0), S: (100.0, 12.0)]",
+          "text": "濒死 · 不可出阵"
+        },
+        {
+          "bounds": "[P: (80.0, 204.0), S: (96.0, 12.0)]",
+          "text": "可使用本队救治泉"
+        }
+      ],
+      "view": "camp_status"
+    },
+    {
+      "context": "Facing the real well opens a one-share confirmation",
+      "fixture": false,
+      "layout_errors": [],
+      "path": "res://reports/casualty-0.4.0/round1/attempt1/03-west-confirmation.png",
+      "size": [
+        426,
+        240
+      ],
+      "status_id": "fula",
+      "text_checks": [
+        {
+          "bounds": "[P: (-67.0, 18.0), S: (68.0, 8.0)]",
+          "font_px": 8,
+          "text": "南岗押送所 · 战后"
+        },
+        {
+          "bounds": "[P: (-67.0, 32.0), S: (44.0, 8.0)]",
+          "font_px": 8,
+          "text": "确认:军令箱"
+        }
+      ],
+      "view": "hub"
+    },
+    {
+      "context": "Same real Fula after treatment; level and EXP unchanged",
+      "fixture": false,
+      "layout_errors": [
+        "Text outside content-safe rectangle: 可使用本队救治泉"
+      ],
+      "path": "res://reports/casualty-0.4.0/round1/attempt1/04-west-treated-status.png",
+      "size": [
+        426,
+        240
+      ],
+      "status_id": "fula",
+      "text_checks": [
+        {
+          "bounds": "[P: (-67.0, 18.0), S: (68.0, 8.0)]",
+          "font_px": 8,
+          "text": "南岗押送所 · 战后"
+        },
+        {
+          "bounds": "[P: (-67.0, 32.0), S: (44.0, 8.0)]",
+          "font_px": 8,
+          "text": "确认:军令箱"
+        },
+        {
+          "bounds": "[P: (100.0, 26.0), S: (56.0, 12.0)]",
+          "text": "队伍 6/8"
+        },
+        {
+          "bounds": "[P: (96.0, 40.0), S: (24.0, 12.0)]",
+          "text": "芙拉"
+        },
+        {
+          "bounds": "[P: (96.0, 56.0), S: (72.0, 12.0)]",
+          "text": "等级1 经验1"
+        },
+        {
+          "bounds": "[P: (96.0, 72.0), S: (56.0, 12.0)]",
+          "text": "生命0/18"
+        },
+        {
+          "bounds": "[P: (32.0, 104.0), S: (24.0, 12.0)]",
+          "text": "攻击"
+        },
+        {
+          "bounds": "[P: (200.0, 104.0), S: (8.0, 8.0)]",
+          "text": "8"
+        },
+        {
+          "bounds": "[P: (32.0, 118.0), S: (24.0, 12.0)]",
+          "text": "技巧"
+        },
+        {
+          "bounds": "[P: (200.0, 118.0), S: (8.0, 8.0)]",
+          "text": "3"
+        },
+        {
+          "bounds": "[P: (32.0, 132.0), S: (24.0, 12.0)]",
+          "text": "速度"
+        },
+        {
+          "bounds": "[P: (200.0, 132.0), S: (8.0, 8.0)]",
+          "text": "4"
+        },
+        {
+          "bounds": "[P: (32.0, 146.0), S: (24.0, 12.0)]",
+          "text": "幸运"
+        },
+        {
+          "bounds": "[P: (200.0, 146.0), S: (8.0, 8.0)]",
+          "text": "4"
+        },
+        {
+          "bounds": "[P: (32.0, 160.0), S: (24.0, 12.0)]",
+          "text": "防御"
+        },
+        {
+          "bounds": "[P: (200.0, 160.0), S: (8.0, 8.0)]",
+          "text": "1"
+        },
+        {
+          "bounds": "[P: (32.0, 174.0), S: (24.0, 12.0)]",
+          "text": "移动"
+        },
+        {
+          "bounds": "[P: (200.0, 174.0), S: (8.0, 8.0)]",
+          "text": "4"
+        },
+        {
+          "bounds": "[P: (78.0, 190.0), S: (100.0, 12.0)]",
+          "text": "濒死 · 不可出阵"
+        },
+        {
+          "bounds": "[P: (80.0, 204.0), S: (96.0, 12.0)]",
+          "text": "可使用本队救治泉"
+        }
+      ],
+      "view": "camp_status"
+    },
+    {
+      "context": "Real schema-2 Lisa after F24; prior growth and EXP retained",
+      "fixture": false,
+      "layout_errors": [
+        "Text outside content-safe rectangle: 可使用本队救治泉"
+      ],
+      "path": "res://reports/casualty-0.4.0/round1/attempt1/05-east-migrated-status.png",
+      "size": [
+        426,
+        240
+      ],
+      "status_id": "lisa",
+      "text_checks": [
+        {
+          "bounds": "[P: (-67.0, 18.0), S: (60.0, 8.0)]",
+          "font_px": 8,
+          "text": "海灯岛 · 航灯院"
+        },
+        {
+          "bounds": "[P: (-67.0, 32.0), S: (96.0, 8.0)]",
+          "font_px": 8,
+          "text": "先安置岛民，可训练与取泉"
+        },
+        {
+          "bounds": "[P: (100.0, 26.0), S: (56.0, 12.0)]",
+          "text": "队伍 3/7"
+        },
+        {
+          "bounds": "[P: (96.0, 40.0), S: (24.0, 12.0)]",
+          "text": "莉莎"
+        },
+        {
+          "bounds": "[P: (96.0, 56.0), S: (72.0, 12.0)]",
+          "text": "等级5 经验6"
+        },
+        {
+          "bounds": "[P: (96.0, 72.0), S: (56.0, 12.0)]",
+          "text": "生命0/22"
+        },
+        {
+          "bounds": "[P: (32.0, 104.0), S: (24.0, 12.0)]",
+          "text": "攻击"
+        },
+        {
+          "bounds": "[P: (200.0, 104.0), S: (16.0, 8.0)]",
+          "text": "11"
+        },
+        {
+          "bounds": "[P: (32.0, 118.0), S: (24.0, 12.0)]",
+          "text": "技巧"
+        },
+        {
+          "bounds": "[P: (200.0, 118.0), S: (8.0, 8.0)]",
+          "text": "2"
+        },
+        {
+          "bounds": "[P: (32.0, 132.0), S: (24.0, 12.0)]",
+          "text": "速度"
+        },
+        {
+          "bounds": "[P: (200.0, 132.0), S: (8.0, 8.0)]",
+          "text": "8"
+        },
+        {
+          "bounds": "[P: (32.0, 146.0), S: (24.0, 12.0)]",
+          "text": "幸运"
+        },
+        {
+          "bounds": "[P: (200.0, 146.0), S: (8.0, 8.0)]",
+          "text": "5"
+        },
+        {
+          "bounds": "[P: (32.0, 160.0), S: (24.0, 12.0)]",
+          "text": "防御"
+        },
+        {
+          "bounds": "[P: (200.0, 160.0), S: (8.0, 8.0)]",
+          "text": "2"
+        },
+        {
+          "bounds": "[P: (32.0, 174.0), S: (24.0, 12.0)]",
+          "text": "移动"
+        },
+        {
+          "bounds": "[P: (200.0, 174.0), S: (8.0, 8.0)]",
+          "text": "4"
+        },
+        {
+          "bounds": "[P: (78.0, 190.0), S: (100.0, 12.0)]",
+          "text": "濒死 · 不可出阵"
+        },
+        {
+          "bounds": "[P: (80.0, 204.0), S: (96.0, 12.0)]",
+          "text": "可使用本队救治泉"
+        }
+      ],
+      "view": "camp_status"
+    },
+    {
+      "context": "The actual H25 spring records zero remaining shares",
+      "fixture": false,
+      "layout_errors": [],
+      "path": "res://reports/casualty-0.4.0/round1/attempt1/06-east-used-well.png",
+      "size": [
+        426,
+        240
+      ],
+      "status_id": "lisa",
+      "text_checks": [
+        {
+          "bounds": "[P: (-67.0, 18.0), S: (60.0, 8.0)]",
+          "font_px": 8,
+          "text": "海灯岛 · 航灯院"
+        },
+        {
+          "bounds": "[P: (-67.0, 32.0), S: (100.0, 8.0)]",
+          "font_px": 8,
+          "text": "确认:救治泉 · 东队剩余1份"
+        },
+        {
+          "bounds": "[P: (76.0, 90.0), S: (76.0, 12.0)]",
+          "text": "米蕾 · 濒死"
+        },
+        {
+          "bounds": "[P: (76.0, 106.0), S: (76.0, 12.0)]",
+          "text": "莉莎 · 濒死"
+        },
+        {
+          "bounds": "[P: (76.0, 122.0), S: (24.0, 12.0)]",
+          "text": "返回"
+        }
+      ],
+      "view": "hub"
+    }
+  ],
+  "visible_windows": false
+}

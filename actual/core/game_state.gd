@@ -2,12 +2,14 @@ extends "res://core/legacy_game_state.gd"
 ## New campaign. Inherit original combat formulas; isolate campaign/save semantics.
 const ChapterTwo = preload("res://core/chapter2_rules.gd")
 const Equipment = preload("res://core/equipment_supply.gd")
+const Casualties = preload("res://core/casualty_rules.gd")
 const CAMPAIGN_ID := "revenge-memories-1"
 const SAVE_FIELDS := ["chapter","route","parties","route_positions","previous_world_node","convoy","hub_id","hub_position","battle_return","battle_settled","story_events","stage_id","world_node","cleared_stages","roster","battle_start_snapshot","victory_rewards","flags","party","mode","units","phase","turn","rng_state","frame_counter","kills","selected_id","cursor","move_origin","battle_outcome"]
 var campaign: Dictionary
 var formal_world: Dictionary
 var hub_record := "P00"
 var _guard_target_context := false
+var _casualty_legacy_path := ""
 
 func _init() -> void:
 	var original_classes=read_json("res://data/legacy/campaign.json").get("classes",{}).duplicate(true)
@@ -28,9 +30,30 @@ func new_game() -> void:
 	stage_id=101;battle_data=stages[101].duplicate(true);mode="hub";turn=1;phase="player";rng_state=0;frame_counter=0;kills=0
 	battle_outcome="";battle_settled=false;selected_id="";hub_record="P00";hub_position=Vector2i(3,8)
 	Equipment.reconcile(self)
+	ensure_treatment_sources()
 
 func _initial_character(id: String) -> Dictionary:
-	var u: Dictionary=characters.get(id,{}).duplicate(true);u.id=id;u.side="player";u.dead=false;u.acted=false;return u
+	var u: Dictionary=characters.get(id,{}).duplicate(true);u.id=id;u.side="player";u.dead=false;u.acted=false;Casualties.initialize_unit(u);return u
+
+func ensure_treatment_sources() -> void:
+	Casualties.ensure_sources({"flags":flags,"cleared_stages":cleared_stages})
+
+func is_dying(unit: Dictionary) -> bool:
+	return not unit.is_empty() and (bool(unit.get("dying",false)) or (not Casualties.owner({"parties":parties},str(unit.get("id",""))).is_empty() and int(unit.get("hp",1))<=0))
+
+func can_deploy(unit: Dictionary) -> bool:
+	return not unit.is_empty() and not is_dying(unit) and not bool(unit.get("dead",false)) and int(unit.get("hp",0))>0
+
+func treatment_remaining() -> int:
+	ensure_treatment_sources()
+	return Casualties.available(flags,route)
+
+func treat_member(id: String) -> Dictionary:
+	return Casualties.treat(self,id)
+
+func exchange_items(first_id: String,second_id: String) -> bool:
+	if not can_deploy(roster.get(first_id,{})) or not can_deploy(roster.get(second_id,{})):return false
+	return super.exchange_items(first_id,second_id)
 func leader_id() -> String:return "eileen" if route=="celica" else "hunapu"
 func can_switch_route() -> bool:return false
 func can_return_to_final_preparation() -> bool:return false
@@ -80,7 +103,8 @@ func start_battle(id: int=101,_groups: Array=[],_from_hub: bool=false) -> bool:
 	for member in party:
 		if not roster.has(member):continue
 		var u: Dictionary=roster[member].duplicate(true)
-		if bool(u.get("dead",false)) or int(u.hp)<=0:continue
+		if not can_deploy(u):continue
+		if slot>=battle_data.player_positions.size():break
 		u.position=battle_data.player_positions[slot].duplicate();u.hp=int(u.max_hp);u.acted=false;u.side="player";u.player_slot=slot
 		u.erase("weapon_index");u.route=route;units.append(u);slot+=1
 	for i in range(battle_data.enemies.size()):
@@ -131,7 +155,7 @@ func queue_lines(text: String,key: String="") -> void:
 		if not speaker_alive(who) and chapter==2:
 			var replacement={"米蕾":"地方医者","莉莎":"甲板护卫","卡洛":"固定舵手","洛德":"引航者","罗恩":"渔村长者","希雅":"留守骑士"}
 			who=replacement.get(who,"艾琳")
-			if fragment.begins_with("卡洛：") and (fragment.contains("报酬") or fragment.contains("这次我去送")):line="遗物由我们交给家属。卡洛留下的船牌也会送回去。"
+			if fragment.begins_with("卡洛：") and (fragment.contains("报酬") or fragment.contains("这次我去送")):line="卡洛正在接受照护。遗物由我们代为交给家属，等他恢复再继续履行承诺。"
 		elif not speaker_alive(who):
 			who="村民" if who=="奥托" else "管理员" if who in ["芙拉","赫维"] else "教团兵" if who=="兰斯" else "胡纳普"
 			if who=="胡纳普":line="路已查清。我们先把这里的人带回去。"
@@ -314,7 +338,7 @@ func check_outcome() -> String:
 	if battle_outcome=="defeat":return battle_outcome
 	if stage_id>=200:return ChapterTwo.check_outcome(self)
 	var leader=find_unit(leader_id());var q: Dictionary=flags.get("quest",{})
-	if not leader.is_empty() and int(leader.hp)<=0:return _fail("胡纳普阵亡")
+	if not leader.is_empty() and int(leader.hp)<=0:return _fail("胡纳普濒死，无法继续作战")
 	if int(q.get("burn_streak",0))>=2:return _fail("粮仓被焚毁")
 	for u in units:
 		if str(u.get("quest_kind","")) in ["escort","medicine"] and int(u.hp)<=0 and stage_id in [101,111,112]:return _fail(str(u.name_zh)+"未能获救")
@@ -334,6 +358,9 @@ func check_outcome() -> String:
 	return battle_outcome
 func _fail(reason: String) -> String:flags.quest.failed_reason=reason;battle_outcome="defeat";return battle_outcome
 func story_on_death(unit: Dictionary) -> void:
+	if not Casualties.owner({"parties":parties},str(unit.id)).is_empty():
+		Casualties.enter_dying(self,unit)
+		return
 	if unit.id in characters and bool(unit.get("neutral",false)):
 		var dead=_initial_character(unit.id);dead.hp=0;dead.dead=true;roster[unit.id]=dead
 func story_on_victory() -> void:
@@ -350,6 +377,29 @@ func story_on_victory() -> void:
 	queue_lines(after,str(battle_data.code)+"-END")
 	if stage_id==111 and not flags.get("S11_reward",false):convoy.alm.append(11);flags.S11_reward=true
 	Equipment.award_clear(self,stage_id)
+
+func complete_battle() -> bool:
+	if battle_outcome!="victory" or battle_settled:return false
+	victory_rewards.clear()
+	for unit in units:
+		if unit.side!="player" or unit.get("temporary",false) or unit.get("neutral",false):continue
+		if not party.has(unit.id):continue
+		if int(unit.hp)<=0:
+			Casualties.enter_dying(self,unit)
+			Inventory.on_death(self,unit)
+		else:
+			var before=int(unit.get("exp",0));var gain=Rules.victory_experience_gain(unit)
+			unit.exp=mini(99,before+gain)
+			if gain>0:victory_rewards.append({"unit":str(unit.id),"gain":gain,"exp_before":before,"exp_after":int(unit.exp),"actual_gain":int(unit.exp)-before})
+		var persistent: Dictionary=unit.duplicate(true)
+		persistent.dead=false;persistent.acted=false;Casualties.initialize_unit(persistent)
+		roster[str(unit.id)]=persistent
+	if not stage_cleared(stage_id):cleared_stages.append(stage_id)
+	battle_settled=true
+	Scenario.on_victory(self);Inventory.on_victory(self)
+	parties[route]=party.duplicate()
+	ensure_treatment_sources()
+	return true
 
 func return_to_preparation() -> bool:
 	if not retry_battle():return false
@@ -368,17 +418,27 @@ func finish_exchange(exchange: Dictionary) -> Dictionary:
 	return reward
 
 func save_game() -> bool:
-	var state={"schema":2,"campaign_id":CAMPAIGN_ID,"hub_record":hub_record}
+	ensure_treatment_sources()
+	# Preserve the original schema-1/2 file before its first in-place upgrade.
+	if save_path==_casualty_legacy_path and FileAccess.file_exists(save_path) and not FileAccess.file_exists(save_path+".pre-casualty.bak"):
+		if DirAccess.copy_absolute(ProjectSettings.globalize_path(save_path),ProjectSettings.globalize_path(save_path+".pre-casualty.bak"))!=OK:return false
+	var state={"schema":3,"campaign_id":CAMPAIGN_ID,"hub_record":hub_record}
 	state.map_revision=str(battle_data.get("tactical_review_version","0.2.0"))
 	for key in SAVE_FIELDS:
 		var value=get(key);state[key]=[value.x,value.y] if value is Vector2i else value
 	var file=FileAccess.open(save_path+".tmp",FileAccess.WRITE)
 	if file==null:return false
 	file.store_string(JSON.stringify(state));file.flush();file.close()
-	return DirAccess.rename_absolute(ProjectSettings.globalize_path(save_path+".tmp"),ProjectSettings.globalize_path(save_path))==OK
+	var saved=DirAccess.rename_absolute(ProjectSettings.globalize_path(save_path+".tmp"),ProjectSettings.globalize_path(save_path))==OK
+	if saved and save_path==_casualty_legacy_path:_casualty_legacy_path=""
+	return saved
 func load_game() -> bool:
 	var s=read_json(save_path)
 	if not SaveValidation.campaign_valid(self,s,SAVE_FIELDS):return false
+	var previous_schema=int(s.schema)
+	if int(s.schema)<3:
+		Casualties.migrate(s)
+		if not SaveValidation.campaign_valid(self,s,SAVE_FIELDS):return false
 	for key in SAVE_FIELDS:
 		if key in ["hub_position","cursor","move_origin"]:set(key,Vector2i(s[key][0],s[key][1]))
 		elif key=="cleared_stages":cleared_stages=s[key].map(func(v):return int(v))
@@ -399,6 +459,7 @@ func load_game() -> bool:
 			if stage_id>=200:ChapterTwo.open_object(self,o)
 			elif o.kind in ["door","rescue"]:battle_data.map.tiles[int(o.position[1])*int(battle_data.map.width)+int(o.position[0])]=int(o.get("open_tile",208))
 	if mode not in ["battle","victory","defeat"]:Equipment.reconcile(self)
+	_casualty_legacy_path=save_path if previous_schema<3 else ""
 	return true
 
 func begin_chapter_two() -> bool:
@@ -444,7 +505,7 @@ func receive_equipment(item_id: int) -> Dictionary:
 	if item_id<=0 or definition.get("kind","") not in ["weapon","accessory"]:return {"valid":false,"reason":"unsupported_item"}
 	for id in party:
 		var recipient: Dictionary=roster.get(id,{})
-		if recipient.is_empty() or recipient.get("dead",false) or int(recipient.get("hp",0))<=0:continue
+		if not can_deploy(recipient):continue
 		if int(recipient.get("item_id",0))==0 and Items.can_use(recipient,item_id):
 			recipient.item_id=item_id
 			return {"valid":true,"destination":"unit","recipient":id,"item_id":item_id,"route":route}

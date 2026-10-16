@@ -1,0 +1,376 @@
+{
+  "background_guard": true,
+  "checks": 28,
+  "failures": [
+    "Real F24 result proceeds to lighthouse room",
+    "Actual hub key matches legal path",
+    "Actual islander-settlement dialogue opens exactly one eastern share",
+    "Actual hub key matches legal path",
+    "Facing input opens treatment selection",
+    "Prompt/action missing: hub:treat_choose_mireille in result",
+    "Prompt/action missing: hub:treat_confirm_mireille in result",
+    "Second round exercises other actual casualty without curing both",
+    "Prompt/action missing: camp:status:mireille in result",
+    "Keyboard opens retained member status: mireille",
+    "Actual hub key matches legal path"
+  ],
+  "passed": false,
+  "real_key_inputs": 51,
+  "records": [
+    {
+      "dying": [
+        "mireille"
+      ],
+      "kind": "loaded",
+      "party": [
+        "eileen",
+        "mireille",
+        "lisa",
+        "carlo",
+        "lord",
+        "roan",
+        "shia"
+      ],
+      "schema": 3.0,
+      "source": "res://.cache/casualty-0.4.0/round1.json"
+    },
+    {
+      "dying": [
+        "mireille",
+        "lisa"
+      ],
+      "kind": "loaded",
+      "party": [
+        "eileen",
+        "mireille",
+        "lisa",
+        "carlo",
+        "lord",
+        "roan"
+      ],
+      "schema": 2.0,
+      "source": "res://reports/chapter2/play/natural-F24-victory-save.json"
+    }
+  ],
+  "round": 2,
+  "scope": "Actual key-driven spring, preparation, status, save/reload and battle-entry spot checks from historical saves. One second-injury boundary fixture is explicitly labeled; no claim of a new full-chapter natural playthrough.",
+  "shots": [
+    {
+      "context": "Second process reload; untreated Mireille remains in party, forbidden from deployment",
+      "fixture": false,
+      "layout_errors": [],
+      "path": "res://reports/casualty-0.4.0/round2/01-reloaded-untreated-status.png",
+      "size": [
+        426,
+        240
+      ],
+      "status_id": "mireille",
+      "text_checks": [
+        {
+          "bounds": "[P: (-67.0, 18.0), S: (60.0, 8.0)]",
+          "font_px": 8,
+          "text": "海灯岛 · 航灯院"
+        },
+        {
+          "bounds": "[P: (-67.0, 32.0), S: (100.0, 8.0)]",
+          "font_px": 8,
+          "text": "确认:救治泉 · 东队剩余0份"
+        },
+        {
+          "bounds": "[P: (100.0, 26.0), S: (56.0, 12.0)]",
+          "text": "队伍 2/7"
+        },
+        {
+          "bounds": "[P: (96.0, 40.0), S: (24.0, 12.0)]",
+          "text": "米蕾"
+        },
+        {
+          "bounds": "[P: (96.0, 56.0), S: (80.0, 12.0)]",
+          "text": "等级1 经验61"
+        },
+        {
+          "bounds": "[P: (96.0, 72.0), S: (56.0, 12.0)]",
+          "text": "生命0/18"
+        },
+        {
+          "bounds": "[P: (32.0, 108.0), S: (24.0, 12.0)]",
+          "text": "攻击"
+        },
+        {
+          "bounds": "[P: (104.0, 108.0), S: (8.0, 8.0)]",
+          "text": "7"
+        },
+        {
+          "bounds": "[P: (136.0, 108.0), S: (24.0, 12.0)]",
+          "text": "技巧"
+        },
+        {
+          "bounds": "[P: (208.0, 108.0), S: (8.0, 8.0)]",
+          "text": "2"
+        },
+        {
+          "bounds": "[P: (32.0, 132.0), S: (24.0, 12.0)]",
+          "text": "速度"
+        },
+        {
+          "bounds": "[P: (104.0, 132.0), S: (8.0, 8.0)]",
+          "text": "5"
+        },
+        {
+          "bounds": "[P: (136.0, 132.0), S: (24.0, 12.0)]",
+          "text": "幸运"
+        },
+        {
+          "bounds": "[P: (208.0, 132.0), S: (8.0, 8.0)]",
+          "text": "7"
+        },
+        {
+          "bounds": "[P: (32.0, 156.0), S: (24.0, 12.0)]",
+          "text": "防御"
+        },
+        {
+          "bounds": "[P: (104.0, 156.0), S: (8.0, 8.0)]",
+          "text": "1"
+        },
+        {
+          "bounds": "[P: (136.0, 156.0), S: (24.0, 12.0)]",
+          "text": "移动"
+        },
+        {
+          "bounds": "[P: (208.0, 156.0), S: (8.0, 8.0)]",
+          "text": "4"
+        },
+        {
+          "bounds": "[P: (78.0, 183.0), S: (100.0, 12.0)]",
+          "text": "濒死 · 不可出阵"
+        },
+        {
+          "bounds": "[P: (80.0, 199.0), S: (96.0, 12.0)]",
+          "text": "可使用本队救治泉"
+        }
+      ],
+      "view": "camp_status"
+    },
+    {
+      "context": "Normal world travel and F25 deployment; rescued Lisa appears on the real battlefield",
+      "fixture": false,
+      "layout_errors": [],
+      "path": "res://reports/casualty-0.4.0/round2/02-restored-member-deployed.png",
+      "size": [
+        426,
+        240
+      ],
+      "status_id": "lisa",
+      "text_checks": [
+        {
+          "bounds": "[P: (100.0, 26.0), S: (56.0, 12.0)]",
+          "text": "队伍 2/6"
+        },
+        {
+          "bounds": "[P: (96.0, 40.0), S: (24.0, 12.0)]",
+          "text": "莉莎"
+        },
+        {
+          "bounds": "[P: (96.0, 56.0), S: (72.0, 12.0)]",
+          "text": "等级5 经验6"
+        },
+        {
+          "bounds": "[P: (96.0, 72.0), S: (64.0, 12.0)]",
+          "text": "生命22/22"
+        },
+        {
+          "bounds": "[P: (32.0, 108.0), S: (24.0, 12.0)]",
+          "text": "攻击"
+        },
+        {
+          "bounds": "[P: (200.0, 108.0), S: (16.0, 8.0)]",
+          "text": "11"
+        },
+        {
+          "bounds": "[P: (32.0, 124.0), S: (24.0, 12.0)]",
+          "text": "技巧"
+        },
+        {
+          "bounds": "[P: (200.0, 124.0), S: (8.0, 8.0)]",
+          "text": "2"
+        },
+        {
+          "bounds": "[P: (32.0, 140.0), S: (24.0, 12.0)]",
+          "text": "速度"
+        },
+        {
+          "bounds": "[P: (200.0, 140.0), S: (8.0, 8.0)]",
+          "text": "8"
+        },
+        {
+          "bounds": "[P: (32.0, 156.0), S: (24.0, 12.0)]",
+          "text": "幸运"
+        },
+        {
+          "bounds": "[P: (200.0, 156.0), S: (8.0, 8.0)]",
+          "text": "5"
+        },
+        {
+          "bounds": "[P: (32.0, 172.0), S: (24.0, 12.0)]",
+          "text": "防御"
+        },
+        {
+          "bounds": "[P: (200.0, 172.0), S: (8.0, 8.0)]",
+          "text": "2"
+        },
+        {
+          "bounds": "[P: (32.0, 188.0), S: (24.0, 12.0)]",
+          "text": "移动"
+        },
+        {
+          "bounds": "[P: (200.0, 188.0), S: (8.0, 8.0)]",
+          "text": "4"
+        },
+        {
+          "bounds": "[P: (86.0, 202.0), S: (84.0, 12.0)]",
+          "text": "装备：铁制法器"
+        }
+      ],
+      "view": "battle"
+    },
+    {
+      "context": "Explicit second-injury fixture after a genuine treatment",
+      "fixture": true,
+      "layout_errors": [],
+      "path": "res://reports/casualty-0.4.0/round2/03-second-injury-personal-limit.png",
+      "size": [
+        426,
+        240
+      ],
+      "status_id": "lisa",
+      "text_checks": [
+        {
+          "bounds": "[P: (-67.0, 18.0), S: (60.0, 8.0)]",
+          "font_px": 8,
+          "text": "海灯岛 · 航灯院"
+        },
+        {
+          "bounds": "[P: (-67.0, 32.0), S: (96.0, 8.0)]",
+          "font_px": 8,
+          "text": "先安置岛民，可训练与取泉"
+        },
+        {
+          "bounds": "[P: (100.0, 26.0), S: (56.0, 12.0)]",
+          "text": "队伍 3/7"
+        },
+        {
+          "bounds": "[P: (96.0, 40.0), S: (24.0, 12.0)]",
+          "text": "莉莎"
+        },
+        {
+          "bounds": "[P: (96.0, 56.0), S: (72.0, 12.0)]",
+          "text": "等级5 经验6"
+        },
+        {
+          "bounds": "[P: (96.0, 72.0), S: (56.0, 12.0)]",
+          "text": "生命0/22"
+        },
+        {
+          "bounds": "[P: (32.0, 108.0), S: (24.0, 12.0)]",
+          "text": "攻击"
+        },
+        {
+          "bounds": "[P: (104.0, 108.0), S: (16.0, 8.0)]",
+          "text": "11"
+        },
+        {
+          "bounds": "[P: (136.0, 108.0), S: (24.0, 12.0)]",
+          "text": "技巧"
+        },
+        {
+          "bounds": "[P: (208.0, 108.0), S: (8.0, 8.0)]",
+          "text": "2"
+        },
+        {
+          "bounds": "[P: (32.0, 132.0), S: (24.0, 12.0)]",
+          "text": "速度"
+        },
+        {
+          "bounds": "[P: (104.0, 132.0), S: (8.0, 8.0)]",
+          "text": "8"
+        },
+        {
+          "bounds": "[P: (136.0, 132.0), S: (24.0, 12.0)]",
+          "text": "幸运"
+        },
+        {
+          "bounds": "[P: (208.0, 132.0), S: (8.0, 8.0)]",
+          "text": "5"
+        },
+        {
+          "bounds": "[P: (32.0, 156.0), S: (24.0, 12.0)]",
+          "text": "防御"
+        },
+        {
+          "bounds": "[P: (104.0, 156.0), S: (8.0, 8.0)]",
+          "text": "2"
+        },
+        {
+          "bounds": "[P: (136.0, 156.0), S: (24.0, 12.0)]",
+          "text": "移动"
+        },
+        {
+          "bounds": "[P: (208.0, 156.0), S: (8.0, 8.0)]",
+          "text": "4"
+        },
+        {
+          "bounds": "[P: (78.0, 183.0), S: (100.0, 12.0)]",
+          "text": "濒死 · 不可出阵"
+        },
+        {
+          "bounds": "[P: (62.0, 199.0), S: (132.0, 12.0)]",
+          "text": "已救治过，无法再次救治"
+        }
+      ],
+      "view": "camp_status"
+    },
+    {
+      "context": "Second-round actual key path rescues Mireille instead of Lisa",
+      "fixture": false,
+      "layout_errors": [],
+      "path": "res://reports/casualty-0.4.0/round2/04-alternate-treatment-target.png",
+      "size": [
+        426,
+        240
+      ],
+      "status_id": "lisa",
+      "text_checks": [
+        {
+          "bounds": "[P: (104.0, 60.0), S: (48.0, 12.0)]",
+          "text": "战斗胜利"
+        },
+        {
+          "bounds": "[P: (98.0, 88.0), S: (60.0, 12.0)]",
+          "text": "海灯岛防卫"
+        },
+        {
+          "bounds": "[P: (86.0, 104.0), S: (84.0, 12.0)]",
+          "text": "已击败全部敌军"
+        },
+        {
+          "bounds": "[P: (86.0, 120.0), S: (84.0, 12.0)]",
+          "text": "过关经验已结算"
+        },
+        {
+          "bounds": "[P: (92.0, 170.0), S: (48.0, 12.0)]",
+          "text": "继续前进"
+        },
+        {
+          "bounds": "[P: (92.0, 186.0), S: (48.0, 12.0)]",
+          "text": "重试本关"
+        },
+        {
+          "bounds": "[P: (92.0, 202.0), S: (48.0, 12.0)]",
+          "text": "返回标题"
+        }
+      ],
+      "view": "victory"
+    }
+  ],
+  "visible_windows": false
+}

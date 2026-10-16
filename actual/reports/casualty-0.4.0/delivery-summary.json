@@ -1,0 +1,177 @@
+{
+  "version": "0.4.0",
+  "passed": true,
+  "rounds": [
+    {
+      "round": 1,
+      "passed": true,
+      "checks": 59,
+      "key_inputs": 99,
+      "screenshots": 6
+    },
+    {
+      "round": 2,
+      "passed": true,
+      "checks": 39,
+      "key_inputs": 84,
+      "screenshots": 4
+    }
+  ],
+  "state_checks": 56,
+  "chapter2_regression_checks": 704,
+  "equipment_regression_checks": 167,
+  "package_checks": 18,
+  "total_checks": 1043,
+  "total_key_inputs": 183,
+  "screenshots": [
+    {
+      "path": "round1/01-west-retained-roster.png",
+      "round": 1,
+      "purpose": "Real schema-1 chapter-end save; world travel and church entrance through keys",
+      "fixture": false,
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 79027,
+      "layout_errors": [],
+      "glyph_pixel_errors": [],
+      "reviewed": true
+    },
+    {
+      "path": "round1/02-west-dying-status.png",
+      "round": 1,
+      "purpose": "Actual historical Fula: existing level, EXP and stats visible with dying status",
+      "fixture": false,
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 60467,
+      "layout_errors": [],
+      "glyph_pixel_errors": [],
+      "reviewed": true
+    },
+    {
+      "path": "round1/03-west-confirmation.png",
+      "round": 1,
+      "purpose": "Facing the real well opens a one-share confirmation",
+      "fixture": false,
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 84608,
+      "layout_errors": [],
+      "glyph_pixel_errors": [],
+      "reviewed": true
+    },
+    {
+      "path": "round1/04-west-treated-status.png",
+      "round": 1,
+      "purpose": "Same real Fula after treatment; level and EXP unchanged",
+      "fixture": false,
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 60060,
+      "layout_errors": [],
+      "glyph_pixel_errors": [],
+      "reviewed": true
+    },
+    {
+      "path": "round1/05-east-migrated-status.png",
+      "round": 1,
+      "purpose": "Real schema-2 Lisa after F24; prior growth and EXP retained",
+      "fixture": false,
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 23983,
+      "layout_errors": [],
+      "glyph_pixel_errors": [],
+      "reviewed": true
+    },
+    {
+      "path": "round1/06-east-used-well.png",
+      "round": 1,
+      "purpose": "The actual H25 spring records zero remaining shares",
+      "fixture": false,
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 62303,
+      "layout_errors": [],
+      "glyph_pixel_errors": [],
+      "reviewed": true
+    },
+    {
+      "path": "round2/01-reloaded-untreated-status.png",
+      "round": 2,
+      "purpose": "Second process reload; untreated Mireille remains in party, forbidden from deployment",
+      "fixture": false,
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 24191,
+      "layout_errors": [],
+      "glyph_pixel_errors": [],
+      "reviewed": true
+    },
+    {
+      "path": "round2/02-restored-member-deployed.png",
+      "round": 2,
+      "purpose": "Normal world travel and F25 deployment; rescued Lisa appears on the real battlefield",
+      "fixture": false,
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 58086,
+      "layout_errors": [],
+      "glyph_pixel_errors": [],
+      "reviewed": true
+    },
+    {
+      "path": "round2/03-second-injury-personal-limit.png",
+      "round": 2,
+      "purpose": "Explicit second-injury fixture after a genuine treatment",
+      "fixture": true,
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 24050,
+      "layout_errors": [],
+      "glyph_pixel_errors": [],
+      "reviewed": true
+    },
+    {
+      "path": "round2/04-alternate-treatment-target.png",
+      "round": 2,
+      "purpose": "Second-round actual key path rescues Mireille instead of Lisa",
+      "fixture": false,
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 23874,
+      "layout_errors": [],
+      "glyph_pixel_errors": [],
+      "reviewed": true
+    }
+  ],
+  "pck_sha256": "1b8729c7f4538a4ed34620c27e973e8462e367f5e646d1c041cacda0881637ed",
+  "signature_verified": true,
+  "background_capture": {
+    "guard": true,
+    "visible_windows": false,
+    "device": "Apple M1 Max; OpenGL 4.1 Metal compatibility"
+  },
+  "scope": "Two rounds of keyboard-driven spring/status/world/deployment/save interactions from real historical checkpoints; directed state/save fixtures; delivered embedded PCK checked independently. Not a new complete natural playthrough.",
+  "known_test_teardown_messages": "Godot reports ObjectDB/resource references retained at capture teardown; gameplay assertions pass, no final gameplay script errors. Sandbox certificate/editor-settings messages do not affect the exported pack."
+}

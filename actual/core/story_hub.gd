@@ -57,6 +57,7 @@ func enter_world() -> void:
 
 func enter_room(id: String,resuming: bool=false) -> void:
 	ui.game.Equipment.reconcile(ui.game)
+	ui.game.ensure_treatment_sources()
 	room=id;ui.game.hub_record=id;ui.game.flags.hub_record=id;ui.view="hub";ui.game.mode="hub"
 	ui.busy=false;ui.held_direction=Vector2i.ZERO;ui._clear_menu();facing=Vector2i.UP
 	if not resuming:ui.game.hub_position=Vector2i(6,7)
@@ -82,9 +83,10 @@ func enter_room(id: String,resuming: bool=false) -> void:
 			obj("orders",[6,3],"军令箱","orders_case");obj("lena",[3,5],"蕾娜","actor",9)
 			obj("church",[11,2],"教堂入口","stairs_up")
 		"H04":
-			title="押送所旁 · 教堂";hint="与赫兰确认合作，兰斯同行"
+			title="押送所旁 · 旧塔教堂";hint="与赫兰确认合作，兰斯同行"
 			obj("cooperate",[6,3],"赫兰","actor",4);obj("lance",[10,5],"兰斯","actor",10)
 			obj("shrine",[3,5],"教堂祭台","sun_altar")
+			obj("treatment",[4,6],"救治泉 · 西队剩余"+str(ui.game.treatment_remaining())+"份","well")
 		"H05":
 			title="旧塔外营 · 战后";hint="两处道路已受控制，继续北行"
 			obj("camp",[6,3],"投降兵","actor",5,"塔工还在内院。将军要带粮走，没有给他们留车。")
@@ -106,6 +108,7 @@ func enter_room(id: String,resuming: bool=false) -> void:
 		if o.action in ui.game.characters:
 			var u=ui.game.roster.get(o.action,{})
 			if bool(u.get("dead",false)):objects.erase(o)
+			elif ui.game.is_dying(u):o.name=str(u.name_zh)+" · 濒死"
 	scenery=[]
 	var plans={"P00":[["barracks",1,0],["barracks",10,0]],"H01":[["snow_cottage",1,0],["snow_cottage",10,0],["snow_pine_patch",0,6]],
 	 "H02":[["grain_store",9,0],["grain_sacks",1,2],["crates",1,5]],"H03":[["barracks",1,0],["barracks",10,0]],
@@ -155,6 +158,19 @@ func accept() -> void:
 
 func action(key: String) -> void:
 	var g=ui.game
+	if key=="treatment":
+		_open_treatment();return
+	if key.begins_with("treat_choose_"):
+		var id=key.substr(13)
+		ui._open_menu("treatment_confirm",["救治"+str(g.roster[id].name_zh)+"（消耗1份）","返回"],["hub:treat_confirm_"+id,"hub:treatment"],Vector2(24,88));return
+	if key.begins_with("treat_confirm_"):
+		var result=g.treat_member(key.substr(14))
+		if result.valid:
+			enter_room(room,true);ui._notice("救治完成，可以重新出阵；剩余"+str(result.remaining)+"份",6)
+		else:ui._notice(str(result.reason),6)
+		return
+	if g.party.has(key) and g.is_dying(g.roster.get(key,{})):
+		await ui.play_pages([{"speaker":"医者","text":str(g.roster[key].name_zh)+"仍在队伍中，由我们照护，暂时不能出阵。可在部队状态查看伤情。"}],"hub");return
 	if not east_data.is_empty():
 		await _east_action(key);g.save_game();return
 	match key:
@@ -177,7 +193,11 @@ func action(key: String) -> void:
 		"church":enter_room("H04")
 		"cooperate":
 			if g.flags.get("cooperation_done",false):await ui.play_pages([{ "speaker":"赫兰","text":"军令已交给记录官。你救下的人都会记得凯尔。"}],"hub")
-			else:await ui.play_pages(g.campaign.scenes.D12,"hub","cooperate")
+			else:
+				var pages=g.campaign.scenes.D12.duplicate(true)
+				pages.append({"speaker":"医者","text":"教堂留有一份泉液，可以救治一名濒死同伴。未用时会保留，每个人只能接受一次。"})
+				pages.append({"speaker":"医者","text":"濒死者仍随队接受照护，暂时不能出阵。泉液只能修复活人的伤损，不能救回凯尔。"})
+				await ui.play_pages(pages,"hub","cooperate")
 		"fula","lena","beck","hervi":
 			if g.party.has(key):await ui.play_pages([{ "speaker":g.characters[key].name_zh,"text":"我会与你同行。村里的人已经有人照顾。"}],"hub");return
 			if key=="fula" and not g.flags.get("grain_shared",false):ui._notice("芙拉希望先把粮送回村庄");return
@@ -187,6 +207,7 @@ func action(key: String) -> void:
 		"shrine":
 			var labels=[];var actions=[]
 			for id in g.party:
+				if not g.can_deploy(g.roster[id]):continue
 				for option in ui.Progression.promotion_options(g.roster[id]):
 					labels.append(str(g.roster[id].name_zh)+"→"+str(g.catalog.classes[str(int(option.class_id))].name_zh))
 					actions.append("hub:promote_"+str(id)+"_"+str(int(option.class_id)))
@@ -233,6 +254,22 @@ func finish_story(callback: String) -> void:
 func open_system_menu() -> void:
 	if ui.busy:return
 	ui._open_menu("hub_system",["部队整备","保存进度","返回标题"],["new:camp","new:save","title"],Vector2(48,72))
+
+func _open_treatment() -> void:
+	var g=ui.game
+	var source="church" if room=="H04" else "lighthouse" if room=="H25" else ""
+	if source.is_empty() or g.Casualties.SOURCES[source]!=g.route or not g.flags.get("treatment_sources",{}).get(source,false):
+		ui._notice("先完成教堂合作或安置岛民，开放本队救治份额",6);return
+	if g.treatment_remaining()<=0:ui._notice("本队救治份额已经用尽",6);return
+	var labels=[];var actions=[]
+	for id in g.party:
+		var unit: Dictionary=g.roster[id]
+		if id in ["hunapu","eileen"] or not g.is_dying(unit):continue
+		if int(unit.get("treatment_count",0))>=1:continue
+		labels.append(str(unit.name_zh)+" · 濒死");actions.append("hub:treat_choose_"+str(id))
+	if labels.is_empty():ui._notice("没有可救治的濒死成员；份额可以保留",6);return
+	labels.append("返回");actions.append("close")
+	ui._open_menu("treatment",labels,actions,Vector2(48,72))
 func cancel() -> void:
 	ui._clear_menu()
 
@@ -284,6 +321,7 @@ func _configure_east_room() -> void:
 			if not ui.game.flags.get("east_recruit_ready",{}).get(id,false) and not ui.game.party.has(id):continue
 			if bool(ui.game.roster.get(id,{}).get("dead",false)):continue
 		if o.action=="resistance_spring" and ui.game.flags.get("lighthouse_spring_used",false):o.name="抗性泉 · 已用尽"
+		if o.action=="treatment":o.name="救治泉 · 东队剩余"+str(ui.game.treatment_remaining())+"份"
 		objects.append(o)
 	for raw in east_data.scenery:
 		var d: Dictionary=raw.duplicate(true)
@@ -415,9 +453,14 @@ func _east_action(key: String) -> void:
 		"holy_sword":_east_claim_item("F23_holy_sword_taken",16,"圣剑")
 		"holy_bow":_east_claim_item("F25_holy_bow_taken",21,"圣弓")
 		"islanders_settle":
+			var first=not g.flags.get("islanders_settled",false)
 			g.flags.islanders_settled=true
 			var report="留守骑士：伤者已经进屋，航灯和岛上的船都有人照看。军港的航线也已经确认。" if g.flags.get("islanders_survived",true) else "留守骑士：我们还在清点失踪者，会继续搜救。其他撤离的岛民已有安置处，航灯和留下的船由我们照看。"
-			await _east_pages([report, "艾琳：留足撤离用的船。我们只带已经准备好的这一队。"])
+			var lines=[report, "艾琳：留足撤离用的船。我们只带已经准备好的这一队。"]
+			if first:
+				lines.append("地方医者：灯屋还留有一份救治泉液，可以救治一名濒死同伴；每人只能接受一次，未用时会保留。")
+				lines.append("地方医者：由我来主持救治。泉液只能修复活人的伤损，已经遇难的人无法救回。")
+			await _east_pages(lines)
 		"east_training":
 			if not g.flags.get("islanders_settled",false):ui._notice("先让留守骑士安置岛民");return
 			ui._open_menu("east_training",["职业进阶","法术与训练","离开"],["hub:east_promotions","hub:east_magic_info","close"],Vector2(40,80))
