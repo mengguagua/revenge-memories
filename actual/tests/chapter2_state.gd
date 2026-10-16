@@ -113,15 +113,17 @@ func run() -> void:
 		if id==212:check(not b.flags.sailor_rescued and not b.flags.carlo_promise_completed,"dead sailor records lost promise while main side clear succeeds")
 		check(b.save_game(),str(id)+" settled victory checkpoint saves")
 		resumed=State.new();resumed.save_path=b.save_path;check(resumed.load_game(),str(id)+" settled victory checkpoint reloads")
-	for reward_spec in [[202,49],[204,4],[211,4],[212,49]]:
+	for reward_spec in [[202,49],[204,2],[211,4],[212,49]]:
 		var loot=fixture(reward_spec[0]);var carrier=loot.find_unit(str(loot.battle_data.boss_id));var hero=loot.find_unit("eileen")
 		check(int(carrier.item_id)==int(reward_spec[1]),str(loot.stage_id)+" exact documented carried reward")
+		# Boundary fixture: force the successful roll, not a guaranteed drop rule.
+		loot.rng_state=201
 		hero.item_id=16;carrier.hp=0;var reward=loot.Inventory.on_death(loot,carrier,hero)
 		check(reward.get("destination","")=="pending" and loot.flags.pending_loot.size()==1,str(loot.stage_id)+" full hand opens explicit loot choice")
 		check(loot.Inventory.on_death(loot,carrier,hero).is_empty() and loot.flags.pending_loot.size()==1,str(loot.stage_id)+" no repeated boss drop")
 		var western_items=loot.convoy.alm.duplicate();check(loot.Inventory.resolve_loot(loot,"store") and loot.convoy.celica.has(reward_spec[1]) and loot.convoy.alm==western_items,str(loot.stage_id)+" loot stored only in east convoy")
 		check(loot.retry_battle() and int(loot.find_unit(str(loot.battle_data.boss_id)).item_id)==int(reward_spec[1]) and not loot.convoy.celica.has(reward_spec[1]),str(loot.stage_id)+" retry reverses exact item transfer")
-	var ship_hit=fixture(206);var boat_before=int(ship_hit.flags.quest.boats[0].hp);var shooter=ship_hit.find_unit(str(ship_hit.battle_data.boss_id));var boat_at=Vector2i(ship_hit.flags.quest.boats[0].position[0],ship_hit.flags.quest.boats[0].position[1]);shooter.position=[boat_at.x+1,boat_at.y];ship_hit.phase="enemy";ship_hit.next_phase()
+	var ship_hit=fixture(206);var boat_before=int(ship_hit.flags.quest.boats[0].hp);var shooter=ship_hit.find_unit(str(ship_hit.battle_data.boss_id));var boat_at=Vector2i(ship_hit.flags.quest.boats[0].position[0],ship_hit.flags.quest.boats[0].position[1]);shooter.position=[boat_at.x+1,boat_at.y];ship_hit.turn=int(ship_hit.flags.quest.boats[0].get("delay",0))+1;ship_hit.phase="enemy";ship_hit.next_phase()
 	check(int(ship_hit.flags.quest.boats[0].hp)<boat_before,"enemy in actual attack range damages exposed event boat")
 	check(ship_hit.save_game(),"event damage checkpoint saves");var ship_reload=State.new();ship_reload.save_path=ship_hit.save_path;check(ship_reload.load_game() and int(ship_reload.event_boats()[0].hp)==int(ship_hit.event_boats()[0].hp),"ship damage survives checkpoint resume")
 	var snapshot=State.read_json(ship_hit.save_path);snapshot.flags.quest.boats[0].speed=99;var badfile=FileAccess.open(ship_hit.save_path,FileAccess.WRITE);badfile.store_string(JSON.stringify(snapshot));badfile.close();check(not ship_reload.load_game(),"tampered ship movement contract rejected")

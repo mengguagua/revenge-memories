@@ -8,6 +8,7 @@ signal music_finished(key: String)
 signal jingle_started(key: String)
 signal jingle_finished(key: String)
 signal playback_failed(key: String, reason: String)
+signal sfx_played(key: String)
 
 const MANIFEST_PATH := "res://data/legacy/audio.json"
 const MUSIC_GAIN := 0.50
@@ -101,6 +102,7 @@ func play_sfx(key: String) -> void:
 	player.stop()
 	player.stream = stream
 	player.play()
+	sfx_played.emit(key)
 
 func play_request(request: int) -> void:
 	_ensure_initialized()

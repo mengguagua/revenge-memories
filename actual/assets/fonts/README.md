@@ -9,3 +9,6 @@
 复现：下载上游 BDF ZIP，使用带 Pillow 的 Python 执行 `tools/build_chinese_font.py --archive ZIP路径`。`tools/build_chinese_font_audit.py` 检查当前中文文本覆盖、字形边界、透明度与实际体积。
 
 仅排除韩文专用区及 6 个超出 12 像素格的特殊纵排/私用符号；保留所有源字库中的简体、繁体 CJK 及中文标点。诊断图片 `font-preview.png` 不用于游戏界面。
+
+
+0.3.7新增 `fusion-pixel-8px-zh-hans.png`，用于左上角地点/时间与长期提示。源为同一2026.09.25官方8px BDF，逐位复制，7px ascent/1px descent，不对12px正文做缩放。纹理1024×1080、87859字节，字形与BDF摘要见 `data/legacy/font_small_zh.json`。复现入口为 `actual/tools/build_small_font.py --archive /private/tmp/fe2-fusion-8px.zip`（从仓库根目录运行）。8px版本的额外上游授权一并保留在LICENSES下。正常、16:10和超宽实机图均检查过字形、边缘与内容安全距离。

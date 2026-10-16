@@ -1,6 +1,7 @@
 extends "res://core/legacy_game_state.gd"
 ## New campaign. Inherit original combat formulas; isolate campaign/save semantics.
 const ChapterTwo = preload("res://core/chapter2_rules.gd")
+const Equipment = preload("res://core/equipment_supply.gd")
 const CAMPAIGN_ID := "revenge-memories-1"
 const SAVE_FIELDS := ["chapter","route","parties","route_positions","previous_world_node","convoy","hub_id","hub_position","battle_return","battle_settled","story_events","stage_id","world_node","cleared_stages","roster","battle_start_snapshot","victory_rewards","flags","party","mode","units","phase","turn","rng_state","frame_counter","kills","selected_id","cursor","move_origin","battle_outcome"]
 var campaign: Dictionary
@@ -26,6 +27,7 @@ func new_game() -> void:
 	cleared_stages.clear();battle_start_snapshot.clear();battle_return.clear();victory_rewards.clear()
 	stage_id=101;battle_data=stages[101].duplicate(true);mode="hub";turn=1;phase="player";rng_state=0;frame_counter=0;kills=0
 	battle_outcome="";battle_settled=false;selected_id="";hub_record="P00";hub_position=Vector2i(3,8)
+	Equipment.reconcile(self)
 
 func _initial_character(id: String) -> Dictionary:
 	var u: Dictionary=characters.get(id,{}).duplicate(true);u.id=id;u.side="player";u.dead=false;u.acted=false;return u
@@ -73,6 +75,7 @@ func start_battle(id: int=101,_groups: Array=[],_from_hub: bool=false) -> bool:
 	if not stages.has(id) or stage_cleared(id) or int(stages[id].node)!=world_node:return false
 	if int(stages[id].get("chapter",2 if id>=200 else 1))!=chapter:return false
 	stage_id=id;battle_data=stages[id].duplicate(true);encounter_groups=[]
+	Equipment.reconcile(self)
 	battle_return={"mode":"world","world_node":world_node,"previous_world_node":previous_world_node};units.clear();var slot=0
 	for member in party:
 		if not roster.has(member):continue
@@ -94,11 +97,16 @@ func start_battle(id: int=101,_groups: Array=[],_from_hub: bool=false) -> bool:
 	queue_lines(ChapterTwo.before_lines(self) if stage_id>=200 else str(battle_data.before),battle_data.code+"-BEGIN");battle_start_snapshot=_capture_battle_start();return true
 func retry_battle() -> bool:
 	if battle_start_snapshot.is_empty():return false
+	var previous_map_revision=str(battle_data.get("tactical_review_version","0.2.0"))
 	var s: Dictionary=battle_start_snapshot.duplicate(true)
 	for key in s:
 		if key in SAVE_FIELDS and not key in ["hub_position","cursor","move_origin"]:set(key,s[key])
 	stage_id=int(s.stage_id);world_node=int(s.world_node);previous_world_node=int(s.previous_world_node)
 	cleared_stages=s.cleared_stages.map(func(v):return int(v));battle_data=stages[stage_id].duplicate(true)
+	# Restore the genuine pre-battle roster, then redeploy through the ordinary
+	# entry path when geometry changed. Old coordinates must not land in a cliff.
+	if previous_map_revision!=str(battle_data.get("tactical_review_version","0.2.0")):
+		return start_battle(stage_id)
 	battle_settled=false;battle_outcome="";phase="player";turn=1;mode="battle";selected_id="";flags.erase("active_plot")
 	cursor=pos(find_unit(leader_id()));victory_rewards.clear();return true
 
@@ -190,7 +198,7 @@ func _campaign_ai_action(unit: Dictionary,gather: bool=false) -> Dictionary:
 			safe=step
 		action.destination=safe;return action
 	if bool(unit.get("burner",false)):
-		if turn<5:return {"destination":pos(unit),"target":""}
+		if turn<int(battle_data.get("burner_departure_turn",5)):return {"destination":pos(unit),"target":""}
 		return _toward(unit,Vector2i(battle_data.targets[0][0],battle_data.targets[0][1]))
 	if str(unit.id)=="M15_boss" and ((turn>=6 and int(unit.hp)*2<int(unit.max_hp)) or turn>=8):
 		if not flags.quest.get("escape_announced",false):flags.quest.escape_announced=true;queue_lines("科兰：去北门！撤离点就在旧塔后面。","M15-ESCAPE")
@@ -209,7 +217,7 @@ func mark_wait(id: String) -> void:
 		if pos(u)==Vector2i(goal[0],goal[1]):
 			if not flags.quest.evacuated.has(id):flags.quest.evacuated.append(id)
 			u.side="evacuated";u.hidden=true;queue_lines(str(battle_data.during),str(battle_data.code)+"-MID")
-	if bool(u.get("burner",false)) and turn>=5:
+	if bool(u.get("burner",false)) and turn>=int(battle_data.get("burner_departure_turn",5)):
 		var goal=Vector2i(battle_data.targets[0][0],battle_data.targets[0][1])
 		flags.quest.burn_streak=int(flags.quest.burn_streak)+1 if pos(u)==goal else 0
 		if int(flags.quest.burn_streak)==1:queue_lines("焚毁兵：下一轮就点火！／胡纳普：先阻止粮仓门口的人。","M12-BURN")
@@ -224,7 +232,7 @@ func next_phase() -> void:
 	super.next_phase()
 	for id in object_hp:find_unit(id).hp=object_hp[id]
 	ChapterTwo.after_phase(self)
-	if phase=="player" and turn==4 and stage_id==102:queue_lines("战场提示：焚毁兵下一回合从集合点出发。拦住他，别让他在门前连续点火。","M12-FIRE-WARNING")
+	if phase=="player" and stage_id==102 and turn==int(battle_data.get("burner_departure_turn",5))-1:queue_lines("战场提示：焚毁兵下一回合从集合点出发。拦住他，别让他在门前连续点火。","M12-FIRE-WARNING")
 	if phase=="enemy" and turn==int(battle_data.reinforcement_turn) and not flags.quest.reinforced:
 		flags.quest.reinforced=true
 		for raw in battle_data.reinforcements:
@@ -242,11 +250,18 @@ func next_phase() -> void:
 		queue_lines("斥候：后方路口有援军。下一回合抵达，只有这一队。",str(battle_data.code)+"-REINFORCEMENT-WARNING")
 	check_outcome()
 
+func visit_fronts(object: Dictionary) -> Array:
+	var points: Array=object.get("approaches",[object.approach] if object.has("approach") else [])
+	return points.map(func(p):return Vector2i(p[0],p[1]))
+
 func interactions_for(unit: Dictionary) -> Array:
 	var result=[]
 	if unit.is_empty() or unit.side!="player" or not bool(unit.get("controllable",true)) or bool(unit.get("acted",false)):return result
 	for obj in battle_data.objects:
 		if flags.quest.objects.get(str(obj.id),false):continue
+		if obj.has("approach") or obj.has("approaches"):
+			if visit_fronts(obj).has(pos(unit)):result.append(obj)
+			continue
 		var p=Vector2i(obj.position[0],obj.position[1]);var d=absi(p.x-pos(unit).x)+absi(p.y-pos(unit).y)
 		if d==0 or (obj.adjacent and d==1):result.append(obj)
 	var boss=find_unit(str(battle_data.boss_id))
@@ -255,6 +270,26 @@ func interactions_for(unit: Dictionary) -> Array:
 func interact(id: String) -> bool:
 	var actor=find_unit(selected_id);var choices=interactions_for(actor)
 	if not choices.any(func(o):return str(o.id)==id):return false
+	var object=choices.filter(func(o):return str(o.id)==id)[0]
+	if str(object.get("kind",""))=="visit":
+		var reward=int(object.get("reward_item",0));var receipt={}
+		if reward>0:
+			if int(actor.get("item_id",0))==0 and Items.can_use(actor,reward):
+				roster[actor.id].item_id=reward
+				receipt={"valid":true,"destination":"unit","recipient":actor.id}
+			else:receipt=receive_equipment(reward)
+			if not bool(receipt.valid):
+				queue_lines("旁白：运输队已满。整理装备后，可以再来领取。")
+				return false
+			if str(receipt.destination)=="unit":
+				var recipient=find_unit(str(receipt.recipient))
+				if not recipient.is_empty():recipient.item_id=reward
+		flags.quest.objects[id]=true
+		queue_lines(str(object.dialogue),id+"-VISIT")
+		if reward>0:
+			var destination=str(roster[receipt.recipient].name_zh)+"装备" if str(receipt.destination)=="unit" else "收入运输队"
+			queue_lines("旁白：获得"+str(Items.item(reward).name_zh)+"，"+destination+"。",id+"-REWARD")
+		actor.acted=true;selected_id="";check_outcome();return true
 	if stage_id>=200:
 		ChapterTwo.interact(self,id)
 		actor.acted=true;selected_id="";check_outcome();return true
@@ -266,7 +301,7 @@ func interact(id: String) -> bool:
 			if str(o.id)!=id:continue
 			if o.kind in ["door","rescue"]:
 				var index=battle_data.objects.find(o);flags.quest.freed.append(index)
-				var x=int(o.position[0]);var y=int(o.position[1]);battle_data.map.tiles[y*int(battle_data.map.width)+x]=208
+				var x=int(o.position[0]);var y=int(o.position[1]);battle_data.map.tiles[y*int(battle_data.map.width)+x]=int(o.get("open_tile",208))
 				for u in units:
 					if str(u.id)==str(battle_data.code)+"_workers"+str(index) or (u.id=="lena" and index==0):u.locked=false
 				queue_lines("劳工：门开了。我们沿着清出的路撤离。",id+"-OPEN")
@@ -291,8 +326,8 @@ func check_outcome() -> String:
 	var defeated=not boss.is_empty() and (int(boss.hp)<=0 or bool(boss.get("surrendered",false)));var ready=false
 	match stage_id:
 		101,111:ready=q.get("evacuated",[]).size()>=2
-		102,104:ready=q.get("objects",{}).size()>=battle_data.objects.size()
-		103:ready=q.get("objects",{}).size()>=2 and workers.any(func(u):return not bool(u.get("locked",false)))
+		102,104:ready=battle_data.objects.filter(func(o):return not bool(o.get("optional",false))).all(func(o):return bool(q.get("objects",{}).get(str(o.id),false)))
+		103:ready=battle_data.objects.filter(func(o):return str(o.kind) in ["door","rescue"]).all(func(o):return bool(q.get("objects",{}).get(str(o.id),false))) and workers.any(func(u):return not bool(u.get("locked",false)))
 		105:ready=workers.any(func(u):return not bool(u.get("locked",false)))
 		112:ready=q.get("evacuated",[]).has("medicine_wagon")
 	if defeated and ready:battle_outcome="victory"
@@ -303,7 +338,7 @@ func story_on_death(unit: Dictionary) -> void:
 		var dead=_initial_character(unit.id);dead.hp=0;dead.dead=true;roster[unit.id]=dead
 func story_on_victory() -> void:
 	if stage_id>=200:
-		ChapterTwo.on_victory(self);return
+		ChapterTwo.on_victory(self);Equipment.award_clear(self,stage_id);return
 	flags["clear_"+str(battle_data.code)]=true
 	if stage_id==101:flags.side_invites=true
 	if stage_id==103:flags.labor_rescued=true
@@ -314,6 +349,7 @@ func story_on_victory() -> void:
 	var after="赫兰：军令已经交给记录官，我会公布凯尔的事。／胡纳普：塔里的人先带出来。" if stage_id==105 else str(battle_data.after).split(" M12-MYTH")[0]
 	queue_lines(after,str(battle_data.code)+"-END")
 	if stage_id==111 and not flags.get("S11_reward",false):convoy.alm.append(11);flags.S11_reward=true
+	Equipment.award_clear(self,stage_id)
 
 func return_to_preparation() -> bool:
 	if not retry_battle():return false
@@ -355,13 +391,14 @@ func load_game() -> bool:
 	hub_record=str(s.get("hub_record","H01"));battle_data=stages[stage_id].duplicate(true)
 	# In-progress battles retain their geometry until a normal retry/re-entry.
 	# New walls and cargo must never appear underneath an old saved formation.
-	if str(s.get("map_revision","0.2.0"))=="0.2.0" and mode in ["battle","victory","defeat"]:
-		var compatible="res://data/compat/0.2.0/"+str(battle_data.code)+".json"
-		if FileAccess.file_exists(compatible):battle_data=read_json(compatible).duplicate(true)
+	var saved_revision=str(s.get("map_revision","0.2.0"))
+	if saved_revision!=str(battle_data.get("tactical_review_version","0.2.0")) and mode in ["battle","victory","defeat"]:
+		battle_data=SaveValidation.campaign_stage(self,stage_id,saved_revision).duplicate(true)
 	for o in battle_data.objects:
 		if flags.get("quest",{}).get("objects",{}).get(str(o.id),false):
 			if stage_id>=200:ChapterTwo.open_object(self,o)
-			elif o.kind in ["door","rescue"]:battle_data.map.tiles[int(o.position[1])*int(battle_data.map.width)+int(o.position[0])]=208
+			elif o.kind in ["door","rescue"]:battle_data.map.tiles[int(o.position[1])*int(battle_data.map.width)+int(o.position[0])]=int(o.get("open_tile",208))
+	if mode not in ["battle","victory","defeat"]:Equipment.reconcile(self)
 	return true
 
 func begin_chapter_two() -> bool:
@@ -378,6 +415,7 @@ func begin_chapter_two() -> bool:
 	battle_data=stages[201].duplicate(true);units.clear();battle_start_snapshot.clear();battle_return.clear();victory_rewards.clear();story_events.clear()
 	flags.erase("active_plot");flags.quest={};flags.chapter2_started=true;flags.east_recruit_ready={"lord":false,"roan":false,"shia":false}
 	mode="hub";hub_record="H21";hub_position=Vector2i(6,7);battle_outcome="";battle_settled=false;selected_id="";phase="player";turn=1
+	Equipment.reconcile(self)
 	return true
 
 func finish_chapter_two() -> bool:
@@ -392,6 +430,7 @@ func recruit(id: String) -> void:
 	if id in ["lord","roan","shia"] and not flags.get("east_recruit_ready",{}).get(id,false):return
 	super.recruit(id)
 	if roster.has(id):roster[id].route=route
+	Equipment.reconcile(self)
 
 func objective_status() -> Array[String]:
 	if stage_id>=200:return ChapterTwo.status(self)

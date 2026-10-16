@@ -35,3 +35,10 @@ dist/
 # 保留 attempt-7/8 完整通关记录和顶层 natural-* 当前检查点
 /reports/chapter2/play/attempt-[1-6].json
 /reports/chapter2/play/attempt-*-checkpoints/
+
+# 地形改版的隔离试玩检查点可本地复用；Git保留每轮摘要、动作与最终验收索引
+/reports/battlefield-0.3.0/play/*/*-entry.json
+/reports/battlefield-0.3.0/play/*/*-field.json
+/reports/battlefield-0.3.0/play/*/*-victory.json
+/reports/battlefield-0.3.0/play/*/*-stopped.json
+/reports/battlefield-0.3.0/play/*/*-boats.json

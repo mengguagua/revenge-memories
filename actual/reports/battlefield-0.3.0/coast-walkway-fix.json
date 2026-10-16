@@ -1,0 +1,135 @@
+{
+  "version": "0.3.6",
+  "passed": true,
+  "scope": "Visual layers and terrain names only. Across all 15 maps, every field except art_layers/art_style_version is identical: routes, terrain semantics, movement costs, collisions, units, combat statistics, objects, rewards and save geometry unchanged. No full battle replay for this display-only patch.",
+  "maps": [
+    {
+      "code": "F21",
+      "changed_fields": [
+        "art_style_version"
+      ]
+    },
+    {
+      "code": "F22",
+      "changed_fields": [
+        "art_style_version"
+      ]
+    },
+    {
+      "code": "F23",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version"
+      ]
+    },
+    {
+      "code": "F24",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version"
+      ]
+    },
+    {
+      "code": "F25",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version"
+      ]
+    },
+    {
+      "code": "F26",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version"
+      ]
+    },
+    {
+      "code": "M11",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version"
+      ]
+    },
+    {
+      "code": "M12",
+      "changed_fields": [
+        "art_style_version"
+      ]
+    },
+    {
+      "code": "M13",
+      "changed_fields": [
+        "art_style_version"
+      ]
+    },
+    {
+      "code": "M14",
+      "changed_fields": [
+        "art_style_version"
+      ]
+    },
+    {
+      "code": "M15",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version"
+      ]
+    },
+    {
+      "code": "S11",
+      "changed_fields": [
+        "art_style_version"
+      ]
+    },
+    {
+      "code": "S12",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version"
+      ]
+    },
+    {
+      "code": "S21",
+      "changed_fields": [
+        "art_style_version"
+      ]
+    },
+    {
+      "code": "S22",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version"
+      ]
+    }
+  ],
+  "shore_policy": "Grass/rock shores are no longer replaced with sand. Material-aware bank corners are inside water cells; real beaches alone use stippled sand-to-grass tiles.",
+  "timber_policy": "Existing native plank texture, direction-aware boards, low edge beams, corner pegs and endcaps inside the original walkable cells. No implied unimplemented railings. Timber/earth approaches meet without grassy seams.",
+  "terrain_names": {
+    "M15": "港侧木栈道",
+    "F25": "港口木码头",
+    "F26": "修补木桥",
+    "M11/S12": "跨河木桥",
+    "F23/F24": "沙滩",
+    "S12 water": "河流",
+    "S22 water": "潮水"
+  },
+  "atlas": {
+    "pixels": [
+      512,
+      2528
+    ],
+    "bytes": 214073,
+    "original_cells_preserved": 3530,
+    "original_pixels_identical": true,
+    "tile_count": 5042,
+    "shore_combinations": 252,
+    "shore_ids_persistent": true,
+    "compression": "oxipng lossless",
+    "quality_reason": "5042 native cells retain approved detail and alpha, all 3530 published cells unchanged. Slightly above the 200 KB reference to preserve lossless native art and compatibility."
+  },
+  "geometry_checks": 1645,
+  "state_checks": 859,
+  "package_checks": 44,
+  "runtime_captures": 81,
+  "layout_errors": []
+}

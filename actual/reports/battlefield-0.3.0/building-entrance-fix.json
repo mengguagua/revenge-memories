@@ -1,0 +1,314 @@
+{
+  "version": "0.3.2",
+  "passed": true,
+  "visited_buildings": 14,
+  "native_single_cell_shelters": 1,
+  "buildings": [
+    {
+      "stage": "S12",
+      "id": "S12_visit_0",
+      "building": "village_clinic",
+      "fronts": [
+        [
+          26,
+          3
+        ]
+      ],
+      "entrance_cells": [
+        [
+          26,
+          2
+        ]
+      ]
+    },
+    {
+      "stage": "M14",
+      "id": "M14_visit_0",
+      "building": "command_pavilion",
+      "fronts": [
+        [
+          25,
+          5
+        ]
+      ],
+      "entrance_cells": [
+        [
+          25,
+          4
+        ]
+      ]
+    },
+    {
+      "stage": "M15",
+      "id": "M15_visit_0",
+      "building": "coastal_keep",
+      "fronts": [
+        [
+          19,
+          5
+        ],
+        [
+          18,
+          5
+        ]
+      ],
+      "entrance_cells": [
+        [
+          19,
+          4
+        ],
+        [
+          18,
+          4
+        ]
+      ]
+    },
+    {
+      "stage": "F21",
+      "id": "F21_visit_0",
+      "building": "captain_cabin",
+      "fronts": [
+        [
+          6,
+          24
+        ]
+      ],
+      "entrance_cells": [
+        [
+          6,
+          23
+        ]
+      ]
+    },
+    {
+      "stage": "M12",
+      "id": "M12_visit_0",
+      "building": "hill_granary",
+      "fronts": [
+        [
+          23,
+          4
+        ]
+      ],
+      "entrance_cells": [
+        [
+          23,
+          3
+        ]
+      ]
+    },
+    {
+      "stage": "S22",
+      "id": "S22_visit_0",
+      "building": "cave_entry",
+      "fronts": [
+        [
+          24,
+          3
+        ]
+      ],
+      "entrance_cells": [
+        [
+          24,
+          2
+        ]
+      ]
+    },
+    {
+      "stage": "M13",
+      "id": "M13_visit_0",
+      "building": "command_pavilion",
+      "fronts": [
+        [
+          20,
+          5
+        ],
+        [
+          19,
+          5
+        ]
+      ],
+      "entrance_cells": [
+        [
+          20,
+          4
+        ],
+        [
+          19,
+          4
+        ]
+      ]
+    },
+    {
+      "stage": "F24",
+      "id": "shelter",
+      "building": "single_cell_shelter",
+      "fronts": [
+        [
+          32,
+          23
+        ],
+        [
+          32,
+          24
+        ]
+      ],
+      "entrance_cells": [
+        [
+          32,
+          23
+        ]
+      ]
+    },
+    {
+      "stage": "F24",
+      "id": "F24_visit_0",
+      "building": "visit_lighthouse",
+      "fronts": [
+        [
+          22,
+          13
+        ],
+        [
+          21,
+          13
+        ]
+      ],
+      "entrance_cells": [
+        [
+          22,
+          12
+        ],
+        [
+          21,
+          12
+        ]
+      ]
+    },
+    {
+      "stage": "F25",
+      "id": "F25_visit_0",
+      "building": "quay_warehouse",
+      "fronts": [
+        [
+          27,
+          3
+        ]
+      ],
+      "entrance_cells": [
+        [
+          27,
+          2
+        ]
+      ]
+    },
+    {
+      "stage": "S21",
+      "id": "S21_visit_0",
+      "building": "captain_cabin",
+      "fronts": [
+        [
+          6,
+          22
+        ]
+      ],
+      "entrance_cells": [
+        [
+          6,
+          21
+        ]
+      ]
+    },
+    {
+      "stage": "M11",
+      "id": "M11_visit_0",
+      "building": "snow_cottage",
+      "fronts": [
+        [
+          24,
+          4
+        ],
+        [
+          23,
+          4
+        ]
+      ],
+      "entrance_cells": [
+        [
+          24,
+          3
+        ],
+        [
+          23,
+          3
+        ]
+      ]
+    },
+    {
+      "stage": "F22",
+      "id": "F22_visit_0",
+      "building": "captain_cabin",
+      "fronts": [
+        [
+          6,
+          26
+        ]
+      ],
+      "entrance_cells": [
+        [
+          6,
+          25
+        ]
+      ]
+    },
+    {
+      "stage": "S11",
+      "id": "S11_visit_0",
+      "building": "mine_adit",
+      "fronts": [
+        [
+          19,
+          3
+        ]
+      ],
+      "entrance_cells": [
+        [
+          19,
+          2
+        ]
+      ]
+    },
+    {
+      "stage": "F23",
+      "id": "F23_visit_0",
+      "building": "fishing_cottage",
+      "fronts": [
+        [
+          26,
+          17
+        ]
+      ],
+      "entrance_cells": [
+        [
+          26,
+          16
+        ]
+      ]
+    }
+  ],
+  "terrain_roads_units_props_and_battle_parameters_identical": true,
+  "scope": "Native building artwork reused without any door overlay. Front interactions checked for all 14 visit buildings and the lighthouse shelter; normal ship visit menus/dialogue captured. No battle replay because terrain, deployments and combat data are unchanged.",
+  "state_checks": 708,
+  "geometry_checks": 1431,
+  "runtime_capture_count": 65,
+  "runtime_layout_errors": [],
+  "old_active_visits": "Renderer suppresses the old generic visit door regardless of map revision; legacy isolated shelter door uses the complete native house.",
+  "package_probe": {
+    "checks": 67,
+    "errors": [],
+    "native_buildings": 15,
+    "passed": true,
+    "scope": "Standalone headless pack: exact match of 15 map files, absence of visit-door overlays, native shelter texture and front interactions. Runtime visuals and reward/save fixtures checked separately.",
+    "version": "0.3.2"
+  }
+}

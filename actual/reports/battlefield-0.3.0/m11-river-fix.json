@@ -1,0 +1,61 @@
+{
+  "version": "0.3.1",
+  "passed": true,
+  "stage": "M11",
+  "reason": "Road painting had overwritten the river channel; land-side coast masks leaked water pixels onto walkable terrain.",
+  "changes": [
+    "One continuous river channel through the map",
+    "Two actual wooden bridge crossings, narrow west and wider east",
+    "River bank pixels stay inside water cells; no sea pixels on roads or snow",
+    "0.3.0 M11 battle geometry retained for old active saves; normal retry re-enters 0.3.1"
+  ],
+  "other_14_maps_identical": true,
+  "map_sha256": "c9c7e7a7a836f5d0d3fd2700c94492a511caf5596fb994ea02deeb45fea3da41",
+  "river_cells": 84,
+  "bridges": [
+    {
+      "id": "west_bridge",
+      "bounds": [
+        15,
+        9,
+        16,
+        12
+      ],
+      "width": 2
+    },
+    {
+      "id": "east_bridge",
+      "bounds": [
+        24,
+        6,
+        26,
+        9
+      ],
+      "width": 3
+    }
+  ],
+  "replay_evidence": "reports/battlefield-0.3.0/play/m11-river/m11-river-play.json",
+  "outcome": "victory",
+  "final_turn": 20,
+  "evacuated": [
+    "M11_refugees0",
+    "M11_refugees1"
+  ],
+  "stat_edits": false,
+  "forced_victories": false,
+  "capture_passed": true,
+  "layout_errors": [],
+  "geometry_checks": 1367,
+  "state_checks": 686,
+  "scope": "Only M11 river layout reworked. One full real-input escort replay, targeted river topology checks, save compatibility checks and three fresh runtime captures. Other 14 maps unchanged.",
+  "package_probe": {
+    "atlas_matches_imported_texture": true,
+    "checks": 3,
+    "display": "headless",
+    "old_0_3_0_geometry_included": true,
+    "packaged_M11_matches_workspace": true,
+    "passed": true,
+    "scope": "Standalone app resource check for the river fix; full M11 replay and old-save retry checked separately.",
+    "version": "0.3.1"
+  }
+}

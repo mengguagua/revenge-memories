@@ -13,7 +13,7 @@ func snapshot(name: String) -> void:
  checkpoints.append({"name":name,"save":path,"view":ui.view,"stage":ui.game.stage_id,"turn":ui.game.turn})
 func plan(unit: Dictionary) -> Dictionary:
  if ui.game.stage_id==105 and str(unit.id) in ["hunapu","lance","daan","beck"] and int(ui.game.find_unit("M15_boss").hp)>0:return tower_plan(unit)
- if ui.game.chapter==2 and ui.game.stage_id!=201:return super.plan(unit)
+ if ui.game.chapter==2 and (ui.game.stage_id!=201 or ui.game.battle_data.get("tactical_review_version","")=="0.3.0"):return super.plan(unit)
  var best=combat_plan(unit);var graph=ui.game.reachable(unit)
  var important="M15_boss" if ui.game.stage_id==105 else ""
  if ui.game.stage_id==102:
@@ -36,12 +36,14 @@ func plan(unit: Dictionary) -> Dictionary:
   if not ui.game.can_stop(unit,cell):continue
   var candidate=unit.duplicate(true);candidate.position=[cell.x,cell.y]
   for object in ui.game.interactions_for(candidate):
+   if object.get("optional",false):continue
    if ui.game.stage_id==105 and not focus.is_empty() and int(focus.hp)>0 and str(unit.id) in ["hunapu","lance","daan","beck"]:continue
    var score=250.0-risk(candidate,cell)
    if score>best.score:best={"kind":"interact","cell":cell,"score":score,"target":str(object.id),"spell":-1}
   if focus.is_empty() or int(focus.hp)<=0:
    var goals=[]
    for object in ui.game.battle_data.objects:
+    if object.get("optional",false):continue
     if ui.game.flags.quest.objects.get(str(object.id),false):continue
     var at=Vector2i(object.position[0],object.position[1])
     if not object.get("adjacent",true):goals.append(at)
@@ -98,7 +100,10 @@ func run() -> void:
   abort=false;var failures_before=failures.size();var inputs_before=inputs;var ops_before=operations.size()
   var source=("res://reports/campaign/" if code.begins_with("M") or code in ["S11","S12"] else "res://reports/chapter2/play/")+"natural-"+code+"-deployment-save.json"
   ui.game.save_path=source
-  if not ui.game.load_game():record_failure("Actual deployment does not load: "+code);continue
+  var loaded=ui.game.load_game()
+  # Failure reporting saves diagnostics; never let it write to source evidence.
+  ui.game.save_path=review_out+"working-save.json"
+  if not loaded:record_failure("Actual deployment does not load: "+code);continue
   ui.game.save_path=review_out+"working-save.json";ui.view=ui.game.mode;ui.busy=false;ui.batch_running=false;ui._clear_menu();ui.ui_mode="inspect";ui.held_direction=Vector2i.ZERO;ui.phase_time=0
   ui._focus_battle(ui.game.cursor,true)
   # Real return-to-preparation and re-entry picks up updated maps/NPCs.
@@ -111,6 +116,7 @@ func run() -> void:
   key(KEY_Z);choose("new:battle");await settle()
   await snapshot(code+"-entry")
   var record={"code":code,"source":source,"initial_roster":ui.game.roster.duplicate(true),"turns":[],"tactical_actions":[],"scope":"Actual keyboard re-entry from genuine campaign checkpoint; no HP/stat/RNG/position edits"}
+  var captured_controls={}
   key(KEY_S);choose("new:goal");await settle()
   for step in range(65):
    if abort or not ui.game.battle_outcome.is_empty():break
@@ -123,6 +129,11 @@ func run() -> void:
     var start=State.pos(unit);var before_ops=operations.size();await act(str(id))
     var at=State.pos(unit)
     record.tactical_actions.append({"turn":turn_,"unit":id,"from":[start.x,start.y],"to":[at.x,at.y],"terrain":ui.game.category(at),"avoid":ui.game.terrain_avoid(at),"operations":operations.slice(before_ops)})
+    if code=="M14" and ui.game.battle_data.has("camp_checkpoints"):
+     for point in ui.game.battle_data.objects:
+      if point.kind!="control" or captured_controls.has(point.id) or not ui.game.flags.quest.objects.get(point.id,false):continue
+      if not ui.game.unit_at(Vector2i(point.position[0],point.position[1])).is_empty():continue
+      await snapshot(code+"-controlled-"+str(point.id));captured_controls[point.id]=true
    if not abort and ui.game.battle_outcome.is_empty() and ui.game.turn==turn_:
     key(KEY_S);choose("end_turn");await settle()
    record.turns.append({"turn":ui.game.turn,"enemies":ui.game.living("enemy").size(),"outcome":ui.game.battle_outcome})

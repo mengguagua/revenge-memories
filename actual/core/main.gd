@@ -16,17 +16,20 @@ var plot_finished := true
 var world_facing := Vector2i.DOWN
 var previous_canvas_size := Vector2.ZERO
 var plot_layout_audit: Dictionary = {}
+var small_font: Dictionary = {}
 const NPC_PORTRAITS := {"赫兰":35,"艾琳":48,"科兰":37,"乌库布·卡基":50,
 	"村民":17,"管理员":30,"矿工":47,"医者":13,"教团守卫":26,"教团兵":26,
 	"指挥官":26,"士兵":26,"守军":26,"焚毁兵":26,"流民":17,"劳工":47,
 	"居民":17,"投降兵":26,"斥候":26,"裴萨":37,"船长":26,"舵手":26,
 	"甲板护卫":26,"船员":47,"引航者":47,"渔民":17,"渔村长者":17,
 	"岛上医者":13,"地方医者":13,"留守骑士":26,"学舍导师":30,"俘虏":17,
-	"固定舵手":26,"旧船员":47,"求救船员":47,"伤者":17}
-const NARRATOR_SPEAKERS := ["旁白", "", "叙述", "战场提示", "提示"]
+	"固定舵手":26,"旧船员":47,"求救船员":47,"伤者":17,
+	"仓吏":30,"记录员":30,"文书":30,"医师":13,"守灯人":47,"账房":30,"洞民":17}
+const NARRATOR_SPEAKERS := ["旁白", "", "叙述", "战场提示", "提示", "旧记录"]
 
 func _ready() -> void:
 	super._ready()
+	small_font=GameState.read_json("res://data/legacy/font_small_zh.json")
 	get_window().title="revenge-memories · 序章至第二章"
 	world=game.formal_world;battle_pack=GameState.read_json("res://assets/battle_tiles/battle-tiles.json")
 	nature_layouts=GameState.read_json("res://data/nature-layouts.json")
@@ -160,6 +163,7 @@ func _menu_action(action: String,context: String) -> void:
 	if action.begins_with("travel:"):_travel(int(action.get_slice(":",1)));return
 	if action.begins_with("interact:"):
 		if game.interact(action.substr(9)):ui_mode="inspect";await _play_story_events();_finish_turn_action()
+		elif not game.story_events.is_empty():await _play_story_events()
 		return
 	if action.begins_with("hub:"):hub_controller.action(action.substr(4));return
 	match action:
@@ -172,12 +176,18 @@ func _menu_action(action: String,context: String) -> void:
 		"new:hub":hub_controller.enter_world()
 		"new:world":_continue_world()
 		"new:camp":_open_camp_menu()
+		"new:equipment":
+			await play_pages([
+				{"speaker":"提示","text":"每人携带一件装备：武器、盾或戒指共用一个位置。职业相容时自动生效；空手仍可使用职业的普通武器。"},
+				{"speaker":"提示","text":"铜、铁级剑枪弓供对应职业使用。法器只增强已学会的攻击法术，不改变治疗、射程或生命消耗。"},
+				{"speaker":"提示","text":"在部队整备中选择交换装备或装备行囊，可交换、存放和领取。战中只能与相邻队员交换，发起者会结束行动。"},
+				{"speaker":"提示","text":"状态页底部显示当前装备；左右方向键切换本队成员。装备没有耐久，不必另按装备按钮。"}],view)
 		"new:prepare":
 			if game.return_to_preparation():_continue_world();_notice("已重置本战，保留此前进度")
 		"new:save","save":_notice("进度已保存" if game.save_game() else "保存失败")
 		"new:goal":
 			var text=str(game.battle_data.goal)
-			if game.battle_data.code=="M15":text+="\n科兰第6回合半血撤离，最晚第8回合；北门已标示。"
+			if game.battle_data.code=="M15":text+="\n科兰第6回合半血撤离，最晚第8回合；沿东侧栈道尽头封住北门退路。"
 			var pages=[{"speaker":"战场提示","text":text}]
 			if game.stage_id>=200:
 				for status in game.objective_status():pages.append({"speaker":"战场提示","text":status})
@@ -203,8 +213,49 @@ func _open_system_menu() -> void:
 func _show_status() -> void:
 	if view=="plot" or view=="overview" or view=="chapter_end":return
 	if view=="hub":
-		camp_context="hub";_camp_members("view");return
+		camp_context="hub";_camp_members("status");return
 	super._show_status()
+
+func _open_camp_menu() -> void:
+	super._open_camp_menu()
+	menu_items.insert(3,"装备说明");menu_actions.insert(3,"new:equipment")
+
+func _small_text_width(text: String) -> float:
+	var width=0.0
+	for ch in text:width+=float(small_font.get("glyphs",{}).get(ch,{}).get("advance",8))
+	return width
+
+func _small_lines(text: String,width: float) -> Array[String]:
+	var lines: Array[String]=[];var line=""
+	for ch in text:
+		if ch=="\n":lines.append(line);line="";continue
+		if not line.is_empty() and _small_text_width(line+ch)>width:lines.append(line);line=""
+		line+=ch
+	if not line.is_empty():lines.append(line)
+	return lines
+
+func _small_text(text: String,at: Vector2,color: Color=Color.WHITE) -> void:
+	var point=at.round()
+	for ch in text:
+		var glyph: Dictionary=small_font.glyphs.get(ch,{})
+		if glyph.is_empty():
+			layout_errors.append("Missing 8px glyph: "+ch);point.x+=8;continue
+		var r=glyph.rect
+		draw_texture_rect_region(_tex(small_font.path),Rect2(point,Vector2(8,8)),Rect2(r[0],r[1],8,8),color)
+		point.x+=glyph.advance
+	var bounds=Rect2(at.round(),Vector2(_small_text_width(text),8))
+	text_checks.append({"text":text,"bounds":bounds,"font_px":8})
+	if not safe_panels.is_empty() and not safe_panels[-1].encloses(bounds):layout_errors.append("Small text outside content-safe rectangle: "+text)
+
+func _draw_hub_caption(title: String,hint: String) -> void:
+	# Place location/time at the actual top-left of every landscape canvas.
+	var lines=_small_lines(hint,184.0)
+	var width=minf(204.0,maxf(_small_text_width(title),lines.map(func(line):return _small_text_width(line)).max() if not lines.is_empty() else 0.0)+20.0)
+	var rect=Rect2(_visible_native_rect().position+Vector2(8,8),Vector2(width,32+lines.size()*12))
+	_panel(rect)
+	_small_text(title,rect.position+Vector2(10,10),Color(.93,.87,.67))
+	for i in range(lines.size()):_small_text(lines[i],rect.position+Vector2(10,24+i*12))
+	presentation_audit.hub_caption=rect
 
 func _continue_world() -> void:
 	view="world";game.mode="world";busy=false;_clear_menu();ui_mode="inspect";held_direction=Vector2i.ZERO
@@ -388,7 +439,9 @@ func _draw_art_props(props: Array,origin: Vector2,tint: Color=Color.WHITE) -> vo
 		var tex=_tex(str(prop.path));var size=tex.get_size()
 		if prop.has("size"):size=Vector2(prop.size[0],prop.size[1])
 		var at=origin+Vector2(prop.position[0],prop.position[1]);var rect=Rect2(at,size)
-		if not _visible_native_rect().encloses(rect):continue
+		# Architecture remains visible while scrolling past a viewport edge.
+		# Culling the entire keep until every pixel fits creates invisible walls.
+		if not _visible_native_rect().intersects(rect):continue
 		if prop.get("flip",false):rect.size.x=-rect.size.x
 		draw_texture_rect(tex,rect,false,tint)
 
@@ -400,27 +453,42 @@ func _draw_map(map: Dictionary,atlas: Texture2D,origin: Vector2) -> void:
 		_draw_nature_props(game.battle_data.get("natural_props",[]),origin,tint)
 		_draw_art_props(game.battle_data.get("art_props",[]),origin,tint)
 		for obj in game.battle_data.objects:
+			# Visit entrances belong to the complete building artwork. This also
+			# suppresses the old generic door and arrow in compatible old saves.
+			if obj.get("kind","")=="visit":continue
 			var at=Vector2(obj.position[0],obj.position[1])*16+origin
 			var done=game.flags.quest.objects.get(str(obj.id),false)
+			if obj.kind=="control":
+				_draw_camp_control_flag(at,done);continue
 			if done:
 				for cell in obj.get("open_art_cells",[]):
 					_draw_atlas_cell(_tex(str(game.battle_data.get("art_atlas","res://assets/battle_tiles/battle-tiles.png"))),int(cell.base_tile),origin+Vector2(cell.position[0],cell.position[1])*16)
 				_draw_art_props(obj.get("open_art_props",[]),origin)
 			var name="open_jail" if done and obj.kind=="door" else "open_gate" if done and obj.kind=="rescue" else str(obj.sprite)
 			var path=str(obj.get("open_sprite_path",obj.get("sprite_path","res://assets/battle_tiles/modules/"+name+".png"))) if done else str(obj.get("sprite_path","res://assets/battle_tiles/modules/"+name+".png"))
+			var legacy_shelter=obj.kind=="shelter" and name=="clinic_door"
+			if legacy_shelter:path="res://assets/battlefield-0.3.0/modules/tactical_house.png"
 			var tex=_tex(path);var offset=Vector2(0,tex.get_height()-16)
 			if obj.has("sprite_offset"):offset=-Vector2(obj.sprite_offset[0],obj.sprite_offset[1])
-			if obj.kind in ["door","rescue"] or obj.get("persistent_visual",false) or not done:draw_texture(tex,at-offset)
-			if not done and obj.get("show_indicator",true):_draw_indicator("down",at+Vector2(4,-6))
+			if legacy_shelter or obj.kind in ["door","rescue"] or obj.get("persistent_visual",false) or not done:draw_texture(tex,at-offset)
 		if game.stage_id>=200:
 			for boat in game.event_boats():
 				if int(boat.hp)<=0 or boat.get("arrived",false) or boat.get("waiting",false):continue
 				var texture=_tex(str(game.battle_data.get("event_boat_sprite","res://assets/world_tiles/modules/galleon.png")))
 				var at=origin+Vector2(boat.position[0],boat.position[1])*16
 				draw_texture(texture,at-Vector2((texture.get_width()-16)/2,texture.get_height()-16))
-		if game.battle_data.code=="M15":_draw_indicator("up",Vector2(game.battle_data.exit[0],game.battle_data.exit[1])*16+origin+Vector2(4,2))
 		return
 	super._draw_map(map,atlas,origin)
+
+func _draw_camp_control_flag(at: Vector2,controlled: bool) -> void:
+	# Reuse the complete native flag and keep its wooden pole unchanged.
+	# Only its cloth region is modulated; capture changes ownership colour,
+	# never the opening's collision or the road beneath the flag.
+	var texture=_tex("res://assets/battle_tiles/modules/white_flag.png")
+	draw_texture(texture,at)
+	var cloth=Rect2(7,3,5,8)
+	var colour=Color(.35,.65,1.0) if controlled else Color(1.0,.32,.25)
+	draw_texture_rect_region(texture,Rect2(at+cloth.position,cloth.size),cloth,colour)
 
 func _draw_world() -> void:
 	if camp_context=="hub" and view=="camp_status":hub_controller.draw();return
@@ -478,13 +546,23 @@ func _draw_unit_card(unit: Dictionary) -> void:
 
 func _terrain_name(cell: Vector2i) -> String:
 	if not game.in_bounds(cell):return "地图边界"
+	if game.battle_data.code=="M15" and cell==Vector2i(game.battle_data.exit[0],game.battle_data.exit[1]):return "北门敌军退路"
+	for site in game.battle_data.get("building_sites",[]):
+		if cell==Vector2i(site.position[0],site.position[1]):return str(site.label)
+	for module in game.battle_data.get("art_modules",[]):
+		if module.name=="camp_palisade" and module.cells.any(func(p):return cell==Vector2i(p[0],p[1])):return "营地木栅"
+	for obj in game.battle_data.objects:
+		if obj.get("kind","")=="visit" and game.visit_fronts(obj).has(cell):return "访问门前"
+		if obj.get("kind","")=="control" and cell==Vector2i(obj.position[0],obj.position[1]):
+			return str(obj.get("name_zh","道路哨卡"))+("已控制" if game.flags.quest.objects.get(str(obj.id),false) else "待控制")
+		if not obj.get("optional",false) and cell==Vector2i(obj.position[0],obj.position[1]):return str(obj.label)
 	match game.category(cell):
 		0:return "雪地" if game.battle_data.code=="M11" else "洞内平地" if game.battle_data.code in ["S11","S22"] else "平地"
 		1:return "林地"
-		2:return "沙地"
+		2:return "沙滩" if game.battle_data.code in ["F23","F24"] else "沙地"
 		5:return "山岩"
-		6:return "甲板"
-		7:return "海面"
+		6:return "港侧木栈道" if game.battle_data.code=="M15" else "港口木码头" if game.battle_data.code=="F25" else "修补木桥" if game.battle_data.code=="F26" else "跨河木桥" if game.battle_data.code in ["M11","S12"] else "甲板"
+		7:return "河流" if game.battle_data.code in ["M11","S12"] else "潮水" if game.battle_data.code=="S22" else "海面"
 		8:return "石铺地"
 		10:return "碎石"
 		12:return "建筑障碍"
@@ -495,7 +573,9 @@ func _terrain_name(cell: Vector2i) -> String:
 func _draw_terrain_card() -> void:
 	var bounds=_visible_native_rect();var screen=_battle_cell_screen(game.cursor)
 	var x=bounds.end.x-184 if screen.x<bounds.get_center().x else bounds.position.x+8
-	var y=bounds.end.y-76;var rect=Rect2(x,y,176,68)
+	var recovery=game.category(game.cursor)==15
+	var height=84 if recovery else 68
+	var y=bounds.end.y-height-8;var rect=Rect2(x,y,176,height)
 	var unit=game.find_unit(game.selected_id) if ui_mode=="move" else game.roster.get(game.leader_id(),{})
 	var cost=game.movement_cost(unit,game.cursor) if not unit.is_empty() else 255
 	_panel(rect)
@@ -503,6 +583,7 @@ func _draw_terrain_card() -> void:
 	_center_text("回避+"+str(game.terrain_avoid(game.cursor)),Rect2(x+12,y+28,152,12))
 	var movement="不能在此落脚" if cost>=255 else str(unit.get("name_zh","部队"))+"移动消耗"+str(cost)
 	_center_text(movement,Rect2(x+12,y+44,152,12),Color(.78,.85,.71))
+	if recovery:_center_text("每回合恢复5生命",Rect2(x+12,y+60,152,12),Color(.78,.85,.71))
 
 func _draw_battle() -> void:
 	super._draw_battle()

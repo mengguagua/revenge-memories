@@ -7,6 +7,11 @@ static var _rules: Dictionary = {}
 static func data() -> Dictionary:
 	if _rules.is_empty():
 		_rules = _integer_tables(JSON.parse_string(FileAccess.get_file_as_string("res://data/legacy/rules_full.json")))
+		# Campaign additions have separate provenance; never renumber source IDs.
+		var additions = JSON.parse_string(FileAccess.get_file_as_string("res://data/equipment_progression.json"))
+		for entry in _integer_tables(additions).items:
+			assert(int(entry.id) == _rules.items.size())
+			_rules.items.append(entry)
 	return _rules
 
 static func item(item_id: int) -> Dictionary:
@@ -28,7 +33,15 @@ static func spells(unit: Dictionary) -> Array[int]:
 
 static func can_use(unit: Dictionary, item_id: int) -> bool:
 	# bank015 L0FF460-L0FF507: class restrictions, personal blades, HP gate.
-	if item_id < 0 or item_id >= 59:
+	if item_id < 0 or item_id >= data().items.size():
+		return false
+	if item_id >= 59:
+		var cid := int(unit.get("class_id", 0))
+		match str(item(item_id).get("family", "")):
+			"sword": return cid in [8, 9, 10, 11, 21, 14]
+			"lance": return cid in [1, 2, 3, 4, 5, 6, 7, 22]
+			"bow": return cid in [12, 13, 20] or (cid == 21 and bool(unit.get("promoted", unit.get("alm_promoted", false))))
+			"focus": return cid in [11, 15, 16, 17, 18, 19]
 		return false
 	if item_id >= 48:
 		return true
@@ -48,6 +61,21 @@ static func can_use(unit: Dictionary, item_id: int) -> bool:
 	if item_id < 23:
 		return cid in [12, 13, 20] or (cid == 21 and bool(unit.get("promoted", unit.get("alm_promoted", false))))
 	return cid in [11, 15, 16, 17, 18, 19] and item_id in spells(unit)
+
+static func weapon_profile(unit: Dictionary, weapon_id: int) -> Dictionary:
+	var profile := item(weapon_id)
+	var held_id := int(unit.get("item_id", 0))
+	if held_id < 59 or not can_use(unit, held_id): return profile
+	var held := item(held_id)
+	if str(held.get("family", "")) == "focus":
+		# A focus augments existing attack magic, never grants a spell or healing.
+		if weapon_id >= 23 and weapon_id <= 46 and not is_support(weapon_id):
+			profile.might = int(profile.get("might", 0)) + int(held.might)
+			profile.hit = int(profile.get("hit", 0)) + int(held.hit)
+			profile.weight = int(profile.get("weight", 0)) + int(held.weight)
+	elif weapon_id == int(held.get("base_weapon", -1)):
+		return held
+	return profile
 
 static func cost(spell_id: int) -> int:
 	return int(item(spell_id).get("hp_cost", 0)) if spell_id >= 23 and spell_id < 48 else 0
@@ -129,8 +157,8 @@ static func enemy_summon_spec(caster: Dictionary, bounded_roll: int) -> Dictiona
 static func summon_offsets() -> Array:
 	return data().summon_offsets.duplicate(true)
 
-static func effective_against(weapon_id: int, defender: Dictionary) -> bool:
-	var group := int(item(weapon_id).get("effective", 0))
+static func effective_against(weapon_id: int, defender: Dictionary, profile: Dictionary = {}) -> bool:
+	var group := int((item(weapon_id) if profile.is_empty() else profile).get("effective", 0))
 	return group > 0 and int(defender.get("class_id", 0)) in data().effectiveness_classes.get(str(group), [])
 
 static func physical_defence_bonus(unit: Dictionary, attacker: Dictionary = {}) -> int:

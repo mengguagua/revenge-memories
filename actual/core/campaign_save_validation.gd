@@ -198,7 +198,7 @@ static func _room(game, value: Variant) -> bool:
 	return _integer(value, 1, 255) and game.hubs.rooms.has(str(int(value)))
 
 static func _carried_item(value: Variant) -> bool:
-	return _integer(value, 1, 58) and str(Items.data().items[int(value)].kind) in ["weapon", "accessory"]
+	return _integer(value, 1, Items.data().items.size()-1) and str(Items.item(int(value)).get("kind", "")) in ["weapon", "accessory"]
 
 static func _hub_used(game, value: Variant) -> bool:
 	if not value is Dictionary:
@@ -371,7 +371,8 @@ static func campaign_valid(game, state: Dictionary, fields: Array) -> bool:
 	if state.get("campaign_id","")!=game.CAMPAIGN_ID or not _integer(state.get("schema"),1,2):return false
 	for key in fields:
 		if not state.has(key):return false
-	if not _campaign_core(game,state,false):return false
+	var revision=str(state.get("map_revision","0.2.0"))
+	if not _campaign_core(game,state,false,revision):return false
 	if not state.get("hub_record") is String or state.hub_record not in (["P00","H01","H02","H03","H04","H05","H06","H07","H08","H09"] if int(state.chapter)==1 else ["H21","H22","H23","H24","H25","H26","H27"]):return false
 	for key in ["hub_position","cursor","move_origin"]:
 		if not _point(state.get(key)):return false
@@ -388,13 +389,22 @@ static func campaign_valid(game, state: Dictionary, fields: Array) -> bool:
 	var snapshot=state.get("battle_start_snapshot")
 	if not snapshot is Dictionary:return false
 	if not snapshot.is_empty():
-		if not _campaign_core(game,snapshot,true):return false
+		if not _campaign_core(game,snapshot,true,revision):return false
 		if int(snapshot.stage_id)!=int(state.stage_id) or int(snapshot.chapter)!=int(state.chapter) or snapshot.route!=state.route:return false
 	if state.mode in ["battle","victory","defeat"] and snapshot.is_empty():return false
 	if int(state.schema)==1 and (int(state.chapter)!=1 or state.route!="alm"):return false
 	return true
 
-static func _campaign_core(game, state: Dictionary, snapshot: bool) -> bool:
+static func campaign_stage(game, id: int, revision: String="") -> Dictionary:
+	var stage: Dictionary=game.stages[id]
+	if revision not in ["0.2.0","0.2.1","0.3.0","0.3.4"] or revision==str(stage.get("tactical_review_version","0.2.0")):return stage
+	var path="res://data/compat/"+revision+"/"+str(stage.code)+".json"
+	if not FileAccess.file_exists(path) and revision=="0.2.0":path="res://data/compat/0.2.1/"+str(stage.code)+".json"
+	if not FileAccess.file_exists(path):return stage
+	var compatible=game.read_json(path)
+	return compatible if not compatible.is_empty() else stage
+
+static func _campaign_core(game, state: Dictionary, snapshot: bool, revision: String="") -> bool:
 	for key in ["chapter","route","parties","route_positions","previous_world_node","convoy","battle_return","story_events","stage_id","world_node","cleared_stages","roster","flags","party","units","rng_state","frame_counter"]:
 		if not state.has(key):return false
 	if not _integer(state.chapter,1,2) or state.route not in ["alm","celica"]:return false
@@ -424,7 +434,7 @@ static func _campaign_core(game, state: Dictionary, snapshot: bool) -> bool:
 		if not id is String or not game.characters.has(id) or not _campaign_unit(game,u,false):return false
 		if u.id!=id or u.side!="player":return false
 	if not state.units is Array or state.units.size()>40:return false
-	var stage: Dictionary=game.stages[int(state.stage_id)];var seen={};var side_counts={"player":0,"enemy":0}
+	var stage: Dictionary=campaign_stage(game,int(state.stage_id),revision);var seen={};var side_counts={"player":0,"enemy":0}
 	for unit in state.units:
 		if not _campaign_unit(game,unit,true) or seen.has(unit.id):return false
 		seen[unit.id]=true
@@ -460,6 +470,7 @@ static func _campaign_unit(game, unit: Variant, tactical: bool) -> bool:
 	if not unit.get("name_zh") is String:return false
 	if tactical and not _point(unit.get("position")):return false
 	if unit.has("item_id") and not (_integer(unit.item_id,0,0) or _carried_item(unit.item_id)):return false
+	if unit.has("drop_chance") and not _integer(unit.drop_chance,0,100):return false
 	for key in ["exp","magic_level","magic_flags","raw_magic_flags","character_id","name_id","resistance","ai_flags","raw_ai_flags","record_index","exp_value","weapon_index"]:
 		if unit.has(key) and not _integer(unit[key],0,65535):return false
 	for key in ["dead","acted","neutral","controllable","temporary","locked","hidden","event_object","no_counter","no_experience","no_drop","surrendered","battle_guard"]:
@@ -484,6 +495,13 @@ static func _campaign_story(value: Variant) -> bool:
 	return true
 
 static func _campaign_flags(game, flags: Dictionary, stage: Dictionary) -> bool:
+	for key in ["equipment_clear_rewards","equipment_starter_checked"]:
+		if not flags.has(key):continue
+		if not flags[key] is Dictionary:return false
+		for id in flags[key]:
+			if not flags[key][id] is bool:return false
+			if key=="equipment_starter_checked" and not game.characters.has(id):return false
+			if key=="equipment_clear_rewards" and not game.stages.has(int(id)):return false
 	for key in ["pending_loot","loot_notifications"]:
 		if not flags.has(key):continue
 		if not flags[key] is Array:return false

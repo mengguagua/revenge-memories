@@ -1,0 +1,97 @@
+{
+  "app": "actual/dist/RevengeMemories.app",
+  "version": "0.3.6",
+  "pck_bytes": 120127480,
+  "pck_sha256": "b30b6b0ee06fd12adf32e13c076e29fa515c547eeb50fa0dcc9e31fa78c0fbfd",
+  "codesign_verified": true,
+  "external_package_probe": {
+    "chapter1_to_2": {
+      "party": [
+        "eileen",
+        "mireille",
+        "lisa",
+        "carlo"
+      ],
+      "room": "H21",
+      "world_node": 17
+    },
+    "chapter2_resume": {
+      "party": [
+        "eileen",
+        "mireille",
+        "lisa",
+        "carlo",
+        "lord",
+        "roan",
+        "shia"
+      ],
+      "roan_item": 21.0,
+      "room": "H27",
+      "shia_item": 49.0,
+      "world_node": 6
+    },
+    "checks": 86,
+    "failures": [],
+    "inputs": 43,
+    "passed": true,
+    "scope": "Standalone exported PCK, external script, headless Dummy, title/menu inputs against isolated copies of actual chapter-end saves",
+    "test_sources_in_pack": false,
+    "version": "0.3.0"
+  },
+  "m11_visual_patch_probe": {
+    "appended_atlas_matches_imported_texture": true,
+    "checks": 2,
+    "display": "headless",
+    "packaged_M11_matches_workspace": true,
+    "passed": true,
+    "scope": "Focused headless validation of the rebuilt standalone app after an art-only M11 fix."
+  },
+  "m11_river_probe": {
+    "atlas_matches_imported_texture": true,
+    "checks": 3,
+    "display": "headless",
+    "old_0_3_0_geometry_included": true,
+    "packaged_M11_matches_workspace": true,
+    "passed": true,
+    "scope": "Standalone app resource check for the river fix; full M11 replay and old-save retry checked separately.",
+    "version": "0.3.1"
+  },
+  "building_entrance_probe": {
+    "checks": 67,
+    "errors": [],
+    "native_buildings": 15,
+    "passed": true,
+    "scope": "Standalone headless pack: exact match of 15 map files, absence of visit-door overlays, native shelter texture and front interactions. Runtime visuals and reward/save fixtures checked separately.",
+    "version": "0.3.2"
+  },
+  "terrain_indicator_probe": {
+    "checks": 37,
+    "errors": [],
+    "passed": true,
+    "scope": "Standalone exported pack, headless boot, exact current visual layers for all 15 maps, imported atlas dimensions, objective/exit text and existing save compatibility resource. No full battle replay in this visual patch.",
+    "version": "0.3.3"
+  },
+  "building_scale_probe": {
+    "checks": 81,
+    "errors": [],
+    "passed": true,
+    "scope": "Standalone exported pack, headless boot, 6 full-cell native textures, 15 exact stage files, 22 site labels and terrain advantages, 6 prior layout resources. Full-state fixtures and M13 real-input replay checked separately.",
+    "sites": 22,
+    "version": "0.3.4"
+  },
+  "camp_checkpoint_probe": {
+    "checks": 27,
+    "errors": [],
+    "passed": true,
+    "scope": "Standalone exported pack, headless boot, 15 exact stage resources, native palisade texture, actual prior 0.3.4 camp load/retry, and directed controlled/uncontrolled descriptions. Flag colours checked in real GPU captures.",
+    "version": "0.3.5"
+  },
+  "coast_walkway_probe": {
+    "checks": 44,
+    "errors": [],
+    "passed": true,
+    "scope": "Standalone headless pack: exact visible atlas pixels/alpha and dimensions, all 15 current maps, unchanged nonvisual fields, and beach/river/tide/boardwalk/dock/bridge descriptions. Runtime visuals captured separately; no full battle replay for this display-only patch.",
+    "transparent_rgb": "Godot fix_alpha_border changes RGB under zero alpha only; visible colours and all alpha values are identical.",
+    "version": "0.3.6"
+  }
+}

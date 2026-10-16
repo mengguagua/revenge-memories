@@ -1,0 +1,164 @@
+{
+  "version": "0.3.3",
+  "passed": true,
+  "scope": "Visual terrain layers and input/goal marker presentation only. Logic grids, movement, routes, units, objectives, interactions, rewards and saves unchanged. No new complete battle playthroughs.",
+  "stages": [
+    {
+      "stage": "F21",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version",
+        "visual_ground"
+      ],
+      "logic_sha256": "07830c1a4a9bb3112879544772c1b313945e9fcfaf85bf3276856c8f07c87599"
+    },
+    {
+      "stage": "F22",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version",
+        "visual_ground"
+      ],
+      "logic_sha256": "6853c625cd9123595055a7e0470bc4e8fcf18cd037df30424eb42e811aa29146"
+    },
+    {
+      "stage": "F23",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version",
+        "visual_ground"
+      ],
+      "logic_sha256": "4d68e8dd4be2dd06fe5bea67800b1ef835bb1e9af3180bd0edbc699b2febb2ca"
+    },
+    {
+      "stage": "F24",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version",
+        "visual_ground"
+      ],
+      "logic_sha256": "a09b6ef5b4943325f2a53904882af47d6645d4cca7fa0573a810a7ae63fda2be"
+    },
+    {
+      "stage": "F25",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version",
+        "visual_ground"
+      ],
+      "logic_sha256": "2cadcf2c1e800b38bba0162fdf94c378b99ea93ea59c54d44028a0949fbdda9c"
+    },
+    {
+      "stage": "F26",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version",
+        "visual_ground"
+      ],
+      "logic_sha256": "c80101feaee96f05e5383f9fd501016a5c12f48713d5febb3da32ceea02a7e43"
+    },
+    {
+      "stage": "M11",
+      "changed_fields": [
+        "art_style_version",
+        "visual_ground"
+      ],
+      "logic_sha256": "fc5387e48125fa82a5f422b6c48d7afc8316a448f5b97c90bf8a66cbb136344e"
+    },
+    {
+      "stage": "M12",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version",
+        "visual_ground"
+      ],
+      "logic_sha256": "24e47d864b91e716ca3dc72c4ff9d3c17d13c3e4804b75c034f791a893b42c98"
+    },
+    {
+      "stage": "M13",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version",
+        "visual_ground"
+      ],
+      "logic_sha256": "c646a329065479084bc903502437d73bd953dc5ae3fc94f53c83baf499dc1576"
+    },
+    {
+      "stage": "M14",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version",
+        "visual_ground"
+      ],
+      "logic_sha256": "20425cedb6743d044bc936de808b9f8df7b8df4b4de808c3efecd61468a1e315"
+    },
+    {
+      "stage": "M15",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version",
+        "visual_ground"
+      ],
+      "logic_sha256": "c8112b1efb0783c7788993c2366bf16967fb74e1b02565532602acc4947be049"
+    },
+    {
+      "stage": "S11",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version",
+        "visual_ground"
+      ],
+      "logic_sha256": "37d05cfbcaa0d141efeb507fc3d0387fb94b728db5af1ea92ff09a2c0b1b0941"
+    },
+    {
+      "stage": "S12",
+      "changed_fields": [
+        "art_style_version",
+        "visual_ground"
+      ],
+      "logic_sha256": "88d5e33b3dba8ab2c45a4eb58af2cff29f5496c68bc5a48ca3f2a0bb268ebf7e"
+    },
+    {
+      "stage": "S21",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version",
+        "visual_ground"
+      ],
+      "logic_sha256": "5a701a3c4a7058fc8264ace31f15ab8f6e0e1a95c81ed811e4eb5005b0b18e12"
+    },
+    {
+      "stage": "S22",
+      "changed_fields": [
+        "art_layers",
+        "art_style_version",
+        "visual_ground"
+      ],
+      "logic_sha256": "f9e8649b2706725ea00adf1b7f0b41b650416ee9b025a013f4ec22f2f4587027"
+    }
+  ],
+  "original_atlas_ids_preserved": 2966,
+  "mountain_art": "Native gravel texture recoloured to warm grey crag palette; existing complete rock sprites retained; corner-mask transitions.",
+  "building_ground": "Collision # does not select material. Restore the original grass/dirt/deck/water underlay before coast selection.",
+  "white_arrows": {
+    "before": [
+      "current battle cursor",
+      "unconditional object target pointers",
+      "M15 enemy exit pointer"
+    ],
+    "after": [
+      "current battle input cursor only; absent from full-field overview",
+      "objective and enemy exit descriptions in terrain cards; actions unchanged"
+    ]
+  },
+  "geometry_checks": 1507,
+  "state_checks": 708,
+  "runtime_captures": 67,
+  "layout_errors": [],
+  "package_checks": 37,
+  "atlas_pixels": [
+    512,
+    1776
+  ],
+  "atlas_bytes": 151092
+}

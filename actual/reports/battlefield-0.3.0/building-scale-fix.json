@@ -1,0 +1,346 @@
+{
+  "version": "0.3.4",
+  "passed": true,
+  "scope": "6 full-cell architecture sprites; 3 newly generated with built-in imagegen. 11 site relocations in 6 maps; all 22 occupiable sites connected to ordinary ground and roads/deck. Source actors, objects, target positions, road centerlines/widths and combat statistics unchanged.",
+  "assets": [
+    {
+      "name": "tactical_house",
+      "footprint": [
+        1,
+        1
+      ],
+      "size": [
+        16,
+        16
+      ],
+      "source": "assets/world_tiles/modules/village.png",
+      "opaque_box": [
+        0,
+        0,
+        15,
+        16
+      ],
+      "whole_source": true,
+      "bytes": 282,
+      "path": "res://assets/battlefield-0.3.0/modules/tactical_house.png",
+      "before_opaque_box": [
+        1,
+        1,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "tactical_snow_house",
+      "footprint": [
+        1,
+        1
+      ],
+      "size": [
+        16,
+        16
+      ],
+      "source": "assets/world_tiles/modules/snow_village.png",
+      "opaque_box": [
+        0,
+        0,
+        15,
+        16
+      ],
+      "whole_source": true,
+      "bytes": 314,
+      "path": "res://assets/battlefield-0.3.0/modules/tactical_snow_house.png",
+      "before_opaque_box": [
+        1,
+        1,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "tactical_fort",
+      "footprint": [
+        1,
+        1
+      ],
+      "size": [
+        16,
+        16
+      ],
+      "source": "source/tactical-buildings-0.3.4/fort-source.png",
+      "opaque_box": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "whole_source": true,
+      "bytes": 307,
+      "path": "res://assets/battlefield-0.3.0/modules/tactical_fort.png",
+      "before_opaque_box": [
+        1,
+        7,
+        15,
+        15
+      ]
+    },
+    {
+      "name": "tactical_tent",
+      "footprint": [
+        1,
+        1
+      ],
+      "size": [
+        16,
+        16
+      ],
+      "source": "source/tactical-buildings-0.3.4/tent-source.png",
+      "opaque_box": [
+        0,
+        3,
+        16,
+        16
+      ],
+      "whole_source": true,
+      "bytes": 243,
+      "path": "res://assets/battlefield-0.3.0/modules/tactical_tent.png",
+      "before_opaque_box": [
+        1,
+        8,
+        15,
+        15
+      ]
+    },
+    {
+      "name": "tactical_store",
+      "footprint": [
+        1,
+        1
+      ],
+      "size": [
+        16,
+        16
+      ],
+      "source": "assets/battle_tiles/modules/grain_store.png",
+      "opaque_box": [
+        0,
+        3,
+        16,
+        16
+      ],
+      "whole_source": true,
+      "bytes": 295,
+      "path": "res://assets/battlefield-0.3.0/modules/tactical_store.png",
+      "before_opaque_box": [
+        1,
+        4,
+        15,
+        15
+      ]
+    },
+    {
+      "name": "tactical_deck_post",
+      "footprint": [
+        1,
+        1
+      ],
+      "size": [
+        16,
+        16
+      ],
+      "source": "source/tactical-buildings-0.3.4/deck-source.png",
+      "opaque_box": [
+        2,
+        0,
+        14,
+        16
+      ],
+      "whole_source": true,
+      "bytes": 262,
+      "path": "res://assets/battlefield-0.3.0/modules/tactical_deck_post.png",
+      "before_opaque_box": [
+        1,
+        3,
+        15,
+        15
+      ]
+    }
+  ],
+  "source_images": [
+    {
+      "path": "source/tactical-buildings-0.3.4/deck-source.png",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "bytes": 602263,
+      "mode": "RGBA"
+    },
+    {
+      "path": "source/tactical-buildings-0.3.4/fort-source.png",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "bytes": 887853,
+      "mode": "RGBA"
+    },
+    {
+      "path": "source/tactical-buildings-0.3.4/tent-source.png",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "bytes": 693882,
+      "mode": "RGBA"
+    }
+  ],
+  "prompts": "source/tactical-buildings-0.3.4/prompts.json",
+  "relocations": [
+    {
+      "stage": "F25",
+      "from": [
+        18,
+        9
+      ],
+      "to": [
+        21,
+        10
+      ],
+      "purpose": "粮仓"
+    },
+    {
+      "stage": "F25",
+      "from": [
+        33,
+        2
+      ],
+      "to": [
+        36,
+        7
+      ],
+      "purpose": "军帐"
+    },
+    {
+      "stage": "M12",
+      "from": [
+        16,
+        2
+      ],
+      "to": [
+        18,
+        6
+      ],
+      "purpose": "粮仓"
+    },
+    {
+      "stage": "M13",
+      "from": [
+        5,
+        3
+      ],
+      "to": [
+        7,
+        6
+      ],
+      "purpose": "西囚区岗堡"
+    },
+    {
+      "stage": "M13",
+      "from": [
+        29,
+        3
+      ],
+      "to": [
+        31,
+        6
+      ],
+      "purpose": "东囚区岗堡"
+    },
+    {
+      "stage": "M13",
+      "from": [
+        26,
+        3
+      ],
+      "to": [
+        24,
+        8
+      ],
+      "purpose": "内庭岗堡"
+    },
+    {
+      "stage": "M14",
+      "from": [
+        10,
+        3
+      ],
+      "to": [
+        14,
+        8
+      ],
+      "purpose": "旧哨堡"
+    },
+    {
+      "stage": "M14",
+      "from": [
+        28,
+        27
+      ],
+      "to": [
+        28,
+        24
+      ],
+      "purpose": "军帐"
+    },
+    {
+      "stage": "M15",
+      "from": [
+        4,
+        8
+      ],
+      "to": [
+        8,
+        11
+      ],
+      "purpose": "旧哨堡"
+    },
+    {
+      "stage": "M15",
+      "from": [
+        28,
+        20
+      ],
+      "to": [
+        34,
+        22
+      ],
+      "purpose": "港仓"
+    },
+    {
+      "stage": "S12",
+      "from": [
+        23,
+        14
+      ],
+      "to": [
+        22,
+        12
+      ],
+      "purpose": "渔舍"
+    }
+  ],
+  "geometry_checks": 1557,
+  "state_checks": 843,
+  "package_checks": 81,
+  "runtime_captures": 68,
+  "layout_errors": [],
+  "play": {
+    "code": "M13",
+    "passed": true,
+    "outcome": "victory",
+    "final_turn": 14,
+    "evidence": "reports/battlefield-0.3.0/play/building-0.3.4/building-0.3.4-play.json"
+  },
+  "compatibility": "Six prior 0.3.0 active fields preserved until ordinary retry/preparation; prebattle roster and legal deployment verified."
+}

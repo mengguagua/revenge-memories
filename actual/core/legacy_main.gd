@@ -100,6 +100,9 @@ var village_motion_time := 0.0
 const VILLAGE_STEP_SECONDS := 16.0 / 60.0988
 var moving_direction := Vector2i.DOWN
 var moving_frame := 0
+var enemy_range_key := ""
+var enemy_range_cells: Array = []
+var presentation_audit: Dictionary = {}
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -133,7 +136,11 @@ func _process(delta: float) -> void:
 	if view.begins_with("hub"):
 		hub_controller.process(delta)
 	if view == "reward":
+		var previous_points = mini(int(reward.get("gain", 0)), int(reward_elapsed * 60.0))
 		reward_elapsed += delta
+		var current_points = mini(int(reward.get("gain", 0)), int(reward_elapsed * 60.0))
+		if current_points > previous_points and (previous_points == 0 or current_points / 4 > previous_points / 4):
+			audio.play_sfx("hp_tick")
 		if not instant_mode and not batch_running and not bool(reward.get("leveled", false)) and reward_elapsed >= 2.0:
 			_accept()
 	if village_motion_time > 0.0:
@@ -189,6 +196,8 @@ func _input(event: InputEvent) -> void:
 			_cancel()
 		elif key in [KEY_TAB, KEY_A]:
 			_show_status()
+		elif key in [KEY_Q, KEY_E]:
+			_cycle_ready_unit(-1 if key == KEY_Q else 1)
 		elif key == KEY_S:
 			_open_system_menu()
 		elif key == KEY_M:
@@ -203,6 +212,9 @@ func _input(event: InputEvent) -> void:
 			_mouse_accept(event.position)
 
 func _direction(direction: Vector2i) -> void:
+	if _status_open():
+		if direction.x != 0: _cycle_status(direction.x)
+		return
 	if view in ["loot", "loot_confirm"]:
 		menu_selected = posmod(menu_selected + (direction.x if direction.x != 0 else direction.y), menu_items.size())
 		return
@@ -688,7 +700,7 @@ func _unit_action_menu() -> void:
 		items.append("魔法")
 		actions.append("magic")
 	if game.living("player").any(func(other): return Inventory.can_exchange(unit, other)):
-		items.append("交换道具")
+		items.append("交换装备")
 		actions.append("exchange")
 	items.append("待机")
 	actions.append("wait")
@@ -831,8 +843,65 @@ func _show_status() -> void:
 			status_id = str(unit.id)
 			ui_mode = "inspect" if ui_mode == "status" else "status"
 
+func _status_open() -> bool:
+	return view in ["camp_status", "village_status"] or (view == "battle" and ui_mode == "status")
+
+func _status_members() -> Array:
+	# An enemy/NPC inspection never exposes the other army or switches sides.
+	if view == "battle" and not game.party.has(status_id): return []
+	return game.party.filter(func(id): return game.roster.has(id) and (view != "battle" or not game.find_unit(str(id)).is_empty()))
+
+func _status_unit(id: String) -> Dictionary:
+	return game.find_unit(id) if view == "battle" else game.roster.get(id, {})
+
+func _cycle_status(step: int) -> void:
+	if busy or batch_running or not menu_items.is_empty(): return
+	var members = _status_members()
+	if members.size() < 2: return
+	status_id = str(members[posmod(members.find(status_id) + step, members.size())])
+	if view == "battle":
+		game.cursor = GameState.pos(_status_unit(status_id))
+		_focus_battle(game.cursor, true)
+	audio.play_sfx("menu_move")
+
+func _cycle_ready_unit(step: int = 1) -> void:
+	if view != "battle" or busy or batch_running or game.phase != "player" or not menu_items.is_empty() or ui_mode not in ["inspect", "move"]: return
+	var ready: Array = []
+	for id in game.party:
+		var unit = game.find_unit(str(id))
+		if not unit.is_empty() and int(unit.hp) > 0 and not bool(unit.get("hidden", false)) and not bool(unit.acted) and bool(unit.get("controllable", true)):
+			ready.append(str(id))
+	if ready.is_empty():
+		_notice("本回合没有未行动队员")
+		return
+	var current = game.unit_at(game.cursor)
+	var index = ready.find(str(current.get("id", "")))
+	# Move mode has only a proposed cursor destination; the unit has not moved.
+	# Clear that selection without rewriting even the source position array.
+	var next = str(ready[posmod(index + step, ready.size()) if index >= 0 else (0 if step > 0 else ready.size() - 1)])
+	game.selected_id = ""
+	game.cursor = GameState.pos(game.find_unit(next))
+	ui_mode = "inspect"
+	_focus_battle(game.cursor, true)
+	audio.play_sfx("menu_move")
+
+func _focus_player_leader() -> void:
+	var available = game.living("player").filter(func(u): return bool(u.get("controllable", true)) and not bool(u.get("hidden", false)))
+	if available.is_empty(): return
+	var unit = game.find_unit(game.leader_id())
+	if unit.is_empty() or not available.has(unit):
+		unit = available[0]
+		for id in game.party:
+			var candidate = game.find_unit(str(id))
+			if available.has(candidate):
+				unit = candidate
+				break
+	game.selected_id = ""
+	game.cursor = GameState.pos(unit)
+	_focus_battle(game.cursor, true)
+
 func _open_camp_menu() -> void:
-	var items: Array = ["部队状态", "交换道具", "仓库", "调整顺序", "保存进度"]
+	var items: Array = ["部队状态", "交换装备", "装备行囊", "调整顺序", "保存进度"]
 	var actions: Array = ["camp:roster", "camp:trade", "camp:convoy", "camp:formation", "camp:save"]
 	if game.can_switch_route():
 		items.append("切换队伍")
@@ -856,7 +925,7 @@ func _camp_action(action: String) -> void:
 		"roster": _camp_members("status")
 		"status":
 			status_id = part[1]
-			camp_context = "world"
+			if view in ["world", "hub"]: camp_context = view
 			view = "camp_status"
 		"trade": _camp_members("trade_first")
 		"trade_first":
@@ -881,7 +950,7 @@ func _camp_action(action: String) -> void:
 				_notice("出战顺序已调整")
 				game.save_game()
 		"convoy":
-			_open_menu("convoy", ["存放道具", "领取道具"], ["camp:deposit", "camp:withdraw"], Vector2(64, 72))
+			_open_menu("convoy", ["存放装备", "领取装备"], ["camp:deposit", "camp:withdraw"], Vector2(64, 72))
 		"deposit": _camp_members("deposit_member")
 		"deposit_member":
 			var unit = game.roster[part[1]]
@@ -1099,7 +1168,7 @@ func _draw_ending() -> void:
 	_center_text("确认继续", Rect2(24, 204, 208, 16))
 
 func _show_help() -> void:
-	_notice("Z:确认 X:返回\nS:菜单 Tab:状态", 4.0)
+	_notice("Z确认 X返回 S菜单\nTab状态 左右切换队员\nQ/E定位未行动友军", 4.0)
 
 func _notice(text: String, seconds: float = 2.0) -> void:
 	notice = text
@@ -1321,6 +1390,7 @@ func _enemy_phase() -> void:
 	ui_mode = "inspect"
 	phase_banner = "我方回合"
 	phase_time = 1.2
+	_focus_player_leader()
 	_play_phase_music()
 	game.save_game()
 	await _play_story_events()
@@ -1440,7 +1510,8 @@ func _draw() -> void:
 		_center_text("确认丢弃？" if view == "loot_confirm" else "请选择道具的去向", Rect2(28, 68, 200, 20))
 	if not menu_items.is_empty():
 		_draw_menu()
-	if notice_time > 0.0:
+	# Ambient map notices must not cover modal statistics or combat information.
+	if notice_time > 0.0 and not _status_open() and view not in ["combat", "reward"] and ui_mode not in ["target", "support_target", "warp"]:
 		var lines = _wrapped_lines(notice, 208.0)
 		var rect = Rect2(8, 232 - (28 + lines.size() * 16), 240, 28 + lines.size() * 16)
 		_panel(rect)
@@ -1733,6 +1804,14 @@ func _focus_battle(cell: Vector2i, force: bool = false) -> void:
 func _draw_battle() -> void:
 	draw_set_transform(_canvas_offset()+map_offset)
 	_draw_map(game.battle_data.map, _tex("res://assets/original/graphics/maps/tileset.png"), -battle_camera)
+	presentation_audit.enemy_range = []
+	if view == "battle" and ui_mode == "inspect" and menu_items.is_empty() and not busy and not batch_running and phase_time <= 0.0:
+		var hovered = game.unit_at(game.cursor)
+		if str(hovered.get("side", "")) == "enemy" and not bool(hovered.get("event_object", false)):
+			var cells = _enemy_movement_cells(hovered)
+			for cell in cells:
+				draw_rect(Rect2(_battle_cell_screen(cell), Vector2(16, 16)), Color(0.92, 0.17, 0.17, 0.32))
+			presentation_audit.enemy_range = cells
 	if ui_mode == "move" and game.selected_id != "":
 		var graph = game.reachable(game.find_unit(game.selected_id))
 		for cell in graph.costs:
@@ -1752,9 +1831,7 @@ func _draw_battle() -> void:
 			var wagon_at=moving_position-battle_camera if moving_id==str(unit.id) else _battle_cell_screen(GameState.pos(unit))
 			draw_texture(_tex("res://assets/battle_tiles/modules/medicine_wagon.png"),wagon_at-Vector2(8,0))
 			continue
-		var key = "class_" + str(int(unit.class_id)) + ("_ally" if unit.side in ["player", "neutral"] else "_enemy")
-		var sprite = graphics.map_units[key]
-		if bool(unit.acted) and sprite.has("acted_variant"): sprite = graphics.map_units[str(sprite.acted_variant)]
+		var sprite = _map_unit_sprite(unit)
 		var at = moving_position - battle_camera if moving_id == str(unit.id) else _battle_cell_screen(GameState.pos(unit))
 		if unit.get("surrendered",false) or unit.get("offering_surrender",false):draw_texture(_tex("res://assets/battle_tiles/modules/white_flag.png"),at-Vector2(2,8))
 		var direction = "up" if moving_direction.y < 0 else ("side" if moving_direction.x != 0 else "down")
@@ -1768,7 +1845,7 @@ func _draw_battle() -> void:
 			_draw_preview()
 		elif ui_mode in ["support_target", "warp"]:
 			_draw_support_preview()
-		else:
+		elif ui_mode != "whole_capture":
 			var at = _battle_cell_screen(game.cursor)
 			_draw_indicator("down", at + Vector2(4, -3 + int(sin(elapsed * 6.0))))
 			if ui_mode == "inspect" and menu_items.is_empty():
@@ -1777,10 +1854,41 @@ func _draw_battle() -> void:
 					_draw_unit_card(unit)
 	map_effects.draw()
 	draw_set_transform(_canvas_offset())
-	if phase_time > 0.0 and view == "battle":
+	if phase_time > 0.0 and view == "battle" and ui_mode == "inspect" and menu_items.is_empty():
 		var rect = Rect2(64, 96, 128, 48)
 		_panel(rect)
 		_center_text(phase_banner, rect.grow(-10))
+
+func _enemy_movement_cells(unit: Dictionary) -> Array:
+	var blockers: Array = []
+	for other in game.units:
+		blockers.append([other.id, other.position, other.hp, other.get("hidden", false), other.side])
+	var stamp = str([game.stage_id, game.turn, game.battle_data.map.tiles.hash(), blockers.hash(), unit.id, unit.get("move", 0), unit.get("item_id", 0)])
+	if stamp != enemy_range_key:
+		enemy_range_key = stamp
+		enemy_range_cells = game.reachable(unit).costs.keys().filter(func(cell): return game.can_stop(unit, cell))
+	return enemy_range_cells
+
+func _map_unit_sprite(unit: Dictionary) -> Dictionary:
+	var key = "class_" + str(int(unit.class_id)) + ("_ally" if unit.side in ["player", "neutral"] else "_enemy")
+	var sprite: Dictionary = graphics.map_units[key]
+	if not bool(unit.acted) or not sprite.has("acted_variant"): return sprite
+	sprite = graphics.map_units[str(sprite.acted_variant)]
+	if unit.side != "enemy": return sprite
+	# Preserve every source pixel/alpha; only the two grey palette entries change.
+	var cache_key = str(sprite.path) + ":enemy_rest"
+	if not textures.has(cache_key):
+		var image = _tex(str(sprite.path)).get_image()
+		image.convert(Image.FORMAT_RGBA8)
+		for y in range(image.get_height()):
+			for x in range(image.get_width()):
+				var color = image.get_pixel(x, y)
+				if color.a <= 0.0 or color.r < 0.1: continue
+				image.set_pixel(x, y, Color8(184, 124, 123) if color.r > 0.55 else Color8(118, 69, 72))
+		textures[cache_key] = ImageTexture.create_from_image(image)
+	var result = sprite.duplicate()
+	result.path = cache_key
+	return result
 
 func _draw_unit_card(unit: Dictionary) -> void:
 	var screen = _battle_cell_screen(game.cursor)
@@ -1801,6 +1909,8 @@ func _draw_preview() -> void:
 	var defender = game.find_unit(target_ids[target_index])
 	var distance = absi(GameState.pos(attacker).x - GameState.pos(defender).x) + absi(GameState.pos(attacker).y - GameState.pos(defender).y)
 	var reply = Rules.default_counter(defender, distance)
+	# Map cursor belongs below every preview window, including its opaque fill.
+	_draw_indicator("down", _battle_cell_screen(game.cursor) + Vector2(4, -4))
 	attacker = attacker.duplicate(true)
 	for unit in [attacker, reply]:
 		if int(unit.get("character_id", 0)) == 167: unit.weapon_index = Rules.boss_weapon(unit, game.frame_counter)
@@ -1824,7 +1934,6 @@ func _draw_preview() -> void:
 	if target_ids.size() > 1:
 		_draw_indicator("left", Vector2(120, 30))
 		_draw_indicator("right", Vector2(228, 30))
-	_draw_indicator("down", _battle_cell_screen(game.cursor) + Vector2(4, -4))
 
 func _draw_support_preview() -> void:
 	_draw_indicator("down", _battle_cell_screen(game.cursor) + Vector2(4, -4))
@@ -1846,6 +1955,11 @@ func _draw_status(unit: Dictionary) -> void:
 		return
 	var rect = Rect2(8, 16, 240, 208)
 	_panel(rect)
+	var members = _status_members()
+	if members.size() > 1:
+		_center_text("队伍 %d/%d" % [members.find(status_id) + 1, members.size()], Rect2(40, 27, 176, 10))
+		_draw_indicator("left", Vector2(24, 28))
+		_draw_indicator("right", Vector2(224, 28))
 	var portrait = _portrait(int(unit.get("character_id", 0)))
 	if not portrait.is_empty():
 		draw_texture(_tex(portrait.path), Vector2(24, 40))
@@ -1857,7 +1971,10 @@ func _draw_status(unit: Dictionary) -> void:
 	for i in range(stats.size()):
 		_text(stats[i][0], Vector2(32, 108 + i * 16))
 		_text(str(int(unit[stats[i][1]])), Vector2(200, 108 + i * 16))
-	var footer = str(Items.item(int(unit.get("item_id", 0))).get("name_zh", "未携带道具")) if int(unit.get("item_id", 0)) > 0 else "未携带道具"
+	var held = int(unit.get("item_id", 0))
+	var footer = "装备：" + str(Items.item(held).get("name_zh", "")) if held > 0 else "未携带装备（职业默认）"
+	if held <= 0 and unit.get("side", "player") == "enemy": footer = "未携带装备"
+	if held > 0 and not Items.can_use(unit, held): footer += "（不适用）"
 	if bool(unit.get("dead", false)):
 		footer = "已阵亡"
 	_center_text(footer, Rect2(24, 201, 208, 13))
@@ -1876,38 +1993,34 @@ func _draw_combat() -> void:
 		for x in range(16):
 			draw_texture_rect_region(atlas, Rect2(x * 16, 128, 16, 16), Rect2(0, 48, 16, 16))
 	battle_animation.draw_actors()
-	var hud = _tex(graphics.battle_hud.path)
-	# Extend only the straight middle section to fit native HP cells and Chinese.
-	# The original corners and horizontal frame lines keep their pixel size.
-	draw_texture_rect_region(hud, Rect2(0, 128, 256, 48), Rect2(0, 0, 256, 48))
-	draw_texture_rect_region(hud, Rect2(0, 176, 256, 56), Rect2(0, 48, 256, 40))
-	draw_texture_rect_region(hud, Rect2(0, 232, 256, 8), Rect2(0, 88, 256, 8))
-	safe_panels.append(Rect2(18, 139, 100, 30))
+	# Source HUD includes Japanese labels and rules inside its colored texture.
+	# Use the clean panel's fixed-size corners instead of stretching those pixels.
 	for i in range(2):
 		var unit = enemy if i == 0 else player
 		var other = player if i == 0 else enemy
-		var x = 20 + i * 120
-		safe_panels[-1] = Rect2(x - 2, 139, 100, 30)
-		_text(str(unit.name_zh), Vector2(x, 142))
+		var x = 12 + i * 128
+		_panel(Rect2(i * 128, 128, 128, 112))
+		safe_panels[-1] = Rect2(x, 138, 104, 92)
+		_text(str(unit.name_zh), Vector2(x, 140))
 		_text(("耐久" if unit.get("event_object",false) else "生命") + str(int(combat_hp.get(str(unit.id), unit.hp))), Vector2(x, 156))
 		var stats = combat.get("stats", {}).get(str(unit.id), Rules.attack_stats(unit, other, game.terrain_avoid(GameState.pos(other))))
+		var incoming = combat.get("stats", {}).get(str(other.id), Rules.attack_stats(other, unit, game.terrain_avoid(GameState.pos(unit))))
+		var shown_defence = int(incoming.get("defender_defence", unit.defence))
 		# Keep the original red/blue bitmap panel and replace embedded labels.
 		var background = Color8(181, 49, 32) if i == 0 else Color8(21, 95, 217)
-		draw_rect(Rect2(x - 6, 177, 110, 54), background)
-		safe_panels[-1] = Rect2(x - 6, 179, 110, 22)
-		_draw_health(int(combat_hp.get(str(unit.id), unit.hp)), int(unit.max_hp), Vector2(x - 4, 181), "enemy" if i == 0 else "ally")
-		safe_panels[-1] = Rect2(x - 2, 201, 100, 33)
+		draw_rect(Rect2(x - 4, 176, 112, 56), background)
+		_draw_health(int(combat_hp.get(str(unit.id), unit.hp)), int(unit.max_hp), Vector2(x, 180), "enemy" if i == 0 else "ally")
 		if bool(combat.get("support", false)):
-			_text("支援魔法", Vector2(x, 203))
+			_text("支援魔法", Vector2(x, 202))
 		elif bool(stats.get("blocked", false)):
-			_text("攻击无效", Vector2(x, 203))
-			_text("防御" + str(int(unit.defence)), Vector2(x, 221))
+			_text("攻击无效", Vector2(x, 202))
+			_text("防御" + str(shown_defence), Vector2(x, 218))
 		elif bool(stats.get("can_strike", game.can_attack(unit, other))):
-			_text("命中" + str(stats.hit) + "%", Vector2(x, 203))
-			_text("伤害" + str(stats.damage) + " 防御" + str(int(unit.defence)), Vector2(x, 221))
+			_text("命中" + str(stats.hit) + "%", Vector2(x, 202))
+			_text("伤害" + str(stats.damage) + " 防御" + str(shown_defence), Vector2(x, 218))
 		else:
-			_text("无法反击", Vector2(x, 203))
-			_text("防御" + str(int(unit.defence)), Vector2(x, 221))
+			_text("无法反击", Vector2(x, 202))
+			_text("防御" + str(shown_defence), Vector2(x, 218))
 	if not combat_message.is_empty():
 		_center_text(combat_message, Rect2(16, 24, 224, 24), Color.WHITE, false)
 	draw_set_transform(_canvas_offset())
@@ -1950,10 +2063,16 @@ func _draw_reward() -> void:
 	_center_text("确认继续", Rect2(34, 206, 188, 16))
 
 func _draw_exp_progress(value: int, at: Vector2, width: float) -> void:
-	draw_rect(Rect2(at, Vector2(width, 8)), Color(0.2, 0.2, 0.3))
-	var fill = floorf(width * clampi(value, 0, 100) / 100.0)
-	if fill > 0.0:
-		draw_rect(Rect2(at, Vector2(fill, 8)), Color(0.6, 0.85, 1.0))
+	# Fifty discrete two-EXP cells. An odd point fills half the next cell.
+	var start = at + Vector2(floorf((width - 150.0) / 2.0), 0)
+	var filled = clampi(value, 0, 100)
+	for index in range(50):
+		var point = start + Vector2(index * 3, 0)
+		var state = "filled" if filled >= (index + 1) * 2 else "empty"
+		draw_texture_rect(_tex(health_ui.cells.ally[state].path), Rect2(point, Vector2(3, 8)), false)
+		if filled == index * 2 + 1:
+			draw_texture_rect_region(_tex(health_ui.cells.ally.filled.path), Rect2(point, Vector2(1, 8)), Rect2(0, 0, 1, 8))
+	presentation_audit.exp_cells = {"count": 50, "points": filled, "bounds": Rect2(start, Vector2(150, 8))}
 
 func _draw_health(hp: int, maximum: int, at: Vector2, side: String) -> void:
 	var count = clampi(maximum, 1, 255)

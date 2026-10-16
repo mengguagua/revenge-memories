@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "stage": "M11",
+  "reason": "Snow forest shores used the generic sand coast; snowy dirt paths treated bridge planks as a path break.",
+  "fix": "Use snow shores for snow-covered forest banks, dirt shores for the path, and continuous path-to-bridge material masks.",
+  "changed_visual_cells": 69,
+  "gameplay_fields_identical": true,
+  "other_14_maps_identical": true,
+  "map_sha256": "26fed9c38b963faa33decc9a8b953d836bb894eca3ea2f7c1ead2c79493fb944",
+  "capture_passed": true,
+  "captures": [
+    "res://reports/battlefield-0.3.0/screenshots/M11-whole.png",
+    "res://reports/battlefield-0.3.0/screenshots/M11-deployment.png",
+    "res://reports/battlefield-0.3.0/screenshots/M11-terrain.png"
+  ],
+  "layout_errors": [],
+  "validation_scope": "Focused visual/asset fix: all map fields except M11 art_layers identical; existing topology checks and three fresh runtime captures. No new battle simulation required.",
+  "package_probe": {
+    "appended_atlas_matches_imported_texture": true,
+    "checks": 2,
+    "display": "headless",
+    "packaged_M11_matches_workspace": true,
+    "passed": true,
+    "scope": "Focused headless validation of the rebuilt standalone app after an art-only M11 fix."
+  },
+  "superseded_by": "m11-river-fix.json",
+  "historical_art_only_patch": true
+}

@@ -42,6 +42,9 @@ static func weapon_index(unit: Dictionary) -> int:
 	if unit.has("weapon_index"):
 		return clampi(int(unit.weapon_index), 0, 47)
 	var id := int(unit.get("item_id", 0))
+	var held := Items.item(id)
+	if held.has("base_weapon") and Items.can_use(unit, id):
+		return int(held.base_weapon)
 	if id > 0 and id < 23:
 		if not unit.has("class_id") or Items.can_use(unit, id):
 			return id
@@ -53,7 +56,7 @@ static func magic_cost(unit: Dictionary) -> int:
 
 
 static func attack_speed(unit: Dictionary) -> int:
-	return maxi(0, Items.effective_speed(unit) - int(Items.item(weapon_index(unit)).get("weight", 0)))
+	return maxi(0, Items.effective_speed(unit) - int(Items.weapon_profile(unit, weapon_index(unit)).get("weight", 0)))
 
 
 static func attack_range(unit: Dictionary) -> Vector2i:
@@ -84,13 +87,13 @@ static func can_attack(unit: Dictionary, distance: int = 1) -> bool:
 
 static func attack_stats(attacker: Dictionary, defender: Dictionary, defender_avoid: int) -> Dictionary:
 	var index := weapon_index(attacker)
-	var weapon := Items.item(index)
+	var weapon := Items.weapon_profile(attacker, index)
 	var magical := index >= 23 or index == 15
 	var speed := attack_speed(attacker)
 	var defender_speed := attack_speed(defender)
 	var might := int(weapon.get("might", 0))
 	var strength := int(attacker.get("strength", 0))
-	var effective := Items.effective_against(index, defender)
+	var effective := Items.effective_against(index, defender, weapon)
 	if effective:
 		might *= 3
 	var falcon_bonus := not _enemy(attacker) and _class_id(attacker) == 5 and _enemy(defender) and _class_id(defender) in [3, 5, 11, 17, 18]

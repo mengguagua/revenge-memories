@@ -2,6 +2,7 @@ extends RefCounted
 ## Native item/death/retreat rules. All pending decisions are JSON-saveable flags.
 const Items = preload("res://core/item_rules.gd")
 const Worlds = preload("res://core/world_armies.gd")
+const Loot = preload("res://core/campaign_loot.gd")
 static var _data: Dictionary = {}
 
 static func data() -> Dictionary:
@@ -43,6 +44,11 @@ static func rare_drop(enemy: Dictionary, chapter: int, cumulative_count: int, fi
 			return int(entry.item_id)
 	return 0
 
+static func carried_drop(enemy: Dictionary, _roll: int) -> int:
+	if bool(enemy.get("no_drop", false)): return 0
+	# Explicitly carried gear is guaranteed, including old saves with stale odds.
+	return int(enemy.get("item_id", 0))
+
 static func on_death(game, unit: Dictionary, killer: Dictionary = {}) -> Dictionary:
 	if int(unit.get("hp", 0)) > 0 or bool(unit.get("no_drop", false)): return {}
 	var processed: Dictionary = game.flags.get("inventory_processed_deaths", {})
@@ -72,11 +78,19 @@ static func on_death(game, unit: Dictionary, killer: Dictionary = {}) -> Diction
 				game.rng_state = int(game.frame_counter)
 				held = rare_drop(unit, source_chapter, count, first, game.random_bounded(100))
 		if held > 0: game.flags.inventory_rare_drop_count = count + 1
+		else:
+			var chance_roll: int = game.random_bounded(100)
+			if chance_roll < int(Loot.config().chance_percent):
+				# Consecutive samples from the source's 8-bit additive RNG are
+				# correlated. Use its existing frame-reseed convention so every
+				# weighted equipment entry remains reachable after the 10% gate.
+				game.rng_state = int(game.frame_counter)
+				held = Loot.ordinary_drop(unit, chance_roll, game.random_bounded(100))
 	if held <= 0: return {}
 	unit.item_id = 0
 	var loot_route := str(killer.get("route", game.route))
 	var record := {"kind":"loot", "item_id":held, "unit_id":str(killer.get("id", "")), "enemy_id":key, "route":loot_route}
-	if not _formal(killer):
+	if not _formal(killer) or (int(killer.get("item_id", 0)) == 0 and not Items.can_use(killer, held)):
 		_store(game, held, loot_route)
 		record.destination = "convoy"
 	elif int(killer.get("item_id", 0)) == 0:

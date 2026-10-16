@@ -56,6 +56,7 @@ func enter_world() -> void:
 	enter_room(rooms.get(ui.game.world_node,"H07"))
 
 func enter_room(id: String,resuming: bool=false) -> void:
+	ui.game.Equipment.reconcile(ui.game)
 	room=id;ui.game.hub_record=id;ui.game.flags.hub_record=id;ui.view="hub";ui.game.mode="hub"
 	ui.busy=false;ui.held_direction=Vector2i.ZERO;ui._clear_menu();facing=Vector2i.UP
 	if not resuming:ui.game.hub_position=Vector2i(6,7)
@@ -265,12 +266,10 @@ func draw() -> void:
 	var step=(int(clock*60.0988)>>4)&1 if motion_left>0.0 else 0
 	ui._draw_frame(sp,int(sp.directions[direction][step]),at-Vector2(sp.tile_origin[0],sp.tile_origin[1]),facing.x<0)
 	ui._draw_indicator("down",ORIGIN+Vector2(6,8)*16+Vector2(4,-2))
-	var bottom=ui._footer_shift()
-	ui._panel(Rect2(Vector2(8,162)+bottom,Vector2(240,70)));ui._center_text(title,Rect2(Vector2(20,172)+bottom,Vector2(216,16)))
 	var text=hint
 	for o in objects:
 		if ui.game.hub_position+facing==Vector2i(o.position[0],o.position[1]):text="确认:"+str(o.name)
-	ui._center_text(text,Rect2(Vector2(20,192)+bottom,Vector2(216,30)))
+	ui._draw_hub_caption(title,text)
 
 func _configure_east_room() -> void:
 	east_data=chapter2_rooms[room].duplicate(true)

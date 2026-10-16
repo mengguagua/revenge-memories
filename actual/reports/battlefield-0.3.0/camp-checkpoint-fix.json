@@ -1,0 +1,156 @@
+{
+  "version": "0.3.5",
+  "passed": true,
+  "scope": "M14 only: replace detached open-gate control icons and isolated grove fence with two road checkpoints. Other 14 stage files byte-identical. Existing ordinary building sites, units, combat stats and road widths retained.",
+  "before": {
+    "controls": [
+      {
+        "id": "M14_control_0",
+        "kind": "control",
+        "position": [
+          20,
+          17
+        ],
+        "label": "控制道路1",
+        "adjacent": false,
+        "sprite": "open_gate"
+      },
+      {
+        "id": "M14_control_1",
+        "kind": "control",
+        "position": [
+          31,
+          20
+        ],
+        "label": "控制道路2",
+        "adjacent": false,
+        "sprite": "open_gate"
+      }
+    ],
+    "fences": [
+      {
+        "name": "north_fence",
+        "origin": [
+          25,
+          20
+        ],
+        "footprint": [
+          4,
+          1
+        ],
+        "logic": "#",
+        "cells": [
+          [
+            25,
+            20
+          ],
+          [
+            26,
+            20
+          ],
+          [
+            27,
+            20
+          ],
+          [
+            28,
+            20
+          ]
+        ],
+        "walk_through_cells": [],
+        "runtime_prop": true,
+        "purpose": "Continuous defensive wall with authored entrances"
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "id": "south_checkpoint",
+      "name": "南营哨卡",
+      "row": 18,
+      "opening": [
+        [
+          19,
+          18
+        ],
+        [
+          20,
+          18
+        ],
+        [
+          21,
+          18
+        ]
+      ],
+      "fences": [
+        [
+          16,
+          18
+        ],
+        [
+          22,
+          18
+        ]
+      ]
+    },
+    {
+      "id": "east_checkpoint",
+      "name": "东营哨卡",
+      "row": 20,
+      "opening": [
+        [
+          33,
+          20
+        ],
+        [
+          34,
+          20
+        ]
+      ],
+      "fences": [
+        [
+          30,
+          20
+        ],
+        [
+          35,
+          20
+        ]
+      ]
+    }
+  ],
+  "ownership": "Native complete flag; only cloth region modulated red/blue according to existing saved control flags. Wooden pole unchanged; flag persists after control.",
+  "palisade": {
+    "name": "camp_palisade",
+    "footprint": [
+      3,
+      1
+    ],
+    "size": [
+      48,
+      16
+    ],
+    "source": "assets/battle_tiles/modules/north_fence.png",
+    "opaque_box": [
+      1,
+      1,
+      47,
+      15
+    ],
+    "whole_source": true,
+    "bytes": 545,
+    "path": "res://assets/battlefield-0.3.0/modules/camp_palisade.png"
+  },
+  "geometry_checks": 1585,
+  "state_checks": 859,
+  "package_checks": 27,
+  "screenshots_updated": 8,
+  "capture_layout_errors": [],
+  "play": {
+    "outcome": "victory",
+    "final_turn": 10,
+    "evidence": "reports/battlefield-0.3.0/play/camp-0.3.5/camp-0.3.5-play.json"
+  },
+  "controlled_capture_source": "reports/battlefield-0.3.0/play/camp-0.3.5/camp-0.3.5-M14-controlled-M14_control_0.json",
+  "compatibility": "0.3.4 active field retains old geometry even when a unit stands on a future palisade cell; normal retry restores current deployment."
+}

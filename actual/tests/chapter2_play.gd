@@ -91,7 +91,7 @@ func refresh_threats() -> void:
   threats.append({"unit":enemy,"cells":[State.pos(enemy)] if enemy.get("behavior","")=="guard" else ui.game.reachable(enemy).costs.keys()})
 
 func beacon_plan(unit: Dictionary) -> Dictionary:
- var origin=State.pos(unit);var goal=Vector2i(14,12);var field=distance_map(unit,[goal]);var graph=ui.game.reachable(unit)
+ var origin=State.pos(unit);var target=ui.game.battle_data.targets[0];var goal=Vector2i(target[0],target[1]);var field=distance_map(unit,[goal]);var graph=ui.game.reachable(unit)
  var before=int(field.get(origin,99999));var defender=str(unit.id)=="lord"
  var best={"kind":"wait","cell":origin,"score":-risk(unit,origin),"target":"","spell":-1}
  var weapons: Array=[-1]
@@ -140,11 +140,14 @@ func plan(unit: Dictionary) -> Dictionary:
   if not ui.game.can_stop(unit,cell):continue
   var candidate=unit.duplicate(true);candidate.position=[cell.x,cell.y]
   for object in ui.game.interactions_for(candidate):
+   if object.get("optional",false):continue
    if (object.kind=="inspect" or str(object.id) in ["prison_door","hideout"]) and not enemies.is_empty():continue
    var danger=risk(candidate,cell)
    if danger>=int(unit.hp)-4:continue
    return {"kind":"interact","cell":cell,"score":250.0-danger,"target":str(object.id),"spell":-1}
- best={"kind":"wait","cell":origin,"score":-risk(unit,origin)*2,"target":"","spell":-1}
+ # Apply formation penalties to the current cell too. A zero baseline can
+ # strand a healthy mage more than one move behind a distant front line.
+ best={"kind":"wait","cell":origin,"score":-1.0e9,"target":"","spell":-1}
  var frontline={};var healer={}
  for ally in ui.game.living("player"):
   if ally.get("neutral",false) or not ally.get("controllable",true):continue
@@ -152,7 +155,8 @@ func plan(unit: Dictionary) -> Dictionary:
   elif frontline.is_empty() or int(ally.defence)>int(frontline.defence) or (int(ally.defence)==int(frontline.defence) and int(ally.max_hp)>int(frontline.max_hp)):frontline=ally
  var goals: Array=[];var healing_role=int(unit.class_id) in [17,18]
  var protect=ui.game.stage_id in [203,204] and not enemies.is_empty()
- var defence_point=Vector2i(11,13) if ui.game.stage_id==203 else Vector2i(ui.game.battle_data.targets[0][0],ui.game.battle_data.targets[0][1])
+ var camp=ui.game.find_unit("fishers")
+ var defence_point=State.pos(camp) if ui.game.stage_id==203 and not camp.is_empty() else Vector2i(ui.game.battle_data.targets[0][0],ui.game.battle_data.targets[0][1])
  var low_hp=int(unit.hp)<int(unit.max_hp)*.45
  if not healer.is_empty() and low_hp and str(healer.id)!=str(unit.id):
   for d in ui.game.DIRECTIONS:goals.append(State.pos(healer)+d)
@@ -175,6 +179,7 @@ func plan(unit: Dictionary) -> Dictionary:
    for d in ui.game.DIRECTIONS:goals.append(p+d)
   if goals.is_empty():
    for object in ui.game.battle_data.objects:
+    if object.get("optional",false):continue
     if ui.game.flags.quest.objects.get(str(object.id),false):continue
     var p=Vector2i(object.position[0],object.position[1])
     if not object.get("adjacent",true):goals.append(p)

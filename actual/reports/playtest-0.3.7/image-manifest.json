@@ -1,0 +1,327 @@
+{
+  "native": [
+    {
+      "name": "01-snow-village-caption",
+      "label": "时间地点小框",
+      "purpose": "左上角原生8像素文字，与底部通知分开。",
+      "path": "reports/playtest-0.3.7/screenshots/01-snow-village-caption.png",
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 14100,
+      "sha256": "706502984dd124203f921b1528f41c9ae1035de524cb5a4c65be7c0b19ac2dff",
+      "source": "Actual prologue completion through facing interaction and dialogue",
+      "fixture": false,
+      "layout_errors": []
+    },
+    {
+      "name": "02-caption-and-notice",
+      "label": "小框与临时提示",
+      "purpose": "正常面对空地确认触发提示，两处内容完整可读。",
+      "path": "reports/playtest-0.3.7/screenshots/02-caption-and-notice.png",
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 12874,
+      "sha256": "b3fb3260dba2c7b481ece968f761b649362c8e3d21ba9569892ccf997958771f",
+      "source": "Actual empty-facing confirmation notice in snow village",
+      "fixture": false,
+      "layout_errors": []
+    },
+    {
+      "name": "03-hub-status-next",
+      "label": "据点状态左右切换",
+      "purpose": "通过真实人物状态菜单，右键切到下一位本队成员。",
+      "path": "reports/playtest-0.3.7/screenshots/03-hub-status-next.png",
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 11656,
+      "sha256": "8cbad1f0f3973aaa8009509456c909ebbb80bb29304484f8ee3735afb3776d85",
+      "source": "Actual hub member menu and right key; own army only",
+      "fixture": false,
+      "layout_errors": []
+    },
+    {
+      "name": "04-east-caption",
+      "label": "第二章据点",
+      "purpose": "风灯岛标题与长期目标也使用小框。",
+      "path": "reports/playtest-0.3.7/screenshots/04-east-caption.png",
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 13318,
+      "sha256": "c70004604a3aa408ed10532d5147dbe0e7ee33f4d21ab737ca4f41eab8a50407",
+      "source": "Actual second-chapter transition from genuine first-chapter completion",
+      "fixture": false,
+      "layout_errors": []
+    },
+    {
+      "name": "05-ready-ally-cycle",
+      "label": "E循环定位友军",
+      "purpose": "只定位未行动友军，确认后才进入移动。Q反向定位。",
+      "path": "reports/playtest-0.3.7/screenshots/05-ready-ally-cycle.png",
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 15270,
+      "sha256": "8ba5a28bbaf21831b8df907304cfdc6519f4224fec3164e648af351b2c34b5d0",
+      "source": "Two E inputs cycle available allies on current M11 deployment",
+      "fixture": false,
+      "layout_errors": []
+    },
+    {
+      "name": "06-battle-status-next",
+      "label": "战场状态左右切换",
+      "purpose": "本队成员首尾循环，保持实际HP、经验与装备。",
+      "path": "reports/playtest-0.3.7/screenshots/06-battle-status-next.png",
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 14150,
+      "sha256": "0d5effc7b2f108bdcd5d287f4a9de21b8fe88155f017aefe33245dda7ff078d6",
+      "source": "Right key changes current army member in battle status",
+      "fixture": false,
+      "layout_errors": []
+    },
+    {
+      "name": "07-enemy-red-movement",
+      "label": "敌军红色移动范围",
+      "purpose": "悬停弓手自动显示可移动格，阻挡与地形消耗有效。",
+      "path": "reports/playtest-0.3.7/screenshots/07-enemy-red-movement.png",
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 29568,
+      "sha256": "86b9014d3df43b4e49f4266a823f9cabc02bad40680dad70a7b7a7725805b033",
+      "source": "Cursor key hover over archer; actual movement graph, walls and occupants respected",
+      "fixture": false,
+      "layout_errors": []
+    },
+    {
+      "name": "08-preview-over-cursor",
+      "label": "预览覆盖光标",
+      "purpose": "真实移动后选择攻击目标，光标位于预览窗口下方。",
+      "path": "reports/playtest-0.3.7/screenshots/08-preview-over-cursor.png",
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 17721,
+      "sha256": "d697a9667535ecbf2d715199342279796435f9cb54f8ab63b2bb6759c1b7a44d",
+      "source": "res://reports/battlefield-0.3.0/play/ui-0.3.7-round1/ui-0.3.7-round1-M11-field.json; legal movement and attack target, camera framing only",
+      "fixture": false,
+      "layout_errors": []
+    },
+    {
+      "name": "09-combat-clean-hud",
+      "label": "近景战斗面板",
+      "purpose": "完整固定尺寸边框；没有旧标签残留、黑线或拉伸字样。",
+      "path": "reports/playtest-0.3.7/screenshots/09-combat-clean-hud.png",
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 1379,
+      "sha256": "6a58621a44db60ac1c04981988a32eb4ad1452e5554723f396af8833d3b64f50",
+      "source": "res://reports/battlefield-0.3.0/play/ui-0.3.7-round1/ui-0.3.7-round1-M11-field.json; actual live exchange through confirm input",
+      "fixture": false,
+      "layout_errors": []
+    },
+    {
+      "name": "10-experience-cells",
+      "label": "实际经验结算",
+      "purpose": "真实交锋获得18经验，离散小格填充，并触发短提示音。",
+      "path": "reports/playtest-0.3.7/screenshots/10-experience-cells.png",
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 18194,
+      "sha256": "d9db3ee7ea2d4c308a98bd619d8dadc69c277731df01f354b2b124496dca516a",
+      "source": "res://reports/battlefield-0.3.0/play/ui-0.3.7-round1/ui-0.3.7-round1-M11-field.json; actual experience awarded by the live exchange",
+      "fixture": false,
+      "layout_errors": []
+    },
+    {
+      "name": "11-next-turn-protagonist",
+      "label": "新回合回到主角",
+      "purpose": "正常结束敌方行动后，光标和镜头回到胡纳普。",
+      "path": "reports/playtest-0.3.7/screenshots/11-next-turn-protagonist.png",
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 18885,
+      "sha256": "56e32799b407ebad9663daf563d6cd0bfc838f73b57067c011d3574fdeb3e50e",
+      "source": "res://reports/battlefield-0.3.0/play/ui-0.3.7-round1/ui-0.3.7-round1-M11-field.json; next player phase after normal enemy actions",
+      "fixture": false,
+      "layout_errors": []
+    },
+    {
+      "name": "12-enemy-red-grey",
+      "label": "敌军行动后暗红灰色",
+      "purpose": "实际敌方行动后的状态，区别于我方中性灰。",
+      "path": "reports/playtest-0.3.7/screenshots/12-enemy-red-grey.png",
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 21437,
+      "sha256": "b4f3dd606f76bdeca0b9146da76d0241c5b166a364a570e298bb8b8f383de3de",
+      "source": "Enemy resting state reached through normal phase, not manually greyed",
+      "fixture": false,
+      "layout_errors": []
+    },
+    {
+      "name": "13-equipment-menu",
+      "label": "装备与行囊入口",
+      "purpose": "部队整备中直接可见交换装备、装备行囊、装备说明。",
+      "path": "reports/playtest-0.3.7/screenshots/13-equipment-menu.png",
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 8845,
+      "sha256": "c11f53674fdce709ce4db4690c770dfa0c05308170442079ce30ec6b39613cd4",
+      "source": "Actual world preparation menu with existing inventory",
+      "fixture": false,
+      "layout_errors": []
+    },
+    {
+      "name": "14-archer-equipment",
+      "label": "弓手当前装备",
+      "purpose": "罗恩携带圣弓；状态页底部清楚显示，不被旧通知盖住。",
+      "path": "reports/playtest-0.3.7/screenshots/14-archer-equipment.png",
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 7831,
+      "sha256": "e44af05ca98604d8eaceedeb66c72ecdb8db4ed45d30d4d5c51496c70cef9480",
+      "source": "Actual second-chapter archer equipment from genuine F26 checkpoint",
+      "fixture": false,
+      "layout_errors": []
+    },
+    {
+      "name": "15-equipment-help",
+      "label": "装备说明",
+      "purpose": "介绍一人一件、职业相容自动生效及交换规则。",
+      "path": "reports/playtest-0.3.7/screenshots/15-equipment-help.png",
+      "pixels": [
+        426,
+        240
+      ],
+      "bytes": 6922,
+      "sha256": "4158cc018434c36293b097b92086e6999d1e0faf2ea4bca5c4cea9017816b1c1",
+      "source": "Equipment explanation reached through preparation menu",
+      "fixture": false,
+      "layout_errors": []
+    },
+    {
+      "name": "16-caption-16-10",
+      "label": "16:10据点抽查",
+      "purpose": "从世界正常进入雪原村，标题位于画面的实际左上角。",
+      "path": "reports/playtest-0.3.7/screenshots/16-caption-16-10.png",
+      "pixels": [
+        384,
+        240
+      ],
+      "bytes": 12492,
+      "sha256": "25cee5a8f33ecf0fee5fa7d0536c7db78df69e7d1a4e9c0dd3a2ed63d07bb0c6",
+      "source": "Actual snow village entered from world checkpoint at 16:10",
+      "fixture": false,
+      "layout_errors": []
+    },
+    {
+      "name": "17-status-ultrawide",
+      "label": "超宽横屏状态抽查",
+      "purpose": "第二章海灯岛战场状态页，人物与文字完整。",
+      "path": "reports/playtest-0.3.7/screenshots/17-status-ultrawide.png",
+      "pixels": [
+        560,
+        240
+      ],
+      "bytes": 30911,
+      "sha256": "e0214bafd95fd91d63917582ddd70fe3a5278cc2f5f554dcd1bfb72c159d0666",
+      "source": "Current second-chapter battle status at ultrawide landscape ratio",
+      "fixture": false,
+      "layout_errors": []
+    }
+  ],
+  "previews": [
+    {
+      "path": "reports/playtest-0.3.7/previews/02-caption-and-notice-2x.png",
+      "source": "reports/playtest-0.3.7/screenshots/02-caption-and-notice.png",
+      "scale": 2,
+      "pixels": [
+        852,
+        480
+      ],
+      "bytes": 22559,
+      "policy": "Full-frame nearest-neighbour integer enlargement; native source retained"
+    },
+    {
+      "path": "reports/playtest-0.3.7/previews/07-enemy-red-movement-2x.png",
+      "source": "reports/playtest-0.3.7/screenshots/07-enemy-red-movement.png",
+      "scale": 2,
+      "pixels": [
+        852,
+        480
+      ],
+      "bytes": 59082,
+      "policy": "Full-frame nearest-neighbour integer enlargement; native source retained"
+    },
+    {
+      "path": "reports/playtest-0.3.7/previews/08-preview-over-cursor-2x.png",
+      "source": "reports/playtest-0.3.7/screenshots/08-preview-over-cursor.png",
+      "scale": 2,
+      "pixels": [
+        852,
+        480
+      ],
+      "bytes": 30820,
+      "policy": "Full-frame nearest-neighbour integer enlargement; native source retained"
+    },
+    {
+      "path": "reports/playtest-0.3.7/previews/09-combat-clean-hud-2x.png",
+      "source": "reports/playtest-0.3.7/screenshots/09-combat-clean-hud.png",
+      "scale": 2,
+      "pixels": [
+        852,
+        480
+      ],
+      "bytes": 2062,
+      "policy": "Full-frame nearest-neighbour integer enlargement; native source retained"
+    },
+    {
+      "path": "reports/playtest-0.3.7/previews/10-experience-cells-2x.png",
+      "source": "reports/playtest-0.3.7/screenshots/10-experience-cells.png",
+      "scale": 2,
+      "pixels": [
+        852,
+        480
+      ],
+      "bytes": 32727,
+      "policy": "Full-frame nearest-neighbour integer enlargement; native source retained"
+    },
+    {
+      "path": "reports/playtest-0.3.7/previews/14-archer-equipment-2x.png",
+      "source": "reports/playtest-0.3.7/screenshots/14-archer-equipment.png",
+      "scale": 2,
+      "pixels": [
+        852,
+        480
+      ],
+      "bytes": 13010,
+      "policy": "Full-frame nearest-neighbour integer enlargement; native source retained"
+    }
+  ]
+}

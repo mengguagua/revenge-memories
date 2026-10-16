@@ -8,7 +8,9 @@ func check(ok: bool,label: String) -> void:
 	if not ok:failures.append(label);push_error(label)
 func army():
 	var g=State.new();g.new_game();g.route="celica";g.party=["eileen","carlo","lord","roan","shia"];g.parties.celica=g.party.duplicate();g.convoy.celica=[]
-	for id in g.party:g.roster[id]=g._initial_character(id)
+	for id in g.party:
+		g.roster[id]=g._initial_character(id)
+		g.roster[id].item_id=0 # This fixture specifically exercises empty slots.
 	return g
 func run() -> void:
 	var g=army()
