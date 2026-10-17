@@ -7,6 +7,7 @@ const FIELD := Rect2(0, 0, 256, 128)
 const FPS := 60.0988
 const EFFECT_PATH := "res://data/legacy/full_animation_effects.json"
 static var _source_cache: Dictionary = {}
+static var _costume_variant_cache: Dictionary = {}
 
 var _ui_ref: WeakRef
 var ui:
@@ -37,6 +38,10 @@ func _source() -> Dictionary:
 		var raw = JSON.parse_string(FileAccess.get_file_as_string(EFFECT_PATH))
 		if raw is Dictionary:
 			_source_cache = raw
+			if FileAccess.file_exists("res://data/m11_party_motion.json"):
+				var original: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/m11_party_motion.json"))
+				for key in original.get("variants",{}):_source_cache.variants["fe2_"+str(key)]=original.variants[key]
+				_source_cache.sprites.merge(original.get("sprites",{}),true)
 	return _source_cache
 
 func _class(unit: Dictionary) -> int:
@@ -130,6 +135,9 @@ func selection(event: Dictionary) -> Dictionary:
 		return {"kind": "missing", "reason": "class %d / %s / spell %d" % [_class(actor), str(actor.side), weapon], "sprite": graphic}
 	elif weapon in [1, 20, 21, 22] and _class(actor) in [12, 13, 20]:
 		base = str(schedule.get("effect_variant", ""))
+	elif graphic.has("original_source_programs"):
+		var kind="critical" if bool(event.get("critical",false)) and graphic.original_source_programs.has("critical") else "normal"
+		return {"kind":"source","key":"original_class_"+str(graphic.get("visual_class",_class(actor)))+"_"+kind,"variant":graphic.original_source_programs[kind],"sprite":graphic}
 	elif graphic.has("personal_source_programs"):
 		var kind="critical" if bool(event.get("critical",false)) else "normal"
 		return {"kind":"source","key":"hunapu_"+kind,"variant":graphic.personal_source_programs[kind],"sprite":graphic}
@@ -146,6 +154,19 @@ func selection(event: Dictionary) -> Dictionary:
 	var variants: Dictionary = _source().get("variants", {})
 	if not variants.has(key):
 		return {"kind": "missing", "reason": "source variant " + key, "sprite": graphic}
+	# Costume atlases compile partial BG writes into complete native bodies.
+	# Only frame IDs change; source effects, offsets, clocks and contact stay.
+	var frame_maps: Dictionary=graphic.get("costume_variant_frames",{})
+	if frame_maps.has(key):
+		var cache_key=str(graphic.path)+":"+key
+		if not _costume_variant_cache.has(cache_key):
+			var mapped: Dictionary=variants[key].duplicate(false)
+			mapped.frames=[]
+			for i in range(variants[key].frames.size()):
+				var frame: Dictionary=variants[key].frames[i].duplicate(false)
+				frame.frame=int(frame_maps[key][i]);mapped.frames.append(frame)
+			_costume_variant_cache[cache_key]=mapped
+		return {"kind":"source","key":key,"variant":_costume_variant_cache[cache_key],"sprite":graphic}
 	return {"kind": "source", "key": key, "variant": variants[key], "sprite": graphic}
 
 func _vec(value) -> Vector2:
@@ -214,11 +235,22 @@ func play(event: Dictionary) -> void:
 				_source_frame(event, variant.frames[contact], contact, false)
 				await _contact(event)
 			else:
+				# A deadline clock avoids one Timer quantization error per NES
+				# tick. Contact feedback pauses this clock, as in the original.
+				var deadline=float(Time.get_ticks_usec())
 				for tick in range(variant.frames.size()):
 					_source_frame(event, variant.frames[tick], tick, true)
 					if tick == contact:
+						var before_contact=Time.get_ticks_usec()
 						await _contact(event)
-					await ui._wait(1.0 / float(variant.get("native_fps", FPS)))
+						deadline+=float(Time.get_ticks_usec()-before_contact)
+					var speed=float(ui.animation_speed)
+					if not graphic.get("original_motion",false):
+						await ui._wait(1.0/float(variant.get("native_fps",FPS)))
+						continue
+					if Input.is_physical_key_pressed(KEY_Z) or Input.is_physical_key_pressed(KEY_SPACE):speed*=3.0
+					deadline+=1000000.0/(float(variant.get("native_fps",FPS))*speed)
+					while float(Time.get_ticks_usec())<deadline:await ui.get_tree().process_frame
 		"melee":
 			var timeline: Dictionary = chosen.timeline
 			if not bool(ui.instant_mode):
@@ -250,13 +282,16 @@ func play(event: Dictionary) -> void:
 	await ui._wait(0.18)
 
 func clipped_region(graphic: Dictionary, frame: int, at: Vector2, flip: bool) -> Dictionary:
-	var size = _vec(graphic.frame_size)
+	var density = maxf(1.0, float(graphic.get("native_density", 1)))
+	var source_size = _vec(graphic.frame_size)
+	var size = source_size / density
 	var destination = Rect2(at.round(), size)
 	var visible = destination.intersection(FIELD)
 	if not visible.has_area(): return {}
 	var offset = visible.position - destination.position
 	var source_x = size.x - offset.x - visible.size.x if flip else offset.x
-	return {"destination": visible, "source": Rect2(Vector2(frame * size.x + source_x, offset.y), visible.size), "flip": flip}
+	var columns=int(graphic.get("columns",graphic.get("frames",1)))
+	return {"destination": visible, "source": Rect2(Vector2((frame%columns)*source_size.x+source_x*density,floori(float(frame)/columns)*source_size.y+offset.y*density),visible.size*density),"flip":flip}
 
 func _draw_frame(graphic: Dictionary, frame: int, at: Vector2, flip: bool, color: Color) -> void:
 	if bool(graphic.get("missing", false)): return

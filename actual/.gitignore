@@ -1,86 +1,33 @@
+# 可重建的导入缓存、日志与本地应用
 .godot/
+.cache/
 *.log
 __pycache__/
 dist/
 
-# 截图原始帧和中间对比大图可重新捕获；保留正式画廊与行走动图
-/reports/display-fixes/walk-frames/
-/reports/review-0.2.1/before-ch1.png
-/reports/review-0.2.1/before-ch2.png
-/reports/world-map-godot.png
-/reports/world-map-godot-routes.png
-/reports/landmarks-light.png
-/reports/landmarks-dark.png
-
-# 测试写入的工作存档；不要忽略 natural-* 等正式回放检查点
-/reports/**/working-save.json
-/reports/**/*-working-save.json
-/reports/**/*-working.json
+# 测试工作存档与连续截图不进入 Git；保留 natural-* 正式回放检查点
+/reports/**/working*.json
+/reports/**/*-working*.json
 /reports/**/progress-save.json
+/reports/**/animation-*.png
+/reports/**/input-walk/
+/reports/**/raw-frames/
+/reports/**/recording/
+/reports/**/*.ffconcat
+/reports/**/*.import
 /reports/campaign/*fixtures-save.json
-/reports/campaign/border-visual-fixture-save.json
-/reports/campaign/display-plot-resume-save.json
-/reports/campaign/hub-paths-save.json
-/reports/campaign/medicine-progress.json
-/reports/campaign/probe-save.json
-/reports/campaign/qa-capture-save.json
-/reports/campaign/round1-save.json
-/reports/campaign/round3-attempt*-save.json
-/reports/campaign/round3-progress.json
-/reports/campaign/ui-controls-save.json
+/reports/campaign/*-fixture-save.json
+/reports/campaign/*-working-save.json
 /reports/chapter2/debug-save.json
 /reports/chapter2/state-check-save.json
-
-# 早期重试的详细轨迹及历史存档副本保留本地，结论见 attempts-index.json
-# 保留 attempt-7/8 完整通关记录和顶层 natural-* 当前检查点
 /reports/chapter2/play/attempt-[1-6].json
 /reports/chapter2/play/attempt-*-checkpoints/
-
-# 地形改版的隔离试玩检查点可本地复用；Git保留每轮摘要、动作与最终验收索引
 /reports/battlefield-0.3.0/play/*/*-entry.json
 /reports/battlefield-0.3.0/play/*/*-field.json
 /reports/battlefield-0.3.0/play/*/*-victory.json
 /reports/battlefield-0.3.0/play/*/*-stopped.json
-/reports/battlefield-0.3.0/play/*/*-boats.json
-
-# 本轮隔离检查点留本地，正式摘要与实机截图入库
 /reports/playtest-0.5.0/calibration-*/
 /reports/playtest-0.5.0/*/*-entry.json
 /reports/playtest-0.5.0/*/*-field.json
 /reports/playtest-0.5.0/*/*-victory.json
 /reports/playtest-0.5.0/*/*-stopped.json
-/reports/playtest-0.5.0/*/working.json
-/reports/playtest-0.5.0/visual/failure-save.json
-
-# 胡纳普重绘：完整连续帧和隔离存档留本机，保留实机关键帧、动图和检查摘要。
-/reports/hunapu-0.5.1/round*/animation-*.png
-/reports/hunapu-0.5.1/round*/working.json
-/reports/hunapu-0.5.1/round*/*-entry.json
-/reports/hunapu-0.5.1/round*/*-field.json
-/reports/hunapu-0.5.1/round*/*-victory.json
-/reports/hunapu-0.5.1/round*/*-stopped.json
-/reports/hunapu-0.5.1/visual/working.json
-
-# 清晰度修正版：原始连续截图与隔离存档留本机，正式演示和摘要入库。
-/reports/clarity-0.5.2/round*/animation-*.png
-/reports/clarity-0.5.2/round*/working.json
-/reports/clarity-0.5.2/round*/*-entry.json
-/reports/clarity-0.5.2/round*/*-field.json
-/reports/clarity-0.5.2/round*/*-victory.json
-/reports/clarity-0.5.2/round*/*-stopped.json
-/reports/clarity-0.5.2/motion/*-[0-9][0-9][0-9][0-9][0-9].png
-/reports/clarity-0.5.2/motion/working.json
-/reports/clarity-0.5.2/visual/working.json
-/reports/clarity-0.5.2/*.ffconcat
-
-# 表情与雷电剑修复：连续原始截图及隔离试玩存档留本机。
-/reports/emotion-levin-0.5.3/round*/animation-*.png
-/reports/emotion-levin-0.5.3/round*/working.json
-/reports/emotion-levin-0.5.3/round*/*-entry.json
-/reports/emotion-levin-0.5.3/round*/*-field.json
-/reports/emotion-levin-0.5.3/round*/*-victory.json
-/reports/emotion-levin-0.5.3/round*/*-stopped.json
-/reports/emotion-levin-0.5.3/motion/*-[0-9][0-9][0-9][0-9][0-9].png
-/reports/emotion-levin-0.5.3/motion/working.json
-/reports/emotion-levin-0.5.3/visual/working.json
-/reports/emotion-levin-0.5.3/*.ffconcat

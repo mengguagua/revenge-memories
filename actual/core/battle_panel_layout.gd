@@ -2,7 +2,7 @@ extends RefCounted
 ## Logical canvas coordinates; the selected sprite and arrow are hard exclusions.
 static func place(anchor: Vector2, size: Vector2, canvas: Rect2, neighbours: Array=[], exclusions: Array=[]) -> Dictionary:
 	var safe=canvas.grow(-8)
-	var focus=Rect2(anchor+Vector2(-6,-12),Vector2(28,36))
+	var focus=Rect2(anchor+Vector2(-10,-26),Vector2(36,48))
 	var candidates=[]
 	for x in [focus.end.x+10,focus.position.x-size.x-10]:
 		for y in [anchor.y-size.y/2,focus.position.y,focus.end.y-size.y]:candidates.append(Vector2(x,y))

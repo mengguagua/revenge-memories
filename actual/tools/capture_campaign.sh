@@ -11,4 +11,8 @@ func _initialize():
 	quit(0 if OS.get_environment("CHRONO_BACKGROUND_GUARD_ACTIVE") == "1" else 1)
 PROBE
 /Applications/Godot.app/Contents/MacOS/Godot --headless --path "$campaign_root" --log-file "$campaign_capture_tmp/probe.log" --script "$campaign_capture_tmp/probe.gd"
-/Applications/Godot.app/Contents/MacOS/Godot --path "$campaign_root" --audio-driver Dummy --rendering-method gl_compatibility --log-file "$campaign_root/reports/campaign/capture-engine.log" --script "${1:-res://tools/capture_campaign.gd}"
+campaign_command=(/Applications/Godot.app/Contents/MacOS/Godot --path "$campaign_root")
+if [ -n "${CAMPAIGN_MAIN_PACK:-}" ]; then
+  campaign_command+=(--main-pack "$CAMPAIGN_MAIN_PACK")
+fi
+"${campaign_command[@]}" --audio-driver Dummy --rendering-method gl_compatibility --log-file "${CAMPAIGN_CAPTURE_LOG:-$campaign_root/reports/campaign/capture-engine.log}" --script "${1:-res://tools/capture_campaign.gd}"

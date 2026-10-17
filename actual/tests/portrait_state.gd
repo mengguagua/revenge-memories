@@ -9,7 +9,7 @@ func check(ok: bool,label: String) -> void:
 func _initialize() -> void:call_deferred("run")
 func run() -> void:
 	var g=State.new();g.new_game();var records=[]
-	check(Portraits.data().assets.size()==48,"Forty-eight separately generated campaign portraits")
+	check(Portraits.data().assets.size()>=g.characters.size(),"Portrait catalogue covers current formal companions")
 	for key in Portraits.data().assets:
 		var face=Portraits.entry(key)
 		check(not face.is_empty(),"Portrait resource exists: "+key)

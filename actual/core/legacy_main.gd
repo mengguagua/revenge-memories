@@ -1185,11 +1185,12 @@ func _animate_move(unit: Dictionary, path: Array, open_action: bool = false) -> 
 		var from = Vector2(path[i - 1]) * TILE
 		var to = Vector2(path[i]) * TILE
 		moving_direction = path[i] - path[i - 1]
-		for tick in range(4):
-			moving_frame = tick / 2
-			moving_position = from.lerp(to, float(tick + 1) / 4.0)
+		var native_ticks=int(_map_unit_sprite(unit).get("native_move_ticks",4))
+		for tick in range(native_ticks):
+			moving_frame = (int(elapsed*60.0988)>>4)&1 if native_ticks==16 else tick / 2
+			moving_position = from.lerp(to, float(tick + 1) / float(native_ticks))
 			_focus_battle(Vector2i(moving_position / TILE))
-			await _wait(0.035)
+			await _wait(1.0/60.0988 if native_ticks==16 else 0.035)
 	unit.position = [path[-1].x, path[-1].y]
 	game.cursor = path[-1]
 	_focus_battle(game.cursor)
@@ -1711,13 +1712,14 @@ func _draw_village_unit(id: String, at: Vector2, direction: String, flip: bool =
 	_draw_frame(sprite, frame, at - Vector2(4, 4), flip)
 
 func _draw_frame(sprite: Dictionary, frame: int, at: Vector2, flip: bool = false, color: Color = Color.WHITE) -> void:
-	var size = Vector2(sprite.frame_size[0], sprite.frame_size[1])
+	var source_size = Vector2(sprite.frame_size[0], sprite.frame_size[1])
+	var size = source_size / maxf(1.0, float(sprite.get("native_density", 1)))
 	var destination = Rect2(at.round(), size)
 	if flip:
 		# Godot makes a negative width positive and sets FLIP_H at this origin.
 		# Adding the frame width here shifts every enemy sprite out of place.
 		destination.size.x = -size.x
-	draw_texture_rect_region(_tex(sprite.path), destination, Rect2(frame * size.x, 0, size.x, size.y), color)
+	draw_texture_rect_region(_tex(sprite.path), destination, Rect2(frame * source_size.x, 0, source_size.x, source_size.y), color)
 
 func _draw_dialogue() -> void:
 	if dialogue_pages.is_empty():
@@ -1840,8 +1842,10 @@ func _draw_battle() -> void:
 		if unit.get("surrendered",false) or unit.get("offering_surrender",false):draw_texture(_tex("res://assets/battle_tiles/modules/white_flag.png"),at-Vector2(2,8))
 		var direction = "up" if moving_direction.y < 0 else ("side" if moving_direction.x != 0 else "down")
 		var is_moving = moving_id == str(unit.id)
-		var frame = int(sprite.directions[direction][moving_frame]) if is_moving else int(sprite.directions.down[0])
-		_draw_frame(sprite, frame, at - Vector2(4, 4), is_moving and moving_direction.x < 0, Color(1, 1, 1, float(map_actor_alpha.get(str(unit.id), 1.0))))
+		var frame = _native_map_pose(sprite) if sprite.has("native_cycle") else int(sprite.directions[direction][moving_frame]) if is_moving else int(sprite.directions.down[0])
+		var tile_origin=sprite.get("tile_origin",[4,4])
+		var map_flip=not sprite.get("static_facing",false) and is_moving and (moving_direction.x > 0 if sprite.get("default_facing","right")=="left" else moving_direction.x < 0)
+		_draw_frame(sprite, frame, at - Vector2(tile_origin[0],tile_origin[1]), map_flip, Color(1, 1, 1, float(map_actor_alpha.get(str(unit.id), 1.0))))
 	if view == "battle":
 		if ui_mode == "status":
 			_draw_status(game.find_unit(status_id))
@@ -1851,7 +1855,12 @@ func _draw_battle() -> void:
 			_draw_support_preview()
 		elif ui_mode != "whole_capture":
 			var at = _battle_cell_screen(game.cursor)
-			_draw_indicator("down", at + Vector2(4, -3 + int(sin(elapsed * 6.0))))
+			var selected_unit=game.unit_at(game.cursor)
+			var arrow_y=-3
+			if not selected_unit.is_empty():
+				var selected_sprite=_map_unit_sprite(selected_unit)
+				arrow_y=-int(selected_sprite.get("tile_origin",[4,4])[1])-9
+			_draw_indicator("down", at + Vector2(4, arrow_y + int(sin(elapsed * 6.0))))
 			if ui_mode == "inspect" and menu_items.is_empty():
 				var unit = game.unit_at(game.cursor)
 				if not unit.is_empty():
@@ -1893,6 +1902,16 @@ func _map_unit_sprite(unit: Dictionary) -> Dictionary:
 	var result = sprite.duplicate()
 	result.path = cache_key
 	return result
+
+func _native_map_pose(sprite: Dictionary) -> int:
+	var period=0
+	for ticks in sprite.get("cycle_ticks",[]):period+=int(ticks)
+	if period<=0:return 0
+	var at=int(elapsed*60.0988)%period
+	for i in range(sprite.native_cycle.size()):
+		if at<int(sprite.cycle_ticks[i]):return int(sprite.native_cycle[i])
+		at-=int(sprite.cycle_ticks[i])
+	return 0
 
 func _draw_unit_card(unit: Dictionary) -> void:
 	var screen = _battle_cell_screen(game.cursor)

@@ -121,6 +121,11 @@ func run() -> void:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(review_out))
 	allow_capture=DisplayServer.get_name()!="headless"
 	viewport=SubViewport.new();viewport.size=Vector2i(426,240);viewport.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(viewport)
+	var capture_density=maxi(1,int(OS.get_environment("REVENGE_CAPTURE_DENSITY")))
+	if capture_density>1:
+		viewport.size=Vector2i(426,240)*capture_density
+		viewport.size_2d_override=Vector2i(426,240)
+		viewport.size_2d_override_stretch=true
 	ui=load("res://scenes/main.tscn").instantiate();viewport.add_child(ui);await process_frame;ui.instant_mode=true
 	for code in polish_codes:
 		abort=false;var before_failures=failures.size();var before_keys=inputs

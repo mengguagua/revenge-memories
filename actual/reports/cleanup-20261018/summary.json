@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-18",
+  "head": "ffb94adf3e5b36fc0b99ce2ff369758e86b572ed",
+  "history_rewritten": false,
+  "deleted_files": 24755,
+  "deleted_bytes": 6396296693,
+  "by_reason": {
+    "No active runtime reference in core/data/scenes; reusable inputs isolated": {
+      "files": 1032,
+      "bytes": 1692446
+    },
+    "Unused protagonist fallback replaced by PartySprites": {
+      "files": 2,
+      "bytes": 1210
+    },
+    "Unused protagonist fallback configuration": {
+      "files": 1,
+      "bytes": 141344
+    },
+    "Redundant old local packages / export ZIPs": {
+      "files": 53,
+      "bytes": 5974469486
+    },
+    "Superseded art acceptance claims and dead gallery references": {
+      "files": 8,
+      "bytes": 34645
+    },
+    "Rejected or superseded art reports / repeated frames": {
+      "files": 22858,
+      "bytes": 298272556
+    },
+    "Outdated yesterday art/UI screenshots; gameplay checkpoints retained": {
+      "files": 264,
+      "bytes": 8652646
+    },
+    "Failed prototype inputs or duplicate data; reusable originals isolated under source/characters": {
+      "files": 427,
+      "bytes": 112420575
+    },
+    "Obsolete version-specific art checks; current reusable checks retained": {
+      "files": 33,
+      "bytes": 65176
+    },
+    "Obsolete one-off art pipeline, capture or hard-coded version probe": {
+      "files": 75,
+      "bytes": 503679
+    }
+  },
+  "preserved": [
+    "Current reachable runtime assets and gameplay changes",
+    "Original NES/CHR/ASM motion data and class atlases",
+    "Reusable generated portrait masters",
+    "Campaign save migration and natural-play checkpoints",
+    "Original independent FE2 reference project at repository root"
+  ],
+  "visual_status": "Current artwork remains rejected by user; automated asset tests are not visual acceptance.",
+  "before_untracked": 11927,
+  "after_untracked": 1083,
+  "tracked_deletions": 1356,
+  "verification": {
+    "changed_retained_runtime_pngs": 0,
+    "cleanup_introduced_missing_runtime_resources": 0,
+    "headless_map_checks": 924,
+    "headless_portrait_checks": 321,
+    "old_document_links_repaired": 2,
+    "runtime_script_graph": "All remaining core GDScripts are reachable from scenes/main.tscn; unused old hub_controller removed.",
+    "headless_package_checks": 416,
+    "missing_runtime_paths": [],
+    "unreachable_core_modules": [],
+    "packaged_pck_bytes": 148841464
+  },
+  "additional_unreachable_core_deleted": [
+    {
+      "path": "core/hub_controller.gd",
+      "bytes": 42910
+    },
+    {
+      "path": "core/hub_controller.gd.uid",
+      "bytes": 20
+    }
+  ]
+}

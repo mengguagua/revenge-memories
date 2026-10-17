@@ -3,7 +3,7 @@ extends "res://core/legacy_main.gd"
 const EnvironmentBorder = preload("res://core/environment_border.gd")
 const BattlePanels = preload("res://core/battle_panel_layout.gd")
 const Portraits = preload("res://core/portrait_library.gd")
-const HunapuSprites = preload("res://core/hunapu_sprites.gd")
+const PartySprites = preload("res://core/party_sprites.gd")
 var battle_card_audit: Dictionary={}
 var training_reward_open := false
 var objective_badge_rect := Rect2()
@@ -36,7 +36,7 @@ const NARRATOR_SPEAKERS := ["旁白", "", "叙述", "战场提示", "提示", "�
 func _ready() -> void:
 	super._ready()
 	small_font=GameState.read_json("res://data/legacy/font_small_zh.json")
-	get_window().title="revenge-memories · 序章至第二章"
+	get_window().title="revenge-memories · 序章至第二章 · "+str(ProjectSettings.get_setting("application/config/version",""))
 	world=game.formal_world;battle_pack=GameState.read_json("res://assets/battle_tiles/battle-tiles.json")
 	nature_layouts=GameState.read_json("res://data/nature-layouts.json")
 	for sprite in GameState.read_json("res://assets/nature/nature.json").get("sprites",[]):nature_sprites[str(sprite.key)]=sprite
@@ -396,12 +396,13 @@ func _draw_title() -> void:
 	_panel(Rect2(8,200,240,36))
 	_center_text("方向行走 Z确认 X返回 S菜单",Rect2(18,210,220,16))
 
-func _draw_layers(layers: Array,columns: int,atlas: Texture2D,origin: Vector2,tint: Color=Color.WHITE) -> void:
+func _draw_layers(layers: Array,columns: int,atlas: Texture2D,origin: Vector2,tint: Color=Color.WHITE,skip_cells: Dictionary={}) -> void:
 	var bounds=_visible_native_rect().grow(16)
 	for layer in layers:
 		for y in range(layer.size()):
 			if y*16+origin.y < bounds.position.y or y*16+origin.y >bounds.end.y:continue
 			for x in range(layer[y].size()):
+				if skip_cells.has(Vector2i(x,y)):continue
 				if x*16+origin.x < bounds.position.x or x*16+origin.x >bounds.end.x:continue
 				var id=layer[y][x]
 				if id==null or int(id)<0:continue
@@ -557,18 +558,27 @@ func _draw_world() -> void:
 	if camp_context=="hub" and view=="camp_status":hub_controller.draw();return
 	var camera=world_actor-Vector2(120,96)
 	camera=_clamp_map_camera(camera,Vector2(world.width,world.height)*16)
-	var origin=-camera.round();_draw_ocean(origin);_draw_layers(world.layers,32,_tex(world.atlas),origin)
+	var origin=-camera.round();_draw_ocean(origin)
+	# A one-tile camp sits directly under the world leader. Its tent poles
+	# were showing through the new sprite as extra hands/feet. Show the road
+	# at the occupied camp; restore its landmark when the leader leaves.
+	var occupied_camps={}
+	if game.chapter==1 and game.route=="alm":
+		var actor_cell=Vector2i((world_actor/16).round())
+		for node in world.nodes.values():
+			if node.get("symbol","")=="camp" and actor_cell==Vector2i(node.position[0],node.position[1]):occupied_camps[actor_cell]=true
+	_draw_layers(world.layers.slice(0,world.layers.size()-1),32,_tex(world.atlas),origin)
+	_draw_layers([world.layers.back()],32,_tex(world.atlas),origin,Color.WHITE,occupied_camps)
 	_draw_nature_props(world.get("natural_props",[]),origin)
 	var sp: Dictionary=graphics.map_units.class_11_ally if game.route=="celica" else graphics.map_units.class_21_ally
-	if game.route=="alm" and HunapuSprites.applies(game.roster.get("hunapu",{})):
-		var personal=HunapuSprites.sprite("map")
-		if not personal.is_empty():sp=personal
+	var class_actor=PartySprites.sprite("world",game.roster.get(game.leader_id(),{}),game.chapter)
+	if class_actor.is_empty():class_actor=PartySprites.sprite("map",game.roster.get(game.leader_id(),{}),game.chapter)
+	if not class_actor.is_empty():sp=class_actor
 	var walk_direction="up" if world_facing.y<0 else "side" if world_facing.x!=0 else "down"
 	var step=(int(elapsed*60.0988)>>4)&1 if not world_path.is_empty() else 0
-	var at=Vector2i((world_actor/16).round())
-	var on_sea=at.y>=0 and at.y<int(world.height) and at.x>=0 and at.x<int(world.width) and str(world.ground[at.y][at.x])=="sea"
-	if game.route=="celica" and on_sea:draw_texture(_tex("res://assets/world_tiles/modules/cutter.png"),world_actor+origin)
-	else:_draw_frame(sp,int(sp.directions[walk_direction][step]),world_actor+origin-Vector2(4,4),world_facing.x<0)
+	var tile_origin=sp.get("tile_origin",[4,4])
+	var flip_=world_facing.x>0 if sp.get("default_facing","right")=="left" else world_facing.x<0
+	_draw_frame(sp,int(sp.directions[walk_direction][step]),world_actor+origin-Vector2(tile_origin[0],tile_origin[1]),flip_)
 	for n in game.world_neighbors():
 		var p=_oriented_route(n)
 		if p.size()<2:continue
@@ -604,16 +614,29 @@ func _draw_result() -> void:
 	_center_text("确认选择重试或返回",Rect2(36,122,184,16))
 
 func _personal_battle_sprite(unit: Dictionary,original: Dictionary) -> Dictionary:
-	return HunapuSprites.battle(unit,original)
+	return PartySprites.battle(unit,original,game.chapter)
 
 func _personal_hub_sprite(original: Dictionary) -> Dictionary:
-	if game.route!="alm" or not HunapuSprites.applies(game.roster.get("hunapu",{})):return original
-	var art=HunapuSprites.sprite("hub")
+	var shared=PartySprites.sprite("hub",game.roster.get(game.leader_id(),{}),game.chapter)
+	return original if shared.is_empty() else shared
+
+func _party_hub_sprite(object: Dictionary,original: Dictionary) -> Dictionary:
+	var id=str(object.get("action",""))
+	if id=="guard" or str(object.get("name","")) in ["教团守卫","教团兵","教团守军"]:
+		var guard: Dictionary=PartySprites.data().get("story_npc_profiles",{}).get("guard",{}).get("hub",{})
+		if not guard.is_empty() and ResourceLoader.exists(str(guard.path)):return guard
+	if not game.characters.has(id):
+		id=""
+		for candidate in game.characters:
+			if str(game.characters[candidate].name_zh)==str(object.get("name","")).trim_suffix(" · 濒死"):id=candidate;break
+	if id.is_empty():return original
+	var art=PartySprites.sprite("hub",game.roster.get(id,game.characters[id]),game.chapter)
 	return original if art.is_empty() else art
 
 func _map_unit_sprite(unit: Dictionary) -> Dictionary:
-	if not HunapuSprites.applies(unit):return super._map_unit_sprite(unit)
-	var art=HunapuSprites.sprite("map")
+	var moving=str(unit.get("id",""))==moving_id
+	var art=PartySprites.sprite("map_move" if moving else "map",unit,game.chapter)
+	if art.is_empty() and moving:art=PartySprites.sprite("map",unit,game.chapter)
 	if art.is_empty():return super._map_unit_sprite(unit)
 	if not unit.get("acted",false):return art
 	var key=str(art.path)+":rest"
@@ -632,7 +655,7 @@ func _draw_unit_card(unit: Dictionary) -> void:
 	if busy or notice_time>0 or phase_time>0:return
 	var screen=_battle_cell_screen(game.cursor);var neighbours=[]
 	for other in game.units:
-		if int(other.hp)>0 and str(other.id)!=str(unit.id):neighbours.append(Rect2(_battle_cell_screen(game.pos(other))-Vector2(4,8),Vector2(24,28)))
+		if int(other.hp)>0 and str(other.id)!=str(unit.id):neighbours.append(Rect2(_battle_cell_screen(game.pos(other))-Vector2(8,12),Vector2(32,32)))
 	var placement=BattlePanels.place(screen,Vector2(144,92),_visible_native_rect(),neighbours,[objective_badge_rect] if objective_badge_rect.has_area() else [])
 	battle_card_audit=placement
 	if not placement.valid:return

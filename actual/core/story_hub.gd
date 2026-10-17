@@ -291,13 +291,14 @@ func draw() -> void:
 		var at=Vector2(o.position[0],o.position[1])*16+ORIGIN
 		if o.sprite=="actor":
 			var sp: Dictionary=ui.graphics.village_sprites.get(str(int(o.source)),ui.graphics.village_sprites["1"])
+			if ui.has_method("_party_hub_sprite"):sp=ui.call("_party_hub_sprite",o,sp)
 			ui._draw_frame(sp,int(sp.directions.down[0]),at-Vector2(sp.tile_origin[0],sp.tile_origin[1]))
 		else:
 			var tex=ui._tex(str(o.get("sprite_path","res://assets/battle_tiles/modules/"+str(o.sprite)+".png")));ui.draw_texture(tex,at-Vector2(0,tex.get_height()-16),Color.WHITE if o.sprite in ["sun_altar","lit_brazier","ritual_lamp","well"] else _east_environment_tint())
 		if ui.game.hub_position+facing==Vector2i(o.position[0],o.position[1]):ui._draw_indicator("down",at+Vector2(4,-8))
 	var source_id="2" if not east_data.is_empty() else "1"
 	var sp: Dictionary=ui.graphics.village_sprites[source_id]
-	if source_id=="1" and ui.has_method("_personal_hub_sprite"):sp=ui.call("_personal_hub_sprite",sp)
+	if ui.has_method("_personal_hub_sprite"):sp=ui.call("_personal_hub_sprite",sp)
 	var direction="up" if facing.y<0 else "side" if facing.x!=0 else "down"
 	if motion_left<=0.0:render_position=Vector2(ui.game.hub_position)*16
 	var at=render_position+ORIGIN
