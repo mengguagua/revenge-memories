@@ -1,0 +1,45 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>胡纳普 · 0.5.1 重绘与实机验收</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#18242c;color:#eee7d4;font:16px/1.7 system-ui,-apple-system,sans-serif}main{max-width:1240px;margin:auto;padding:44px 28px 80px}h1{font-size:32px;margin:8px 0 12px}h2{font-size:22px;margin:36px 0 16px}p{margin:8px 0 14px;color:#c9d3d6}a{color:#9cd5d5;text-underline-offset:4px}.eyebrow{color:#8bb4c5;letter-spacing:2px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}figure{margin:0;background:#22343e;box-shadow:0 10px 22px #0c171b55;border-radius:12px;overflow:hidden}figure img{display:block;width:100%;height:auto;image-rendering:pixelated;background:#0a0e11}figcaption{padding:18px 20px}figcaption p{font-size:14px;margin-bottom:0}.palette{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}.palette span{font-size:12px;display:flex;flex-direction:column;align-items:center;gap:5px;background:#22343e;padding:14px 7px;border-radius:8px}.palette i{background:var(--swatch);width:44px;height:32px;border-radius:4px}.palette small{color:#a7bac1}table{width:100%;border-collapse:collapse;background:#22343e}td,th{padding:16px;text-align:left;vertical-align:top;border-bottom:1px solid #344b55}th{color:#9cd5d5}.notice{padding:18px 22px;background:#3b3730;border-radius:10px;color:#e5d1a3}select{font:inherit;color:#e9e3cf;background:#29434b;border:0;border-radius:8px;padding:9px 18px;margin-bottom:16px;outline:none}select:focus-visible{box-shadow:0 0 16px #78b8bd88}.compare{display:flex;justify-content:center;gap:24px;padding:20px;background:#101719}.compare img{width:240px;max-width:40%;height:auto;image-rendering:pixelated;background:black}small{color:#9db4bc}.links{display:flex;gap:22px;flex-wrap:wrap;margin-top:24px}@media(max-width:720px){main{padding:24px 16px}.grid{grid-template-columns:1fr}.palette{grid-template-columns:repeat(3,minmax(0,1fr))}td,th{padding:10px;font-size:14px}}
+</style>
+<main><div class="eyebrow">REVENGE MEMORIES / 0.5.1</div><h1>胡纳普：画像、职业与动作统一</h1>
+<p>仅胡纳普本人。蓝发、青色轻甲、米白短披风与单手直剑；最终运行素材共用12个实色＋透明色，减去细碎花纹。现有已选画像继续复用。</p>
+<p>52项动画检查、31个引擎姿势/朝向（4975个前景像素差异为0）、20项独立签名包检查通过。</p>
+<div class="notice">两轮真实按键试玩已完成。M11第3回合护送失败，M15第4回合胜利；两轮新动作与文字安全检查通过。败局保留，不宣称两轮全胜。</div>
+<h2>实机截图</h2><div class="grid">
+<figure><img src="live-map.png" alt="M11实际入场" loading="lazy"><figcaption><b>第1轮 · M11实际入场</b><p>新游戏经序章、据点和世界行进入场；角色卡显示胡纳普。</p></figcaption></figure>
+<figure><img src="live-map-m15.png" alt="M15实际战场" loading="lazy"><figcaption><b>第2轮 · M15实际战场</b><p>读取历史部署存档，经正常整备重新入场；第4回合胜利。</p></figcaption></figure>
+<figure><img src="live-hub.png" alt="据点站姿" loading="lazy"><figcaption><b>据点 · 胡纳普向下站姿</b><p>冻结姿势夹具：仅检验显示与足点，不作为自然通关证据。</p></figcaption></figure>
+<figure><img src="live-contact-sheet.png" alt="实机攻击关键帧" loading="lazy"><figcaption><b>第1轮 · 真实攻击关键帧</b><p>实际按键触发的助跑、举剑、下劈与回位。</p></figcaption></figure>
+</div>
+<h2>最终12色设计稿</h2><div class="palette" id="palette"></div>
+<div class="grid" style="margin-top:22px">
+<figure><img src="map-design.png" alt="地图6帧"><figcaption>地图小人 · 原生24×24，内容保持地块尺度</figcaption></figure>
+<figure><img src="battle-design.png" alt="战斗当前姿势"><figcaption>战斗原生80×72 · 当前16帧含重复待机及原特效轮廓</figcaption></figure>
+</div>
+<h2>1:1角色前景核对</h2>
+<p>左：最终原生像素稿。右：引擎视口原坐标裁取（含画面底边的HUD）。逐像素校验仅比较角色不透明前景，31个姿势/朝向累计4975像素无差异。这里是明确标记的显示夹具。</p>
+<label for="pose">查看姿势 </label><select id="pose"></select>
+<div class="compare"><img id="design" src="../../assets/hunapu-0.5.1/frames/battle-0.png" alt="最终像素设计稿"><img id="runtime" src="visual/crop-battle-0.png" alt="引擎原坐标裁取"></div>
+<h2>动作与行走对比</h2><div class="grid">
+<figure><img src="motion-comparison.gif" alt="原动作与新形象对比"><figcaption><b>原程序时序重放</b><p>左旧素材，右新素材；相同85准备＋104收势tick、位移、镜像和单次接触边界。此图为素材程序重放。</p></figcaption></figure>
+<figure><img src="map-walk.gif" alt="地图双帧步态"><figcaption><b>12色方向与双帧步态</b><p>上下侧各两帧，左行镜像；游戏继续使用原路径插值与步频。</p></figcaption></figure>
+<figure><img src="live-round1.gif" alt="第一轮实机连续帧"><figcaption><b>第1轮 · 实机攻击慢放</b><p>真实输入产生的连续视口帧，便于观察而慢放；不是墙钟帧率测量。</p></figcaption></figure>
+<figure><img src="live-round2.gif" alt="第二轮实机连续帧"><figcaption><b>第2轮 · 实机攻击慢放</b><p>旧存档装备与成长保留；前两次主角攻击关闭instant，执行完整原程序。</p></figcaption></figure>
+</div>
+<h2>两轮范围与记录</h2>
+<table><thead><tr><th>轮次</th><th>路径与结果</th><th>检查</th></tr></thead><tbody>
+<tr><td>1 / M11</td><td>新游戏→序章→据点→世界→第一战。第3回合流民队1被击倒，任务失败。</td><td>前两次主角攻击完整播放，姿势0—9/60均捕获，无文字越界。<a href="round1/play-checks.json">完整记录</a></td></tr>
+<tr><td>2 / M15</td><td>真实旧部署存档→正常整备装备→重新入场。第4回合胜利。</td><td>前两次主角攻击完整播放，姿势0—9/60均捕获，无文字越界。<a href="round2/play-checks.json">完整记录</a></td></tr>
+</tbody></table>
+<p style="margin-top:18px">两轮均无数值、HP、位置或随机种子编辑，无强制胜利。普通剑命中/落空及现行雷电剑近/远程序另有定向检查。本次未重复两章15关全量回归，未新增未开发章节、转职或能力。</p>
+<div class="links"><a href="delivery-summary.json">交付汇总</a><a href="animation-checks.json">52项动画检查</a><a href="visual/pixel-checks.json">引擎像素核对</a><a href="package-checks.json">20项包检查</a><a href="asset-manifest.json">运行素材尺寸与字节</a><a href="image-manifest.json">截图清单</a><a href="../../docs/胡纳普像素重绘与验收.md">制作与验收说明</a></div>
+<p style="margin-top:24px"><small>后台防抢焦点保护＋离屏视口捕获。实机截图为原生426×240或整数最近邻放大副本。直接打开 actual/dist/RevengeMemories.app（0.5.1），退出旧进程后重开即可继续原存档。</small></p>
+</main>
+<script>
+const colors={'outline':'#172938','hair_shadow':'#244b9b','hair_light':'#477ede','armor_shadow':'#174654','armor_mid':'#337b89','armor_light':'#78b8bd','cloak_light':'#efe5c8','cloak_shadow':'#b5b49d','skin_light':'#e8b984','skin_shadow':'#b97b5e','boots':'#705344','blade':'#bbcbd0'};
+for(const [name,color] of Object.entries(colors)){let item=document.createElement('span');item.style.setProperty('--swatch',color);let swatch=document.createElement('i');item.append(swatch,document.createTextNode(name));let value=document.createElement('small');value.textContent=color;item.append(value);document.querySelector('#palette').append(item);}
+const pose=document.querySelector('#pose');for(const frame of [0,1,2,3,4,5,6,7,8,9,60,120,121,122,123,124]){let option=document.createElement('option');option.value=frame;option.textContent='姿势 '+frame;pose.append(option);}
+pose.onchange=()=>{document.querySelector('#design').src='../../assets/hunapu-0.5.1/frames/battle-'+pose.value+'.png';document.querySelector('#runtime').src='visual/crop-battle-'+pose.value+'.png';};
+</script></html>

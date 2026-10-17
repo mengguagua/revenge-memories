@@ -3,6 +3,7 @@ extends "res://core/legacy_main.gd"
 const EnvironmentBorder = preload("res://core/environment_border.gd")
 const BattlePanels = preload("res://core/battle_panel_layout.gd")
 const Portraits = preload("res://core/portrait_library.gd")
+const HunapuSprites = preload("res://core/hunapu_sprites.gd")
 var battle_card_audit: Dictionary={}
 var training_reward_open := false
 var objective_badge_rect := Rect2()
@@ -277,13 +278,15 @@ func _small_text(text: String,at: Vector2,color: Color=Color.WHITE) -> void:
 	if not safe_panels.is_empty() and not safe_panels[-1].encloses(bounds):layout_errors.append("Small text outside content-safe rectangle: "+text)
 
 func _draw_hub_caption(title: String,hint: String) -> void:
-	# Place location/time at the actual top-left of every landscape canvas.
-	var lines=_small_lines(hint,184.0)
-	var width=minf(204.0,maxf(_small_text_width(title),lines.map(func(line):return _small_text_width(line)).max() if not lines.is_empty() else 0.0)+20.0)
-	var rect=Rect2(_visible_native_rect().position+Vector2(8,8),Vector2(width,32+lines.size()*12))
+	# Full native 12px glyphs preserve strokes in complex Chinese place names.
+	var limit=minf(240.0,get_viewport_rect().size.x-40.0)
+	var title_lines=_wrapped_lines(title,limit);var lines=_wrapped_lines(hint,limit)
+	var widest=0.0
+	for line in title_lines+lines:widest=maxf(widest,_text_width(line))
+	var rect=Rect2(_visible_native_rect().position+Vector2(8,8),Vector2(widest+24,24+16*(title_lines.size()+lines.size())))
 	_panel(rect)
-	_small_text(title,rect.position+Vector2(10,10),Color(.93,.87,.67))
-	for i in range(lines.size()):_small_text(lines[i],rect.position+Vector2(10,24+i*12))
+	for i in range(title_lines.size()):_center_text(title_lines[i],Rect2(rect.position+Vector2(12,12+i*16),Vector2(widest,12)),Color(.93,.87,.67))
+	for i in range(lines.size()):_center_text(lines[i],Rect2(rect.position+Vector2(12,12+(title_lines.size()+i)*16),Vector2(widest,12)))
 	presentation_audit.hub_caption=rect
 
 func _continue_world() -> void:
@@ -315,9 +318,9 @@ func _resume_plot() -> void:
 	plot_pages=p.pages;plot_index=int(p.index);plot_return=p["return"];plot_callback=p.get("callback","")
 	plot_finished=false;dialogue_reveal=0.0;view="plot";_reflow_plot()
 
-func _speaker_portrait(speaker: String) -> Dictionary:
+func _speaker_portrait(speaker: String,emotion: String="") -> Dictionary:
 	if speaker in NARRATOR_SPEAKERS:return {}
-	return Portraits.speaker(game,speaker)
+	return Portraits.speaker(game,speaker,emotion)
 
 func _unit_portrait(unit: Dictionary) -> Dictionary:
 	return Portraits.unit(game,unit)
@@ -337,9 +340,13 @@ func _plot_layout(speaker: String) -> Dictionary:
 
 func _paginate_plot(page: Dictionary) -> Array:
 	var speaker=str(page.get("speaker","旁白"));var out: Array=[]
+	var emotion=Portraits.dialogue_emotion(page)
 	var lines=_wrapped_lines(str(page.text).replace("\n",""),_plot_layout(speaker).text.size.x)
 	for start in range(0,lines.size(),3):
-		out.append({"speaker":speaker,"text":"\n".join(lines.slice(start,mini(start+3,lines.size())))})
+		var chunk=page.duplicate(true)
+		chunk.speaker=speaker;chunk.text="\n".join(lines.slice(start,mini(start+3,lines.size())))
+		if not emotion.is_empty():chunk.emotion=emotion
+		out.append(chunk)
 	return out
 
 func _reflow_plot() -> void:
@@ -553,6 +560,9 @@ func _draw_world() -> void:
 	var origin=-camera.round();_draw_ocean(origin);_draw_layers(world.layers,32,_tex(world.atlas),origin)
 	_draw_nature_props(world.get("natural_props",[]),origin)
 	var sp: Dictionary=graphics.map_units.class_11_ally if game.route=="celica" else graphics.map_units.class_21_ally
+	if game.route=="alm" and HunapuSprites.applies(game.roster.get("hunapu",{})):
+		var personal=HunapuSprites.sprite("map")
+		if not personal.is_empty():sp=personal
 	var walk_direction="up" if world_facing.y<0 else "side" if world_facing.x!=0 else "down"
 	var step=(int(elapsed*60.0988)>>4)&1 if not world_path.is_empty() else 0
 	var at=Vector2i((world_actor/16).round())
@@ -575,11 +585,11 @@ func _draw_plot() -> void:
 	var page=plot_pages[plot_index];var layout=_plot_layout(str(page.speaker));var panel: Rect2=layout.panel
 	_panel(panel)
 	_center_text(str(page.speaker),Rect2(panel.position+Vector2(16,10),Vector2(panel.size.x-32,16)),Color(.94,.88,.67))
-	var face=_speaker_portrait(str(page.speaker))
+	var face=_speaker_portrait(str(page.speaker),Portraits.dialogue_emotion(page))
 	if not face.is_empty():draw_texture(_tex(face.path),layout.portrait.position)
 	_text(str(page.text).substr(0,int(dialogue_reveal)),layout.text.position,Color.WHITE,true,layout.text.size.x)
 	_draw_indicator("down",panel.end-Vector2(20,18))
-	plot_layout_audit={"speaker":page.speaker,"has_portrait":layout.has_portrait,"text":layout.text,"portrait":layout.portrait,"panel":panel}
+	plot_layout_audit={"speaker":page.speaker,"emotion":Portraits.dialogue_emotion(page),"portrait_key":face.get("key",""),"has_portrait":layout.has_portrait,"text":layout.text,"portrait":layout.portrait,"panel":panel}
 
 func _draw_result() -> void:
 	if view=="victory":
@@ -592,6 +602,31 @@ func _draw_result() -> void:
 	var reason=str(game.flags.get("quest",{}).get("failed_reason","本次战斗未能取胜"))
 	_center_text("\n".join(_wrapped_lines(reason,184)),Rect2(36,84,184,32))
 	_center_text("确认选择重试或返回",Rect2(36,122,184,16))
+
+func _personal_battle_sprite(unit: Dictionary,original: Dictionary) -> Dictionary:
+	return HunapuSprites.battle(unit,original)
+
+func _personal_hub_sprite(original: Dictionary) -> Dictionary:
+	if game.route!="alm" or not HunapuSprites.applies(game.roster.get("hunapu",{})):return original
+	var art=HunapuSprites.sprite("hub")
+	return original if art.is_empty() else art
+
+func _map_unit_sprite(unit: Dictionary) -> Dictionary:
+	if not HunapuSprites.applies(unit):return super._map_unit_sprite(unit)
+	var art=HunapuSprites.sprite("map")
+	if art.is_empty():return super._map_unit_sprite(unit)
+	if not unit.get("acted",false):return art
+	var key=str(art.path)+":rest"
+	if not textures.has(key):
+		var image=_tex(art.path).get_image();image.convert(Image.FORMAT_RGBA8)
+		for y in range(image.get_height()):
+			for x in range(image.get_width()):
+				var color=image.get_pixel(x,y)
+				if color.a<=0:continue
+				var light=color.r*.299+color.g*.587+color.b*.114
+				image.set_pixel(x,y,Color8(52,70,80) if light<.23 else Color8(113,134,140) if light<.55 else Color8(185,200,202))
+		textures[key]=ImageTexture.create_from_image(image)
+	art.path=key;return art
 
 func _draw_unit_card(unit: Dictionary) -> void:
 	if busy or notice_time>0 or phase_time>0:return

@@ -34,9 +34,20 @@ static func unit(game, actor: Dictionary) -> Dictionary:
 	var named={"M15_boss":"korlan","F25_boss":"pesa"}
 	if named.has(id):return entry(named[id])
 	return entry(region+"_"+role)
-static func speaker(game, name: String) -> Dictionary:
+static func dialogue_emotion(page: Dictionary) -> String:
+	if str(page.get("speaker",""))!="胡纳普":return ""
+	if not str(page.get("emotion","")).is_empty():return str(page.emotion)
+	# Exact authored dialogue lookup also supports active pages in older saves.
+	var text=str(page.get("text","")).replace("\n","")
+	return str(data().get("dialogue_emotions",{}).get(text,""))
+static func speaker(game, name: String, emotion: String="") -> Dictionary:
 	for id in game.characters:
-		if str(game.characters[id].name_zh)==name:return entry(phase_key(game,id))
+		if str(game.characters[id].name_zh)==name:
+			var key=phase_key(game,id)
+			if id=="hunapu" and not emotion.is_empty():
+				var expressive=entry(key+"_"+emotion)
+				if not expressive.is_empty():return expressive
+			return entry(key)
 	var direct={"赫兰":"herlan","科兰":"korlan","裴萨":"pesa","乌库布·卡基":"vucub","旧船员":"old_sailor","渔村长者":"island_elder","学舍导师":"scholar","船长":"sailor","舵手":"sailor","固定舵手":"sailor","船员":"sailor","求救船员":"sailor","守灯人":"sailor","矿工":"miner","洞民":"miner"}
 	if direct.has(name):return entry(direct[name])
 	var region="east" if game.chapter==2 else "west"

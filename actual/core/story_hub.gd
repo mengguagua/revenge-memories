@@ -297,6 +297,7 @@ func draw() -> void:
 		if ui.game.hub_position+facing==Vector2i(o.position[0],o.position[1]):ui._draw_indicator("down",at+Vector2(4,-8))
 	var source_id="2" if not east_data.is_empty() else "1"
 	var sp: Dictionary=ui.graphics.village_sprites[source_id]
+	if source_id=="1" and ui.has_method("_personal_hub_sprite"):sp=ui.call("_personal_hub_sprite",sp)
 	var direction="up" if facing.y<0 else "side" if facing.x!=0 else "down"
 	if motion_left<=0.0:render_position=Vector2(ui.game.hub_position)*16
 	var at=render_position+ORIGIN

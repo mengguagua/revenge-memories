@@ -1,0 +1,163 @@
+{
+  "version": "0.5.2",
+  "passed": true,
+  "scope": "12px hub caption; Hunapu native walk/battle geometry; complete executed normal/critical programs; three facial portraits.",
+  "animation_checks": 74,
+  "renderer_cases": 52,
+  "opaque_pixels_compared": 26954,
+  "pixel_differences": 0,
+  "native_battle_alpha_frames_preserved": 133,
+  "native_hub_frames_preserved": 6,
+  "package_checks": 21,
+  "source_programs": {
+    "normal": {
+      "id": 17,
+      "ticks": 203,
+      "contact_tick": 90
+    },
+    "critical": {
+      "id": 18,
+      "ticks": 263,
+      "contact_tick": 166
+    }
+  },
+  "play_rounds": [
+    {
+      "round": 1,
+      "stage": "M11",
+      "outcome": "victory",
+      "final_turn": 9.0,
+      "full_hero_actions_captured": 2,
+      "key_inputs": 337.0,
+      "stat_edits": false,
+      "forced_victories": false
+    },
+    {
+      "round": 2,
+      "stage": "M15",
+      "outcome": "victory",
+      "final_turn": 5.0,
+      "full_hero_actions_captured": 1,
+      "key_inputs": 431.0,
+      "stat_edits": false,
+      "forced_victories": false
+    }
+  ],
+  "walking_actual_keys": true,
+  "walk_direction_step_states": 8,
+  "directed_combat_fixture_cases": 6,
+  "videos": [
+    {
+      "path": "walk.mp4",
+      "frames": 129,
+      "captured_duration_ms": 2970,
+      "pixels": [
+        1704,
+        960
+      ],
+      "audio": false,
+      "timing": "Recorded wall-clock timestamps; nearest-neighbour integer 4x; 60fps delivery.",
+      "fixture": false
+    },
+    {
+      "path": "normal.mp4",
+      "frames": 224,
+      "captured_duration_ms": 4879,
+      "pixels": [
+        1704,
+        960
+      ],
+      "audio": false,
+      "timing": "Recorded wall-clock timestamps; nearest-neighbour integer 4x; 60fps delivery.",
+      "fixture": true
+    },
+    {
+      "path": "critical.mp4",
+      "frames": 298,
+      "captured_duration_ms": 6535,
+      "pixels": [
+        1704,
+        960
+      ],
+      "audio": false,
+      "timing": "Recorded wall-clock timestamps; nearest-neighbour integer 4x; 60fps delivery.",
+      "fixture": true
+    },
+    {
+      "path": "miss.mp4",
+      "frames": 214,
+      "captured_duration_ms": 4689,
+      "pixels": [
+        1704,
+        960
+      ],
+      "audio": false,
+      "timing": "Recorded wall-clock timestamps; nearest-neighbour integer 4x; 60fps delivery.",
+      "fixture": true
+    },
+    {
+      "path": "hit.mp4",
+      "frames": 219,
+      "captured_duration_ms": 4766,
+      "pixels": [
+        1704,
+        960
+      ],
+      "audio": false,
+      "timing": "Recorded wall-clock timestamps; nearest-neighbour integer 4x; 60fps delivery.",
+      "fixture": true
+    },
+    {
+      "path": "dying.mp4",
+      "frames": 240,
+      "captured_duration_ms": 5316,
+      "pixels": [
+        1704,
+        960
+      ],
+      "audio": false,
+      "timing": "Recorded wall-clock timestamps; nearest-neighbour integer 4x; 60fps delivery.",
+      "fixture": true
+    },
+    {
+      "path": "levin.mp4",
+      "frames": 292,
+      "captured_duration_ms": 7672,
+      "pixels": [
+        1704,
+        960
+      ],
+      "audio": false,
+      "timing": "Recorded wall-clock timestamps; nearest-neighbour integer 4x; 60fps delivery.",
+      "fixture": true
+    },
+    {
+      "path": "actual-attack.mp4",
+      "frames": 193,
+      "captured_duration_ms": 4223,
+      "pixels": [
+        1704,
+        960
+      ],
+      "audio": false,
+      "timing": "Recorded wall-clock timestamps; nearest-neighbour integer 4x; 60fps delivery.",
+      "fixture": false,
+      "source": "Round 1 real keyboard combat"
+    }
+  ],
+  "source_art_prompt_records": [
+    "../../source/clarity-0.5.2/present-generation.json",
+    "../../source/clarity-0.5.2/memory-generation.json",
+    "../../source/clarity-0.5.2/victory-generation.json"
+  ],
+  "generation_mode": "Built-in image_gen facial edits. Native actor skeletons use source pixel palette edits without character resampling.",
+  "background_guard": true,
+  "visible_windows": false,
+  "full_15_stage_regression": false,
+  "package": "/Users/gcc/gaocc/project/revenge-memories/actual/dist/RevengeMemories.app",
+  "pck_bytes": 123462068,
+  "pck_sha256": "851321d145c161e06ae3ab211b24817f332b8cf406191e904ab1c34e30b3abc1",
+  "codesign_verified": true,
+  "gallery": "index.html",
+  "gallery_browser_preview": "Local file URL automation is blocked; local link integrity checked. Game visuals verified with engine captures and decoded video samples."
+}

@@ -88,6 +88,7 @@ func sprite(unit: Dictionary) -> Dictionary:
 		result = result.duplicate(false)
 		result.sequences = result.sequences.duplicate(true)
 		result.sequences.idle = [int(result.background_frame_offset) + (5 if int(unit.get("hp", 182)) < 52 else 9)]
+	if ui.has_method("_personal_battle_sprite"):result=ui.call("_personal_battle_sprite",unit,result)
 	return result
 
 func _left(unit: Dictionary, exchange: Dictionary) -> bool:
@@ -129,6 +130,9 @@ func selection(event: Dictionary) -> Dictionary:
 		return {"kind": "missing", "reason": "class %d / %s / spell %d" % [_class(actor), str(actor.side), weapon], "sprite": graphic}
 	elif weapon in [1, 20, 21, 22] and _class(actor) in [12, 13, 20]:
 		base = str(schedule.get("effect_variant", ""))
+	elif graphic.has("personal_source_programs"):
+		var kind="critical" if bool(event.get("critical",false)) else "normal"
+		return {"kind":"source","key":"hunapu_"+kind,"variant":graphic.personal_source_programs[kind],"sprite":graphic}
 	elif schedule.has("native_timeline"):
 		return {"kind": "melee", "timeline": schedule.native_timeline, "sprite": graphic}
 	else:

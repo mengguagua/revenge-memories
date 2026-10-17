@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>胡纳普表情与雷电剑修复 · 0.5.3</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#14232c;color:#e7e6da;font:16px/1.75 system-ui,-apple-system,sans-serif}main{max-width:1400px;margin:auto;padding:38px 28px 64px}h1{font-size:30px;line-height:1.35;margin:0 0 16px}h2{font-size:22px;margin:34px 0 14px}p{margin:10px 0 18px}.muted{color:#afc0c8}a{color:#a7dbdb;text-decoration-thickness:1px;text-underline-offset:4px}a:focus-visible{outline:none;box-shadow:0 0 14px 4px #86c6cc66;border-radius:4px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.card{margin:0;background:#203742;border-radius:14px;overflow:hidden;box-shadow:0 8px 26px #0003}.card img,.card video{display:block;width:100%;height:auto;background:#000;image-rendering:pixelated;object-fit:contain}.card figcaption{padding:18px 22px}.card strong{display:block;font-size:18px;margin-bottom:5px}.tag{display:inline-block;border-radius:20px;background:#36555e;padding:3px 13px;color:#cce5df;font-size:13px;margin-right:8px}.checks{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}.checks span{background:#294650;border-radius:10px;padding:12px 18px}.wide{margin:20px 0}.wide img{background:#1f2c36}details{background:#203742;padding:18px 22px;border-radius:12px;margin-top:24px}summary{cursor:pointer;font-size:18px;padding:4px}summary:focus-visible{outline:none;box-shadow:0 0 12px 4px #86c6cc66;border-radius:5px}.links{display:flex;flex-wrap:wrap;gap:12px 24px}@media(max-width:760px){main{padding:24px 16px 40px}.grid{grid-template-columns:1fr}h1{font-size:25px}.card figcaption{padding:16px 18px}}
+</style>
+<main>
+<h1>胡纳普表情与雷电剑修复 · 0.5.3</h1>
+<p>嘴形、眉眼随对白情绪变化；雷电剑准备和举剑时保留完整人物。新版应用仍在 <strong>actual/dist/RevengeMemories.app</strong>，可直接双击继续试玩。</p>
+<div class="checks"><span>6 种表情 · 9 句对白</span><span>111 项针对性检查通过</span><span>61 组渲染 · 48,077 像素零差异</span><span>390 张雷电剑身体帧完整</span><span>应用包 30 项检查通过</span></div>
+<p class="muted">一轮真实按键试玩：从新游戏经过序章进入 M11，第 9 回合获胜，346 次按键，录到两次胡纳普完整攻击。全程后台视口录制，没有显示或激活游戏窗口。</p>
+
+<h2>实机对白里的表情</h2>
+<div class="grid">
+<figure class="card"><a href="live-dialogue-concern.png"><img src="live-dialogue-concern.png" alt="序章实际对白：胡纳普见艾琳被束缚，惊疑眉眼与微张嘴形"></a><figcaption><strong>惊疑 · 见艾琳被束缚</strong><span class="tag">实际按键触发 D00</span>“……艾琳？把绳子解开。”</figcaption></figure>
+<figure class="card"><a href="live-dialogue-firm.png"><img src="live-dialogue-firm.png" alt="序章实际对白：胡纳普克制询问，折线嘴形与集中眉眼"></a><figcaption><strong>克制 · 要求解释</strong><span class="tag">实际按键触发 D00</span>“你先告诉我发生了什么。”</figcaption></figure>
+<figure class="card"><a href="live-dialogue-grief.png"><img src="live-dialogue-grief.png" alt="雪原村实际对白：胡纳普悼念兄长，悲伤眼神与下弯嘴形"></a><figcaption><strong>悲伤 · 凯尔的墓前</strong><span class="tag">实际按键触发 D11</span>“名字还没刻完。”</figcaption></figure>
+<figure class="card"><a href="live-dialogue-resolve.png"><img src="live-dialogue-resolve.png" alt="雪原村实际对白：胡纳普准备出发，决意眉眼与不对称唇形"></a><figcaption><strong>决意 · 准备出发</strong><span class="tag">实际按键触发 D11</span>“科兰回旧塔堡了。我明天走。”</figcaption></figure>
+</div>
+<figure class="card wide"><a href="expression-design.png"><img src="expression-design.png" alt="六种48像素表情原生整数放大对比：惊疑、克制、悲伤、决意、怒意、释然"></a><figcaption><strong>六种表情 · 原生像素对比</strong>顺序：惊疑、克制、悲伤、决意、怒意、释然。每张48×48、最多24色；保持蓝发、轻甲与短披风。</figcaption></figure>
+<div class="grid">
+<figure class="card"><img src="fixture-dialogue-anger.png" alt="D13原对白的怒意表情渲染样例"><figcaption><strong>怒意 · 面对科兰</strong><span class="tag">D13 原对白渲染夹具</span>“所以你把他挂在营门外。” 此图为定向表情检查。</figcaption></figure>
+<figure class="card"><img src="fixture-dialogue-relief.png" alt="塔堡胜后阶段释然画像的运行预览"><figcaption><strong>释然 · 胜后阶段</strong><span class="tag">阶段预览夹具</span>柔和眉眼与上扬嘴角。用于检查阶段画像，不是新增剧情对白。</figcaption></figure>
+</div>
+
+<h2>行走与首关攻击</h2>
+<div class="grid">
+<figure class="card"><video controls preload="metadata" playsinline src="walk.mp4" poster="live-walk.png"></video><figcaption><strong>四方向行走</strong><span class="tag">真实按键行走</span>保留原版双帧手脚动作，四个方向均录到两种步态。</figcaption></figure>
+<figure class="card"><video controls preload="metadata" playsinline src="actual-attack.mp4" poster="decoded-actual-attack.png"></video><figcaption><strong>M11 实际攻击</strong><span class="tag">真实按键战斗</span>正常速度播放接近、挥剑、命中与回位，来自本轮关卡试玩。</figcaption></figure>
+</div>
+
+<h2>雷电剑 · 人物持续保留</h2>
+<div class="grid">
+<figure class="card"><video controls preload="metadata" playsinline src="levin-near.mp4" poster="live-levin-near-body.png"></video><figcaption><strong>近距离雷电剑</strong><span class="tag">独立定向场景</span>完整准备、举剑、雷电释放、命中和回位；人物身体与腿脚不再消失。</figcaption></figure>
+<figure class="card"><video controls preload="metadata" playsinline src="levin.mp4" poster="live-levin-body.png"></video><figcaption><strong>远距离雷电剑</strong><span class="tag">独立定向场景</span>同一原装备动作，保持远距离站位和原单次伤害结算。</figcaption></figure>
+<figure class="card"><a href="live-levin-near-body.png"><img src="live-levin-near-body.png" alt="近距离雷电剑实际引擎举剑截图，胡纳普全身可见"></a><figcaption><strong>近距离举剑截图</strong>取自上方定向场景的实际引擎录屏。</figcaption></figure>
+<figure class="card"><a href="live-levin-body.png"><img src="live-levin-body.png" alt="远距离雷电剑实际引擎举剑截图，胡纳普全身可见"></a><figcaption><strong>远距离举剑截图</strong>390 张蓄力画面中，每张108个身体区域像素均完整匹配，包含命中震屏阶段。</figcaption></figure>
+</div>
+<figure class="card wide"><img src="levin-before-after.png" alt="修复前只剩剑、修复后身体完整的原生帧对比"><figcaption><strong>同一帧的修复前后</strong>左：0.5.2局部图块被误当完整图片。右：0.5.3按原顺序累积写入，保留未更新的身体图块。</figcaption></figure>
+
+<details><summary>补充动作与原版骨架对比</summary>
+<p class="muted">以下普通、必杀、未命中、受击、濒死演示为独立定向场景，检查动作与结算边界；不计为自然关卡胜利。原版对比图只重放身体姿势表，不含实时战斗反馈。</p>
+<div class="grid">
+<figure class="card"><video controls preload="metadata" playsinline src="normal.mp4"></video><figcaption><strong>普通剑完整动作</strong>原程序17，203 tick，单次接触。</figcaption></figure>
+<figure class="card"><video controls preload="metadata" playsinline src="critical.mp4"></video><figcaption><strong>必杀完整动作</strong>独立原程序18，263 tick，单次现行必杀结算。</figcaption></figure>
+<figure class="card"><video controls preload="metadata" playsinline src="miss.mp4"></video><figcaption><strong>未命中与回位</strong></figcaption></figure>
+<figure class="card"><video controls preload="metadata" playsinline src="hit.mp4"></video><figcaption><strong>受击与恢复</strong></figcaption></figure>
+<figure class="card"><video controls preload="metadata" playsinline src="dying.mp4"></video><figcaption><strong>濒死边界动作</strong>独立HP边界夹具。</figcaption></figure>
+<figure class="card"><img loading="lazy" src="source-normal.gif" alt="原版与胡纳普普通剑身体姿势表同步对比"><figcaption><strong>原版普通动作逐帧对比</strong></figcaption></figure>
+<figure class="card"><img loading="lazy" src="source-critical.gif" alt="原版与胡纳普必杀身体姿势表同步对比"><figcaption><strong>原版必杀动作逐帧对比</strong></figcaption></figure>
+<figure class="card"><img loading="lazy" src="walk-comparison.png" alt="原版、旧重绘与当前原生行走骨架对比"><figcaption><strong>行走骨架保留</strong>本次沿用0.5.2已恢复的原生双帧动作。</figcaption></figure>
+</div></details>
+
+<h2>本轮试玩与验证记录</h2>
+<div class="grid">
+<figure class="card"><img loading="lazy" src="live-M11.png" alt="本轮真实按键试玩第一关开局"><figcaption><strong>M11 开局</strong>从新游戏经过序章和D11自然进入。</figcaption></figure>
+<figure class="card"><img loading="lazy" src="round1/M11-result.png" alt="本轮第一关第9回合真实胜利截图"><figcaption><strong>M11 第9回合获胜</strong>两组流民撤离、追击队长击败，无能力修改或强制胜利。</figcaption></figure>
+</div>
+<p class="muted">此轮完整关卡试玩仅M11；第二章没有重新完整通关。截图是引擎视口输出后整数倍放大，视频按录屏真实时间戳编码，均无柔化滤镜。演示视频无声。</p>
+<div class="links"><a href="animation-checks.json">111项针对性检查</a><a href="visual/pixel-checks.json">61组像素与文字安全区检查</a><a href="levin-frame-checks.json">390张举剑身体检查</a><a href="motion/motion-checks.json">行走与实际对白记录</a><a href="round1/play-checks.json">本轮完整试玩</a><a href="package-checks.json">应用包检查</a><a href="image-video-manifest.json">图片/视频尺寸与体积</a><a href="delivery-summary.json">本次交付摘要</a></div>
+</main>
+</html>
