@@ -1,0 +1,993 @@
+{
+  "background_guard": true,
+  "battles": [
+    {
+      "actions": [
+        {
+          "kind": "attack",
+          "target": "M11_e1",
+          "turn": 1,
+          "unit": "hunapu"
+        },
+        {
+          "kind": "attack",
+          "target": "M11_e2",
+          "turn": 1,
+          "unit": "daan"
+        },
+        {
+          "kind": "wait",
+          "target": "",
+          "turn": 1,
+          "unit": "otto"
+        },
+        {
+          "kind": "attack",
+          "target": "M11_e6",
+          "turn": 2,
+          "unit": "hunapu"
+        },
+        {
+          "kind": "attack",
+          "target": "M11_e6",
+          "turn": 2,
+          "unit": "daan"
+        },
+        {
+          "kind": "attack",
+          "target": "M11_e4",
+          "turn": 2,
+          "unit": "otto"
+        },
+        {
+          "kind": "attack",
+          "target": "M11_e5",
+          "turn": 3,
+          "unit": "hunapu"
+        },
+        {
+          "kind": "attack",
+          "target": "M11_e5",
+          "turn": 3,
+          "unit": "daan"
+        },
+        {
+          "kind": "attack",
+          "target": "M11_e9",
+          "turn": 3,
+          "unit": "otto"
+        },
+        {
+          "kind": "attack",
+          "target": "M11_e7",
+          "turn": 4,
+          "unit": "hunapu"
+        },
+        {
+          "kind": "wait",
+          "target": "",
+          "turn": 4,
+          "unit": "daan"
+        },
+        {
+          "kind": "wait",
+          "target": "",
+          "turn": 4,
+          "unit": "otto"
+        },
+        {
+          "kind": "attack",
+          "target": "M11_r0",
+          "turn": 5,
+          "unit": "hunapu"
+        },
+        {
+          "kind": "wait",
+          "target": "",
+          "turn": 5,
+          "unit": "daan"
+        },
+        {
+          "kind": "wait",
+          "target": "",
+          "turn": 5,
+          "unit": "otto"
+        },
+        {
+          "kind": "wait",
+          "target": "",
+          "turn": 6,
+          "unit": "hunapu"
+        },
+        {
+          "kind": "attack",
+          "target": "M11_boss",
+          "turn": 6,
+          "unit": "daan"
+        },
+        {
+          "kind": "attack",
+          "target": "M11_boss",
+          "turn": 6,
+          "unit": "otto"
+        },
+        {
+          "kind": "wait",
+          "target": "",
+          "turn": 7,
+          "unit": "hunapu"
+        },
+        {
+          "kind": "wait",
+          "target": "",
+          "turn": 7,
+          "unit": "daan"
+        },
+        {
+          "kind": "wait",
+          "target": "",
+          "turn": 7,
+          "unit": "otto"
+        },
+        {
+          "kind": "wait",
+          "target": "",
+          "turn": 8,
+          "unit": "hunapu"
+        },
+        {
+          "kind": "wait",
+          "target": "",
+          "turn": 8,
+          "unit": "daan"
+        },
+        {
+          "kind": "wait",
+          "target": "",
+          "turn": 8,
+          "unit": "otto"
+        }
+      ],
+      "code": "M11",
+      "failures": [],
+      "final_turn": 8,
+      "first_combat_turn": 1,
+      "key_inputs": 266,
+      "levelups": [
+        {
+          "after": 3.0,
+          "before": 1.0,
+          "id": "hunapu"
+        },
+        {
+          "after": 2.0,
+          "before": 1.0,
+          "id": "daan"
+        },
+        {
+          "after": 5.0,
+          "before": 2.0,
+          "id": "otto"
+        }
+      ],
+      "outcome": "victory",
+      "scope": "Normal keyboard return to preparation, world re-entry, movement, attacks and objectives. No HP/stat/position/RNG edits and no forced victory.",
+      "source": "res://reports/campaign/natural-M11-deployment-save.json",
+      "turns": [
+        {
+          "enemies": 7,
+          "hp_decreased": true,
+          "outcome": "",
+          "player_attacks": 2,
+          "turn": 1
+        },
+        {
+          "enemies": 4,
+          "hp_decreased": true,
+          "outcome": "",
+          "player_attacks": 3,
+          "turn": 2
+        },
+        {
+          "enemies": 2,
+          "hp_decreased": true,
+          "outcome": "",
+          "player_attacks": 3,
+          "turn": 3
+        },
+        {
+          "enemies": 2,
+          "hp_decreased": true,
+          "outcome": "",
+          "player_attacks": 1,
+          "turn": 4
+        },
+        {
+          "enemies": 1,
+          "hp_decreased": true,
+          "outcome": "",
+          "player_attacks": 1,
+          "turn": 5
+        },
+        {
+          "enemies": 0,
+          "hp_decreased": true,
+          "outcome": "",
+          "player_attacks": 2,
+          "turn": 6
+        },
+        {
+          "enemies": 0,
+          "hp_decreased": false,
+          "outcome": "",
+          "player_attacks": 0,
+          "turn": 7
+        },
+        {
+          "enemies": 0,
+          "hp_decreased": false,
+          "outcome": "victory",
+          "player_attacks": 0,
+          "turn": 8
+        }
+      ]
+    }
+  ],
+  "captures": true,
+  "checkpoints": [
+    {
+      "name": "M11-entry",
+      "save": "res://reports/playtest-0.5.0/visual-preview-M11-2/M11-entry.json",
+      "stage": 101,
+      "turn": 1,
+      "view": "battle"
+    },
+    {
+      "name": "M11-field",
+      "save": "res://reports/playtest-0.5.0/visual-preview-M11-2/M11-field.json",
+      "stage": 101,
+      "turn": 3,
+      "view": "battle"
+    },
+    {
+      "name": "M11-victory",
+      "save": "res://reports/playtest-0.5.0/visual-preview-M11-2/M11-victory.json",
+      "stage": 101,
+      "turn": 8,
+      "view": "victory"
+    }
+  ],
+  "failures": [],
+  "forced_victories": false,
+  "key_inputs": 266,
+  "passed": true,
+  "round": 1,
+  "shots": [
+    {
+      "card": {
+        "focus": "[P: (42.0, 148.0), S: (28.0, 36.0)]",
+        "panel": "[P: (-74.0, 48.0), S: (144.0, 92.0)]",
+        "valid": true
+      },
+      "cursor": [
+        6,
+        13
+      ],
+      "fixture": false,
+      "layout_errors": [],
+      "path": "res://reports/playtest-0.5.0/visual-preview-M11-2/M11-entry.png",
+      "source": "res://reports/campaign/natural-M11-deployment-save.json",
+      "stage": "M11",
+      "text_checks": [
+        {
+          "bounds": "[P: (-62.0, 60.0), S: (36.0, 12.0)]",
+          "text": "胡纳普"
+        },
+        {
+          "bounds": "[P: (-62.0, 78.0), S: (44.0, 8.0)]",
+          "font_px": 8,
+          "text": "等级1 经验0"
+        },
+        {
+          "bounds": "[P: (-62.0, 90.0), S: (36.0, 8.0)]",
+          "font_px": 8,
+          "text": "生命28/28"
+        },
+        {
+          "bounds": "[P: (-62.0, 122.0), S: (44.0, 8.0)]",
+          "font_px": 8,
+          "text": "雪地 回避+0"
+        },
+        {
+          "bounds": "[P: (-67.0, 18.0), S: (92.0, 8.0)]",
+          "font_px": 8,
+          "text": "护送出口 · 北方 · S定位"
+        }
+      ],
+      "turn": 1,
+      "view": "battle"
+    },
+    {
+      "card": {
+        "focus": "[P: (42.0, 148.0), S: (28.0, 36.0)]",
+        "panel": "[P: (-74.0, 48.0), S: (144.0, 92.0)]",
+        "valid": true
+      },
+      "cursor": [
+        16,
+        3
+      ],
+      "fixture": false,
+      "layout_errors": [],
+      "path": "res://reports/playtest-0.5.0/visual-preview-M11-2/M11-visible-exit.png",
+      "source": "res://reports/campaign/natural-M11-deployment-save.json",
+      "stage": "M11",
+      "text_checks": [
+        {
+          "bounds": "[P: (200.0, 14.0), S: (32.0, 8.0)]",
+          "font_px": 8,
+          "text": "护送出口"
+        },
+        {
+          "bounds": "[P: (196.0, 86.0), S: (24.0, 12.0)]",
+          "text": "雪地"
+        },
+        {
+          "bounds": "[P: (188.0, 102.0), S: (40.0, 12.0)]",
+          "text": "回避+0"
+        },
+        {
+          "bounds": "[P: (162.0, 118.0), S: (92.0, 12.0)]",
+          "text": "胡纳普移动消耗1"
+        }
+      ],
+      "turn": 1,
+      "view": "battle"
+    },
+    {
+      "card": {
+        "focus": "[P: (42.0, 148.0), S: (28.0, 36.0)]",
+        "panel": "[P: (-74.0, 48.0), S: (144.0, 92.0)]",
+        "valid": true
+      },
+      "cursor": [
+        16,
+        4
+      ],
+      "fixture": false,
+      "layout_errors": [],
+      "path": "res://reports/playtest-0.5.0/visual-preview-M11-2/M11-captain-portrait.png",
+      "source": "res://reports/campaign/natural-M11-deployment-save.json",
+      "stage": "M11",
+      "text_checks": [
+        {
+          "bounds": "[P: (200.0, 14.0), S: (32.0, 8.0)]",
+          "font_px": 8,
+          "text": "护送出口"
+        },
+        {
+          "bounds": "[P: (96.0, 40.0), S: (48.0, 12.0)]",
+          "text": "追击队长"
+        },
+        {
+          "bounds": "[P: (96.0, 56.0), S: (72.0, 12.0)]",
+          "text": "等级4 经验0"
+        },
+        {
+          "bounds": "[P: (96.0, 72.0), S: (64.0, 12.0)]",
+          "text": "生命32/32"
+        },
+        {
+          "bounds": "[P: (32.0, 108.0), S: (24.0, 12.0)]",
+          "text": "攻击"
+        },
+        {
+          "bounds": "[P: (200.0, 108.0), S: (16.0, 8.0)]",
+          "text": "10"
+        },
+        {
+          "bounds": "[P: (32.0, 124.0), S: (24.0, 12.0)]",
+          "text": "技巧"
+        },
+        {
+          "bounds": "[P: (200.0, 124.0), S: (8.0, 8.0)]",
+          "text": "6"
+        },
+        {
+          "bounds": "[P: (32.0, 140.0), S: (24.0, 12.0)]",
+          "text": "速度"
+        },
+        {
+          "bounds": "[P: (200.0, 140.0), S: (8.0, 8.0)]",
+          "text": "4"
+        },
+        {
+          "bounds": "[P: (32.0, 156.0), S: (24.0, 12.0)]",
+          "text": "幸运"
+        },
+        {
+          "bounds": "[P: (200.0, 156.0), S: (8.0, 8.0)]",
+          "text": "0"
+        },
+        {
+          "bounds": "[P: (32.0, 172.0), S: (24.0, 12.0)]",
+          "text": "防御"
+        },
+        {
+          "bounds": "[P: (200.0, 172.0), S: (8.0, 8.0)]",
+          "text": "5"
+        },
+        {
+          "bounds": "[P: (32.0, 188.0), S: (24.0, 12.0)]",
+          "text": "移动"
+        },
+        {
+          "bounds": "[P: (200.0, 188.0), S: (8.0, 8.0)]",
+          "text": "4"
+        },
+        {
+          "bounds": "[P: (98.0, 202.0), S: (60.0, 12.0)]",
+          "text": "装备：钢枪"
+        }
+      ],
+      "turn": 1,
+      "view": "battle"
+    },
+    {
+      "card": {
+        "focus": "[P: (42.0, 148.0), S: (28.0, 36.0)]",
+        "panel": "[P: (-74.0, 48.0), S: (144.0, 92.0)]",
+        "valid": true
+      },
+      "cursor": [
+        13,
+        5
+      ],
+      "fixture": false,
+      "layout_errors": [],
+      "path": "res://reports/playtest-0.5.0/visual-preview-M11-2/M11-archer-portrait.png",
+      "source": "res://reports/campaign/natural-M11-deployment-save.json",
+      "stage": "M11",
+      "text_checks": [
+        {
+          "bounds": "[P: (200.0, 14.0), S: (32.0, 8.0)]",
+          "font_px": 8,
+          "text": "护送出口"
+        },
+        {
+          "bounds": "[P: (96.0, 40.0), S: (24.0, 12.0)]",
+          "text": "弓手"
+        },
+        {
+          "bounds": "[P: (96.0, 56.0), S: (72.0, 12.0)]",
+          "text": "等级1 经验0"
+        },
+        {
+          "bounds": "[P: (96.0, 72.0), S: (64.0, 12.0)]",
+          "text": "生命20/20"
+        },
+        {
+          "bounds": "[P: (32.0, 108.0), S: (24.0, 12.0)]",
+          "text": "攻击"
+        },
+        {
+          "bounds": "[P: (200.0, 108.0), S: (8.0, 8.0)]",
+          "text": "7"
+        },
+        {
+          "bounds": "[P: (32.0, 124.0), S: (24.0, 12.0)]",
+          "text": "技巧"
+        },
+        {
+          "bounds": "[P: (200.0, 124.0), S: (8.0, 8.0)]",
+          "text": "3"
+        },
+        {
+          "bounds": "[P: (32.0, 140.0), S: (24.0, 12.0)]",
+          "text": "速度"
+        },
+        {
+          "bounds": "[P: (200.0, 140.0), S: (8.0, 8.0)]",
+          "text": "3"
+        },
+        {
+          "bounds": "[P: (32.0, 156.0), S: (24.0, 12.0)]",
+          "text": "幸运"
+        },
+        {
+          "bounds": "[P: (200.0, 156.0), S: (8.0, 8.0)]",
+          "text": "0"
+        },
+        {
+          "bounds": "[P: (32.0, 172.0), S: (24.0, 12.0)]",
+          "text": "防御"
+        },
+        {
+          "bounds": "[P: (200.0, 172.0), S: (8.0, 8.0)]",
+          "text": "3"
+        },
+        {
+          "bounds": "[P: (32.0, 188.0), S: (24.0, 12.0)]",
+          "text": "移动"
+        },
+        {
+          "bounds": "[P: (200.0, 188.0), S: (8.0, 8.0)]",
+          "text": "4"
+        },
+        {
+          "bounds": "[P: (98.0, 202.0), S: (60.0, 12.0)]",
+          "text": "未携带装备"
+        }
+      ],
+      "turn": 1,
+      "view": "battle"
+    },
+    {
+      "card": {
+        "focus": "[P: (90.0, 100.0), S: (28.0, 36.0)]",
+        "panel": "[P: (-64.0, 44.0), S: (144.0, 92.0)]",
+        "valid": true
+      },
+      "cursor": [
+        9,
+        10
+      ],
+      "fixture": false,
+      "layout_errors": [],
+      "path": "res://reports/playtest-0.5.0/visual-preview-M11-2/M11-field.png",
+      "source": "res://reports/campaign/natural-M11-deployment-save.json",
+      "stage": "M11",
+      "text_checks": [
+        {
+          "bounds": "[P: (-52.0, 56.0), S: (36.0, 12.0)]",
+          "text": "胡纳普"
+        },
+        {
+          "bounds": "[P: (-52.0, 74.0), S: (48.0, 8.0)]",
+          "font_px": 8,
+          "text": "等级1 经验85"
+        },
+        {
+          "bounds": "[P: (-52.0, 86.0), S: (36.0, 8.0)]",
+          "font_px": 8,
+          "text": "生命23/28"
+        },
+        {
+          "bounds": "[P: (-52.0, 118.0), S: (44.0, 8.0)]",
+          "font_px": 8,
+          "text": "雪地 回避+0"
+        },
+        {
+          "bounds": "[P: (-67.0, 18.0), S: (92.0, 8.0)]",
+          "font_px": 8,
+          "text": "护送出口 · 北方 · S定位"
+        }
+      ],
+      "turn": 3,
+      "view": "battle"
+    },
+    {
+      "card": {
+        "focus": "[P: (90.0, 100.0), S: (28.0, 36.0)]",
+        "panel": "[P: (-64.0, 44.0), S: (144.0, 92.0)]",
+        "valid": true
+      },
+      "cursor": [
+        16,
+        4
+      ],
+      "fixture": false,
+      "layout_errors": [],
+      "path": "res://reports/playtest-0.5.0/visual-preview-M11-2/M11-levelup-otto-4.png",
+      "source": "res://reports/campaign/natural-M11-deployment-save.json",
+      "stage": "M11",
+      "text_checks": [
+        {
+          "bounds": "[P: (200.0, 14.0), S: (32.0, 8.0)]",
+          "font_px": 8,
+          "text": "护送出口"
+        },
+        {
+          "bounds": "[P: (104.0, 40.0), S: (48.0, 12.0)]",
+          "text": "等级提升"
+        },
+        {
+          "bounds": "[P: (40.0, 70.0), S: (96.0, 12.0)]",
+          "text": "奥托 等级3升至4"
+        },
+        {
+          "bounds": "[P: (40.0, 88.0), S: (112.0, 12.0)]",
+          "text": "经验91 +16 剩余7"
+        },
+        {
+          "bounds": "[P: (40.0, 120.0), S: (24.0, 12.0)]",
+          "text": "生命"
+        },
+        {
+          "bounds": "[P: (160.0, 120.0), S: (16.0, 8.0)]",
+          "text": "23"
+        },
+        {
+          "bounds": "[P: (192.0, 120.0), S: (16.0, 12.0)]",
+          "text": "+1"
+        },
+        {
+          "bounds": "[P: (40.0, 134.0), S: (24.0, 12.0)]",
+          "text": "攻击"
+        },
+        {
+          "bounds": "[P: (160.0, 134.0), S: (16.0, 8.0)]",
+          "text": "11"
+        },
+        {
+          "bounds": "[P: (40.0, 148.0), S: (24.0, 12.0)]",
+          "text": "技巧"
+        },
+        {
+          "bounds": "[P: (160.0, 148.0), S: (8.0, 8.0)]",
+          "text": "4"
+        },
+        {
+          "bounds": "[P: (40.0, 162.0), S: (24.0, 12.0)]",
+          "text": "速度"
+        },
+        {
+          "bounds": "[P: (160.0, 162.0), S: (8.0, 8.0)]",
+          "text": "4"
+        },
+        {
+          "bounds": "[P: (40.0, 176.0), S: (24.0, 12.0)]",
+          "text": "幸运"
+        },
+        {
+          "bounds": "[P: (160.0, 176.0), S: (8.0, 8.0)]",
+          "text": "2"
+        },
+        {
+          "bounds": "[P: (40.0, 190.0), S: (24.0, 12.0)]",
+          "text": "防御"
+        },
+        {
+          "bounds": "[P: (160.0, 190.0), S: (8.0, 8.0)]",
+          "text": "7"
+        },
+        {
+          "bounds": "[P: (104.0, 208.0), S: (48.0, 12.0)]",
+          "text": "确认继续"
+        }
+      ],
+      "turn": 6,
+      "view": "reward"
+    },
+    {
+      "card": {
+        "focus": "[P: (90.0, 100.0), S: (28.0, 36.0)]",
+        "panel": "[P: (-64.0, 44.0), S: (144.0, 92.0)]",
+        "valid": true
+      },
+      "cursor": [
+        16,
+        3
+      ],
+      "fixture": false,
+      "layout_errors": [],
+      "path": "res://reports/playtest-0.5.0/visual-preview-M11-2/M11-levelup-hunapu-3.png",
+      "source": "res://reports/campaign/natural-M11-deployment-save.json",
+      "stage": "M11",
+      "text_checks": [
+        {
+          "bounds": "[P: (200.0, 14.0), S: (32.0, 8.0)]",
+          "font_px": 8,
+          "text": "护送出口"
+        },
+        {
+          "bounds": "[P: (104.0, 40.0), S: (48.0, 12.0)]",
+          "text": "等级提升"
+        },
+        {
+          "bounds": "[P: (40.0, 70.0), S: (108.0, 12.0)]",
+          "text": "胡纳普 等级2升至3"
+        },
+        {
+          "bounds": "[P: (40.0, 88.0), S: (120.0, 12.0)]",
+          "text": "经验55 +70 剩余25"
+        },
+        {
+          "bounds": "[P: (40.0, 120.0), S: (24.0, 12.0)]",
+          "text": "生命"
+        },
+        {
+          "bounds": "[P: (160.0, 120.0), S: (16.0, 8.0)]",
+          "text": "29"
+        },
+        {
+          "bounds": "[P: (192.0, 120.0), S: (16.0, 12.0)]",
+          "text": "+1"
+        },
+        {
+          "bounds": "[P: (40.0, 134.0), S: (24.0, 12.0)]",
+          "text": "攻击"
+        },
+        {
+          "bounds": "[P: (160.0, 134.0), S: (16.0, 8.0)]",
+          "text": "10"
+        },
+        {
+          "bounds": "[P: (40.0, 148.0), S: (24.0, 12.0)]",
+          "text": "技巧"
+        },
+        {
+          "bounds": "[P: (160.0, 148.0), S: (8.0, 8.0)]",
+          "text": "8"
+        },
+        {
+          "bounds": "[P: (192.0, 148.0), S: (16.0, 12.0)]",
+          "text": "+1"
+        },
+        {
+          "bounds": "[P: (40.0, 162.0), S: (24.0, 12.0)]",
+          "text": "速度"
+        },
+        {
+          "bounds": "[P: (160.0, 162.0), S: (8.0, 8.0)]",
+          "text": "6"
+        },
+        {
+          "bounds": "[P: (40.0, 176.0), S: (24.0, 12.0)]",
+          "text": "幸运"
+        },
+        {
+          "bounds": "[P: (160.0, 176.0), S: (8.0, 8.0)]",
+          "text": "8"
+        },
+        {
+          "bounds": "[P: (40.0, 190.0), S: (24.0, 12.0)]",
+          "text": "防御"
+        },
+        {
+          "bounds": "[P: (160.0, 190.0), S: (8.0, 8.0)]",
+          "text": "6"
+        },
+        {
+          "bounds": "[P: (104.0, 208.0), S: (48.0, 12.0)]",
+          "text": "确认继续"
+        }
+      ],
+      "turn": 8,
+      "view": "reward"
+    },
+    {
+      "card": {
+        "focus": "[P: (90.0, 100.0), S: (28.0, 36.0)]",
+        "panel": "[P: (-64.0, 44.0), S: (144.0, 92.0)]",
+        "valid": true
+      },
+      "cursor": [
+        16,
+        3
+      ],
+      "fixture": false,
+      "layout_errors": [],
+      "path": "res://reports/playtest-0.5.0/visual-preview-M11-2/M11-levelup-daan-2.png",
+      "source": "res://reports/campaign/natural-M11-deployment-save.json",
+      "stage": "M11",
+      "text_checks": [
+        {
+          "bounds": "[P: (200.0, 14.0), S: (32.0, 8.0)]",
+          "font_px": 8,
+          "text": "护送出口"
+        },
+        {
+          "bounds": "[P: (104.0, 40.0), S: (48.0, 12.0)]",
+          "text": "等级提升"
+        },
+        {
+          "bounds": "[P: (40.0, 70.0), S: (96.0, 12.0)]",
+          "text": "达恩 等级1升至2"
+        },
+        {
+          "bounds": "[P: (40.0, 88.0), S: (120.0, 12.0)]",
+          "text": "经验96 +74 剩余70"
+        },
+        {
+          "bounds": "[P: (40.0, 120.0), S: (24.0, 12.0)]",
+          "text": "生命"
+        },
+        {
+          "bounds": "[P: (160.0, 120.0), S: (16.0, 8.0)]",
+          "text": "23"
+        },
+        {
+          "bounds": "[P: (40.0, 134.0), S: (24.0, 12.0)]",
+          "text": "攻击"
+        },
+        {
+          "bounds": "[P: (160.0, 134.0), S: (16.0, 8.0)]",
+          "text": "11"
+        },
+        {
+          "bounds": "[P: (40.0, 148.0), S: (24.0, 12.0)]",
+          "text": "技巧"
+        },
+        {
+          "bounds": "[P: (160.0, 148.0), S: (8.0, 8.0)]",
+          "text": "6"
+        },
+        {
+          "bounds": "[P: (40.0, 162.0), S: (24.0, 12.0)]",
+          "text": "速度"
+        },
+        {
+          "bounds": "[P: (160.0, 162.0), S: (8.0, 8.0)]",
+          "text": "4"
+        },
+        {
+          "bounds": "[P: (40.0, 176.0), S: (24.0, 12.0)]",
+          "text": "幸运"
+        },
+        {
+          "bounds": "[P: (160.0, 176.0), S: (8.0, 8.0)]",
+          "text": "7"
+        },
+        {
+          "bounds": "[P: (192.0, 176.0), S: (16.0, 12.0)]",
+          "text": "+1"
+        },
+        {
+          "bounds": "[P: (40.0, 190.0), S: (24.0, 12.0)]",
+          "text": "防御"
+        },
+        {
+          "bounds": "[P: (160.0, 190.0), S: (8.0, 8.0)]",
+          "text": "4"
+        },
+        {
+          "bounds": "[P: (104.0, 208.0), S: (48.0, 12.0)]",
+          "text": "确认继续"
+        }
+      ],
+      "turn": 8,
+      "view": "reward"
+    },
+    {
+      "card": {
+        "focus": "[P: (90.0, 100.0), S: (28.0, 36.0)]",
+        "panel": "[P: (-64.0, 44.0), S: (144.0, 92.0)]",
+        "valid": true
+      },
+      "cursor": [
+        16,
+        3
+      ],
+      "fixture": false,
+      "layout_errors": [],
+      "path": "res://reports/playtest-0.5.0/visual-preview-M11-2/M11-levelup-otto-5.png",
+      "source": "res://reports/campaign/natural-M11-deployment-save.json",
+      "stage": "M11",
+      "text_checks": [
+        {
+          "bounds": "[P: (200.0, 14.0), S: (32.0, 8.0)]",
+          "font_px": 8,
+          "text": "护送出口"
+        },
+        {
+          "bounds": "[P: (104.0, 40.0), S: (48.0, 12.0)]",
+          "text": "等级提升"
+        },
+        {
+          "bounds": "[P: (40.0, 70.0), S: (96.0, 12.0)]",
+          "text": "奥托 等级4升至5"
+        },
+        {
+          "bounds": "[P: (40.0, 88.0), S: (120.0, 12.0)]",
+          "text": "经验71 +73 剩余44"
+        },
+        {
+          "bounds": "[P: (40.0, 120.0), S: (24.0, 12.0)]",
+          "text": "生命"
+        },
+        {
+          "bounds": "[P: (160.0, 120.0), S: (16.0, 8.0)]",
+          "text": "23"
+        },
+        {
+          "bounds": "[P: (40.0, 134.0), S: (24.0, 12.0)]",
+          "text": "攻击"
+        },
+        {
+          "bounds": "[P: (160.0, 134.0), S: (16.0, 8.0)]",
+          "text": "11"
+        },
+        {
+          "bounds": "[P: (40.0, 148.0), S: (24.0, 12.0)]",
+          "text": "技巧"
+        },
+        {
+          "bounds": "[P: (160.0, 148.0), S: (8.0, 8.0)]",
+          "text": "4"
+        },
+        {
+          "bounds": "[P: (40.0, 162.0), S: (24.0, 12.0)]",
+          "text": "速度"
+        },
+        {
+          "bounds": "[P: (160.0, 162.0), S: (8.0, 8.0)]",
+          "text": "4"
+        },
+        {
+          "bounds": "[P: (40.0, 176.0), S: (24.0, 12.0)]",
+          "text": "幸运"
+        },
+        {
+          "bounds": "[P: (160.0, 176.0), S: (8.0, 8.0)]",
+          "text": "2"
+        },
+        {
+          "bounds": "[P: (40.0, 190.0), S: (24.0, 12.0)]",
+          "text": "防御"
+        },
+        {
+          "bounds": "[P: (160.0, 190.0), S: (8.0, 8.0)]",
+          "text": "8"
+        },
+        {
+          "bounds": "[P: (192.0, 190.0), S: (16.0, 12.0)]",
+          "text": "+1"
+        },
+        {
+          "bounds": "[P: (104.0, 208.0), S: (48.0, 12.0)]",
+          "text": "确认继续"
+        }
+      ],
+      "turn": 8,
+      "view": "reward"
+    },
+    {
+      "card": {
+        "focus": "[P: (90.0, 100.0), S: (28.0, 36.0)]",
+        "panel": "[P: (-64.0, 44.0), S: (144.0, 92.0)]",
+        "valid": true
+      },
+      "cursor": [
+        16,
+        3
+      ],
+      "fixture": false,
+      "layout_errors": [],
+      "path": "res://reports/playtest-0.5.0/visual-preview-M11-2/M11-result.png",
+      "source": "res://reports/campaign/natural-M11-deployment-save.json",
+      "stage": "M11",
+      "text_checks": [
+        {
+          "bounds": "[P: (200.0, 14.0), S: (32.0, 8.0)]",
+          "font_px": 8,
+          "text": "护送出口"
+        },
+        {
+          "bounds": "[P: (104.0, 60.0), S: (48.0, 12.0)]",
+          "text": "战斗胜利"
+        },
+        {
+          "bounds": "[P: (104.0, 88.0), S: (48.0, 12.0)]",
+          "text": "流民林路"
+        },
+        {
+          "bounds": "[P: (86.0, 104.0), S: (84.0, 12.0)]",
+          "text": "战场目标已达成"
+        },
+        {
+          "bounds": "[P: (68.0, 120.0), S: (120.0, 12.0)]",
+          "text": "过关经验与成长已保存"
+        },
+        {
+          "bounds": "[P: (92.0, 182.0), S: (72.0, 12.0)]",
+          "text": "确认继续前进"
+        }
+      ],
+      "turn": 8,
+      "view": "victory"
+    }
+  ],
+  "stat_edits": false,
+  "visible_windows": false
+}

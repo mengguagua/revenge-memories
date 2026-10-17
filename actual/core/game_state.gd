@@ -3,6 +3,8 @@ extends "res://core/legacy_game_state.gd"
 const ChapterTwo = preload("res://core/chapter2_rules.gd")
 const Equipment = preload("res://core/equipment_supply.gd")
 const Casualties = preload("res://core/casualty_rules.gd")
+const CampaignTactics = preload("res://core/campaign_tactics.gd")
+const CampaignExperience = preload("res://core/campaign_experience.gd")
 const CAMPAIGN_ID := "revenge-memories-1"
 const SAVE_FIELDS := ["chapter","route","parties","route_positions","previous_world_node","convoy","hub_id","hub_position","battle_return","battle_settled","story_events","stage_id","world_node","cleared_stages","roster","battle_start_snapshot","victory_rewards","flags","party","mode","units","phase","turn","rng_state","frame_counter","kills","selected_id","cursor","move_origin","battle_outcome"]
 var campaign: Dictionary
@@ -59,6 +61,12 @@ func can_switch_route() -> bool:return false
 func can_return_to_final_preparation() -> bool:return false
 func needs_terrain_recovery() -> bool:return false
 
+func exit_marker() -> Dictionary:
+	if stage_id==112:return {"position":battle_data.targets[0],"label":"药车目的地"}
+	if stage_id==105:return {"position":battle_data.exit,"label":"北门敌军退路"}
+	if stage_id in [101,111,202,211,212]:return {"position":battle_data.exit,"label":"护送出口"}
+	return {}
+
 func allowed_world_nodes() -> Array[int]:
 	if chapter==2:return ChapterTwo.allowed_nodes(self)
 	var result: Array[int]=[1]
@@ -111,7 +119,7 @@ func start_battle(id: int=101,_groups: Array=[],_from_hub: bool=false) -> bool:
 		var u: Dictionary=battle_data.enemies[i].duplicate(true);u.enemy_slot=i;units.append(u)
 	for raw in battle_data.npc_units:
 		var u: Dictionary=raw.duplicate(true);u.player_slot=slot;u.route=route
-		if not u.get("battle_guard",false):u.move=2
+		if not u.get("battle_guard",false):u.move=int(battle_data.get("escort_move",2))
 		slot+=1;units.append(u)
 	turn=1;phase="player";kills=0;selected_id="";battle_outcome="";battle_settled=false
 	flags.quest={"objects":{},"evacuated":[],"freed":[],"burn_streak":0,"reinforced":false,"mid_done":false}
@@ -206,9 +214,14 @@ func ai_action(unit: Dictionary,gather: bool=false) -> Dictionary:
 	return action
 
 func _campaign_ai_action(unit: Dictionary,gather: bool=false) -> Dictionary:
+	if unit.get("quest_kind","") in ["escort","medicine","prisoner","patient","sailor"] and not unit.get("locked",false):
+		if living("enemy").is_empty() and (battle_data.reinforcements.is_empty() or flags.quest.get("reinforced",false)):
+			unit.move=maxi(5,int(unit.move))
 	if stage_id>=200:
 		var override=ChapterTwo.ai_action(self,unit)
 		if not override.is_empty():return override
+	var ranged=CampaignTactics.action(self,unit,gather)
+	if not ranged.is_empty():return ranged
 	if unit.has("quest_kind"):
 		if bool(unit.get("locked",false)) or str(unit.quest_kind)=="witness":return {"destination":pos(unit),"target":""}
 		# Escorted groups wait at an enemy-held stretch instead of marching into it.
@@ -388,9 +401,9 @@ func complete_battle() -> bool:
 			Casualties.enter_dying(self,unit)
 			Inventory.on_death(self,unit)
 		else:
-			var before=int(unit.get("exp",0));var gain=Rules.victory_experience_gain(unit)
-			unit.exp=mini(99,before+gain)
-			if gain>0:victory_rewards.append({"unit":str(unit.id),"gain":gain,"exp_before":before,"exp_after":int(unit.exp),"actual_gain":int(unit.exp)-before})
+			var gain=Rules.victory_experience_gain(unit)
+			if int(unit.level)<20 and not unit.get("no_experience",false):gain+=int(stages[stage_id].get("clear_training_exp",0))
+			if gain>0:victory_rewards.append(CampaignExperience.award(self,unit,gain))
 		var persistent: Dictionary=unit.duplicate(true)
 		persistent.dead=false;persistent.acted=false;Casualties.initialize_unit(persistent)
 		roster[str(unit.id)]=persistent
@@ -448,6 +461,7 @@ func load_game() -> bool:
 	for array in [units,battle_start_snapshot.get("units",[])]:
 		for unit in array:
 			if str(unit.id)=="medicine_wagon":unit.no_counter=true;unit.event_object=true
+			if str(unit.id)=="M11_boss":unit.name_zh="追击队长";unit.objective_boss=true
 	hub_record=str(s.get("hub_record","H01"));battle_data=stages[stage_id].duplicate(true)
 	# In-progress battles retain their geometry until a normal retry/re-entry.
 	# New walls and cargo must never appear underneath an old saved formation.

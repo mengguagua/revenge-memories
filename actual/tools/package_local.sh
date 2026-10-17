@@ -10,7 +10,7 @@ cp dist/RevengeMemories.pck "$campaign_app/Contents/Resources/RevengeMemories.pc
 python3 - <<'PY'
 from pathlib import Path
 import plistlib
-p={'CFBundleName':'复仇与回忆','CFBundleDisplayName':'复仇与回忆 · 第二章','CFBundleIdentifier':'local.revenge-memories.actual','CFBundleExecutable':'RevengeMemories','CFBundlePackageType':'APPL','CFBundleShortVersionString':'0.4.0','CFBundleVersion':'0.4.0','NSHighResolutionCapable':True,'LSMinimumSystemVersion':'11.0','LSApplicationCategoryType':'public.app-category.games'}
+p={'CFBundleName':'复仇与回忆','CFBundleDisplayName':'复仇与回忆 · 第二章','CFBundleIdentifier':'local.revenge-memories.actual','CFBundleExecutable':'RevengeMemories','CFBundlePackageType':'APPL','CFBundleShortVersionString':'0.5.0','CFBundleVersion':'0.5.0','NSHighResolutionCapable':True,'LSMinimumSystemVersion':'11.0','LSApplicationCategoryType':'public.app-category.games'}
 Path('dist/RevengeMemories.app/Contents/Info.plist').write_bytes(plistlib.dumps(p))
 PY
 chmod +x "$campaign_app/Contents/MacOS/RevengeMemories"

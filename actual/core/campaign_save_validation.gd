@@ -400,7 +400,7 @@ static func campaign_valid(game, state: Dictionary, fields: Array) -> bool:
 
 static func campaign_stage(game, id: int, revision: String="") -> Dictionary:
 	var stage: Dictionary=game.stages[id]
-	if revision not in ["0.2.0","0.2.1","0.3.0","0.3.4"] or revision==str(stage.get("tactical_review_version","0.2.0")):return stage
+	if revision not in ["0.2.0","0.2.1","0.3.0","0.3.1","0.3.4","0.3.5","0.3.6","0.4.0","0.5.0"] or revision==str(stage.get("tactical_review_version","0.2.0")):return stage
 	var path="res://data/compat/"+revision+"/"+str(stage.code)+".json"
 	if not FileAccess.file_exists(path) and revision=="0.2.0":path="res://data/compat/0.2.1/"+str(stage.code)+".json"
 	if not FileAccess.file_exists(path):return stage

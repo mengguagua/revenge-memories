@@ -1,6 +1,11 @@
 extends "res://core/legacy_main.gd"
 ## Original native combat controller, new world / story / hub presentation.
 const EnvironmentBorder = preload("res://core/environment_border.gd")
+const BattlePanels = preload("res://core/battle_panel_layout.gd")
+const Portraits = preload("res://core/portrait_library.gd")
+var battle_card_audit: Dictionary={}
+var training_reward_open := false
+var objective_badge_rect := Rect2()
 var battle_pack: Dictionary
 var nature_layouts: Dictionary
 var nature_sprites: Dictionary={}
@@ -100,6 +105,8 @@ func _begin_existing_battle() -> void:
 	super._begin_existing_battle()
 
 func _accept() -> void:
+	if view=="reward" and training_reward_open:
+		training_reward_open=false;view="victory";return
 	if view=="plot":_advance_plot();return
 	if view=="overview":view="world";return
 	if view=="chapter_end" and menu_items.is_empty():
@@ -167,6 +174,12 @@ func _menu_action(action: String,context: String) -> void:
 		return
 	if action.begins_with("hub:"):hub_controller.action(action.substr(4));return
 	match action:
+		"new:focus_exit":
+			_clear_menu();ui_mode="inspect";var marker=game.exit_marker()
+			if not marker.is_empty():game.cursor=Vector2i(marker.position[0],marker.position[1]);_focus_battle(game.cursor,true)
+		"new:focus_boss":
+			_clear_menu();ui_mode="inspect";var boss=game.find_unit(str(game.battle_data.boss_id))
+			if not boss.is_empty() and int(boss.hp)>0:game.cursor=game.pos(boss);_focus_battle(game.cursor,true)
 		"new:chapter2":
 			if game.begin_chapter_two():
 				busy=false;batch_running=false;ui_mode="inspect";held_direction=Vector2i.ZERO
@@ -187,6 +200,8 @@ func _menu_action(action: String,context: String) -> void:
 		"new:save","save":_notice("进度已保存" if game.save_game() else "保存失败")
 		"new:goal":
 			var text=str(game.battle_data.goal)
+			if not game.exit_marker().is_empty():text+="\n出口有旗标。S菜单可定位出口与首领。"
+			else:text+="\n首领有橙色旗标。S菜单可定位首领。"
 			if game.battle_data.code=="M15":text+="\n科兰第6回合半血撤离，最晚第8回合；沿东侧栈道尽头封住北门退路。"
 			var pages=[{"speaker":"战场提示","text":text}]
 			if game.stage_id>=200:
@@ -195,6 +210,14 @@ func _menu_action(action: String,context: String) -> void:
 			await play_pages(pages,"battle")
 		"new:overview":view="overview"
 		_:super._menu_action(action,context)
+
+func play_victory_rewards() -> void:
+	for record in game.victory_rewards:
+		if not record.get("leveled",false):continue
+		reward=record.duplicate(true);reward_elapsed=0.0;training_reward_open=true;view="reward";busy=false
+		audio.play_jingle("levelup")
+		while training_reward_open:await get_tree().process_frame
+	view="victory"
 
 func _unit_action_menu() -> void:
 	super._unit_action_menu()
@@ -208,6 +231,9 @@ func _open_system_menu() -> void:
 	super._open_system_menu()
 	if view=="battle" and not menu_items.is_empty():
 		menu_items.append("战场目标");menu_actions.append("new:goal")
+		if not game.exit_marker().is_empty():menu_items.append("定位出口或目的地");menu_actions.append("new:focus_exit")
+		var boss=game.find_unit(str(game.battle_data.boss_id))
+		if not boss.is_empty() and int(boss.hp)>0:menu_items.append("定位首领："+str(boss.name_zh));menu_actions.append("new:focus_boss")
 		menu_items.append("返回整备（重置本战）");menu_actions.append("new:prepare")
 
 func _show_status() -> void:
@@ -291,9 +317,15 @@ func _resume_plot() -> void:
 
 func _speaker_portrait(speaker: String) -> Dictionary:
 	if speaker in NARRATOR_SPEAKERS:return {}
-	for id in game.characters:
-		if str(game.characters[id].name_zh)==speaker:return _portrait(int(game.characters[id].character_id))
-	return graphics.portraits_by_index.get(str(NPC_PORTRAITS.get(speaker,26)),{})
+	return Portraits.speaker(game,speaker)
+
+func _unit_portrait(unit: Dictionary) -> Dictionary:
+	return Portraits.unit(game,unit)
+
+func _portrait(source_id: int) -> Dictionary:
+	var face=Portraits.source(game,source_id)
+	if not face.is_empty():return face
+	return {} if source_id<=0 else Portraits.entry("east_infantry" if game.chapter==2 else "west_infantry")
 
 func _plot_layout(speaker: String) -> Dictionary:
 	var canvas=get_viewport_rect().size
@@ -455,6 +487,27 @@ func _draw_map(map: Dictionary,atlas: Texture2D,origin: Vector2) -> void:
 		_draw_layers(game.battle_data.art_layers,int(game.battle_data.get("art_columns",32)),_tex(str(game.battle_data.get("art_atlas","res://assets/battle_tiles/battle-tiles.png"))),origin,tint)
 		_draw_nature_props(game.battle_data.get("natural_props",[]),origin,tint)
 		_draw_art_props(game.battle_data.get("art_props",[]),origin,tint)
+		objective_badge_rect=Rect2()
+		var marker=game.exit_marker()
+		if not marker.is_empty():
+			var at=Vector2(marker.position[0],marker.position[1])*16+origin
+			_draw_camp_control_flag(at-Vector2(0,16),true,Color(.35,.85,.58))
+			if _visible_native_rect().grow(32).has_point(at):
+				var label=str(marker.label);var width=_small_text_width(label)+24
+				var occupied=[Rect2(_battle_cell_screen(game.cursor)+Vector2(-6,-12),Vector2(28,36))]
+				for actor in game.units:
+					if int(actor.hp)>0 and actor.side!="evacuated" and not actor.get("hidden",false):
+						var actor_at=moving_position-battle_camera if moving_id==str(actor.id) else Vector2(actor.position[0],actor.position[1])*16+origin
+						occupied.append(Rect2(actor_at+Vector2(-4,-8),Vector2(24,28)))
+				for offset in [Vector2(8-width/2,-44),Vector2(32,-12),Vector2(-width-16,-12),Vector2(8-width/2,32)]:
+					var badge=Rect2(at+offset,Vector2(width,28))
+					if not _visible_native_rect().grow(-4).encloses(badge) or occupied.any(func(rect):return badge.intersects(rect)):continue
+					objective_badge_rect=badge;_panel(badge)
+					_small_text(label,badge.position+Vector2(12,10),Color(.76,1.0,.82));break
+		var boss=game.find_unit(str(game.battle_data.boss_id))
+		if not boss.is_empty() and int(boss.hp)>0:
+			var at=Vector2(boss.position[0],boss.position[1])*16+origin
+			_draw_camp_control_flag(at+Vector2(12,-12),false,Color(1,.55,.28))
 		for obj in game.battle_data.objects:
 			# Visit entrances belong to the complete building artwork. This also
 			# suppresses the old generic door and arrow in compatible old saves.
@@ -483,14 +536,14 @@ func _draw_map(map: Dictionary,atlas: Texture2D,origin: Vector2) -> void:
 		return
 	super._draw_map(map,atlas,origin)
 
-func _draw_camp_control_flag(at: Vector2,controlled: bool) -> void:
+func _draw_camp_control_flag(at: Vector2,controlled: bool,marker_colour: Color=Color.TRANSPARENT) -> void:
 	# Reuse the complete native flag and keep its wooden pole unchanged.
 	# Only its cloth region is modulated; capture changes ownership colour,
 	# never the opening's collision or the road beneath the flag.
 	var texture=_tex("res://assets/battle_tiles/modules/white_flag.png")
 	draw_texture(texture,at)
 	var cloth=Rect2(7,3,5,8)
-	var colour=Color(.35,.65,1.0) if controlled else Color(1.0,.32,.25)
+	var colour=marker_colour if marker_colour.a>0 else Color(.35,.65,1.0) if controlled else Color(1.0,.32,.25)
 	draw_texture_rect_region(texture,Rect2(at+cloth.position,cloth.size),cloth,colour)
 
 func _draw_world() -> void:
@@ -529,26 +582,40 @@ func _draw_plot() -> void:
 	plot_layout_audit={"speaker":page.speaker,"has_portrait":layout.has_portrait,"text":layout.text,"portrait":layout.portrait,"panel":panel}
 
 func _draw_result() -> void:
-	if view=="victory":super._draw_result();return
+	if view=="victory":
+		_panel(Rect2(24,40,208,112));_center_text("战斗胜利",Rect2(34,50,188,32))
+		_center_text(str(game.battle_data.name_zh)+"\n战场目标已达成\n过关经验与成长已保存",Rect2(34,86,188,48))
+		if menu_items.is_empty():
+			_panel(Rect2(56,166,144,44));_center_text("确认继续前进",Rect2(68,180,120,16))
+		return
 	_panel(Rect2(24,44,208,104));_center_text("任务未完成",Rect2(36,58,184,20),Color(.95,.8,.7))
 	var reason=str(game.flags.get("quest",{}).get("failed_reason","本次战斗未能取胜"))
 	_center_text("\n".join(_wrapped_lines(reason,184)),Rect2(36,84,184,32))
 	_center_text("确认选择重试或返回",Rect2(36,122,184,16))
 
 func _draw_unit_card(unit: Dictionary) -> void:
-	if notice_time>0:return
-	var screen=_battle_cell_screen(game.cursor);var x=104 if screen.x<128 else 8;var y=8 if screen.y>80 else 120
-	_panel(Rect2(x,y,144,112));_text(str(unit.name_zh),Vector2(x+12,y+14))
+	if busy or notice_time>0 or phase_time>0:return
+	var screen=_battle_cell_screen(game.cursor);var neighbours=[]
+	for other in game.units:
+		if int(other.hp)>0 and str(other.id)!=str(unit.id):neighbours.append(Rect2(_battle_cell_screen(game.pos(other))-Vector2(4,8),Vector2(24,28)))
+	var placement=BattlePanels.place(screen,Vector2(144,92),_visible_native_rect(),neighbours,[objective_badge_rect] if objective_badge_rect.has_area() else [])
+	battle_card_audit=placement
+	if not placement.valid:return
+	var rect: Rect2=placement.panel;var x=rect.position.x;var y=rect.position.y
+	_panel(rect);_text(str(unit.name_zh),Vector2(x+12,y+12))
 	var label="等级"+str(int(unit.level))
+	if unit.get("objective_boss",false):label="首领 · "+label
 	if bool(unit.get("neutral",false)):
 		label="船体检查点" if unit.get("quest_kind","")=="ship" else "等待救援" if unit.get("locked",false) else "岗位守卫" if unit.get("battle_guard",false) else "自动护送" if unit.get("quest_kind","") in ["escort","medicine","prisoner","patient","sailor"] else "非战斗友军"
 	elif unit.side=="player":label+=" 经验"+str(int(unit.get("exp",0)))
-	_text(label,Vector2(x+12,y+30));_text(("耐久" if unit.get("event_object",false) else "生命")+str(int(unit.hp))+"/"+str(int(unit.max_hp)),Vector2(x+12,y+46))
-	_draw_health(int(unit.hp),int(unit.max_hp),Vector2(x+12,y+66),"ally" if unit.side=="player" else "enemy")
-	_text(_terrain_name(game.cursor)+" 回避+"+str(game.terrain_avoid(game.cursor)),Vector2(x+12,y+86),Color(.78,.85,.71))
+	_small_text(label,Vector2(x+12,y+30));_small_text(("耐久" if unit.get("event_object",false) else "生命")+str(int(unit.hp))+"/"+str(int(unit.max_hp)),Vector2(x+12,y+42))
+	_draw_health(int(unit.hp),int(unit.max_hp),Vector2(x+12,y+54),"ally" if unit.side=="player" else "enemy")
+	_small_text(_terrain_name(game.cursor)+" 回避+"+str(game.terrain_avoid(game.cursor)),Vector2(x+12,y+74),Color(.78,.85,.71))
 
 func _terrain_name(cell: Vector2i) -> String:
 	if not game.in_bounds(cell):return "地图边界"
+	for site in game.battle_data.get("recovery_sites",[]):
+		if cell==Vector2i(site.position[0],site.position[1]):return str(site.label)
 	if game.battle_data.code=="M15" and cell==Vector2i(game.battle_data.exit[0],game.battle_data.exit[1]):return "北门敌军退路"
 	for site in game.battle_data.get("building_sites",[]):
 		if cell==Vector2i(site.position[0],site.position[1]):return str(site.label)
@@ -574,11 +641,15 @@ func _terrain_name(cell: Vector2i) -> String:
 	return "地面"
 
 func _draw_terrain_card() -> void:
-	var bounds=_visible_native_rect();var screen=_battle_cell_screen(game.cursor)
-	var x=bounds.end.x-184 if screen.x<bounds.get_center().x else bounds.position.x+8
+	var screen=_battle_cell_screen(game.cursor)
 	var recovery=game.category(game.cursor)==15
 	var height=84 if recovery else 68
-	var y=bounds.end.y-height-8;var rect=Rect2(x,y,176,height)
+	var neighbours=[]
+	for actor in game.units:
+		if int(actor.hp)>0:neighbours.append(Rect2(_battle_cell_screen(game.pos(actor))-Vector2(4,8),Vector2(24,28)))
+	var placement=BattlePanels.place(screen,Vector2(176,height),_visible_native_rect(),neighbours,[objective_badge_rect] if objective_badge_rect.has_area() else [])
+	if not placement.valid:return
+	var rect: Rect2=placement.panel;var x=rect.position.x;var y=rect.position.y
 	var unit=game.find_unit(game.selected_id) if ui_mode=="move" else game.roster.get(game.leader_id(),{})
 	var cost=game.movement_cost(unit,game.cursor) if not unit.is_empty() else 255
 	_panel(rect)
@@ -590,18 +661,38 @@ func _draw_terrain_card() -> void:
 
 func _draw_battle() -> void:
 	super._draw_battle()
+	if view=="battle" and ui_mode=="inspect" and menu_items.is_empty() and not busy and phase_time<=0 and notice_time<=0:
+		_draw_exit_direction()
 	if view!="battle" or ui_mode not in ["inspect","move"] or not menu_items.is_empty() or busy or phase_time>0 or notice_time>0:return
 	if ui_mode=="move":_draw_terrain_card();return
 	if not game.unit_at(game.cursor).is_empty():return
 	for boat in game.event_boats():
 		if game.cursor!=Vector2i(boat.position[0],boat.position[1]):continue
-		var screen=_battle_cell_screen(game.cursor);var x=120 if screen.x<128 else 8;var y=8 if screen.y>80 else 136
-		_panel(Rect2(x,y,128,96));_text("居民船队",Vector2(x+12,y+14))
+		var placement=BattlePanels.place(_battle_cell_screen(game.cursor),Vector2(128,88),_visible_native_rect(),[],[objective_badge_rect] if objective_badge_rect.has_area() else [])
+		if not placement.valid:return
+		var rect: Rect2=placement.panel;var x=rect.position.x;var y=rect.position.y
+		_panel(rect);_text("居民船队",Vector2(x+12,y+12))
 		var status="已抵达西岸" if boat.get("arrived",false) else "等待航路安全" if boat.get("stopped",false) else "沿水路前进"
-		_text(status,Vector2(x+12,y+30));_text("船体"+str(int(boat.hp))+"/"+str(int(boat.max_hp)),Vector2(x+12,y+46))
-		_draw_health(int(boat.hp),int(boat.max_hp),Vector2(x+12,y+66),"ally")
+		_small_text(status,Vector2(x+12,y+30));_small_text("船体"+str(int(boat.hp))+"/"+str(int(boat.max_hp)),Vector2(x+12,y+44))
+		_draw_health(int(boat.hp),int(boat.max_hp),Vector2(x+12,y+58),"ally")
 		return
 	_draw_terrain_card()
+
+func _draw_exit_direction() -> void:
+	var marker=game.exit_marker()
+	if marker.is_empty():return
+	var point=_battle_cell_screen(Vector2i(marker.position[0],marker.position[1]));var bounds=_visible_native_rect()
+	if bounds.grow(-20).has_point(point):return
+	var delta=point-bounds.get_center();var direction="东" if absf(delta.x)>absf(delta.y) and delta.x>0 else "西" if absf(delta.x)>absf(delta.y) else "南" if delta.y>0 else "北"
+	var text=str(marker.label)+" · "+direction+"方 · S定位"
+	var width=_small_text_width(text)+20;var rect=Rect2(bounds.position+Vector2(8,8),Vector2(width,28))
+	# Keep the selected unit and its nearby information panel unobstructed.
+	var focus=Rect2(_battle_cell_screen(game.cursor)+Vector2(-6,-12),Vector2(28,36))
+	if rect.intersects(focus) or (battle_card_audit.get("panel",Rect2()).has_area() and rect.intersects(battle_card_audit.panel)):
+		rect.position.y=bounds.end.y-rect.size.y-8
+	if rect.intersects(focus):return
+	if battle_card_audit.get("panel",Rect2()).has_area() and rect.intersects(battle_card_audit.panel):return
+	_panel(rect);_small_text(text,rect.position+Vector2(10,10),Color(.76,1,.82))
 
 func _draw_overview() -> void:
 	draw_rect(Rect2(0,0,256,240),Color(.08,.12,.15))

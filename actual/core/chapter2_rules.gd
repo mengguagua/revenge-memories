@@ -102,7 +102,9 @@ static func before_phase(g) -> void:
 		boat.stopped=false
 		if g.turn<=int(boat.get("delay",0)):continue
 		if g.phase=="player":
-			for _step in range(int(boat.get("speed",4))):
+			var speed=int(boat.get("speed",4))
+			if g.living("enemy").is_empty() and (g.battle_data.reinforcements.is_empty() or g.flags.quest.get("reinforced",false)):speed=maxi(6,speed)
+			for _step in range(speed):
 				var index=mini(int(boat.path_index)+1,boat.path.size()-1);var cell=Vector2i(boat.path[index][0],boat.path[index][1])
 				if g.living("enemy").any(func(e):return _distance(g.pos(e),cell)<=maxi(3,g.Rules.attack_range(e).y+1)):
 					boat.stopped=true;break

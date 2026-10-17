@@ -1452,7 +1452,8 @@ func _show_result() -> void:
 	busy = false
 	_clear_menu()
 	if view == "victory":
-		game.complete_battle()
+		var settled=game.complete_battle()
+		if settled and has_method("play_victory_rewards"):await call("play_victory_rewards")
 	else:
 		audio.stop_all()
 		audio.play_jingle("unit_death")
@@ -1964,6 +1965,7 @@ func _draw_status(unit: Dictionary) -> void:
 		_draw_indicator("left", Vector2(24, 28))
 		_draw_indicator("right", Vector2(224, 28))
 	var portrait = _portrait(int(unit.get("character_id", 0)))
+	if has_method("_unit_portrait"):portrait=call("_unit_portrait",unit)
 	if not portrait.is_empty():
 		draw_texture(_tex(portrait.path), Vector2(24, 40))
 	_text(str(unit.name_zh), Vector2(96, 40))
