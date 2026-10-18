@@ -1,0 +1,34 @@
+{
+  "revision": "sol",
+  "status": "passed",
+  "battle_source_slots": 12,
+  "canonical_battle_frames": 10,
+  "previous_approved_retained": [
+    0,
+    3,
+    7
+  ],
+  "native_tactical_frames": 8,
+  "tactical_drawn_poses": 6,
+  "static_idle_poses": 3,
+  "registration": [
+    "battle/source/sol-registration.json",
+    "battle/source/keypose-registration.json",
+    "maps/source/sol-registration.json"
+  ],
+  "checks": [
+    "Own class5 source and per-pose primary hoof target",
+    "No nonuniform scaling or procedural anatomy",
+    "No visiblealpha>4 clipping",
+    "Full exactRGBA battle aliases25/48to0 and map6/7mirrors",
+    "Original native flight shadow rows21..23 preserved separately",
+    "Measured transparent static extraction boundaries preserve wing and muzzle",
+    "Light/dark source/new sheets inspected"
+  ],
+  "limits": [
+    "Selected registration points do not prove every joint/hoof.",
+    "Wings and secondary hoof/weapon contours retain several to low-teens output-pixel differences.",
+    "Browser playback not performed; no visible Godot launched."
+  ],
+  "runtime_integrated": false
+}

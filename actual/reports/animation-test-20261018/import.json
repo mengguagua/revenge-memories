@@ -1,0 +1,818 @@
+{
+  "revision": "20261018-sol",
+  "battle_profiles": 20,
+  "map_profiles": 42,
+  "attack_variants": 269,
+  "effect_textures": 262,
+  "inventory": [
+    {
+      "profile": "hunapu-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/hunapu-battle.png",
+      "size": [
+        5120,
+        2592
+      ],
+      "bytes": 893178,
+      "source_slots": 101,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "hunapu-maps-story",
+      "context": "story",
+      "path": "res://assets/reviewed-animation-20261018/hunapu-maps-story.png",
+      "size": [
+        768,
+        96
+      ],
+      "bytes": 41832,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "hunapu-maps-world",
+      "context": "world",
+      "path": "res://assets/reviewed-animation-20261018/hunapu-maps-world.png",
+      "size": [
+        768,
+        96
+      ],
+      "bytes": 41832,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "hunapu-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/hunapu-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 42225,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "hunapu-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/hunapu-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 27059,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-1-ally-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-1-ally-battle.png",
+      "size": [
+        5120,
+        512
+      ],
+      "bytes": 507828,
+      "source_slots": 12,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-1-ally-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-1-ally-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 61019,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-1-ally-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-1-ally-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 29457,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-1-enemy-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-1-enemy-battle.png",
+      "size": [
+        5120,
+        512
+      ],
+      "bytes": 451486,
+      "source_slots": 12,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-1-enemy-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-1-enemy-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 63631,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-1-enemy-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-1-enemy-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 28817,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-12-ally-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-12-ally-battle.png",
+      "size": [
+        1920,
+        256
+      ],
+      "bytes": 76464,
+      "source_slots": 3,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-12-ally-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-12-ally-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 46982,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-12-ally-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-12-ally-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 14151,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-12-enemy-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-12-enemy-battle.png",
+      "size": [
+        2240,
+        256
+      ],
+      "bytes": 84123,
+      "source_slots": 3,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-12-enemy-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-12-enemy-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 47400,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-12-enemy-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-12-enemy-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 14578,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-14-ally-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-14-ally-battle.png",
+      "size": [
+        5120,
+        768
+      ],
+      "bytes": 150684,
+      "source_slots": 11,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-14-ally-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-14-ally-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 37078,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-14-ally-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-14-ally-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 17418,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-15-ally-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-15-ally-battle.png",
+      "size": [
+        960,
+        256
+      ],
+      "bytes": 63954,
+      "source_slots": 3,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-15-ally-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-15-ally-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 33145,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-15-ally-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-15-ally-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 16204,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-15-enemy-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-15-enemy-battle.png",
+      "size": [
+        1920,
+        256
+      ],
+      "bytes": 89769,
+      "source_slots": 3,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-15-enemy-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-15-enemy-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 61360,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-15-enemy-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-15-enemy-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 28832,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-18-ally-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-18-ally-battle.png",
+      "size": [
+        2880,
+        256
+      ],
+      "bytes": 39403,
+      "source_slots": 2,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-18-ally-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-18-ally-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 42382,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-18-ally-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-18-ally-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 12936,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-2-ally-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-2-ally-battle.png",
+      "size": [
+        5120,
+        768
+      ],
+      "bytes": 353947,
+      "source_slots": 14,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-2-ally-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-2-ally-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 53378,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-2-ally-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-2-ally-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 20616,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-22-enemy-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-22-enemy-battle.png",
+      "size": [
+        5120,
+        512
+      ],
+      "bytes": 536265,
+      "source_slots": 16,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-22-enemy-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-22-enemy-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 27464,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-22-enemy-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-22-enemy-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 72313,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-3-ally-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-3-ally-battle.png",
+      "size": [
+        5120,
+        1152
+      ],
+      "bytes": 706184,
+      "source_slots": 12,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-3-ally-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-3-ally-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 61917,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-3-ally-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-3-ally-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 26668,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-5-ally-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-5-ally-battle.png",
+      "size": [
+        6144,
+        2176
+      ],
+      "bytes": 822818,
+      "source_slots": 12,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-5-ally-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-5-ally-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 88194,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-5-ally-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-5-ally-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 31753,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-6-ally-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-6-ally-battle.png",
+      "size": [
+        5120,
+        512
+      ],
+      "bytes": 190043,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-6-ally-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-6-ally-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 48794,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-6-ally-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-6-ally-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 19625,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-6-enemy-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-6-enemy-battle.png",
+      "size": [
+        5120,
+        512
+      ],
+      "bytes": 153459,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-6-enemy-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-6-enemy-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 40763,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-6-enemy-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-6-enemy-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 18074,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-7-ally-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-7-ally-battle.png",
+      "size": [
+        7168,
+        1280
+      ],
+      "bytes": 1581694,
+      "source_slots": 27,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-7-ally-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-7-ally-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 54512,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-7-ally-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-7-ally-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 27733,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-7-enemy-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-7-enemy-battle.png",
+      "size": [
+        7168,
+        1280
+      ],
+      "bytes": 1491633,
+      "source_slots": 27,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-7-enemy-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-7-enemy-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 58002,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-7-enemy-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-7-enemy-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 24088,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-8-ally-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-8-ally-battle.png",
+      "size": [
+        5120,
+        512
+      ],
+      "bytes": 126358,
+      "source_slots": 11,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-8-ally-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-8-ally-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 38198,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-8-ally-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-8-ally-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 16452,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-8-enemy-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-8-enemy-battle.png",
+      "size": [
+        5120,
+        512
+      ],
+      "bytes": 135743,
+      "source_slots": 11,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-8-enemy-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-8-enemy-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 44658,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-8-enemy-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-8-enemy-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 19068,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-9-ally-battle",
+      "context": "battle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-9-ally-battle.png",
+      "size": [
+        5120,
+        512
+      ],
+      "bytes": 199575,
+      "source_slots": 15,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-9-ally-maps-tactical-walk",
+      "context": "tactical-walk",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-9-ally-maps-tactical-walk.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 54931,
+      "source_slots": 8,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    },
+    {
+      "profile": "professions-class-9-ally-maps-tactical-idle",
+      "context": "tactical-idle",
+      "path": "res://assets/reviewed-animation-20261018/professions-class-9-ally-maps-tactical-idle.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 19254,
+      "source_slots": 6,
+      "lossless_pixel_check": true,
+      "size_note": "Losslessly packed animation atlas; individual selected drawings retain their original pixels."
+    }
+  ],
+  "scope": "20 completed class/faction bodies; Hunapu story/world; completed native tactical walk and idle. Unfinished professions and story identities keep existing art.",
+  "rules_and_save_data_modified": false,
+  "lossless_pixel_checks_passed": true
+}

@@ -1,0 +1,31 @@
+{
+  "scope": [
+    "hunapu story",
+    "hunapu tactical-idle",
+    "hunapu tactical-walk"
+  ],
+  "status": "hero_only_in_progress",
+  "battle_scene": "unchanged",
+  "broad_expansion": "paused_pending_user_review",
+  "method": "ImageGen flat pixel art edit; shared fixed layers with local moving-part compositing; native projection bitmap reused as ground shadow",
+  "targets": {
+    "palette_max_colors": 4,
+    "width_height_scale": 4,
+    "fixed_region_pixel_difference": 0
+  },
+  "motion_rules": {
+    "archer_idle": "bow/arrow + bow arm only",
+    "archer_walk": "legs/feet only; upper body/bow/arrow fixed",
+    "spear_idle": "spear + holding arm only",
+    "spear_walk": "head fixed; limbs/weapon swing",
+    "hero_story": "head fixed, limbs swing",
+    "hero_tactical_idle": "arms/sword/shield only",
+    "hero_tactical_walk": "legs/feet + shield arm/shield only"
+  },
+  "excluded_after_user_feedback": [
+    "both archers",
+    "both spearmen",
+    "world-map profile"
+  ],
+  "palette_feedback": "User rejected richness again; exact4 opaque body colors, not12/16-color artwork. Remove brown/gold/gradient/highlight detail."
+}

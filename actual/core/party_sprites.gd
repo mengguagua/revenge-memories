@@ -1,5 +1,6 @@
 extends RefCounted
 ## Campaign actors share class bodies; only Eileen has a personal body profile.
+const Reviewed = preload("res://core/reviewed_animations.gd")
 static var cache: Dictionary={}
 static func data() -> Dictionary:
 	if cache.is_empty() and FileAccess.file_exists("res://data/party_visuals.json"):
@@ -19,6 +20,8 @@ static func class_key(actor: Dictionary) -> String:
 	if cid==21 and bool(actor.get("promoted",actor.get("alm_promoted",false))):return "23"
 	return str(cid)
 static func sprite(kind: String,actor: Dictionary,chapter: int=0) -> Dictionary:
+	var reviewed = Reviewed.map_sprite(kind, actor)
+	if not reviewed.is_empty(): return reviewed
 	if not applies(actor):return {}
 	var profiles=data().get("classes",{})
 	var actor_id=str(actor.get("id",""))

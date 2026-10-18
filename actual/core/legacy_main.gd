@@ -1715,6 +1715,14 @@ func _draw_frame(sprite: Dictionary, frame: int, at: Vector2, flip: bool = false
 	var source_size = Vector2(sprite.frame_size[0], sprite.frame_size[1])
 	var size = source_size / maxf(1.0, float(sprite.get("native_density", 1)))
 	var destination = Rect2(at.round(), size)
+	# Reviewed map shadows stay at the foot anchor, independently of limb motion.
+	var shadow: Dictionary = sprite.get("ground_shadow", {})
+	if not shadow.is_empty():
+		var shadow_size = Vector2(shadow.size[0], shadow.size[1])
+		var anchor = Vector2(sprite.anchor[0], sprite.anchor[1])
+		var offset = shadow.get("offset", [0, 0])
+		var shadow_at = destination.position + anchor + Vector2(offset[0], offset[1]) - shadow_size / 2
+		draw_texture_rect(_tex(str(shadow.path)), Rect2(shadow_at, shadow_size), false, Color(1, 1, 1, float(shadow.get("alpha", 1)) * color.a))
 	if flip:
 		# Godot makes a negative width positive and sets FLIP_H at this origin.
 		# Adding the frame width here shifts every enemy sprite out of place.
@@ -1842,9 +1850,12 @@ func _draw_battle() -> void:
 		if unit.get("surrendered",false) or unit.get("offering_surrender",false):draw_texture(_tex("res://assets/battle_tiles/modules/white_flag.png"),at-Vector2(2,8))
 		var direction = "up" if moving_direction.y < 0 else ("side" if moving_direction.x != 0 else "down")
 		var is_moving = moving_id == str(unit.id)
+		if is_moving and sprite.directions.has("left") and moving_direction.x != 0:
+			direction = "left" if moving_direction.x < 0 else "right"
 		var frame = _native_map_pose(sprite) if sprite.has("native_cycle") else int(sprite.directions[direction][moving_frame]) if is_moving else int(sprite.directions.down[0])
 		var tile_origin=sprite.get("tile_origin",[4,4])
 		var map_flip=not sprite.get("static_facing",false) and is_moving and (moving_direction.x > 0 if sprite.get("default_facing","right")=="left" else moving_direction.x < 0)
+		if sprite.directions.has("left"): map_flip = false
 		_draw_frame(sprite, frame, at - Vector2(tile_origin[0],tile_origin[1]), map_flip, Color(1, 1, 1, float(map_actor_alpha.get(str(unit.id), 1.0))))
 	if view == "battle":
 		if ui_mode == "status":

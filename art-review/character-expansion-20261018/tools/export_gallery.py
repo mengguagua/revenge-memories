@@ -37,10 +37,17 @@ def render_panel(data,profile,action,row,revised,scale=4,light=False,close=False
         viewport=[action['origin'][i]+offset[i]+camera['offset'][i]for i in range(2)]+camera['size']
     bg=(220,222,216,255)if light else(32,45,53,255)
     canvas=Image.new('RGBA',(round(viewport[2]*scale),round(viewport[3]*scale)),bg)
+    if profile.get('mapGround') and not light:
+        ground=load(profile['mapGround'])
+        canvas.alpha_composite(ground.resize(canvas.size,Image.Resampling.NEAREST))
     offset=row.get('offset',[0,0]);f=row['frame'];flip=(profile['context']=='battle'and profile.get('side')=='enemy') != row.get('flip',False)
     at=[action['origin'][0]+offset[0]-profile['anchor'][0]+row.get('shake',0),action['origin'][1]+offset[1]-profile['anchor'][1]]
     if flip and f<profile['sourceOamCutoff']:
         at=[at[i]+profile['flipOriginOffset'][i]for i in range(2)]
+    if revised and profile.get('mapShadow'):
+        shadow=profile['mapShadow'];size=shadow['size'];delta=shadow.get('offset',[0,0])
+        point=[action['origin'][0]+offset[0]+delta[0]-size[0]/2,action['origin'][1]+offset[1]+delta[1]-size[1]/2]
+        paste_at(canvas,load(shadow['path']),point,size,scale,viewport,False,shadow.get('alpha',1))
     if revised:
         if str(f)not in profile['newFrames']:raise ValueError(f'Missing redraw {f}; no fallback is permitted')
         image=load(profile['newFrames'][str(f)])
@@ -56,8 +63,17 @@ def render_frame(data,profile,action,tick,scale=4,light=False,close=False):
     row=action['frames'][tick];left=render_panel(data,profile,action,row,False,scale,light,close);right=render_panel(data,profile,action,row,True,scale,light,close)
     margin=24;gap=24;top=76;bottom=60;w=left.width*2+margin*2+gap;h=left.height+top+bottom
     canvas=Image.new('RGB',(w+(w%2),h+(h%2)),(14,21,26));draw=ImageDraw.Draw(canvas)
-    draw.text((margin,14),profile['actorName']+' · '+action['name'],font=font(22),fill=(235,243,242))
-    draw.text((margin,48),action.get('referenceLabel','原作'),font=font(15),fill=(160,178,189));draw.text((margin+left.width+gap,48),'四倍像素重绘',font=font(15),fill=(168,214,200))
+    heading=profile['actorName']+' · '+action['name']
+    if profile.get('revision')=='sol':
+        heading_font=next((font(n)for n in range(22,13,-1)if draw.textbbox((0,0),heading,font=font(n))[2]<=canvas.width-2*margin),font(14))
+        hb=draw.textbbox((0,0),heading,font=heading_font)
+        if hb[2]-hb[0]>canvas.width-2*margin:raise ValueError('Title exceeds measured text safe area')
+        draw.text(((canvas.width-(hb[2]-hb[0]))/2-hb[0],14),heading,font=heading_font,fill=(235,243,242))
+        for origin,label,color in[(margin,action.get('referenceLabel','原作'),(160,178,189)),(margin+left.width+gap,'四倍像素重绘',(168,214,200))]:
+            lb=draw.textbbox((0,0),label,font=font(15));draw.text((origin+(left.width-(lb[2]-lb[0]))/2-lb[0],48),label,font=font(15),fill=color)
+    else:
+        draw.text((margin,14),heading,font=font(22),fill=(235,243,242))
+        draw.text((margin,48),action.get('referenceLabel','原作'),font=font(15),fill=(160,178,189));draw.text((margin+left.width+gap,48),'四倍像素重绘',font=font(15),fill=(168,214,200))
     canvas.paste(left.convert('RGB'),(margin,top));canvas.paste(right.convert('RGB'),(margin+left.width+gap,top))
     label=f'第 {tick+1} / {len(action["frames"])} 帧  ·  源姿势 {row["frame"]}  ·  {tick/action["fps"]:.3f} 秒'
     draw.text((margin,top+left.height+16),label,font=font(15),fill=(160,178,189))

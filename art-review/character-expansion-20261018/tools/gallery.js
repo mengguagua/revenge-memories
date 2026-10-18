@@ -5,6 +5,7 @@
   const cache = new Map();
   let active = null, profile = null, tick = 0, playing = false, speed = 1, close = false;
   let last = null, accumulated = 0, selection = 0;
+  let mapGround = true;
   const contexts = [$('original').getContext('2d'), $('redrawn').getContext('2d')];
   const option = (value, name) => { const el = document.createElement('option'); el.value = value; el.textContent = name; return el; };
   function loadImage(path) {
@@ -38,9 +39,15 @@
     const width = Math.round(view[2] * scale), height = Math.round(view[3] * scale);
     if (ctx.canvas.width !== width || ctx.canvas.height !== height) { ctx.canvas.width=width; ctx.canvas.height=height; }
     ctx.clearRect(0,0,width,height); ctx.save(); ctx.scale(scale,scale); ctx.translate(-view[0],-view[1]);
+    const ground=mapGround && !bodyOnly && profile.mapGround ? imageFor(profile.mapGround) : null;
+    if(ground) blit(ctx,ground,[0,0,ground.width,ground.height],[view[0],view[1]],[view[2],view[3]],false);
     const f = row.frame, flip = (profile.context==='battle'&&profile.side==='enemy') !== !!row.flip;
     const at = [active.origin[0]+(row.offset?.[0]||0)-profile.anchor[0]+(row.shake||0), active.origin[1]+(row.offset?.[1]||0)-profile.anchor[1]];
     if (flip && f < profile.sourceOamCutoff) { at[0] += profile.flipOriginOffset[0]; at[1] += profile.flipOriginOffset[1]; }
+    if(revised && !bodyOnly && profile.mapShadow){
+      const s=profile.mapShadow,im=imageFor(s.path),delta=s.offset||[0,0];
+      if(im) blit(ctx,im,[0,0,im.width,im.height],[active.origin[0]+(row.offset?.[0]||0)+delta[0]-s.size[0]/2,active.origin[1]+(row.offset?.[1]||0)+delta[1]-s.size[1]/2],s.size,false,s.alpha??1);
+    }
     const sw=profile.sourceFrameSize[0], sh=profile.sourceFrameSize[1];
     if (revised) {
       const im=imageFor(profile.newFrames[String(f)]);
@@ -103,6 +110,8 @@
   async function chooseAction(id) {
     const token=++selection;setPlaying(false);active=data.actions.find(a=>a.id===id);if(!active)return;
     profile=data.profiles.find(p=>p.id===active.profile);tick=0;
+    $('map-ground').hidden=!profile.mapGround;
+    $('map-ground').setAttribute('aria-pressed',String(mapGround && !!profile.mapGround));
     $('scrub').max=String(active.frames.length-1);$('source-size').textContent=profile.sourceFrameSize.join(' × ')+' 像素';
     $('source-label').textContent=active.referenceLabel||'原作';
     $('ready-state').textContent=active.ready?'素材齐备 · 待验收':active.sourceReviewPending?'参考来源复核中':`尚缺 ${active.missingFrames.length} 个源姿势`;
@@ -112,6 +121,8 @@
     $('new-missing').querySelector('span').textContent=active.ready?'':active.sourceReviewPending?'正在核对原战术移动的动作表与图块银行，旧素材保留待重审。':`尚缺源姿势 ${active.missingFrames.join('、')}；不回退使用旧图。`;
     catalog();links();draw();
     const paths=[profile.sourceAtlas,...active.neededFrames.map(f=>profile.newFrames[String(f)]).filter(Boolean),...active.effectIds.map(id=>data.effects[id]?.path).filter(Boolean)];
+    if(profile.mapGround) paths.push(profile.mapGround);
+    if(profile.mapShadow) paths.push(profile.mapShadow.path);
     await Promise.all(paths.map(loadImage));if(token!==selection)return;
     const runtimeMissing=active.neededFrames.filter(f=>!imageFor(profile.newFrames[String(f)]));
     const effectMissing=active.effectIds.filter(id=>!imageFor(data.effects[id]?.path));
@@ -123,15 +134,15 @@
     }
     poses();draw();
   }
-  function chooseProfile(id) {
+  function chooseProfile(id, actionId) {
     profile=data.profiles.find(p=>p.id===id);const list=data.actions.filter(a=>a.profile===id);
     $('action').replaceChildren(...list.map(a=>option(a.id,a.name+(a.ready?'':a.sourceReviewPending?' · 参考复核中':' · 待补帧'))));
-    if(list.length)chooseAction(list[0].id);
+    if(list.length){const chosen=list.some(a=>a.id===actionId)?actionId:list[0].id;$('action').value=chosen;chooseAction(chosen);}
   }
-  function chooseActor(id) {
+  function chooseActor(id, profileId, actionId) {
     const list=data.profiles.filter(p=>p.actor===id);
     $('profile').replaceChildren(...list.map(p=>option(p.id,p.className+' · '+p.contextName)));
-    if(list.length)chooseProfile(list[0].id);
+    if(list.length){const chosen=list.some(p=>p.id===profileId)?profileId:list[0].id;$('profile').value=chosen;chooseProfile(chosen,actionId);}
   }
   const actorList=[...new Map(data.profiles.map(p=>[p.actor,p.actorName])).entries()];
   $('actor').replaceChildren(...actorList.map(([id,name])=>option(id,name)));
@@ -144,10 +155,14 @@
   function setView(value){close=value;$('scene').setAttribute('aria-pressed',String(!value));$('close').setAttribute('aria-pressed',String(value));draw();}
   $('scene').onclick=()=>setView(false);$('close').onclick=()=>setView(true);
   function setLight(value){document.body.classList.toggle('light-stage',value);$('dark').setAttribute('aria-pressed',String(!value));$('light').setAttribute('aria-pressed',String(value));}
-  $('dark').onclick=()=>setLight(false);$('light').onclick=()=>setLight(true);
+  $('dark').onclick=()=>{mapGround=false;$('map-ground').setAttribute('aria-pressed','false');setLight(false);draw();};
+  $('light').onclick=()=>{mapGround=false;$('map-ground').setAttribute('aria-pressed','false');setLight(true);draw();};
+  $('map-ground').onclick=()=>{mapGround=true;$('map-ground').setAttribute('aria-pressed','true');$('dark').setAttribute('aria-pressed','false');$('light').setAttribute('aria-pressed','false');draw();};
   document.addEventListener('keydown',event=>{if(event.target.matches('input,button,textarea,select')||event.altKey||event.ctrlKey||event.metaKey)return;if(event.code==='Space'){event.preventDefault();setPlaying(!playing);}if(event.code==='ArrowLeft'||event.code==='ArrowRight'){event.preventDefault();setPlaying(false);seek(tick+(event.code==='ArrowRight'?1:-1));}});
   document.addEventListener('visibilitychange',()=>{last=null;});
   function animate(now){if(playing&&active){if(last!==null){accumulated+=(now-last)/1000*active.fps*speed;const steps=Math.floor(accumulated);if(steps){accumulated-=steps;tick=(tick+steps)%active.frames.length;draw();}}last=now;}requestAnimationFrame(animate);}
-  if(actorList.length)chooseActor(actorList[0][0]);requestAnimationFrame(animate);
+  const requested=data.actions.find(a=>a.id===new URLSearchParams(location.search).get('action'));
+  const requestedProfile=data.profiles.find(p=>p.id===requested?.profile);
+  if(actorList.length){const actor=requestedProfile?.actor||actorList[0][0];$('actor').value=actor;chooseActor(actor,requestedProfile?.id,requested?.id);}requestAnimationFrame(animate);
   window.motionReview={seek:value=>{setPlaying(false);seek(value);},play:()=>setPlaying(true),pause:()=>setPlaying(false),setSpeed,setLight,select:chooseAction,getState:()=>({action:active?.id,tick,playing,speed,ready:active?.ready})};
 })();

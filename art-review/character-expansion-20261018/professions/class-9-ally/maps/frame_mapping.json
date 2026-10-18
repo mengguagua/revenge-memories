@@ -1,0 +1,342 @@
+{
+  "schema_version": 1,
+  "revision": "sol",
+  "character_id": "class-9-ally",
+  "actor_id": "class-9-ally",
+  "display_name": "剑士（地图补充） · sol",
+  "class_id": 9,
+  "source_side": "ally",
+  "status": "complete_art_review_passed",
+  "review_note": "sol：八个独立原生方向槽与三相静止已登记并复核；右向首相改回左低靴，静止按实测透明间隔切图，完整盾框保留。可见靴/剑尖有数输出像素的重绘轮廓差异，登记不代表全部关节逐像素一致。",
+  "runtime_integrated": false,
+  "scenarios": [
+    {
+      "id": "tactical-walk",
+      "source_atlas": "../../../source-input/corrected-tactical-walk/class-9-ally.png",
+      "source_frame_size": [
+        32,
+        24
+      ],
+      "source_anchor": [
+        16,
+        24
+      ],
+      "output_atlas": "frames/sol-native-walk.png",
+      "output_frame_size": [
+        128,
+        96
+      ],
+      "output_anchor": [
+        64,
+        96
+      ],
+      "logical_render_scale": 0.25,
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "output_index": 0,
+          "path": "sol-frames/frame-000.png",
+          "output_path": "sol-frames/frame-000.png",
+          "revision": "sol",
+          "art_status": "reviewed_selected",
+          "direction": "up",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 6150,
+          "sha256": "7d6d455e6c142ed74f2295597032e26b39db578d493bbe32de5bd69c734e24d3"
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "output_index": 1,
+          "path": "sol-frames/frame-001.png",
+          "output_path": "sol-frames/frame-001.png",
+          "revision": "sol",
+          "art_status": "reviewed_selected",
+          "direction": "up",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 5802,
+          "sha256": "db91e5c59ab54849baf100ecf1fe226599d74f3515aa6fbee7cfba6da59b4753"
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "output_index": 2,
+          "path": "sol-frames/frame-002.png",
+          "output_path": "sol-frames/frame-002.png",
+          "revision": "sol",
+          "art_status": "reviewed_selected",
+          "direction": "right",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8228,
+          "sha256": "0061257ffc46a80715bfdd5b5f48869691941ac3f6d9a5c92f585864e51dac1b"
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "output_index": 3,
+          "path": "sol-frames/frame-003.png",
+          "output_path": "sol-frames/frame-003.png",
+          "revision": "sol",
+          "art_status": "reviewed_selected",
+          "direction": "right",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 7869,
+          "sha256": "dcfeac62d6d631ddd74d2190726a7fe2addff58c20d93917be7a74ce734f983c"
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "output_index": 4,
+          "path": "sol-frames/frame-004.png",
+          "output_path": "sol-frames/frame-004.png",
+          "revision": "sol",
+          "art_status": "reviewed_selected",
+          "direction": "down",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 6481,
+          "sha256": "5b74c9c8aa802dc6201082f81a9b578825121aad458503088f596373259f64c0"
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "output_index": 5,
+          "path": "sol-frames/frame-005.png",
+          "output_path": "sol-frames/frame-005.png",
+          "revision": "sol",
+          "art_status": "reviewed_selected",
+          "direction": "down",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 6142,
+          "sha256": "1aea97c9fa474465c560759b9fabf7df7fed9d8ea72e063df13300d88433cce5"
+        },
+        {
+          "source_index": 6,
+          "source_frame": 6,
+          "output_index": 6,
+          "path": "sol-frames/frame-006.png",
+          "output_path": "sol-frames/frame-006.png",
+          "revision": "sol",
+          "art_status": "reviewed_selected",
+          "direction": "left",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8560,
+          "sha256": "fa41cee635b584cd6305146e7dbc6a494d5a069be6d19bdb4047befe5db93f7e"
+        },
+        {
+          "source_index": 7,
+          "source_frame": 7,
+          "output_index": 7,
+          "path": "sol-frames/frame-007.png",
+          "output_path": "sol-frames/frame-007.png",
+          "revision": "sol",
+          "art_status": "reviewed_selected",
+          "direction": "left",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8033,
+          "sha256": "14837adcfce46aeb0aec9a1f058533ff574854384da66d6c91de507cc88d70bf"
+        }
+      ],
+      "directions": {
+        "up": [
+          0,
+          1
+        ],
+        "right": [
+          2,
+          3
+        ],
+        "down": [
+          4,
+          5
+        ],
+        "left": [
+          6,
+          7
+        ]
+      },
+      "direction_mirror_x": {},
+      "timing": {
+        "native_fps": 60.0988,
+        "frame_ticks": 16,
+        "cycle_ticks": 32,
+        "phase_source": "$36 & $10 selects phase; L0BB62C",
+        "movement_pixels_per_tick": 1,
+        "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+      },
+      "source_audit": {
+        "status": "verified_native_tactical",
+        "record_key": "class-9-ally",
+        "source_chr": 26,
+        "overlay": "../../../source-input/corrected-tactical-walk/overlay.json",
+        "verification": "../../../source-input/corrected-tactical-walk/verification.json",
+        "note": "Source verified separately from candidate art acceptance."
+      },
+      "missing_source_slots": []
+    },
+    {
+      "id": "tactical-idle",
+      "static_facing": true,
+      "source_atlas": "reference/static-source.png",
+      "source_frame_size": [
+        24,
+        24
+      ],
+      "source_anchor": [
+        12,
+        20
+      ],
+      "output_atlas": "frames/sol-idle.png",
+      "output_frame_size": [
+        96,
+        96
+      ],
+      "output_anchor": [
+        48,
+        80
+      ],
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "output_index": 0,
+          "canonical_frame": 0,
+          "path": "sol-frames/idle-000.png",
+          "output_path": "sol-frames/idle-000.png",
+          "revision": "sol",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 6318,
+          "sha256": "f08ae552ac22e178c888602b6a8b1112d2cabc2e3855b9a8f132924332d8f650"
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "output_index": 1,
+          "canonical_frame": 1,
+          "path": "sol-frames/idle-001.png",
+          "output_path": "sol-frames/idle-001.png",
+          "revision": "sol",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 6422,
+          "sha256": "1dac536ae5999a4fc23653419ba6e5c282e5fb37df8a26b56b7954465c4400e4"
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "output_index": 2,
+          "canonical_frame": 2,
+          "path": "sol-frames/idle-002.png",
+          "output_path": "sol-frames/idle-002.png",
+          "revision": "sol",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 6261,
+          "sha256": "4abf31ef0f93f73a8d605cac521502b58d04aeb566ae16758e4f14c924e6a578"
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "output_index": 3,
+          "canonical_frame": 1,
+          "path": "sol-frames/idle-003.png",
+          "output_path": "sol-frames/idle-003.png",
+          "revision": "sol",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 6422,
+          "sha256": "1dac536ae5999a4fc23653419ba6e5c282e5fb37df8a26b56b7954465c4400e4"
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "output_index": 4,
+          "canonical_frame": 0,
+          "path": "sol-frames/idle-004.png",
+          "output_path": "sol-frames/idle-004.png",
+          "revision": "sol",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 6318,
+          "sha256": "f08ae552ac22e178c888602b6a8b1112d2cabc2e3855b9a8f132924332d8f650"
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "output_index": 5,
+          "canonical_frame": 1,
+          "path": "sol-frames/idle-005.png",
+          "output_path": "sol-frames/idle-005.png",
+          "revision": "sol",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 6422,
+          "sha256": "1dac536ae5999a4fc23653419ba6e5c282e5fb37df8a26b56b7954465c4400e4"
+        }
+      ],
+      "directions": {
+        "all": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "direction_mirror_x": {},
+      "timing": {
+        "native_fps": 60.0988,
+        "cycle_frames": [
+          0,
+          1,
+          2,
+          1
+        ],
+        "frame_ticks": [
+          14,
+          8,
+          14,
+          8
+        ]
+      }
+    }
+  ],
+  "modified_by": "sol",
+  "author": "sol"
+}

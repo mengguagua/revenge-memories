@@ -92,6 +92,10 @@ def map_bundle(mapping_path, mapping, actors, class_names, enemy_names):
         context = scenario['id']; pid = relative(mapping_path.parent).replace('/','-') + '-' + context
         source = safe_path(mapping_path.parent, scenario['source_atlas'])
         source_size = scenario['source_frame_size']; source_atlas_size = list(Image.open(source).size)
+        if mapping.get('revision')=='sol' and context in ['tactical-walk','tactical-idle']:
+            expected_count=8 if context=='tactical-walk' else 6
+            if source_atlas_size!=[source_size[0]*expected_count,source_size[1]]:
+                raise ValueError('Native map source atlas dimensions do not match: '+str(source))
         columns = source_atlas_size[0] // source_size[0]
         frames, errors = {}, {}
         for record in scenario['frame_mapping']:
@@ -105,7 +109,7 @@ def map_bundle(mapping_path, mapping, actors, class_names, enemy_names):
         profiles.append({'id':pid,'actor':actor_id,'actorName':mapping.get('display_name',actors.get(actor_id,actor_id)),'classId':cid,
           'className':mapping.get('display_class_name',(enemy_names if side=='enemy'else class_names).get(cid,cid)),
           'context':context,'contextName':names.get(context,context),'side':side,'source_side':side,
-          'mapping':relative(mapping_path),'mappingStatus':'review_candidate','sourceAtlas':relative(source),
+          'mapping':relative(mapping_path),'mappingStatus':mapping.get('status','review_candidate'),'revision':scenario.get('revision',mapping.get('revision')),'modifiedBy':mapping.get('modified_by'),'reviewNote':scenario.get('review_note',mapping.get('review_note','')),'mapGround':scenario.get('preview_ground'),'mapShadow':scenario.get('ground_shadow'),'motionReview':scenario.get('motion_review'),'sourceAtlas':relative(source),
           'sourceFrameSize':source_size,'sourceAtlasSize':source_atlas_size,'sourceColumns':columns,
           'sourceFrameCount':columns*(source_atlas_size[1]//source_size[1]),'anchor':scenario['source_anchor'],
           'sourceOamCutoff':0,'flipOriginOffset':[0,0],'outputFrameSize':scenario['output_frame_size'],
@@ -186,7 +190,7 @@ def build():
         original_size = list(Image.open(source).size)
         profile = {'id': profile_id, 'actor': actor_id, 'actorName': mapping.get('display_name',actors.get(actor_id,actor_id)),
           'classId': cid, 'className': mapping.get('display_class_name',(enemy_names if side=='enemy'else class_names).get(cid,cid)), 'context': 'battle', 'contextName': '战斗场景', 'side':side,
-          'mapping': relative(mapping_path), 'mappingStatus': mapping.get('status', 'unknown'),
+          'mapping': relative(mapping_path), 'mappingStatus': mapping.get('status', 'unknown'), 'revision':mapping.get('revision'), 'modifiedBy':mapping.get('modified_by'), 'reviewNote':mapping.get('review_note',''),
           'sourceAtlas': relative(source), 'sourceFrameSize': source_size, 'sourceAtlasSize': original_size,
           'sourceColumns': body.get('columns', 16), 'sourceFrameCount': body['frames'],
           'anchor': body['anchor'], 'sourceOamCutoff': body['source_oam_frame_count'],
@@ -241,6 +245,10 @@ def build():
         action.update(neededFrames=needed, missingFrames=missing, effectIds=effect_ids, missingEffects=missing_effects,
           ready=not missing and not missing_effects and not profile.get('sourceReviewPending'), sourceReviewPending=bool(profile.get('sourceReviewPending')), duration=len(action['frames']) / action['fps'])
         if action['sourceReviewPending']:action['notes']=profile['sourceReviewNote']
+        if profile.get('revision'):
+            action['revision']=profile['revision']
+            action['modifiedBy']=profile.get('modifiedBy')
+            action['notes']+=' 本次修改记录：'+profile['revision']+'。 '+('修改人：'+profile['modifiedBy']+'。 'if profile.get('modifiedBy')else'')+profile.get('reviewNote','')
         if action['context']=='battle':action['closeCamera']=close_camera(profile,action)
         if action['context']=='battle' and effect_ids:
             # Include complete frozen effect textures, even when their top lies beyond the native field.
@@ -275,8 +283,15 @@ def build():
             expanded=[left,top,right-left,bottom-top]
             if expanded!=view:action['viewport']=expanded
         resources=[profile['sourceAtlas']]+[profile['newFrames'][str(f)]for f in needed if str(f)in profile['newFrames']]+[effects[k]['path']for k in effect_ids if k in effects]
+        if profile.get('mapGround'): resources.append(profile['mapGround'])
+        if profile.get('mapShadow'): resources.append(profile['mapShadow']['path'])
         resource_hashes={path:file_hash(ROOT/path)for path in sorted(set(resources))if(ROOT/path).exists()}
         signature={'frames':action['frames'],'origin':action['origin'],'viewport':action.get('viewport',[-16,-32,288,176]),'closeCamera':action.get('closeCamera'),'anchor':profile['anchor'],'side':profile.get('side','ally'),'resources':resource_hashes,'render_version':3}
+        if profile.get('mapGround'): signature['map_ground_revision']=1
+        if profile.get('mapShadow'): signature['map_shadow']=profile['mapShadow']
+        if profile.get('revision')=='sol':
+            signature['sol_render_version']=1
+            signature['labels']=[profile['actorName'],action['name'],action.get('referenceLabel','原作')]
         action['contentDigest']=hashlib.sha256(json.dumps(signature,sort_keys=True,separators=(',',':')).encode()).hexdigest()
         video = ROOT / 'demos/videos' / (action['id'] + '.mp4')
         action['video'] = relative(video) if matched_export(video,action['contentDigest']) and action['ready'] else None

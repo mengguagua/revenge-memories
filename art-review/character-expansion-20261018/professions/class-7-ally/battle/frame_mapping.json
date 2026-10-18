@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "revision": "sol",
+  "character_id": "class-7-ally",
+  "display_name": "黄金骑士（职业样板） · sol",
+  "original_class_id": 7,
+  "source_side": "ally",
+  "status": "complete_art_review_passed",
+  "review_note": "sol：0–20、50、52保留既有通过稿；21/22局部修稿已选定。21分离短竖段与拳之间保留透明间隔，22握手收回面侧；握点约5/2输出像素重绘残差及21手套/间隔轮廓变化保留。",
+  "runtime_integrated": false,
+  "source_frame_size": [
+    112,
+    80
+  ],
+  "output_frame_size": [
+    448,
+    320
+  ],
+  "source_anchor": [
+    56,
+    80
+  ],
+  "source_oam_frame_count": 26,
+  "source_idle_frame": 26,
+  "source_columns": 16,
+  "frame_mapping": {
+    "0": "frames/frame-000.png",
+    "1": "frames/frame-001.png",
+    "2": "frames/frame-002.png",
+    "3": "frames/frame-003.png",
+    "4": "frames/frame-004.png",
+    "5": "frames/frame-005.png",
+    "6": "frames/frame-006.png",
+    "7": "frames/frame-007.png",
+    "8": "frames/frame-008.png",
+    "9": "frames/frame-009.png",
+    "10": "frames/frame-010.png",
+    "11": "frames/frame-011.png",
+    "12": "frames/frame-012.png",
+    "13": "frames/frame-013.png",
+    "14": "frames/frame-014.png",
+    "15": "frames/frame-015.png",
+    "16": "frames/frame-016.png",
+    "17": "frames/frame-017.png",
+    "18": "frames/frame-018.png",
+    "19": "frames/frame-019.png",
+    "20": "frames/frame-020.png",
+    "50": "frames/frame-050.png",
+    "52": "frames/frame-052.png",
+    "26": "frames/frame-000.png",
+    "49": "frames/frame-000.png",
+    "21": "sol-frames/frame-021.png",
+    "22": "sol-frames/frame-022.png"
+  },
+  "variant_keys": [
+    "original_class_7_normal",
+    "class_7_ally_javelin",
+    "class_7_ally_javelin_vs_heavy",
+    "class_7_ally_javelin_far_ally",
+    "class_7_ally_javelin_far_ally_vs_heavy",
+    "class_7_ally_javelin_far_enemy",
+    "class_7_ally_javelin_far_enemy_vs_heavy"
+  ],
+  "required_source_frames": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    26,
+    49,
+    50,
+    52
+  ],
+  "missing_source_frames": [],
+  "canonical_frames": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    50,
+    52
+  ],
+  "records_sol": [
+    {
+      "revision": "sol",
+      "frame": 21,
+      "raw": "source/sol-spin-21-22-v3-generated.png",
+      "cell": [
+        0,
+        0,
+        887,
+        887
+      ],
+      "uniform_scale": 0.4972972972972973,
+      "translation": [
+        -38,
+        -68
+      ],
+      "visible_clipped_alpha_gt4": 0,
+      "maximum_cropped_alpha": 2,
+      "chosen_hand_source_target": [
+        196,
+        124
+      ],
+      "chosen_hand_observed_approx": [
+        191,
+        126
+      ],
+      "notes": "21 retains a clearly separated vertical fragment. Hand silhouette/gap has a few output pixels of redraw variation; not a per-pixel source match.22 gripping hand brought back beside face; tip/lower horse retained."
+    },
+    {
+      "revision": "sol",
+      "frame": 22,
+      "raw": "source/sol-spin-21-22-v3-generated.png",
+      "cell": [
+        887,
+        0,
+        1774,
+        887
+      ],
+      "uniform_scale": 0.4972972972972973,
+      "translation": [
+        -23,
+        -68
+      ],
+      "visible_clipped_alpha_gt4": 0,
+      "maximum_cropped_alpha": 3,
+      "chosen_hand_source_target": [
+        196,
+        164
+      ],
+      "chosen_hand_observed_approx": [
+        197,
+        164
+      ],
+      "notes": "21 retains a clearly separated vertical fragment. Hand silhouette/gap has a few output pixels of redraw variation; not a per-pixel source match.22 gripping hand brought back beside face; tip/lower horse retained."
+    }
+  ],
+  "batches": [
+    {
+      "id": "sol21-22",
+      "review": "reviews/sol-final-21-22-light.png",
+      "frames": [
+        21,
+        22
+      ]
+    }
+  ],
+  "modified_by": "sol",
+  "author": "sol"
+}

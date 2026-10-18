@@ -5,15 +5,17 @@
 </style></head><body><main>
 <header><div class="header"><div><p class="eyebrow">CHARACTER ART / MOTION REVIEW</p><h1>角色重绘 · 全动作对照</h1><p class="lead">保留身体比例、四肢动作和原作节奏，重绘服饰、发型与眼睛。新旧同步播放，逐帧检查遮挡、手持武器和衣甲结构。</p></div><span class="badge">隔离素材 · 未接入游戏</span></div><div class="stats" id="stats"></div></header>
 <section class="panel" aria-label="动作对照播放器">
+<nav class="links" aria-label="本次修改记录" style="margin-bottom:24px"><a href="sol/index.html">本次修改人：sol · 修改记录</a></nav>
+<nav class="links" aria-label="男主地图本次修订" style="margin-bottom:12px"><a href="?action=hunapu-maps-story--walk-down">男主 · 剧情四向行走</a><a href="?action=hunapu-maps-world--walk-right">男主 · 大地图四向行走</a><a href="?action=hunapu-maps-tactical-idle--idle-cycle">男主 · 战斗地图待机</a><a href="?action=hunapu-maps-tactical-walk--walk-down">男主 · 战斗地图四向行走</a><a href="map-motion-review-v3/overview.mp4">男主地图 · 动画总览</a></nav><p class="action-note" style="margin:0 0 22px">本次完善男主左右行走：完整手臂摆动、侧向盾牌可见；大地图与剧情地图共用人物帧。上下行走与缩小后的待机保留。剧情脚下阴影已收拢为连续投影。左右对照统一使用本项目地面：剧情石板、大地图道路、首关战斗部署区。可切换项目地面／深色／浅色检查。</p>
 <div class="selectors"><label>角色<select id="actor"></select></label><label>职业 / 场景<select id="profile"></select></label><label>动作<select id="action"></select></label></div>
 <div class="screens"><div><div class="screen-title"><strong id="source-label">原作</strong><small id="source-size"></small></div><div class="stage"><canvas id="original" width="1152" height="704"></canvas><div id="old-missing" class="unavailable" hidden>原作资源加载失败</div></div></div><div><div class="screen-title"><strong>四倍像素重绘</strong><small id="ready-state"></small></div><div class="stage"><canvas id="redrawn" width="1152" height="704"></canvas><div id="new-missing" class="unavailable" hidden><strong>本动作素材未齐</strong><span></span></div></div></div></div>
 <div class="timeline"><div class="timeline-info"><span id="time-info"></span><span id="contact-info"></span></div><input class="scrub" id="scrub" aria-label="逐帧定位" type="range" min="0" max="202" value="0"></div>
 <div class="controls"><div><button class="primary" id="play">播放</button><button id="previous" aria-label="前一帧">← 前一帧</button><button id="next" aria-label="后一帧">后一帧 →</button><button id="restart">回到开头</button></div><div><button id="normal-speed" aria-pressed="true">原速</button><button id="half-speed" aria-pressed="false">半速</button><button id="quarter-speed" aria-pressed="false">¼ 慢放</button></div></div>
-<div class="subcontrols"><div><span>画面</span><button id="scene" aria-pressed="true">完整场景</button><button id="close" aria-pressed="false">角色近看</button></div><div><span>底色</span><button id="dark" aria-pressed="true">深色</button><button id="light" aria-pressed="false">浅色</button></div></div>
+<div class="subcontrols"><div><span>画面</span><button id="scene" aria-pressed="true">完整场景</button><button id="close" aria-pressed="false">角色近看</button></div><div><span>底色</span><button id="map-ground" aria-pressed="false" hidden>项目地面</button><button id="dark" aria-pressed="true">深色</button><button id="light" aria-pressed="false">浅色</button></div></div>
 <p class="action-note" id="action-note"></p>
 </section>
 <section class="section"><div class="heading"><h2>当前动作 · 姿势检查</h2><p>按源帧列出全部姿势；不以旧图补齐缺失的新稿。</p></div><div id="poses" class="cards"></div></section>
 <section class="section"><div class="heading"><h2>对照图与视频</h2><p>下载文件与页面采用同一时间线。</p></div><div id="links" class="links"></div></section>
 <section class="section"><div class="heading"><h2>动作目录</h2><p>素材齐备仅表示可完整播放，新增稿仍需视觉验收。</p></div><div id="catalog" class="catalog"></div></section>
 <footer><p id="policy"></p><p>空格播放／暂停，方向键逐帧。切换动作会暂停在首帧。页面从本地脚本载入数据，不依赖联网服务。</p><p>构建时已核对资源路径、帧尺寸与时间线；浏览器视觉检查受环境访问限制，尚未执行。</p></footer>
-</main><script src="gallery-data.js"></script><script src="tools/gallery.js"></script></body></html>
+</main><script src="gallery-data.js?v=hero-map-v3-story-shadow2"></script><script src="tools/gallery.js?v=hero-map-v3-story-shadow2"></script></body></html>

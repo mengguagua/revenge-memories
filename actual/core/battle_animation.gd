@@ -3,6 +3,7 @@ extends RefCounted
 ## Source asset/coordinate contract: data/full_animation_schema.md.
 
 const Rules = preload("res://core/combat_rules.gd")
+const Reviewed = preload("res://core/reviewed_animations.gd")
 const FIELD := Rect2(0, 0, 256, 128)
 const FPS := 60.0988
 const EFFECT_PATH := "res://data/legacy/full_animation_effects.json"
@@ -42,6 +43,7 @@ func _source() -> Dictionary:
 				var original: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/m11_party_motion.json"))
 				for key in original.get("variants",{}):_source_cache.variants["fe2_"+str(key)]=original.variants[key]
 				_source_cache.sprites.merge(original.get("sprites",{}),true)
+			_source_cache.sprites.merge(Reviewed.data().get("sprites", {}), true)
 	return _source_cache
 
 func _class(unit: Dictionary) -> int:
@@ -94,7 +96,7 @@ func sprite(unit: Dictionary) -> Dictionary:
 		result.sequences = result.sequences.duplicate(true)
 		result.sequences.idle = [int(result.background_frame_offset) + (5 if int(unit.get("hp", 182)) < 52 else 9)]
 	if ui.has_method("_personal_battle_sprite"):result=ui.call("_personal_battle_sprite",unit,result)
-	return result
+	return Reviewed.battle(unit, result, active_event)
 
 func _left(unit: Dictionary, exchange: Dictionary) -> bool:
 	if bool(exchange.get("support", false)):
@@ -125,6 +127,12 @@ func selection(event: Dictionary) -> Dictionary:
 	var graphic = sprite(actor)
 	if graphic.get("missing", false): return {"kind": "missing", "reason": "unknown class"}
 	var weapon = int(event.get("weapon_index", Rules.weapon_index(actor)))
+	if graphic.has("reviewed_variants"):
+		_source()
+		var target_x = int(origin(target, ui.combat).x)
+		var heavy = target_x == (56 if _left(target, ui.combat) else 184)
+		var reviewed = Reviewed.selection(graphic, event, weapon, _far_role(ui.combat), heavy)
+		if not reviewed.is_empty(): return reviewed
 	var schedule: Dictionary = graphic.get("attack_schedule", {})
 	var base = ""
 	if graphic.get("weapon_variants", {}).has(str(weapon)):
@@ -191,6 +199,7 @@ func _source_frame(event: Dictionary, frame: Dictionary, tick: int, sounds: bool
 
 func show_frame(event: Dictionary, tick: int) -> bool:
 	# Deterministic frame selection for guarded background visual verification.
+	active_event = event.duplicate(false)
 	var chosen = selection(event)
 	if str(chosen.kind) != "source": return false
 	var frames: Array = chosen.variant.frames

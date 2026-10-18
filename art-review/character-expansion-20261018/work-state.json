@@ -1,6 +1,6 @@
 {
   "goal": "完成男主→第一章兵种→全部基础/进阶职业→所有角色剧情地图，交付全动作同步对照",
-  "status": "paused",
+  "status": "in_progress",
   "current_phase": 3,
   "phases": [
     {
@@ -267,21 +267,19 @@
   ],
   "phase2_completed_units": 14,
   "latest_video_verification": {
-    "count": 472,
+    "path": "demos/video-verification.json",
     "all_pass": true,
-    "new_or_updated_probes": 249,
-    "prior_checks_retained": 223,
-    "scope": "current digest-linked full and close videos; original wrong-source videos hidden",
-    "browser_visual_test": "not performed, offline stills and ffprobe only"
+    "videos_checked": 555,
+    "new_or_updated_probes": 83,
+    "prior_checks_retained": 472
   },
   "phase2_remaining_queue": {},
   "phase2_registration_correction": "class6 right labels are program baselines, not face orientation; extra enemy flip reverted, ally visible left diagonal restored, battle/idle unchanged.",
   "root_active_art": {
-    "enemy1": "all battle/static/nativewalk reviewed and packaged",
-    "ally1": "all battle/static/nativewalk reviewed and packaged",
-    "enemy15": "all battle/static/nativewalk reviewed and packaged",
-    "enemy22": "all battle/static/nativewalk reviewed and packaged",
-    "ally2": "Paused: battle keys0/12/30 v2,4/5 v2,11 v2,32 v1 reviewed;6 v3/7–10 v1 newly generated unreviewed; map idle-v2 registered board needs final source/anchor check; native-up-v1 raw unreviewed. No mapping/manifest yet."
+    "unit": "sol-reviewed-batch-2-5-7-9",
+    "status": "current_batch_complete",
+    "report": "sol/index.html",
+    "whole_scope_complete": false
   },
   "phase3_queue_assignments": {
     "root": [
@@ -330,7 +328,11 @@
     "total_units": 14
   },
   "phase3_completed_units": [
-    "class-8-ally"
+    "class-8-ally",
+    "class-2-ally",
+    "class-5-ally",
+    "class-7-ally",
+    "class-9-ally"
   ],
   "phase2_demo_export": {
     "snapshot_profiles": 50,
@@ -353,15 +355,21 @@
       "professions/class-7-ally/HANDOFF-PAUSED.md",
       "professions/class-9-ally/HANDOFF-PAUSED.md"
     ],
-    "root_completed_generation_outputs_preserved": 3
+    "root_completed_generation_outputs_preserved": 3,
+    "active": false,
+    "historical": true,
+    "superseded_by": "User resume request for sol in current thread"
   },
   "latest_gallery_snapshot": {
-    "profiles": 51,
-    "actions": 476,
-    "ready_in_existing_profiles": 476,
-    "linked_full_videos": 476,
-    "linked_close_videos": 7,
-    "note": "ready does not imply full requested catalog coverage. Latest11 ally9 battle videos exported after last472-video ffprobe report; final11 metadata checks pending."
+    "profiles": 62,
+    "actions": 545,
+    "ready_assets": 545,
+    "pending_registered_actions": 0,
+    "whole_task_complete": false,
+    "scope_note": "Only registered configurations; not all required classes/story identities.",
+    "full_videos": 545,
+    "close_videos": 10,
+    "total_verified_videos": 555
   },
   "progress_estimate_at_pause": {
     "completed": "35%–40%",
@@ -370,5 +378,124 @@
     "complete_units_conservative": 16,
     "required_unit_count": 34,
     "class23_note": "Catalog points to hunapu art owner; exact class23 alias coverage proof pending. Do not double-count35 drawings as new art."
+  },
+  "current_revision": "sol",
+  "resume_authorization": "2026-10-18 用户：继续尝试完成；延续示例，本次修改记录 sol",
+  "sol_change_record": "sol/change-record.json",
+  "sol_completed_batches": [
+    {
+      "unit": "class-2-ally",
+      "revision": "sol",
+      "battle": "complete_art_review_passed",
+      "maps": "complete_art_review_passed",
+      "qa": "professions/class-2-ally/qa-report.json"
+    },
+    {
+      "unit": "class-5-ally",
+      "revision": "sol",
+      "battle": "complete_art_review_passed",
+      "maps": "complete_art_review_passed",
+      "qa": "professions/class-5-ally/qa-report.json"
+    },
+    {
+      "unit": "class-7-ally",
+      "revision": "sol",
+      "battle": "complete_art_review_passed",
+      "maps": "complete_art_review_passed",
+      "qa": "professions/class-7-ally/qa-report.json"
+    },
+    {
+      "unit": "class-9-ally",
+      "revision": "sol",
+      "battle": "complete_art_review_passed",
+      "maps": "complete_art_review_passed",
+      "qa": "professions/class-9-ally/qa-report.json"
+    }
+  ],
+  "sol_current_unit": "four_groups_completed",
+  "sol_next_step": "Continue remaining professions after this reviewed batch; then non-Hunapu story-map identities.",
+  "sol_scope_complete": false,
+  "sol_demo_entry": "sol/index.html",
+  "sol_next_required_units": [
+    {
+      "id": "class-23-ally",
+      "name": "勇者",
+      "side": "ally"
+    },
+    {
+      "id": "class-4-ally",
+      "name": "圣骑士",
+      "side": "ally"
+    },
+    {
+      "id": "class-10-ally",
+      "name": "魔战士",
+      "side": "ally"
+    },
+    {
+      "id": "class-11-ally",
+      "name": "神官",
+      "side": "ally"
+    },
+    {
+      "id": "class-13-ally",
+      "name": "狙击手",
+      "side": "ally"
+    },
+    {
+      "id": "class-16-ally",
+      "name": "女魔道士",
+      "side": "ally"
+    },
+    {
+      "id": "class-17-ally",
+      "name": "圣女",
+      "side": "ally"
+    },
+    {
+      "id": "class-19-ally",
+      "name": "贤者",
+      "side": "ally"
+    },
+    {
+      "id": "class-20-ally",
+      "name": "弓骑士",
+      "side": "ally"
+    },
+    {
+      "id": "class-22-ally",
+      "name": "男爵",
+      "side": "ally"
+    },
+    {
+      "id": "class-24-ally",
+      "name": "公主",
+      "side": "ally"
+    },
+    {
+      "id": "class-2-enemy",
+      "name": "重装兵",
+      "side": "enemy"
+    },
+    {
+      "id": "class-3-enemy",
+      "name": "石像鬼",
+      "side": "enemy"
+    },
+    {
+      "id": "class-11-enemy",
+      "name": "僵尸",
+      "side": "enemy"
+    }
+  ],
+  "active_sol_unit": "class-4-ally",
+  "sol_current_work": {
+    "status": "in_progress",
+    "author": "sol",
+    "source_review": "root and all three unit handoffs read; correct native CHR source preserved",
+    "battle": "12 canonical generated; uniform registration and gait3 foreleg local correction pending",
+    "maps": "native source prepared; art pending",
+    "primary_gallery": "index.html",
+    "scope_complete": false
   }
 }
