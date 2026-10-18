@@ -15,8 +15,9 @@ static func map_sprite(kind: String, actor: Dictionary) -> Dictionary:
 	if int(actor.get("class_id", 0)) == 21 and bool(actor.get("promoted", actor.get("alm_promoted", false))): return {}
 	var context = {"map": "tactical-idle", "map_move": "tactical-walk", "hub": "story", "world": "world"}.get(kind, "")
 	if context.is_empty(): return {}
-	# Story identity is personal; class samples must never replace other named people.
-	if kind in ["hub", "world"] and str(actor.get("id", "")) != "hunapu": return {}
+	# Approved friendly archers and spearmen use their static tactical idle identity.
+	var class_story = kind == "hub" and int(actor.get("class_id", 0)) in [6, 12] and actor.get("side", "player") == "player"
+	if kind in ["hub", "world"] and str(actor.get("id", "")) != "hunapu" and not class_story: return {}
 	return data().maps.get(key(actor), {}).get(context, {}).duplicate(false)
 
 static func battle(actor: Dictionary, original: Dictionary, event: Dictionary) -> Dictionary:

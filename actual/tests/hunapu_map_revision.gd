@@ -31,11 +31,12 @@ func run():
 		for color in colors: check(color in ["172638ff", "3976b5ff", "e4e1c8ff", "dda77dff"], kind + " approved color " + color)
 		images[kind] = image
 		check(art.has("ground_shadow") and ResourceLoader.exists(art.ground_shadow.path), kind + " independent ground shadow")
-		var shadow_size = [11,3] if kind == "hub" else [14,2]
-		var shadow_alpha = 0.38 if kind == "hub" else 0.58
+		var shadow_size = [11,3] if kind in ["hub", "world"] else [14,2]
+		var shadow_alpha = 0.38 if kind in ["hub", "world"] else 0.58
 		check(PackedInt32Array(art.ground_shadow.size) == PackedInt32Array(shadow_size) and is_equal_approx(float(art.ground_shadow.alpha),shadow_alpha), kind + " review shadow dimensions/opacity")
 		check(Vector2(art.anchor[0],art.anchor[1])-Vector2(art.tile_origin[0],art.tile_origin[1]) == Vector2(8,16), kind + " shared foot anchor")
 	check(images.hub.get_data() == images.world.get_data(), "world and story use identical frame pixels")
+	check(Party.sprite("hub",actor,1).ground_shadow == Party.sprite("world",actor,1).ground_shadow, "world and story share the approved continuous shadow")
 	var walk = Party.sprite("map_move", actor, 1)
 	check(PackedInt32Array(walk.directions.left) == PackedInt32Array([6,7]) and PackedInt32Array(walk.directions.right) == PackedInt32Array([2,3]), "native side phase mapping")
 	var idle = Party.sprite("map", actor, 1)

@@ -1,0 +1,563 @@
+{
+  "schema_version": 1,
+  "class_id": 6,
+  "source_side": "enemy",
+  "actor_id": "enemy-spearman",
+  "character_id": "enemy-spearman",
+  "display_name": "敌方枪兵",
+  "width_height_scale": 4,
+  "revision": "spearman-stance-v3-20261018",
+  "status": "accepted_for_test_package",
+  "runtime_integrated": true,
+  "art_mode": "Built-in ImageGen; technical crop/registration, four-color remap, separate fixed/moving layers, native mirrors, lossless PNG.",
+  "review_note": "枪兵：侧身前后跨腿待机，单手在身前握枪；左右行走采用双腿站直＋跨腿两帧。",
+  "qa_report": "../../../archer-spearman-map-review-20261018/verification.json",
+  "source_originals_unchanged": true,
+  "palette": [
+    "#172638",
+    "#AE5148",
+    "#E4E1C8",
+    "#DDA77D"
+  ],
+  "scenarios": [
+    {
+      "id": "tactical-walk",
+      "class_id": 6,
+      "source_side": "enemy",
+      "character_id": "enemy-spearman",
+      "display_name": "敌方枪兵",
+      "source_atlas": "../../../source-input/corrected-tactical-walk/class-6-enemy.png",
+      "source_frame_size": [
+        32,
+        24
+      ],
+      "source_anchor": [
+        16,
+        24
+      ],
+      "source_frame_count": 8,
+      "output_frame_size": [
+        128,
+        96
+      ],
+      "output_anchor": [
+        64,
+        96
+      ],
+      "logical_render_scale": 0.25,
+      "directions": {
+        "up": [
+          0,
+          1
+        ],
+        "right": [
+          2,
+          3
+        ],
+        "down": [
+          4,
+          5
+        ],
+        "left": [
+          6,
+          7
+        ]
+      },
+      "direction_mirror_x": {},
+      "default_facing": "native-rendered-per-slot",
+      "static_facing": false,
+      "timing": {
+        "native_fps": 60.0988,
+        "frame_ticks": 16,
+        "cycle_ticks": 32,
+        "phase_source": "$36 & $10 selects phase; L0BB62C",
+        "movement_pixels_per_tick": 1,
+        "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+      },
+      "idle": {
+        "kind": "hold-current-direction-first-frame",
+        "directions": {
+          "up": [
+            0
+          ],
+          "right": [
+            2
+          ],
+          "down": [
+            4
+          ],
+          "left": [
+            6
+          ]
+        }
+      },
+      "source_audit": {
+        "status": "verified_native_tactical",
+        "overlay": "../../../source-input/corrected-tactical-walk/overlay.json",
+        "verification": "../../../source-input/corrected-tactical-walk/verification.json",
+        "entry": "bank011:L0BB5B1",
+        "caller": "bank006:L06BA0A→bank11 dispatch3 L0BB59D",
+        "chr": 19,
+        "native_actor_origin": [
+          16,
+          16
+        ],
+        "anchor_note": "Rendering anchor is native actor origin+[0,8] matching map tile base; not inferred anatomical foot or wing tip. Native OAM Y adds hardware+1.",
+        "source_rom_sha256": "beafb14c1a45eb094e525d6d13b8dac1c43426fbbc51669fad14970808fa983d",
+        "cpu_oam_matches": 352,
+        "old_source_rejected": "Historical CHR26+village OAM hybrid has no exact source matches and is not used for new art.",
+        "art_review_status": "parent_visual_review_passed"
+      },
+      "exact_mirror_aliases": {
+        "6": {
+          "source_slot": 2,
+          "transform": "horizontal-mirror-full-canvas",
+          "rgba_exact": true
+        },
+        "7": {
+          "source_slot": 3,
+          "transform": "horizontal-mirror-full-canvas",
+          "rgba_exact": true
+        }
+      },
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "output_index": 0,
+          "path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/walk-00.png",
+          "output_path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/walk-00.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 440,
+          "sha256": "582b9815ebd3b26da44fc70e1b9266c05c99d09688c65a43a371aef6825c12d3",
+          "visible_bounds": [
+            46,
+            31,
+            83,
+            96
+          ],
+          "art_revision": "spearman-stance-v3-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "Built-in ImageGen layers; native registration, occlusion and limb composition.",
+          "source_frame": 0,
+          "direction": "up",
+          "generation_record": "../../../spearman-stance-v3-20261018/README.md"
+        },
+        {
+          "source_index": 1,
+          "output_index": 1,
+          "path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/walk-01.png",
+          "output_path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/walk-01.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 435,
+          "sha256": "27b079d17594258bf0cdf627776bd76ff517a41d9abc2ea4719405cf503df5ff",
+          "visible_bounds": [
+            45,
+            31,
+            84,
+            96
+          ],
+          "art_revision": "spearman-stance-v3-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "Built-in ImageGen layers; native registration, occlusion and limb composition.",
+          "source_frame": 1,
+          "direction": "up",
+          "generation_record": "../../../spearman-stance-v3-20261018/README.md"
+        },
+        {
+          "source_index": 2,
+          "output_index": 2,
+          "path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/walk-02.png",
+          "output_path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/walk-02.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 514,
+          "sha256": "d206d907a7e529bfb3a3192baca6c1fa4a87faa4d9510f598ac2aaed4cb969b8",
+          "visible_bounds": [
+            39,
+            32,
+            93,
+            96
+          ],
+          "art_revision": "spearman-stance-v3-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "Built-in ImageGen layers; native registration, occlusion and limb composition.",
+          "source_frame": 2,
+          "direction": "right",
+          "generation_record": "../../../spearman-stance-v3-20261018/README.md"
+        },
+        {
+          "source_index": 3,
+          "output_index": 3,
+          "path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/walk-03.png",
+          "output_path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/walk-03.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 571,
+          "sha256": "cd0ddb508f0f6023907ce6af11d8cda98041404eb968db8a55d4b597baf23b8d",
+          "visible_bounds": [
+            39,
+            32,
+            94,
+            96
+          ],
+          "art_revision": "spearman-stance-v3-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "Built-in ImageGen layers; native registration, occlusion and limb composition.",
+          "source_frame": 3,
+          "direction": "right",
+          "generation_record": "../../../spearman-stance-v3-20261018/README.md"
+        },
+        {
+          "source_index": 4,
+          "output_index": 4,
+          "path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/walk-04.png",
+          "output_path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/walk-04.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 484,
+          "sha256": "e5fe24bc10d1088400ddf1ad08017aedfd101411598069bbb67c927a2a19c155",
+          "visible_bounds": [
+            45,
+            32,
+            83,
+            96
+          ],
+          "art_revision": "spearman-stance-v3-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "Built-in ImageGen layers; native registration, occlusion and limb composition.",
+          "source_frame": 4,
+          "direction": "down",
+          "generation_record": "../../../spearman-stance-v3-20261018/README.md"
+        },
+        {
+          "source_index": 5,
+          "output_index": 5,
+          "path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/walk-05.png",
+          "output_path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/walk-05.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 480,
+          "sha256": "885c636fc3bb20462d4a8e2155e0e520ac655c0aa22eda6baa4417c5b691c3de",
+          "visible_bounds": [
+            45,
+            32,
+            86,
+            96
+          ],
+          "art_revision": "spearman-stance-v3-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "Built-in ImageGen layers; native registration, occlusion and limb composition.",
+          "source_frame": 5,
+          "direction": "down",
+          "generation_record": "../../../spearman-stance-v3-20261018/README.md"
+        },
+        {
+          "source_index": 6,
+          "output_index": 6,
+          "path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/walk-06.png",
+          "output_path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/walk-06.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 520,
+          "sha256": "8c32d1ee5b413de5bbcb325c93d2520f3117076eb169dbcee71a77ddee82aabf",
+          "visible_bounds": [
+            35,
+            32,
+            89,
+            96
+          ],
+          "art_revision": "spearman-stance-v3-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "Built-in ImageGen layers; native registration, occlusion and limb composition.",
+          "source_frame": 6,
+          "direction": "left",
+          "generation_record": "../../../spearman-stance-v3-20261018/README.md"
+        },
+        {
+          "source_index": 7,
+          "output_index": 7,
+          "path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/walk-07.png",
+          "output_path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/walk-07.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 573,
+          "sha256": "c07629f19aaba1ab273b7dcb243d6f01bd7e7f8a654ad646400357cef7986977",
+          "visible_bounds": [
+            34,
+            32,
+            89,
+            96
+          ],
+          "art_revision": "spearman-stance-v3-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "Built-in ImageGen layers; native registration, occlusion and limb composition.",
+          "source_frame": 7,
+          "direction": "left",
+          "generation_record": "../../../spearman-stance-v3-20261018/README.md"
+        }
+      ],
+      "output_atlas": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/walk-atlas.png",
+      "output_atlas_bytes": 3461,
+      "revision": "spearman-stance-v3-20261018",
+      "review_note": "左右行走采用用户允许的简化：双腿站直一帧＋跨腿一帧。保留头部、上身和原有手臂/长枪相位，上下行走不变。",
+      "preview_ground": "map-motion-review-v3/reference/grounds/tactical-M11.png",
+      "ground_shadow": {
+        "path": "hunapu-story-shadow-20261018/story-shadow.png",
+        "size": [
+          11,
+          3
+        ],
+        "offset": [
+          0,
+          -1
+        ],
+        "alpha": 0.38,
+        "kind": "continuous_fixed_ground_projection",
+        "source": "Reuse accepted protagonist continuous shadow; separate fixed ground layer beneath every foot phase."
+      },
+      "motion_review": {
+        "reference": "spearman-stance-v3-20261018/README.md",
+        "fixed_and_moving_parts": "左右行走采用用户允许的简化：双腿站直一帧＋跨腿一帧。保留头部、上身和原有手臂/长枪相位，上下行走不变。"
+      },
+      "adaptation_note": "左右行走采用用户允许的简化：双腿站直一帧＋跨腿一帧。保留头部、上身和原有手臂/长枪相位，上下行走不变。"
+    },
+    {
+      "id": "tactical-idle",
+      "class_id": 6,
+      "source_side": "enemy",
+      "character_id": "enemy-spearman",
+      "display_name": "敌方枪兵",
+      "source_atlas": "reference/idle-source-atlas.png",
+      "source_frame_size": [
+        24,
+        24
+      ],
+      "source_anchor": [
+        12,
+        20
+      ],
+      "output_frame_size": [
+        96,
+        96
+      ],
+      "output_anchor": [
+        48,
+        80
+      ],
+      "logical_render_scale": 0.25,
+      "directions": {
+        "all": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "direction_mirror_x": {},
+      "default_facing": "fixed",
+      "static_facing": true,
+      "timing": {
+        "native_fps": 60.0988,
+        "cycle_frames": [
+          0,
+          1,
+          2,
+          1
+        ],
+        "frame_ticks": [
+          14,
+          8,
+          14,
+          8
+        ]
+      },
+      "idle": {
+        "kind": "original-fixed-facing-cycle",
+        "frames": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "original_source_path": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_6_enemy.png",
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "output_index": 0,
+          "path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/idle-00.png",
+          "output_path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/idle-00.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 521,
+          "sha256": "af5c64774131683b095d9b165056be29b264b69f65683ea19eea836eee7811e6",
+          "visible_bounds": [
+            24,
+            16,
+            83,
+            80
+          ],
+          "art_revision": "spearman-stance-v3-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "Built-in ImageGen layers; native registration, occlusion and limb composition.",
+          "generation_record": "../../../spearman-stance-v3-20261018/README.md"
+        },
+        {
+          "source_index": 1,
+          "output_index": 1,
+          "path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/idle-01.png",
+          "output_path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/idle-01.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 498,
+          "sha256": "fca73f47960b6b77f568f77f55473825e96dd6952229e9f24f9377d8434bd183",
+          "visible_bounds": [
+            20,
+            16,
+            79,
+            80
+          ],
+          "art_revision": "spearman-stance-v3-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "Built-in ImageGen layers; native registration, occlusion and limb composition.",
+          "generation_record": "../../../spearman-stance-v3-20261018/README.md"
+        },
+        {
+          "source_index": 2,
+          "output_index": 2,
+          "path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/idle-02.png",
+          "output_path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/idle-02.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 501,
+          "sha256": "691e7e2f2acbcccdf42ebbb53083517e06f858bdec067c6de1b3b20f4f01bbca",
+          "visible_bounds": [
+            20,
+            12,
+            79,
+            80
+          ],
+          "art_revision": "spearman-stance-v3-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "Built-in ImageGen layers; native registration, occlusion and limb composition.",
+          "generation_record": "../../../spearman-stance-v3-20261018/README.md"
+        },
+        {
+          "source_index": 3,
+          "output_index": 3,
+          "path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/idle-03.png",
+          "output_path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/idle-03.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 498,
+          "sha256": "fca73f47960b6b77f568f77f55473825e96dd6952229e9f24f9377d8434bd183",
+          "visible_bounds": [
+            20,
+            16,
+            79,
+            80
+          ],
+          "art_revision": "spearman-stance-v3-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "Built-in ImageGen layers; native registration, occlusion and limb composition.",
+          "generation_record": "../../../spearman-stance-v3-20261018/README.md"
+        },
+        {
+          "source_index": 4,
+          "output_index": 4,
+          "path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/idle-04.png",
+          "output_path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/idle-04.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 521,
+          "sha256": "af5c64774131683b095d9b165056be29b264b69f65683ea19eea836eee7811e6",
+          "visible_bounds": [
+            24,
+            16,
+            83,
+            80
+          ],
+          "art_revision": "spearman-stance-v3-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "Built-in ImageGen layers; native registration, occlusion and limb composition.",
+          "generation_record": "../../../spearman-stance-v3-20261018/README.md"
+        },
+        {
+          "source_index": 5,
+          "output_index": 5,
+          "path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/idle-05.png",
+          "output_path": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/idle-05.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 498,
+          "sha256": "fca73f47960b6b77f568f77f55473825e96dd6952229e9f24f9377d8434bd183",
+          "visible_bounds": [
+            20,
+            16,
+            79,
+            80
+          ],
+          "art_revision": "spearman-stance-v3-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "Built-in ImageGen layers; native registration, occlusion and limb composition.",
+          "generation_record": "../../../spearman-stance-v3-20261018/README.md"
+        }
+      ],
+      "output_atlas": "../../../spearman-stance-v3-20261018/deliverables/class-6-enemy/idle-atlas.png",
+      "output_atlas_bytes": 1622,
+      "revision": "spearman-stance-v3-20261018",
+      "review_note": "待机：身体侧向，前腿向侧前方踏出、后腿落后；单手在身前握住枪杆，手臂和长枪一同按原作偏移，头身、双脚和另一只手臂固定。",
+      "preview_ground": "map-motion-review-v3/reference/grounds/tactical-M11.png",
+      "ground_shadow": {
+        "path": "hunapu-story-shadow-20261018/story-shadow.png",
+        "size": [
+          11,
+          3
+        ],
+        "offset": [
+          -2,
+          -1
+        ],
+        "alpha": 0.38,
+        "kind": "continuous_fixed_ground_projection",
+        "source": "Reuse accepted protagonist continuous shadow; separate fixed ground layer beneath every foot phase."
+      },
+      "motion_review": {
+        "reference": "spearman-stance-v3-20261018/README.md",
+        "fixed_and_moving_parts": "待机：身体侧向，前腿向侧前方踏出、后腿落后；单手在身前握住枪杆，手臂和长枪一同按原作偏移，头身、双脚和另一只手臂固定。"
+      },
+      "adaptation_note": "待机：身体侧向，前腿向侧前方踏出、后腿落后；单手在身前握住枪杆，手臂和长枪一同按原作偏移，头身、双脚和另一只手臂固定。"
+    }
+  ],
+  "runtime_package_version": "0.8.6"
+}

@@ -119,7 +119,12 @@ def map_bundle(mapping_path, mapping, actors, class_names, enemy_names):
             actions.append({'id':pid+'--'+key,'profile':pid,'key':key,'name':name,'context':context,
               'kind':kind,'fps':fps,'origin':[32,36],'contactTick':None,'frames':rows,'notes':note,
               'viewport':[0,0,64,48],'defaultVideo':video})
-        if scenario.get('static_facing',False) or context=='tactical-idle':
+            if scenario.get('reference_label'): actions[-1]['referenceLabel']=scenario['reference_label']
+            if scenario.get('action_note'): actions[-1]['notes']+=' '+scenario['action_note']
+        if scenario.get('static_pose_preview',False):
+            rows=[{'frame':0,'offset':[0,0],'flip':False,'effects':[]}for _ in range(60)]
+            append('idle-pose','剧情地图 · 待机形象',rows,'map_idle','静止形象复用战斗待机首帧；本轮仅检查剧情形象。')
+        elif scenario.get('static_facing',False) or context=='tactical-idle':
             order=timing['cycle_frames'];ticks=timing['frame_ticks'];rows=[]
             for _ in range(2):
                 for f,n in zip(order,ticks): rows.extend({'frame':f,'offset':[0,0],'flip':False,'effects':[]}for _ in range(n))
@@ -292,6 +297,9 @@ def build():
         if profile.get('revision')=='sol':
             signature['sol_render_version']=1
             signature['labels']=[profile['actorName'],action['name'],action.get('referenceLabel','原作')]
+        elif profile.get('revision') in ['archer-spearman-map-20261018','archer-bow-v2-20261018','archer-arms-step-v3-20261018','archer-down-hand-v4-20261018']:
+            signature['centered_labels_version']=1
+            signature['labels']=[profile['actorName'],action['name'],action.get('referenceLabel','原作')]
         action['contentDigest']=hashlib.sha256(json.dumps(signature,sort_keys=True,separators=(',',':')).encode()).hexdigest()
         video = ROOT / 'demos/videos' / (action['id'] + '.mp4')
         action['video'] = relative(video) if matched_export(video,action['contentDigest']) and action['ready'] else None
@@ -309,7 +317,7 @@ def build():
         'ready':sum(a['ready'] for a in actions),'pending':sum(not a['ready'] for a in actions)},
       'validation':{'structuralIssues':issues,'browserVisualInspection':'not performed; file URL access was denied by the environment, and no alternate server/browser was attempted'},
       'referenceCorrections':{'label':corrected.get('label'),'note':corrected.get('reference_note'),'keys':list(corrected.get('variants',{}))},
-      'policy':'素材齐备表示能完整播放，新增素材仍待视觉验收；未接入游戏。缺图不回退为旧美术。'}
+      'policy':'素材齐备表示能完整播放；男主、弓箭手和本轮已验收枪兵地图均已接入测试包；其余未验收素材保持审核状态。缺图不回退为旧美术。'}
     (ROOT/'gallery-data.js').write_text('window.GALLERY_DATA = '+json.dumps(result,ensure_ascii=False,separators=(',',':'))+';\n')
     demos=ROOT/'demos';demos.mkdir(exist_ok=True)
     (demos/'gallery-data.json').write_text(json.dumps(result,ensure_ascii=False,separators=(',',':'))+'\n')

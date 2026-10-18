@@ -1,0 +1,1226 @@
+{
+  "schema_version": 1,
+  "class_id": 12,
+  "source_side": "ally",
+  "actor_id": "ally-archer",
+  "character_id": "ally-archer",
+  "display_name": "盟军弓箭手",
+  "width_height_scale": 4,
+  "revision": "archer-arms-step-v3-20261018",
+  "status": "awaiting_user_review",
+  "runtime_integrated": false,
+  "art_mode": "Built-in ImageGen; technical crop/registration, four-color remap, separate fixed/moving layers, native mirrors, lossless PNG.",
+  "review_note": "弓箭手本轮修订：持弓手臂露出连贯部分，拉弦前臂连为整体且略向上；弓弦连续，侧向站直与前跨两帧分明。",
+  "qa_report": "../../../archer-arms-step-v3-20261018/verification.json",
+  "source_originals_unchanged": true,
+  "palette": [
+    "#172638",
+    "#3976B5",
+    "#E4E1C8",
+    "#DDA77D"
+  ],
+  "scenarios": [
+    {
+      "id": "tactical-walk",
+      "class_id": 12,
+      "source_side": "ally",
+      "character_id": "ally-archer",
+      "display_name": "盟军弓箭手",
+      "source_atlas": "../../../source-input/corrected-tactical-walk/class-12-ally.png",
+      "source_frame_size": [
+        32,
+        24
+      ],
+      "source_anchor": [
+        16,
+        24
+      ],
+      "source_columns": 8,
+      "output_frame_size": [
+        128,
+        96
+      ],
+      "output_anchor": [
+        64,
+        96
+      ],
+      "logical_render_scale": 0.25,
+      "directions": {
+        "up": [
+          0,
+          1
+        ],
+        "right": [
+          2,
+          3
+        ],
+        "down": [
+          4,
+          5
+        ],
+        "left": [
+          6,
+          7
+        ]
+      },
+      "direction_mirror_x": {},
+      "static_facing": false,
+      "timing": {
+        "native_fps": 60.0988,
+        "frame_ticks": 16,
+        "cycle_ticks": 32,
+        "phase_source": "$36 & $10 selects phase; L0BB62C",
+        "movement_pixels_per_tick": 1,
+        "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+      },
+      "source_audit": {
+        "status": "verified_native_tactical",
+        "source_chr": 26,
+        "record_key": "class-12-ally",
+        "overlay": "../../../source-input/corrected-tactical-walk/overlay.json",
+        "verification": "../../../source-input/corrected-tactical-walk/verification.json",
+        "cpu_entry": "bank011:L0BB5B1",
+        "caller": "bank006:L06BA0A→bank11 dispatch3 L0BB59D",
+        "native_render": "bank015:L0FE80F with bank8/0589=0",
+        "old_source_status": "Historical village-table/CHR26 hybrid, retained. Native7 matches old0 with exact size and RGBA, but old rendered slack-bow interpretation was incorrect and is not reused."
+      },
+      "proven_mirror_pairs": [
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "mirror_note": "CPU mirroring already baked; no additional side XOR or direction mirror. Phase is preserved.",
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "output_index": 0,
+          "native_cpu_frame": {
+            "direction": "up",
+            "direction_code": 0,
+            "phase": 0,
+            "clock_value": 0,
+            "frame_ticks": 16,
+            "source_chr": 26,
+            "source_frame_index": 75,
+            "source_frame_address": "L088846",
+            "oam": [
+              [
+                71,
+                168,
+                0,
+                56
+              ],
+              [
+                71,
+                169,
+                0,
+                64
+              ],
+              [
+                79,
+                184,
+                0,
+                56
+              ],
+              [
+                79,
+                185,
+                0,
+                64
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 26
+              },
+              {
+                "register": "0xc000",
+                "value": 26
+              }
+            ],
+            "cpu_instructions": 393,
+            "source_global_flip": false,
+            "lookup": {
+              "animation": "L0BB669",
+              "chr": "L0BB719",
+              "right_mirror_flag": "L0BB72F"
+            },
+            "source_slot": 0,
+            "source_alpha_bounds": [
+              8,
+              8,
+              22,
+              24
+            ],
+            "rgba_sha256": "6487325284644dd5c274da16bf4df081b9cb228817c0547b22b9dec683305afe"
+          },
+          "source_frame": 0,
+          "direction": "up",
+          "source_visible_bounds": [
+            8,
+            8,
+            22,
+            24
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/walk-00.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/walk-00.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 456,
+          "sha256": "891f39d0c671d091380c22d80275ed843c8bb36d34c33d5caf91f12a5f71d4b5",
+          "visible_bounds": [
+            37,
+            32,
+            84,
+            96
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 1,
+          "output_index": 1,
+          "native_cpu_frame": {
+            "direction": "up",
+            "direction_code": 0,
+            "phase": 1,
+            "clock_value": 16,
+            "frame_ticks": 16,
+            "source_chr": 26,
+            "source_frame_index": 76,
+            "source_frame_address": "L08884C",
+            "oam": [
+              [
+                71,
+                136,
+                0,
+                56
+              ],
+              [
+                71,
+                137,
+                0,
+                64
+              ],
+              [
+                79,
+                152,
+                0,
+                56
+              ],
+              [
+                79,
+                153,
+                0,
+                64
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 26
+              },
+              {
+                "register": "0xc000",
+                "value": 26
+              }
+            ],
+            "cpu_instructions": 393,
+            "source_global_flip": false,
+            "lookup": {
+              "animation": "L0BB669",
+              "chr": "L0BB719",
+              "right_mirror_flag": "L0BB72F"
+            },
+            "source_slot": 1,
+            "source_alpha_bounds": [
+              8,
+              8,
+              22,
+              24
+            ],
+            "rgba_sha256": "92b0d735ee05252578d4ed00611d50e3140ee5d3758efbf4128a3c7b4c20789f"
+          },
+          "source_frame": 1,
+          "direction": "up",
+          "source_visible_bounds": [
+            8,
+            8,
+            22,
+            24
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/walk-01.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/walk-01.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 461,
+          "sha256": "f1065e25c32644f312eabd97ca4dfd8c842ceaf6162878f953b36ccd7767359c",
+          "visible_bounds": [
+            37,
+            32,
+            84,
+            96
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 2,
+          "output_index": 2,
+          "native_cpu_frame": {
+            "direction": "right",
+            "direction_code": 1,
+            "phase": 0,
+            "clock_value": 0,
+            "frame_ticks": 16,
+            "source_chr": 26,
+            "source_frame_index": 77,
+            "source_frame_address": "L088852",
+            "oam": [
+              [
+                71,
+                104,
+                64,
+                64
+              ],
+              [
+                71,
+                105,
+                64,
+                56
+              ],
+              [
+                79,
+                120,
+                64,
+                64
+              ],
+              [
+                79,
+                121,
+                64,
+                56
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 26
+              },
+              {
+                "register": "0xc000",
+                "value": 26
+              }
+            ],
+            "cpu_instructions": 469,
+            "source_global_flip": true,
+            "lookup": {
+              "animation": "L0BB669",
+              "chr": "L0BB719",
+              "right_mirror_flag": "L0BB72F"
+            },
+            "source_slot": 2,
+            "source_alpha_bounds": [
+              11,
+              8,
+              23,
+              24
+            ],
+            "rgba_sha256": "c9760e66b40c2b516f44bfab5327dc15e4ed875ce69e47c8dea841fb65ef8142"
+          },
+          "source_frame": 2,
+          "direction": "right",
+          "source_visible_bounds": [
+            9,
+            8,
+            21,
+            24
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/walk-02.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/walk-02.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 587,
+          "sha256": "c3c0d22d217219a277eff0a56d319302d246445a63482df065fbd4d9be1129a2",
+          "visible_bounds": [
+            40,
+            33,
+            91,
+            96
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 3,
+          "output_index": 3,
+          "native_cpu_frame": {
+            "direction": "right",
+            "direction_code": 1,
+            "phase": 1,
+            "clock_value": 16,
+            "frame_ticks": 16,
+            "source_chr": 26,
+            "source_frame_index": 78,
+            "source_frame_address": "L088858",
+            "oam": [
+              [
+                71,
+                72,
+                64,
+                64
+              ],
+              [
+                71,
+                73,
+                64,
+                56
+              ],
+              [
+                79,
+                88,
+                64,
+                64
+              ],
+              [
+                79,
+                89,
+                64,
+                56
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 26
+              },
+              {
+                "register": "0xc000",
+                "value": 26
+              }
+            ],
+            "cpu_instructions": 469,
+            "source_global_flip": true,
+            "lookup": {
+              "animation": "L0BB669",
+              "chr": "L0BB719",
+              "right_mirror_flag": "L0BB72F"
+            },
+            "source_slot": 3,
+            "source_alpha_bounds": [
+              11,
+              8,
+              24,
+              24
+            ],
+            "rgba_sha256": "9403311c38d46f8ad950096911092c4c58aed17bb82ca6b2b7ffb05ef3611a2e"
+          },
+          "source_frame": 3,
+          "direction": "right",
+          "source_visible_bounds": [
+            8,
+            8,
+            21,
+            24
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/walk-03.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/walk-03.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 594,
+          "sha256": "11d31cc98c9ea4e9db44ab8ca7abc8d16f754fbd780eb2ee97bdc17429fc62f8",
+          "visible_bounds": [
+            40,
+            33,
+            92,
+            96
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 4,
+          "output_index": 4,
+          "native_cpu_frame": {
+            "direction": "down",
+            "direction_code": 2,
+            "phase": 0,
+            "clock_value": 0,
+            "frame_ticks": 16,
+            "source_chr": 26,
+            "source_frame_index": 79,
+            "source_frame_address": "L08885E",
+            "oam": [
+              [
+                71,
+                40,
+                0,
+                56
+              ],
+              [
+                71,
+                41,
+                0,
+                64
+              ],
+              [
+                79,
+                56,
+                0,
+                56
+              ],
+              [
+                79,
+                57,
+                0,
+                64
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 26
+              },
+              {
+                "register": "0xc000",
+                "value": 26
+              }
+            ],
+            "cpu_instructions": 393,
+            "source_global_flip": false,
+            "lookup": {
+              "animation": "L0BB669",
+              "chr": "L0BB719",
+              "right_mirror_flag": "L0BB72F"
+            },
+            "source_slot": 4,
+            "source_alpha_bounds": [
+              10,
+              8,
+              24,
+              24
+            ],
+            "rgba_sha256": "c65d4374ae7d41529100c8da0e9cb931fe42a89257d66f0bcca99ae784b64f11"
+          },
+          "source_frame": 4,
+          "direction": "down",
+          "source_visible_bounds": [
+            10,
+            8,
+            24,
+            24
+          ],
+          "path": "../../../archer-down-hand-v4-20261018/deliverables/class-12-ally/walk-04.png",
+          "output_path": "../../../archer-down-hand-v4-20261018/deliverables/class-12-ally/walk-04.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 574,
+          "sha256": "b46794082a24d6d93dc57f40b39518f588d10ca6e7eb1758c4fce02a2f1293b3",
+          "visible_bounds": [
+            41,
+            32,
+            92,
+            96
+          ],
+          "art_revision": "archer-down-hand-v4-20261018",
+          "construction": "Existing drawing forearm/hand composited above the bowstring at the nock; no new drawing, no part translation.",
+          "generation_record": "../../../archer-down-hand-v4-20261018/README.md"
+        },
+        {
+          "source_index": 5,
+          "output_index": 5,
+          "native_cpu_frame": {
+            "direction": "down",
+            "direction_code": 2,
+            "phase": 1,
+            "clock_value": 16,
+            "frame_ticks": 16,
+            "source_chr": 26,
+            "source_frame_index": 80,
+            "source_frame_address": "L088864",
+            "oam": [
+              [
+                71,
+                8,
+                0,
+                56
+              ],
+              [
+                71,
+                9,
+                0,
+                64
+              ],
+              [
+                79,
+                24,
+                0,
+                56
+              ],
+              [
+                79,
+                25,
+                0,
+                64
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 26
+              },
+              {
+                "register": "0xc000",
+                "value": 26
+              }
+            ],
+            "cpu_instructions": 393,
+            "source_global_flip": false,
+            "lookup": {
+              "animation": "L0BB669",
+              "chr": "L0BB719",
+              "right_mirror_flag": "L0BB72F"
+            },
+            "source_slot": 5,
+            "source_alpha_bounds": [
+              10,
+              8,
+              24,
+              24
+            ],
+            "rgba_sha256": "36f49c83e8760906a9bd275d15209d81d42596124313b679a7143fc456fe4ede"
+          },
+          "source_frame": 5,
+          "direction": "down",
+          "source_visible_bounds": [
+            10,
+            8,
+            24,
+            24
+          ],
+          "path": "../../../archer-down-hand-v4-20261018/deliverables/class-12-ally/walk-05.png",
+          "output_path": "../../../archer-down-hand-v4-20261018/deliverables/class-12-ally/walk-05.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 573,
+          "sha256": "74ab327e52cc41f34ac56b18647a854a5b0f7753aba27b6da0e34c81b61d7ea9",
+          "visible_bounds": [
+            41,
+            32,
+            92,
+            96
+          ],
+          "art_revision": "archer-down-hand-v4-20261018",
+          "construction": "Existing drawing forearm/hand composited above the bowstring at the nock; no new drawing, no part translation.",
+          "generation_record": "../../../archer-down-hand-v4-20261018/README.md"
+        },
+        {
+          "source_index": 6,
+          "output_index": 6,
+          "native_cpu_frame": {
+            "direction": "left",
+            "direction_code": 3,
+            "phase": 0,
+            "clock_value": 0,
+            "frame_ticks": 16,
+            "source_chr": 26,
+            "source_frame_index": 77,
+            "source_frame_address": "L088852",
+            "oam": [
+              [
+                71,
+                104,
+                0,
+                56
+              ],
+              [
+                71,
+                105,
+                0,
+                64
+              ],
+              [
+                79,
+                120,
+                0,
+                56
+              ],
+              [
+                79,
+                121,
+                0,
+                64
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 26
+              },
+              {
+                "register": "0xc000",
+                "value": 26
+              }
+            ],
+            "cpu_instructions": 393,
+            "source_global_flip": false,
+            "lookup": {
+              "animation": "L0BB669",
+              "chr": "L0BB719",
+              "right_mirror_flag": "L0BB72F"
+            },
+            "source_slot": 6,
+            "source_alpha_bounds": [
+              9,
+              8,
+              21,
+              24
+            ],
+            "rgba_sha256": "8a5c37baaadbb4a225fb374b90137900819d22e1dee03f2e3d366b825bd6a93e"
+          },
+          "source_frame": 6,
+          "direction": "left",
+          "source_visible_bounds": [
+            9,
+            8,
+            21,
+            24
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/walk-06.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/walk-06.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 588,
+          "sha256": "7976efa773b70ed1cf9ae41de62f1c4d5c801625219e8a96b1070e2d1c9eefd5",
+          "visible_bounds": [
+            37,
+            33,
+            88,
+            96
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 7,
+          "output_index": 7,
+          "native_cpu_frame": {
+            "direction": "left",
+            "direction_code": 3,
+            "phase": 1,
+            "clock_value": 16,
+            "frame_ticks": 16,
+            "source_chr": 26,
+            "source_frame_index": 78,
+            "source_frame_address": "L088858",
+            "oam": [
+              [
+                71,
+                72,
+                0,
+                56
+              ],
+              [
+                71,
+                73,
+                0,
+                64
+              ],
+              [
+                79,
+                88,
+                0,
+                56
+              ],
+              [
+                79,
+                89,
+                0,
+                64
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 26
+              },
+              {
+                "register": "0xc000",
+                "value": 26
+              }
+            ],
+            "cpu_instructions": 393,
+            "source_global_flip": false,
+            "lookup": {
+              "animation": "L0BB669",
+              "chr": "L0BB719",
+              "right_mirror_flag": "L0BB72F"
+            },
+            "source_slot": 7,
+            "source_alpha_bounds": [
+              8,
+              8,
+              21,
+              24
+            ],
+            "rgba_sha256": "c9525b81ada5402ed68d912ae50b9160fb42e49064178e23f55cfde0c1fa4951"
+          },
+          "source_frame": 7,
+          "direction": "left",
+          "source_visible_bounds": [
+            8,
+            8,
+            21,
+            24
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/walk-07.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/walk-07.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 591,
+          "sha256": "1f12ce35208ebbb94fff6ee1c95934baee3b28664e9b2d792ec73dade0dbb9f7",
+          "visible_bounds": [
+            36,
+            33,
+            88,
+            96
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        }
+      ],
+      "output_atlas": "../../../archer-down-hand-v4-20261018/deliverables/class-12-ally/walk-atlas.png",
+      "output_atlas_bytes": 4661,
+      "revision": "archer-down-hand-v4-20261018",
+      "review_note": "本轮仅修向下：拉弦手覆盖弓弦交点，显示握住并拉弦；其他方向和步态保留。",
+      "preview_ground": "map-motion-review-v3/reference/grounds/tactical-M11.png",
+      "ground_shadow": {
+        "path": "hunapu-story-shadow-20261018/story-shadow.png",
+        "size": [
+          11,
+          3
+        ],
+        "offset": [
+          0,
+          -1
+        ],
+        "alpha": 0.38,
+        "kind": "continuous_fixed_ground_projection",
+        "source": "Reuse accepted protagonist continuous shadow; separate fixed ground layer beneath every foot phase."
+      },
+      "motion_review": {
+        "reference": "archer-arms-step-v3-20261018/README.md",
+        "fixed_and_moving_parts": "完整弓身在前景，后方持弓手臂可见；拉弦前臂连续并略向上，两段弓弦为连续浅色线。上身、弓箭及手臂固定，仅腿脚变换；侧向首帧站直，第二帧前跨；左右朝向保留，向上帧保留。",
+        "downward_hand_correction": "archer-down-hand-v4-20261018/README.md"
+      },
+      "adaptation_note": "完整弓身在前景，后方持弓手臂可见；拉弦前臂连续并略向上，两段弓弦为连续浅色线。上身、弓箭及手臂固定，仅腿脚变换；侧向首帧站直，第二帧前跨；左右朝向保留，向上帧保留。"
+    },
+    {
+      "id": "tactical-idle",
+      "class_id": 12,
+      "source_side": "ally",
+      "character_id": "ally-archer",
+      "display_name": "盟军弓箭手",
+      "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_12_ally.png",
+      "source_frame_size": [
+        24,
+        24
+      ],
+      "source_anchor": [
+        12,
+        20
+      ],
+      "output_frame_size": [
+        96,
+        96
+      ],
+      "output_anchor": [
+        48,
+        80
+      ],
+      "logical_render_scale": 0.25,
+      "directions": {
+        "all": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "direction_mirror_x": {},
+      "default_facing": "northeast-ready",
+      "static_facing": true,
+      "timing": {
+        "native_fps": 60.0988,
+        "cycle_frames": [
+          0,
+          1,
+          2,
+          1
+        ],
+        "frame_ticks": [
+          14,
+          8,
+          14,
+          8
+        ]
+      },
+      "idle": {
+        "kind": "original-fixed-facing-cycle",
+        "frames": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "native_alias_groups": [
+        [
+          0,
+          1,
+          3,
+          4,
+          5
+        ],
+        [
+          2
+        ]
+      ],
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "output_index": 0,
+          "source_frame": 0,
+          "direction": "northeast-ready",
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/idle-00.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/idle-00.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 621,
+          "sha256": "1a28dd8306e4d2aa70b8113e23ba15dd8719ccc957b86ab6c52d6dbb4c8c3be6",
+          "visible_bounds": [
+            19,
+            15,
+            79,
+            80
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 1,
+          "output_index": 1,
+          "source_frame": 1,
+          "direction": "northeast-ready",
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/idle-01.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/idle-01.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 621,
+          "sha256": "1a28dd8306e4d2aa70b8113e23ba15dd8719ccc957b86ab6c52d6dbb4c8c3be6",
+          "visible_bounds": [
+            19,
+            15,
+            79,
+            80
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 2,
+          "output_index": 2,
+          "source_frame": 2,
+          "direction": "northeast-ready",
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/idle-02.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/idle-02.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 617,
+          "sha256": "c0493154c8dc7b17315613ec683abb02a1969464b45ef1d46f1dc67693a71f2b",
+          "visible_bounds": [
+            19,
+            19,
+            79,
+            80
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 3,
+          "output_index": 3,
+          "source_frame": 3,
+          "direction": "northeast-ready",
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/idle-03.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/idle-03.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 621,
+          "sha256": "1a28dd8306e4d2aa70b8113e23ba15dd8719ccc957b86ab6c52d6dbb4c8c3be6",
+          "visible_bounds": [
+            19,
+            15,
+            79,
+            80
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 4,
+          "output_index": 4,
+          "source_frame": 4,
+          "direction": "northeast-ready",
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/idle-04.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/idle-04.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 621,
+          "sha256": "1a28dd8306e4d2aa70b8113e23ba15dd8719ccc957b86ab6c52d6dbb4c8c3be6",
+          "visible_bounds": [
+            19,
+            15,
+            79,
+            80
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 5,
+          "output_index": 5,
+          "source_frame": 5,
+          "direction": "northeast-ready",
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/idle-05.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/idle-05.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 621,
+          "sha256": "1a28dd8306e4d2aa70b8113e23ba15dd8719ccc957b86ab6c52d6dbb4c8c3be6",
+          "visible_bounds": [
+            19,
+            15,
+            79,
+            80
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        }
+      ],
+      "output_atlas": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/idle-atlas.png",
+      "output_atlas_bytes": 2509,
+      "revision": "archer-arms-step-v3-20261018",
+      "review_note": "完整弓身在前景，后方持弓手臂可见；拉弦前臂连续并略向上，两段弓弦为连续浅色线。拉弦前臂、后方持弓手臂与完整弓箭作为同一组上下移动，身体和腿保持固定。",
+      "preview_ground": "map-motion-review-v3/reference/grounds/tactical-M11.png",
+      "ground_shadow": {
+        "path": "hunapu-story-shadow-20261018/story-shadow.png",
+        "size": [
+          11,
+          3
+        ],
+        "offset": [
+          0,
+          -1
+        ],
+        "alpha": 0.38,
+        "kind": "continuous_fixed_ground_projection",
+        "source": "Reuse accepted protagonist continuous shadow; separate fixed ground layer beneath every foot phase."
+      },
+      "motion_review": {
+        "reference": "archer-arms-step-v3-20261018/README.md",
+        "fixed_and_moving_parts": "完整弓身在前景，后方持弓手臂可见；拉弦前臂连续并略向上，两段弓弦为连续浅色线。拉弦前臂、后方持弓手臂与完整弓箭作为同一组上下移动，身体和腿保持固定。"
+      },
+      "adaptation_note": "完整弓身在前景，后方持弓手臂可见；拉弦前臂连续并略向上，两段弓弦为连续浅色线。拉弦前臂、后方持弓手臂与完整弓箭作为同一组上下移动，身体和腿保持固定。"
+    },
+    {
+      "id": "story",
+      "class_id": 12,
+      "source_side": "ally",
+      "character_id": "ally-archer",
+      "display_name": "盟军弓箭手",
+      "source_atlas": "../../../archer-spearman-map-review-20261018/reference/class-12-ally-tactical-idle-00.png",
+      "source_frame_size": [
+        24,
+        24
+      ],
+      "source_anchor": [
+        12,
+        20
+      ],
+      "output_frame_size": [
+        96,
+        96
+      ],
+      "output_anchor": [
+        48,
+        80
+      ],
+      "logical_render_scale": 0.25,
+      "directions": {
+        "all": [
+          0
+        ]
+      },
+      "direction_mirror_x": {},
+      "default_facing": "northeast-ready",
+      "static_facing": true,
+      "timing": {
+        "native_fps": 60.0988,
+        "preview_hold_ticks": 60
+      },
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "output_index": 0,
+          "source_frame": 0,
+          "direction": "northeast-ready",
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/idle-00.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/idle-00.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 621,
+          "sha256": "1a28dd8306e4d2aa70b8113e23ba15dd8719ccc957b86ab6c52d6dbb4c8c3be6",
+          "visible_bounds": [
+            19,
+            15,
+            79,
+            80
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        }
+      ],
+      "output_atlas": "../../../archer-arms-step-v3-20261018/deliverables/class-12-ally/idle-00.png",
+      "output_atlas_bytes": 621,
+      "revision": "archer-arms-step-v3-20261018",
+      "review_note": "完整弓身在前景，后方持弓手臂可见；拉弦前臂连续并略向上，两段弓弦为连续浅色线。友军剧情形象与本轮战斗待机首帧一致，仅静止展示。",
+      "preview_ground": "map-motion-review-v3/reference/grounds/story-P00-cobble.png",
+      "ground_shadow": {
+        "path": "hunapu-story-shadow-20261018/story-shadow.png",
+        "size": [
+          11,
+          3
+        ],
+        "offset": [
+          0,
+          -1
+        ],
+        "alpha": 0.38,
+        "kind": "continuous_fixed_ground_projection",
+        "source": "Reuse accepted protagonist continuous shadow; separate fixed ground layer beneath every foot phase."
+      },
+      "adaptation_note": "完整弓身在前景，后方持弓手臂可见；拉弦前臂连续并略向上，两段弓弦为连续浅色线。友军剧情形象与本轮战斗待机首帧一致，仅静止展示。",
+      "source_columns": 1,
+      "source_frame_count": 1,
+      "static_pose_preview": true,
+      "reference_label": "原作职业待机",
+      "reference_provenance": "Native tactical idle slot 0 shown for identity comparison, not an independent original story animation.",
+      "action_note": "本轮不制作剧情四向行走。",
+      "motion_review": {
+        "reference": "archer-arms-step-v3-20261018/README.md",
+        "fixed_and_moving_parts": "完整弓身在前景，后方持弓手臂可见；拉弦前臂连续并略向上，两段弓弦为连续浅色线。友军剧情形象与本轮战斗待机首帧一致，仅静止展示。"
+      }
+    }
+  ],
+  "latest_local_correction": {
+    "revision": "archer-down-hand-v4-20261018",
+    "frames": [
+      4,
+      5
+    ],
+    "scope": "downward drawing-hand over bowstring",
+    "runtime_integrated": false
+  }
+}

@@ -69,7 +69,8 @@ func run():
 			if context == "tactical-walk":
 				check(art.directions.has("left") and art.directions.has("right"), "independent native side directions " + class_key)
 	check(variants_checked == 269, "all 269 completed attack variants selected")
-	check(Reviewed.map_sprite("hub", ui.game.characters.daan).is_empty(), "other story identities retained")
+	check(Reviewed.map_sprite("hub", ui.game.characters.daan).get("frames",0) == 1, "approved archer static story pose")
+	check(Reviewed.map_sprite("hub", ui.game.characters.otto).get("frames",0) == 1, "approved spearman static story pose")
 	check(Reviewed.map_sprite("map", {"id": "hunapu", "class_id": 21, "promoted": true}).is_empty(), "unfinished promoted map retained")
 	check(Reviewed.battle({"class_id": 10, "side": "player"}, {"path": "original"}, {}).path == "original", "unfinished profession retained")
 	var unsupported = {"attacker": "review_actor", "weapon_index": 4}

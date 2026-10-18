@@ -478,18 +478,18 @@
         "#DDA77D"
       ],
       "ground_shadow": {
-        "path": "map-motion-review-v2/reference/ground-shadow.png",
+        "path": "hunapu-story-shadow-20261018/story-shadow.png",
         "size": [
-          14,
-          2
+          11,
+          3
         ],
         "offset": [
-          0,
-          0
+          1,
+          -1
         ],
-        "alpha": 0.58,
-        "kind": "separate_fixed_ground_layer",
-        "source": "Original Pegasus14x2 projected-ground bitmap reused; character artwork unchanged by this layer."
+        "alpha": 0.38,
+        "kind": "continuous_compact_story_ground_shadow",
+        "source": "ImageGen compact pixel projection; continuous center beneath both walking phases."
       },
       "revision": "hero-map-v3-side-arms",
       "review_note": "大地图：与剧情地图共用完全相同的六张人物帧和四向动作；背景取本项目正式世界地图W02附近道路。",
@@ -497,7 +497,8 @@
       "preview_ground": "map-motion-review-v3/reference/grounds/world-W02-route.png",
       "motion_review": "map-motion-review-v3/verification.json",
       "parent_visual_review_passed": false,
-      "preview_video": "../../demos/videos/hunapu-maps-world--walk-right.mp4"
+      "preview_video": "../../demos/videos/hunapu-maps-world--walk-right.mp4",
+      "shadow_revision": "hunapu-world-shadow-20261018"
     },
     {
       "id": "tactical-walk",

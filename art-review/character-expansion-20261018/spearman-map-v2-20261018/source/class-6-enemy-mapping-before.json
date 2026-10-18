@@ -1,0 +1,548 @@
+{
+  "schema_version": 1,
+  "class_id": 6,
+  "source_side": "enemy",
+  "actor_id": "enemy-spearman",
+  "character_id": "enemy-spearman",
+  "display_name": "敌方枪兵",
+  "width_height_scale": 4,
+  "revision": "archer-spearman-map-20261018",
+  "status": "awaiting_user_review",
+  "runtime_integrated": false,
+  "art_mode": "Built-in ImageGen; technical crop/registration, four-color remap, separate fixed/moving layers, native mirrors, lossless PNG.",
+  "review_note": "本轮双方弓箭手／枪兵地图样板，四种不透明色、连续脚下投影；等待用户验收。",
+  "qa_report": "../../../archer-spearman-map-review-20261018/verification.json",
+  "source_originals_unchanged": true,
+  "palette": [
+    "#172638",
+    "#AE5148",
+    "#E4E1C8",
+    "#DDA77D"
+  ],
+  "scenarios": [
+    {
+      "id": "tactical-walk",
+      "class_id": 6,
+      "source_side": "enemy",
+      "character_id": "enemy-spearman",
+      "display_name": "敌方枪兵",
+      "source_atlas": "../../../source-input/corrected-tactical-walk/class-6-enemy.png",
+      "source_frame_size": [
+        32,
+        24
+      ],
+      "source_anchor": [
+        16,
+        24
+      ],
+      "source_frame_count": 8,
+      "output_frame_size": [
+        128,
+        96
+      ],
+      "output_anchor": [
+        64,
+        96
+      ],
+      "logical_render_scale": 0.25,
+      "directions": {
+        "up": [
+          0,
+          1
+        ],
+        "right": [
+          2,
+          3
+        ],
+        "down": [
+          4,
+          5
+        ],
+        "left": [
+          6,
+          7
+        ]
+      },
+      "direction_mirror_x": {},
+      "default_facing": "native-rendered-per-slot",
+      "static_facing": false,
+      "timing": {
+        "native_fps": 60.0988,
+        "frame_ticks": 16,
+        "cycle_ticks": 32,
+        "phase_source": "$36 & $10 selects phase; L0BB62C",
+        "movement_pixels_per_tick": 1,
+        "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+      },
+      "idle": {
+        "kind": "hold-current-direction-first-frame",
+        "directions": {
+          "up": [
+            0
+          ],
+          "right": [
+            2
+          ],
+          "down": [
+            4
+          ],
+          "left": [
+            6
+          ]
+        }
+      },
+      "source_audit": {
+        "status": "verified_native_tactical",
+        "overlay": "../../../source-input/corrected-tactical-walk/overlay.json",
+        "verification": "../../../source-input/corrected-tactical-walk/verification.json",
+        "entry": "bank011:L0BB5B1",
+        "caller": "bank006:L06BA0A→bank11 dispatch3 L0BB59D",
+        "chr": 19,
+        "native_actor_origin": [
+          16,
+          16
+        ],
+        "anchor_note": "Rendering anchor is native actor origin+[0,8] matching map tile base; not inferred anatomical foot or wing tip. Native OAM Y adds hardware+1.",
+        "source_rom_sha256": "beafb14c1a45eb094e525d6d13b8dac1c43426fbbc51669fad14970808fa983d",
+        "cpu_oam_matches": 352,
+        "old_source_rejected": "Historical CHR26+village OAM hybrid has no exact source matches and is not used for new art.",
+        "art_review_status": "parent_visual_review_passed"
+      },
+      "exact_mirror_aliases": {
+        "6": {
+          "source_slot": 2,
+          "transform": "horizontal-mirror-full-canvas",
+          "rgba_exact": true
+        },
+        "7": {
+          "source_slot": 3,
+          "transform": "horizontal-mirror-full-canvas",
+          "rgba_exact": true
+        }
+      },
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "output_index": 0,
+          "path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/walk-00.png",
+          "output_path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/walk-00.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 440,
+          "sha256": "582b9815ebd3b26da44fc70e1b9266c05c99d09688c65a43a371aef6825c12d3",
+          "visible_bounds": [
+            46,
+            31,
+            83,
+            96
+          ],
+          "art_revision": "archer-spearman-map-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "fixed generated body plus moving generated parts; native frame timing/aliases",
+          "source_frame": 0,
+          "direction": "up"
+        },
+        {
+          "source_index": 1,
+          "output_index": 1,
+          "path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/walk-01.png",
+          "output_path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/walk-01.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 435,
+          "sha256": "27b079d17594258bf0cdf627776bd76ff517a41d9abc2ea4719405cf503df5ff",
+          "visible_bounds": [
+            45,
+            31,
+            84,
+            96
+          ],
+          "art_revision": "archer-spearman-map-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "fixed generated body plus moving generated parts; native frame timing/aliases",
+          "source_frame": 1,
+          "direction": "up"
+        },
+        {
+          "source_index": 2,
+          "output_index": 2,
+          "path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/walk-02.png",
+          "output_path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/walk-02.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 579,
+          "sha256": "a9e574c4e90da2c43a4af3f325627a7e7bb3220f7de51d4ac29289acd3d36050",
+          "visible_bounds": [
+            39,
+            32,
+            94,
+            96
+          ],
+          "art_revision": "archer-spearman-map-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "fixed generated body plus moving generated parts; native frame timing/aliases",
+          "source_frame": 2,
+          "direction": "right"
+        },
+        {
+          "source_index": 3,
+          "output_index": 3,
+          "path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/walk-03.png",
+          "output_path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/walk-03.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 591,
+          "sha256": "1bd9c20c372ce7d4df3cb1e230b1a720ee46122fe425911d4251195b9e449441",
+          "visible_bounds": [
+            39,
+            32,
+            94,
+            96
+          ],
+          "art_revision": "archer-spearman-map-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "fixed generated body plus moving generated parts; native frame timing/aliases",
+          "source_frame": 3,
+          "direction": "right"
+        },
+        {
+          "source_index": 4,
+          "output_index": 4,
+          "path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/walk-04.png",
+          "output_path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/walk-04.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 484,
+          "sha256": "e5fe24bc10d1088400ddf1ad08017aedfd101411598069bbb67c927a2a19c155",
+          "visible_bounds": [
+            45,
+            32,
+            83,
+            96
+          ],
+          "art_revision": "archer-spearman-map-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "fixed generated body plus moving generated parts; native frame timing/aliases",
+          "source_frame": 4,
+          "direction": "down"
+        },
+        {
+          "source_index": 5,
+          "output_index": 5,
+          "path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/walk-05.png",
+          "output_path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/walk-05.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 480,
+          "sha256": "885c636fc3bb20462d4a8e2155e0e520ac655c0aa22eda6baa4417c5b691c3de",
+          "visible_bounds": [
+            45,
+            32,
+            86,
+            96
+          ],
+          "art_revision": "archer-spearman-map-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "fixed generated body plus moving generated parts; native frame timing/aliases",
+          "source_frame": 5,
+          "direction": "down"
+        },
+        {
+          "source_index": 6,
+          "output_index": 6,
+          "path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/walk-06.png",
+          "output_path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/walk-06.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 580,
+          "sha256": "176d58541aa208599c778cbd8b714bc6c9c84eb995a97fd5e76e17a72b87126e",
+          "visible_bounds": [
+            34,
+            32,
+            89,
+            96
+          ],
+          "art_revision": "archer-spearman-map-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "fixed generated body plus moving generated parts; native frame timing/aliases",
+          "source_frame": 6,
+          "direction": "left"
+        },
+        {
+          "source_index": 7,
+          "output_index": 7,
+          "path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/walk-07.png",
+          "output_path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/walk-07.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 588,
+          "sha256": "8b15c8cf2271717cc9dd7a711bbcde03318144332ef581885d74f1ae237a9fe6",
+          "visible_bounds": [
+            34,
+            32,
+            89,
+            96
+          ],
+          "art_revision": "archer-spearman-map-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "fixed generated body plus moving generated parts; native frame timing/aliases",
+          "source_frame": 7,
+          "direction": "left"
+        }
+      ],
+      "output_atlas": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/walk-atlas.png",
+      "output_atlas_bytes": 2920,
+      "revision": "archer-spearman-map-20261018",
+      "review_note": "头部固定，完整手臂、腿脚和长枪按原两步交替；下裙甲仍为衣甲。",
+      "preview_ground": "map-motion-review-v3/reference/grounds/tactical-M11.png",
+      "ground_shadow": {
+        "path": "hunapu-story-shadow-20261018/story-shadow.png",
+        "size": [
+          11,
+          3
+        ],
+        "offset": [
+          0,
+          -1
+        ],
+        "alpha": 0.38,
+        "kind": "continuous_fixed_ground_projection",
+        "source": "Reuse accepted protagonist continuous shadow; separate fixed ground layer beneath every foot phase."
+      },
+      "motion_review": {
+        "reference": "archer-spearman-map-review-20261018/native-motion-diff.json",
+        "fixed_and_moving_parts": "头部固定，完整手臂、腿脚和长枪按原两步交替；下裙甲仍为衣甲。"
+      },
+      "adaptation_note": "头部固定，完整手臂、腿脚和长枪按原两步交替；下裙甲仍为衣甲。 保留原作方向、源帧别名与时序；蓝／红阵营识别，简洁四色。"
+    },
+    {
+      "id": "tactical-idle",
+      "class_id": 6,
+      "source_side": "enemy",
+      "character_id": "enemy-spearman",
+      "display_name": "敌方枪兵",
+      "source_atlas": "reference/idle-source-atlas.png",
+      "source_frame_size": [
+        24,
+        24
+      ],
+      "source_anchor": [
+        12,
+        20
+      ],
+      "output_frame_size": [
+        96,
+        96
+      ],
+      "output_anchor": [
+        48,
+        80
+      ],
+      "logical_render_scale": 0.25,
+      "directions": {
+        "all": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "direction_mirror_x": {},
+      "default_facing": "fixed",
+      "static_facing": true,
+      "timing": {
+        "native_fps": 60.0988,
+        "cycle_frames": [
+          0,
+          1,
+          2,
+          1
+        ],
+        "frame_ticks": [
+          14,
+          8,
+          14,
+          8
+        ]
+      },
+      "idle": {
+        "kind": "original-fixed-facing-cycle",
+        "frames": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "original_source_path": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_6_enemy.png",
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "output_index": 0,
+          "path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/idle-00.png",
+          "output_path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/idle-00.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 523,
+          "sha256": "c8ba234a54d2ecb85f4ff1387b2a65d7babe620dfafc055d31f7afa5bec01f65",
+          "visible_bounds": [
+            22,
+            16,
+            75,
+            80
+          ],
+          "art_revision": "archer-spearman-map-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "fixed generated body plus moving generated parts; native frame timing/aliases"
+        },
+        {
+          "source_index": 1,
+          "output_index": 1,
+          "path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/idle-01.png",
+          "output_path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/idle-01.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 542,
+          "sha256": "e86d22aff60944d7100bea8900d58ff836cb7a52dba844d4bef54c450757c91e",
+          "visible_bounds": [
+            18,
+            16,
+            71,
+            80
+          ],
+          "art_revision": "archer-spearman-map-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "fixed generated body plus moving generated parts; native frame timing/aliases"
+        },
+        {
+          "source_index": 2,
+          "output_index": 2,
+          "path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/idle-02.png",
+          "output_path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/idle-02.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 529,
+          "sha256": "5916f88be1461a9b7ef3e4e6d77ef27a1030801326d4de34e4600bd4e244e283",
+          "visible_bounds": [
+            18,
+            12,
+            71,
+            80
+          ],
+          "art_revision": "archer-spearman-map-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "fixed generated body plus moving generated parts; native frame timing/aliases"
+        },
+        {
+          "source_index": 3,
+          "output_index": 3,
+          "path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/idle-03.png",
+          "output_path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/idle-03.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 542,
+          "sha256": "e86d22aff60944d7100bea8900d58ff836cb7a52dba844d4bef54c450757c91e",
+          "visible_bounds": [
+            18,
+            16,
+            71,
+            80
+          ],
+          "art_revision": "archer-spearman-map-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "fixed generated body plus moving generated parts; native frame timing/aliases"
+        },
+        {
+          "source_index": 4,
+          "output_index": 4,
+          "path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/idle-04.png",
+          "output_path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/idle-04.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 523,
+          "sha256": "c8ba234a54d2ecb85f4ff1387b2a65d7babe620dfafc055d31f7afa5bec01f65",
+          "visible_bounds": [
+            22,
+            16,
+            75,
+            80
+          ],
+          "art_revision": "archer-spearman-map-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "fixed generated body plus moving generated parts; native frame timing/aliases"
+        },
+        {
+          "source_index": 5,
+          "output_index": 5,
+          "path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/idle-05.png",
+          "output_path": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/idle-05.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 542,
+          "sha256": "e86d22aff60944d7100bea8900d58ff836cb7a52dba844d4bef54c450757c91e",
+          "visible_bounds": [
+            18,
+            16,
+            71,
+            80
+          ],
+          "art_revision": "archer-spearman-map-20261018",
+          "generated_source": "../../../archer-spearman-map-review-20261018/source/class-6-enemy-generated.png",
+          "construction": "fixed generated body plus moving generated parts; native frame timing/aliases"
+        }
+      ],
+      "output_atlas": "../../../archer-spearman-map-review-20261018/deliverables/class-6-enemy/idle-atlas.png",
+      "output_atlas_bytes": 1129,
+      "revision": "archer-spearman-map-20261018",
+      "review_note": "头、身体、腿脚和空手臂固定，仅持枪手臂和长枪运动。",
+      "preview_ground": "map-motion-review-v3/reference/grounds/tactical-M11.png",
+      "ground_shadow": {
+        "path": "hunapu-story-shadow-20261018/story-shadow.png",
+        "size": [
+          11,
+          3
+        ],
+        "offset": [
+          -2,
+          -1
+        ],
+        "alpha": 0.38,
+        "kind": "continuous_fixed_ground_projection",
+        "source": "Reuse accepted protagonist continuous shadow; separate fixed ground layer beneath every foot phase."
+      },
+      "motion_review": {
+        "reference": "archer-spearman-map-review-20261018/native-motion-diff.json",
+        "fixed_and_moving_parts": "头、身体、腿脚和空手臂固定，仅持枪手臂和长枪运动。"
+      },
+      "adaptation_note": "头、身体、腿脚和空手臂固定，仅持枪手臂和长枪运动。 保留原作方向、源帧别名与时序；蓝／红阵营识别，简洁四色。"
+    }
+  ]
+}

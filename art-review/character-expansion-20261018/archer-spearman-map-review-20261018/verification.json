@@ -1,0 +1,823 @@
+{
+  "status": "technical_checks_passed_awaiting_user_visual_acceptance",
+  "scope": "Four tactical map sets plus two allied static story appearances; no test-package integration.",
+  "protected_files": {
+    "protected-baseline.json": {
+      "files_checked": 588,
+      "changed": []
+    },
+    "other-mappings-baseline.json": {
+      "files_checked": 32,
+      "changed": []
+    }
+  },
+  "units": {
+    "class-12-ally": {
+      "checks": [
+        {
+          "walk_pair": [
+            0,
+            1
+          ],
+          "changed_pixels": 211,
+          "outside_moving_region_changes": 0
+        },
+        {
+          "walk_pair": [
+            2,
+            3
+          ],
+          "changed_pixels": 363,
+          "outside_moving_region_changes": 0
+        },
+        {
+          "walk_pair": [
+            4,
+            5
+          ],
+          "changed_pixels": 224,
+          "outside_moving_region_changes": 0
+        },
+        {
+          "idle_frame": 1,
+          "changed_pixels": 0,
+          "outside_moving_region_changes": 0
+        },
+        {
+          "idle_frame": 2,
+          "changed_pixels": 714,
+          "outside_moving_region_changes": 0
+        }
+      ],
+      "opaque_colors": [
+        [
+          23,
+          38,
+          56
+        ],
+        [
+          57,
+          118,
+          181
+        ],
+        [
+          221,
+          167,
+          125
+        ],
+        [
+          228,
+          225,
+          200
+        ]
+      ],
+      "max_frame_bytes": 610,
+      "source_timing_and_directions_unchanged": true,
+      "mirror_pairs": [
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          3
+        ]
+      ],
+      "native_idle_aliases": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "isolated_fragments_le_3_pixels": 0
+    },
+    "class-12-enemy": {
+      "checks": [
+        {
+          "walk_pair": [
+            0,
+            1
+          ],
+          "changed_pixels": 245,
+          "outside_moving_region_changes": 0
+        },
+        {
+          "walk_pair": [
+            2,
+            3
+          ],
+          "changed_pixels": 358,
+          "outside_moving_region_changes": 0
+        },
+        {
+          "walk_pair": [
+            4,
+            5
+          ],
+          "changed_pixels": 217,
+          "outside_moving_region_changes": 0
+        },
+        {
+          "idle_frame": 1,
+          "changed_pixels": 0,
+          "outside_moving_region_changes": 0
+        },
+        {
+          "idle_frame": 2,
+          "changed_pixels": 725,
+          "outside_moving_region_changes": 0
+        }
+      ],
+      "opaque_colors": [
+        [
+          23,
+          38,
+          56
+        ],
+        [
+          174,
+          81,
+          72
+        ],
+        [
+          221,
+          167,
+          125
+        ],
+        [
+          228,
+          225,
+          200
+        ]
+      ],
+      "max_frame_bytes": 606,
+      "source_timing_and_directions_unchanged": true,
+      "mirror_pairs": [
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          3
+        ]
+      ],
+      "native_idle_aliases": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "isolated_fragments_le_3_pixels": 0
+    },
+    "class-6-ally": {
+      "checks": [
+        {
+          "walk_pair": [
+            0,
+            1
+          ],
+          "changed_pixels": 418,
+          "outside_moving_region_changes": 0
+        },
+        {
+          "walk_pair": [
+            2,
+            3
+          ],
+          "changed_pixels": 635,
+          "outside_moving_region_changes": 0
+        },
+        {
+          "walk_pair": [
+            4,
+            5
+          ],
+          "changed_pixels": 625,
+          "outside_moving_region_changes": 0
+        },
+        {
+          "idle_frame": 1,
+          "changed_pixels": 377,
+          "outside_moving_region_changes": 0
+        },
+        {
+          "idle_frame": 2,
+          "changed_pixels": 412,
+          "outside_moving_region_changes": 0
+        }
+      ],
+      "opaque_colors": [
+        [
+          23,
+          38,
+          56
+        ],
+        [
+          57,
+          118,
+          181
+        ],
+        [
+          221,
+          167,
+          125
+        ],
+        [
+          228,
+          225,
+          200
+        ]
+      ],
+      "max_frame_bytes": 578,
+      "source_timing_and_directions_unchanged": true,
+      "mirror_pairs": [
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          3
+        ]
+      ],
+      "native_idle_aliases": [
+        0,
+        1,
+        2,
+        1,
+        0,
+        1
+      ],
+      "alpha": "binary",
+      "isolated_fragments_le_3_pixels": 0
+    },
+    "class-6-enemy": {
+      "checks": [
+        {
+          "walk_pair": [
+            0,
+            1
+          ],
+          "changed_pixels": 508,
+          "outside_moving_region_changes": 0
+        },
+        {
+          "walk_pair": [
+            2,
+            3
+          ],
+          "changed_pixels": 589,
+          "outside_moving_region_changes": 0
+        },
+        {
+          "walk_pair": [
+            4,
+            5
+          ],
+          "changed_pixels": 561,
+          "outside_moving_region_changes": 0
+        },
+        {
+          "idle_frame": 1,
+          "changed_pixels": 372,
+          "outside_moving_region_changes": 0
+        },
+        {
+          "idle_frame": 2,
+          "changed_pixels": 428,
+          "outside_moving_region_changes": 0
+        }
+      ],
+      "opaque_colors": [
+        [
+          23,
+          38,
+          56
+        ],
+        [
+          174,
+          81,
+          72
+        ],
+        [
+          221,
+          167,
+          125
+        ],
+        [
+          228,
+          225,
+          200
+        ]
+      ],
+      "max_frame_bytes": 591,
+      "source_timing_and_directions_unchanged": true,
+      "mirror_pairs": [
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          3
+        ]
+      ],
+      "native_idle_aliases": [
+        0,
+        1,
+        2,
+        1,
+        0,
+        1
+      ],
+      "alpha": "binary",
+      "isolated_fragments_le_3_pixels": 0
+    }
+  },
+  "continuous_shadow": {
+    "size": [
+      11,
+      3
+    ],
+    "components": 1,
+    "fixed_across_phases": true
+  },
+  "exports": [
+    {
+      "action": "professions-class-12-ally-maps-tactical-walk--walk-up",
+      "frames": 96,
+      "duration": 1.59737,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-12-ally-maps-tactical-walk--idle-up",
+      "frames": 32,
+      "duration": 0.532457,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-12-ally-maps-tactical-walk--walk-right",
+      "frames": 96,
+      "duration": 1.59737,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-12-ally-maps-tactical-walk--idle-right",
+      "frames": 32,
+      "duration": 0.532457,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-12-ally-maps-tactical-walk--walk-down",
+      "frames": 96,
+      "duration": 1.59737,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-12-ally-maps-tactical-walk--idle-down",
+      "frames": 32,
+      "duration": 0.532457,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-12-ally-maps-tactical-walk--walk-left",
+      "frames": 96,
+      "duration": 1.59737,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-12-ally-maps-tactical-walk--idle-left",
+      "frames": 32,
+      "duration": 0.532457,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-12-ally-maps-tactical-idle--idle-cycle",
+      "frames": 88,
+      "duration": 1.464256,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-12-ally-maps-story--idle-pose",
+      "frames": 60,
+      "duration": 0.998356,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-12-enemy-maps-tactical-walk--walk-up",
+      "frames": 96,
+      "duration": 1.59737,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-12-enemy-maps-tactical-walk--idle-up",
+      "frames": 32,
+      "duration": 0.532457,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-12-enemy-maps-tactical-walk--walk-right",
+      "frames": 96,
+      "duration": 1.59737,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-12-enemy-maps-tactical-walk--idle-right",
+      "frames": 32,
+      "duration": 0.532457,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-12-enemy-maps-tactical-walk--walk-down",
+      "frames": 96,
+      "duration": 1.59737,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-12-enemy-maps-tactical-walk--idle-down",
+      "frames": 32,
+      "duration": 0.532457,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-12-enemy-maps-tactical-walk--walk-left",
+      "frames": 96,
+      "duration": 1.59737,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-12-enemy-maps-tactical-walk--idle-left",
+      "frames": 32,
+      "duration": 0.532457,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-12-enemy-maps-tactical-idle--idle-cycle",
+      "frames": 88,
+      "duration": 1.464256,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-tactical-walk--walk-up",
+      "frames": 96,
+      "duration": 1.59737,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-tactical-walk--idle-up",
+      "frames": 32,
+      "duration": 0.532457,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-tactical-walk--walk-right",
+      "frames": 96,
+      "duration": 1.59737,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-tactical-walk--idle-right",
+      "frames": 32,
+      "duration": 0.532457,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-tactical-walk--walk-down",
+      "frames": 96,
+      "duration": 1.59737,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-tactical-walk--idle-down",
+      "frames": 32,
+      "duration": 0.532457,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-tactical-walk--walk-left",
+      "frames": 96,
+      "duration": 1.59737,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-tactical-walk--idle-left",
+      "frames": 32,
+      "duration": 0.532457,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-tactical-idle--idle-cycle",
+      "frames": 88,
+      "duration": 1.464256,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-story--idle-pose",
+      "frames": 60,
+      "duration": 0.998356,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-6-enemy-maps-tactical-walk--walk-up",
+      "frames": 96,
+      "duration": 1.59737,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-6-enemy-maps-tactical-walk--idle-up",
+      "frames": 32,
+      "duration": 0.532457,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-6-enemy-maps-tactical-walk--walk-right",
+      "frames": 96,
+      "duration": 1.59737,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-6-enemy-maps-tactical-walk--idle-right",
+      "frames": 32,
+      "duration": 0.532457,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-6-enemy-maps-tactical-walk--walk-down",
+      "frames": 96,
+      "duration": 1.59737,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-6-enemy-maps-tactical-walk--idle-down",
+      "frames": 32,
+      "duration": 0.532457,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-6-enemy-maps-tactical-walk--walk-left",
+      "frames": 96,
+      "duration": 1.59737,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-6-enemy-maps-tactical-walk--idle-left",
+      "frames": 32,
+      "duration": 0.532457,
+      "content_digest_current": true
+    },
+    {
+      "action": "professions-class-6-enemy-maps-tactical-idle--idle-cycle",
+      "frames": 88,
+      "duration": 1.464256,
+      "content_digest_current": true
+    }
+  ],
+  "overview": {
+    "duration": "33.411655",
+    "nb_frames": "2008"
+  },
+  "offline_text_safe_area": [
+    {
+      "action": "professions-class-12-ally-maps-tactical-walk--walk-up",
+      "title_width": 266,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-12-ally-maps-tactical-walk--idle-up",
+      "title_width": 266,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-12-ally-maps-tactical-walk--walk-right",
+      "title_width": 266,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-12-ally-maps-tactical-walk--idle-right",
+      "title_width": 266,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-12-ally-maps-tactical-walk--walk-down",
+      "title_width": 266,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-12-ally-maps-tactical-walk--idle-down",
+      "title_width": 266,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-12-ally-maps-tactical-walk--walk-left",
+      "title_width": 266,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-12-ally-maps-tactical-walk--idle-left",
+      "title_width": 266,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-12-ally-maps-tactical-idle--idle-cycle",
+      "title_width": 376,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-12-ally-maps-story--idle-pose",
+      "title_width": 354,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-12-enemy-maps-tactical-walk--walk-up",
+      "title_width": 266,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-12-enemy-maps-tactical-walk--idle-up",
+      "title_width": 266,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-12-enemy-maps-tactical-walk--walk-right",
+      "title_width": 266,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-12-enemy-maps-tactical-walk--idle-right",
+      "title_width": 266,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-12-enemy-maps-tactical-walk--walk-down",
+      "title_width": 266,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-12-enemy-maps-tactical-walk--idle-down",
+      "title_width": 266,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-12-enemy-maps-tactical-walk--walk-left",
+      "title_width": 266,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-12-enemy-maps-tactical-walk--idle-left",
+      "title_width": 266,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-12-enemy-maps-tactical-idle--idle-cycle",
+      "title_width": 376,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-tactical-walk--walk-up",
+      "title_width": 244,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-tactical-walk--idle-up",
+      "title_width": 244,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-tactical-walk--walk-right",
+      "title_width": 244,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-tactical-walk--idle-right",
+      "title_width": 244,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-tactical-walk--walk-down",
+      "title_width": 244,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-tactical-walk--idle-down",
+      "title_width": 244,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-tactical-walk--walk-left",
+      "title_width": 244,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-tactical-walk--idle-left",
+      "title_width": 244,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-tactical-idle--idle-cycle",
+      "title_width": 354,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-6-ally-maps-story--idle-pose",
+      "title_width": 332,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-6-enemy-maps-tactical-walk--walk-up",
+      "title_width": 244,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-6-enemy-maps-tactical-walk--idle-up",
+      "title_width": 244,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-6-enemy-maps-tactical-walk--walk-right",
+      "title_width": 244,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-6-enemy-maps-tactical-walk--idle-right",
+      "title_width": 244,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-6-enemy-maps-tactical-walk--walk-down",
+      "title_width": 244,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-6-enemy-maps-tactical-walk--idle-down",
+      "title_width": 244,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-6-enemy-maps-tactical-walk--walk-left",
+      "title_width": 244,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-6-enemy-maps-tactical-walk--idle-left",
+      "title_width": 244,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    },
+    {
+      "action": "professions-class-6-enemy-maps-tactical-idle--idle-cycle",
+      "title_width": 354,
+      "safe_width": 536,
+      "source_labels_and_footer_fit": true
+    }
+  ],
+  "browser_visual_inspection": "Not performed; prior file URL access restriction respected. Offline gallery renders inspected instead.",
+  "gallery_summary": {
+    "profiles": 64,
+    "actions": 547,
+    "ready": 547,
+    "pending": 0
+  }
+}

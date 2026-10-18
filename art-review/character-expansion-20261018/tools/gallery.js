@@ -69,7 +69,7 @@
     drawRow(contexts[0],row,false,view); drawRow(contexts[1],row,true,view);
     $('scrub').value=String(tick);
     $('time-info').textContent=`第 ${tick+1} / ${active.frames.length} 帧 · 源姿势 ${row.frame} · ${(tick/active.fps).toFixed(3)} / ${active.duration.toFixed(3)} 秒`;
-    $('contact-info').textContent=active.contactTick === null ? (active.context==='battle'?'反应演示 · 不新增效果':'地图步态 · 原节奏') : `${tick===active.contactTick?'结算时刻 · ':''}结算：第 ${active.contactTick+1} 帧`;
+    $('contact-info').textContent=active.key==='idle-pose' ? '剧情形象 · 静止展示' : active.contactTick === null ? (active.context==='battle'?'反应演示 · 不新增效果':'地图步态 · 原节奏') : `${tick===active.contactTick?'结算时刻 · ':''}结算：第 ${active.contactTick+1} 帧`;
   }
   function seek(value) { if(!active)return; tick=Math.max(0,Math.min(active.frames.length-1,value)); accumulated=0; draw(); }
   function links() {
@@ -93,6 +93,7 @@
       const pair=document.createElement('div');pair.className='pose-stage';
       const old=document.createElement('canvas'),redraw=document.createElement('canvas');pair.append(old,redraw);
       const labels=document.createElement('div');labels.className='pose-labels';labels.innerHTML='<span>原作</span><span>四倍重绘</span>';
+      labels.firstElementChild.textContent=active.referenceLabel||'原作';
       card.append(title,pair,labels);$('poses').append(card);
       const row={frame:f,offset:[0,0],flip:false,effects:[]};
       const v=[active.origin[0]-profile.anchor[0],active.origin[1]-profile.anchor[1],...profile.sourceFrameSize];
@@ -161,7 +162,8 @@
   document.addEventListener('keydown',event=>{if(event.target.matches('input,button,textarea,select')||event.altKey||event.ctrlKey||event.metaKey)return;if(event.code==='Space'){event.preventDefault();setPlaying(!playing);}if(event.code==='ArrowLeft'||event.code==='ArrowRight'){event.preventDefault();setPlaying(false);seek(tick+(event.code==='ArrowRight'?1:-1));}});
   document.addEventListener('visibilitychange',()=>{last=null;});
   function animate(now){if(playing&&active){if(last!==null){accumulated+=(now-last)/1000*active.fps*speed;const steps=Math.floor(accumulated);if(steps){accumulated-=steps;tick=(tick+steps)%active.frames.length;draw();}}last=now;}requestAnimationFrame(animate);}
-  const requested=data.actions.find(a=>a.id===new URLSearchParams(location.search).get('action'));
+  const requestedId=new URLSearchParams(location.search).get('action')||document.body.dataset.defaultAction;
+  const requested=data.actions.find(a=>a.id===requestedId);
   const requestedProfile=data.profiles.find(p=>p.id===requested?.profile);
   if(actorList.length){const actor=requestedProfile?.actor||actorList[0][0];$('actor').value=actor;chooseActor(actor,requestedProfile?.id,requested?.id);}requestAnimationFrame(animate);
   window.motionReview={seek:value=>{setPlaying(false);seek(value);},play:()=>setPlaying(true),pause:()=>setPlaying(false),setSpeed,setLight,select:chooseAction,getState:()=>({action:active?.id,tick,playing,speed,ready:active?.ready})};

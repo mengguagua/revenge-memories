@@ -1,0 +1,1118 @@
+{
+  "schema_version": 1,
+  "class_id": 12,
+  "source_side": "enemy",
+  "actor_id": "enemy-archer",
+  "character_id": "enemy-archer",
+  "display_name": "敌方弓箭手",
+  "width_height_scale": 4,
+  "revision": "archer-arms-step-v3-20261018",
+  "status": "awaiting_user_review",
+  "runtime_integrated": false,
+  "art_mode": "Built-in ImageGen; technical crop/registration, four-color remap, separate fixed/moving layers, native mirrors, lossless PNG.",
+  "review_note": "弓箭手本轮修订：持弓手臂露出连贯部分，拉弦前臂连为整体且略向上；弓弦连续，侧向站直与前跨两帧分明。",
+  "qa_report": "../../../archer-arms-step-v3-20261018/verification.json",
+  "source_originals_unchanged": true,
+  "palette": [
+    "#172638",
+    "#AE5148",
+    "#E4E1C8",
+    "#DDA77D"
+  ],
+  "scenarios": [
+    {
+      "id": "tactical-walk",
+      "class_id": 12,
+      "source_side": "enemy",
+      "character_id": "enemy-archer",
+      "display_name": "敌方弓箭手",
+      "source_atlas": "../../../source-input/corrected-tactical-walk/class-12-enemy.png",
+      "source_frame_size": [
+        32,
+        24
+      ],
+      "source_anchor": [
+        16,
+        24
+      ],
+      "source_columns": 8,
+      "output_frame_size": [
+        128,
+        96
+      ],
+      "output_anchor": [
+        64,
+        96
+      ],
+      "logical_render_scale": 0.25,
+      "directions": {
+        "up": [
+          0,
+          1
+        ],
+        "right": [
+          2,
+          3
+        ],
+        "down": [
+          4,
+          5
+        ],
+        "left": [
+          6,
+          7
+        ]
+      },
+      "direction_mirror_x": {},
+      "static_facing": false,
+      "timing": {
+        "native_fps": 60.0988,
+        "frame_ticks": 16,
+        "cycle_ticks": 32,
+        "phase_source": "$36 & $10 selects phase; L0BB62C",
+        "movement_pixels_per_tick": 1,
+        "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+      },
+      "source_audit": {
+        "status": "verified_native_tactical",
+        "source_chr": 26,
+        "record_key": "class-12-enemy",
+        "overlay": "../../../source-input/corrected-tactical-walk/overlay.json",
+        "verification": "../../../source-input/corrected-tactical-walk/verification.json",
+        "cpu_entry": "bank011:L0BB5B1",
+        "caller": "bank006:L06BA0A→bank11 dispatch3 L0BB59D",
+        "native_render": "bank015:L0FE80F with bank8/0589=0",
+        "old_source_status": "Historical village-table/CHR26 hybrid, retained. Native7 matches old0 under exact palette bijection, but old rendered slack-bow interpretation was incorrect and is not reused."
+      },
+      "proven_mirror_pairs": [
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "mirror_note": "CPU mirroring already baked; no additional enemy XOR or direction mirror. Phase is preserved.",
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "output_index": 0,
+          "native_cpu_frame": {
+            "direction": "up",
+            "direction_code": 0,
+            "phase": 0,
+            "clock_value": 0,
+            "frame_ticks": 16,
+            "source_chr": 26,
+            "source_frame_index": 75,
+            "source_frame_address": "L088846",
+            "oam": [
+              [
+                71,
+                168,
+                3,
+                56
+              ],
+              [
+                71,
+                169,
+                3,
+                64
+              ],
+              [
+                79,
+                184,
+                3,
+                56
+              ],
+              [
+                79,
+                185,
+                3,
+                64
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 26
+              },
+              {
+                "register": "0xc000",
+                "value": 26
+              }
+            ],
+            "cpu_instructions": 399,
+            "source_global_flip": false,
+            "lookup": {
+              "animation": "L0BB745",
+              "chr": "L0BB7F5",
+              "right_mirror_flag": "L0BB80B"
+            },
+            "source_slot": 0,
+            "source_alpha_bounds": [
+              8,
+              8,
+              22,
+              24
+            ],
+            "rgba_sha256": "fd818577745f3394d61f31207f06793120a0ae44b4b83d0c021321c428d0f8ff"
+          },
+          "source_frame": 0,
+          "direction": "up",
+          "source_visible_bounds": [
+            8,
+            8,
+            22,
+            24
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/walk-00.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/walk-00.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 470,
+          "sha256": "a1557b74aafe5e0159dc8d0e056c96fcf2063111dd6d5ae12517c0f3cbdb7973",
+          "visible_bounds": [
+            36,
+            32,
+            84,
+            96
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 1,
+          "output_index": 1,
+          "native_cpu_frame": {
+            "direction": "up",
+            "direction_code": 0,
+            "phase": 1,
+            "clock_value": 16,
+            "frame_ticks": 16,
+            "source_chr": 26,
+            "source_frame_index": 76,
+            "source_frame_address": "L08884C",
+            "oam": [
+              [
+                71,
+                136,
+                3,
+                56
+              ],
+              [
+                71,
+                137,
+                3,
+                64
+              ],
+              [
+                79,
+                152,
+                3,
+                56
+              ],
+              [
+                79,
+                153,
+                3,
+                64
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 26
+              },
+              {
+                "register": "0xc000",
+                "value": 26
+              }
+            ],
+            "cpu_instructions": 399,
+            "source_global_flip": false,
+            "lookup": {
+              "animation": "L0BB745",
+              "chr": "L0BB7F5",
+              "right_mirror_flag": "L0BB80B"
+            },
+            "source_slot": 1,
+            "source_alpha_bounds": [
+              8,
+              8,
+              22,
+              24
+            ],
+            "rgba_sha256": "f45a467bb77fe85f0b08e5d0673402bc964790666a85294f0c4b3b5995bb20b3"
+          },
+          "source_frame": 1,
+          "direction": "up",
+          "source_visible_bounds": [
+            8,
+            8,
+            22,
+            24
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/walk-01.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/walk-01.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 472,
+          "sha256": "0f90142df451a91c1bd149fb0f9c29cb48d47e8e82c24c11a156503336cf91e9",
+          "visible_bounds": [
+            36,
+            32,
+            84,
+            96
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 2,
+          "output_index": 2,
+          "native_cpu_frame": {
+            "direction": "right",
+            "direction_code": 1,
+            "phase": 0,
+            "clock_value": 0,
+            "frame_ticks": 16,
+            "source_chr": 26,
+            "source_frame_index": 77,
+            "source_frame_address": "L088852",
+            "oam": [
+              [
+                71,
+                104,
+                67,
+                64
+              ],
+              [
+                71,
+                105,
+                67,
+                56
+              ],
+              [
+                79,
+                120,
+                67,
+                64
+              ],
+              [
+                79,
+                121,
+                67,
+                56
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 26
+              },
+              {
+                "register": "0xc000",
+                "value": 26
+              }
+            ],
+            "cpu_instructions": 476,
+            "source_global_flip": true,
+            "lookup": {
+              "animation": "L0BB745",
+              "chr": "L0BB7F5",
+              "right_mirror_flag": "L0BB80B"
+            },
+            "source_slot": 2,
+            "source_alpha_bounds": [
+              11,
+              8,
+              23,
+              24
+            ],
+            "rgba_sha256": "0f196c6cd4c13a2853e44dfa53acd81368793eda8ff19353b5b581215ce721fb"
+          },
+          "source_frame": 2,
+          "direction": "right",
+          "source_visible_bounds": [
+            9,
+            8,
+            21,
+            24
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/walk-02.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/walk-02.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 587,
+          "sha256": "299bb488e97cf19ed607252b863f8587ac1c56bcb5152db577c9dc5f5ce69b3c",
+          "visible_bounds": [
+            40,
+            33,
+            91,
+            96
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 3,
+          "output_index": 3,
+          "native_cpu_frame": {
+            "direction": "right",
+            "direction_code": 1,
+            "phase": 1,
+            "clock_value": 16,
+            "frame_ticks": 16,
+            "source_chr": 26,
+            "source_frame_index": 78,
+            "source_frame_address": "L088858",
+            "oam": [
+              [
+                71,
+                72,
+                67,
+                64
+              ],
+              [
+                71,
+                73,
+                67,
+                56
+              ],
+              [
+                79,
+                88,
+                67,
+                64
+              ],
+              [
+                79,
+                89,
+                67,
+                56
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 26
+              },
+              {
+                "register": "0xc000",
+                "value": 26
+              }
+            ],
+            "cpu_instructions": 476,
+            "source_global_flip": true,
+            "lookup": {
+              "animation": "L0BB745",
+              "chr": "L0BB7F5",
+              "right_mirror_flag": "L0BB80B"
+            },
+            "source_slot": 3,
+            "source_alpha_bounds": [
+              11,
+              8,
+              24,
+              24
+            ],
+            "rgba_sha256": "fd7d79434b3b5d4e526b164bf9638d6db631c760863808094a94f8f8e930ab7c"
+          },
+          "source_frame": 3,
+          "direction": "right",
+          "source_visible_bounds": [
+            8,
+            8,
+            21,
+            24
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/walk-03.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/walk-03.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 594,
+          "sha256": "cb91f1360e0fc578b3b937ed77bd66a9d341b89d25cf2f84efef8711f3f9d277",
+          "visible_bounds": [
+            40,
+            33,
+            92,
+            96
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 4,
+          "output_index": 4,
+          "native_cpu_frame": {
+            "direction": "down",
+            "direction_code": 2,
+            "phase": 0,
+            "clock_value": 0,
+            "frame_ticks": 16,
+            "source_chr": 26,
+            "source_frame_index": 79,
+            "source_frame_address": "L08885E",
+            "oam": [
+              [
+                71,
+                40,
+                3,
+                56
+              ],
+              [
+                71,
+                41,
+                3,
+                64
+              ],
+              [
+                79,
+                56,
+                3,
+                56
+              ],
+              [
+                79,
+                57,
+                3,
+                64
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 26
+              },
+              {
+                "register": "0xc000",
+                "value": 26
+              }
+            ],
+            "cpu_instructions": 399,
+            "source_global_flip": false,
+            "lookup": {
+              "animation": "L0BB745",
+              "chr": "L0BB7F5",
+              "right_mirror_flag": "L0BB80B"
+            },
+            "source_slot": 4,
+            "source_alpha_bounds": [
+              10,
+              8,
+              24,
+              24
+            ],
+            "rgba_sha256": "881ebd8ec26be216930a7277850a54c6b26979338af622cd2738c20af5934885"
+          },
+          "source_frame": 4,
+          "direction": "down",
+          "source_visible_bounds": [
+            10,
+            8,
+            24,
+            24
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/walk-04.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/walk-04.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 574,
+          "sha256": "ac3a7c5f6a4179a10fa2b65291bcdb20c9d51398ed4aece208d04f8f3b2b85a3",
+          "visible_bounds": [
+            41,
+            32,
+            92,
+            96
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 5,
+          "output_index": 5,
+          "native_cpu_frame": {
+            "direction": "down",
+            "direction_code": 2,
+            "phase": 1,
+            "clock_value": 16,
+            "frame_ticks": 16,
+            "source_chr": 26,
+            "source_frame_index": 80,
+            "source_frame_address": "L088864",
+            "oam": [
+              [
+                71,
+                8,
+                3,
+                56
+              ],
+              [
+                71,
+                9,
+                3,
+                64
+              ],
+              [
+                79,
+                24,
+                3,
+                56
+              ],
+              [
+                79,
+                25,
+                3,
+                64
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 26
+              },
+              {
+                "register": "0xc000",
+                "value": 26
+              }
+            ],
+            "cpu_instructions": 399,
+            "source_global_flip": false,
+            "lookup": {
+              "animation": "L0BB745",
+              "chr": "L0BB7F5",
+              "right_mirror_flag": "L0BB80B"
+            },
+            "source_slot": 5,
+            "source_alpha_bounds": [
+              10,
+              8,
+              24,
+              24
+            ],
+            "rgba_sha256": "1bb4445e093956a2d28e58dbf7d6e2d5523760b213ce4a853becf42d7559d14f"
+          },
+          "source_frame": 5,
+          "direction": "down",
+          "source_visible_bounds": [
+            10,
+            8,
+            24,
+            24
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/walk-05.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/walk-05.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 574,
+          "sha256": "d74ffe962ced9b27e75c2fe10e8d7ae5da5a1197785ce78fecb4b036d7b231c4",
+          "visible_bounds": [
+            41,
+            32,
+            92,
+            96
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 6,
+          "output_index": 6,
+          "native_cpu_frame": {
+            "direction": "left",
+            "direction_code": 3,
+            "phase": 0,
+            "clock_value": 0,
+            "frame_ticks": 16,
+            "source_chr": 26,
+            "source_frame_index": 77,
+            "source_frame_address": "L088852",
+            "oam": [
+              [
+                71,
+                104,
+                3,
+                56
+              ],
+              [
+                71,
+                105,
+                3,
+                64
+              ],
+              [
+                79,
+                120,
+                3,
+                56
+              ],
+              [
+                79,
+                121,
+                3,
+                64
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 26
+              },
+              {
+                "register": "0xc000",
+                "value": 26
+              }
+            ],
+            "cpu_instructions": 399,
+            "source_global_flip": false,
+            "lookup": {
+              "animation": "L0BB745",
+              "chr": "L0BB7F5",
+              "right_mirror_flag": "L0BB80B"
+            },
+            "source_slot": 6,
+            "source_alpha_bounds": [
+              9,
+              8,
+              21,
+              24
+            ],
+            "rgba_sha256": "fbed9941b241f6297a28c294234c3c62809665a74dcafa82cc7136c16cbf9ea9"
+          },
+          "source_frame": 6,
+          "direction": "left",
+          "source_visible_bounds": [
+            9,
+            8,
+            21,
+            24
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/walk-06.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/walk-06.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 588,
+          "sha256": "d661080e717de634ed1b8bdd773eb6b536ef2afc7decbd939aca7e96074051eb",
+          "visible_bounds": [
+            37,
+            33,
+            88,
+            96
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 7,
+          "output_index": 7,
+          "native_cpu_frame": {
+            "direction": "left",
+            "direction_code": 3,
+            "phase": 1,
+            "clock_value": 16,
+            "frame_ticks": 16,
+            "source_chr": 26,
+            "source_frame_index": 78,
+            "source_frame_address": "L088858",
+            "oam": [
+              [
+                71,
+                72,
+                3,
+                56
+              ],
+              [
+                71,
+                73,
+                3,
+                64
+              ],
+              [
+                79,
+                88,
+                3,
+                56
+              ],
+              [
+                79,
+                89,
+                3,
+                64
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 26
+              },
+              {
+                "register": "0xc000",
+                "value": 26
+              }
+            ],
+            "cpu_instructions": 399,
+            "source_global_flip": false,
+            "lookup": {
+              "animation": "L0BB745",
+              "chr": "L0BB7F5",
+              "right_mirror_flag": "L0BB80B"
+            },
+            "source_slot": 7,
+            "source_alpha_bounds": [
+              8,
+              8,
+              21,
+              24
+            ],
+            "rgba_sha256": "6a1571b114b03acf81ea3a7f6c9b43ed5fb885631424281a338ec1c6ed1014a8"
+          },
+          "source_frame": 7,
+          "direction": "left",
+          "source_visible_bounds": [
+            8,
+            8,
+            21,
+            24
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/walk-07.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/walk-07.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 591,
+          "sha256": "9ff0bf4dfc984650867bb1d8907987d0649e549e6a7da8c02e4d5a79012d6472",
+          "visible_bounds": [
+            36,
+            33,
+            88,
+            96
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        }
+      ],
+      "output_atlas": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/walk-atlas.png",
+      "output_atlas_bytes": 4715,
+      "revision": "archer-arms-step-v3-20261018",
+      "review_note": "完整弓身在前景，后方持弓手臂可见；拉弦前臂连续并略向上，两段弓弦为连续浅色线。上身、弓箭及手臂固定，仅腿脚变换；侧向首帧站直，第二帧前跨；左右朝向保留，向上帧保留。",
+      "preview_ground": "map-motion-review-v3/reference/grounds/tactical-M11.png",
+      "ground_shadow": {
+        "path": "hunapu-story-shadow-20261018/story-shadow.png",
+        "size": [
+          11,
+          3
+        ],
+        "offset": [
+          0,
+          -1
+        ],
+        "alpha": 0.38,
+        "kind": "continuous_fixed_ground_projection",
+        "source": "Reuse accepted protagonist continuous shadow; separate fixed ground layer beneath every foot phase."
+      },
+      "motion_review": {
+        "reference": "archer-arms-step-v3-20261018/README.md",
+        "fixed_and_moving_parts": "完整弓身在前景，后方持弓手臂可见；拉弦前臂连续并略向上，两段弓弦为连续浅色线。上身、弓箭及手臂固定，仅腿脚变换；侧向首帧站直，第二帧前跨；左右朝向保留，向上帧保留。"
+      },
+      "adaptation_note": "完整弓身在前景，后方持弓手臂可见；拉弦前臂连续并略向上，两段弓弦为连续浅色线。上身、弓箭及手臂固定，仅腿脚变换；侧向首帧站直，第二帧前跨；左右朝向保留，向上帧保留。"
+    },
+    {
+      "id": "tactical-idle",
+      "class_id": 12,
+      "source_side": "enemy",
+      "character_id": "enemy-archer",
+      "display_name": "敌方弓箭手",
+      "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_12_enemy.png",
+      "source_frame_size": [
+        24,
+        24
+      ],
+      "source_anchor": [
+        12,
+        20
+      ],
+      "output_frame_size": [
+        96,
+        96
+      ],
+      "output_anchor": [
+        48,
+        80
+      ],
+      "logical_render_scale": 0.25,
+      "directions": {
+        "all": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "direction_mirror_x": {},
+      "default_facing": "northeast-ready",
+      "static_facing": true,
+      "timing": {
+        "native_fps": 60.0988,
+        "cycle_frames": [
+          0,
+          1,
+          2,
+          1
+        ],
+        "frame_ticks": [
+          14,
+          8,
+          14,
+          8
+        ]
+      },
+      "idle": {
+        "kind": "original-fixed-facing-cycle",
+        "frames": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "native_alias_groups": [
+        [
+          0,
+          1,
+          3,
+          4,
+          5
+        ],
+        [
+          2
+        ]
+      ],
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "output_index": 0,
+          "source_frame": 0,
+          "direction": "northeast-ready",
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/idle-00.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/idle-00.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 621,
+          "sha256": "f8f4047eb957f3cd72d33f560e4779ecdbf2c48141ea6c3ad3d8ba28a2fab49a",
+          "visible_bounds": [
+            19,
+            15,
+            79,
+            80
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 1,
+          "output_index": 1,
+          "source_frame": 1,
+          "direction": "northeast-ready",
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/idle-01.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/idle-01.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 621,
+          "sha256": "f8f4047eb957f3cd72d33f560e4779ecdbf2c48141ea6c3ad3d8ba28a2fab49a",
+          "visible_bounds": [
+            19,
+            15,
+            79,
+            80
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 2,
+          "output_index": 2,
+          "source_frame": 2,
+          "direction": "northeast-ready",
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/idle-02.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/idle-02.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 617,
+          "sha256": "923ec40c016e6a4ffb6c18dd1219a8310c96c2cf72ec062b09fb3a17d189d055",
+          "visible_bounds": [
+            19,
+            19,
+            79,
+            80
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 3,
+          "output_index": 3,
+          "source_frame": 3,
+          "direction": "northeast-ready",
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/idle-03.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/idle-03.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 621,
+          "sha256": "f8f4047eb957f3cd72d33f560e4779ecdbf2c48141ea6c3ad3d8ba28a2fab49a",
+          "visible_bounds": [
+            19,
+            15,
+            79,
+            80
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 4,
+          "output_index": 4,
+          "source_frame": 4,
+          "direction": "northeast-ready",
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/idle-04.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/idle-04.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 621,
+          "sha256": "f8f4047eb957f3cd72d33f560e4779ecdbf2c48141ea6c3ad3d8ba28a2fab49a",
+          "visible_bounds": [
+            19,
+            15,
+            79,
+            80
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        },
+        {
+          "source_index": 5,
+          "output_index": 5,
+          "source_frame": 5,
+          "direction": "northeast-ready",
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/idle-05.png",
+          "output_path": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/idle-05.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 621,
+          "sha256": "f8f4047eb957f3cd72d33f560e4779ecdbf2c48141ea6c3ad3d8ba28a2fab49a",
+          "visible_bounds": [
+            19,
+            15,
+            79,
+            80
+          ],
+          "art_revision": "archer-arms-step-v3-20261018",
+          "construction": "ImageGen body and complete foreground bow/arm layers; fixed-body composite; native mirror and timing retained.",
+          "generation_record": "../../../archer-arms-step-v3-20261018/README.md"
+        }
+      ],
+      "output_atlas": "../../../archer-arms-step-v3-20261018/deliverables/class-12-enemy/idle-atlas.png",
+      "output_atlas_bytes": 2498,
+      "revision": "archer-arms-step-v3-20261018",
+      "review_note": "完整弓身在前景，后方持弓手臂可见；拉弦前臂连续并略向上，两段弓弦为连续浅色线。拉弦前臂、后方持弓手臂与完整弓箭作为同一组上下移动，身体和腿保持固定。",
+      "preview_ground": "map-motion-review-v3/reference/grounds/tactical-M11.png",
+      "ground_shadow": {
+        "path": "hunapu-story-shadow-20261018/story-shadow.png",
+        "size": [
+          11,
+          3
+        ],
+        "offset": [
+          0,
+          -1
+        ],
+        "alpha": 0.38,
+        "kind": "continuous_fixed_ground_projection",
+        "source": "Reuse accepted protagonist continuous shadow; separate fixed ground layer beneath every foot phase."
+      },
+      "motion_review": {
+        "reference": "archer-arms-step-v3-20261018/README.md",
+        "fixed_and_moving_parts": "完整弓身在前景，后方持弓手臂可见；拉弦前臂连续并略向上，两段弓弦为连续浅色线。拉弦前臂、后方持弓手臂与完整弓箭作为同一组上下移动，身体和腿保持固定。"
+      },
+      "adaptation_note": "完整弓身在前景，后方持弓手臂可见；拉弦前臂连续并略向上，两段弓弦为连续浅色线。拉弦前臂、后方持弓手臂与完整弓箭作为同一组上下移动，身体和腿保持固定。"
+    }
+  ]
+}

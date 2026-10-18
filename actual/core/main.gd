@@ -643,6 +643,10 @@ func _party_hub_sprite(object: Dictionary,original: Dictionary) -> Dictionary:
 		id=""
 		for candidate in game.characters:
 			if str(game.characters[candidate].name_zh)==str(object.get("name","")).trim_suffix(" · 濒死"):id=candidate;break
+	# This surrendered soldier is a friendly story NPC without a roster ID.
+	# Do not infer profession from source=5: civilians and captains reuse it too.
+	if id.is_empty() and str(object.get("name",""))=="投降兵":
+		return PartySprites.sprite("hub",{"class_id":6,"side":"player"},game.chapter)
 	if id.is_empty():return original
 	var art=PartySprites.sprite("hub",game.roster.get(id,game.characters[id]),game.chapter)
 	return original if art.is_empty() else art
