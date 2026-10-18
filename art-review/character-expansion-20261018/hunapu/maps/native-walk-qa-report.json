@@ -1,0 +1,232 @@
+{
+  "status": "complete_art_review_passed",
+  "parent_visual_review_passed": true,
+  "class_id": 21,
+  "source_side": "ally",
+  "actor_id": "hunapu",
+  "unique_imagegen_poses": 6,
+  "output_slots": 8,
+  "frame_size": [
+    128,
+    96
+  ],
+  "logical_size": [
+    32,
+    24
+  ],
+  "source_chr": 27,
+  "source_audit": {
+    "status": "verified_native_tactical",
+    "source_chr": 27,
+    "overlay": "../../source-input/corrected-tactical-walk/overlay.json",
+    "verification": "../../source-input/corrected-tactical-walk/verification.json",
+    "record_key": "class-21-ally",
+    "cpu_entry": "bank011:L0BB5B1",
+    "caller": "bank006:L06BA0A→bank11 dispatch3 L0BB59D",
+    "native_render": "bank015:L0FE80F with bank8/0589=0",
+    "hero_name_override": false,
+    "old_source_status": "Historical CHR26 plus village table hybrid, retained unchanged; not used as motion geometry."
+  },
+  "selected_support_boot_checks": [
+    {
+      "slot": 0,
+      "target": [
+        58,
+        96
+      ],
+      "actual": [
+        57.5,
+        96
+      ],
+      "delta": [
+        -0.5,
+        0
+      ],
+      "bytes": 5712,
+      "sha256": "663dd438dace1a383530e4e1fd1d1255e12450119be940719d9d0e3768cbd5a6"
+    },
+    {
+      "slot": 1,
+      "target": [
+        64,
+        96
+      ],
+      "actual": [
+        63.5,
+        96
+      ],
+      "delta": [
+        -0.5,
+        0
+      ],
+      "bytes": 5712,
+      "sha256": "53991746111b87131a0b63830fcb7a69de3b62ba6d513c5e17cdbecf086b9f62"
+    },
+    {
+      "slot": 2,
+      "target": [
+        64,
+        96
+      ],
+      "actual": [
+        64.5,
+        96
+      ],
+      "delta": [
+        0.5,
+        0
+      ],
+      "bytes": 6032,
+      "sha256": "b21919bd825ba3d1190bd48d49a8853c2b355533e0b071dcb1043e6001bd7684"
+    },
+    {
+      "slot": 3,
+      "target": [
+        48,
+        96
+      ],
+      "actual": [
+        48.5,
+        96
+      ],
+      "delta": [
+        0.5,
+        0
+      ],
+      "bytes": 6851,
+      "sha256": "bbdde35bf294fb5d0355ed38d0d6ea406a35f7c48bfae7cb06865d985c314700"
+    },
+    {
+      "slot": 4,
+      "target": [
+        56,
+        96
+      ],
+      "actual": [
+        56.5,
+        96
+      ],
+      "delta": [
+        0.5,
+        0
+      ],
+      "bytes": 5666,
+      "sha256": "3d4e74f5163e80939f9c530f8e3cee1d5279f1def2a910ba8a72d447d1e8f499"
+    },
+    {
+      "slot": 5,
+      "target": [
+        66,
+        92
+      ],
+      "actual": [
+        65.5,
+        92
+      ],
+      "delta": [
+        -0.5,
+        0
+      ],
+      "bytes": 4895,
+      "sha256": "f4e65aa8f62dea00a6f0394c54013e4191abb64f98fc95be2a8406debe3f5de1"
+    },
+    {
+      "slot": 6,
+      "target": [
+        80,
+        96
+      ],
+      "actual": [
+        79.5,
+        96
+      ],
+      "delta": [
+        -0.5,
+        0
+      ],
+      "bytes": 6825,
+      "sha256": "a8d632424a2afa0746f67d3c068d66c0cc87f68aeeb5fba051a5f6758c392893"
+    },
+    {
+      "slot": 7,
+      "target": [
+        64,
+        96
+      ],
+      "actual": [
+        63.5,
+        96
+      ],
+      "delta": [
+        -0.5,
+        0
+      ],
+      "bytes": 6026,
+      "sha256": "bf908fc79a0714fb279f26384b1f7cbe685c31512b92574f75746ed08c3e44f1"
+    }
+  ],
+  "registration_scope": "Only selected support sole center/baseline rounding errors are quantified. Clothing, other limbs, sword and shield are separately visually checked. Uniform scale plus rigid translation only, no body clamp.",
+  "mirror_checks": [
+    {
+      "slot": 6,
+      "mirror_of": 3,
+      "source_and_output_rgba_exact": true,
+      "crossed_phase_preserved": true
+    },
+    {
+      "slot": 7,
+      "mirror_of": 2,
+      "source_and_output_rgba_exact": true,
+      "crossed_phase_preserved": true
+    }
+  ],
+  "nonwalk_assets_preserved_sha256": {
+    "deliverables/tactical-idle.png": "1dacd6faffa9021a8e0c5ac5fdd4c648fece021777f3b61cc82871108c76bde5",
+    "deliverables/story-world-walk-05.png": "53896e716a8dd7792f4481e38c9f9cae5811995137fe54aabb12f556bcc4f71a",
+    "deliverables/story-world-walk-04.png": "8d3aba21e66109076fca78bbe07e0442e708aa0f31934ac562bd4376f2ab3f51",
+    "deliverables/story-world-walk-03.png": "99ec3f2891f4496f1098b79792235023fe55ee6c0b2138859323cf4bb43461f8",
+    "deliverables/story-world-walk-02.png": "8d0be42826ddaca0f0898f32a23e58ab04152e675f853c92b4a35a56aced4839",
+    "deliverables/story-world-walk-00.png": "67a1297166fd4ed2c64ce8510b55093b8962f7d6367f19274cd942a4dd042e3e",
+    "deliverables/story-world-walk-01.png": "0180f9e2eaeeeddde8644065a171010cb4e629852daba89298302796171786a0",
+    "deliverables/tactical-idle-05.png": "4577a70d56dbe9c032b7faa9ec36fbf90c8a9d9643ec0b6bbeb3b8fd9b259254",
+    "deliverables/tactical-idle-04.png": "f1efe5dcd446d05a631c295166e50787fafe873394d969c17ac16c5217ad5494",
+    "deliverables/tactical-idle-03.png": "4577a70d56dbe9c032b7faa9ec36fbf90c8a9d9643ec0b6bbeb3b8fd9b259254",
+    "deliverables/tactical-idle-02.png": "7fb1e2512b7b7393891a6773257f9bcc66d0703a9ecfff497b073700757d742f",
+    "deliverables/tactical-idle-00.png": "f1efe5dcd446d05a631c295166e50787fafe873394d969c17ac16c5217ad5494",
+    "deliverables/tactical-idle-01.png": "4577a70d56dbe9c032b7faa9ec36fbf90c8a9d9643ec0b6bbeb3b8fd9b259254",
+    "deliverables/story-world-walk-05-left.png": "0e938d6f15165d37c10a2dd9a362dc711d05faaabc574c8bddd33cec0d8dc0ea",
+    "deliverables/story-world-walk-04-left.png": "89fbe152e9b05fd1b92df740c59d63cbfb862facd911a2df15f2f29a1ba6adf4",
+    "deliverables/story-world-walk.png": "2203334c6a6d218a2f60ad463e87787959e8e51034d0c5faac035629626b57c4"
+  },
+  "other_scenarios_preserved": [
+    "story",
+    "world",
+    "tactical-idle"
+  ],
+  "old_mapping_backup": "source/previous-map-frame_mapping.json",
+  "source_prompts": "source/native-walk-prompts.md",
+  "raw_generations_preserved": true,
+  "max_independent_frame_bytes": 6851,
+  "atlas_bytes": 42225,
+  "native_timing": {
+    "native_fps": 60.0988,
+    "frame_ticks": 16,
+    "cycle_ticks": 32,
+    "phase_source": "$36 & $10 selects phase; L0BB62C",
+    "movement_pixels_per_tick": 1,
+    "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+  },
+  "no_runtime_integration": true,
+  "godot_started": false,
+  "this_agent_writes_actual": false,
+  "visual_review": [
+    "Root:all four light direction boards, sword/shield sides, segmented skirt armor and phases passed.",
+    "Agent:all four dark boards, complete transparent edges, continuous weapon and small shield silhouette passed."
+  ],
+  "semantic_notes": [
+    "Down sword extends from lower waist to upper-right; right sword upper-left; back blade mostly hidden with short head-side tip.",
+    "Right-source x21–22,y13 is face/nose protrusion; small guard is screen-left x9–11,y14–17.",
+    "No personal-sprite1 name branch in native tactical renderer; class21 uses CHR27.",
+    "Story/world remain exact frozen personal01 CHR30 source; see reference/story-world-source-audit.json."
+  ]
+}

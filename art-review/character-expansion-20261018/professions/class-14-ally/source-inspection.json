@@ -1,0 +1,78 @@
+{
+  "source_class_id": 14,
+  "side": "ally",
+  "battle": [
+    "Short tunic with visibly separated legs and calf protection; no original shield/cape/skirt armor. New short vest, rolled sleeves and trousers preserve visible limb actions.",
+    "Frames1–3 high sword angled upper-left, three distinct running leg phases; frame4 upright sword to RIGHT of head; frame5 blade up-right, frame6 low close-in sword and bent high free arm.",
+    "Frame6 all2688 opaque 4x source pixels are exactly equal to frame7 at same XY; extra frame7 pixels are original slash only. Frame16/31 exactly alias0."
+  ],
+  "map": [
+    "Idle short blade moves from diagonal (4,7) to (6,12), to upright x6/7,y7..13, to inward upright x8,y7..13. The last blade remains visible; initial occluded interpretation was corrected after exact pixel review.",
+    "Original black pixels are opaque. Light backgrounds alone can hide white blades; final dark and light comparisons inspected.",
+    "Up: short blade in image-right hand; free fist is raised beside image-left upper head. Initial low-free-arm interpretation was corrected by comparing down high-fist and side extended-arm geometry.",
+    "Right: short blade held upright near face; empty rear arm extends at shoulder height. Phase0 narrow rear support column and raised front boot; phase1 split stride with rear boot lower. Left is verified exact mirror.",
+    "Down: small blade angled up-left, empty hand bent near image-right head; two compact alternating support feet.",
+    "Hair, short vest, rolled sleeves and wrapped boots are separate visible forms. Native opaque black ground extensions are not invented anatomical limbs."
+  ],
+  "known_redesign_differences": [
+    "Battle1–3 blade tips roughly10–18 output pixels left of originals; battle5 tip roughly11output pixels lower. Root accepted as new sword shaping, not strict pixel lock.",
+    "Battle5 visible boot centers about9/8 output pixels inward from source while same lunge phase; map idle far boot drawn at y80 versus native y76. Kept explicitly separate from anchor rounding accuracy."
+  ],
+  "source_aliases": {
+    "walk": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6,
+      "7": 7
+    },
+    "idle": [
+      0,
+      1,
+      2,
+      1,
+      0,
+      1
+    ],
+    "walk_mirrors": {
+      "6": {
+        "source_slot": 2,
+        "transform": "horizontal-mirror-full-canvas",
+        "rgba_exact": true
+      },
+      "7": {
+        "source_slot": 3,
+        "transform": "horizontal-mirror-full-canvas",
+        "rgba_exact": true
+      }
+    }
+  },
+  "identity_scope": "Profession exemplar, not named-actor ability unlock.",
+  "corrected_tactical_walk": {
+    "proof": "../../source-input/corrected-tactical-walk/verification.json",
+    "source": "bank011:L0BB5B1 with class14 CHR26 and native8slots.",
+    "old_source_retracted": "Previous sprite48+CHR26 was a village-OAM/CHR26 hybrid extraction, not original tactical villager. The old two walking poses are historical; no longer used in the current walking mapping.",
+    "semantics": [
+      "Up: short blade in image-right hand; free fist is raised beside image-left upper head. Initial low-free-arm interpretation was corrected by comparing down high-fist and side extended-arm geometry.",
+      "Right: short blade held upright near face; empty rear arm extends at shoulder height. Phase0 narrow rear support column and raised front boot; phase1 split stride with rear boot lower. Left is verified exact mirror.",
+      "Down: small blade angled up-left, empty hand bent near image-right head; two compact alternating support feet.",
+      "Hair, short vest, rolled sleeves and wrapped boots are separate visible forms. Native opaque black ground extensions are not invented anatomical limbs."
+    ]
+  },
+  "historical_superseded_walk": {
+    "map_notes": [
+      "CHR26 sprite48: two walking phases. Broad white below head in phase0 belongs to connected clothing silhouette, not a long shoulder sword. Independent right-side narrow tool follows source side and small movement."
+    ],
+    "walk_aliases": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1
+    ]
+  }
+}

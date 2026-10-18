@@ -1,0 +1,141 @@
+{
+  "source_class_id": 18,
+  "side": "ally",
+  "visual_inspection": [
+    "Floor-length continuous robe; lower legs hidden, no trouser/leg split inferred.",
+    "Pale short head covering over hair; pale broad chest collar and hanging sleeve edges.",
+    "Original staff independently confirmed by root: detached cap, thin shaft, gripping hand and synchronized upward translation; retained without new gem or effect.",
+    "Pose7 front hand grips shaft at chest/waist level; opposite hand rests across waist. Pose8 gripping arm raised high and opposite forearm raised; head/torso/hem stay fixed."
+  ],
+  "battle_source_frames": [
+    7,
+    8
+  ],
+  "map_walk": {
+    "source": "bank011:L0BB5B1",
+    "source_chr": 27,
+    "source_frame_size": [
+      32,
+      24
+    ],
+    "source_slots": 8,
+    "directions": {
+      "up": [
+        0,
+        1
+      ],
+      "right": [
+        2,
+        3
+      ],
+      "down": [
+        4,
+        5
+      ],
+      "left": [
+        6,
+        7
+      ]
+    },
+    "source_path": "maps/reference/tactical-native-original.png",
+    "source_audit": "verified_native_tactical"
+  },
+  "map_walk_aliases": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7
+  },
+  "map_idle_aliases": {
+    "0": 0,
+    "1": 0,
+    "2": 2,
+    "3": 0,
+    "4": 0,
+    "5": 0
+  },
+  "identity_note": "Profession exemplar, not a new ability unlock for Fula or Mireille.",
+  "map_semantics": "Current native tactical cleric has short head veil, long robe and visible slim staff. Six independent direction/step poses and two original exact mirrored slots. Historical village-OAM/CHR26 hybrid retracted.",
+  "corrected_tactical_walk": {
+    "proof": "../../source-input/corrected-tactical-walk/verification.json",
+    "source": "bank011:L0BB5B1 with class18 CHR27 and native8slots.",
+    "old_source_retracted": "Previous sprite50+CHR26 was a hybrid village-OAM extraction, not original tactical cleric. The old two walking poses are historical; no longer used in the current walking mapping.",
+    "semantics": [
+      "Up: back of head veil and robe, staff at right with cap above head; two robe/covered foot phases.",
+      "Right: face/staff forward right and raised holding hand; two lower-robe phases. Left is verified exact mirror.",
+      "Down: front face framed by veil, staff on image left; long robe covers legs.",
+      "Body/head placement independent of staff; no invented exposed legs or wide running stride."
+    ]
+  },
+  "historical_superseded_walk": {
+    "map_walk": {
+      "role": "18",
+      "frame_size": [
+        32,
+        24
+      ],
+      "frames": 6,
+      "anchor": [
+        16,
+        24
+      ],
+      "tile_origin": [
+        8,
+        8
+      ],
+      "directions": {
+        "down": [
+          0,
+          1
+        ],
+        "up": [
+          2,
+          3
+        ],
+        "side": [
+          4,
+          5
+        ]
+      },
+      "default_facing": "right",
+      "native_move_ticks": 16,
+      "source_chr": 26,
+      "source_sprite_id": 50,
+      "source_oam": [
+        "L0AA3B5",
+        "L0AA3C6",
+        "L0AA3B5",
+        "L0AA3C6",
+        "L0AA3B5",
+        "L0AA3C6"
+      ],
+      "motion_reference": "Original source bank008:L08A779 / bank007:L0791BC mover identity; CHR26, six direction and leg poses, 16 ticks per step.",
+      "source_path": "source/characters/original-motion/original-walk-18.png"
+    },
+    "map_walk_aliases": {
+      "0": 0,
+      "1": 1,
+      "2": 0,
+      "3": 1,
+      "4": 0,
+      "5": 1
+    },
+    "map_semantics": "Original class18 walking uses generic infantry sprite50 shared with several classes; preserve gait but do not infer that the cleric wears their armor. Native idle is the cleric with actual staff/head covering/long robe."
+  },
+  "map_walk_mirrors": {
+    "6": {
+      "source_slot": 2,
+      "transform": "horizontal-mirror-full-canvas",
+      "rgba_exact": true
+    },
+    "7": {
+      "source_slot": 3,
+      "transform": "horizontal-mirror-full-canvas",
+      "rgba_exact": true
+    }
+  }
+}

@@ -373,7 +373,7 @@ static func campaign_valid(game, state: Dictionary, fields: Array) -> bool:
 		if not state.has(key):return false
 	var revision=str(state.get("map_revision","0.2.0"))
 	if not _campaign_core(game,state,false,revision):return false
-	if not state.get("hub_record") is String or state.hub_record not in (["P00","H01","H02","H03","H04","H05","H06","H07","H08","H09"] if int(state.chapter)==1 else ["H21","H22","H23","H24","H25","H26","H27"]):return false
+	if not state.get("hub_record") is String or state.hub_record not in (["P00","H01","H02","H03","H04","H05","H06","H07","H08","H09"] if int(state.chapter)==1 else ["H21","H22","H23","H24","H25","H26","H27"] if int(state.chapter)==2 else game.ChapterThree.ROOMS):return false
 	for key in ["hub_position","cursor","move_origin"]:
 		if not _point(state.get(key)):return false
 	if not state.get("battle_settled") is bool or not state.get("selected_id") is String:return false
@@ -410,10 +410,11 @@ static func campaign_stage(game, id: int, revision: String="") -> Dictionary:
 static func _campaign_core(game, state: Dictionary, snapshot: bool, revision: String="") -> bool:
 	for key in ["chapter","route","parties","route_positions","previous_world_node","convoy","battle_return","story_events","stage_id","world_node","cleared_stages","roster","flags","party","units","rng_state","frame_counter"]:
 		if not state.has(key):return false
-	if not _integer(state.chapter,1,2) or state.route not in ["alm","celica"]:return false
-	if (int(state.chapter)==1)!=(state.route=="alm"):return false
-	if not _integer(state.stage_id,101,212) or not game.stages.has(int(state.stage_id)):return false
-	if (int(state.stage_id)<200)!=(int(state.chapter)==1):return false
+	if not _integer(state.chapter,1,3) or state.route not in ["alm","celica"]:return false
+	if int(state.chapter)<3 and ((int(state.chapter)==1)!=(state.route=="alm")):return false
+	if not _integer(state.stage_id,101,312) or not game.stages.has(int(state.stage_id)):return false
+	if int(game.stages[int(state.stage_id)].get("chapter",1))!=int(state.chapter):return false
+	if int(state.chapter)==3 and game.stages[int(state.stage_id)].route!=state.route:return false
 	for key in ["world_node","previous_world_node"]:
 		if not _integer(state[key],1,39) or not game.formal_world.nodes.has(str(int(state[key]))):return false
 	for key in ["rng_state","frame_counter"]:
@@ -449,8 +450,8 @@ static func _campaign_core(game, state: Dictionary, snapshot: bool, revision: St
 	if not state.cleared_stages is Array:return false
 	seen={}
 	for id in state.cleared_stages:
-		if not _integer(id,101,212) or not game.stages.has(int(id)) or seen.has(int(id)):return false
-		if int(state.chapter)==1 and int(id)>=200:return false
+		if not _integer(id,101,312) or not game.stages.has(int(id)) or seen.has(int(id)):return false
+		if int(game.stages[int(id)].get("chapter",1))>int(state.chapter):return false
 		seen[int(id)]=true
 	if not _campaign_story(state.story_events):return false
 	if not state.battle_return is Dictionary:return false
@@ -458,7 +459,23 @@ static func _campaign_core(game, state: Dictionary, snapshot: bool, revision: St
 		if state.battle_return.get("mode") not in ["hub","world"] or not _integer(state.battle_return.get("world_node"),1,39):return false
 	if not _campaign_flags(game,state.flags,stage):return false
 	if not state.units.is_empty() and state.flags.get("quest",{}).is_empty():return false
-	if int(state.chapter)==2 and (not state.flags.get("chapter1_complete",false) or not state.flags.get("chapter2_started",false) or not seen.has(105)):return false
+	if int(state.chapter)>=2 and (not state.flags.get("chapter1_complete",false) or not state.flags.get("chapter2_started",false) or not seen.has(105)):return false
+	if int(state.chapter)==3:
+		if not state.flags.get("chapter2_complete",false) or not state.flags.get("chapter3_started",false) or not seen.has(206):return false
+		if not state.flags.get("chapter3_previous") is Dictionary or not state.flags.get("chapter3_recruits") is Dictionary:return false
+		for side in ["alm","celica"]:
+			var nodes=[6,7,8,35,9] if side=="alm" else [6,24,25,36,9]
+			if not _integer(state.flags.chapter3_previous.get(side),1,39) or int(state.flags.chapter3_previous[side]) not in nodes:return false
+			if int(state.route_positions[side]) not in nodes:return false
+		if int(state.world_node) not in ([6,7,8,35,9] if state.route=="alm" else [6,24,25,36,9]):return false
+		for id in state.flags.chapter3_recruits:
+			if id not in ["german","noya"] or not state.flags.chapter3_recruits[id] is bool:return false
+		if state.flags.get("D32_done",false) and (not seen.has(301) or not seen.has(304)):return false
+		if state.flags.get("D33_done",false) and (not seen.has(303) or not seen.has(306)):return false
+		if int(state.stage_id)==302 and not state.units.is_empty():
+			var index=int(state.flags.quest.transport_index)
+			for unit in state.units:
+				if unit.id=="transport_cart" and unit.position!=stage.transport_path[index]:return false
 	if snapshot and state.flags.has("active_plot"):return false
 	return true
 
@@ -511,7 +528,7 @@ static func _campaign_flags(game, flags: Dictionary, stage: Dictionary) -> bool:
 		if not flags[key] is Array:return false
 		for record in flags[key]:
 			if not _loot_record(record) or (key=="pending_loot" and not game.characters.has(record.unit_id)):return false
-	for key in ["chapter1_complete","chapter2_started","chapter2_complete","chapter3_pending","east_departure_ready","F21_confirmed","F22_confirmed","F23_confirmed","islanders_settled","sea_chart_collected","east_departure_confirmed","S21_invited","S22_invited"]:
+	for key in ["chapter3_started","chapter3_complete","chapter4_pending","D31_done","D32_done","D33_done","M32_confirmed","M33_confirmed","F32_confirmed","F33_confirmed","S31_invited","S32_invited","chapter1_complete","chapter2_started","chapter2_complete","chapter3_pending","east_departure_ready","F21_confirmed","F22_confirmed","F23_confirmed","islanders_settled","sea_chart_collected","east_departure_confirmed","S21_invited","S22_invited"]:
 		if flags.has(key) and not flags[key] is bool:return false
 	if flags.has("active_plot"):
 		var plot=flags.active_plot
@@ -539,6 +556,9 @@ static func _campaign_flags(game, flags: Dictionary, stage: Dictionary) -> bool:
 		if int(stage.get("id",stage.get("stage_id",0)))>=200 and not q.has("boats"):return false
 		if q.has("beacon_since") and not _integer(q.beacon_since,-1,2147483647):return false
 		if q.has("beacon_contested") and not q.beacon_contested is bool:return false
+		if int(stage.get("chapter",1))==3:
+			if not _integer(q.get("transport_index"),0,maxi(0,stage.get("transport_path",[]).size()-1)) or not q.get("transport_stopped") is bool:return false
+			if q.get("german_decision") not in ["","accepted","disarmed"]:return false
 		if q.has("boats"):
 			if not q.boats is Array or q.boats.size()!=stage.get("event_boats",[]).size():return false
 			var boat_ids={}

@@ -1,0 +1,707 @@
+{
+  "schema_version": 1,
+  "class_id": 1,
+  "source_side": "ally",
+  "actor_id": "ally-cavalry",
+  "character_id": "ally-cavalry",
+  "display_name": "盟军骑兵",
+  "width_height_scale": 4,
+  "runtime_integrated": false,
+  "status": "complete_art_review_passed",
+  "art_mode": "built-in ImageGen; crop, uniform scale, translation, exact-source mirror, lossless compression only",
+  "scenarios": [
+    {
+      "id": "tactical-walk",
+      "class_id": 1,
+      "source_side": "ally",
+      "character_id": "ally-cavalry",
+      "display_name": "盟军骑兵",
+      "source_atlas": "../../../source-input/corrected-tactical-walk/class-1-ally.png",
+      "source_frame_size": [
+        32,
+        24
+      ],
+      "source_columns": 8,
+      "source_frame_count": 8,
+      "source_anchor": [
+        16,
+        24
+      ],
+      "output_frame_size": [
+        128,
+        96
+      ],
+      "output_anchor": [
+        64,
+        96
+      ],
+      "output_atlas": "frames/tactical-native-walk.png",
+      "output_atlas_bytes": 60989,
+      "logical_render_scale": 0.25,
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "path": "tactical-native-frames/frame-000.png",
+          "output_path": "tactical-native-frames/frame-000.png",
+          "raw": "source/native-up-v1-generated.png",
+          "cell": [
+            0,
+            0,
+            1024,
+            768
+          ],
+          "crop": [
+            372,
+            52,
+            713,
+            677
+          ],
+          "uniform_scale": 0.1148036253776435,
+          "translation": [
+            44,
+            16
+          ],
+          "native_visible_bounds": [
+            12,
+            4,
+            23,
+            23
+          ],
+          "registered_visible_bottom": 88,
+          "source_visible_bottom": 92,
+          "pair_uniform_scale": true,
+          "vertical_resampling_rounding_adjustment": 0,
+          "generated_helmet_top_component_center": 551.0,
+          "target_helmet_x": 64,
+          "registered_helmet_x": 64.47214076246334,
+          "visible_clipped_pixels_alpha32": 0,
+          "outside_nonzero_alpha_pixels": 0,
+          "registration_basis": "Helmet top/X and visible height with whole-image uniform scaling. Not an inferred anatomical hoof/pelvis anchor; all in-canvas generated alpha retained.",
+          "art_review_status": "parent_visual_review_passed",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 6702,
+          "sha256": "8b6b9b4bbbf4ef9a7cb1bb3203c487b285cdf744e5a44facc1d237e234af2c8b"
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "path": "tactical-native-frames/frame-001.png",
+          "output_path": "tactical-native-frames/frame-001.png",
+          "raw": "source/native-up-v1-generated.png",
+          "cell": [
+            1024,
+            0,
+            2048,
+            768
+          ],
+          "crop": [
+            329,
+            51,
+            675,
+            719
+          ],
+          "uniform_scale": 0.1148036253776435,
+          "translation": [
+            43,
+            19
+          ],
+          "native_visible_bounds": [
+            11,
+            5,
+            23,
+            24
+          ],
+          "registered_visible_bottom": 96,
+          "source_visible_bottom": 96,
+          "pair_uniform_scale": true,
+          "vertical_resampling_rounding_adjustment": -1,
+          "generated_helmet_top_component_center": 508.5,
+          "target_helmet_x": 64,
+          "registered_helmet_x": 63.7514450867052,
+          "visible_clipped_pixels_alpha32": 0,
+          "outside_nonzero_alpha_pixels": 0,
+          "registration_basis": "Helmet top/X and visible height with whole-image uniform scaling. Not an inferred anatomical hoof/pelvis anchor; all in-canvas generated alpha retained.",
+          "art_review_status": "parent_visual_review_passed",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 7640,
+          "sha256": "d9765efddae8f737b3799192bef34a0a7d314e33c3ec4f6ad149966f3ea74cac"
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "path": "tactical-native-frames/frame-002.png",
+          "output_path": "tactical-native-frames/frame-002.png",
+          "raw": "source/native-right-neck-v2-generated.png",
+          "cell": [
+            0,
+            0,
+            1024,
+            768
+          ],
+          "crop": [
+            154,
+            95,
+            882,
+            724
+          ],
+          "uniform_scale": 0.10272873194221509,
+          "translation": [
+            16,
+            31
+          ],
+          "native_visible_bounds": [
+            8,
+            8,
+            24,
+            24
+          ],
+          "registered_visible_bottom": 96,
+          "source_visible_bottom": 96,
+          "pair_uniform_scale": true,
+          "vertical_resampling_rounding_adjustment": -1,
+          "generated_helmet_top_component_center": 557.0,
+          "target_helmet_x": 58,
+          "registered_helmet_x": 57.517857142857146,
+          "visible_clipped_pixels_alpha32": 0,
+          "outside_nonzero_alpha_pixels": 0,
+          "registration_basis": "Helmet top/X and visible height with whole-image uniform scaling. Not an inferred anatomical hoof/pelvis anchor; all in-canvas generated alpha retained.",
+          "art_review_status": "parent_visual_review_passed",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 10642,
+          "sha256": "e143b37ccc0d51eb71f6c84d1186bce15400cc808646dcffba42e8a8a261b4e0"
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "path": "tactical-native-frames/frame-003.png",
+          "output_path": "tactical-native-frames/frame-003.png",
+          "raw": "source/native-right-neck-v2-generated.png",
+          "cell": [
+            1024,
+            0,
+            2048,
+            768
+          ],
+          "crop": [
+            214,
+            95,
+            931,
+            724
+          ],
+          "uniform_scale": 0.10272873194221509,
+          "translation": [
+            22,
+            31
+          ],
+          "native_visible_bounds": [
+            8,
+            8,
+            24,
+            24
+          ],
+          "registered_visible_bottom": 96,
+          "source_visible_bottom": 96,
+          "pair_uniform_scale": true,
+          "vertical_resampling_rounding_adjustment": -1,
+          "generated_helmet_top_component_center": 605.0,
+          "target_helmet_x": 62,
+          "registered_helmet_x": 62.35425383542538,
+          "visible_clipped_pixels_alpha32": 0,
+          "outside_nonzero_alpha_pixels": 0,
+          "registration_basis": "Helmet top/X and visible height with whole-image uniform scaling. Not an inferred anatomical hoof/pelvis anchor; all in-canvas generated alpha retained.",
+          "art_review_status": "parent_visual_review_passed",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 9980,
+          "sha256": "97d4be53340e58bcd93ec13c6f425b0a1ec4822d18622c3bdf9d46fb9e6e11c9"
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "path": "tactical-native-frames/frame-004.png",
+          "output_path": "tactical-native-frames/frame-004.png",
+          "raw": "source/native-down-v1-generated.png",
+          "cell": [
+            0,
+            0,
+            1024,
+            768
+          ],
+          "crop": [
+            387,
+            65,
+            747,
+            741
+          ],
+          "uniform_scale": 0.11343283582089553,
+          "translation": [
+            44,
+            19
+          ],
+          "native_visible_bounds": [
+            10,
+            5,
+            21,
+            24
+          ],
+          "registered_visible_bottom": 96,
+          "source_visible_bottom": 96,
+          "pair_uniform_scale": true,
+          "vertical_resampling_rounding_adjustment": -1,
+          "generated_helmet_top_component_center": 558.5,
+          "target_helmet_x": 64,
+          "registered_helmet_x": 63.53194444444445,
+          "visible_clipped_pixels_alpha32": 0,
+          "outside_nonzero_alpha_pixels": 0,
+          "registration_basis": "Helmet top/X and visible height with whole-image uniform scaling. Not an inferred anatomical hoof/pelvis anchor; all in-canvas generated alpha retained.",
+          "art_review_status": "parent_visual_review_passed",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 7853,
+          "sha256": "3e82cc028603c687e7e4801085dd2e3f9ea8c15876ec25aa687154f7df618c31"
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "path": "tactical-native-frames/frame-005.png",
+          "output_path": "tactical-native-frames/frame-005.png",
+          "raw": "source/native-down-v1-generated.png",
+          "cell": [
+            1024,
+            0,
+            2048,
+            768
+          ],
+          "crop": [
+            282,
+            78,
+            641,
+            710
+          ],
+          "uniform_scale": 0.11343283582089553,
+          "translation": [
+            44,
+            24
+          ],
+          "native_visible_bounds": [
+            10,
+            6,
+            22,
+            24
+          ],
+          "registered_visible_bottom": 96,
+          "source_visible_bottom": 96,
+          "pair_uniform_scale": true,
+          "vertical_resampling_rounding_adjustment": 0,
+          "generated_helmet_top_component_center": 453.0,
+          "target_helmet_x": 64,
+          "registered_helmet_x": 63.52924791086351,
+          "visible_clipped_pixels_alpha32": 0,
+          "outside_nonzero_alpha_pixels": 0,
+          "registration_basis": "Helmet top/X and visible height with whole-image uniform scaling. Not an inferred anatomical hoof/pelvis anchor; all in-canvas generated alpha retained.",
+          "art_review_status": "parent_visual_review_passed",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 7037,
+          "sha256": "ec48dc76c22d043b36f016758c458aad79cf7fb2d248d448a0b074cc7b86fef4"
+        },
+        {
+          "source_index": 6,
+          "source_frame": 6,
+          "representative_frame": 2,
+          "path": "tactical-native-frames/frame-006.png",
+          "output_path": "tactical-native-frames/frame-006.png",
+          "kind": "exact_full_canvas_source_mirror",
+          "proof": "native-reference/source-record.json",
+          "art_review_status": "parent_visual_review_passed",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 10678,
+          "sha256": "9ec01ed2163db8746b0478504facb34e7c3144e7f95c816d250c9f3951b38ae0"
+        },
+        {
+          "source_index": 7,
+          "source_frame": 7,
+          "representative_frame": 3,
+          "path": "tactical-native-frames/frame-007.png",
+          "output_path": "tactical-native-frames/frame-007.png",
+          "kind": "exact_full_canvas_source_mirror",
+          "proof": "native-reference/source-record.json",
+          "art_review_status": "parent_visual_review_passed",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 9991,
+          "sha256": "5326e65d1b4c5806c87c6b88e0bb6eb601829148a91a81d2d57be70fdb3aeb60"
+        }
+      ],
+      "directions": {
+        "up": [
+          0,
+          1
+        ],
+        "right": [
+          2,
+          3
+        ],
+        "down": [
+          4,
+          5
+        ],
+        "left": [
+          6,
+          7
+        ]
+      },
+      "direction_mirror_x": {},
+      "default_facing": "down",
+      "timing": {
+        "native_fps": 60.0988,
+        "frame_ticks": 16,
+        "cycle_ticks": 32,
+        "phase_source": "$36 & $10 selects phase; L0BB62C",
+        "movement_pixels_per_tick": 1,
+        "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+      },
+      "source_audit": {
+        "status": "verified_native_tactical",
+        "proof": "../../../source-input/corrected-tactical-walk/verification.json",
+        "unit_evidence": "native-reference/source-record.json",
+        "entry": "bank011:L0BB5B1",
+        "source_chr": 19
+      },
+      "art_review_status": "parent_visual_review_passed",
+      "registration_note": "Native tile-base anchor; new pair shares uniform scale, positioned by helmet/hair top and X. One output-pixel resampling adjustment protects visible contour. Not a claim of every hoof/joint exact alignment."
+    },
+    {
+      "id": "tactical-idle",
+      "class_id": 1,
+      "source_side": "ally",
+      "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_1_ally.png",
+      "source_frame_size": [
+        24,
+        24
+      ],
+      "source_anchor": [
+        12,
+        24
+      ],
+      "output_frame_size": [
+        96,
+        96
+      ],
+      "output_anchor": [
+        48,
+        96
+      ],
+      "output_atlas": "frames/tactical-idle.png",
+      "output_atlas_bytes": 29232,
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "representative_frame": 0,
+          "path": "idle-frames/frame-000.png",
+          "output_path": "idle-frames/frame-000.png",
+          "kind": "imagegen_native_pose",
+          "generated_source": "source/idle-v1-generated.png",
+          "generated_cell": [
+            0,
+            0,
+            724,
+            724
+          ],
+          "uniform_scale": 0.13008130081300814,
+          "registration_offset": [
+            18,
+            15
+          ],
+          "target_visible_hoof_anchor": [
+            62,
+            80
+          ],
+          "registered_visible_hoof_anchor": [
+            61.5,
+            80
+          ],
+          "registration_basis": "continuous visible horse legs; idle0 grounded hind, idle1 both pairs, idle2 grounded front; shadow/lance excluded",
+          "visible_clipped_pixels": 0,
+          "mirror_x": false,
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 9281,
+          "sha256": "39786c2a0f7bd0c9265314c930a5f19233576fca6c5e41f32318269b0be2d34b",
+          "visible_bounds": [
+            18,
+            15,
+            84,
+            80
+          ]
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "representative_frame": 1,
+          "path": "idle-frames/frame-001.png",
+          "output_path": "idle-frames/frame-001.png",
+          "kind": "imagegen_native_pose",
+          "generated_source": "source/idle-v1-generated.png",
+          "generated_cell": [
+            724,
+            0,
+            1448,
+            724
+          ],
+          "uniform_scale": 0.12981744421906694,
+          "registration_offset": [
+            13,
+            15
+          ],
+          "target_visible_hoof_anchor": [
+            52,
+            80
+          ],
+          "registered_visible_hoof_anchor": [
+            52.0,
+            80
+          ],
+          "registration_basis": "continuous visible horse legs; idle0 grounded hind, idle1 both pairs, idle2 grounded front; shadow/lance excluded",
+          "visible_clipped_pixels": 0,
+          "mirror_x": false,
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 10195,
+          "sha256": "f70394635f6454696f560c97ce7ed7bff467323404afb05e298eabf596eb8e4b",
+          "visible_bounds": [
+            13,
+            15,
+            83,
+            80
+          ]
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "representative_frame": 2,
+          "path": "idle-frames/frame-002.png",
+          "output_path": "idle-frames/frame-002.png",
+          "kind": "imagegen_native_pose",
+          "generated_source": "source/idle-v1-generated.png",
+          "generated_cell": [
+            1448,
+            0,
+            2172,
+            724
+          ],
+          "uniform_scale": 0.12903225806451613,
+          "registration_offset": [
+            12,
+            15
+          ],
+          "target_visible_hoof_anchor": [
+            42,
+            80
+          ],
+          "registered_visible_hoof_anchor": [
+            42.0,
+            80
+          ],
+          "registration_basis": "continuous visible horse legs; idle0 grounded hind, idle1 both pairs, idle2 grounded front; shadow/lance excluded",
+          "visible_clipped_pixels": 0,
+          "mirror_x": false,
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 9546,
+          "sha256": "6ab481c8e40383c77539fa69d0ac1a32c4dade7975fd1d9808bc4761e75fdbb4",
+          "visible_bounds": [
+            12,
+            15,
+            85,
+            80
+          ]
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "representative_frame": 1,
+          "path": "idle-frames/frame-003.png",
+          "output_path": "idle-frames/frame-003.png",
+          "kind": "imagegen_native_pose",
+          "generated_source": "source/idle-v1-generated.png",
+          "generated_cell": [
+            724,
+            0,
+            1448,
+            724
+          ],
+          "uniform_scale": 0.12981744421906694,
+          "registration_offset": [
+            13,
+            15
+          ],
+          "target_visible_hoof_anchor": [
+            52,
+            80
+          ],
+          "registered_visible_hoof_anchor": [
+            52.0,
+            80
+          ],
+          "registration_basis": "continuous visible horse legs; idle0 grounded hind, idle1 both pairs, idle2 grounded front; shadow/lance excluded",
+          "visible_clipped_pixels": 0,
+          "mirror_x": false,
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 10195,
+          "sha256": "f70394635f6454696f560c97ce7ed7bff467323404afb05e298eabf596eb8e4b",
+          "visible_bounds": [
+            13,
+            15,
+            83,
+            80
+          ]
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "representative_frame": 0,
+          "path": "idle-frames/frame-004.png",
+          "output_path": "idle-frames/frame-004.png",
+          "kind": "imagegen_native_pose",
+          "generated_source": "source/idle-v1-generated.png",
+          "generated_cell": [
+            0,
+            0,
+            724,
+            724
+          ],
+          "uniform_scale": 0.13008130081300814,
+          "registration_offset": [
+            18,
+            15
+          ],
+          "target_visible_hoof_anchor": [
+            62,
+            80
+          ],
+          "registered_visible_hoof_anchor": [
+            61.5,
+            80
+          ],
+          "registration_basis": "continuous visible horse legs; idle0 grounded hind, idle1 both pairs, idle2 grounded front; shadow/lance excluded",
+          "visible_clipped_pixels": 0,
+          "mirror_x": false,
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 9281,
+          "sha256": "39786c2a0f7bd0c9265314c930a5f19233576fca6c5e41f32318269b0be2d34b",
+          "visible_bounds": [
+            18,
+            15,
+            84,
+            80
+          ]
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "representative_frame": 1,
+          "path": "idle-frames/frame-005.png",
+          "output_path": "idle-frames/frame-005.png",
+          "kind": "imagegen_native_pose",
+          "generated_source": "source/idle-v1-generated.png",
+          "generated_cell": [
+            724,
+            0,
+            1448,
+            724
+          ],
+          "uniform_scale": 0.12981744421906694,
+          "registration_offset": [
+            13,
+            15
+          ],
+          "target_visible_hoof_anchor": [
+            52,
+            80
+          ],
+          "registered_visible_hoof_anchor": [
+            52.0,
+            80
+          ],
+          "registration_basis": "continuous visible horse legs; idle0 grounded hind, idle1 both pairs, idle2 grounded front; shadow/lance excluded",
+          "visible_clipped_pixels": 0,
+          "mirror_x": false,
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 10195,
+          "sha256": "f70394635f6454696f560c97ce7ed7bff467323404afb05e298eabf596eb8e4b",
+          "visible_bounds": [
+            13,
+            15,
+            83,
+            80
+          ]
+        }
+      ],
+      "logical_render_scale": 0.25,
+      "default_facing": "right",
+      "static_facing": true,
+      "directions": {
+        "all": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "timing": {
+        "native_fps": 60.0988,
+        "cycle_frames": [
+          0,
+          1,
+          2,
+          1
+        ],
+        "frame_ticks": [
+          14,
+          8,
+          14,
+          8
+        ]
+      }
+    }
+  ],
+  "source_note": "Correct native tactical renderer supersedes old village-OAM/CHR26 hybrid; historical raw/mapping preserved. Battle and static idle unchanged."
+}

@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "character_id": "class-18-ally",
+  "display_name": "修女（职业样板）",
+  "original_class_id": 18,
+  "source_side": "ally",
+  "status": "complete_art_review_passed",
+  "runtime_integrated": false,
+  "source_atlas": "../../../source-input/original-motion/class-18.png",
+  "source_frame_size": [
+    80,
+    64
+  ],
+  "output_frame_size": [
+    320,
+    256
+  ],
+  "source_anchor": [
+    40,
+    64
+  ],
+  "output_anchor": [
+    160,
+    256
+  ],
+  "source_columns": 16,
+  "source_oam_frame_count": 7,
+  "source_idle_frame": 7,
+  "source_frame_count": 9,
+  "frame_mapping": {
+    "7": "frames/frame-007.png",
+    "8": "frames/frame-008.png"
+  },
+  "canonical_frames": [
+    7,
+    8
+  ],
+  "required_source_frames": [
+    7,
+    8
+  ],
+  "variant_keys": [
+    "class_18_ally_item_40",
+    "class_18_ally_item_40_vs_heavy",
+    "class_18_ally_item_40_far_ally",
+    "class_18_ally_item_40_far_ally_vs_heavy",
+    "class_18_ally_item_40_far_enemy",
+    "class_18_ally_item_40_far_enemy_vs_heavy",
+    "class_18_ally_item_41",
+    "class_18_ally_item_41_vs_heavy",
+    "class_18_ally_item_41_far_ally",
+    "class_18_ally_item_41_far_ally_vs_heavy",
+    "class_18_ally_item_41_far_enemy",
+    "class_18_ally_item_41_far_enemy_vs_heavy",
+    "class_18_ally_item_42",
+    "class_18_ally_item_42_vs_heavy",
+    "class_18_ally_item_42_far_ally",
+    "class_18_ally_item_42_far_ally_vs_heavy",
+    "class_18_ally_item_42_far_enemy",
+    "class_18_ally_item_42_far_enemy_vs_heavy",
+    "class_18_ally_item_43",
+    "class_18_ally_item_43_vs_heavy",
+    "class_18_ally_item_43_far_ally",
+    "class_18_ally_item_43_far_ally_vs_heavy",
+    "class_18_ally_item_43_far_enemy",
+    "class_18_ally_item_43_far_enemy_vs_heavy",
+    "class_18_ally_item_44",
+    "class_18_ally_item_44_vs_heavy",
+    "class_18_ally_item_44_far_ally",
+    "class_18_ally_item_44_far_ally_vs_heavy",
+    "class_18_ally_item_44_far_enemy",
+    "class_18_ally_item_44_far_enemy_vs_heavy"
+  ],
+  "records": [
+    {
+      "frame": 7,
+      "raw": "battle-v4-pose007.png",
+      "crop": [
+        60,
+        78,
+        982,
+        1499
+      ],
+      "hood_y": 80,
+      "hem": [
+        584,
+        1497
+      ],
+      "uniform_scale": 0.0903316866619619,
+      "resampled_size": [
+        83,
+        128
+      ],
+      "paste": [
+        149,
+        128
+      ],
+      "target_visible_hood_y": 128,
+      "target_visible_robe_hem": [
+        196,
+        256
+      ],
+      "registration_basis": "Visible continuous robe hem and hood top; no hidden joint guess, no silhouette clamp.",
+      "alpha_noise_threshold": 8,
+      "low_alpha_pixels_removed": 15074,
+      "output_alpha_bounds": [
+        149,
+        128,
+        232,
+        256
+      ],
+      "bytes": 17168,
+      "sha256": "61c5bc824fc81f22d7ba42a341add6c6219d064a31e2ebda5d979fa965b1d20c",
+      "path": "battle/frames/frame-007.png",
+      "size": [
+        320,
+        256
+      ],
+      "alpha_bounds": [
+        149,
+        128,
+        232,
+        256
+      ]
+    },
+    {
+      "frame": 8,
+      "raw": "battle-v5-pose008.png",
+      "crop": [
+        207,
+        57,
+        920,
+        1555
+      ],
+      "hood_y": 381,
+      "hem": [
+        591.5,
+        1553
+      ],
+      "uniform_scale": 0.10921501706484642,
+      "resampled_size": [
+        78,
+        164
+      ],
+      "paste": [
+        154,
+        93
+      ],
+      "target_visible_hood_y": 128,
+      "target_visible_robe_hem": [
+        196,
+        256
+      ],
+      "registration_basis": "Visible continuous robe hem and hood top; no hidden joint guess, no silhouette clamp.",
+      "alpha_noise_threshold": 8,
+      "low_alpha_pixels_removed": 17874,
+      "output_alpha_bounds": [
+        154,
+        93,
+        232,
+        256
+      ],
+      "bytes": 18402,
+      "sha256": "987bd79d52980fb45121d6480fbc0256792e40e2d3393bf99bb64ffbb7da6434",
+      "path": "battle/frames/frame-008.png",
+      "size": [
+        320,
+        256
+      ],
+      "alpha_bounds": [
+        154,
+        93,
+        232,
+        256
+      ]
+    }
+  ],
+  "output_atlas": "deliverables/battle-two-poses.png",
+  "output_atlas_frame_order": [
+    7,
+    8
+  ],
+  "art_generator": "built-in image_gen",
+  "external_effects": "Original effects retained outside body PNG; no light or extra ability painted into body.",
+  "identity_scope": "Profession exemplar. Does not unlock white magic for any named actor.",
+  "source_semantics": "Original narrow staff retained; head veil, broad sleeves and continuous long robe cover legs. No invented leg joints."
+}

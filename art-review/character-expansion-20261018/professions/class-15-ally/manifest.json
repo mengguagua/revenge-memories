@@ -1,0 +1,28 @@
+{
+  "id": "class-15-ally",
+  "display_name": "男魔道士（职业样板）",
+  "status": "complete_art_review_passed",
+  "battle_mapping": "battle/frame_mapping.json",
+  "maps_mapping": "maps/frame_mapping.json",
+  "inventory": "image-inventory.json",
+  "qa": "qa-report.json",
+  "source_inspection": "source-inspection.json",
+  "history": {
+    "battle-v1": "Initial approved costume; stance/cape geometry refined.",
+    "battle-v2": "Selected three battle poses, narrower stance and raised rotating cape left edge.",
+    "map-v1": "Identity/idle2 retained; initial walking lunge rejected.",
+    "map-v2": "Selected compact native mirrored walk base.",
+    "map-v3": "Selected idle1 with hand covered by sleeve; first idle spread still refined.",
+    "map-v4": "Selected idle0 with broader outward forearms."
+  },
+  "generator": "Built-in image_gen; raw images/prompts retained.",
+  "runtime_integrated": false,
+  "native_tactical_walk": {
+    "status": "complete_art_review_passed",
+    "source_audit": "verified_native_tactical",
+    "previous_mapping": "maps/source/previous-map-frame_mapping.json",
+    "new_frames": "maps/tactical-native-frames",
+    "new_atlas": "maps/frames/tactical-native-walk.png",
+    "proof": "../../source-input/corrected-tactical-walk/verification.json"
+  }
+}

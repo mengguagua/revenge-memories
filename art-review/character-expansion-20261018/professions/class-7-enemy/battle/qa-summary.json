@@ -1,0 +1,287 @@
+{
+  "status": "complete_art_review_ready",
+  "character_id": "enemy-gold-knight",
+  "class_id": 7,
+  "source_side": "enemy",
+  "canonical_count": 26,
+  "required_slots": 27,
+  "redrawn_body_count": 25,
+  "min_frame_bytes": 42110,
+  "max_frame_bytes": 58475,
+  "qa": {
+    "comparison": "reviews/all-canonical-new-dark-light.png",
+    "batch_reviews": [
+      "reviews/keyposes-selected-dark-light.png",
+      "reviews/gallop-1-3-selected-dark-light.png",
+      "reviews/gallop-4-6-selected-dark-light.png",
+      "reviews/gallop-7-9-selected-dark-light.png",
+      "reviews/gallop-10-12-selected-dark-light.png",
+      "reviews/turn-release-selected-dark-light.png",
+      "reviews/spin-15-17-18-selected-dark-light.png",
+      "reviews/spin-16-19-20-selected-dark-light.png",
+      "reviews/spin-21-22-selected-dark-light.png"
+    ],
+    "parent_visual_review_passed": true,
+    "limitations": [
+      "Minor contour/proportion differences remain; no hidden-joint or pixel-exact anatomy claim.",
+      "Some long lance endpoints differ from source by approximately20–28 output pixels; body is not shifted to force weapon endpoint matches.",
+      "Frames16/20 preserve disconnected native spin glimpses; four tiny native intervals are represented by three larger material groups. They are NOT three projectiles, multiple hits, or new abilities.",
+      "Frame13 middle occluded short limb is not asserted to be an independently proven horse hoof; registration uses the clear outer hooves."
+    ],
+    "alpha_registration_policy": "Original alpha retained, no full-image alpha threshold/cleanup. Anatomy measured in explicit hoof ROIs, horizontal sole alpha>=128, lowest visible sole edge alpha>4. Source image contains distant alpha1 noise; native canvas may crop only alpha1..4 (<2% opacity) noise outside it. Zero alpha>4 contour pixels clipped. Earlier all-nonzero-alpha/no-crop claim was withdrawn because using remote alpha1 as sole wrongly shifted some frames.",
+    "checks": [
+      "All27required source slots map to loadable448x320RGBA files",
+      "26 canonical source appearances represented by25ImageGen body drawings plus proven appearance-equivalent translated idle",
+      "All selected raw crops/scales/translations/prompts retained",
+      "Zero visible alpha>4 pixels clipped; exact counts and maximum cropped near-transparent alpha retained per frame",
+      "Dark/light material edges and complete lance/horse/rider silhouettes inspected",
+      "OAM/BG native placement difference preserved; renderer flip-origin compensation remains external",
+      "No game integration or frozen-source modification"
+    ]
+  },
+  "sizes": [
+    {
+      "path": "frames/frame-000.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 54288
+    },
+    {
+      "path": "frames/frame-001.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 56339
+    },
+    {
+      "path": "frames/frame-002.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 56010
+    },
+    {
+      "path": "frames/frame-003.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 58475
+    },
+    {
+      "path": "frames/frame-004.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 58275
+    },
+    {
+      "path": "frames/frame-005.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 57943
+    },
+    {
+      "path": "frames/frame-006.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 57548
+    },
+    {
+      "path": "frames/frame-007.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 54839
+    },
+    {
+      "path": "frames/frame-008.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 53492
+    },
+    {
+      "path": "frames/frame-009.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 56528
+    },
+    {
+      "path": "frames/frame-010.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 53133
+    },
+    {
+      "path": "frames/frame-011.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 51577
+    },
+    {
+      "path": "frames/frame-012.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 46193
+    },
+    {
+      "path": "frames/frame-013.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 42110
+    },
+    {
+      "path": "frames/frame-014.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 50581
+    },
+    {
+      "path": "frames/frame-015.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 57299
+    },
+    {
+      "path": "frames/frame-016.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 54989
+    },
+    {
+      "path": "frames/frame-017.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 53815
+    },
+    {
+      "path": "frames/frame-018.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 56807
+    },
+    {
+      "path": "frames/frame-019.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 52443
+    },
+    {
+      "path": "frames/frame-020.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 55339
+    },
+    {
+      "path": "frames/frame-021.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 55547
+    },
+    {
+      "path": "frames/frame-022.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 56261
+    },
+    {
+      "path": "frames/frame-026.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 54295
+    },
+    {
+      "path": "frames/frame-049.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 54295
+    },
+    {
+      "path": "frames/frame-050.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 54739
+    },
+    {
+      "path": "frames/frame-052.png",
+      "purpose": "battle-sprite",
+      "pixels": [
+        448,
+        320
+      ],
+      "bytes": 52601
+    }
+  ]
+}

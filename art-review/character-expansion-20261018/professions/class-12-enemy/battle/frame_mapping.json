@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "character_id": "enemy-archer",
+  "display_name": "敌方弓箭手",
+  "original_class_id": 12,
+  "source_side": "enemy",
+  "status": "complete_art_review_passed",
+  "source_atlas": "../../../source-input/enemy-motion/class-12-enemy.png",
+  "source_atlas_base": "mapping directory",
+  "source_frame_size": [
+    80,
+    64
+  ],
+  "output_frame_size": [
+    320,
+    256
+  ],
+  "source_anchor": [
+    40,
+    64
+  ],
+  "output_anchor": [
+    160,
+    256
+  ],
+  "source_frame_count": 7,
+  "source_columns": 16,
+  "frame_mapping": {
+    "1": "frames/frame-001.png",
+    "5": "frames/frame-005.png",
+    "6": "frames/frame-006.png"
+  },
+  "records": [
+    {
+      "source_frame": 1,
+      "representative_frame": 1,
+      "kind": "imagegen_from_native_pose",
+      "path": "frames/frame-001.png",
+      "generated_source": "source/batch-01-generated-v1.png",
+      "generated_cell": [
+        0,
+        0,
+        724,
+        724
+      ],
+      "generated_content_bounds": [
+        230,
+        91,
+        527,
+        646
+      ],
+      "head_top": 193,
+      "generated_feet_roi": [
+        260,
+        615,
+        575,
+        670
+      ],
+      "generated_foot_bounds": [
+        281,
+        615,
+        527,
+        646
+      ],
+      "uniform_scale": 0.282560706401766,
+      "resampled_size": [
+        86,
+        159
+      ],
+      "registration_offset": [
+        94,
+        98
+      ],
+      "output_foot_roi": [
+        103,
+        247,
+        180,
+        256
+      ],
+      "target_foot_anchor": [
+        144,
+        256
+      ],
+      "registered_foot_anchor": [
+        144.5,
+        256
+      ],
+      "foot_delta": [
+        0.5,
+        0
+      ],
+      "visible_bounds": [
+        95,
+        99,
+        180,
+        256
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 25783,
+      "sha256": "0990d816378b40d04219b1cfbc993e92b843ef566d6e92371cb07a5efd16acfe"
+    },
+    {
+      "source_frame": 5,
+      "representative_frame": 5,
+      "kind": "imagegen_from_native_pose",
+      "path": "frames/frame-005.png",
+      "generated_source": "source/batch-01-generated-v1.png",
+      "generated_cell": [
+        724,
+        0,
+        1448,
+        724
+      ],
+      "generated_content_bounds": [
+        144,
+        71,
+        565,
+        648
+      ],
+      "head_top": 194,
+      "generated_feet_roi": [
+        260,
+        615,
+        575,
+        670
+      ],
+      "generated_foot_bounds": [
+        290,
+        615,
+        550,
+        648
+      ],
+      "uniform_scale": 0.28193832599118945,
+      "resampled_size": [
+        120,
+        164
+      ],
+      "registration_offset": [
+        66,
+        93
+      ],
+      "output_foot_roi": [
+        99,
+        247,
+        186,
+        256
+      ],
+      "target_foot_anchor": [
+        144,
+        256
+      ],
+      "registered_foot_anchor": [
+        144.5,
+        256
+      ],
+      "foot_delta": [
+        0.5,
+        0
+      ],
+      "visible_bounds": [
+        67,
+        94,
+        186,
+        256
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 28598,
+      "sha256": "0d9dc2200a6148da21370a2e5101f8da6dae704811d2a85adaa21778d4c5c680"
+    },
+    {
+      "source_frame": 6,
+      "representative_frame": 6,
+      "kind": "imagegen_from_native_pose",
+      "path": "frames/frame-006.png",
+      "generated_source": "source/batch-01-generated-v1.png",
+      "generated_cell": [
+        1448,
+        0,
+        2172,
+        724
+      ],
+      "generated_content_bounds": [
+        132,
+        84,
+        599,
+        646
+      ],
+      "head_top": 194,
+      "generated_feet_roi": [
+        260,
+        615,
+        575,
+        670
+      ],
+      "generated_foot_bounds": [
+        280,
+        615,
+        538,
+        646
+      ],
+      "uniform_scale": 0.2831858407079646,
+      "resampled_size": [
+        134,
+        161
+      ],
+      "registration_offset": [
+        64,
+        96
+      ],
+      "output_foot_roi": [
+        101,
+        247,
+        190,
+        256
+      ],
+      "target_foot_anchor": [
+        144,
+        256
+      ],
+      "registered_foot_anchor": [
+        143.5,
+        256
+      ],
+      "foot_delta": [
+        -0.5,
+        0
+      ],
+      "visible_bounds": [
+        65,
+        97,
+        197,
+        256
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 27677,
+      "sha256": "afaf535dbfb1b0948157f7389b10b4ff86659611e055c44b1e9b14a4c38969b5"
+    }
+  ],
+  "canonical_frames": [
+    1,
+    5,
+    6
+  ],
+  "variant_keys": [
+    "class_12_enemy_bow",
+    "class_12_enemy_bow_vs_heavy",
+    "class_12_enemy_bow_far_ally",
+    "class_12_enemy_bow_far_ally_vs_heavy",
+    "class_12_enemy_bow_far_enemy",
+    "class_12_enemy_bow_far_enemy_vs_heavy"
+  ],
+  "output_atlas": "frames/archer-battle-three.png",
+  "output_atlas_frame_order": [
+    1,
+    5,
+    6
+  ],
+  "batches": [
+    {
+      "id": "batch-01",
+      "frames": [
+        1,
+        5,
+        6
+      ],
+      "status": "complete_review_candidate",
+      "review": "reviews/batch-01-original-vs-new-dark.png"
+    }
+  ],
+  "source_semantics": {
+    "1": "upright empty bow / recovery",
+    "5": "full draw with one nocked arrow",
+    "6": "post-release empty bow"
+  },
+  "foot_anchor_registration": {
+    "source_boot_roi": [
+      29,
+      60,
+      43,
+      64
+    ],
+    "source_feet": [
+      36,
+      64
+    ],
+    "target_feet": [
+      144,
+      256
+    ],
+    "x_tolerance": 0.5,
+    "y_tolerance": 1,
+    "no_body_clamp": true
+  },
+  "qa_report": "../qa-report.json",
+  "art_review": "agent source/shape/alpha/timing review passed; root visually passed battle, walk and corrected northeast drawn-bow idle"
+}

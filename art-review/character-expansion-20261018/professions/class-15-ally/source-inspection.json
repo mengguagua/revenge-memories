@@ -1,0 +1,74 @@
+{
+  "source_class_id": 15,
+  "side": "ally",
+  "battle": [
+    "Pointed hat, open cape/coat, visible separated lower legs; distinct from enemy arcanist hood/full robe.",
+    "Pose1 broad horizontal shape is turning cape, not a magic ring. Two raised hands, one visible supporting leg; occluded leg not invented.",
+    "Pose2 both hands extend forward at different heights, with opened stance. No source staff/book/weapon."
+  ],
+  "map": [
+    "Idle0 arms spread; idle1 chest hand stays concealed beneath sleeve/cape; idle2 modest right sleeve/hand position. Opaque black source clothing preserved in reference, not treated as transparency.",
+    "Up: back of pointed hat and cape, small hand glimpses alternate, boots partly hidden by cape.",
+    "Right: visible profile and forward hand; phase0 front support, phase1 rear support with raised/occluded front boot. Left is verified exact mirror.",
+    "Down: front face under pointed hat, cape separates around compact leg phases.",
+    "Cape occlusion retained; do not infer hidden knee/ankle or use cape/shadow as boot anchor."
+  ],
+  "source_aliases": {
+    "walk": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6,
+      "7": 7
+    },
+    "idle": [
+      0,
+      1,
+      2,
+      1,
+      0,
+      1
+    ],
+    "walk_mirrors": {
+      "6": {
+        "source_slot": 2,
+        "transform": "horizontal-mirror-full-canvas",
+        "rgba_exact": true
+      },
+      "7": {
+        "source_slot": 3,
+        "transform": "horizontal-mirror-full-canvas",
+        "rgba_exact": true
+      }
+    }
+  },
+  "identity_scope": "Profession exemplar, not a named actor unlock.",
+  "corrected_tactical_walk": {
+    "proof": "../../source-input/corrected-tactical-walk/verification.json",
+    "source": "bank011:L0BB5B1 with class15 CHR26 and native8slots.",
+    "old_source_retracted": "Previous sprite62+CHR26 was a village-OAM/CHR26 hybrid extraction, not original tactical mage. The old two walking poses are historical; no longer used in the current walking mapping.",
+    "semantics": [
+      "Up: back of pointed hat and cape, small hand glimpses alternate, boots partly hidden by cape.",
+      "Right: visible profile and forward hand; phase0 front support, phase1 rear support with raised/occluded front boot. Left is verified exact mirror.",
+      "Down: front face under pointed hat, cape separates around compact leg phases.",
+      "Cape occlusion retained; do not infer hidden knee/ankle or use cape/shadow as boot anchor."
+    ]
+  },
+  "historical_superseded_walk": {
+    "map_notes": [
+      "Walk sprite62 uses CE/CF/DE/DF; second OAM phase uses same tiles with horizontal flip attr43 and shifted positions. Source PNG equality proves mirror plus [1,0] native pixel.",
+      "Walk rear upper projection treated as bent pointed-hat contour, not a fabricated additional hand."
+    ],
+    "walk_aliases": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1
+    ]
+  }
+}

@@ -1,0 +1,230 @@
+{
+  "status": "REVIEW_SAMPLE_WITH_KNOWN_DEVIATIONS_NOT_GAME_APPROVED",
+  "actor": "hunapu",
+  "art_direction_model": "gpt-6-astra",
+  "reasoning_effort": "ultra",
+  "generator": "built-in image_gen",
+  "native_frame_size": [
+    80,
+    72
+  ],
+  "review_frame_size": [
+    320,
+    288
+  ],
+  "poses": 10,
+  "key_poses": [
+    0,
+    3,
+    4,
+    6,
+    8,
+    9
+  ],
+  "source_program": 17,
+  "native_fps": 60.0988,
+  "ticks": 203,
+  "duration_seconds": 3.3777712699754407,
+  "contact_tick": 90,
+  "contact_count": 1,
+  "source_revision": "956365ef33c63751e7afd03f05e600d7728549da",
+  "selected_art_sources": [
+    "source/generated-atlas-v7.png",
+    "source/generated-targeted-005-009.png"
+  ],
+  "prompts": [
+    "source/prompt-v7.txt",
+    "source/prompt-targeted-005-009.txt"
+  ],
+  "art_transforms": [
+    "Uniform atlas scale then crop and translation only; no nonuniform body deformation or scripted character painting.",
+    "Poses0–4 translated upward5px and poses5–9 upward2px to align bottom alpha bounds at original y256.",
+    "Poses5 and9 selected from the targeted local-edit attempt; pose8 reuses pose9 body.",
+    "Pose8 overlays the original extracted slash trail; original pose9+trail reconstructs original pose8 with zero pixel difference."
+  ],
+  "known_deviations": [
+    "Head/shoulder outlines and some horizontal positions remain different from the original; this is not a pixel-exact anatomy match.",
+    "Targeted edits improved sword placement but also changed a few outer head/foot pixels; remaining hand/sword/foot alignment needs user review.",
+    "Very small colored fringes remain around some generated edges."
+  ],
+  "semantic_correction": "Original waist-down panels are segmented skirt armor covering pelvis and upper thighs. All earlier hidden hip/knee coordinate estimates and the v3 proportion claim were withdrawn. The sample preserves corresponding waist-down coverage instead of depicting exposed trouser crotch.",
+  "scope": "This task added only the isolated art-review directory and did not modify or integrate game code, data, or runtime assets.",
+  "checks": {
+    "full_timeline_matches_original": true,
+    "mp4_frames": 203,
+    "mp4_fps": "150247/2500",
+    "mp4_duration_seconds": 3.377771,
+    "deep_and_light_background_images_inspected": true,
+    "key_pose_and_contact_frame_images_inspected": true,
+    "game_run": false,
+    "html_javascript_syntax_checked": true,
+    "html_browser_visual_check": "Not performed: browser file URL was blocked by tool policy. PNG and video preview frames were checked directly.",
+    "pose8_body_unchanged_outside_source_trail": true,
+    "all_10_frame_paths_load": true
+  },
+  "files": [
+    {
+      "file": "deliverables/hunapu-attack-comparison.gif",
+      "bytes": 752080,
+      "sha256": "ef6fbcc9a0cb2421d383d980d37678f4c54dd90c176a7b614e8799233188b5f8",
+      "purpose": "完整动作同步预览"
+    },
+    {
+      "file": "deliverables/hunapu-attack-comparison.mp4",
+      "bytes": 175430,
+      "sha256": "bf56ac2c264d31c5fb2d819751acbcf742c2812e23095e46384e3d06fc4ed7c3",
+      "purpose": "完整动作同步预览"
+    },
+    {
+      "file": "deliverables/hunapu-six-key-poses-closeup.png",
+      "bytes": 163840,
+      "sha256": "781afe21ec0f2413a6ca5413acb11e7a5efd7032f344630e0e0de14336e1a19f",
+      "pixels": [
+        744,
+        504
+      ],
+      "purpose": "验收用图集或对照预览"
+    },
+    {
+      "file": "deliverables/hunapu-six-key-poses-light.png",
+      "bytes": 164411,
+      "sha256": "8d8563d38888f4c8b86a0032f87f286f9f181da4e9d3c180619c2540f7b5b986",
+      "pixels": [
+        960,
+        576
+      ],
+      "purpose": "验收用图集或对照预览"
+    },
+    {
+      "file": "deliverables/hunapu-six-key-poses.png",
+      "bytes": 159511,
+      "sha256": "b4f7a068390a185a03d6c30c18e25014a131c3ec3171d8adf01eff7f62d57d65",
+      "pixels": [
+        960,
+        576
+      ],
+      "purpose": "验收用图集或对照预览"
+    },
+    {
+      "file": "deliverables/hunapu-ten-poses.png",
+      "bytes": 168754,
+      "sha256": "e159bb89e5de077da94e39a92d7c3838d68cadb42589571697681e2422d0f00d",
+      "pixels": [
+        1600,
+        576
+      ],
+      "purpose": "验收用图集或对照预览"
+    },
+    {
+      "file": "deliverables/pose-000.png",
+      "bytes": 20263,
+      "sha256": "bfb496d5d9652bae055fe60ef7dc6b56a7a8115c437ee719799440b417e093c5",
+      "pixels": [
+        320,
+        288
+      ],
+      "purpose": "四倍角色独立动作帧",
+      "size_note": "保留320×288四倍尺寸、服装细节及透明边缘，仅无损压缩。"
+    },
+    {
+      "file": "deliverables/pose-001.png",
+      "bytes": 17728,
+      "sha256": "4d82c96d2c5a79688e6151dc0925373c1811a8d2e4ebd1dd5120653ec6a1b157",
+      "pixels": [
+        320,
+        288
+      ],
+      "purpose": "四倍角色独立动作帧",
+      "size_note": "低于20KB参考目标。"
+    },
+    {
+      "file": "deliverables/pose-002.png",
+      "bytes": 16262,
+      "sha256": "fff5408c8e3f9bf7c817b4f70a261a3c33fd7051a076a5a0da4e9423320877a4",
+      "pixels": [
+        320,
+        288
+      ],
+      "purpose": "四倍角色独立动作帧",
+      "size_note": "低于20KB参考目标。"
+    },
+    {
+      "file": "deliverables/pose-003.png",
+      "bytes": 16166,
+      "sha256": "f519a453be01b2b807ca68864dacccfe15cb60d4f0081ac665ab432c278e8376",
+      "pixels": [
+        320,
+        288
+      ],
+      "purpose": "四倍角色独立动作帧",
+      "size_note": "低于20KB参考目标。"
+    },
+    {
+      "file": "deliverables/pose-004.png",
+      "bytes": 19279,
+      "sha256": "58d2231cc297e070e8e89551ac5266eca4d49c63ead9b64e225d9f903b9b3f07",
+      "pixels": [
+        320,
+        288
+      ],
+      "purpose": "四倍角色独立动作帧",
+      "size_note": "低于20KB参考目标。"
+    },
+    {
+      "file": "deliverables/pose-005.png",
+      "bytes": 20312,
+      "sha256": "e113fe91f73821eee0c3bddc61b6acab1380a1721825ba8dd0485b803cc3eef5",
+      "pixels": [
+        320,
+        288
+      ],
+      "purpose": "四倍角色独立动作帧",
+      "size_note": "保留320×288四倍尺寸、服装细节及透明边缘，仅无损压缩。"
+    },
+    {
+      "file": "deliverables/pose-006.png",
+      "bytes": 20616,
+      "sha256": "b5fe7fdac87cf0465ef90b62115e9a1561f2873bf66fd8c7c6309886d8fcc46f",
+      "pixels": [
+        320,
+        288
+      ],
+      "purpose": "四倍角色独立动作帧",
+      "size_note": "保留320×288四倍尺寸、服装细节及透明边缘，仅无损压缩。"
+    },
+    {
+      "file": "deliverables/pose-007.png",
+      "bytes": 22504,
+      "sha256": "f4069321702174565e8ac1850b6a010d608b8caf307488f109c9a62fbbd8e175",
+      "pixels": [
+        320,
+        288
+      ],
+      "purpose": "四倍角色独立动作帧",
+      "size_note": "保留320×288四倍尺寸、服装细节及透明边缘，仅无损压缩。"
+    },
+    {
+      "file": "deliverables/pose-008.png",
+      "bytes": 17853,
+      "sha256": "db693d4de2f738dbbd7fd3ea68679bdede90b31ed7c9f43ee9352d388bf54d0a",
+      "pixels": [
+        320,
+        288
+      ],
+      "purpose": "四倍角色独立动作帧",
+      "size_note": "低于20KB参考目标。"
+    },
+    {
+      "file": "deliverables/pose-009.png",
+      "bytes": 17552,
+      "sha256": "a50d39a4f728a4da4693324ab5f63d9930c4141c90be9c2f591545c548d39759",
+      "pixels": [
+        320,
+        288
+      ],
+      "purpose": "四倍角色独立动作帧",
+      "size_note": "低于20KB参考目标。"
+    }
+  ],
+  "prompt_bundle": "source/final-prompts.txt"
+}

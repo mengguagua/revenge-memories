@@ -1,0 +1,281 @@
+{
+  "method": "Visible boot ROIs only, alpha>=128; raised and planted walk boots measured separately by full isolated boot bounds then combined, retaining raised toes. Idle planted boot uses bottom3px sole band. Whole image integer translation. No weapon alpha centering or limb deformation.",
+  "records": [
+    {
+      "kind": "idle",
+      "canonical_index": 0,
+      "selected_source": "source/idle-v2-nearest-00.png",
+      "mirror_x": false,
+      "before": {
+        "sole_boxes": [
+          [
+            37,
+            76,
+            47,
+            79
+          ]
+        ],
+        "center_x": 42.0,
+        "bottom_y": 79
+      },
+      "native_target": {
+        "sole_boxes": [
+          [
+            36,
+            77,
+            48,
+            80
+          ]
+        ],
+        "center_x": 42.0,
+        "bottom_y": 80
+      },
+      "translation": [
+        0,
+        1
+      ],
+      "result_anchor": [
+        42.0,
+        80
+      ],
+      "reason": "Fixed native idle facing preserved; planted visible boot anchor excludes diagonal spear butt."
+    },
+    {
+      "kind": "idle",
+      "canonical_index": 1,
+      "selected_source": "source/idle-v2-nearest-01.png",
+      "mirror_x": false,
+      "before": {
+        "sole_boxes": [
+          [
+            37,
+            76,
+            47,
+            79
+          ]
+        ],
+        "center_x": 42.0,
+        "bottom_y": 79
+      },
+      "native_target": {
+        "sole_boxes": [
+          [
+            36,
+            77,
+            48,
+            80
+          ]
+        ],
+        "center_x": 42.0,
+        "bottom_y": 80
+      },
+      "translation": [
+        0,
+        1
+      ],
+      "result_anchor": [
+        42.0,
+        80
+      ],
+      "reason": "Fixed native idle facing preserved; planted visible boot anchor excludes diagonal spear butt."
+    },
+    {
+      "kind": "idle",
+      "canonical_index": 2,
+      "selected_source": "source/idle-v2-nearest-02.png",
+      "mirror_x": false,
+      "before": {
+        "sole_boxes": [
+          [
+            38,
+            76,
+            48,
+            79
+          ]
+        ],
+        "center_x": 43.0,
+        "bottom_y": 79
+      },
+      "native_target": {
+        "sole_boxes": [
+          [
+            36,
+            77,
+            48,
+            80
+          ]
+        ],
+        "center_x": 42.0,
+        "bottom_y": 80
+      },
+      "translation": [
+        -1,
+        1
+      ],
+      "result_anchor": [
+        42.0,
+        80
+      ],
+      "reason": "Fixed native idle facing preserved; planted visible boot anchor excludes diagonal spear butt."
+    },
+    {
+      "kind": "walk",
+      "canonical_index": 0,
+      "selected_source": "source/walk-v4-00.png",
+      "mirror_x": false,
+      "before": {
+        "visible_boot_boxes": [
+          [
+            42,
+            88,
+            56,
+            96
+          ],
+          [
+            68,
+            84,
+            83,
+            95
+          ]
+        ],
+        "roi_boxes": [
+          [
+            16,
+            88,
+            64,
+            96
+          ],
+          [
+            64,
+            84,
+            112,
+            96
+          ]
+        ],
+        "center_x": 62.5,
+        "bottom_y": 96
+      },
+      "native_target": {
+        "visible_boot_boxes": [
+          [
+            32,
+            88,
+            64,
+            96
+          ],
+          [
+            64,
+            84,
+            92,
+            92
+          ]
+        ],
+        "roi_boxes": [
+          [
+            32,
+            88,
+            64,
+            96
+          ],
+          [
+            64,
+            84,
+            96,
+            92
+          ]
+        ],
+        "center_x": 62.0,
+        "bottom_y": 96
+      },
+      "translation": [
+        0,
+        0
+      ],
+      "result_anchor": [
+        62.5,
+        96
+      ],
+      "reason": "Restored native source slot visible spear/hand direction. Program right means unmirrored baseline, not mandatory face direction. No extra asset mirror; runtime left mirror remains unchanged."
+    },
+    {
+      "kind": "walk",
+      "canonical_index": 1,
+      "selected_source": "source/walk-v3-01.png",
+      "mirror_x": false,
+      "before": {
+        "visible_boot_boxes": [
+          [
+            30,
+            88,
+            45,
+            96
+          ],
+          [
+            65,
+            84,
+            79,
+            94
+          ]
+        ],
+        "roi_boxes": [
+          [
+            16,
+            88,
+            64,
+            96
+          ],
+          [
+            64,
+            84,
+            112,
+            96
+          ]
+        ],
+        "center_x": 54.5,
+        "bottom_y": 96
+      },
+      "native_target": {
+        "visible_boot_boxes": [
+          [
+            32,
+            88,
+            48,
+            96
+          ],
+          [
+            64,
+            84,
+            92,
+            92
+          ]
+        ],
+        "roi_boxes": [
+          [
+            32,
+            88,
+            64,
+            96
+          ],
+          [
+            64,
+            84,
+            96,
+            92
+          ]
+        ],
+        "center_x": 62.0,
+        "bottom_y": 96
+      },
+      "translation": [
+        8,
+        0
+      ],
+      "result_anchor": [
+        62.5,
+        96
+      ],
+      "reason": "Restored native source slot visible spear/hand direction. Program right means unmirrored baseline, not mandatory face direction. No extra asset mirror; runtime left mirror remains unchanged."
+    }
+  ],
+  "correction": "Removed extra artwork mirror after source-program/visible-contour audit; battle and idle untouched."
+}

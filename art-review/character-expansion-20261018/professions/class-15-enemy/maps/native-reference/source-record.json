@@ -1,0 +1,720 @@
+{
+  "class_id": 15,
+  "source_side": "enemy",
+  "status": "native_cpu_reference",
+  "scope": "required_source",
+  "source_atlas": "class-15-enemy.png",
+  "source_frame_size": [
+    32,
+    24
+  ],
+  "source_columns": 8,
+  "source_frame_count": 8,
+  "source_anchor": [
+    16,
+    24
+  ],
+  "native_actor_origin": [
+    16,
+    16
+  ],
+  "anchor_note": "Rendering anchor is native actor origin+[0,8] matching map tile base; not inferred anatomical foot or wing tip. Native OAM Y adds hardware+1.",
+  "source_palette": [
+    15,
+    54,
+    37,
+    15
+  ],
+  "palette_evidence": "bank006:L06852C PPU palette payload sprite palette0(ally)/3(enemy), not BG palette.",
+  "source_chr": 27,
+  "frame_mapping": [
+    {
+      "direction": "up",
+      "direction_code": 0,
+      "phase": 0,
+      "clock_value": 0,
+      "frame_ticks": 16,
+      "source_chr": 27,
+      "source_frame_index": 143,
+      "source_frame_address": "L088ADE",
+      "oam": [
+        [
+          71,
+          172,
+          3,
+          56
+        ],
+        [
+          71,
+          173,
+          3,
+          64
+        ],
+        [
+          79,
+          188,
+          3,
+          56
+        ],
+        [
+          79,
+          189,
+          3,
+          64
+        ]
+      ],
+      "chr_writes": [
+        {
+          "register": "0xb000",
+          "value": 27
+        },
+        {
+          "register": "0xc000",
+          "value": 27
+        }
+      ],
+      "cpu_instructions": 427,
+      "source_global_flip": false,
+      "lookup": {
+        "animation": "L0BB745",
+        "chr": "L0BB7F5",
+        "right_mirror_flag": "L0BB80B"
+      },
+      "source_slot": 0,
+      "source_alpha_bounds": [
+        8,
+        8,
+        24,
+        24
+      ],
+      "rgba_sha256": "b198f754d40e23e9ac4b8b59873264f2f85200ed049a338637bbf3e99fdb427d"
+    },
+    {
+      "direction": "up",
+      "direction_code": 0,
+      "phase": 1,
+      "clock_value": 16,
+      "frame_ticks": 16,
+      "source_chr": 27,
+      "source_frame_index": 144,
+      "source_frame_address": "L088AE4",
+      "oam": [
+        [
+          71,
+          140,
+          3,
+          56
+        ],
+        [
+          71,
+          141,
+          3,
+          64
+        ],
+        [
+          79,
+          156,
+          3,
+          56
+        ],
+        [
+          79,
+          157,
+          3,
+          64
+        ]
+      ],
+      "chr_writes": [
+        {
+          "register": "0xb000",
+          "value": 27
+        },
+        {
+          "register": "0xc000",
+          "value": 27
+        }
+      ],
+      "cpu_instructions": 427,
+      "source_global_flip": false,
+      "lookup": {
+        "animation": "L0BB745",
+        "chr": "L0BB7F5",
+        "right_mirror_flag": "L0BB80B"
+      },
+      "source_slot": 1,
+      "source_alpha_bounds": [
+        8,
+        8,
+        23,
+        24
+      ],
+      "rgba_sha256": "b0c2a3ec1e28801b6987dae10535fb9918d3ad8885c89829107e00071e396047"
+    },
+    {
+      "direction": "right",
+      "direction_code": 1,
+      "phase": 0,
+      "clock_value": 0,
+      "frame_ticks": 16,
+      "source_chr": 27,
+      "source_frame_index": 145,
+      "source_frame_address": "L088AEA",
+      "oam": [
+        [
+          71,
+          108,
+          67,
+          64
+        ],
+        [
+          71,
+          109,
+          67,
+          56
+        ],
+        [
+          79,
+          124,
+          67,
+          64
+        ],
+        [
+          79,
+          125,
+          67,
+          56
+        ]
+      ],
+      "chr_writes": [
+        {
+          "register": "0xb000",
+          "value": 27
+        },
+        {
+          "register": "0xc000",
+          "value": 27
+        }
+      ],
+      "cpu_instructions": 504,
+      "source_global_flip": true,
+      "lookup": {
+        "animation": "L0BB745",
+        "chr": "L0BB7F5",
+        "right_mirror_flag": "L0BB80B"
+      },
+      "source_slot": 2,
+      "source_alpha_bounds": [
+        8,
+        8,
+        21,
+        24
+      ],
+      "rgba_sha256": "d6a0f9d596a8e07d1591bc5dbca05b0a4e0cdb0c616715d03b054eca53e869b4"
+    },
+    {
+      "direction": "right",
+      "direction_code": 1,
+      "phase": 1,
+      "clock_value": 16,
+      "frame_ticks": 16,
+      "source_chr": 27,
+      "source_frame_index": 146,
+      "source_frame_address": "L088AF0",
+      "oam": [
+        [
+          71,
+          76,
+          67,
+          64
+        ],
+        [
+          71,
+          77,
+          67,
+          56
+        ],
+        [
+          79,
+          92,
+          67,
+          64
+        ],
+        [
+          79,
+          93,
+          67,
+          56
+        ]
+      ],
+      "chr_writes": [
+        {
+          "register": "0xb000",
+          "value": 27
+        },
+        {
+          "register": "0xc000",
+          "value": 27
+        }
+      ],
+      "cpu_instructions": 504,
+      "source_global_flip": true,
+      "lookup": {
+        "animation": "L0BB745",
+        "chr": "L0BB7F5",
+        "right_mirror_flag": "L0BB80B"
+      },
+      "source_slot": 3,
+      "source_alpha_bounds": [
+        8,
+        8,
+        22,
+        24
+      ],
+      "rgba_sha256": "4c252964ac25f0a10cf25a02094867ab489a514d003c3a50a90fc144e8ae00cf"
+    },
+    {
+      "direction": "down",
+      "direction_code": 2,
+      "phase": 0,
+      "clock_value": 0,
+      "frame_ticks": 16,
+      "source_chr": 27,
+      "source_frame_index": 147,
+      "source_frame_address": "L088AF6",
+      "oam": [
+        [
+          71,
+          44,
+          3,
+          56
+        ],
+        [
+          71,
+          45,
+          3,
+          64
+        ],
+        [
+          79,
+          60,
+          3,
+          56
+        ],
+        [
+          79,
+          61,
+          3,
+          64
+        ]
+      ],
+      "chr_writes": [
+        {
+          "register": "0xb000",
+          "value": 27
+        },
+        {
+          "register": "0xc000",
+          "value": 27
+        }
+      ],
+      "cpu_instructions": 427,
+      "source_global_flip": false,
+      "lookup": {
+        "animation": "L0BB745",
+        "chr": "L0BB7F5",
+        "right_mirror_flag": "L0BB80B"
+      },
+      "source_slot": 4,
+      "source_alpha_bounds": [
+        8,
+        8,
+        23,
+        24
+      ],
+      "rgba_sha256": "252d088db7dfab587e4fa4947a2518499ecfa826421b1611b353f11a99e48420"
+    },
+    {
+      "direction": "down",
+      "direction_code": 2,
+      "phase": 1,
+      "clock_value": 16,
+      "frame_ticks": 16,
+      "source_chr": 27,
+      "source_frame_index": 148,
+      "source_frame_address": "L088AFC",
+      "oam": [
+        [
+          71,
+          12,
+          3,
+          56
+        ],
+        [
+          71,
+          13,
+          3,
+          64
+        ],
+        [
+          79,
+          28,
+          3,
+          56
+        ],
+        [
+          79,
+          29,
+          3,
+          64
+        ]
+      ],
+      "chr_writes": [
+        {
+          "register": "0xb000",
+          "value": 27
+        },
+        {
+          "register": "0xc000",
+          "value": 27
+        }
+      ],
+      "cpu_instructions": 427,
+      "source_global_flip": false,
+      "lookup": {
+        "animation": "L0BB745",
+        "chr": "L0BB7F5",
+        "right_mirror_flag": "L0BB80B"
+      },
+      "source_slot": 5,
+      "source_alpha_bounds": [
+        8,
+        8,
+        24,
+        24
+      ],
+      "rgba_sha256": "2cd9185957a33a38702bd18ece859863dbab39c4ec8e855adf25ab36aefb371c"
+    },
+    {
+      "direction": "left",
+      "direction_code": 3,
+      "phase": 0,
+      "clock_value": 0,
+      "frame_ticks": 16,
+      "source_chr": 27,
+      "source_frame_index": 145,
+      "source_frame_address": "L088AEA",
+      "oam": [
+        [
+          71,
+          108,
+          3,
+          56
+        ],
+        [
+          71,
+          109,
+          3,
+          64
+        ],
+        [
+          79,
+          124,
+          3,
+          56
+        ],
+        [
+          79,
+          125,
+          3,
+          64
+        ]
+      ],
+      "chr_writes": [
+        {
+          "register": "0xb000",
+          "value": 27
+        },
+        {
+          "register": "0xc000",
+          "value": 27
+        }
+      ],
+      "cpu_instructions": 427,
+      "source_global_flip": false,
+      "lookup": {
+        "animation": "L0BB745",
+        "chr": "L0BB7F5",
+        "right_mirror_flag": "L0BB80B"
+      },
+      "source_slot": 6,
+      "source_alpha_bounds": [
+        11,
+        8,
+        24,
+        24
+      ],
+      "rgba_sha256": "06ef66048668934db89ebb2d123881a706cd68d76ddbf2cdd35111340af9ba0e"
+    },
+    {
+      "direction": "left",
+      "direction_code": 3,
+      "phase": 1,
+      "clock_value": 16,
+      "frame_ticks": 16,
+      "source_chr": 27,
+      "source_frame_index": 146,
+      "source_frame_address": "L088AF0",
+      "oam": [
+        [
+          71,
+          76,
+          3,
+          56
+        ],
+        [
+          71,
+          77,
+          3,
+          64
+        ],
+        [
+          79,
+          92,
+          3,
+          56
+        ],
+        [
+          79,
+          93,
+          3,
+          64
+        ]
+      ],
+      "chr_writes": [
+        {
+          "register": "0xb000",
+          "value": 27
+        },
+        {
+          "register": "0xc000",
+          "value": 27
+        }
+      ],
+      "cpu_instructions": 427,
+      "source_global_flip": false,
+      "lookup": {
+        "animation": "L0BB745",
+        "chr": "L0BB7F5",
+        "right_mirror_flag": "L0BB80B"
+      },
+      "source_slot": 7,
+      "source_alpha_bounds": [
+        10,
+        8,
+        24,
+        24
+      ],
+      "rgba_sha256": "047100b254b5af9f8b6ff0c376c46137ec97ecc9b288d3bfbf095348f5377f82"
+    }
+  ],
+  "exact_pixel_aliases": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7
+  },
+  "unique_source_slots": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "directions": {
+    "up": [
+      0,
+      1
+    ],
+    "right": [
+      2,
+      3
+    ],
+    "down": [
+      4,
+      5
+    ],
+    "left": [
+      6,
+      7
+    ]
+  },
+  "direction_mirror_x": {},
+  "mirror_note": "Native whole-sprite right flip and individual tile flips are already applied by original CPU; do not apply an additional direction mirror.",
+  "timing": {
+    "native_fps": 60.0988,
+    "frame_ticks": 16,
+    "cycle_ticks": 32,
+    "phase_source": "$36 & $10 selects phase; L0BB62C",
+    "movement_pixels_per_tick": 1,
+    "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+  },
+  "old_frozen_source": "source-input/original-motion/original-walk-15.png",
+  "old_frozen_frame_rgba_matches_by_corrected_slot": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "old_reference_classification": "Old PNG is CHR26 combined with village OAM selected via L08A779; this is not the native tactical renderer. Native village initializes CHR30, so this hybrid is retained only as current-game frozen historical reference.",
+  "exact_mirror_aliases": {
+    "6": {
+      "source_slot": 2,
+      "transform": "horizontal-mirror-full-canvas",
+      "rgba_exact": true
+    },
+    "7": {
+      "source_slot": 3,
+      "transform": "horizontal-mirror-full-canvas",
+      "rgba_exact": true
+    }
+  },
+  "unique_art_source_slots_after_exact_mirror": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "old_frozen_tight_shape_matches": [],
+  "verified_static_idle_reuse": [
+    {
+      "corrected_slot": 4,
+      "direction": "down",
+      "phase": 0,
+      "idle_source_frame": 0,
+      "mirror_static_full_canvas": false,
+      "translation_after_mirror": [
+        4,
+        4
+      ],
+      "rgba_exact": true,
+      "alpha_exact": true,
+      "palette_structure_bijective": true,
+      "palette_mapping": [
+        {
+          "old": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "new": [
+            0,
+            0,
+            0,
+            255
+          ]
+        },
+        {
+          "old": [
+            254,
+            110,
+            204,
+            255
+          ],
+          "new": [
+            254,
+            110,
+            204,
+            255
+          ]
+        },
+        {
+          "old": [
+            254,
+            204,
+            197,
+            255
+          ],
+          "new": [
+            254,
+            204,
+            197,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "corrected_slot": 4,
+      "direction": "down",
+      "phase": 0,
+      "idle_source_frame": 4,
+      "mirror_static_full_canvas": false,
+      "translation_after_mirror": [
+        4,
+        4
+      ],
+      "rgba_exact": true,
+      "alpha_exact": true,
+      "palette_structure_bijective": true,
+      "palette_mapping": [
+        {
+          "old": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "new": [
+            0,
+            0,
+            0,
+            255
+          ]
+        },
+        {
+          "old": [
+            254,
+            110,
+            204,
+            255
+          ],
+          "new": [
+            254,
+            110,
+            204,
+            255
+          ]
+        },
+        {
+          "old": [
+            254,
+            204,
+            197,
+            255
+          ],
+          "new": [
+            254,
+            204,
+            197,
+            255
+          ]
+        }
+      ]
+    }
+  ],
+  "static_idle_source": "source-input/legacy-assets/assets/original/graphics/map_units/class_15_enemy.png"
+}

@@ -1,0 +1,28 @@
+{
+  "status": "verified_village_chr30_source",
+  "scenarios": [
+    "story",
+    "world"
+  ],
+  "mapping_source": "reference/story-world-walk-source-atlas.png",
+  "frozen_original": "../../source-input/legacy-assets/assets/original/graphics/map_units/personal_01.png",
+  "source_sha256": "7c709b30b89aa9ee4936876aee339b2ee6f1b2e8c9b422eee42047f72e57782b",
+  "source_file_byte_equal": true,
+  "frame_size": [
+    32,
+    24
+  ],
+  "frame_count": 6,
+  "chr_bank": 30,
+  "source_sprite_id": 1,
+  "source_renderer": "tools/extract_full_graphics.py personal sprites loop explicitly uses src.tiles[30] and VILLAGE_PALETTE",
+  "native_chr_calls": [
+    "bank007:L079136",
+    "bank007:L079158",
+    "bank007:L078E4F"
+  ],
+  "chr_call_sequence": "JSR L0FD39A initializes26; subsequent LDA#30, JSR L0FCA48/L0FCA50 replace sprite CHR banks with30.",
+  "hero_lookup": "L0791BC slots0/1 use L0791BA=[1,2], other units use L08A738/L08A779.",
+  "conclusion": "Male story/world source matches native village CHR30 extraction; not affected by old tactical CHR26+village-OAM mixing. World currently deliberately reuses story representation; this audit does not claim native overworld universally shares village appearance.",
+  "checked_by": "hunapu_map_art read source code and exact local file hash; source_catalog independently traced CHR call chain."
+}

@@ -1,0 +1,56 @@
+{
+  "status": "CANDIDATE_WEAPON_IMPROVEMENT_WITH_MINOR_PERIPHERAL_REDRAW",
+  "originalGeneration": "source/generated-targeted-005-009.png",
+  "prompt": "source/prompt-targeted-005-009.txt",
+  "comparison": "source/targeted-comparison-original-v7-attempt.png",
+  "sourcePixels": [
+    1870,
+    841
+  ],
+  "registration": {
+    "uniformScale": 0.3422459893048128,
+    "normalizedCanvas": [
+      640,
+      288
+    ],
+    "frameCrops": [
+      [
+        0,
+        0,
+        320,
+        288
+      ],
+      [
+        320,
+        0,
+        320,
+        288
+      ]
+    ],
+    "nonuniformTransforms": false
+  },
+  "candidates": [
+    {
+      "pose": 5,
+      "path": "source/targeted-pose-005.png",
+      "pixels": [
+        320,
+        288
+      ],
+      "partialImprovement": "Sword tip moves about6px right/down toward original, fromapprox134,82 to140,88; target148,96.",
+      "outsideRequestedEdit": "Head/body/foot contours were also re-rendered; rightmost visible foot shifts about3px farther right."
+    },
+    {
+      "pose": 9,
+      "path": "source/targeted-pose-009.png",
+      "pixels": [
+        320,
+        288
+      ],
+      "partialImprovement": "Sword down-left angle becomes steeper and tip moves right, closer to source.",
+      "outsideRequestedEdit": "Head/torso/legs are re-rendered; head top shifts3px upward and rightmost foot expands6px farther right, worsening original body registration."
+    }
+  ],
+  "conclusion": "Both sword/hand edits improve the requested visible weapon geometry. The tool also re-rendered small areas outside the requested region, including a few-pixel head/foot shifts; this is not a pixel-identical local edit. Parent may adopt candidates with residual alignment limitations stated. Deliverables were not modified by this agent. No additional generation planned.",
+  "visualIntegrity": "No new missing limbs, broken contour, clipped silhouette, missing skirt panels, or incorrect lower-garment semantics found. Existing ivory top, navy three-panel armored skirt and belt remain coherent."
+}

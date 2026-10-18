@@ -1,0 +1,1705 @@
+{
+  "class_id": 12,
+  "side": "enemy",
+  "status": "source-reference; phase2 art completed separately",
+  "battle": {
+    "source": "source-input/enemy-motion/class-12-enemy.png",
+    "logical_frame_size": [
+      80,
+      64
+    ],
+    "future_output_frame_size": [
+      320,
+      256
+    ],
+    "source_anchor": [
+      40,
+      64
+    ],
+    "future_output_anchor": [
+      160,
+      256
+    ],
+    "required_frames": [
+      1,
+      5,
+      6
+    ],
+    "source_default_facing": "left",
+    "pose_semantics": {
+      "1": "neutral bow-ready; also source recovery/hold",
+      "5": "full draw, diagonal strings converge at drawing hand",
+      "6": "release/recoil, drawing arm extended and string rebounding"
+    },
+    "variants": {
+      "class_12_enemy_bow": {
+        "total_ticks": 81,
+        "body_rle": [
+          {
+            "frame": 1,
+            "ticks": 18
+          },
+          {
+            "frame": 5,
+            "ticks": 19
+          },
+          {
+            "frame": 6,
+            "ticks": 4
+          },
+          {
+            "frame": 1,
+            "ticks": 40
+          }
+        ],
+        "contact_tick": 54,
+        "contact_count": 1,
+        "sound_requests": [
+          {
+            "tick": 43,
+            "ids": [
+              3
+            ]
+          }
+        ],
+        "projectile_ticks": [
+          {
+            "tick": 44,
+            "effects": [
+              {
+                "position": [
+                  64,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 45,
+            "effects": [
+              {
+                "position": [
+                  80,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 46,
+            "effects": [
+              {
+                "position": [
+                  96,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 47,
+            "effects": [
+              {
+                "position": [
+                  110,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 48,
+            "effects": [
+              {
+                "position": [
+                  123,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 49,
+            "effects": [
+              {
+                "position": [
+                  135,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 50,
+            "effects": [
+              {
+                "position": [
+                  147,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 51,
+            "effects": [
+              {
+                "position": [
+                  159,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 52,
+            "effects": [
+              {
+                "position": [
+                  171,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          }
+        ],
+        "actor_origin": [
+          64,
+          128
+        ],
+        "formation": "near"
+      },
+      "class_12_enemy_bow_vs_heavy": {
+        "total_ticks": 81,
+        "body_rle": [
+          {
+            "frame": 1,
+            "ticks": 18
+          },
+          {
+            "frame": 5,
+            "ticks": 19
+          },
+          {
+            "frame": 6,
+            "ticks": 4
+          },
+          {
+            "frame": 1,
+            "ticks": 40
+          }
+        ],
+        "contact_tick": 54,
+        "contact_count": 1,
+        "sound_requests": [
+          {
+            "tick": 43,
+            "ids": [
+              3
+            ]
+          }
+        ],
+        "projectile_ticks": [
+          {
+            "tick": 44,
+            "effects": [
+              {
+                "position": [
+                  64,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 45,
+            "effects": [
+              {
+                "position": [
+                  80,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 46,
+            "effects": [
+              {
+                "position": [
+                  96,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 47,
+            "effects": [
+              {
+                "position": [
+                  110,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 48,
+            "effects": [
+              {
+                "position": [
+                  123,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 49,
+            "effects": [
+              {
+                "position": [
+                  135,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 50,
+            "effects": [
+              {
+                "position": [
+                  147,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 51,
+            "effects": [
+              {
+                "position": [
+                  159,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 52,
+            "effects": [
+              {
+                "position": [
+                  171,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          }
+        ],
+        "actor_origin": [
+          64,
+          128
+        ],
+        "formation": "near"
+      },
+      "class_12_enemy_bow_far_ally": {
+        "total_ticks": 83,
+        "body_rle": [
+          {
+            "frame": 1,
+            "ticks": 18
+          },
+          {
+            "frame": 5,
+            "ticks": 19
+          },
+          {
+            "frame": 6,
+            "ticks": 4
+          },
+          {
+            "frame": 1,
+            "ticks": 42
+          }
+        ],
+        "contact_tick": 56,
+        "contact_count": 1,
+        "sound_requests": [
+          {
+            "tick": 43,
+            "ids": [
+              3
+            ]
+          }
+        ],
+        "projectile_ticks": [
+          {
+            "tick": 44,
+            "effects": [
+              {
+                "position": [
+                  64,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 45,
+            "effects": [
+              {
+                "position": [
+                  80,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 46,
+            "effects": [
+              {
+                "position": [
+                  96,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 47,
+            "effects": [
+              {
+                "position": [
+                  110,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 48,
+            "effects": [
+              {
+                "position": [
+                  123,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 49,
+            "effects": [
+              {
+                "position": [
+                  135,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 50,
+            "effects": [
+              {
+                "position": [
+                  147,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 51,
+            "effects": [
+              {
+                "position": [
+                  159,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 52,
+            "effects": [
+              {
+                "position": [
+                  171,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 53,
+            "effects": [
+              {
+                "position": [
+                  182,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 54,
+            "effects": [
+              {
+                "position": [
+                  193,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          }
+        ],
+        "actor_origin": [
+          64,
+          128
+        ],
+        "formation": "far_ally"
+      },
+      "class_12_enemy_bow_far_ally_vs_heavy": {
+        "total_ticks": 81,
+        "body_rle": [
+          {
+            "frame": 1,
+            "ticks": 18
+          },
+          {
+            "frame": 5,
+            "ticks": 19
+          },
+          {
+            "frame": 6,
+            "ticks": 4
+          },
+          {
+            "frame": 1,
+            "ticks": 40
+          }
+        ],
+        "contact_tick": 54,
+        "contact_count": 1,
+        "sound_requests": [
+          {
+            "tick": 43,
+            "ids": [
+              3
+            ]
+          }
+        ],
+        "projectile_ticks": [
+          {
+            "tick": 44,
+            "effects": [
+              {
+                "position": [
+                  64,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 45,
+            "effects": [
+              {
+                "position": [
+                  80,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 46,
+            "effects": [
+              {
+                "position": [
+                  96,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 47,
+            "effects": [
+              {
+                "position": [
+                  110,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 48,
+            "effects": [
+              {
+                "position": [
+                  123,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 49,
+            "effects": [
+              {
+                "position": [
+                  135,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 50,
+            "effects": [
+              {
+                "position": [
+                  147,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 51,
+            "effects": [
+              {
+                "position": [
+                  159,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 52,
+            "effects": [
+              {
+                "position": [
+                  171,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          }
+        ],
+        "actor_origin": [
+          64,
+          128
+        ],
+        "formation": "far_ally"
+      },
+      "class_12_enemy_bow_far_enemy": {
+        "total_ticks": 83,
+        "body_rle": [
+          {
+            "frame": 1,
+            "ticks": 18
+          },
+          {
+            "frame": 5,
+            "ticks": 19
+          },
+          {
+            "frame": 6,
+            "ticks": 4
+          },
+          {
+            "frame": 1,
+            "ticks": 42
+          }
+        ],
+        "contact_tick": 56,
+        "contact_count": 1,
+        "sound_requests": [
+          {
+            "tick": 43,
+            "ids": [
+              3
+            ]
+          }
+        ],
+        "projectile_ticks": [
+          {
+            "tick": 44,
+            "effects": [
+              {
+                "position": [
+                  32,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 45,
+            "effects": [
+              {
+                "position": [
+                  48,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 46,
+            "effects": [
+              {
+                "position": [
+                  64,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 47,
+            "effects": [
+              {
+                "position": [
+                  78,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 48,
+            "effects": [
+              {
+                "position": [
+                  91,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 49,
+            "effects": [
+              {
+                "position": [
+                  103,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 50,
+            "effects": [
+              {
+                "position": [
+                  115,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 51,
+            "effects": [
+              {
+                "position": [
+                  127,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 52,
+            "effects": [
+              {
+                "position": [
+                  139,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 53,
+            "effects": [
+              {
+                "position": [
+                  150,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 54,
+            "effects": [
+              {
+                "position": [
+                  161,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          }
+        ],
+        "actor_origin": [
+          32,
+          128
+        ],
+        "formation": "far_enemy"
+      },
+      "class_12_enemy_bow_far_enemy_vs_heavy": {
+        "total_ticks": 84,
+        "body_rle": [
+          {
+            "frame": 1,
+            "ticks": 18
+          },
+          {
+            "frame": 5,
+            "ticks": 19
+          },
+          {
+            "frame": 6,
+            "ticks": 4
+          },
+          {
+            "frame": 1,
+            "ticks": 43
+          }
+        ],
+        "contact_tick": 57,
+        "contact_count": 1,
+        "sound_requests": [
+          {
+            "tick": 43,
+            "ids": [
+              3
+            ]
+          }
+        ],
+        "projectile_ticks": [
+          {
+            "tick": 44,
+            "effects": [
+              {
+                "position": [
+                  32,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 45,
+            "effects": [
+              {
+                "position": [
+                  48,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 46,
+            "effects": [
+              {
+                "position": [
+                  64,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 47,
+            "effects": [
+              {
+                "position": [
+                  78,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 48,
+            "effects": [
+              {
+                "position": [
+                  91,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 49,
+            "effects": [
+              {
+                "position": [
+                  103,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 50,
+            "effects": [
+              {
+                "position": [
+                  115,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 51,
+            "effects": [
+              {
+                "position": [
+                  127,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 52,
+            "effects": [
+              {
+                "position": [
+                  139,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 53,
+            "effects": [
+              {
+                "position": [
+                  150,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 54,
+            "effects": [
+              {
+                "position": [
+                  161,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          },
+          {
+            "tick": 55,
+            "effects": [
+              {
+                "position": [
+                  172,
+                  103
+                ],
+                "flip": true,
+                "priority": 32,
+                "sprite": "native-c8d32a72f8005f"
+              }
+            ]
+          }
+        ],
+        "actor_origin": [
+          32,
+          128
+        ],
+        "formation": "far_enemy"
+      }
+    },
+    "geometry": [
+      {
+        "frame": 1,
+        "source_bbox": [
+          24,
+          27,
+          42,
+          64
+        ],
+        "target_4x_bbox": [
+          96,
+          108,
+          168,
+          256
+        ],
+        "feet_roi": [
+          29,
+          60,
+          43,
+          64
+        ],
+        "feet_bbox": [
+          30,
+          60,
+          42,
+          64
+        ],
+        "feet_anchor": [
+          36.0,
+          64
+        ],
+        "target_feet_anchor": [
+          144.0,
+          256
+        ]
+      },
+      {
+        "frame": 5,
+        "source_bbox": [
+          20,
+          25,
+          48,
+          64
+        ],
+        "target_4x_bbox": [
+          80,
+          100,
+          192,
+          256
+        ],
+        "feet_roi": [
+          29,
+          60,
+          43,
+          64
+        ],
+        "feet_bbox": [
+          30,
+          60,
+          42,
+          64
+        ],
+        "feet_anchor": [
+          36.0,
+          64
+        ],
+        "target_feet_anchor": [
+          144.0,
+          256
+        ]
+      },
+      {
+        "frame": 6,
+        "source_bbox": [
+          16,
+          24,
+          50,
+          64
+        ],
+        "target_4x_bbox": [
+          64,
+          96,
+          200,
+          256
+        ],
+        "feet_roi": [
+          29,
+          60,
+          43,
+          64
+        ],
+        "feet_bbox": [
+          30,
+          60,
+          42,
+          64
+        ],
+        "feet_anchor": [
+          36.0,
+          64
+        ],
+        "target_feet_anchor": [
+          144.0,
+          256
+        ]
+      }
+    ],
+    "registration_warning": "Long bow reaches near feet. Use explicit boot ROI, not lower full-sprite bbox, for foot-center registration."
+  },
+  "tactical_map": {
+    "idle": {
+      "source": "source-input/legacy-assets/assets/original/graphics/map_units/class_12_enemy.png",
+      "frame_size": [
+        24,
+        24
+      ],
+      "future_output_frame_size": [
+        96,
+        96
+      ],
+      "anchor": [
+        12,
+        20
+      ],
+      "exact_pixel_alias_groups": [
+        [
+          0,
+          1,
+          3,
+          4,
+          5
+        ],
+        [
+          2
+        ]
+      ],
+      "cycle": [
+        0,
+        1,
+        2,
+        1
+      ],
+      "ticks": [
+        14,
+        8,
+        14,
+        8
+      ],
+      "static_facing": true
+    },
+    "walk": {
+      "source": "source-input/original-motion/original-walk-12.png",
+      "frame_size": [
+        32,
+        24
+      ],
+      "future_output_frame_size": [
+        128,
+        96
+      ],
+      "anchor": [
+        16,
+        24
+      ],
+      "source_chr": 26,
+      "source_sprite_id": 52,
+      "source_oam": [
+        "L0AA3F9",
+        "L0AA40A",
+        "L0AA3F9",
+        "L0AA40A",
+        "L0AA3F9",
+        "L0AA40A"
+      ],
+      "exact_pixel_alias_groups": [
+        [
+          0,
+          2,
+          4
+        ],
+        [
+          1,
+          3,
+          5
+        ]
+      ],
+      "slots": {
+        "down": [
+          0,
+          1
+        ],
+        "up": [
+          2,
+          3
+        ],
+        "right": [
+          4,
+          5
+        ],
+        "left": "mirror of side slots"
+      },
+      "frame_ticks": 16,
+      "cycle_ticks": 32,
+      "move_ticks_per_tile": 16,
+      "heading_warning": "Three direction slots repeat the same two native poses; no independent front/back/side native drawings."
+    },
+    "acted": {
+      "source": "source-input/legacy-assets/assets/original/graphics/map_units/class_12_enemy_acted.png",
+      "same_geometry_as_idle": true,
+      "exact_pixel_alias_groups": [
+        [
+          0,
+          1,
+          3,
+          4,
+          5
+        ],
+        [
+          2
+        ]
+      ],
+      "reference_palette_state_only": true
+    }
+  },
+  "projectile": {
+    "path": "source-input/enemy-motion/effects/native-c8d32a72f8005f.png",
+    "frame_size": [
+      48,
+      16
+    ],
+    "frames": 1,
+    "anchor": [
+      24,
+      8
+    ],
+    "source_oam": "bank001:L0195C5",
+    "default_facing": "left",
+    "flip_origin_offset": [
+      16,
+      0
+    ],
+    "id": "native-c8d32a72f8005f",
+    "future_output_frame_size": [
+      192,
+      64
+    ]
+  },
+  "detail_crops": [
+    {
+      "name": "head-and-neck",
+      "source_frame": 1,
+      "source_rect": [
+        30,
+        30,
+        43,
+        41
+      ],
+      "path": "detail-head-and-neck-12x.png",
+      "magnification": 12,
+      "purpose": "source semantic inspection only"
+    },
+    {
+      "name": "torso-belt-and-arms",
+      "source_frame": 1,
+      "source_rect": [
+        29,
+        37,
+        43,
+        55
+      ],
+      "path": "detail-torso-belt-and-arms-12x.png",
+      "magnification": 12,
+      "purpose": "source semantic inspection only"
+    },
+    {
+      "name": "bow-string-and-nock",
+      "source_frame": 5,
+      "source_rect": [
+        19,
+        24,
+        49,
+        57
+      ],
+      "path": "detail-bow-string-and-nock-12x.png",
+      "magnification": 12,
+      "purpose": "source semantic inspection only"
+    },
+    {
+      "name": "release-hand-and-string",
+      "source_frame": 6,
+      "source_rect": [
+        15,
+        24,
+        51,
+        47
+      ],
+      "path": "detail-release-hand-and-string-12x.png",
+      "magnification": 12,
+      "purpose": "source semantic inspection only"
+    },
+    {
+      "name": "feet-and-knees",
+      "source_frame": 6,
+      "source_rect": [
+        29,
+        49,
+        43,
+        64
+      ],
+      "path": "detail-feet-and-knees-12x.png",
+      "magnification": 12,
+      "purpose": "source semantic inspection only"
+    }
+  ],
+  "files": [
+    {
+      "path": "arrow-source-4x.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        192,
+        64
+      ],
+      "bytes": 221,
+      "sha256": "fab54a32eb4cea9198feba8f9949ac1cacb003a56f674404acf32a8b22417eed"
+    },
+    {
+      "path": "arrow-source-native.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        48,
+        16
+      ],
+      "bytes": 124,
+      "sha256": "d3e37aae9517fa3564bc72253c391eaa60f283149a59aac203f524cd60f20a8f"
+    },
+    {
+      "path": "battle-pose-001-source-4x.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 1442,
+      "sha256": "a09d94e79416323792a86ff675a0b4a2936eb18a817c563907f0d03a0a8d919e"
+    },
+    {
+      "path": "battle-pose-001-source-native.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        80,
+        64
+      ],
+      "bytes": 614,
+      "sha256": "99f88a278d01ce78adc0840c8decb2603f51e675ac8f01d57ba21a1d4f924fe5"
+    },
+    {
+      "path": "battle-pose-001-tight-12x.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        216,
+        444
+      ],
+      "bytes": 2115,
+      "sha256": "4b0415cb2eb4e4f25ad09bc56aada4d2f23fb234a43af7c9449caa8927e1a488"
+    },
+    {
+      "path": "battle-pose-005-source-4x.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 1468,
+      "sha256": "e542608ad17aaa64adbb2840e8154f20fb6a1344bae45682c8c2282af9c4eeb4"
+    },
+    {
+      "path": "battle-pose-005-source-native.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        80,
+        64
+      ],
+      "bytes": 641,
+      "sha256": "ee18cc64d9896c3d6a7e6ceb026b2b6387d05a2a351bb7a25aa0d0ade7c53fdd"
+    },
+    {
+      "path": "battle-pose-005-tight-12x.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        336,
+        468
+      ],
+      "bytes": 2478,
+      "sha256": "41e7fd2bfa1b5d42eda3e8b87826558fffbb7e098a254066eca5c9fa7e8d3b3e"
+    },
+    {
+      "path": "battle-pose-006-source-4x.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 1538,
+      "sha256": "7ee37328c9893ccf535f254fc43a3f707a5bc5f7432fec35393eb160da42120e"
+    },
+    {
+      "path": "battle-pose-006-source-native.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        80,
+        64
+      ],
+      "bytes": 692,
+      "sha256": "6c8aa6b5c6c90c0b1401562cff65c741dd5beba5ca6b0449243824b8c003d927"
+    },
+    {
+      "path": "battle-pose-006-tight-12x.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        408,
+        480
+      ],
+      "bytes": 2887,
+      "sha256": "07b8559466d42c54057c21ce7b51ab1122d4960759dc61c16b3eb65831952f9c"
+    },
+    {
+      "path": "detail-bow-string-and-nock-12x.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        360,
+        396
+      ],
+      "bytes": 2285,
+      "sha256": "3d8bd271a8dee8cd341c7c3a78d815c815f3c646620146c519679c26a3ef284e"
+    },
+    {
+      "path": "detail-feet-and-knees-12x.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        168,
+        180
+      ],
+      "bytes": 791,
+      "sha256": "94db4fb0bd73d8600938b75e4bf80ef06943249df4eb7a91adce3d98783589f3"
+    },
+    {
+      "path": "detail-head-and-neck-12x.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        156,
+        132
+      ],
+      "bytes": 570,
+      "sha256": "185ea23ff95703ad6e7551b37bd62fce420888ef6a67e42c73301d7e85e05e52"
+    },
+    {
+      "path": "detail-release-hand-and-string-12x.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        432,
+        276
+      ],
+      "bytes": 1786,
+      "sha256": "bcbdf4e5ef3ef23767b31c13a91db3c2b9df338244cb17f6e0c5b00c4ea6846d"
+    },
+    {
+      "path": "detail-torso-belt-and-arms-12x.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        168,
+        216
+      ],
+      "bytes": 1011,
+      "sha256": "60650eee1934c4db63e2edbf977df2acf8012624a9a1ef9ad20e9d5b8c308497"
+    },
+    {
+      "path": "map-acted-source-4x.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 965,
+      "sha256": "14b21405101287bacb7fe5359ed29341312147f75d44270d3f53a9158ed026d5"
+    },
+    {
+      "path": "map-acted-source-native.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        144,
+        24
+      ],
+      "bytes": 441,
+      "sha256": "5f685be16857c1f00b56191a1f0d510327a2c6453752ab3a47b7dc9ba3f4dcc8"
+    },
+    {
+      "path": "map-idle-00-tight-16x.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 1150,
+      "sha256": "c22e255a1cb417220a0e668b3a148f5ed735a560e06e901eb2a5d67efe58d8ef"
+    },
+    {
+      "path": "map-idle-02-tight-16x.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 1149,
+      "sha256": "133d361085e5062290a5daceb3ff6a0a859d7254afbfb25f4d02190d33b090f9"
+    },
+    {
+      "path": "map-idle-source-4x.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 971,
+      "sha256": "2b7d546d1e1382d06a74c766bfa0b14001673a1acbcc5321893f01986c26db99"
+    },
+    {
+      "path": "map-idle-source-native.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        144,
+        24
+      ],
+      "bytes": 443,
+      "sha256": "8cc10c2b3bb064cff4cfe3997da210305b33d38c6d52992f048a830cab71ee37"
+    },
+    {
+      "path": "map-walk-00-tight-16x.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        208,
+        256
+      ],
+      "bytes": 953,
+      "sha256": "e00734179e8bfc4a55bdd9819e6d51773184da70b270096804811a2b6d8bd277"
+    },
+    {
+      "path": "map-walk-01-tight-16x.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        224,
+        256
+      ],
+      "bytes": 1060,
+      "sha256": "1467d83a8fdf9121ddc189483951ae93fc7fd420d1f7bdf18af19ec12075e22d"
+    },
+    {
+      "path": "map-walk-source-4x.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        768,
+        96
+      ],
+      "bytes": 1131,
+      "sha256": "ec85ee2759af793d68e11a4f05dadfbe8a59cbbce490bccb4fc0d2a1dba7304d"
+    },
+    {
+      "path": "map-walk-source-native.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        192,
+        24
+      ],
+      "bytes": 443,
+      "sha256": "4a0492e23851ae2bbcecf41dc22eeb23824c9e9e936feb3208ed277dfa40d818"
+    },
+    {
+      "path": "semantic-detail-board.png",
+      "purpose": "original-pixel reference only",
+      "size": [
+        1180,
+        830
+      ],
+      "bytes": 23983,
+      "sha256": "18b8f8b70e4b0b92c5977a05116b7dee4f98232ce9a59ea86b09e308eec1d34a"
+    }
+  ],
+  "idle_semantic_audit": "idle-semantic-audit.json"
+}

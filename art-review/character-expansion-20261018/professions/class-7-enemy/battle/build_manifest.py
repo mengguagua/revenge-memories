@@ -1,0 +1,47 @@
+"""Finalize isolated battle metadata and proven whole-frame aliases. No painting."""
+from pathlib import Path
+from PIL import Image,ImageDraw
+import json,hashlib,subprocess
+P=Path(__file__).parent; ROOT=P.parents[2]
+unit=next(x for x in json.loads((ROOT/'catalog/production-units.json').read_text())['units'] if x['id']=='class-7-enemy')
+required=unit['required_source_frames']; canonical=unit['unique_art_frames']
+reg=json.loads((P/'source/selected-registration.json').read_text())
+byid={r['frame']:r for r in reg}
+
+old0=Image.open(P/'reference/original-000.png').convert('RGBA')
+old26=Image.open(P/'reference/original-026.png').convert('RGBA')
+t=Image.new('RGBA',old0.size);t.alpha_composite(old0,(-64,0))
+a,b=list(t.getdata()),list(old26.getdata());diff=[i for i,(v,w) in enumerate(zip(a,b)) if v!=w];xx=[i%448 for i in diff];yy=[i//448 for i in diff]
+assert len(diff)==32 and t.getchannel('A').tobytes()==old26.getchannel('A').tobytes()
+assert Image.open(P/'reference/original-049.png').convert('RGBA').tobytes()==old26.tobytes()
+proof={'comparison':'Exact per-pixel RGBA tuple comparison; not RGBA ImageChops bbox','0_to_26':{'whole_frame_translation':[-64,0],'alpha_exact':True,'different_4x_rgba_pixels':32,'native_pixel_equivalent':2,'difference_bounds':[min(xx),min(yy),max(xx)+1,max(yy)+1],'scope':'Only two original lance-shaft palette pixels differ; all horse/rider pixels and full silhouette are identical. Redesign uses one stable wooden-shaft material; this is appearance-equivalent reuse, NOT a claim of full RGBA source equality.'},'26_to_49':{'exact_rgba':True},'15_to_22':{'scope':'Original lower region y>=232 shares RGBA; arms change and were redrawn with ImageGen. No arm cut-and-paste or external-effect claim.'}}
+(P/'source/pixel-reuse-proof.json').write_text(json.dumps(proof,indent=2))
+new0=Image.open(P/'frames/frame-000.png').convert('RGBA');q=Image.new('RGBA',new0.size);q.alpha_composite(new0,(-64,0))
+assert sum(v>0 for v in q.getchannel('A').getdata())==sum(v>0 for v in new0.getchannel('A').getdata())
+for n in [26,49]:q.save(P/f'frames/frame-{n:03}.png')
+subprocess.run(['/opt/homebrew/bin/oxipng','-o','3','--quiet',*map(str,(P/'frames').glob('*.png'))],check=True)
+
+records=[]
+for n in required:
+ p=P/f'frames/frame-{n:03}.png';im=Image.open(p);assert im.mode=='RGBA' and im.size==(448,320)
+ r=byid[0 if n in [26,49] else n]
+ raw=r['raw_image'];prompt=raw.replace('-generated-','-').replace('.png','-prompt.txt');assert (P/prompt).is_file(),prompt
+ rec={'source_frame':n,'output_path':str(p.relative_to(P)),'dimensions':list(im.size),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'generated_source':raw,'prompt':prompt,'registration_record':'source/selected-registration.json','uniform_scale':r['isotropic_scale'],'registration_offset':r['whole_frame_translation'],'source_hoof_anchor':r['source_hoof_anchor'],'registered_hoof_anchor':r['registered_hoof_anchor'],'clipped_visible_alpha_gt4_pixels':0,'cropped_near_transparent_alpha_pixels':r['cropped_near_transparent_alpha_pixels'],'maximum_cropped_alpha':r['maximum_cropped_alpha'],'compression':'oxipng -o3 lossless','optimization_reference_bytes':50000}
+ if rec['bytes']>=50000:rec['over_reference_reason']='448x320 mounted rider+horse sprite retains complete lance, articulated armor shading and clean alpha. Lossless oxipng applied; preserve visible quality rather than lossy quantization to meet a soft size target.'
+ if n in [26,49]:rec.update({'derived_from':0,'base_registration_offset':r['whole_frame_translation'],'registration_offset':[r['whole_frame_translation'][0]-64,r['whole_frame_translation'][1]],'source_hoof_anchor':[r['source_hoof_anchor'][0]-64,r['source_hoof_anchor'][1]],'registered_hoof_anchor':[r['registered_hoof_anchor'][0]-64,r['registered_hoof_anchor'][1]],'whole_frame_translation':[-64,0],'source_palette_difference_pixels':32,'derivation':'Same silhouette and all horse/rider RGBA; only two native lance-shaft palette pixels differ. Stable redesigned wood material reused;49 exact source alias26.'})
+ records.append(rec)
+
+reviews=['keyposes','gallop-1-3','gallop-4-6','gallop-7-9','gallop-10-12','turn-release','spin-15-17-18','spin-16-19-20','spin-21-22']
+limitations=['Minor contour/proportion differences remain; no hidden-joint or pixel-exact anatomy claim.','Some long lance endpoints differ from source by approximately20–28 output pixels; body is not shifted to force weapon endpoint matches.','Frames16/20 preserve disconnected native spin glimpses; four tiny native intervals are represented by three larger material groups. They are NOT three projectiles, multiple hits, or new abilities.','Frame13 middle occluded short limb is not asserted to be an independently proven horse hoof; registration uses the clear outer hooves.']
+qa={'comparison':'reviews/all-canonical-new-dark-light.png','batch_reviews':[f'reviews/{x}-selected-dark-light.png' for x in reviews],'parent_visual_review_passed':True,'limitations':limitations,'alpha_registration_policy':'Original alpha retained, no full-image alpha threshold/cleanup. Anatomy measured in explicit hoof ROIs, horizontal sole alpha>=128, lowest visible sole edge alpha>4. Source image contains distant alpha1 noise; native canvas may crop only alpha1..4 (<2% opacity) noise outside it. Zero alpha>4 contour pixels clipped. Earlier all-nonzero-alpha/no-crop claim was withdrawn because using remote alpha1 as sole wrongly shifted some frames.','checks':['All27required source slots map to loadable448x320RGBA files','26 canonical source appearances represented by25ImageGen body drawings plus proven appearance-equivalent translated idle','All selected raw crops/scales/translations/prompts retained','Zero visible alpha>4 pixels clipped; exact counts and maximum cropped near-transparent alpha retained per frame','Dark/light material edges and complete lance/horse/rider silhouettes inspected','OAM/BG native placement difference preserved; renderer flip-origin compensation remains external','No game integration or frozen-source modification']}
+d={'schema_version':1,'character_id':'enemy-gold-knight','display_name':'敌方黄金骑士','class_id':7,'original_class_id':7,'source_side':'enemy','variant_keys':unit['bound_action_keys'],'source_atlas':'../../../source-input/enemy-motion/class-7-enemy.png','source_motion':'../../../source-input/enemy-motion/full-enemy-motion.json','source_frame_size':[112,80],'output_frame_size':[448,320],'source_anchor':[56,80],'output_anchor':[224,320],'source_oam_frame_count':26,'canonical_frames':canonical,'required_source_frames':required,'unique_redraw_body_frames':sorted(byid),'source_aliases':{'49':26},'status':'complete_art_review_ready','runtime_integrated':False,'frame_mapping':{str(n):f'frames/frame-{n:03}.png' for n in required},'records':records,'art_mode':'Built-in ImageGen; technical rectangular crops, isotropic scaling and whole-frame XY only. Reuse limited to verified same mounted body/silhouette idle. No recoloring, skeletal reconstruction or limb stitching. RGB zeroed only at alpha0; lossless compression.','reuse_proof':'source/pixel-reuse-proof.json','source_semantics':{'identity':'Mounted Golden Knight throughout; compact armored chestnut horse, gold-bronze rider/barding, short plum horse cloth and long narrow shield. No foot-infantry replacement.','occlusion':'Horse legs, rider stirrup and skirt/barding are distinguished by visible source continuity, not inferred hidden joints.14–22 are independent right-horse/rider-turn poses, not mirrored0; shield is edge-on/occluded.','weapon':'One lance.15–22 include changed gripping arms and original spin projections;16/20 disconnected horizontal groups and21 isolated short vertical segment preserve native motion semantics. No magical arc or new strikes.','javelin':'Existing bound javelin variants only.50 overhead horizontal throw preparation;52 empty-handed release. Projectile timing remains original program effect.','registration':'OAM0–22 and BG26/49/50/52 preserve original canvas coordinates.26/49 translated64px left from0; external renderer retains native OAM flip-origin offset.'},'qa':qa}
+(P/'frame_mapping.json').write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n')
+(P/'qa-summary.json').write_text(json.dumps({'status':d['status'],'character_id':d['character_id'],'class_id':7,'source_side':'enemy','canonical_count':len(canonical),'required_slots':len(required),'redrawn_body_count':len(byid),'min_frame_bytes':min(x['bytes'] for x in records),'max_frame_bytes':max(x['bytes'] for x in records),'qa':qa,'sizes':[{'path':r['output_path'],'purpose':'battle-sprite','pixels':r['dimensions'],'bytes':r['bytes']} for r in records]},ensure_ascii=False,indent=2)+'\n')
+board=Image.new('RGB',(2240,4080),(27,31,38));draw=ImageDraw.Draw(board)
+for tone,bg,oy in [('dark',(27,31,38),0),('light',(232,230,222),2040)]:
+ draw.rectangle((0,oy,2240,oy+2040),fill=bg)
+ for i,n in enumerate(canonical):
+  x=(i%5)*448;y=oy+(i//5)*340
+  im=Image.open(P/f'frames/frame-{n:03}.png');board.paste(im,(x,y+20),im);draw.text((x+10,y+3),f'{n:03} {tone}',fill='white' if tone=='dark' else 'black')
+board.save(P/'reviews/all-canonical-new-dark-light.png',optimize=True)
+print('battle ready:',len(required),'slots;',min(r['bytes'] for r in records),'..',max(r['bytes'] for r in records),'bytes; zero alpha>4 contour clipping; maximum cropped alpha',max(r['maximum_cropped_alpha'] for r in records))

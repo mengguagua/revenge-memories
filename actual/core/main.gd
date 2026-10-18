@@ -36,7 +36,7 @@ const NARRATOR_SPEAKERS := ["旁白", "", "叙述", "战场提示", "提示", "�
 func _ready() -> void:
 	super._ready()
 	small_font=GameState.read_json("res://data/legacy/font_small_zh.json")
-	get_window().title="revenge-memories · 序章至第二章 · "+str(ProjectSettings.get_setting("application/config/version",""))
+	get_window().title="revenge-memories · 序章至第三章 · "+str(ProjectSettings.get_setting("application/config/version",""))
 	world=game.formal_world;battle_pack=GameState.read_json("res://assets/battle_tiles/battle-tiles.json")
 	nature_layouts=GameState.read_json("res://data/nature-layouts.json")
 	for sprite in GameState.read_json("res://assets/nature/nature.json").get("sprites",[]):nature_sprites[str(sprite.key)]=sprite
@@ -106,6 +106,7 @@ func _begin_existing_battle() -> void:
 	super._begin_existing_battle()
 
 func _accept() -> void:
+	if view in ["victory","defeat"] and result_sequence_running:return
 	if view=="reward" and training_reward_open:
 		training_reward_open=false;view="victory";return
 	if view=="plot":_advance_plot();return
@@ -115,6 +116,8 @@ func _accept() -> void:
 		var actions=["new:world","new:save","title"]
 		if game.chapter==1 and game.flags.get("chapter1_complete",false):
 			entries.push_front("开始第二章");actions.push_front("new:chapter2")
+		if game.chapter==2 and game.flags.get("chapter2_complete",false):
+			entries.push_front("开始第三章");actions.push_front("new:chapter3")
 		_open_menu("chapter_end",entries,actions,Vector2(44,120));return
 	if view=="title":
 		if not title_menu:title_menu=true;return
@@ -135,6 +138,7 @@ func _accept() -> void:
 		else:entries.append("进入据点");actions.append("new:hub")
 		for n in game.world_neighbors():entries.append("前往"+str(world.nodes[str(n)].name_zh));actions.append("travel:"+str(n))
 		entries.append("部队整备");actions.append("new:camp")
+		if game.can_switch_route():entries.append("切换队伍");actions.append("new:switch")
 		_open_menu("world_routes",entries,actions,Vector2(24,56));return
 	super._accept()
 
@@ -175,6 +179,11 @@ func _menu_action(action: String,context: String) -> void:
 		return
 	if action.begins_with("hub:"):hub_controller.action(action.substr(4));return
 	match action:
+		"new:chapter3":
+			if game.begin_chapter_three():
+				busy=false;batch_running=false;ui_mode="inspect";hub_controller.enter_room("H30")
+		"new:switch":
+			if game.switch_route():_continue_world();_notice("已切换为"+("东队 · 艾琳" if game.route=="celica" else "西队 · 胡纳普"))
 		"new:focus_exit":
 			_clear_menu();ui_mode="inspect";var marker=game.exit_marker()
 			if not marker.is_empty():game.cursor=Vector2i(marker.position[0],marker.position[1]);_focus_battle(game.cursor,true)
@@ -227,6 +236,8 @@ func _unit_action_menu() -> void:
 
 func _open_system_menu() -> void:
 	if view=="plot":return
+	if view=="world" and not busy and game.can_switch_route():
+		_open_menu("world_system",["部队整备","切换队伍","世界全图","保存进度","返回标题"],["new:camp","new:switch","new:overview","new:save","title"],Vector2(40,56));return
 	if view=="world" and not busy:
 		_open_menu("world_system",["部队整备","世界全图","保存进度","返回标题"],["new:camp","new:overview","new:save","title"],Vector2(48,64));return
 	super._open_system_menu()
@@ -388,7 +399,7 @@ func _draw_title() -> void:
 	_panel(Rect2(24,40,208,152))
 	_center_text("复仇与回忆",Rect2(36,56,184,24),Color(.93,.89,.74))
 	_center_text("雪下的名字",Rect2(36,86,184,20))
-	_center_text("序章至第二章",Rect2(36,112,184,16))
+	_center_text("序章至第三章",Rect2(36,112,184,16))
 	if title_menu:
 		_center_text("开始旅程",Rect2(52,138,152,16));_center_text("继续旅程",Rect2(52,162,152,16))
 		_draw_menu_arrow(Vector2(40,140+title_selected*24))
@@ -520,6 +531,9 @@ func _draw_map(map: Dictionary,atlas: Texture2D,origin: Vector2) -> void:
 			# Visit entrances belong to the complete building artwork. This also
 			# suppresses the old generic door and arrow in compatible old saves.
 			if obj.get("kind","")=="visit":continue
+			if obj.has("follows_unit"):
+				var followed=game.find_unit(str(obj.follows_unit))
+				if not followed.is_empty():obj.position=followed.position.duplicate()
 			var at=Vector2(obj.position[0],obj.position[1])*16+origin
 			var done=game.flags.quest.objects.get(str(obj.id),false)
 			if obj.kind=="control":
@@ -586,8 +600,8 @@ func _draw_world() -> void:
 		_draw_indicator(direction,world_actor+origin+d*20+Vector2(4,4))
 	var bottom=_footer_shift()
 	_panel(Rect2(Vector2(8,164)+bottom,Vector2(240,68)));var node=world.nodes[str(game.world_node)]
-	_center_text(str(node.name_zh),Rect2(Vector2(20,174)+bottom,Vector2(216,16)))
-	_center_text("第二章 · 东群岛" if game.chapter==2 else "第一章 · 西大陆",Rect2(Vector2(20,192)+bottom,Vector2(216,16)),Color(.87,.84,.7))
+	_center_text((str(game.stages[game.stage_for_node(game.world_node)].name_zh) if game.chapter==3 and game.world_has_battle(game.world_node) else str(node.name_zh)),Rect2(Vector2(20,174)+bottom,Vector2(216,16)))
+	_center_text(("第三章 · "+("东队" if game.route=="celica" else "西队")) if game.chapter==3 else "第二章 · 东群岛" if game.chapter==2 else "第一章 · 西大陆",Rect2(Vector2(20,192)+bottom,Vector2(216,16)),Color(.87,.84,.7))
 	_center_text("确认:地点与道路 S:整备",Rect2(Vector2(20,206)+bottom,Vector2(216,14)))
 
 func _draw_plot() -> void:
@@ -680,6 +694,7 @@ func _terrain_name(cell: Vector2i) -> String:
 	for module in game.battle_data.get("art_modules",[]):
 		if module.name=="camp_palisade" and module.cells.any(func(p):return cell==Vector2i(p[0],p[1])):return "营地木栅"
 	for obj in game.battle_data.objects:
+		if obj.has("completed_label") and game.flags.quest.objects.get(str(obj.id),false) and cell==Vector2i(obj.position[0],obj.position[1]):return str(obj.completed_label)
 		if obj.get("kind","")=="visit" and game.visit_fronts(obj).has(cell):return "访问门前"
 		if obj.get("kind","")=="control" and cell==Vector2i(obj.position[0],obj.position[1]):
 			return str(obj.get("name_zh","道路哨卡"))+("已控制" if game.flags.quest.objects.get(str(obj.id),false) else "待控制")
@@ -760,10 +775,10 @@ func _draw_overview() -> void:
 
 func _draw_chapter_end() -> void:
 	draw_rect(Rect2(0,0,256,240),Color(.06,.1,.13));_panel(Rect2(12,20,232,196))
-	_center_text("第二章完成" if game.chapter==2 else "第一章完成",Rect2(24,38,208,24),Color(.94,.88,.67))
-	_center_text("没有归来的船" if game.chapter==2 else "庆典前夜",Rect2(24,74,208,20))
-	_center_text("船团抵达西岸。\n艾琳被带往庆典广场。" if game.chapter==2 else "科兰已败，日光重返西大陆。",Rect2(24,108,208,32))
-	_center_text("两队成长与伤亡已保存" if game.chapter==2 else "成长与伤亡已保存",Rect2(24,158,208,20))
+	_center_text("第三章完成" if game.chapter==3 else "第二章完成" if game.chapter==2 else "第一章完成",Rect2(24,38,208,24),Color(.94,.88,.67))
+	_center_text("另一种胜利" if game.chapter==3 else "没有归来的船" if game.chapter==2 else "庆典前夜",Rect2(24,74,208,20))
+	_center_text("两队已会合，记录得到互证。\n下一步是验证安全停用方案。" if game.chapter==3 else "船团抵达西岸。\n艾琳被带往庆典广场。" if game.chapter==2 else "科兰已败，日光重返西大陆。",Rect2(24,108,208,32))
+	_center_text("两队成长与伤情已保存" if game.chapter>=2 else "成长与伤亡已保存",Rect2(24,158,208,20))
 	_center_text("确认打开菜单",Rect2(24,186,208,16))
 
 func _cancel() -> void:
@@ -771,3 +786,9 @@ func _cancel() -> void:
 	if view=="overview":view="world";return
 	super._cancel()
 
+
+func _show_result() -> void:
+	# A completed action may resume after a result dialogue was dismissed.
+	# Only the battle/result controller owns settlement, never a later world/hub.
+	if game.mode not in ["battle","victory","defeat"] or game.battle_outcome.is_empty():return
+	await super._show_result()

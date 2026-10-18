@@ -1,0 +1,65 @@
+{
+  "status": "parent_visual_review_passed",
+  "source_verified": true,
+  "slots": 8,
+  "generated_drawings": 5,
+  "verified_static_reuse": 1,
+  "exact_source_mirrors": 2,
+  "references": [
+    "native-reference/source-record.json",
+    "../../../source-input/corrected-tactical-walk/verification.json"
+  ],
+  "semantic_checks": [
+    "Back hood/ivory nape cloth has no front face or pendant.",
+    "Side ivory U-collar extension remains fabric, not an upright bare arm; right-phase1 raised cuff draft rejected and lowered with ImageGen.",
+    "Front arms/robe folds follow two source phases; legs remain hidden."
+  ],
+  "alpha_policy": "All generated in-canvas alpha preserved. Registration crops only outer transparent/low-alpha fringe, records visible alpha>=32 clipping; staticreuse outside pixels separately counted.",
+  "static_reuse_clipping": {
+    "source_index": 4,
+    "source_frame": 4,
+    "path": "tactical-native-frames/frame-004.png",
+    "output_path": "tactical-native-frames/frame-004.png",
+    "kind": "verified_static_idle_reuse",
+    "input": "idle-frames/frame-000.png",
+    "translation": [
+      16,
+      16
+    ],
+    "proof": "native-reference/source-record.json",
+    "size": [
+      128,
+      96
+    ],
+    "bytes": 9289,
+    "sha256": "1b71087518d50ab6112dee9d24de6502a3035042c1c13418960f19a061f41d2f",
+    "visible_bounds": [
+      34,
+      31,
+      91,
+      96
+    ],
+    "art_review_status": "parent_visual_review_passed",
+    "outside_nonzero_alpha_pixels": 0,
+    "outside_alpha_max": 0,
+    "visible_clipped_pixels_alpha32": 0
+  },
+  "individual_bytes_range": [
+    7777,
+    10078
+  ],
+  "atlas": {
+    "size": [
+      1024,
+      96
+    ],
+    "bytes": 61428,
+    "sha256": "faba71b236b5f4054241bf49b6fb371aa8c8e0b5c841ad77521f75919c8443f9"
+  },
+  "review_boards": [
+    "reviews/native-walk-light.png",
+    "reviews/native-walk-dark.png"
+  ],
+  "runtime_integrated": false,
+  "atlas_quality_reason": "Lossless eight-pose review atlas61428B preserves hood/robe shading; individual frames are optimized below soft50KB reference."
+}

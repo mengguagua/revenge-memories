@@ -1,6 +1,6 @@
 extends RefCounted
-## Only the first two campaign chapters: persistent injuries and two sources.
-const SOURCES := {"church":"alm", "lighthouse":"celica"}
+## Persistent injuries; chapter three combines unused sources at the meeting camp.
+const SOURCES := {"church":"alm", "lighthouse":"celica", "meeting":"shared"}
 
 static func owner(state: Dictionary, id: String) -> String:
 	for route in ["alm", "celica"]:
@@ -23,8 +23,12 @@ static func ensure_sources(state: Dictionary) -> void:
 		flags.treatment_sources.church = true
 	if flags.get("islanders_settled", false) and clears.any(func(id): return int(id) == 204):
 		flags.treatment_sources.lighthouse = true
+	if flags.get("D33_done",false) and clears.any(func(id):return int(id)==303) and clears.any(func(id):return int(id)==306):
+		flags.treatment_sources.meeting = true
 
 static func available(flags: Dictionary, route: String) -> int:
+	if flags.get("D33_done",false):
+		return flags.get("treatment_sources",{}).size()-int(flags.get("treatment_used",{}).get("alm",0))-int(flags.get("treatment_used",{}).get("celica",0))
 	var granted := 0
 	for source in SOURCES:
 		if SOURCES[source] == route and flags.get("treatment_sources", {}).get(source, false): granted += 1
@@ -123,7 +127,7 @@ static func enter_dying(game, unit: Dictionary) -> void:
 		game.queue_pages([{"speaker":"战场提示", "text":str(unit.name_zh)+"濒死，已撤至照护处，暂时不能出阵。"}])
 
 static func treat(game, id: String) -> Dictionary:
-	if game.mode!="hub" or ((game.route=="alm" and game.hub_record!="H04") or (game.route=="celica" and game.hub_record!="H25")):
+	if game.mode!="hub" or (not (game.hub_record=="H10" and game.flags.get("D33_done",false)) and ((game.route=="alm" and game.hub_record!="H04") or (game.route=="celica" and game.hub_record!="H25"))):
 		return {"valid":false, "reason":"请到本队救治泉接受救治"}
 	game.ensure_treatment_sources()
 	if not game.party.has(id) or id in ["hunapu", "eileen"]: return {"valid":false, "reason":"只能救治本队正式同伴"}

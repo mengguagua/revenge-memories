@@ -1,0 +1,23 @@
+{
+  "reason": "Parent authorized exact common-region reuse after source pixel proof. Preserve v3 approved arm/weapon pixels and use v4 ImageGen hoof correction below raw y470, corresponding to native common horse region y>=58. Avoid v4 unrequested ghost residue in upper transparent region. No synthesized pixels/erasure/color/alpha edits.",
+  "upper": "spin-16-19-20-generated-v3.png",
+  "lower": "spin-16-19-20-generated-v4.png",
+  "raw_cut_y": 470,
+  "source_common_y_min": 58,
+  "output": "spin-16-19-20-selected-technical.png",
+  "upper_whole_frame_translation_before_common_lower_reuse": [
+    [
+      2,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      -21,
+      0
+    ]
+  ],
+  "translation_basis": "Rigid source-art registration of unchanged helmet/torso/horse-head ROI against localized edit; ImageGen v4 third pose shifted left 21 raw pixels. Entire upper source sprite moved together, no part warping. Explicit same-source common lower area reuse authorized by parent; seam inspected."
+}

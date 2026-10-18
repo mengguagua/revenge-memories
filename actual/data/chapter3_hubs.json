@@ -1,0 +1,586 @@
+{
+  "materials": {
+    "p": "stone",
+    "a": "salt"
+  },
+  "rooms": {
+    "H30": {
+      "title": "第三章 · 海峡城庆典",
+      "hint": "面对赫兰，接续庆典",
+      "floor": [
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        "...pppppppp...",
+        ".....ppp......",
+        "...pppppppp...",
+        ".....ppp......"
+      ],
+      "objects": [
+        {
+          "action": "third_prologue",
+          "name": "赫兰",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "actor",
+          "source": 4
+        },
+        {
+          "action": "third_altar",
+          "name": "传光台",
+          "position": [
+            10,
+            4
+          ],
+          "sprite": "sun_altar",
+          "source": 5
+        }
+      ],
+      "scenery": [
+        {
+          "name": "barracks",
+          "position": [
+            1,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/battle_tiles/modules/barracks.png"
+        },
+        {
+          "name": "barracks",
+          "position": [
+            10,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/battle_tiles/modules/barracks.png"
+        }
+      ],
+      "biome_override": "grass"
+    },
+    "H31": {
+      "title": "城外旧街 · 避难处",
+      "hint": "面对同伴确认下一步",
+      "floor": [
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        "...pppppppp...",
+        ".....ppp......",
+        "...pppppppp...",
+        ".....ppp......"
+      ],
+      "objects": [
+        {
+          "action": "third_reunion",
+          "name": "会合约定",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "actor",
+          "source": 2
+        },
+        {
+          "action": "third_people",
+          "name": "留守医者",
+          "position": [
+            3,
+            5
+          ],
+          "sprite": "actor",
+          "source": 14
+        }
+      ],
+      "scenery": [
+        {
+          "name": "fishing_hut",
+          "position": [
+            1,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/chapter2/modules/fishing_hut.png"
+        },
+        {
+          "name": "fishing_hut",
+          "position": [
+            10,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/chapter2/modules/fishing_hut.png"
+        }
+      ],
+      "biome_override": "grass"
+    },
+    "H32": {
+      "title": "军需大道 · 转运站",
+      "hint": "登记工匠与物资，查看地牢求助",
+      "floor": [
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        "...pppppppp...",
+        ".....ppp......",
+        "...pppppppp...",
+        ".....ppp......"
+      ],
+      "objects": [
+        {
+          "action": "third_supply",
+          "name": "获救工匠",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "actor",
+          "source": 5
+        },
+        {
+          "action": "third_s31",
+          "name": "山村来信",
+          "position": [
+            3,
+            5
+          ],
+          "sprite": "orders_case",
+          "source": 5
+        }
+      ],
+      "scenery": [
+        {
+          "name": "grain_store",
+          "position": [
+            1,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/battle_tiles/modules/grain_store.png"
+        },
+        {
+          "name": "grain_wagon",
+          "position": [
+            10,
+            3
+          ],
+          "footprint": [
+            2,
+            1
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/battle_tiles/modules/grain_wagon.png"
+        }
+      ],
+      "biome_override": "grass"
+    },
+    "H33": {
+      "title": "沿海石堡 · 工房",
+      "hint": "确认投送记录，与格曼交谈",
+      "floor": [
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~~~pppp~~~~~~",
+        "~~~~pppp~~~~~~"
+      ],
+      "objects": [
+        {
+          "action": "third_records_w",
+          "name": "投送记录",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "orders_case",
+          "source": 5
+        },
+        {
+          "action": "third_german",
+          "name": "格曼",
+          "position": [
+            3,
+            5
+          ],
+          "sprite": "actor",
+          "source": 12
+        }
+      ],
+      "scenery": [
+        {
+          "name": "captain_cabin",
+          "position": [
+            9,
+            1
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/chapter2/modules/captain_cabin.png"
+        }
+      ],
+      "biome_override": "sea"
+    },
+    "H34": {
+      "title": "盐路 · 船民井台",
+      "hint": "确认路线，查看盐原求助",
+      "floor": [
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaappppppppaaa",
+        "aaaaapppaaaaaa",
+        "aaappppppppaaa",
+        "aaaaapppaaaaaa"
+      ],
+      "objects": [
+        {
+          "action": "third_route_e",
+          "name": "船民",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "actor",
+          "source": 5
+        },
+        {
+          "action": "third_s32",
+          "name": "盐原求助",
+          "position": [
+            3,
+            5
+          ],
+          "sprite": "orders_case",
+          "source": 5
+        }
+      ],
+      "scenery": [
+        {
+          "name": "fishing_hut",
+          "position": [
+            1,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/chapter2/modules/fishing_hut.png"
+        },
+        {
+          "name": "well",
+          "position": [
+            10,
+            3
+          ],
+          "footprint": [
+            1,
+            1
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/battle_tiles/modules/well.png"
+        }
+      ],
+      "biome_override": "sand"
+    },
+    "H35": {
+      "title": "提炼院 · 记录庭",
+      "hint": "确认调节记录，前往营站",
+      "floor": [
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaappppppppaaa",
+        "aaaaapppaaaaaa",
+        "aaappppppppaaa",
+        "aaaaapppaaaaaa"
+      ],
+      "objects": [
+        {
+          "action": "third_records_e",
+          "name": "获救术士",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "actor",
+          "source": 27
+        }
+      ],
+      "scenery": [
+        {
+          "name": "barracks",
+          "position": [
+            1,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/battle_tiles/modules/barracks.png"
+        },
+        {
+          "name": "sun_altar",
+          "position": [
+            10,
+            2
+          ],
+          "footprint": [
+            2,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/battle_tiles/modules/sun_altar.png"
+        }
+      ],
+      "biome_override": "sand"
+    },
+    "H36": {
+      "title": "山村地牢 · 安置处",
+      "hint": "向家属确认救援结果",
+      "floor": [
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        "...pppppppp...",
+        ".....ppp......",
+        "...pppppppp...",
+        ".....ppp......"
+      ],
+      "objects": [
+        {
+          "action": "third_families",
+          "name": "家属",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "actor",
+          "source": 5
+        }
+      ],
+      "scenery": [
+        {
+          "name": "cave_entry",
+          "position": [
+            1,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/battle_tiles/modules/cave_entry.png"
+        },
+        {
+          "name": "fishing_hut",
+          "position": [
+            10,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/chapter2/modules/fishing_hut.png"
+        }
+      ],
+      "biome_override": "grass"
+    },
+    "H37": {
+      "title": "盐原营地 · 安置处",
+      "hint": "问清经过，再决定是否同行",
+      "floor": [
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaappppppppaaa",
+        "aaaaapppaaaaaa",
+        "aaappppppppaaa",
+        "aaaaapppaaaaaa"
+      ],
+      "objects": [
+        {
+          "action": "third_noya",
+          "name": "诺娅",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "actor",
+          "source": 25
+        },
+        {
+          "action": "third_brother",
+          "name": "留守医者",
+          "position": [
+            3,
+            5
+          ],
+          "sprite": "actor",
+          "source": 14
+        }
+      ],
+      "scenery": [
+        {
+          "name": "fishing_hut",
+          "position": [
+            1,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/chapter2/modules/fishing_hut.png"
+        }
+      ],
+      "biome_override": "sand"
+    },
+    "H10": {
+      "title": "沿海会合营站",
+      "hint": "会谈、整备与共享救治",
+      "floor": [
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        "...pppppppp...",
+        ".....ppp......",
+        "...pppppppp...",
+        ".....ppp......"
+      ],
+      "objects": [
+        {
+          "action": "third_council",
+          "name": "会谈处",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "actor",
+          "source": 2
+        },
+        {
+          "action": "treatment",
+          "name": "共享救治处",
+          "position": [
+            3,
+            5
+          ],
+          "sprite": "well",
+          "source": 5
+        },
+        {
+          "action": "third_training",
+          "name": "训练台",
+          "position": [
+            10,
+            5
+          ],
+          "sprite": "sun_altar",
+          "source": 5
+        },
+        {
+          "action": "third_messenger",
+          "name": "信使",
+          "position": [
+            10,
+            7
+          ],
+          "sprite": "actor",
+          "source": 5
+        },
+        {
+          "action": "third_relations",
+          "name": "营火旁",
+          "position": [
+            3,
+            7
+          ],
+          "sprite": "brazier",
+          "source": 5
+        }
+      ],
+      "scenery": [
+        {
+          "name": "fishing_hut",
+          "position": [
+            1,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/chapter2/modules/fishing_hut.png"
+        },
+        {
+          "name": "captain_cabin",
+          "position": [
+            10,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/chapter2/modules/captain_cabin.png"
+        }
+      ],
+      "biome_override": "grass"
+    }
+  }
+}

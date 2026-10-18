@@ -1,0 +1,237 @@
+{
+  "status": "complete_art_review_passed",
+  "parent_visual_review_passed": true,
+  "class_id": 12,
+  "source_side": "enemy",
+  "character_id": "enemy-archer",
+  "unique_imagegen_poses": 6,
+  "output_slots": 8,
+  "source_frame_size": [
+    32,
+    24
+  ],
+  "output_frame_size": [
+    128,
+    96
+  ],
+  "source_audit": {
+    "status": "verified_native_tactical",
+    "source_chr": 26,
+    "record_key": "class-12-enemy",
+    "overlay": "../../../source-input/corrected-tactical-walk/overlay.json",
+    "verification": "../../../source-input/corrected-tactical-walk/verification.json",
+    "cpu_entry": "bank011:L0BB5B1",
+    "caller": "bank006:L06BA0A→bank11 dispatch3 L0BB59D",
+    "native_render": "bank015:L0FE80F with bank8/0589=0",
+    "old_source_status": "Historical village-table/CHR26 hybrid, retained. Native7 matches old0 under exact palette bijection, but old rendered slack-bow interpretation was incorrect and is not reused."
+  },
+  "semantic_audit": {
+    "conclusion": "Native tactical walking uses a southeast drawn bow with one nocked arrow in unmirrored left6/7 and front4/5. Rear0/1 hides most bow and arrow behind torso. Static idle remains separately verified northeast drawn stance.",
+    "native7_landmarks": {
+      "upper_NE_tip": [
+        20,
+        12
+      ],
+      "lower_SW_tip": [
+        12,
+        21
+      ],
+      "draw_point": [
+        13,
+        13
+      ],
+      "arrow_axis": [
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          18,
+          18
+        ]
+      ]
+    },
+    "evidence": [
+      "../reference/native-walk-bow-rotation-evidence.png",
+      "../reference/corrected-native-four-directions.png"
+    ],
+    "independent_review": "source_catalog independently confirmed two-string/outer-arc topology; old slack-bow art rejected despite native old0/new7 geometric match.",
+    "map_projectile_event_added": false,
+    "logical_direction_is_not_forced_graphic_face": true,
+    "scope": "Visible source topology and occlusion; no invented hidden anatomy."
+  },
+  "support_boot_xy_checks": [
+    {
+      "slot": 0,
+      "target": [
+        58,
+        96
+      ],
+      "actual": [
+        58.0,
+        96
+      ],
+      "delta": [
+        0.0,
+        0
+      ]
+    },
+    {
+      "slot": 1,
+      "target": [
+        70,
+        96
+      ],
+      "actual": [
+        70.5,
+        96
+      ],
+      "delta": [
+        0.5,
+        0
+      ]
+    },
+    {
+      "slot": 2,
+      "target": [
+        82,
+        96
+      ],
+      "actual": [
+        81.5,
+        96
+      ],
+      "delta": [
+        -0.5,
+        0
+      ]
+    },
+    {
+      "slot": 3,
+      "target": [
+        88,
+        96
+      ],
+      "actual": [
+        88.0,
+        96
+      ],
+      "delta": [
+        -0.0,
+        0
+      ]
+    },
+    {
+      "slot": 4,
+      "target": [
+        72,
+        96
+      ],
+      "actual": [
+        72.5,
+        96
+      ],
+      "delta": [
+        0.5,
+        0
+      ]
+    },
+    {
+      "slot": 5,
+      "target": [
+        64,
+        96
+      ],
+      "actual": [
+        63.5,
+        96
+      ],
+      "delta": [
+        -0.5,
+        0
+      ]
+    },
+    {
+      "slot": 6,
+      "target": [
+        46,
+        96
+      ],
+      "actual": [
+        46.5,
+        96
+      ],
+      "delta": [
+        0.5,
+        0
+      ]
+    },
+    {
+      "slot": 7,
+      "target": [
+        40,
+        96
+      ],
+      "actual": [
+        40.0,
+        96
+      ],
+      "delta": [
+        0.0,
+        0
+      ]
+    }
+  ],
+  "registration_scope": "Only selected support sole center/baseline rounding error is quantified, not every limb/joint. Rear toe and boot contours also inspected visually. Uniform scaling and rigid translation; no body clamp.",
+  "mirror_checks": [
+    {
+      "slot": 2,
+      "mirror_of": 6,
+      "source_and_output_size_rgba_exact": true
+    },
+    {
+      "slot": 3,
+      "mirror_of": 7,
+      "source_and_output_size_rgba_exact": true
+    }
+  ],
+  "frozen_battle_idle_sha256": {
+    "battle/frames/frame-005.png": "0d9dc2200a6148da21370a2e5101f8da6dae704811d2a85adaa21778d4c5c680",
+    "battle/frames/frame-006.png": "afaf535dbfb1b0948157f7389b10b4ff86659611e055c44b1e9b14a4c38969b5",
+    "battle/frames/archer-battle-three.png": "064e4c262d9d027c61891a3edf8b4bd8c360afc66e62365c09ce4901de0ebd4a",
+    "battle/frames/frame-001.png": "0990d816378b40d04219b1cfbc993e92b843ef566d6e92371cb07a5efd16acfe",
+    "maps/idle-frames/frame-005.png": "7897338b4ad5076d2e85d982cc1b0d9bc10d1c86043aae2da1097f20087a31c9",
+    "maps/idle-frames/frame-004.png": "7897338b4ad5076d2e85d982cc1b0d9bc10d1c86043aae2da1097f20087a31c9",
+    "maps/idle-frames/frame-003.png": "7897338b4ad5076d2e85d982cc1b0d9bc10d1c86043aae2da1097f20087a31c9",
+    "maps/idle-frames/frame-002.png": "d45716b0d423231541a1ab92d24da877c99ac8067a69fd9fc89a3b41028f8495",
+    "maps/idle-frames/frame-000.png": "7897338b4ad5076d2e85d982cc1b0d9bc10d1c86043aae2da1097f20087a31c9",
+    "maps/idle-frames/frame-001.png": "7897338b4ad5076d2e85d982cc1b0d9bc10d1c86043aae2da1097f20087a31c9"
+  },
+  "static_idle_scenario_preserved": true,
+  "raw_generations_preserved": true,
+  "source_prompts": "source/native-walk-prompts.md",
+  "old_mapping_backup": "source/previous-map-frame_mapping.json",
+  "max_independent_frame_bytes": 7306,
+  "atlas_bytes": 47400,
+  "deep_light_review_complete": true,
+  "timing": {
+    "native_fps": 60.0988,
+    "frame_ticks": 16,
+    "cycle_ticks": 32,
+    "phase_source": "$36 & $10 selects phase; L0BB62C",
+    "movement_pixels_per_tick": 1,
+    "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+  },
+  "runtime_integration": false,
+  "godot_started": false,
+  "this_agent_writes_actual": false,
+  "rear_toe_note": "Final phase7 rear boot ends about2 output pixels above main support sole; root visually accepted the lowered toe stance. This is not claimed as exact dual-foot alignment."
+}

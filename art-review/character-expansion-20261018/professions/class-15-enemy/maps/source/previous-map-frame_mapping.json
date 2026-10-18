@@ -1,0 +1,696 @@
+{
+  "schema_version": 1,
+  "class_id": 15,
+  "source_side": "enemy",
+  "actor_id": "enemy-arcanist",
+  "character_id": "enemy-arcanist",
+  "display_name": "敌方妖术师",
+  "width_height_scale": 4,
+  "runtime_integrated": false,
+  "art_mode": "built-in imagegen; ImageMagick technical crop, uniform scale, translation and proven source mirror only; oxipng lossless",
+  "status": "art_and_registration_verified",
+  "scenarios": [
+    {
+      "id": "tactical-walk",
+      "class_id": 15,
+      "source_side": "enemy",
+      "source_atlas": "../../../source-input/original-motion/original-walk-15.png",
+      "source_frame_size": [
+        32,
+        24
+      ],
+      "source_anchor": [
+        16,
+        24
+      ],
+      "output_frame_size": [
+        128,
+        96
+      ],
+      "output_anchor": [
+        64,
+        96
+      ],
+      "output_atlas": "frames/tactical-walk.png",
+      "output_atlas_bytes": 13423,
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "representative_frame": 0,
+          "path": "walk-frames/frame-000.png",
+          "output_path": "walk-frames/frame-000.png",
+          "generated_source": "source/walk-v2-generated.png",
+          "generated_cell": [
+            0,
+            0,
+            1230,
+            1278
+          ],
+          "generated_content_bounds": [
+            187,
+            166,
+            1066,
+            1195
+          ],
+          "uniform_scale": 0.062196307094266275,
+          "registration_offset": [
+            37,
+            32
+          ],
+          "target_visible_hem": [
+            66,
+            96
+          ],
+          "registered_visible_hem": [
+            66.0,
+            96
+          ],
+          "mirror_x": false,
+          "registration_basis": "visible robe hem; legs concealed",
+          "kind": "imagegen_from_native_pose",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8292,
+          "sha256": "371f9996401c38c94610f1d7e661ec81b2daf5bc3df69591b95599dcb398530f",
+          "visible_bounds": [
+            37,
+            32,
+            92,
+            96
+          ]
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "representative_frame": 1,
+          "path": "walk-frames/frame-001.png",
+          "output_path": "walk-frames/frame-001.png",
+          "generated_source": "source/walk-v2-generated.png",
+          "generated_cell": [
+            0,
+            0,
+            1230,
+            1278
+          ],
+          "generated_content_bounds": [
+            187,
+            166,
+            1066,
+            1195
+          ],
+          "uniform_scale": 0.062196307094266275,
+          "registration_offset": [
+            40,
+            32
+          ],
+          "target_visible_hem": [
+            66,
+            96
+          ],
+          "registered_visible_hem": [
+            66.0,
+            96
+          ],
+          "mirror_x": true,
+          "registration_basis": "visible robe hem; legs concealed",
+          "kind": "exact-source-mirror-derived",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8292,
+          "sha256": "12bf9a71222374bcfaae5abef666b1fe452f7eba609522b06e35fca5f0da59fb",
+          "visible_bounds": [
+            40,
+            32,
+            95,
+            96
+          ]
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "representative_frame": 0,
+          "path": "walk-frames/frame-002.png",
+          "output_path": "walk-frames/frame-002.png",
+          "generated_source": "source/walk-v2-generated.png",
+          "generated_cell": [
+            0,
+            0,
+            1230,
+            1278
+          ],
+          "generated_content_bounds": [
+            187,
+            166,
+            1066,
+            1195
+          ],
+          "uniform_scale": 0.062196307094266275,
+          "registration_offset": [
+            37,
+            32
+          ],
+          "target_visible_hem": [
+            66,
+            96
+          ],
+          "registered_visible_hem": [
+            66.0,
+            96
+          ],
+          "mirror_x": false,
+          "registration_basis": "visible robe hem; legs concealed",
+          "kind": "imagegen_from_native_pose",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8292,
+          "sha256": "371f9996401c38c94610f1d7e661ec81b2daf5bc3df69591b95599dcb398530f",
+          "visible_bounds": [
+            37,
+            32,
+            92,
+            96
+          ]
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "representative_frame": 1,
+          "path": "walk-frames/frame-003.png",
+          "output_path": "walk-frames/frame-003.png",
+          "generated_source": "source/walk-v2-generated.png",
+          "generated_cell": [
+            0,
+            0,
+            1230,
+            1278
+          ],
+          "generated_content_bounds": [
+            187,
+            166,
+            1066,
+            1195
+          ],
+          "uniform_scale": 0.062196307094266275,
+          "registration_offset": [
+            40,
+            32
+          ],
+          "target_visible_hem": [
+            66,
+            96
+          ],
+          "registered_visible_hem": [
+            66.0,
+            96
+          ],
+          "mirror_x": true,
+          "registration_basis": "visible robe hem; legs concealed",
+          "kind": "exact-source-mirror-derived",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8292,
+          "sha256": "12bf9a71222374bcfaae5abef666b1fe452f7eba609522b06e35fca5f0da59fb",
+          "visible_bounds": [
+            40,
+            32,
+            95,
+            96
+          ]
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "representative_frame": 0,
+          "path": "walk-frames/frame-004.png",
+          "output_path": "walk-frames/frame-004.png",
+          "generated_source": "source/walk-v2-generated.png",
+          "generated_cell": [
+            0,
+            0,
+            1230,
+            1278
+          ],
+          "generated_content_bounds": [
+            187,
+            166,
+            1066,
+            1195
+          ],
+          "uniform_scale": 0.062196307094266275,
+          "registration_offset": [
+            37,
+            32
+          ],
+          "target_visible_hem": [
+            66,
+            96
+          ],
+          "registered_visible_hem": [
+            66.0,
+            96
+          ],
+          "mirror_x": false,
+          "registration_basis": "visible robe hem; legs concealed",
+          "kind": "imagegen_from_native_pose",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8292,
+          "sha256": "371f9996401c38c94610f1d7e661ec81b2daf5bc3df69591b95599dcb398530f",
+          "visible_bounds": [
+            37,
+            32,
+            92,
+            96
+          ]
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "representative_frame": 1,
+          "path": "walk-frames/frame-005.png",
+          "output_path": "walk-frames/frame-005.png",
+          "generated_source": "source/walk-v2-generated.png",
+          "generated_cell": [
+            0,
+            0,
+            1230,
+            1278
+          ],
+          "generated_content_bounds": [
+            187,
+            166,
+            1066,
+            1195
+          ],
+          "uniform_scale": 0.062196307094266275,
+          "registration_offset": [
+            40,
+            32
+          ],
+          "target_visible_hem": [
+            66,
+            96
+          ],
+          "registered_visible_hem": [
+            66.0,
+            96
+          ],
+          "mirror_x": true,
+          "registration_basis": "visible robe hem; legs concealed",
+          "kind": "exact-source-mirror-derived",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8292,
+          "sha256": "12bf9a71222374bcfaae5abef666b1fe452f7eba609522b06e35fca5f0da59fb",
+          "visible_bounds": [
+            40,
+            32,
+            95,
+            96
+          ]
+        }
+      ],
+      "logical_render_scale": 0.25,
+      "default_facing": "right",
+      "directions": {
+        "down": [
+          0,
+          1
+        ],
+        "up": [
+          2,
+          3
+        ],
+        "right": [
+          4,
+          5
+        ],
+        "left": [
+          4,
+          5
+        ]
+      },
+      "direction_mirror_x": {
+        "left": true
+      },
+      "timing": {
+        "native_fps": 60.0988,
+        "frame_ticks": 16
+      },
+      "source_mirror_evidence": "Original slot1 tight RGBA equals exact horizontal mirror of slot0; new slot1 mirrors generated slot0 then independently registers the source hem. No invented extra limb phase."
+    },
+    {
+      "id": "tactical-idle",
+      "class_id": 15,
+      "source_side": "enemy",
+      "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_15_enemy.png",
+      "source_frame_size": [
+        24,
+        24
+      ],
+      "source_anchor": [
+        12,
+        24
+      ],
+      "output_frame_size": [
+        96,
+        96
+      ],
+      "output_anchor": [
+        48,
+        96
+      ],
+      "output_atlas": "frames/tactical-idle.png",
+      "output_atlas_bytes": 28423,
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "representative_frame": 0,
+          "path": "idle-frames/frame-000.png",
+          "output_path": "idle-frames/frame-000.png",
+          "generated_source": "source/idle-v2-generated.png",
+          "generated_cell": [
+            0,
+            0,
+            724,
+            724
+          ],
+          "generated_content_bounds": [
+            117,
+            101,
+            599,
+            646
+          ],
+          "uniform_scale": 0.11743119266055047,
+          "registration_offset": [
+            18,
+            15
+          ],
+          "target_visible_hem": [
+            46,
+            80
+          ],
+          "registered_visible_hem": [
+            46.5,
+            80
+          ],
+          "mirror_x": false,
+          "registration_basis": "visible robe hem; legs concealed",
+          "kind": "imagegen_from_native_pose",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 9230,
+          "sha256": "14bfe54fede7c77488b543c4945e6410de5fd761d1fc4a48d83d423ab652f89c",
+          "visible_bounds": [
+            18,
+            15,
+            75,
+            80
+          ]
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "representative_frame": 1,
+          "path": "idle-frames/frame-001.png",
+          "output_path": "idle-frames/frame-001.png",
+          "generated_source": "source/idle-v2-generated.png",
+          "generated_cell": [
+            724,
+            0,
+            1448,
+            724
+          ],
+          "generated_content_bounds": [
+            124,
+            101,
+            600,
+            646
+          ],
+          "uniform_scale": 0.11743119266055047,
+          "registration_offset": [
+            18,
+            15
+          ],
+          "target_visible_hem": [
+            46,
+            80
+          ],
+          "registered_visible_hem": [
+            46.5,
+            80
+          ],
+          "mirror_x": false,
+          "registration_basis": "visible robe hem; legs concealed",
+          "kind": "imagegen_from_native_pose",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 9401,
+          "sha256": "dc7251ebbf499dd88a860f46ba13ca46c23ee255293d4a940572ab0cce4bad88",
+          "visible_bounds": [
+            18,
+            15,
+            75,
+            80
+          ]
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "representative_frame": 2,
+          "path": "idle-frames/frame-002.png",
+          "output_path": "idle-frames/frame-002.png",
+          "generated_source": "source/idle-v2-generated.png",
+          "generated_cell": [
+            1448,
+            0,
+            2172,
+            724
+          ],
+          "generated_content_bounds": [
+            98,
+            101,
+            599,
+            646
+          ],
+          "uniform_scale": 0.11743119266055047,
+          "registration_offset": [
+            16,
+            15
+          ],
+          "target_visible_hem": [
+            46,
+            80
+          ],
+          "registered_visible_hem": [
+            46.0,
+            80
+          ],
+          "mirror_x": false,
+          "registration_basis": "visible robe hem; legs concealed",
+          "kind": "imagegen_from_native_pose",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 9610,
+          "sha256": "70516e8f3c60d8c01788db4e517629abc1988e768278d968c03e2cb5cf51aa0c",
+          "visible_bounds": [
+            16,
+            15,
+            76,
+            80
+          ]
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "representative_frame": 1,
+          "path": "idle-frames/frame-003.png",
+          "output_path": "idle-frames/frame-003.png",
+          "generated_source": "source/idle-v2-generated.png",
+          "generated_cell": [
+            724,
+            0,
+            1448,
+            724
+          ],
+          "generated_content_bounds": [
+            124,
+            101,
+            600,
+            646
+          ],
+          "uniform_scale": 0.11743119266055047,
+          "registration_offset": [
+            18,
+            15
+          ],
+          "target_visible_hem": [
+            46,
+            80
+          ],
+          "registered_visible_hem": [
+            46.5,
+            80
+          ],
+          "mirror_x": false,
+          "registration_basis": "visible robe hem; legs concealed",
+          "kind": "imagegen_from_native_pose",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 9401,
+          "sha256": "dc7251ebbf499dd88a860f46ba13ca46c23ee255293d4a940572ab0cce4bad88",
+          "visible_bounds": [
+            18,
+            15,
+            75,
+            80
+          ]
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "representative_frame": 0,
+          "path": "idle-frames/frame-004.png",
+          "output_path": "idle-frames/frame-004.png",
+          "generated_source": "source/idle-v2-generated.png",
+          "generated_cell": [
+            0,
+            0,
+            724,
+            724
+          ],
+          "generated_content_bounds": [
+            117,
+            101,
+            599,
+            646
+          ],
+          "uniform_scale": 0.11743119266055047,
+          "registration_offset": [
+            18,
+            15
+          ],
+          "target_visible_hem": [
+            46,
+            80
+          ],
+          "registered_visible_hem": [
+            46.5,
+            80
+          ],
+          "mirror_x": false,
+          "registration_basis": "visible robe hem; legs concealed",
+          "kind": "imagegen_from_native_pose",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 9230,
+          "sha256": "14bfe54fede7c77488b543c4945e6410de5fd761d1fc4a48d83d423ab652f89c",
+          "visible_bounds": [
+            18,
+            15,
+            75,
+            80
+          ]
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "representative_frame": 1,
+          "path": "idle-frames/frame-005.png",
+          "output_path": "idle-frames/frame-005.png",
+          "generated_source": "source/idle-v2-generated.png",
+          "generated_cell": [
+            724,
+            0,
+            1448,
+            724
+          ],
+          "generated_content_bounds": [
+            124,
+            101,
+            600,
+            646
+          ],
+          "uniform_scale": 0.11743119266055047,
+          "registration_offset": [
+            18,
+            15
+          ],
+          "target_visible_hem": [
+            46,
+            80
+          ],
+          "registered_visible_hem": [
+            46.5,
+            80
+          ],
+          "mirror_x": false,
+          "registration_basis": "visible robe hem; legs concealed",
+          "kind": "imagegen_from_native_pose",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 9401,
+          "sha256": "dc7251ebbf499dd88a860f46ba13ca46c23ee255293d4a940572ab0cce4bad88",
+          "visible_bounds": [
+            18,
+            15,
+            75,
+            80
+          ]
+        }
+      ],
+      "logical_render_scale": 0.25,
+      "default_facing": "right",
+      "static_facing": true,
+      "directions": {
+        "all": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "timing": {
+        "native_fps": 60.0988,
+        "cycle_frames": [
+          0,
+          1,
+          2,
+          1
+        ],
+        "frame_ticks": [
+          14,
+          8,
+          14,
+          8
+        ]
+      }
+    }
+  ]
+}

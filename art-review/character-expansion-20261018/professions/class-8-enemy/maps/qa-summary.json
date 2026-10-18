@@ -1,0 +1,159 @@
+{
+  "status": "complete_art_review_ready",
+  "character_id": "enemy-mercenary",
+  "display_name": "敌方佣兵",
+  "class_id": 8,
+  "source_side": "enemy",
+  "qa": {
+    "native_walk_review": "previews/tactical-native-original-dark-light.png",
+    "native_walk_registration": "source/tactical-native-registration.json",
+    "static_idle_review": "previews/all-map-original-dark-light.png",
+    "identity": "Approved ash/taupe short hair, moss-green fitted high-collar jacket, diagonal strap, one iron shoulder, short ivory-trim hip hems, charcoal trousers, calf wraps, brown boots, one steel sword.",
+    "source_correction": "Old village OAM plus fixedCHR26 atlas is historical. Current tactical source is verified bank011 CPU output with correct class/side tables; same CHR number does not imply same OAM.",
+    "orientation": "Eight CPU slots already include native directional flips. None are exact full-canvas mirror pairs; eight poses drawn independently. Sword is viewer-right for up, viewer-left for right/down/left.",
+    "alpha_policy": "Retained pixels keep ImageGen alpha. Grounded boot ROI excludes weapon. X uses opaque sole alpha>=128; Y visible sole alpha>4. Only outside-canvas noise alpha<=4 may be cropped.",
+    "limits": [
+      "No exact new clothing-edge/source-pixel claim.",
+      "Up head-side pale points are ears/face edges supported by paired placement and unchanged upper body; no high free fist invented.",
+      "Down sword tip is around4outputpx above native hair-top, accepted shape residual.",
+      "Right2/3 head/chest is corrected to near-front based on original eye/nose/jaw layout; left6/7 retains left nose silhouette. Grounded2 leg gathered and grounded3 back leg extended independently by ImageGen."
+    ],
+    "checks": [
+      "8 frames load at128x96",
+      "8 separate ImageGen poses no mirrored legs",
+      "boot XY registered",
+      "dark/light alpha inspection",
+      "battle/static idle unchanged",
+      "raw prompts and failed versions retained"
+    ],
+    "max_frame_bytes": 6388
+  },
+  "sizes": [
+    {
+      "path": "deliverables/tactical-idle-00.png",
+      "purpose": "tactical-idle",
+      "pixels": [
+        96,
+        96
+      ],
+      "bytes": 6132
+    },
+    {
+      "path": "deliverables/tactical-idle-01.png",
+      "purpose": "tactical-idle",
+      "pixels": [
+        96,
+        96
+      ],
+      "bytes": 6144
+    },
+    {
+      "path": "deliverables/tactical-idle-02.png",
+      "purpose": "tactical-idle",
+      "pixels": [
+        96,
+        96
+      ],
+      "bytes": 6359
+    },
+    {
+      "path": "deliverables/tactical-idle-03.png",
+      "purpose": "tactical-idle",
+      "pixels": [
+        96,
+        96
+      ],
+      "bytes": 6144
+    },
+    {
+      "path": "deliverables/tactical-idle-04.png",
+      "purpose": "tactical-idle",
+      "pixels": [
+        96,
+        96
+      ],
+      "bytes": 6132
+    },
+    {
+      "path": "deliverables/tactical-idle-05.png",
+      "purpose": "tactical-idle",
+      "pixels": [
+        96,
+        96
+      ],
+      "bytes": 6144
+    },
+    {
+      "path": "tactical-native-frames/frame-000.png",
+      "purpose": "tactical-walk",
+      "pixels": [
+        128,
+        96
+      ],
+      "bytes": 5477
+    },
+    {
+      "path": "tactical-native-frames/frame-001.png",
+      "purpose": "tactical-walk",
+      "pixels": [
+        128,
+        96
+      ],
+      "bytes": 5490
+    },
+    {
+      "path": "tactical-native-frames/frame-002.png",
+      "purpose": "tactical-walk",
+      "pixels": [
+        128,
+        96
+      ],
+      "bytes": 5994
+    },
+    {
+      "path": "tactical-native-frames/frame-003.png",
+      "purpose": "tactical-walk",
+      "pixels": [
+        128,
+        96
+      ],
+      "bytes": 6388
+    },
+    {
+      "path": "tactical-native-frames/frame-004.png",
+      "purpose": "tactical-walk",
+      "pixels": [
+        128,
+        96
+      ],
+      "bytes": 5977
+    },
+    {
+      "path": "tactical-native-frames/frame-005.png",
+      "purpose": "tactical-walk",
+      "pixels": [
+        128,
+        96
+      ],
+      "bytes": 5997
+    },
+    {
+      "path": "tactical-native-frames/frame-006.png",
+      "purpose": "tactical-walk",
+      "pixels": [
+        128,
+        96
+      ],
+      "bytes": 5984
+    },
+    {
+      "path": "tactical-native-frames/frame-007.png",
+      "purpose": "tactical-walk",
+      "pixels": [
+        128,
+        96
+      ],
+      "bytes": 5773
+    }
+  ]
+}

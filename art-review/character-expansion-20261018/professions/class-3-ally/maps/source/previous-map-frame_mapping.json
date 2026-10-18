@@ -1,0 +1,651 @@
+{
+  "schema_version": 1,
+  "class_id": 3,
+  "source_side": "ally",
+  "character_id": "ally-pegasus-rider",
+  "actor_id": "ally-pegasus-rider",
+  "display_name": "盟军天马骑士",
+  "width_height_scale": 4,
+  "runtime_integrated": false,
+  "art_mode": "Built-in ImageGen; technical crop, uniform scale, rigid registration and lossless compression only.",
+  "scenarios": [
+    {
+      "id": "tactical-idle",
+      "class_id": 3,
+      "source_side": "ally",
+      "character_id": "ally-pegasus-rider",
+      "display_name": "盟军天马骑士",
+      "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_3_ally.png",
+      "source_frame_size": [
+        24,
+        24
+      ],
+      "source_anchor": [
+        12,
+        20
+      ],
+      "output_atlas": "frames/tactical-idle.png",
+      "output_frame_size": [
+        96,
+        96
+      ],
+      "output_anchor": [
+        48,
+        80
+      ],
+      "logical_render_scale": 0.25,
+      "frame_mapping": [
+        {
+          "source_frame": 0,
+          "representative_frame": 0,
+          "kind": "imagegen_from_native_pose",
+          "path": "idle-frames/frame-000.png",
+          "generated_source": "source/idle-000-generated-v4.png",
+          "generated_cell": [
+            0,
+            0,
+            1254,
+            1254
+          ],
+          "generated_content_bounds": [
+            243,
+            330,
+            1150,
+            1169
+          ],
+          "head_top": 330,
+          "generated_feet_roi": [
+            450,
+            1025,
+            535,
+            1078
+          ],
+          "generated_foot_bounds": [
+            450,
+            1025,
+            532,
+            1071
+          ],
+          "uniform_scale": 0.07557354925775979,
+          "resampled_size": [
+            69,
+            64
+          ],
+          "registration_offset": [
+            15,
+            15
+          ],
+          "output_foot_roi": [
+            31,
+            68,
+            37,
+            72
+          ],
+          "target_foot_anchor": [
+            34,
+            72
+          ],
+          "registered_foot_anchor": [
+            34.0,
+            72
+          ],
+          "foot_delta": [
+            0.0,
+            0
+          ],
+          "visible_bounds": [
+            15,
+            15,
+            84,
+            79
+          ],
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 10127,
+          "sha256": "0e9928fd27bc9f4255d3ece9db4648fef248baf17f1dafd2a0bfb072bcee46ee",
+          "source_index": 0,
+          "output_index": 0,
+          "output_path": "idle-frames/frame-000.png",
+          "native_hoof_roi": [
+            8,
+            17,
+            9,
+            18
+          ],
+          "native_hoof_bounds": [
+            8,
+            17,
+            9,
+            18
+          ],
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "registration_scope": "Selected visible front hoof endpoint only; rounding error is not a claim that all limbs/joints match pixel-for-pixel.",
+          "native_hoof_semantics": "Colored hoof-end pixel, excludes broad black base/shadow and excludes occluded diagonal spear."
+        },
+        {
+          "source_frame": 1,
+          "representative_frame": 1,
+          "kind": "imagegen_from_native_pose",
+          "path": "idle-frames/frame-001.png",
+          "generated_source": "source/idle-001-generated-v1.png",
+          "generated_cell": [
+            0,
+            0,
+            1254,
+            1254
+          ],
+          "generated_content_bounds": [
+            226,
+            284,
+            1139,
+            1143
+          ],
+          "head_top": 284,
+          "generated_feet_roi": [
+            415,
+            1090,
+            510,
+            1150
+          ],
+          "generated_foot_bounds": [
+            420,
+            1090,
+            510,
+            1143
+          ],
+          "uniform_scale": 0.06984866123399301,
+          "resampled_size": [
+            64,
+            60
+          ],
+          "registration_offset": [
+            22,
+            16
+          ],
+          "output_foot_roi": [
+            35,
+            72,
+            42,
+            76
+          ],
+          "target_foot_anchor": [
+            38,
+            76
+          ],
+          "registered_foot_anchor": [
+            38.5,
+            76
+          ],
+          "foot_delta": [
+            0.5,
+            0
+          ],
+          "visible_bounds": [
+            22,
+            16,
+            86,
+            76
+          ],
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 8762,
+          "sha256": "75c0eb53c3894aa31bd9d183c4c534ab69970c2254194eba331621940d3bfbe6",
+          "source_index": 1,
+          "output_index": 1,
+          "output_path": "idle-frames/frame-001.png",
+          "native_hoof_roi": [
+            9,
+            18,
+            10,
+            19
+          ],
+          "native_hoof_bounds": [
+            9,
+            18,
+            10,
+            19
+          ],
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "registration_scope": "Selected visible front hoof endpoint only; rounding error is not a claim that all limbs/joints match pixel-for-pixel.",
+          "native_hoof_semantics": "Colored hoof-end pixel, excludes broad black base/shadow and excludes occluded diagonal spear."
+        },
+        {
+          "source_frame": 2,
+          "representative_frame": 2,
+          "kind": "imagegen_from_native_pose",
+          "path": "idle-frames/frame-002.png",
+          "generated_source": "source/idle-002-generated-v1.png",
+          "generated_cell": [
+            0,
+            0,
+            1254,
+            1254
+          ],
+          "generated_content_bounds": [
+            226,
+            271,
+            1154,
+            1144
+          ],
+          "head_top": 271,
+          "generated_feet_roi": [
+            415,
+            1090,
+            510,
+            1150
+          ],
+          "generated_foot_bounds": [
+            419,
+            1090,
+            510,
+            1144
+          ],
+          "uniform_scale": 0.06872852233676977,
+          "resampled_size": [
+            64,
+            60
+          ],
+          "registration_offset": [
+            22,
+            16
+          ],
+          "output_foot_roi": [
+            35,
+            72,
+            42,
+            76
+          ],
+          "target_foot_anchor": [
+            38,
+            76
+          ],
+          "registered_foot_anchor": [
+            38.5,
+            76
+          ],
+          "foot_delta": [
+            0.5,
+            0
+          ],
+          "visible_bounds": [
+            22,
+            16,
+            86,
+            76
+          ],
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 8300,
+          "sha256": "cda608d5baa66be4fcc53da706e671e06205c3971fcd5661e777977cb7c43fb7",
+          "source_index": 2,
+          "output_index": 2,
+          "output_path": "idle-frames/frame-002.png",
+          "native_hoof_roi": [
+            9,
+            18,
+            10,
+            19
+          ],
+          "native_hoof_bounds": [
+            9,
+            18,
+            10,
+            19
+          ],
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "registration_scope": "Selected visible front hoof endpoint only; rounding error is not a claim that all limbs/joints match pixel-for-pixel.",
+          "native_hoof_semantics": "Colored hoof-end pixel, excludes broad black base/shadow and excludes occluded diagonal spear."
+        },
+        {
+          "source_frame": 3,
+          "representative_frame": 1,
+          "kind": "native_exact_pixel_alias",
+          "path": "idle-frames/frame-003.png",
+          "generated_source": "source/idle-001-generated-v1.png",
+          "generated_cell": [
+            0,
+            0,
+            1254,
+            1254
+          ],
+          "generated_content_bounds": [
+            226,
+            284,
+            1139,
+            1143
+          ],
+          "head_top": 284,
+          "generated_feet_roi": [
+            415,
+            1090,
+            510,
+            1150
+          ],
+          "generated_foot_bounds": [
+            420,
+            1090,
+            510,
+            1143
+          ],
+          "uniform_scale": 0.06984866123399301,
+          "resampled_size": [
+            64,
+            60
+          ],
+          "registration_offset": [
+            22,
+            16
+          ],
+          "output_foot_roi": [
+            35,
+            72,
+            42,
+            76
+          ],
+          "target_foot_anchor": [
+            38,
+            76
+          ],
+          "registered_foot_anchor": [
+            38.5,
+            76
+          ],
+          "foot_delta": [
+            0.5,
+            0
+          ],
+          "visible_bounds": [
+            22,
+            16,
+            86,
+            76
+          ],
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 8762,
+          "sha256": "75c0eb53c3894aa31bd9d183c4c534ab69970c2254194eba331621940d3bfbe6",
+          "source_index": 3,
+          "output_index": 3,
+          "output_path": "idle-frames/frame-003.png",
+          "native_hoof_roi": [
+            9,
+            18,
+            10,
+            19
+          ],
+          "native_hoof_bounds": [
+            9,
+            18,
+            10,
+            19
+          ],
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "registration_scope": "Selected visible front hoof endpoint only; rounding error is not a claim that all limbs/joints match pixel-for-pixel.",
+          "native_hoof_semantics": "Colored hoof-end pixel, excludes broad black base/shadow and excludes occluded diagonal spear."
+        },
+        {
+          "source_frame": 4,
+          "representative_frame": 0,
+          "kind": "native_exact_pixel_alias",
+          "path": "idle-frames/frame-004.png",
+          "generated_source": "source/idle-000-generated-v4.png",
+          "generated_cell": [
+            0,
+            0,
+            1254,
+            1254
+          ],
+          "generated_content_bounds": [
+            243,
+            330,
+            1150,
+            1169
+          ],
+          "head_top": 330,
+          "generated_feet_roi": [
+            450,
+            1025,
+            535,
+            1078
+          ],
+          "generated_foot_bounds": [
+            450,
+            1025,
+            532,
+            1071
+          ],
+          "uniform_scale": 0.07557354925775979,
+          "resampled_size": [
+            69,
+            64
+          ],
+          "registration_offset": [
+            15,
+            15
+          ],
+          "output_foot_roi": [
+            31,
+            68,
+            37,
+            72
+          ],
+          "target_foot_anchor": [
+            34,
+            72
+          ],
+          "registered_foot_anchor": [
+            34.0,
+            72
+          ],
+          "foot_delta": [
+            0.0,
+            0
+          ],
+          "visible_bounds": [
+            15,
+            15,
+            84,
+            79
+          ],
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 10127,
+          "sha256": "0e9928fd27bc9f4255d3ece9db4648fef248baf17f1dafd2a0bfb072bcee46ee",
+          "source_index": 4,
+          "output_index": 4,
+          "output_path": "idle-frames/frame-004.png",
+          "native_hoof_roi": [
+            8,
+            17,
+            9,
+            18
+          ],
+          "native_hoof_bounds": [
+            8,
+            17,
+            9,
+            18
+          ],
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "registration_scope": "Selected visible front hoof endpoint only; rounding error is not a claim that all limbs/joints match pixel-for-pixel.",
+          "native_hoof_semantics": "Colored hoof-end pixel, excludes broad black base/shadow and excludes occluded diagonal spear."
+        },
+        {
+          "source_frame": 5,
+          "representative_frame": 1,
+          "kind": "native_exact_pixel_alias",
+          "path": "idle-frames/frame-005.png",
+          "generated_source": "source/idle-001-generated-v1.png",
+          "generated_cell": [
+            0,
+            0,
+            1254,
+            1254
+          ],
+          "generated_content_bounds": [
+            226,
+            284,
+            1139,
+            1143
+          ],
+          "head_top": 284,
+          "generated_feet_roi": [
+            415,
+            1090,
+            510,
+            1150
+          ],
+          "generated_foot_bounds": [
+            420,
+            1090,
+            510,
+            1143
+          ],
+          "uniform_scale": 0.06984866123399301,
+          "resampled_size": [
+            64,
+            60
+          ],
+          "registration_offset": [
+            22,
+            16
+          ],
+          "output_foot_roi": [
+            35,
+            72,
+            42,
+            76
+          ],
+          "target_foot_anchor": [
+            38,
+            76
+          ],
+          "registered_foot_anchor": [
+            38.5,
+            76
+          ],
+          "foot_delta": [
+            0.5,
+            0
+          ],
+          "visible_bounds": [
+            22,
+            16,
+            86,
+            76
+          ],
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 8762,
+          "sha256": "75c0eb53c3894aa31bd9d183c4c534ab69970c2254194eba331621940d3bfbe6",
+          "source_index": 5,
+          "output_index": 5,
+          "output_path": "idle-frames/frame-005.png",
+          "native_hoof_roi": [
+            9,
+            18,
+            10,
+            19
+          ],
+          "native_hoof_bounds": [
+            9,
+            18,
+            10,
+            19
+          ],
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "registration_scope": "Selected visible front hoof endpoint only; rounding error is not a claim that all limbs/joints match pixel-for-pixel.",
+          "native_hoof_semantics": "Colored hoof-end pixel, excludes broad black base/shadow and excludes occluded diagonal spear."
+        }
+      ],
+      "directions": {
+        "static": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "direction_mirror_x": {},
+      "static_facing": true,
+      "timing": {
+        "native_fps": 60.0988,
+        "cycle_frames": [
+          0,
+          1,
+          2,
+          1
+        ],
+        "frame_ticks": [
+          14,
+          8,
+          14,
+          8
+        ]
+      },
+      "output_atlas_bytes": 27639,
+      "review_status": "art_review_passed",
+      "native_alias_groups": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3,
+          5
+        ],
+        [
+          2
+        ]
+      ]
+    }
+  ],
+  "pending_scenarios": {
+    "tactical-walk": "Await corrected native bank011 CHR/mover overlay. Previous fixed CHR26 world/village extraction is not accepted tactical walk source."
+  },
+  "status": "idle_art_review_passed_walk_pending",
+  "qa_report": "../qa-report.json"
+}

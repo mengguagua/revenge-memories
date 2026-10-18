@@ -1,0 +1,1248 @@
+{
+  "status": "pass",
+  "character_id": "ally-archer",
+  "display_name": "盟军弓箭手",
+  "source_side": "ally",
+  "original_class_id": 12,
+  "unique_battle_poses": 3,
+  "required_variants": 12,
+  "unique_map_walk_poses": 6,
+  "unique_map_idle_poses": 2,
+  "runtime_png_count": 20,
+  "max_independent_frame_bytes": 26083,
+  "max_atlas_bytes": 74110,
+  "foot_xy_checks": [
+    {
+      "path": "battle/frames/frame-001.png",
+      "target": [
+        208,
+        256
+      ],
+      "actual": [
+        208.0,
+        256
+      ],
+      "delta": [
+        0.0,
+        0
+      ]
+    },
+    {
+      "path": "battle/frames/frame-004.png",
+      "target": [
+        208,
+        256
+      ],
+      "actual": [
+        207.5,
+        256
+      ],
+      "delta": [
+        -0.5,
+        0
+      ]
+    },
+    {
+      "path": "battle/frames/frame-005.png",
+      "target": [
+        208,
+        256
+      ],
+      "actual": [
+        207.5,
+        256
+      ],
+      "delta": [
+        -0.5,
+        0
+      ]
+    },
+    {
+      "path": "maps/walk-frames/frame-000.png",
+      "target": [
+        52,
+        96
+      ],
+      "actual": [
+        52.0,
+        96
+      ],
+      "delta": [
+        0.0,
+        0
+      ]
+    },
+    {
+      "path": "maps/walk-frames/frame-001.png",
+      "target": [
+        68,
+        96
+      ],
+      "actual": [
+        68.0,
+        96
+      ],
+      "delta": [
+        0.0,
+        0
+      ]
+    },
+    {
+      "path": "maps/walk-frames/frame-002.png",
+      "target": [
+        52,
+        96
+      ],
+      "actual": [
+        52.0,
+        96
+      ],
+      "delta": [
+        0.0,
+        0
+      ]
+    },
+    {
+      "path": "maps/walk-frames/frame-003.png",
+      "target": [
+        68,
+        96
+      ],
+      "actual": [
+        68.0,
+        96
+      ],
+      "delta": [
+        0.0,
+        0
+      ]
+    },
+    {
+      "path": "maps/walk-frames/frame-004.png",
+      "target": [
+        52,
+        96
+      ],
+      "actual": [
+        52.0,
+        96
+      ],
+      "delta": [
+        0.0,
+        0
+      ]
+    },
+    {
+      "path": "maps/walk-frames/frame-005.png",
+      "target": [
+        68,
+        96
+      ],
+      "actual": [
+        68.0,
+        96
+      ],
+      "delta": [
+        0.0,
+        0
+      ]
+    },
+    {
+      "path": "maps/idle-frames/frame-000.png",
+      "target": [
+        48,
+        80
+      ],
+      "actual": [
+        48.5,
+        80
+      ],
+      "delta": [
+        0.5,
+        0
+      ]
+    },
+    {
+      "path": "maps/idle-frames/frame-001.png",
+      "target": [
+        48,
+        80
+      ],
+      "actual": [
+        48.5,
+        80
+      ],
+      "delta": [
+        0.5,
+        0
+      ]
+    },
+    {
+      "path": "maps/idle-frames/frame-002.png",
+      "target": [
+        48,
+        80
+      ],
+      "actual": [
+        48.5,
+        80
+      ],
+      "delta": [
+        0.5,
+        0
+      ]
+    },
+    {
+      "path": "maps/idle-frames/frame-003.png",
+      "target": [
+        48,
+        80
+      ],
+      "actual": [
+        48.5,
+        80
+      ],
+      "delta": [
+        0.5,
+        0
+      ]
+    },
+    {
+      "path": "maps/idle-frames/frame-004.png",
+      "target": [
+        48,
+        80
+      ],
+      "actual": [
+        48.5,
+        80
+      ],
+      "delta": [
+        0.5,
+        0
+      ]
+    },
+    {
+      "path": "maps/idle-frames/frame-005.png",
+      "target": [
+        48,
+        80
+      ],
+      "actual": [
+        48.5,
+        80
+      ],
+      "delta": [
+        0.5,
+        0
+      ]
+    }
+  ],
+  "alias_checks": [
+    {
+      "scenario": "tactical-walk",
+      "slots": [
+        0,
+        2,
+        4
+      ],
+      "source_and_new_exact": true
+    },
+    {
+      "scenario": "tactical-walk",
+      "slots": [
+        1,
+        3,
+        5
+      ],
+      "source_and_new_exact": true
+    },
+    {
+      "scenario": "tactical-idle",
+      "slots": [
+        0,
+        1,
+        3,
+        4,
+        5
+      ],
+      "source_and_new_exact": true
+    },
+    {
+      "scenario": "tactical-idle",
+      "slots": [
+        2
+      ],
+      "source_and_new_exact": true
+    }
+  ],
+  "variant_checks": {
+    "class_12_ally_bow": {
+      "ticks": 81,
+      "required_frames": [
+        1,
+        4,
+        5
+      ],
+      "contact_tick": 54,
+      "contact_count": 1,
+      "body_rle": [
+        [
+          1,
+          18
+        ],
+        [
+          4,
+          19
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          1,
+          40
+        ]
+      ],
+      "external_projectile_ticks": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "native_trace_sha256": "83fb1f9d79dc900361636ee991a453415ca7c0f1501bd05c3ed80916d8fc0a49"
+    },
+    "class_12_ally_bow_vs_heavy": {
+      "ticks": 81,
+      "required_frames": [
+        1,
+        4,
+        5
+      ],
+      "contact_tick": 54,
+      "contact_count": 1,
+      "body_rle": [
+        [
+          1,
+          18
+        ],
+        [
+          4,
+          19
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          1,
+          40
+        ]
+      ],
+      "external_projectile_ticks": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "native_trace_sha256": "6d0dec15eded07709206b1ecc0050e3d08f3877131b164ebd2e8ad23b7c8c909"
+    },
+    "class_12_ally_bow_far_ally": {
+      "ticks": 83,
+      "required_frames": [
+        1,
+        4,
+        5
+      ],
+      "contact_tick": 56,
+      "contact_count": 1,
+      "body_rle": [
+        [
+          1,
+          18
+        ],
+        [
+          4,
+          19
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "external_projectile_ticks": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "native_trace_sha256": "a1ba6cda26658bc5402e8d558ab09e3098792d48944da91f8ae03ed216d3490d"
+    },
+    "class_12_ally_bow_far_ally_vs_heavy": {
+      "ticks": 84,
+      "required_frames": [
+        1,
+        4,
+        5
+      ],
+      "contact_tick": 57,
+      "contact_count": 1,
+      "body_rle": [
+        [
+          1,
+          18
+        ],
+        [
+          4,
+          19
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          1,
+          43
+        ]
+      ],
+      "external_projectile_ticks": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "native_trace_sha256": "4c068bc67fd7b753c2e581e33c2dbbfc2594859444d0d90001dd4135d3376a04"
+    },
+    "class_12_ally_bow_far_enemy": {
+      "ticks": 83,
+      "required_frames": [
+        1,
+        4,
+        5
+      ],
+      "contact_tick": 56,
+      "contact_count": 1,
+      "body_rle": [
+        [
+          1,
+          18
+        ],
+        [
+          4,
+          19
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "external_projectile_ticks": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "native_trace_sha256": "c301074e7a92d891d902e57982e82e5265d6e834e10896c98c2fa3c454de61cc"
+    },
+    "class_12_ally_bow_far_enemy_vs_heavy": {
+      "ticks": 81,
+      "required_frames": [
+        1,
+        4,
+        5
+      ],
+      "contact_tick": 54,
+      "contact_count": 1,
+      "body_rle": [
+        [
+          1,
+          18
+        ],
+        [
+          4,
+          19
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          1,
+          40
+        ]
+      ],
+      "external_projectile_ticks": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "native_trace_sha256": "f3548445cab315417f0cac21998c152490599b2c25991b0a21c96c6b895413a0"
+    },
+    "class_12_ally_silver_bow": {
+      "ticks": 81,
+      "required_frames": [
+        1,
+        4,
+        5
+      ],
+      "contact_tick": 54,
+      "contact_count": 1,
+      "body_rle": [
+        [
+          1,
+          18
+        ],
+        [
+          4,
+          19
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          1,
+          40
+        ]
+      ],
+      "external_projectile_ticks": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "native_trace_sha256": "4281f67e1df2cf837ec16c7c768f7e29cb267b02c90e4cf15418d223d4b01ab7"
+    },
+    "class_12_ally_silver_bow_vs_heavy": {
+      "ticks": 81,
+      "required_frames": [
+        1,
+        4,
+        5
+      ],
+      "contact_tick": 54,
+      "contact_count": 1,
+      "body_rle": [
+        [
+          1,
+          18
+        ],
+        [
+          4,
+          19
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          1,
+          40
+        ]
+      ],
+      "external_projectile_ticks": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "native_trace_sha256": "aa868f5c63fc6e9bb7dee16cd66ea27e760da81a2fa9ec2598f4ffe71bacb6e5"
+    },
+    "class_12_ally_silver_bow_far_ally": {
+      "ticks": 83,
+      "required_frames": [
+        1,
+        4,
+        5
+      ],
+      "contact_tick": 56,
+      "contact_count": 1,
+      "body_rle": [
+        [
+          1,
+          18
+        ],
+        [
+          4,
+          19
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "external_projectile_ticks": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82
+      ],
+      "native_trace_sha256": "8d3694ef70b1ed6842a3063f47925597718fe479f290bd34cb6e7438f37698d0"
+    },
+    "class_12_ally_silver_bow_far_ally_vs_heavy": {
+      "ticks": 84,
+      "required_frames": [
+        1,
+        4,
+        5
+      ],
+      "contact_tick": 57,
+      "contact_count": 1,
+      "body_rle": [
+        [
+          1,
+          18
+        ],
+        [
+          4,
+          19
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          1,
+          43
+        ]
+      ],
+      "external_projectile_ticks": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83
+      ],
+      "native_trace_sha256": "2c2bd94afecaf44350901b9962dc7148c283eee10d01e6fd715d7199a71ce541"
+    },
+    "class_12_ally_silver_bow_far_enemy": {
+      "ticks": 83,
+      "required_frames": [
+        1,
+        4,
+        5
+      ],
+      "contact_tick": 56,
+      "contact_count": 1,
+      "body_rle": [
+        [
+          1,
+          18
+        ],
+        [
+          4,
+          19
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          1,
+          42
+        ]
+      ],
+      "external_projectile_ticks": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82
+      ],
+      "native_trace_sha256": "6f5b6cc9b8e0b5f34188ae35294f918d01a6b1aaeabae4fce37e869c9c688cd0"
+    },
+    "class_12_ally_silver_bow_far_enemy_vs_heavy": {
+      "ticks": 81,
+      "required_frames": [
+        1,
+        4,
+        5
+      ],
+      "contact_tick": 54,
+      "contact_count": 1,
+      "body_rle": [
+        [
+          1,
+          18
+        ],
+        [
+          4,
+          19
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          1,
+          40
+        ]
+      ],
+      "external_projectile_ticks": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "native_trace_sha256": "83703556b1809c4e16e450344ba9766d297789165d7cbdd3a5df665140463316"
+    }
+  },
+  "assets": [
+    {
+      "path": "battle/frames/archer-battle-three.png",
+      "purpose": "transparent-atlas",
+      "size": [
+        960,
+        256
+      ],
+      "bytes": 74110,
+      "sha256": "4b94d8d76c9080787f767f3cd9e8fb53981288f3f742e39204b5f78ebf24b0ee",
+      "compression": "oxipng lossless; no palette quantization",
+      "quality_reason": "Preserve face, material seams, bow/string edges and RGBA detail at approved4x resolution; atlas combines multiple complete frames."
+    },
+    {
+      "path": "battle/frames/frame-001.png",
+      "purpose": "independent-frame",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 24183,
+      "sha256": "f7a6fcc515445b951208efcb0c98494a23f3e5f505b4e9ad50f1a0986cd0dda2",
+      "compression": "oxipng lossless; no palette quantization",
+      "quality_reason": "Full battle pose with face, leather seams, bowstring and RGBA contour; retained losslessly."
+    },
+    {
+      "path": "battle/frames/frame-004.png",
+      "purpose": "independent-frame",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 26083,
+      "sha256": "f63395714d534da3f71766a7b0bb930a1a62fe3d7487f4e1bbf5ca2588ddaa12",
+      "compression": "oxipng lossless; no palette quantization",
+      "quality_reason": "Full battle pose with face, leather seams, bowstring and RGBA contour; retained losslessly."
+    },
+    {
+      "path": "battle/frames/frame-005.png",
+      "purpose": "independent-frame",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 25160,
+      "sha256": "05e4f8626e101bea79912c24ab7ed0a1ad719dd78cae483e645baaa9f19df593",
+      "compression": "oxipng lossless; no palette quantization",
+      "quality_reason": "Full battle pose with face, leather seams, bowstring and RGBA contour; retained losslessly."
+    },
+    {
+      "path": "maps/frames/tactical-idle.png",
+      "purpose": "transparent-atlas",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 14151,
+      "sha256": "4190f465fff554e3c8efebd960079c3d3d37d861152c6f7fad3bd2b5c861ab71",
+      "compression": "oxipng lossless; no palette quantization"
+    },
+    {
+      "path": "maps/frames/tactical-walk.png",
+      "purpose": "transparent-atlas",
+      "size": [
+        768,
+        96
+      ],
+      "bytes": 14835,
+      "sha256": "4157bf3909965f1528b3e08404471a707243cc3552a74cdda08ce9a5b7e9ea7a",
+      "compression": "oxipng lossless; no palette quantization"
+    },
+    {
+      "path": "maps/idle-frames/frame-000.png",
+      "purpose": "independent-frame",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 6905,
+      "sha256": "7efa884aa4a09eb0b8a60b41e07b09713356fb9831f0e0d69ea82a03375eb852",
+      "compression": "oxipng lossless; no palette quantization"
+    },
+    {
+      "path": "maps/idle-frames/frame-001.png",
+      "purpose": "independent-frame",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 6905,
+      "sha256": "7efa884aa4a09eb0b8a60b41e07b09713356fb9831f0e0d69ea82a03375eb852",
+      "compression": "oxipng lossless; no palette quantization"
+    },
+    {
+      "path": "maps/idle-frames/frame-002.png",
+      "purpose": "independent-frame",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 6509,
+      "sha256": "68b17aec7b6feec69f2cd199fc5849908da62bfcad47ba3fcfdafa4ca98cda4f",
+      "compression": "oxipng lossless; no palette quantization"
+    },
+    {
+      "path": "maps/idle-frames/frame-003.png",
+      "purpose": "independent-frame",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 6905,
+      "sha256": "7efa884aa4a09eb0b8a60b41e07b09713356fb9831f0e0d69ea82a03375eb852",
+      "compression": "oxipng lossless; no palette quantization"
+    },
+    {
+      "path": "maps/idle-frames/frame-004.png",
+      "purpose": "independent-frame",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 6905,
+      "sha256": "7efa884aa4a09eb0b8a60b41e07b09713356fb9831f0e0d69ea82a03375eb852",
+      "compression": "oxipng lossless; no palette quantization"
+    },
+    {
+      "path": "maps/idle-frames/frame-005.png",
+      "purpose": "independent-frame",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 6905,
+      "sha256": "7efa884aa4a09eb0b8a60b41e07b09713356fb9831f0e0d69ea82a03375eb852",
+      "compression": "oxipng lossless; no palette quantization"
+    },
+    {
+      "path": "maps/walk-frames/frame-000.png",
+      "purpose": "independent-frame",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 6526,
+      "sha256": "d44e441c38c5886ec307cb6a929a02c07dcc0d7ccd0aa9c71026c2e308183afc",
+      "compression": "oxipng lossless; no palette quantization"
+    },
+    {
+      "path": "maps/walk-frames/frame-001.png",
+      "purpose": "independent-frame",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 7634,
+      "sha256": "a61507cd31d27ec0becaf22732da853e9c1691335e604c12b03700c50c1f59cf",
+      "compression": "oxipng lossless; no palette quantization"
+    },
+    {
+      "path": "maps/walk-frames/frame-002.png",
+      "purpose": "independent-frame",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 6526,
+      "sha256": "d44e441c38c5886ec307cb6a929a02c07dcc0d7ccd0aa9c71026c2e308183afc",
+      "compression": "oxipng lossless; no palette quantization"
+    },
+    {
+      "path": "maps/walk-frames/frame-003.png",
+      "purpose": "independent-frame",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 7634,
+      "sha256": "a61507cd31d27ec0becaf22732da853e9c1691335e604c12b03700c50c1f59cf",
+      "compression": "oxipng lossless; no palette quantization"
+    },
+    {
+      "path": "maps/walk-frames/frame-004-left.png",
+      "purpose": "independent-frame",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 6586,
+      "sha256": "d160bc1acc046cbe0e26e4a9026f86b18fc55261c617e626021dd406cb142c4d",
+      "compression": "oxipng lossless; no palette quantization"
+    },
+    {
+      "path": "maps/walk-frames/frame-004.png",
+      "purpose": "independent-frame",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 6526,
+      "sha256": "d44e441c38c5886ec307cb6a929a02c07dcc0d7ccd0aa9c71026c2e308183afc",
+      "compression": "oxipng lossless; no palette quantization"
+    },
+    {
+      "path": "maps/walk-frames/frame-005-left.png",
+      "purpose": "independent-frame",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 7643,
+      "sha256": "0c972dc394453bfac21574294224c36d482e863b7be265b192d77adae2984a48",
+      "compression": "oxipng lossless; no palette quantization"
+    },
+    {
+      "path": "maps/walk-frames/frame-005.png",
+      "purpose": "independent-frame",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 7634,
+      "sha256": "a61507cd31d27ec0becaf22732da853e9c1691335e604c12b03700c50c1f59cf",
+      "compression": "oxipng lossless; no palette quantization"
+    }
+  ],
+  "visual_review": [
+    "battle dark/light original/new boards",
+    "map dark/light source/new boards",
+    "pose4 single nocked arrow; pose1 and5 empty bow",
+    "idle source-confirmed northeast drawn bow, single nocked arrow, crouched legs, upper bow limb above hair",
+    "strings and full bow/boots contour visible on both backgrounds",
+    "tick44 projectile tip begins at new bow grip; tick45 moves forward using native compositor"
+  ],
+  "idle_semantic_audit": {
+    "conclusion": "class12 idle is a crouched northeast drawn-bow ready stance with one nocked arrow, not an upright empty bow or a large hat",
+    "native_frame_size": [
+      24,
+      24
+    ],
+    "native_coordinate_landmarks": {
+      "upper_bow_tip": [
+        8,
+        4
+      ],
+      "lower_bow_tip": [
+        18,
+        14
+      ],
+      "drawing_hand_string_junction": [
+        9,
+        12
+      ],
+      "bow_grip_approx": [
+        13,
+        8
+      ],
+      "arrow_axis_tip_approx": [
+        16,
+        4
+      ]
+    },
+    "identification": "Upper horizontal and right vertical pale outline form diagonally held bow limbs. The two lower-left edges converge at the drawn string/nock. Central pale staircase extends toward upper right as the arrow shaft/tip. Head and crouching body lie below-left. Both hands are active.",
+    "evidence": [
+      "reference/map-idle-two-pose-geometry-guide.png",
+      "reference/map-idle-00-tight-16x.png",
+      "reference/map-idle-02-tight-16x.png"
+    ],
+    "diagnostic_rotation": "Only the source crop was rotated clockwise45 for identification; no final art was programmatically rotated or drawn.",
+    "class_13_20_note": "Class13/20 carry their bows differently. Do not use their more vertical poses to reinterpret class12 or copy this crouch blindly to them.",
+    "selected_imagegen_source": "maps/source/idle-generated-v5.png",
+    "rejected_versions": {
+      "idle-generated-v1.png": "aim too shallow; large phase difference",
+      "idle-generated-v2.png": "aim still shallow",
+      "idle-generated-v3.png": "arrow intersected upper limb rather than hand/grip",
+      "idle-generated-v4.png": "weapon corrected, but second-frame upper settle too small"
+    },
+    "native_timing": {
+      "cycle": [
+        0,
+        1,
+        2,
+        1
+      ],
+      "frame_ticks": [
+        14,
+        8,
+        14,
+        8
+      ],
+      "aliases": [
+        [
+          0,
+          1,
+          3,
+          4,
+          5
+        ],
+        [
+          2
+        ]
+      ],
+      "projectile_event_added": false
+    },
+    "review": "Source geometry independently confirmed by source_catalog. Root passed final battle and map walk/idle light previews; agent checked both backgrounds and foot XY.",
+    "ally_enemy_comparison": "Idle alpha geometry identical with different native palette. Walk RGBA byte-identical. Battle canonical1/4/5 must use ally source, not enemy1/5/6.",
+    "shared_identification_evidence": "../class-12-enemy/reference/idle-semantic-audit.json"
+  },
+  "registration_policy": "Explicit boot regions; x error<=0.5px and y error<=1px. Uniform resize plus rigid translation only. No horizontal body clamp.",
+  "compression_policy": "Visual quality preserved;3-pose atlas exceeds50KB guideline while all independent frames stay below50KB. Source generation originals isolated in source/.",
+  "runtime_integration": false,
+  "godot_started": false,
+  "original_source_and_actual_unchanged": true,
+  "current_native_tactical_walk": "maps/native-walk-qa-report.json",
+  "native_walk_source_verified": true,
+  "native_walk_parent_visual_review_passed": true,
+  "historical_tactical_walk_reference_status": "Prior CHR26/village-table walk source and slack-bow art superseded; retained only as history."
+}

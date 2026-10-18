@@ -1,5 +1,6 @@
 extends RefCounted
 ## Small explorable story rooms. Facing interaction and visual objects share cells.
+const ThirdHub = preload("res://core/chapter3_hub.gd")
 var ui
 var room := "P00"
 var objects: Array=[]
@@ -23,6 +24,8 @@ func _init(owner) -> void:
 	ui=owner
 	var data=ui.GameState.read_json("res://data/chapter2_hubs.json")
 	chapter2_rooms=data.get("rooms",{});east_materials=data.get("materials",{})
+	var third=ui.GameState.read_json("res://data/chapter3_hubs.json")
+	chapter2_rooms.merge(third.rooms);east_materials.merge(third.materials)
 func process(delta: float) -> void:
 	clock+=delta
 	if motion_left>0.0:
@@ -50,6 +53,8 @@ func resume() -> void:enter_room(ui.game.hub_record,true)
 func enter(_id: int,_at: Vector2i) -> void:enter_world()
 
 func enter_world() -> void:
+	if ui.game.chapter==3:
+		enter_room(ui.game.ChapterThree.room_for(ui.game));return
 	if ui.game.flags.get("chapter2_complete",false) and ui.game.route=="celica" and ui.game.world_node==6:
 		enter_room("H27");return
 	var rooms={1:"H01",2:"H07",3:"H02",4:"H03",5:"H05",6:"H06",31:"H08",32:"H09",17:"H21",18:"H22",19:"H23",20:"H24",21:"H25",22:"H26",23:"H27",33:"H22",34:"H24"}
@@ -171,6 +176,8 @@ func action(key: String) -> void:
 		return
 	if g.party.has(key) and g.is_dying(g.roster.get(key,{})):
 		await ui.play_pages([{"speaker":"医者","text":str(g.roster[key].name_zh)+"仍在队伍中，由我们照护，暂时不能出阵。可在部队状态查看伤情。"}],"hub");return
+	if g.chapter==3:
+		await ThirdHub.action(self,key);g.save_game();return
 	if not east_data.is_empty():
 		await _east_action(key);g.save_game();return
 	match key:
@@ -241,6 +248,7 @@ func action(key: String) -> void:
 	ui.game.save_game()
 
 func finish_story(callback: String) -> void:
+	if callback.begins_with("third_"):ThirdHub.finish(self,callback);return
 	match callback:
 		"prologue":ui.game.flags.prologue_done=true;ui.game.world_node=1;enter_room("H01")
 		"grave":ui.game.flags.village_ready=true
@@ -253,12 +261,14 @@ func finish_story(callback: String) -> void:
 
 func open_system_menu() -> void:
 	if ui.busy:return
+	if ui.game.can_switch_route():
+		ui._open_menu("hub_system",["部队整备","切换队伍","保存进度","返回标题"],["new:camp","new:switch","new:save","title"],Vector2(48,64));return
 	ui._open_menu("hub_system",["部队整备","保存进度","返回标题"],["new:camp","new:save","title"],Vector2(48,72))
 
 func _open_treatment() -> void:
 	var g=ui.game
 	var source="church" if room=="H04" else "lighthouse" if room=="H25" else ""
-	if source.is_empty() or g.Casualties.SOURCES[source]!=g.route or not g.flags.get("treatment_sources",{}).get(source,false):
+	if not (room=="H10" and g.flags.get("D33_done",false)) and (source.is_empty() or g.Casualties.SOURCES[source]!=g.route or not g.flags.get("treatment_sources",{}).get(source,false)):
 		ui._notice("先完成教堂合作或安置岛民，开放本队救治份额",6);return
 	if g.treatment_remaining()<=0:ui._notice("本队救治份额已经用尽",6);return
 	var labels=[];var actions=[]
@@ -296,7 +306,7 @@ func draw() -> void:
 		else:
 			var tex=ui._tex(str(o.get("sprite_path","res://assets/battle_tiles/modules/"+str(o.sprite)+".png")));ui.draw_texture(tex,at-Vector2(0,tex.get_height()-16),Color.WHITE if o.sprite in ["sun_altar","lit_brazier","ritual_lamp","well"] else _east_environment_tint())
 		if ui.game.hub_position+facing==Vector2i(o.position[0],o.position[1]):ui._draw_indicator("down",at+Vector2(4,-8))
-	var source_id="2" if not east_data.is_empty() else "1"
+	var source_id="2" if ui.game.route=="celica" else "1"
 	var sp: Dictionary=ui.graphics.village_sprites[source_id]
 	if ui.has_method("_personal_hub_sprite"):sp=ui.call("_personal_hub_sprite",sp)
 	var direction="up" if facing.y<0 else "side" if facing.x!=0 else "down"
@@ -323,7 +333,14 @@ func _configure_east_room() -> void:
 			if not ui.game.flags.get("east_recruit_ready",{}).get(id,false) and not ui.game.party.has(id):continue
 			if bool(ui.game.roster.get(id,{}).get("dead",false)):continue
 		if o.action=="resistance_spring" and ui.game.flags.get("lighthouse_spring_used",false):o.name="抗性泉 · 已用尽"
-		if o.action=="treatment":o.name="救治泉 · 东队剩余"+str(ui.game.treatment_remaining())+"份"
+		if o.action=="treatment":o.name=("共享救治 · 剩余" if ui.game.chapter==3 else "救治泉 · 东队剩余")+str(ui.game.treatment_remaining())+"份"
+		if ui.game.chapter==3 and o.action in ["third_german","third_noya"]:
+			var member="german" if o.action=="third_german" else "noya"
+			if not ui.game.flags.get("chapter3_recruits",{}).get(member,false):o.name="安置记录";o.sprite="orders_case"
+		if ui.game.chapter==3 and o.action in ["third_reunion","third_council"]:
+			var present=(ui.game.stage_cleared(301) and ui.game.stage_cleared(304)) if o.action=="third_reunion" else (int(ui.game.route_positions.alm)==9 and int(ui.game.route_positions.celica)==9)
+			o.name=("艾琳" if ui.game.route=="alm" else "胡纳普") if present else "信使"
+			o.source=(2 if ui.game.route=="alm" else 1) if present else 5
 		objects.append(o)
 	for raw in east_data.scenery:
 		var d: Dictionary=raw.duplicate(true)
@@ -344,6 +361,9 @@ func east_walkable(at: Vector2i) -> bool:
 	return not scenery.any(func(d):return bool(d.get("blocking",true)) and d.rect.has_point(at))
 
 func _east_exit_allowed() -> bool:
+	if ui.game.chapter==3:
+		if room=="H30":ui._notice("先面对赫兰，接续庆典");return false
+		return true
 	var guards={"H21":["east_departure_ready","先与卡洛确认船牌与出航"],"H22":["F21_confirmed","先向船长确认押送舰的灯线"],"H23":["F22_confirmed","先在安置处照顾全部伤者"],"H24":["F23_confirmed","先向渔村长者确认岸线"],"H25":["islanders_settled","先请留守骑士安置岛民"]}
 	if room=="H27":ui._notice("先向广场前的守卫交涉");return false
 	if guards.has(room) and not ui.game.flags.get(guards[room][0],false):ui._notice(guards[room][1]);return false

@@ -1,0 +1,29 @@
+{
+  "id": "class-14-ally",
+  "display_name": "村民（职业样板）",
+  "status": "complete_art_review_passed",
+  "battle_mapping": "battle/frame_mapping.json",
+  "maps_mapping": "maps/frame_mapping.json",
+  "inventory": "image-inventory.json",
+  "qa": "qa-report.json",
+  "source_inspection": "source-inspection.json",
+  "history": {
+    "battle-keys-v1": "Costume accepted; sword side/length/grip refined.",
+    "battle-keys-v2": "Selected0/4/32 local grip/sword corrections.",
+    "motion-v1": "Three running steps and two strikes; blade lengths/angles/stance refined.",
+    "motion-v2": "Selected1–3/5/6;7 source slash composited separately.",
+    "maps-v1": "Initial large-headed form and wrong down-pointing walking blade retained only as history.",
+    "maps-v2": "Head proportion and upright short-tool corrections; selected walk and idle0/1.",
+    "idle002-v3-v4": "Recovered visible inward native blade and cleaned generated gray smudges; selectedv4."
+  },
+  "generator": "Built-in image_gen, all prompts and raw/history retained.",
+  "runtime_integrated": false,
+  "native_tactical_walk": {
+    "status": "complete_art_review_passed",
+    "source_audit": "verified_native_tactical",
+    "previous_mapping": "maps/source/previous-map-frame_mapping.json",
+    "new_frames": "maps/tactical-native-frames",
+    "new_atlas": "maps/frames/tactical-native-walk.png",
+    "proof": "../../source-input/corrected-tactical-walk/verification.json"
+  }
+}

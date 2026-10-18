@@ -11,7 +11,7 @@ static func award_clear(game, stage: int, announce: bool = true) -> void:
 	var rewards: Array = data().clear_rewards.get(str(stage), [])
 	var taken: Dictionary = game.flags.get("equipment_clear_rewards", {})
 	if rewards.is_empty() or taken.get(str(stage), false): return
-	var route := "alm" if stage < 200 else "celica"
+	var route: String = str(game.stages[stage].get("route", "alm" if stage < 200 else "celica"))
 	var names: Array[String] = []
 	for item in rewards:
 		# Automatic rewards preserve equipment even when manual storage is full.

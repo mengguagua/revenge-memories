@@ -1,0 +1,96 @@
+{
+  "phase": "read_only_preparation_until_class6_review",
+  "class_id": 5,
+  "source_side": "ally",
+  "display_name": "隼骑士",
+  "source_identity": "Mounted human rider and feather-winged pegasus; not enemy class5 necrodragon.",
+  "battle": {
+    "canonical_frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      49,
+      50
+    ],
+    "exact_aliases": {
+      "25": 0,
+      "48": 0
+    },
+    "frame_size": [
+      96,
+      136
+    ],
+    "output_frame_size": [
+      384,
+      544
+    ],
+    "anchor": [
+      48,
+      96
+    ],
+    "normal_attack_ticks": 158,
+    "normal_contact_tick": 79,
+    "javelin_variant_count": 6,
+    "single_contact_only": true,
+    "release_pose": 50,
+    "semantic_plan": [
+      "0/1 high raised wing phases;2 swept/curled wing;3 downstroke with lower-left isolated segment to verify as far wing;4 horizontal far-wing segment near nose;5 upper flap.",
+      "6/7 spear settling/attack transition and49 level javelin raise;50 release must be empty-hand after launch, original external projectile timing retained.",
+      "Class3 tight bounding boxes correspond after native(+8,+24), but every full corresponding alpha differs. Never claim exact source geometry or reuse whole rendered frames.",
+      "Foot ROI comparison proves9/10 local hoof regions alpha+palette-index exact; pose3 ROI differs and requires own visible anatomy before registration."
+    ]
+  },
+  "maps": {
+    "source_chr": 19,
+    "native_frame_size": [
+      32,
+      24
+    ],
+    "output_frame_size": [
+      128,
+      96
+    ],
+    "native_slots": 8,
+    "directions": {
+      "up": [
+        0,
+        1
+      ],
+      "right": [
+        2,
+        3
+      ],
+      "down": [
+        4,
+        5
+      ],
+      "left": [
+        6,
+        7
+      ]
+    },
+    "direction_mirror_x": {},
+    "native_mirror_aliases": {
+      "6": {
+        "source_slot": 2,
+        "transform": "horizontal-mirror-full-canvas",
+        "rgba_exact": true
+      },
+      "7": {
+        "source_slot": 3,
+        "transform": "horizontal-mirror-full-canvas",
+        "rgba_exact": true
+      }
+    },
+    "ground_projection": "Inspect own source rows22/23 and preserve verified original detached black shadow separately, as class3 only if proven.",
+    "weapon_end_semantics": "Pending own class5 original-pixel examination; do not inherit a generic blade-up assumption."
+  },
+  "design_plan": "Preserve female mounted identity family while upgrading cuirass/shoulder and saddle/cloth structure for falcon-knight tier; fine pixel-art, white pegasus and clear feather/horse/rider layer separation. Final costume subject to keypose review.",
+  "no_actual_changes": true,
+  "new_art_generated": false
+}

@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "purpose": "从明确映射生成离线对照演示；不写入游戏，不用旧素材填补缺帧。",
+  "build": "python3 tools/build_gallery.py",
+  "export": "python3 tools/export_gallery.py --action hunapu-battle--original_class_21_normal",
+  "battle_input": "递归读取 frame_mapping.json；original_class_id、character_id、output_frame_size、frame_mapping 必须明确。PNG 路径相对于映射文件。源帧、锚点和 OAM 分界由冻结 full-original-motion.json 决定。",
+  "generic_bundle": "其他场景可输出 gallery_bundle.json，其 profiles/actions 使用 gallery-data.json 同结构；资源路径相对于项目展示根目录。",
+  "map_profile_fields": ["id", "actor", "actorName", "classId", "className", "context", "contextName", "sourceAtlas", "sourceFrameSize", "sourceColumns", "sourceFrameCount", "anchor", "outputFrameSize", "newFrames"],
+  "map_action_fields": ["id", "profile", "key", "name", "context", "kind", "fps", "origin", "contactTick", "frames", "notes", "defaultVideo"],
+  "frame_fields": ["frame", "offset", "flip", "effects", "alpha", "tint", "shake"],
+  "position_rule": "origin + row.offset - anchor；仅 source frame < OAM cutoff 且 flip 时额外加 flipOriginOffset。效果用绝对场景 position - effect.anchor，flip 时加 effect.flip_origin_offset。",
+  "viewport": [-16, -32, 288, 176],
+  "acceptance": "素材齐备与视觉验收分开；网页资源加载失败会显示明确状态。",
+  "browser_rule": "本环境 file URL 访问已被拒绝；不通过HTTP服务器、其他浏览器或Playwright绕过。"
+}

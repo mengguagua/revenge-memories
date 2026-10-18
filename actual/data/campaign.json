@@ -1170,6 +1170,79 @@
       "side": "player",
       "dead": false,
       "acted": false
+    },
+    "noya": {
+      "id": "noya",
+      "character_id": 25,
+      "slot_id": 13,
+      "key": "noya",
+      "name_ja": "メイ",
+      "name_zh": "诺娅",
+      "class": "mage_f",
+      "class_id": 16,
+      "level": 5,
+      "hp": 26,
+      "max_hp": 26,
+      "exp": 0,
+      "strength": 12,
+      "skill": 6,
+      "speed": 7,
+      "luck": 3,
+      "defence": 5,
+      "magic_flags": 3,
+      "magic_level": 0,
+      "item_id": 0,
+      "move": 4,
+      "resistance": 10,
+      "growths": {
+        "strength": 40,
+        "skill": 20,
+        "speed": 10,
+        "luck": 10,
+        "defence": 20,
+        "hp": 20
+      },
+      "raw": [
+        13,
+        16,
+        1,
+        20,
+        0,
+        9,
+        1,
+        7,
+        5,
+        2,
+        3,
+        0
+      ],
+      "provenance": [
+        {
+          "file": "src/bank008.asm",
+          "label": "L089172",
+          "line": 1565
+        },
+        {
+          "file": "src/bank009.asm",
+          "label": "L098E75",
+          "line": 1960
+        },
+        {
+          "file": "src/bank015.asm",
+          "label": "L0FEE00",
+          "line": 7486
+        },
+        {
+          "file": "src/bank006.asm",
+          "label": "L068C0C",
+          "line": 1080
+        }
+      ],
+      "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+      "source_character": "sonya",
+      "side": "player",
+      "dead": false,
+      "acted": false
     }
   },
   "stages": {
@@ -1247,6 +1320,46 @@
       "code": "S22",
       "path": "res://data/stages/S22.json",
       "node": 34
+    },
+    "301": {
+      "code": "M31",
+      "path": "res://data/stages/M31.json",
+      "node": 6
+    },
+    "302": {
+      "code": "M32",
+      "path": "res://data/stages/M32.json",
+      "node": 7
+    },
+    "303": {
+      "code": "M33",
+      "path": "res://data/stages/M33.json",
+      "node": 8
+    },
+    "304": {
+      "code": "F31",
+      "path": "res://data/stages/F31.json",
+      "node": 6
+    },
+    "305": {
+      "code": "F32",
+      "path": "res://data/stages/F32.json",
+      "node": 24
+    },
+    "306": {
+      "code": "F33",
+      "path": "res://data/stages/F33.json",
+      "node": 25
+    },
+    "311": {
+      "code": "S31",
+      "path": "res://data/stages/S31.json",
+      "node": 35
+    },
+    "312": {
+      "code": "S32",
+      "path": "res://data/stages/S32.json",
+      "node": 36
     }
   },
   "initial_party": [
@@ -1483,9 +1596,155 @@
         "speaker": "旁白",
         "text": "广场的钟声响起。她被押到传光台前，故事回到庆典上的那一刻。"
       }
+    ],
+    "D31": [
+      {
+        "speaker": "旁白",
+        "text": "现在，海峡城庆典。胡纳普伸出的手仍停在两人之间，海峡另一岸的船还在等待靠岸。"
+      },
+      {
+        "speaker": "胡纳普",
+        "text": "先住手。让她把话说完。"
+      },
+      {
+        "speaker": "艾琳",
+        "text": "这是母亲的航图和裴萨的军令。你们说海上已经没人，可船上的伤者还活着。"
+      },
+      {
+        "speaker": "赫兰",
+        "text": "我听说群岛还有居民。我以为神会给迁徙留出时间。"
+      },
+      {
+        "speaker": "乌库布·卡基",
+        "text": "艾琳。那年你摔伤了腿，是你母亲背着你离开的。"
+      },
+      {
+        "speaker": "艾琳",
+        "text": "她的船后来被截住了。"
+      },
+      {
+        "speaker": "乌库布·卡基",
+        "text": "我让她留在受保护的海面。她没有听。"
+      },
+      {
+        "speaker": "胡纳普",
+        "text": "那现在船上的人呢？他们留在那里也活不下去。"
+      },
+      {
+        "speaker": "乌库布·卡基",
+        "text": "庇护将继续集中于西大陆。把他们送回去，大典以后，西岸能够接收的人会被列出来。"
+      },
+      {
+        "speaker": "艾琳",
+        "text": "他们等不到大典。"
+      },
+      {
+        "speaker": "赫兰",
+        "text": "这里的村庄刚刚有了日光。我不能让仪式停下来。"
+      },
+      {
+        "speaker": "胡纳普",
+        "text": "我不能让你们把她送回正在崩坏的海面。"
+      },
+      {
+        "speaker": "乌库布·卡基",
+        "text": "拘押阻止仪式的人。大典将完成转移。"
+      },
+      {
+        "speaker": "旁白",
+        "text": "守卫封住传光台。西队沿西街救出居民，东队返回码头接应伤者。"
+      }
+    ],
+    "D32": [
+      {
+        "speaker": "旁白",
+        "text": "两队在城外旧街暂时会合。获救者已经交给留守医者。"
+      },
+      {
+        "speaker": "胡纳普",
+        "text": "你去过眠谷吗？"
+      },
+      {
+        "speaker": "艾琳",
+        "text": "到了山口。东边的路已经不在了。"
+      },
+      {
+        "speaker": "胡纳普",
+        "text": "我记得你家门前有一棵树。"
+      },
+      {
+        "speaker": "艾琳",
+        "text": "母亲也一直记得。她画航图的时候，还在旁边画过那棵树。"
+      },
+      {
+        "speaker": "胡纳普",
+        "text": "……我本来想带你回去看看。"
+      },
+      {
+        "speaker": "艾琳",
+        "text": "先把船上的人安置好吧。还有人在等我们。"
+      },
+      {
+        "speaker": "胡纳普",
+        "text": "我借日塔保住了村庄，不能让他们再受冻。"
+      },
+      {
+        "speaker": "艾琳",
+        "text": "我见过另一岸失去庇护。不能继续扩大转移。"
+      },
+      {
+        "speaker": "胡纳普",
+        "text": "那就先截住军路和原料。我去查石堡，把运走的工匠带回来。"
+      },
+      {
+        "speaker": "艾琳",
+        "text": "我沿母亲的航图去盐路和提炼院。把记录查清，再谈怎样停塔。"
+      },
+      {
+        "speaker": "旁白",
+        "text": "两队约定由固定信使传递消息，分别行动。"
+      }
+    ],
+    "D33": [
+      {
+        "speaker": "工匠",
+        "text": "石堡的投送记录与提炼院的调节记录相符。断裂以前，各地地脉会互相调节，不必把所有庇护集中在神幕。"
+      },
+      {
+        "speaker": "术士",
+        "text": "现在的土地已经依赖日塔。还要找到完整观测记录，验证停用办法，不能直接拆塔。"
+      },
+      {
+        "speaker": "艾琳",
+        "text": "这是观测台的位置。拿到完整记录，我就送信回来。"
+      },
+      {
+        "speaker": "胡纳普",
+        "text": "日塔还在给北面的村庄供光。我不能现在拆掉它。"
+      },
+      {
+        "speaker": "艾琳",
+        "text": "我知道了。要是不能安全停用，我会告诉你。"
+      },
+      {
+        "speaker": "胡纳普",
+        "text": "那里的守军也会看见你。别只带几个术士过去。"
+      },
+      {
+        "speaker": "艾琳",
+        "text": "船长已经安排好护卫。你也把医者留在能照顾到人的地方。"
+      },
+      {
+        "speaker": "医者",
+        "text": "营站收到一份救治泉液。教堂和灯屋尚未使用的份额也已运来，今后两队共用。每人仍只能接受一次救治。"
+      },
+      {
+        "speaker": "旁白",
+        "text": "营站成为共同补给与传信处。下一步，西队护住北境村庄，东队寻找安全停用的观测记录。"
+      }
     ]
   },
-  "chapter_limit": 2,
+  "chapter_limit": 3,
   "asset_reuse": "Original portraits, map/class sprites, near combat animations; new identities and original campaign story",
   "mapping": {
     "hunapu": {
@@ -1551,6 +1810,10 @@
     "shia": {
       "story_name": "希雅",
       "source_character": "catria"
+    },
+    "noya": {
+      "story_name": "诺娅",
+      "source_character": "sonya"
     }
   },
   "rewards": {

@@ -1,0 +1,679 @@
+{
+  "schema_version": 1,
+  "actor_id": "enemy-gold-knight",
+  "character_id": "enemy-gold-knight",
+  "display_name": "敌方黄金骑士",
+  "class_id": 7,
+  "original_class_id": 7,
+  "source_side": "enemy",
+  "width_height_scale": 4,
+  "status": "complete_art_review_ready",
+  "runtime_integrated": false,
+  "source_originals_unchanged": true,
+  "identity_reference": "../battle/frames/frame-000.png",
+  "art_mode": "Built-in ImageGen; crop, uniform nearest scale, whole-frame translation and lossless compression only. No procedural character drawing.",
+  "scenarios": [
+    {
+      "id": "tactical-walk",
+      "class_id": 7,
+      "original_class_id": 7,
+      "source_side": "enemy",
+      "character_id": "enemy-gold-knight",
+      "display_name": "敌方黄金骑士",
+      "source_atlas": "../../../source-input/corrected-tactical-walk/class-7-enemy.png",
+      "source_frame_size": [
+        32,
+        24
+      ],
+      "source_anchor": [
+        16,
+        24
+      ],
+      "output_frame_size": [
+        128,
+        96
+      ],
+      "output_anchor": [
+        64,
+        96
+      ],
+      "logical_render_scale": 0.25,
+      "source_frame_count": 8,
+      "canonical_count": 8,
+      "redraw_count": 6,
+      "source_alias_to_canonical": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "exact_mirror_aliases": {
+        "6": {
+          "source_slot": 2,
+          "transform": "horizontal-mirror-full-canvas",
+          "rgba_exact": true
+        },
+        "7": {
+          "source_slot": 3,
+          "transform": "horizontal-mirror-full-canvas",
+          "rgba_exact": true
+        }
+      },
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_slot": 0,
+          "source_frame": 0,
+          "output_index": 0,
+          "path": "tactical-native-frames/frame-000.png",
+          "output_path": "tactical-native-frames/frame-000.png",
+          "direction": "up",
+          "phase": 0,
+          "source_frame_index": 19,
+          "source_frame_address": "L08872A",
+          "source_global_flip_already_applied": false,
+          "generated_source": "source/tactical-up-generated-v3.png",
+          "prompt": "source/tactical-up-prompt-v3.txt",
+          "registration_record": "source/tactical-native-registration.json",
+          "uniform_scale": 0.1386696730552424,
+          "registration_offset": [
+            2,
+            -19
+          ],
+          "registered_hoof_anchor": [
+            64.5,
+            92
+          ],
+          "whole_frame_mirror_x": false,
+          "derived_from": null,
+          "clipped_visible_alpha_gt4_pixels": 0,
+          "maximum_cropped_alpha": 0,
+          "compression": "oxipng -o3 lossless",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 7882,
+          "sha256": "17e1ad2e57936575107412f799e4afb9cadf65e38d5adc1ae524d74e87dd695e"
+        },
+        {
+          "source_index": 1,
+          "source_slot": 1,
+          "source_frame": 1,
+          "output_index": 1,
+          "path": "tactical-native-frames/frame-001.png",
+          "output_path": "tactical-native-frames/frame-001.png",
+          "direction": "up",
+          "phase": 1,
+          "source_frame_index": 20,
+          "source_frame_address": "L088732",
+          "source_global_flip_already_applied": false,
+          "generated_source": "source/tactical-up-generated-v3.png",
+          "prompt": "source/tactical-up-prompt-v3.txt",
+          "registration_record": "source/tactical-native-registration.json",
+          "uniform_scale": 0.1386696730552424,
+          "registration_offset": [
+            6,
+            -16
+          ],
+          "registered_hoof_anchor": [
+            69.5,
+            96
+          ],
+          "whole_frame_mirror_x": false,
+          "derived_from": null,
+          "clipped_visible_alpha_gt4_pixels": 0,
+          "maximum_cropped_alpha": 1,
+          "compression": "oxipng -o3 lossless",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 7873,
+          "sha256": "957da20a293eed408dc13a78daeca1ed319fbc7e59bae18a25a15647cd19ee9b"
+        },
+        {
+          "source_index": 2,
+          "source_slot": 2,
+          "source_frame": 2,
+          "output_index": 2,
+          "path": "tactical-native-frames/frame-002.png",
+          "output_path": "tactical-native-frames/frame-002.png",
+          "direction": "right",
+          "phase": 0,
+          "source_frame_index": 21,
+          "source_frame_address": "L08873A",
+          "source_global_flip_already_applied": true,
+          "generated_source": "source/tactical-right-generated-v2.png",
+          "prompt": "source/tactical-right-prompt-v2.txt",
+          "registration_record": "source/tactical-native-registration.json",
+          "uniform_scale": 0.12401352874859076,
+          "registration_offset": [
+            2,
+            -2
+          ],
+          "registered_hoof_anchor": [
+            34.0,
+            96
+          ],
+          "whole_frame_mirror_x": false,
+          "derived_from": null,
+          "clipped_visible_alpha_gt4_pixels": 0,
+          "maximum_cropped_alpha": 1,
+          "compression": "oxipng -o3 lossless",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8003,
+          "sha256": "cd50f7b2cb2eeef1b9bd6954ceeaaf632ae716ef012489efd2f2759925268217"
+        },
+        {
+          "source_index": 3,
+          "source_slot": 3,
+          "source_frame": 3,
+          "output_index": 3,
+          "path": "tactical-native-frames/frame-003.png",
+          "output_path": "tactical-native-frames/frame-003.png",
+          "direction": "right",
+          "phase": 1,
+          "source_frame_index": 22,
+          "source_frame_address": "L088740",
+          "source_global_flip_already_applied": true,
+          "generated_source": "source/tactical-right-generated-v2.png",
+          "prompt": "source/tactical-right-prompt-v2.txt",
+          "registration_record": "source/tactical-native-registration.json",
+          "uniform_scale": 0.12401352874859076,
+          "registration_offset": [
+            16,
+            -3
+          ],
+          "registered_hoof_anchor": [
+            70.0,
+            96
+          ],
+          "whole_frame_mirror_x": false,
+          "derived_from": null,
+          "clipped_visible_alpha_gt4_pixels": 0,
+          "maximum_cropped_alpha": 0,
+          "compression": "oxipng -o3 lossless",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 7572,
+          "sha256": "6362f9f100d9ff4211c374863084d81138017c04195874cd68f5750a1cd04042"
+        },
+        {
+          "source_index": 4,
+          "source_slot": 4,
+          "source_frame": 4,
+          "output_index": 4,
+          "path": "tactical-native-frames/frame-004.png",
+          "output_path": "tactical-native-frames/frame-004.png",
+          "direction": "down",
+          "phase": 0,
+          "source_frame_index": 23,
+          "source_frame_address": "L088746",
+          "source_global_flip_already_applied": false,
+          "generated_source": "source/tactical-down-generated-v1.png",
+          "prompt": "source/tactical-down-prompt-v1.txt",
+          "registration_record": "source/tactical-native-registration.json",
+          "uniform_scale": 0.12890625,
+          "registration_offset": [
+            -7,
+            7
+          ],
+          "registered_hoof_anchor": [
+            64.0,
+            96
+          ],
+          "whole_frame_mirror_x": false,
+          "derived_from": null,
+          "clipped_visible_alpha_gt4_pixels": 0,
+          "maximum_cropped_alpha": 1,
+          "compression": "oxipng -o3 lossless",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8582,
+          "sha256": "106649fde735fa5e08b102e77a8fd7da45edadec13513463e050a1a202713896"
+        },
+        {
+          "source_index": 5,
+          "source_slot": 5,
+          "source_frame": 5,
+          "output_index": 5,
+          "path": "tactical-native-frames/frame-005.png",
+          "output_path": "tactical-native-frames/frame-005.png",
+          "direction": "down",
+          "phase": 1,
+          "source_frame_index": 24,
+          "source_frame_address": "L08874E",
+          "source_global_flip_already_applied": false,
+          "generated_source": "source/tactical-down-generated-v1.png",
+          "prompt": "source/tactical-down-prompt-v1.txt",
+          "registration_record": "source/tactical-native-registration.json",
+          "uniform_scale": 0.12890625,
+          "registration_offset": [
+            9,
+            6
+          ],
+          "registered_hoof_anchor": [
+            66.0,
+            96
+          ],
+          "whole_frame_mirror_x": false,
+          "derived_from": null,
+          "clipped_visible_alpha_gt4_pixels": 0,
+          "maximum_cropped_alpha": 3,
+          "compression": "oxipng -o3 lossless",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8176,
+          "sha256": "c2bf185281df38341ff8de35680e477d76be80bb7791bfc154804521c39da4df"
+        },
+        {
+          "source_index": 6,
+          "source_slot": 6,
+          "source_frame": 6,
+          "output_index": 6,
+          "path": "tactical-native-frames/frame-006.png",
+          "output_path": "tactical-native-frames/frame-006.png",
+          "direction": "left",
+          "phase": 0,
+          "source_frame_index": 21,
+          "source_frame_address": "L08873A",
+          "source_global_flip_already_applied": false,
+          "generated_source": "source/tactical-right-generated-v2.png",
+          "prompt": "source/tactical-right-prompt-v2.txt",
+          "registration_record": "source/tactical-native-registration.json",
+          "uniform_scale": 0.12401352874859076,
+          "registration_offset": [
+            2,
+            -2
+          ],
+          "registered_hoof_anchor": [
+            94.0,
+            96
+          ],
+          "whole_frame_mirror_x": true,
+          "derived_from": 2,
+          "clipped_visible_alpha_gt4_pixels": 0,
+          "maximum_cropped_alpha": 1,
+          "compression": "oxipng -o3 lossless",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8019,
+          "sha256": "c1b4fa9a83eaf968c1bc37c57ff70fc05b32d1032e68c856a881e75d440c063c"
+        },
+        {
+          "source_index": 7,
+          "source_slot": 7,
+          "source_frame": 7,
+          "output_index": 7,
+          "path": "tactical-native-frames/frame-007.png",
+          "output_path": "tactical-native-frames/frame-007.png",
+          "direction": "left",
+          "phase": 1,
+          "source_frame_index": 22,
+          "source_frame_address": "L088740",
+          "source_global_flip_already_applied": false,
+          "generated_source": "source/tactical-right-generated-v2.png",
+          "prompt": "source/tactical-right-prompt-v2.txt",
+          "registration_record": "source/tactical-native-registration.json",
+          "uniform_scale": 0.12401352874859076,
+          "registration_offset": [
+            16,
+            -3
+          ],
+          "registered_hoof_anchor": [
+            58.0,
+            96
+          ],
+          "whole_frame_mirror_x": true,
+          "derived_from": 3,
+          "clipped_visible_alpha_gt4_pixels": 0,
+          "maximum_cropped_alpha": 0,
+          "compression": "oxipng -o3 lossless",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 7592,
+          "sha256": "cd2ba20ac1a3bc043db8e1bcf0b929305b75e018b9c6e0094c79d36a35c29e5f"
+        }
+      ],
+      "output_atlas": "frames/tactical-native-walk.png",
+      "output_atlas_bytes": 58002,
+      "directions": {
+        "up": [
+          0,
+          1
+        ],
+        "right": [
+          2,
+          3
+        ],
+        "down": [
+          4,
+          5
+        ],
+        "left": [
+          6,
+          7
+        ]
+      },
+      "direction_mirror_x": {},
+      "default_facing": "native-rendered-per-slot",
+      "static_facing": false,
+      "timing": {
+        "native_fps": 60.0988,
+        "frame_ticks": 16,
+        "cycle_ticks": 32,
+        "phase_source": "$36 & $10 selects phase; L0BB62C",
+        "movement_pixels_per_tick": 1,
+        "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+      },
+      "idle": {
+        "kind": "hold-current-direction-first-frame",
+        "directions": {
+          "up": [
+            0
+          ],
+          "right": [
+            2
+          ],
+          "down": [
+            4
+          ],
+          "left": [
+            6
+          ]
+        }
+      },
+      "source_audit": {
+        "status": "verified_native_tactical",
+        "overlay": "../../../source-input/corrected-tactical-walk/overlay.json",
+        "verification": "../../../source-input/corrected-tactical-walk/verification.json",
+        "entry": "bank011:L0BB5B1",
+        "caller": "bank006:L06BA0A→bank11 dispatch3 L0BB59D",
+        "chr": 19,
+        "native_actor_origin": [
+          16,
+          16
+        ],
+        "anchor_note": "Rendering anchor is native actor origin+[0,8] matching map tile base; not inferred anatomical foot or wing tip. Native OAM Y adds hardware+1.",
+        "source_rom_sha256": "beafb14c1a45eb094e525d6d13b8dac1c43426fbbc51669fad14970808fa983d",
+        "cpu_oam_matches": 352,
+        "old_source_rejected": "Historical CHR26+village OAM hybrid has no exact source matches and is not used for new art.",
+        "art_review_status": "parent_visual_review_passed"
+      },
+      "adaptation_note": "Six true CHR19 mounted views/steps, plus two exact mirror derivatives. Up rear and down frontal are independent drawings; no static idle reuse. Lance ends follow source occlusion: upper blunt cap/lower steel in vertical carries, only short wooden butt visible in side view. No additional direction mirror after CPU-composed sources.",
+      "preview_dark": "previews/tactical-native-walk-dark.gif",
+      "preview_light": "previews/tactical-native-walk-light.gif"
+    },
+    {
+      "id": "tactical-idle",
+      "class_id": 7,
+      "original_class_id": 7,
+      "source_side": "enemy",
+      "character_id": "enemy-gold-knight",
+      "display_name": "敌方黄金骑士",
+      "source_atlas": "reference/idle-source-atlas.png",
+      "original_source_path": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_7_enemy.png",
+      "source_frame_size": [
+        24,
+        24
+      ],
+      "source_anchor": [
+        12,
+        20
+      ],
+      "output_atlas": "deliverables/tactical-idle.png",
+      "output_frame_size": [
+        96,
+        96
+      ],
+      "output_anchor": [
+        48,
+        80
+      ],
+      "logical_render_scale": 0.25,
+      "canonical_count": 3,
+      "source_alias_to_canonical": [
+        0,
+        1,
+        2,
+        1,
+        0,
+        1
+      ],
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "canonical_source_index": 0,
+          "output_index": 0,
+          "path": "deliverables/tactical-idle-00.png",
+          "output_path": "deliverables/tactical-idle-00.png",
+          "selected_source": "source/idle-selected-00.png",
+          "generated_source": "source/idle-generated-v1.png",
+          "prompt": "source/idle-prompt-v1.txt",
+          "registration_record": "source/idle-registration.json",
+          "whole_frame_mirror_x": false,
+          "registration_offset": [
+            4,
+            5
+          ],
+          "registered_hoof_anchor": [
+            62.0,
+            80
+          ],
+          "clipped_nonzero_alpha_pixels": 0,
+          "compression": "oxipng -o3 lossless",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 7719,
+          "sha256": "8ce762f7d49f49184790732bda58c64ec4c860a225dbef1bf387cc8466452f5a"
+        },
+        {
+          "source_index": 1,
+          "canonical_source_index": 1,
+          "output_index": 1,
+          "path": "deliverables/tactical-idle-01.png",
+          "output_path": "deliverables/tactical-idle-01.png",
+          "selected_source": "source/idle-selected-01.png",
+          "generated_source": "source/idle-generated-v1.png",
+          "prompt": "source/idle-prompt-v1.txt",
+          "registration_record": "source/idle-registration.json",
+          "whole_frame_mirror_x": false,
+          "registration_offset": [
+            2,
+            5
+          ],
+          "registered_hoof_anchor": [
+            51.5,
+            80
+          ],
+          "clipped_nonzero_alpha_pixels": 0,
+          "compression": "oxipng -o3 lossless",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 8216,
+          "sha256": "403339afa30b2f7b04d2c967dd3b81b533002126c2615f46a5246125ddaf6c3a"
+        },
+        {
+          "source_index": 2,
+          "canonical_source_index": 2,
+          "output_index": 2,
+          "path": "deliverables/tactical-idle-02.png",
+          "output_path": "deliverables/tactical-idle-02.png",
+          "selected_source": "source/idle-selected-02.png",
+          "generated_source": "source/idle-generated-v1.png",
+          "prompt": "source/idle-prompt-v1.txt",
+          "registration_record": "source/idle-registration.json",
+          "whole_frame_mirror_x": false,
+          "registration_offset": [
+            11,
+            5
+          ],
+          "registered_hoof_anchor": [
+            42.0,
+            80
+          ],
+          "clipped_nonzero_alpha_pixels": 0,
+          "compression": "oxipng -o3 lossless",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 7561,
+          "sha256": "b2b8227dbf07092863d5a12c363f66426061b0b79b1576893ee082f6a7d3d6e5"
+        },
+        {
+          "source_index": 3,
+          "canonical_source_index": 1,
+          "output_index": 3,
+          "path": "deliverables/tactical-idle-03.png",
+          "output_path": "deliverables/tactical-idle-03.png",
+          "selected_source": "source/idle-selected-01.png",
+          "generated_source": "source/idle-generated-v1.png",
+          "prompt": "source/idle-prompt-v1.txt",
+          "registration_record": "source/idle-registration.json",
+          "whole_frame_mirror_x": false,
+          "registration_offset": [
+            2,
+            5
+          ],
+          "registered_hoof_anchor": [
+            51.5,
+            80
+          ],
+          "clipped_nonzero_alpha_pixels": 0,
+          "compression": "oxipng -o3 lossless",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 8216,
+          "sha256": "403339afa30b2f7b04d2c967dd3b81b533002126c2615f46a5246125ddaf6c3a"
+        },
+        {
+          "source_index": 4,
+          "canonical_source_index": 0,
+          "output_index": 4,
+          "path": "deliverables/tactical-idle-04.png",
+          "output_path": "deliverables/tactical-idle-04.png",
+          "selected_source": "source/idle-selected-00.png",
+          "generated_source": "source/idle-generated-v1.png",
+          "prompt": "source/idle-prompt-v1.txt",
+          "registration_record": "source/idle-registration.json",
+          "whole_frame_mirror_x": false,
+          "registration_offset": [
+            4,
+            5
+          ],
+          "registered_hoof_anchor": [
+            62.0,
+            80
+          ],
+          "clipped_nonzero_alpha_pixels": 0,
+          "compression": "oxipng -o3 lossless",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 7719,
+          "sha256": "8ce762f7d49f49184790732bda58c64ec4c860a225dbef1bf387cc8466452f5a"
+        },
+        {
+          "source_index": 5,
+          "canonical_source_index": 1,
+          "output_index": 5,
+          "path": "deliverables/tactical-idle-05.png",
+          "output_path": "deliverables/tactical-idle-05.png",
+          "selected_source": "source/idle-selected-01.png",
+          "generated_source": "source/idle-generated-v1.png",
+          "prompt": "source/idle-prompt-v1.txt",
+          "registration_record": "source/idle-registration.json",
+          "whole_frame_mirror_x": false,
+          "registration_offset": [
+            2,
+            5
+          ],
+          "registered_hoof_anchor": [
+            51.5,
+            80
+          ],
+          "clipped_nonzero_alpha_pixels": 0,
+          "compression": "oxipng -o3 lossless",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 8216,
+          "sha256": "403339afa30b2f7b04d2c967dd3b81b533002126c2615f46a5246125ddaf6c3a"
+        }
+      ],
+      "directions": {
+        "all": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "direction_mirror_x": {},
+      "default_facing": "fixed",
+      "static_facing": true,
+      "timing": {
+        "native_fps": 60.0988,
+        "cycle_frames": [
+          0,
+          1,
+          2,
+          1
+        ],
+        "frame_ticks": [
+          14,
+          8,
+          14,
+          8
+        ]
+      },
+      "adaptation_note": "Mounted left-facing native static idle; lifted forehoof / paired support / lifted hindhoof phases. Diagonal lance is distinct from legs; bottom black strip not treated as all hoof soles.",
+      "preview_dark": "previews/tactical-idle-dark.gif",
+      "preview_light": "previews/tactical-idle-light.gif"
+    }
+  ],
+  "tactical_walk_status": "Corrected verified native CHR19 source; six new ImageGen poses plus two exact mirrors. Old hybrid references historical only.",
+  "qa": {
+    "review": "previews/idle-original-dark-light.png",
+    "registration": "source/idle-registration.json",
+    "checks": [
+      "All6static slotsRGBA96x96",
+      "Exact original aliases0/4,1/3/5,2",
+      "Visible hoof ROIs exclude lance and broad black source baseline",
+      "Complete alpha silhouette preserved without clipping",
+      "Fixed original facing; no map enemy battle mirror applied",
+      "No runtime integration or source modification"
+    ],
+    "native_walk_review": "previews/tactical-native-original-dark-light.png",
+    "native_walk_registration": "source/tactical-native-registration.json",
+    "orientation": "8CPU-composed slots already include directional flips; direction_mirror_x is empty. Slots6/7 derive from exact full-canvas mirror proof of2/3.",
+    "alpha_policy": "Inside-canvas original alpha preserved. Anatomical hoof ROI excludes weapons; alpha>4 visible sole edge for Y. Cropped outside-canvas noise maxalpha<=4, zero visible contour clipping."
+  }
+}

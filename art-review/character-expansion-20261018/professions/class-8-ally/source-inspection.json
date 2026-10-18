@@ -1,0 +1,23 @@
+{
+  "source_class_id": 8,
+  "side": "ally",
+  "battle": [
+    "Short split cloth/armor panels below waist, not exposed upper thighs. No source shield; new single brass shoulder guard and short purple coat preserve separate limbs.",
+    "1 compact preparation,2 airborne transition,3 folded-leg windup,4/5 long leading leg and folded other leg,7 lowered recovery,16 upright sword.",
+    "Source7 shifted -1 native pixel is exact RGBA subset of6; only the remaining original arc is retained as source effect. Source8/15 exactly alias0."
+  ],
+  "map": [
+    "Original CPU tactical CHR26 uses eight independent poses; no mirror aliases.",
+    "Up0/1 rear sword on image-right; paired head-edge light pixels are not high fists. Empty arm merges into coat-side silhouette.",
+    "Right2/3 mostly frontal face, left6/7 leftward face; all right/down/left poses hold visible sword on image-left.",
+    "Static idle uses original three fixed-facing phases, upright sword with small inward grip/angle change.",
+    "Opaque black original pixels and white blade are both inspected with contrasting backgrounds."
+  ],
+  "known_redesign_differences": "Not pixel-identical anatomy. Per-boot, blade shaping and garment differences remain. Frame16 tip is5 outputpx above source; frame3 blade tip is about12px below source; frame4 blade tip differs by about11outputpx horizontally. Chosen registration point does not certify all joints.",
+  "source_proofs": [
+    "battle/reference/ally-enemy-source-comparison.json",
+    "battle/reference/slash-reuse-proof.json",
+    "maps/reference/tactical-native-source.json"
+  ],
+  "identity_scope": "Profession exemplar only. Does not unlock Carlo equipment or abilities."
+}

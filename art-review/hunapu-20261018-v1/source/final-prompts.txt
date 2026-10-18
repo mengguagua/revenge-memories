@@ -1,0 +1,31 @@
+制作方式：Astra ultra 负责美术方案与检查，内置 ImageGen 生成；以下保留实际选用的提示词。
+状态：待用户验收，存在头肩及局部手剑/脚部位置偏差，未接入游戏。
+
+
+整套人物重绘
+Use case: precise-object-edit. Make a targeted correction to INPUT1, the ten-frame navy/ivory armored-skirt character atlas. INPUT2 is the exact ORIGINAL POSE AND PROPORTION GUIDE. Keep the costume design from input1. Correct anatomy according to input2. Preserve5 columns×2 rows and the transparent canvas; top row0–4,bottom5–9.
+
+ONLY THESE CORRECTIONS:
+1. Restore the original SMALL, NARROW HEADS AND COMPACT HAIR. Input1's heads/hair are much too wide and tall, making him look chibi. The original head envelope in input2 is the standard. Reduce the current head/hair widths to about60% and heights to about65%, using input2's actual head coordinates. Keep the top of the head and face orientation where the original reference places them. Compact, closely fitted short blue-black side-parted hair with a visible forehead and no round puff of hair. Tiny blue eyes, youthful17-year-old male, but NEVER enlarge a head for facial detail.
+2. Align head, neck, shoulders, and waist belt to the original reference. Large heads in input1 pushed shoulders/belt too low and shortened the hanging skirt. Correct the upper body back to the ORIGINAL visible source positions. Keep the skirt hem, exposed lower-leg ranges, feet, hands, sword grip and endpoints at their original source locations. Do not stretch legs or estimate hidden hips/knees. The body should be the original slender small-headed body, not a four-heads-tall chibi.
+3. REMOVE EVERY MOTION TRAIL, CRESCENT, GLOW, SPARK, YELLOW/RED EDGE NOISE AND MAGIC EFFECT FROM THE ENTIRE ATLAS. Pose8(bottom fourth) and pose9(bottom fifth) MUST HAVE IDENTICAL HUMAN BODY AND REAL SWORD, exactly as in input2. Only render the thin copper sword held in the hands, no extra arc. The slash effect will be added separately later.
+
+KEEP THE CORRECT LOWER-GARMENT SEMANTICS: beneath the belt are THREE HANGING ARMORED SKIRT PANELS, covering the pelvis and upper thighs; NEVER expose a trouser crotch or reinterpret the hanging panels as long trouser legs. Preserve front panel/two side panels, navy cloth/leather with restrained thin ivory trim, ivory vest, navy sleeves, small brown belt/cuffs/boots. Stable identical colors, panel count, fabric and hardware in all ten poses. No new decoration. No enlarging shoulder pads. Retain clear original skirt coverage in bent and overhead poses.
+Original geometry is most important: input2 is the exact positional map for head/shoulders/waist and every visible limb, body lean, sword angle and foot. Keep original frame order and differences. In overhead poses5/6/7, match the source straight long arm positions and the three distinct sword angles. Keep each figure at the source relative scale and placement with transparent gaps between frames; no clipping or crossing cells.
+
+True crisp high-resolution PIXEL ART, clean deliberate small color clusters and short highlight ramps; no blurry edge noise or antialiased matte fringe. Truly transparent background. No labels, grids, ground shadows, backgrounds or effects. This is a precision correction of small-head proportions and source anatomy, not a new character design.
+
+
+第5、9姿势局部修订
+Use case: precise-object-edit. Make ONLY two tiny local corrections to INPUT IMAGE1, a 1280×576 transparent image containing TWO existing pixel-art animation frames in equal640×576 cells. Left cell is pose5, right cell is pose9. INPUT IMAGE2 shows the original animation ONLY AS A GUIDE TO THE FOREARM/HAND/SWORD endpoints and angles.
+
+STRICT EDIT MASK IN WORDS: only the visible forearms, hands gripping the sword, and the physical sword may change. The head, hair, eyes, shoulders, upper body, belt, three-panel armored skirt, exposed legs, boots, pose, body location, colors, outlines and every other detail in input1 MUST REMAIN PIXEL-IDENTICAL. Do not redesign or restyle. Do not reframe, scale, move or regenerate the figures. This is not a new character image. Preserve the same canvas, cell order and exact body positions.
+
+LEFT CELL (pose5, raised sword):
+The current sword tip is too high and too far left, and the grip is slightly too far left. Correct only the local forearm/hand grip and sword to match the original guide. At input1's2× working scale, desired sword tip is approximatelyx296,y192 WITHIN LEFT CELL, instead of currentx268,y164. The grip/visible raised hand should follow input2 at approximatelyx376–392,y256–280. Keep the existing slim copper metal design, but restore the ORIGINAL shorter visible reach and original upper-left blade angle. Do not move the head or raise/lower the shoulders/arms as a whole. Follow the reference silhouette where the hands/forearms are visible; do not invent hidden anatomy.
+
+RIGHT CELL (pose9, low follow-through):
+The current grip is too far toward the torso center/right and the sword diagonal down-left is too flat. Move ONLY the visible gripping hand/forearm slightly toward the original position, approximatelyx392,y440 WITHIN THE RIGHT CELL at this2× scale; set the sword point approximatelyx264,y504 within that cell. This is a modest localized change: slightly steeper down-left blade, grip a few pixels left/up at final scale, tip slightly right/up. Input2 is the final visual authority. Keep the existing torso lean, skirt panels, head and legs exactly unchanged. The sword is straight thin copper metal with the existing fine pale sharp edge; do not change sword style or add an extra hand.
+Coordinates are relative to each640×576 cell; do not include the right-cell offset when interpreting the right-cell coordinates.
+
+No slash trail, magic, glow, motion blur, text, labels, matte, new outline, red/yellow edge specks or background. Preserve true transparent alpha. Preserve original crisp pixel-art material and shading. Most of the image must be completely unchanged; alter only the two small forearm/grip/sword regions so their endpoints agree with input2.

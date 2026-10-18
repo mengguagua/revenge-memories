@@ -10,16 +10,16 @@ static func entry(key: String) -> Dictionary:
 	return {"path":data().assets[key].path,"size":[48,48],"key":key}
 static func phase_key(game, id: String) -> String:
 	if id=="hunapu":
-		if game.hub_record=="P00":return "hunapu_present"
+		if game.hub_record=="P00" or game.chapter>=3:return "hunapu_present"
 		return "hunapu_victory" if game.flags.get("korlan_defeated",false) else "hunapu_memory"
 	if id=="eileen":
-		if game.hub_record=="P00":return "eileen_present"
+		if game.hub_record=="P00" or game.chapter>=3:return "eileen_present"
 		return "eileen_chart" if game.flags.get("sea_chart_collected",false) else "eileen_departure"
 	return id
 static func unit(game, actor: Dictionary) -> Dictionary:
 	var id=str(actor.get("id",""))
 	if game.characters.has(id):return entry(phase_key(game,id))
-	var region="west" if game.stage_id<200 else "east"
+	var region="west" if game.route=="alm" else "east"
 	if actor.get("neutral",false) or actor.side in ["neutral","evacuated"]:
 		if actor.get("quest_kind","") in ["sailor","ship"]:return entry("old_sailor" if id=="old_sailor" else "sailor")
 		return entry("civilian_"+region)
@@ -50,7 +50,7 @@ static func speaker(game, name: String, emotion: String="") -> Dictionary:
 			return entry(key)
 	var direct={"赫兰":"herlan","科兰":"korlan","裴萨":"pesa","乌库布·卡基":"vucub","旧船员":"old_sailor","渔村长者":"island_elder","学舍导师":"scholar","船长":"sailor","舵手":"sailor","固定舵手":"sailor","船员":"sailor","求救船员":"sailor","守灯人":"sailor","矿工":"miner","洞民":"miner"}
 	if direct.has(name):return entry(direct[name])
-	var region="east" if game.chapter==2 else "west"
+	var region="east" if game.route=="celica" else "west"
 	if name in ["医者","岛上医者","地方医者","医师","船医"]:return entry("medic_"+region)
 	if name in ["管理员","仓吏","记录员","文书","账房"]:return entry("administrator_"+region)
 	if name in ["教团守卫","教团兵","教团守军","指挥官","士兵","守军","焚毁兵","投降兵","斥候","甲板护卫","留守骑士"]:return entry(region+"_infantry")

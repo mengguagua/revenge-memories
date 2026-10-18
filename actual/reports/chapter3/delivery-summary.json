@@ -1,0 +1,218 @@
+{
+  "version": "0.8.0",
+  "passed": true,
+  "chapter": 3,
+  "main_battles": 6,
+  "side_battles": 2,
+  "rooms": 9,
+  "first_round": [
+    {
+      "code": "M31",
+      "turn": 15,
+      "source": "play/round1b.json",
+      "stat_edits": false,
+      "forced_victories": false
+    },
+    {
+      "code": "F31",
+      "turn": 14,
+      "source": "play/round1c.json",
+      "stat_edits": false,
+      "forced_victories": false
+    },
+    {
+      "code": "F32",
+      "turn": 17,
+      "source": "play/round1c.json",
+      "stat_edits": false,
+      "forced_victories": false
+    },
+    {
+      "code": "S32",
+      "turn": 11,
+      "source": "play/round1final.json",
+      "stat_edits": false,
+      "forced_victories": false
+    },
+    {
+      "code": "F33",
+      "turn": 10,
+      "source": "play/round1final.json",
+      "stat_edits": false,
+      "forced_victories": false
+    },
+    {
+      "code": "M32",
+      "turn": 17,
+      "source": "play/round1final.json",
+      "stat_edits": false,
+      "forced_victories": false
+    },
+    {
+      "code": "S31",
+      "turn": 10,
+      "source": "play/round1final.json",
+      "stat_edits": false,
+      "forced_victories": false
+    },
+    {
+      "code": "M33",
+      "turn": 14,
+      "source": "play/round1final.json",
+      "stat_edits": false,
+      "forced_victories": false
+    }
+  ],
+  "second_round": [
+    {
+      "code": "M31",
+      "turn": 15,
+      "inputs": 1051,
+      "source": "play/round2-M31.json"
+    },
+    {
+      "code": "M32",
+      "turn": 13,
+      "inputs": 1111,
+      "source": "play/round2final-M32.json"
+    },
+    {
+      "code": "F33",
+      "turn": 11,
+      "inputs": 881,
+      "source": "play/round2final-F33.json"
+    }
+  ],
+  "state_checks": 517,
+  "hub_checks": 36,
+  "hub_inputs": 223,
+  "visual_fixture_shots": 33,
+  "real_play_shots": 8,
+  "layout_errors": [],
+  "source_checkpoint_sha256": "54127c38d59f458e873a8e25e5cea081f016d066a27f79119985a4521a11daf6",
+  "real_final_checkpoint": "play/round1final-chapter-end.json",
+  "reused_runtime_images": 28,
+  "maps": [
+    {
+      "code": "M31",
+      "name": "西街撤离",
+      "tiles": [
+        28,
+        24
+      ],
+      "enemies": 11,
+      "reinforcements": 2,
+      "notes": [
+        "西门移至西侧(1,7)，追捕队长守门；两条街连接拘押院南门。原蓝图东北角“西门”不沿用。"
+      ]
+    },
+    {
+      "code": "M32",
+      "name": "军需大道截运",
+      "tiles": [
+        32,
+        24
+      ],
+      "enemies": 11,
+      "reinforcements": 0,
+      "notes": []
+    },
+    {
+      "code": "M33",
+      "name": "沿海石堡",
+      "tiles": [
+        28,
+        26
+      ],
+      "enemies": 13,
+      "reinforcements": 0,
+      "notes": []
+    },
+    {
+      "code": "F31",
+      "name": "码头脱围",
+      "tiles": [
+        28,
+        22
+      ],
+      "enemies": 11,
+      "reinforcements": 2,
+      "notes": [
+        "部署调整到完整己方船甲板，登船点位于可见跳板内侧；南北两组伤者经码头主路返回。"
+      ]
+    },
+    {
+      "code": "F32",
+      "name": "盐路解围",
+      "tiles": [
+        28,
+        24
+      ],
+      "enemies": 12,
+      "reinforcements": 0,
+      "notes": []
+    },
+    {
+      "code": "F33",
+      "name": "提炼院后庭",
+      "tiles": [
+        28,
+        24
+      ],
+      "enemies": 12,
+      "reinforcements": 0,
+      "notes": []
+    },
+    {
+      "code": "S31",
+      "name": "山村地牢",
+      "tiles": [
+        22,
+        20
+      ],
+      "enemies": 9,
+      "reinforcements": 0,
+      "notes": [
+        "地牢两间牢房独立开门，家属分别保存；南侧连廊可到两门前。"
+      ]
+    },
+    {
+      "code": "S32",
+      "name": "盐原营地",
+      "tiles": [
+        28,
+        22
+      ],
+      "enemies": 9,
+      "reinforcements": 0,
+      "notes": []
+    }
+  ],
+  "known_limitations": [
+    "Play uses scripted actual keyboard/controller input and the original combat rules, not human playtesting or every tactical strategy.",
+    "The authentic old chapter2 checkpoint predates the injury system and is migrated in test copies; original file is untouched.",
+    "First-round repairs resume genuine checkpoints; abandoned and superseded attempts remain in play/.",
+    "Offscreen capture processes still report ObjectDB/resource cleanup warnings on exit.",
+    "Movement and combat animations are reused; no animation art or timing changes were made.",
+    "Chapter four content is not implemented."
+  ],
+  "fixed_issues": [
+    "Unmarked cobble damage inherited from reference terrain category 16.",
+    "Fast confirmation could outrun result settlement and return to the result page.",
+    "Prison geometry now has visible rails, a real southern gate, and matching opened tiles.",
+    "Correct silver/holy shield IDs and Noya class-compatible starter focus.",
+    "Third-chapter room module paths and native ground material names.",
+    "Real west gate, clear boarding exit, visible continuous transport road and route-specific city entrances."
+  ],
+  "package_checks": 52,
+  "signature_verified": true,
+  "pck_bytes": 149486384,
+  "pck_sha256": "fedbcef35f6d7a222996b8c03a37a9e783635dbe1c00b5ed0dcd2e49d0569d05",
+  "source_checkpoint_unchanged": true,
+  "animation_files_changed": false,
+  "regressions": {
+    "chapter2_state_checks": 621,
+    "casualty_checks": 56,
+    "passed": true
+  }
+}

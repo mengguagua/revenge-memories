@@ -1,0 +1,1349 @@
+{
+  "schema_version": 1,
+  "class_id": 12,
+  "source_side": "enemy",
+  "actor_id": "enemy-archer",
+  "character_id": "enemy-archer",
+  "display_name": "敌方弓箭手",
+  "width_height_scale": 4,
+  "runtime_integrated": false,
+  "art_mode": "Built-in image_gen; ImageMagick crop/uniform registration; oxipng lossless",
+  "scenarios": [
+    {
+      "id": "tactical-walk",
+      "class_id": 12,
+      "source_side": "enemy",
+      "character_id": "enemy-archer",
+      "display_name": "敌方弓箭手",
+      "source_atlas": "../../../source-input/original-motion/original-walk-12.png",
+      "source_frame_size": [
+        32,
+        24
+      ],
+      "source_anchor": [
+        16,
+        24
+      ],
+      "output_atlas": "frames/tactical-walk.png",
+      "output_frame_size": [
+        128,
+        96
+      ],
+      "output_anchor": [
+        64,
+        96
+      ],
+      "logical_render_scale": 0.25,
+      "output_atlas_bytes": 18135,
+      "frame_mapping": [
+        {
+          "source_frame": 0,
+          "representative_frame": 0,
+          "kind": "imagegen_from_native_pose",
+          "path": "walk-frames/frame-000.png",
+          "generated_source": "source/walk-generated-v3.png",
+          "generated_cell": [
+            0,
+            0,
+            887,
+            887
+          ],
+          "generated_content_bounds": [
+            364,
+            359,
+            731,
+            836
+          ],
+          "head_top": 359,
+          "generated_feet_roi": [
+            350,
+            800,
+            700,
+            850
+          ],
+          "generated_foot_bounds": [
+            422,
+            800,
+            621,
+            836
+          ],
+          "uniform_scale": 0.13417190775681342,
+          "resampled_size": [
+            50,
+            65
+          ],
+          "registration_offset": [
+            30,
+            31
+          ],
+          "output_foot_roi": [
+            30,
+            91,
+            75,
+            96
+          ],
+          "target_foot_anchor": [
+            52,
+            96
+          ],
+          "registered_foot_anchor": [
+            51.5,
+            96
+          ],
+          "foot_delta": [
+            -0.5,
+            0
+          ],
+          "visible_bounds": [
+            30,
+            31,
+            80,
+            96
+          ],
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8486,
+          "sha256": "243f66d4df6fad4e4a1bb3a0126ca393c6092366e953cbc60210c1ff2b61fc83",
+          "source_index": 0,
+          "output_index": 0,
+          "output_path": "walk-frames/frame-000.png",
+          "native_feet_roi": [
+            8,
+            21,
+            18,
+            24
+          ],
+          "native_foot_bounds": [
+            8,
+            21,
+            18,
+            24
+          ],
+          "source_visible_bounds": [
+            8,
+            8,
+            21,
+            24
+          ],
+          "direction": "right"
+        },
+        {
+          "source_frame": 1,
+          "representative_frame": 1,
+          "kind": "imagegen_from_native_pose",
+          "path": "walk-frames/frame-001.png",
+          "generated_source": "source/walk-generated-v3.png",
+          "generated_cell": [
+            887,
+            0,
+            1774,
+            887
+          ],
+          "generated_content_bounds": [
+            106,
+            366,
+            507,
+            836
+          ],
+          "head_top": 366,
+          "generated_feet_roi": [
+            90,
+            800,
+            530,
+            850
+          ],
+          "generated_foot_bounds": [
+            113,
+            800,
+            475,
+            836
+          ],
+          "uniform_scale": 0.13617021276595745,
+          "resampled_size": [
+            55,
+            65
+          ],
+          "registration_offset": [
+            42,
+            31
+          ],
+          "output_foot_roi": [
+            42,
+            91,
+            97,
+            96
+          ],
+          "target_foot_anchor": [
+            68,
+            96
+          ],
+          "registered_foot_anchor": [
+            68.0,
+            96
+          ],
+          "foot_delta": [
+            0.0,
+            0
+          ],
+          "visible_bounds": [
+            42,
+            31,
+            97,
+            96
+          ],
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8897,
+          "sha256": "1f663f269dde50113b067254d2cda8e3931b8f3283d5cd876287c7549e29939e",
+          "source_index": 1,
+          "output_index": 1,
+          "output_path": "walk-frames/frame-001.png",
+          "native_feet_roi": [
+            11,
+            20,
+            24,
+            24
+          ],
+          "native_foot_bounds": [
+            11,
+            20,
+            23,
+            24
+          ],
+          "source_visible_bounds": [
+            10,
+            8,
+            24,
+            24
+          ],
+          "direction": "right"
+        },
+        {
+          "source_frame": 2,
+          "representative_frame": 0,
+          "kind": "imagegen_from_native_pose",
+          "path": "walk-frames/frame-002.png",
+          "generated_source": "source/walk-generated-v3.png",
+          "generated_cell": [
+            0,
+            0,
+            887,
+            887
+          ],
+          "generated_content_bounds": [
+            364,
+            359,
+            731,
+            836
+          ],
+          "head_top": 359,
+          "generated_feet_roi": [
+            350,
+            800,
+            700,
+            850
+          ],
+          "generated_foot_bounds": [
+            422,
+            800,
+            621,
+            836
+          ],
+          "uniform_scale": 0.13417190775681342,
+          "resampled_size": [
+            50,
+            65
+          ],
+          "registration_offset": [
+            30,
+            31
+          ],
+          "output_foot_roi": [
+            30,
+            91,
+            75,
+            96
+          ],
+          "target_foot_anchor": [
+            52,
+            96
+          ],
+          "registered_foot_anchor": [
+            51.5,
+            96
+          ],
+          "foot_delta": [
+            -0.5,
+            0
+          ],
+          "visible_bounds": [
+            30,
+            31,
+            80,
+            96
+          ],
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8486,
+          "sha256": "243f66d4df6fad4e4a1bb3a0126ca393c6092366e953cbc60210c1ff2b61fc83",
+          "source_index": 2,
+          "output_index": 2,
+          "output_path": "walk-frames/frame-002.png",
+          "native_feet_roi": [
+            8,
+            21,
+            18,
+            24
+          ],
+          "native_foot_bounds": [
+            8,
+            21,
+            18,
+            24
+          ],
+          "source_visible_bounds": [
+            8,
+            8,
+            21,
+            24
+          ],
+          "direction": "right"
+        },
+        {
+          "source_frame": 3,
+          "representative_frame": 1,
+          "kind": "imagegen_from_native_pose",
+          "path": "walk-frames/frame-003.png",
+          "generated_source": "source/walk-generated-v3.png",
+          "generated_cell": [
+            887,
+            0,
+            1774,
+            887
+          ],
+          "generated_content_bounds": [
+            106,
+            366,
+            507,
+            836
+          ],
+          "head_top": 366,
+          "generated_feet_roi": [
+            90,
+            800,
+            530,
+            850
+          ],
+          "generated_foot_bounds": [
+            113,
+            800,
+            475,
+            836
+          ],
+          "uniform_scale": 0.13617021276595745,
+          "resampled_size": [
+            55,
+            65
+          ],
+          "registration_offset": [
+            42,
+            31
+          ],
+          "output_foot_roi": [
+            42,
+            91,
+            97,
+            96
+          ],
+          "target_foot_anchor": [
+            68,
+            96
+          ],
+          "registered_foot_anchor": [
+            68.0,
+            96
+          ],
+          "foot_delta": [
+            0.0,
+            0
+          ],
+          "visible_bounds": [
+            42,
+            31,
+            97,
+            96
+          ],
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8897,
+          "sha256": "1f663f269dde50113b067254d2cda8e3931b8f3283d5cd876287c7549e29939e",
+          "source_index": 3,
+          "output_index": 3,
+          "output_path": "walk-frames/frame-003.png",
+          "native_feet_roi": [
+            11,
+            20,
+            24,
+            24
+          ],
+          "native_foot_bounds": [
+            11,
+            20,
+            23,
+            24
+          ],
+          "source_visible_bounds": [
+            10,
+            8,
+            24,
+            24
+          ],
+          "direction": "right"
+        },
+        {
+          "source_frame": 4,
+          "representative_frame": 0,
+          "kind": "imagegen_from_native_pose",
+          "path": "walk-frames/frame-004.png",
+          "generated_source": "source/walk-generated-v3.png",
+          "generated_cell": [
+            0,
+            0,
+            887,
+            887
+          ],
+          "generated_content_bounds": [
+            364,
+            359,
+            731,
+            836
+          ],
+          "head_top": 359,
+          "generated_feet_roi": [
+            350,
+            800,
+            700,
+            850
+          ],
+          "generated_foot_bounds": [
+            422,
+            800,
+            621,
+            836
+          ],
+          "uniform_scale": 0.13417190775681342,
+          "resampled_size": [
+            50,
+            65
+          ],
+          "registration_offset": [
+            30,
+            31
+          ],
+          "output_foot_roi": [
+            30,
+            91,
+            75,
+            96
+          ],
+          "target_foot_anchor": [
+            52,
+            96
+          ],
+          "registered_foot_anchor": [
+            51.5,
+            96
+          ],
+          "foot_delta": [
+            -0.5,
+            0
+          ],
+          "visible_bounds": [
+            30,
+            31,
+            80,
+            96
+          ],
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8486,
+          "sha256": "243f66d4df6fad4e4a1bb3a0126ca393c6092366e953cbc60210c1ff2b61fc83",
+          "source_index": 4,
+          "output_index": 4,
+          "output_path": "walk-frames/frame-004.png",
+          "native_feet_roi": [
+            8,
+            21,
+            18,
+            24
+          ],
+          "native_foot_bounds": [
+            8,
+            21,
+            18,
+            24
+          ],
+          "source_visible_bounds": [
+            8,
+            8,
+            21,
+            24
+          ],
+          "direction": "right"
+        },
+        {
+          "source_frame": 5,
+          "representative_frame": 1,
+          "kind": "imagegen_from_native_pose",
+          "path": "walk-frames/frame-005.png",
+          "generated_source": "source/walk-generated-v3.png",
+          "generated_cell": [
+            887,
+            0,
+            1774,
+            887
+          ],
+          "generated_content_bounds": [
+            106,
+            366,
+            507,
+            836
+          ],
+          "head_top": 366,
+          "generated_feet_roi": [
+            90,
+            800,
+            530,
+            850
+          ],
+          "generated_foot_bounds": [
+            113,
+            800,
+            475,
+            836
+          ],
+          "uniform_scale": 0.13617021276595745,
+          "resampled_size": [
+            55,
+            65
+          ],
+          "registration_offset": [
+            42,
+            31
+          ],
+          "output_foot_roi": [
+            42,
+            91,
+            97,
+            96
+          ],
+          "target_foot_anchor": [
+            68,
+            96
+          ],
+          "registered_foot_anchor": [
+            68.0,
+            96
+          ],
+          "foot_delta": [
+            0.0,
+            0
+          ],
+          "visible_bounds": [
+            42,
+            31,
+            97,
+            96
+          ],
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8897,
+          "sha256": "1f663f269dde50113b067254d2cda8e3931b8f3283d5cd876287c7549e29939e",
+          "source_index": 5,
+          "output_index": 5,
+          "output_path": "walk-frames/frame-005.png",
+          "native_feet_roi": [
+            11,
+            20,
+            24,
+            24
+          ],
+          "native_foot_bounds": [
+            11,
+            20,
+            23,
+            24
+          ],
+          "source_visible_bounds": [
+            10,
+            8,
+            24,
+            24
+          ],
+          "direction": "right"
+        }
+      ],
+      "directions": {
+        "down": [
+          0,
+          1
+        ],
+        "up": [
+          2,
+          3
+        ],
+        "right": [
+          4,
+          5
+        ],
+        "left": [
+          4,
+          5
+        ]
+      },
+      "direction_mirror_x": {
+        "left": true
+      },
+      "default_facing": "right",
+      "static_facing": false,
+      "native_alias_groups": [
+        [
+          0,
+          2,
+          4
+        ],
+        [
+          1,
+          3,
+          5
+        ]
+      ],
+      "timing": {
+        "native_fps": 60.0988,
+        "frame_ticks": 16,
+        "cycle_ticks": 32,
+        "move_ticks_per_tile": 16,
+        "phase": "continuous-clock"
+      },
+      "idle": {
+        "kind": "hold-direction-slot-first-frame",
+        "directions": {
+          "down": [
+            0
+          ],
+          "up": [
+            2
+          ],
+          "right": [
+            4
+          ],
+          "left": [
+            4
+          ]
+        }
+      },
+      "adaptation_note": "Same brown-haired olive-capped leather archer identity. Native source has only two distinct images; all direction slots/idle aliases retain original topology. Empty bow; no map shot animation invented.",
+      "explicit_left_frames": [
+        {
+          "path": "walk-frames/frame-004-left.png",
+          "source_index": 4,
+          "derived_from": "walk-frames/frame-004.png",
+          "transform": "horizontal-mirror-about-frame-center",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8635
+        },
+        {
+          "path": "walk-frames/frame-005-left.png",
+          "source_index": 5,
+          "derived_from": "walk-frames/frame-005.png",
+          "transform": "horizontal-mirror-about-frame-center",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 8956
+        }
+      ],
+      "preview_dark": "reviews/tactical-walk-dark.gif",
+      "preview_light": "reviews/tactical-walk-light.gif"
+    },
+    {
+      "id": "tactical-idle",
+      "class_id": 12,
+      "source_side": "enemy",
+      "character_id": "enemy-archer",
+      "display_name": "敌方弓箭手",
+      "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_12_enemy.png",
+      "source_frame_size": [
+        24,
+        24
+      ],
+      "source_anchor": [
+        12,
+        20
+      ],
+      "output_atlas": "frames/tactical-idle.png",
+      "output_frame_size": [
+        96,
+        96
+      ],
+      "output_anchor": [
+        48,
+        80
+      ],
+      "logical_render_scale": 0.25,
+      "output_atlas_bytes": 14578,
+      "frame_mapping": [
+        {
+          "source_frame": 0,
+          "representative_frame": 0,
+          "kind": "imagegen_from_native_pose",
+          "path": "idle-frames/frame-000.png",
+          "generated_source": "source/idle-generated-v3-drawn-ne.png",
+          "generated_cell": [
+            0,
+            0,
+            887,
+            887
+          ],
+          "generated_content_bounds": [
+            194,
+            71,
+            826,
+            815
+          ],
+          "head_top": 71,
+          "generated_feet_roi": [
+            180,
+            755,
+            740,
+            830
+          ],
+          "generated_foot_bounds": [
+            210,
+            755,
+            717,
+            815
+          ],
+          "uniform_scale": 0.08602150537634409,
+          "resampled_size": [
+            55,
+            65
+          ],
+          "registration_offset": [
+            24,
+            15
+          ],
+          "output_foot_roi": [
+            24,
+            75,
+            71,
+            80
+          ],
+          "target_foot_anchor": [
+            48,
+            80
+          ],
+          "registered_foot_anchor": [
+            47.5,
+            80
+          ],
+          "foot_delta": [
+            -0.5,
+            0
+          ],
+          "visible_bounds": [
+            24,
+            15,
+            79,
+            80
+          ],
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 6969,
+          "sha256": "7897338b4ad5076d2e85d982cc1b0d9bc10d1c86043aae2da1097f20087a31c9",
+          "source_index": 0,
+          "output_index": 0,
+          "output_path": "idle-frames/frame-000.png",
+          "native_feet_roi": [
+            4,
+            17,
+            20,
+            20
+          ],
+          "native_foot_bounds": [
+            4,
+            17,
+            20,
+            20
+          ],
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "direction": "northeast-ready",
+          "scale_landmark": "top-bow-tip"
+        },
+        {
+          "source_frame": 1,
+          "representative_frame": 0,
+          "kind": "imagegen_from_native_pose",
+          "path": "idle-frames/frame-001.png",
+          "generated_source": "source/idle-generated-v3-drawn-ne.png",
+          "generated_cell": [
+            0,
+            0,
+            887,
+            887
+          ],
+          "generated_content_bounds": [
+            194,
+            71,
+            826,
+            815
+          ],
+          "head_top": 71,
+          "generated_feet_roi": [
+            180,
+            755,
+            740,
+            830
+          ],
+          "generated_foot_bounds": [
+            210,
+            755,
+            717,
+            815
+          ],
+          "uniform_scale": 0.08602150537634409,
+          "resampled_size": [
+            55,
+            65
+          ],
+          "registration_offset": [
+            24,
+            15
+          ],
+          "output_foot_roi": [
+            24,
+            75,
+            71,
+            80
+          ],
+          "target_foot_anchor": [
+            48,
+            80
+          ],
+          "registered_foot_anchor": [
+            47.5,
+            80
+          ],
+          "foot_delta": [
+            -0.5,
+            0
+          ],
+          "visible_bounds": [
+            24,
+            15,
+            79,
+            80
+          ],
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 6969,
+          "sha256": "7897338b4ad5076d2e85d982cc1b0d9bc10d1c86043aae2da1097f20087a31c9",
+          "source_index": 1,
+          "output_index": 1,
+          "output_path": "idle-frames/frame-001.png",
+          "native_feet_roi": [
+            4,
+            17,
+            20,
+            20
+          ],
+          "native_foot_bounds": [
+            4,
+            17,
+            20,
+            20
+          ],
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "direction": "northeast-ready",
+          "scale_landmark": "top-bow-tip"
+        },
+        {
+          "source_frame": 2,
+          "representative_frame": 2,
+          "kind": "imagegen_from_native_pose",
+          "path": "idle-frames/frame-002.png",
+          "generated_source": "source/idle-generated-v3-drawn-ne.png",
+          "generated_cell": [
+            887,
+            0,
+            1774,
+            887
+          ],
+          "generated_content_bounds": [
+            166,
+            110,
+            792,
+            815
+          ],
+          "head_top": 110,
+          "generated_feet_roi": [
+            140,
+            755,
+            700,
+            830
+          ],
+          "generated_foot_bounds": [
+            167,
+            755,
+            674,
+            815
+          ],
+          "uniform_scale": 0.08602150537634409,
+          "resampled_size": [
+            54,
+            61
+          ],
+          "registration_offset": [
+            26,
+            19
+          ],
+          "output_foot_roi": [
+            26,
+            75,
+            72,
+            80
+          ],
+          "target_foot_anchor": [
+            48,
+            80
+          ],
+          "registered_foot_anchor": [
+            48.0,
+            80
+          ],
+          "foot_delta": [
+            0.0,
+            0
+          ],
+          "visible_bounds": [
+            26,
+            19,
+            80,
+            80
+          ],
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 6653,
+          "sha256": "d45716b0d423231541a1ab92d24da877c99ac8067a69fd9fc89a3b41028f8495",
+          "source_index": 2,
+          "output_index": 2,
+          "output_path": "idle-frames/frame-002.png",
+          "native_feet_roi": [
+            4,
+            17,
+            20,
+            20
+          ],
+          "native_foot_bounds": [
+            4,
+            17,
+            20,
+            20
+          ],
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "direction": "northeast-ready",
+          "scale_landmark": "top-bow-tip"
+        },
+        {
+          "source_frame": 3,
+          "representative_frame": 0,
+          "kind": "imagegen_from_native_pose",
+          "path": "idle-frames/frame-003.png",
+          "generated_source": "source/idle-generated-v3-drawn-ne.png",
+          "generated_cell": [
+            0,
+            0,
+            887,
+            887
+          ],
+          "generated_content_bounds": [
+            194,
+            71,
+            826,
+            815
+          ],
+          "head_top": 71,
+          "generated_feet_roi": [
+            180,
+            755,
+            740,
+            830
+          ],
+          "generated_foot_bounds": [
+            210,
+            755,
+            717,
+            815
+          ],
+          "uniform_scale": 0.08602150537634409,
+          "resampled_size": [
+            55,
+            65
+          ],
+          "registration_offset": [
+            24,
+            15
+          ],
+          "output_foot_roi": [
+            24,
+            75,
+            71,
+            80
+          ],
+          "target_foot_anchor": [
+            48,
+            80
+          ],
+          "registered_foot_anchor": [
+            47.5,
+            80
+          ],
+          "foot_delta": [
+            -0.5,
+            0
+          ],
+          "visible_bounds": [
+            24,
+            15,
+            79,
+            80
+          ],
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 6969,
+          "sha256": "7897338b4ad5076d2e85d982cc1b0d9bc10d1c86043aae2da1097f20087a31c9",
+          "source_index": 3,
+          "output_index": 3,
+          "output_path": "idle-frames/frame-003.png",
+          "native_feet_roi": [
+            4,
+            17,
+            20,
+            20
+          ],
+          "native_foot_bounds": [
+            4,
+            17,
+            20,
+            20
+          ],
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "direction": "northeast-ready",
+          "scale_landmark": "top-bow-tip"
+        },
+        {
+          "source_frame": 4,
+          "representative_frame": 0,
+          "kind": "imagegen_from_native_pose",
+          "path": "idle-frames/frame-004.png",
+          "generated_source": "source/idle-generated-v3-drawn-ne.png",
+          "generated_cell": [
+            0,
+            0,
+            887,
+            887
+          ],
+          "generated_content_bounds": [
+            194,
+            71,
+            826,
+            815
+          ],
+          "head_top": 71,
+          "generated_feet_roi": [
+            180,
+            755,
+            740,
+            830
+          ],
+          "generated_foot_bounds": [
+            210,
+            755,
+            717,
+            815
+          ],
+          "uniform_scale": 0.08602150537634409,
+          "resampled_size": [
+            55,
+            65
+          ],
+          "registration_offset": [
+            24,
+            15
+          ],
+          "output_foot_roi": [
+            24,
+            75,
+            71,
+            80
+          ],
+          "target_foot_anchor": [
+            48,
+            80
+          ],
+          "registered_foot_anchor": [
+            47.5,
+            80
+          ],
+          "foot_delta": [
+            -0.5,
+            0
+          ],
+          "visible_bounds": [
+            24,
+            15,
+            79,
+            80
+          ],
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 6969,
+          "sha256": "7897338b4ad5076d2e85d982cc1b0d9bc10d1c86043aae2da1097f20087a31c9",
+          "source_index": 4,
+          "output_index": 4,
+          "output_path": "idle-frames/frame-004.png",
+          "native_feet_roi": [
+            4,
+            17,
+            20,
+            20
+          ],
+          "native_foot_bounds": [
+            4,
+            17,
+            20,
+            20
+          ],
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "direction": "northeast-ready",
+          "scale_landmark": "top-bow-tip"
+        },
+        {
+          "source_frame": 5,
+          "representative_frame": 0,
+          "kind": "imagegen_from_native_pose",
+          "path": "idle-frames/frame-005.png",
+          "generated_source": "source/idle-generated-v3-drawn-ne.png",
+          "generated_cell": [
+            0,
+            0,
+            887,
+            887
+          ],
+          "generated_content_bounds": [
+            194,
+            71,
+            826,
+            815
+          ],
+          "head_top": 71,
+          "generated_feet_roi": [
+            180,
+            755,
+            740,
+            830
+          ],
+          "generated_foot_bounds": [
+            210,
+            755,
+            717,
+            815
+          ],
+          "uniform_scale": 0.08602150537634409,
+          "resampled_size": [
+            55,
+            65
+          ],
+          "registration_offset": [
+            24,
+            15
+          ],
+          "output_foot_roi": [
+            24,
+            75,
+            71,
+            80
+          ],
+          "target_foot_anchor": [
+            48,
+            80
+          ],
+          "registered_foot_anchor": [
+            47.5,
+            80
+          ],
+          "foot_delta": [
+            -0.5,
+            0
+          ],
+          "visible_bounds": [
+            24,
+            15,
+            79,
+            80
+          ],
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 6969,
+          "sha256": "7897338b4ad5076d2e85d982cc1b0d9bc10d1c86043aae2da1097f20087a31c9",
+          "source_index": 5,
+          "output_index": 5,
+          "output_path": "idle-frames/frame-005.png",
+          "native_feet_roi": [
+            4,
+            17,
+            20,
+            20
+          ],
+          "native_foot_bounds": [
+            4,
+            17,
+            20,
+            20
+          ],
+          "source_visible_bounds": [
+            4,
+            4,
+            20,
+            20
+          ],
+          "direction": "northeast-ready",
+          "scale_landmark": "top-bow-tip"
+        }
+      ],
+      "directions": {
+        "all": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "direction_mirror_x": {},
+      "default_facing": "northeast-ready",
+      "static_facing": true,
+      "native_alias_groups": [
+        [
+          0,
+          1,
+          3,
+          4,
+          5
+        ],
+        [
+          2
+        ]
+      ],
+      "timing": {
+        "native_fps": 60.0988,
+        "cycle_frames": [
+          0,
+          1,
+          2,
+          1
+        ],
+        "frame_ticks": [
+          14,
+          8,
+          14,
+          8
+        ]
+      },
+      "idle": {
+        "kind": "original-fixed-facing-cycle",
+        "frames": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "adaptation_note": "Same brown-haired olive-capped leather archer identity. Two distinct images with exact native slot aliases. Crouched northeast drawn-bow ready pose, one nocked arrow and two taut string segments; no map projectile or attack event added.",
+      "preview_gif_timing": {
+        "quantization_ms": 10,
+        "native_ticks": [
+          14,
+          8,
+          14,
+          8
+        ],
+        "durations_ms": [
+          230,
+          140,
+          230,
+          130
+        ],
+        "exact_video_required": true
+      },
+      "preview_dark": "reviews/tactical-idle-dark.gif",
+      "preview_light": "reviews/tactical-idle-light.gif"
+    }
+  ],
+  "qa_report": "../qa-report.json",
+  "status": "complete_art_review_passed",
+  "art_review": "agent source/shape/alpha/timing review passed; root visually passed battle, walk and corrected northeast drawn-bow idle",
+  "idle_semantic_audit": "../reference/idle-semantic-audit.json"
+}

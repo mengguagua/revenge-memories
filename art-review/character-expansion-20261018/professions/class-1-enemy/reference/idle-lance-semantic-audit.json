@@ -1,0 +1,77 @@
+{
+  "finding": "Same diagonal lance crosses rider and horse; upper-right blunt tail and short lower-left blade fragments move together in phase1/2. Source first phase lower segment is mostly occluded by raised foreleg.",
+  "phase1_lower_segment_native": [
+    [
+      7,
+      12
+    ],
+    [
+      6,
+      13
+    ],
+    [
+      5,
+      14
+    ]
+  ],
+  "phase2_lower_segment_native": [
+    [
+      6,
+      12
+    ],
+    [
+      5,
+      13
+    ],
+    [
+      4,
+      14
+    ]
+  ],
+  "upper_tail_phase_shift_native": [
+    [
+      15,
+      5
+    ],
+    [
+      14,
+      5
+    ]
+  ],
+  "actual_front_leg_region": "x10..11 separate from diagonal blade",
+  "evidence": "../../../demos/source-audit/cavalry-idle-1-2-7.png",
+  "correction": "Retain generated horse/hoof phases, add missing lance with native occlusion. First no-lance candidate is not final.",
+  "actual_hoof_phases": {
+    "0": {
+      "front_raised": [
+        7,
+        16
+      ],
+      "hind_grounded": [
+        15,
+        18
+      ]
+    },
+    "1": {
+      "front_grounded": [
+        10,
+        18
+      ],
+      "hind_grounded": [
+        15,
+        18
+      ]
+    },
+    "2": {
+      "front_grounded": [
+        10,
+        18
+      ],
+      "hind_raised": [
+        14,
+        16
+      ]
+    }
+  },
+  "hoof_semantics_note": "Only continuous horse leg pixels determine hoof positions; bottom long black bar is outline/shadow and cannot be used as all hooves. Diagonal left thin strip is lance, not a third front leg."
+}

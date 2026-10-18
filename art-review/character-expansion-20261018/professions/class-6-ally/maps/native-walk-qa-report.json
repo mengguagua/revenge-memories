@@ -1,0 +1,243 @@
+{
+  "status": "complete_art_review_passed",
+  "parent_visual_review_passed": true,
+  "class_id": 6,
+  "source_side": "ally",
+  "character_id": "ally-spearman",
+  "unique_imagegen_poses": 6,
+  "output_slots": 8,
+  "source_frame_size": [
+    32,
+    24
+  ],
+  "output_frame_size": [
+    128,
+    96
+  ],
+  "source_audit": {
+    "status": "verified_native_tactical",
+    "source_chr": 19,
+    "record_key": "class-6-ally",
+    "overlay": "../../../source-input/corrected-tactical-walk/overlay.json",
+    "verification": "../../../source-input/corrected-tactical-walk/verification.json",
+    "cpu_entry": "bank011:L0BB5B1",
+    "caller": "bank006:L06BA0A→bank11 dispatch3 L0BB59D",
+    "native_render": "bank015:L0FE80F with bank8/0589=0",
+    "old_source_status": "Historical fixed-CHR26/village-table hybrid retained. No old walk art is reused. Native class6 uses verified CHR19; old missing-head claim withdrawn."
+  },
+  "semantic_audit": {
+    "conclusion": "Native class6 ally is a complete helmeted spear walker, with visible high/low free-arm swing and one pole whose long pale lower end is separate from feet.",
+    "up": {
+      "pole": "screen-right vertical",
+      "upper_end": "short two-white-pixel exposed end at y10/11 in0, y9/10 in1, below helmet top; rendered short flat pale cap without inventing large upper blade",
+      "lower_end": "source is narrow/dark; no claim of detailed hidden spear anatomy",
+      "free_hand_native0": [
+        11,
+        11
+      ],
+      "free_hand_native1": [
+        9,
+        16
+      ]
+    },
+    "down": {
+      "pole": "screen-left vertical",
+      "long_pale_lower_end_native0": [
+        9,
+        19,
+        10,
+        23
+      ],
+      "long_pale_lower_end_native1": [
+        9,
+        20,
+        10,
+        24
+      ],
+      "free_arm": "0 low right fist,1 raised right fist"
+    },
+    "left": {
+      "pole_line_native6": "x+y=29, NE short tail to SW light blade, middle partly occluded by torso",
+      "pole_line_native7": "source exact mirror of right3; same endpoint semantics",
+      "lower_light_segment_not_a_third_foot": true
+    },
+    "evidence": [
+      "../reference/corrected-native-four-directions.png",
+      "../reference/corrected-tactical-walk-record.json",
+      "../reference/ally-enemy-native-geometry-proof.json"
+    ],
+    "independent_review": "source_catalog and astra independently confirmed own-class visible pole line/short upper end, long lower end and up0 high fist/up1 low arm. Ambiguous isolated material pixels not treated as extra hands.",
+    "old_FF_missing_head_claim": "withdrawn: wrong CHR26 historical extraction caused empty tile; correct native CHR19 head is complete",
+    "scope": "Visible source topology/occlusion and selected sole anchor. No invented hidden anatomy or runtime capability."
+  },
+  "support_boot_xy_checks": [
+    {
+      "slot": 0,
+      "target": [
+        56,
+        96
+      ],
+      "actual": [
+        56.5,
+        96
+      ],
+      "delta": [
+        0.5,
+        0
+      ]
+    },
+    {
+      "slot": 1,
+      "target": [
+        68,
+        96
+      ],
+      "actual": [
+        68.0,
+        96
+      ],
+      "delta": [
+        0.0,
+        0
+      ]
+    },
+    {
+      "slot": 2,
+      "target": [
+        64,
+        96
+      ],
+      "actual": [
+        64.0,
+        96
+      ],
+      "delta": [
+        -0.0,
+        0
+      ]
+    },
+    {
+      "slot": 3,
+      "target": [
+        56,
+        96
+      ],
+      "actual": [
+        55.5,
+        96
+      ],
+      "delta": [
+        -0.5,
+        0
+      ]
+    },
+    {
+      "slot": 4,
+      "target": [
+        52,
+        96
+      ],
+      "actual": [
+        52.0,
+        96
+      ],
+      "delta": [
+        0.0,
+        0
+      ]
+    },
+    {
+      "slot": 5,
+      "target": [
+        68,
+        96
+      ],
+      "actual": [
+        68.0,
+        96
+      ],
+      "delta": [
+        0.0,
+        0
+      ]
+    },
+    {
+      "slot": 6,
+      "target": [
+        64,
+        96
+      ],
+      "actual": [
+        64.0,
+        96
+      ],
+      "delta": [
+        0.0,
+        0
+      ]
+    },
+    {
+      "slot": 7,
+      "target": [
+        72,
+        96
+      ],
+      "actual": [
+        72.5,
+        96
+      ],
+      "delta": [
+        0.5,
+        0
+      ]
+    }
+  ],
+  "registration_scope": "Only selected support sole center/baseline rounding error is quantified, not every limb/joint. Rear toe and boot contours also inspected visually. Uniform scaling and rigid translation; no body clamp.",
+  "mirror_checks": [
+    {
+      "slot": 2,
+      "mirror_of": 6,
+      "source_and_output_size_rgba_exact": true
+    },
+    {
+      "slot": 3,
+      "mirror_of": 7,
+      "source_and_output_size_rgba_exact": true
+    }
+  ],
+  "frozen_battle_idle_sha256": {
+    "battle/frames/frame-005.png": "34d7c1b7f66fbb729f845bee323939b0c53b1f37fac1a0c1e00bb73e2f2897c9",
+    "battle/frames/frame-004.png": "7164bcd9504e65f418565cd161d3e4eda095d2285e35d94946edec57c1d99135",
+    "battle/frames/frame-012.png": "f220d036d8dd64fd3ac6f612a8a6255c922339aeead26884e9518871d615aebf",
+    "battle/frames/frame-003.png": "978f1e2931a5616db3becfbc3aaec336c5d6d28fae4a70dd44aa21e2667fd167",
+    "battle/frames/ally-spearman-battle-seven.png": "57a1490cfaa1223bbe72c1d46b76bf652633e0ebcb59eae79b56b15d1f443aff",
+    "battle/frames/frame-002.png": "5cfcf47fe62008756183211adff64d0a5fa8693961bb03d61e87358c03291e06",
+    "battle/frames/frame-000.png": "935db61262ad1f61f30f0f61b9e7f090962eb377eb8c0970d26fde09f55730f0",
+    "battle/frames/frame-001.png": "fd8033ec920e2521d47541f0e8f1aff41f5993ab8b564a835090d525e0fa5e6b",
+    "battle/frames/frame-023.png": "f220d036d8dd64fd3ac6f612a8a6255c922339aeead26884e9518871d615aebf",
+    "maps/idle-frames/frame-005.png": "eac4ad18e01a6da029ab0b33258c5b0b871fb51f887e33e48cbfaf10819a9345",
+    "maps/idle-frames/frame-004.png": "0119433a72cd997dc6cdd72a2213eef7ce3eaf23f3b9a7bc74fe23e28ebb7e2b",
+    "maps/idle-frames/frame-003.png": "eac4ad18e01a6da029ab0b33258c5b0b871fb51f887e33e48cbfaf10819a9345",
+    "maps/idle-frames/frame-002.png": "83d3850d4435f9c33237faf31f5cbd47d863d7c62f128c42ccc839f210c09fdd",
+    "maps/idle-frames/frame-000.png": "0119433a72cd997dc6cdd72a2213eef7ce3eaf23f3b9a7bc74fe23e28ebb7e2b",
+    "maps/idle-frames/frame-001.png": "eac4ad18e01a6da029ab0b33258c5b0b871fb51f887e33e48cbfaf10819a9345"
+  },
+  "static_idle_scenario_preserved": true,
+  "raw_generations_preserved": true,
+  "source_prompts": "source/native-walk-prompts.md",
+  "old_mapping_backup": "source/previous-map-frame_mapping.json",
+  "max_independent_frame_bytes": 7691,
+  "atlas_bytes": 48794,
+  "deep_light_review_complete": true,
+  "timing": {
+    "native_fps": 60.0988,
+    "frame_ticks": 16,
+    "cycle_ticks": 32,
+    "phase_source": "$36 & $10 selects phase; L0BB62C",
+    "movement_pixels_per_tick": 1,
+    "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+  },
+  "runtime_integration": false,
+  "godot_started": false,
+  "this_agent_writes_actual": false
+}

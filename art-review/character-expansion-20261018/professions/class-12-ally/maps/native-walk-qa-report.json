@@ -1,0 +1,236 @@
+{
+  "status": "complete_art_review_passed",
+  "parent_visual_review_passed": true,
+  "class_id": 12,
+  "source_side": "ally",
+  "character_id": "ally-archer",
+  "unique_imagegen_poses": 6,
+  "output_slots": 8,
+  "source_frame_size": [
+    32,
+    24
+  ],
+  "output_frame_size": [
+    128,
+    96
+  ],
+  "source_audit": {
+    "status": "verified_native_tactical",
+    "source_chr": 26,
+    "record_key": "class-12-ally",
+    "overlay": "../../../source-input/corrected-tactical-walk/overlay.json",
+    "verification": "../../../source-input/corrected-tactical-walk/verification.json",
+    "cpu_entry": "bank011:L0BB5B1",
+    "caller": "bank006:L06BA0A→bank11 dispatch3 L0BB59D",
+    "native_render": "bank015:L0FE80F with bank8/0589=0",
+    "old_source_status": "Historical village-table/CHR26 hybrid, retained. Native7 matches old0 with exact size and RGBA, but old rendered slack-bow interpretation was incorrect and is not reused."
+  },
+  "semantic_audit": {
+    "conclusion": "Native tactical walking uses a southeast drawn bow with one nocked arrow in unmirrored left6/7 and front4/5. Rear0/1 hides most bow and arrow behind torso. Static idle remains separately verified northeast drawn stance.",
+    "native7_landmarks": {
+      "upper_NE_tip": [
+        20,
+        12
+      ],
+      "lower_SW_tip": [
+        12,
+        21
+      ],
+      "draw_point": [
+        13,
+        13
+      ],
+      "arrow_axis": [
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          18,
+          18
+        ]
+      ]
+    },
+    "evidence": [
+      "../reference/native-walk-bow-rotation-evidence.png",
+      "../reference/corrected-native-four-directions.png"
+    ],
+    "independent_review": "source_catalog independently confirmed two-string/outer-arc topology; old slack-bow art rejected despite native old0/new7 geometric match.",
+    "map_projectile_event_added": false,
+    "logical_direction_is_not_forced_graphic_face": true,
+    "scope": "Visible source topology and occlusion; no invented hidden anatomy."
+  },
+  "support_boot_xy_checks": [
+    {
+      "slot": 0,
+      "target": [
+        58,
+        96
+      ],
+      "actual": [
+        58.0,
+        96
+      ],
+      "delta": [
+        0.0,
+        0
+      ]
+    },
+    {
+      "slot": 1,
+      "target": [
+        70,
+        96
+      ],
+      "actual": [
+        70.0,
+        96
+      ],
+      "delta": [
+        0.0,
+        0
+      ]
+    },
+    {
+      "slot": 2,
+      "target": [
+        82,
+        96
+      ],
+      "actual": [
+        82.0,
+        96
+      ],
+      "delta": [
+        -0.0,
+        0
+      ]
+    },
+    {
+      "slot": 3,
+      "target": [
+        88,
+        96
+      ],
+      "actual": [
+        88.5,
+        96
+      ],
+      "delta": [
+        0.5,
+        0
+      ]
+    },
+    {
+      "slot": 4,
+      "target": [
+        72,
+        96
+      ],
+      "actual": [
+        71.5,
+        96
+      ],
+      "delta": [
+        -0.5,
+        0
+      ]
+    },
+    {
+      "slot": 5,
+      "target": [
+        64,
+        96
+      ],
+      "actual": [
+        64.0,
+        96
+      ],
+      "delta": [
+        0.0,
+        0
+      ]
+    },
+    {
+      "slot": 6,
+      "target": [
+        46,
+        96
+      ],
+      "actual": [
+        46.0,
+        96
+      ],
+      "delta": [
+        0.0,
+        0
+      ]
+    },
+    {
+      "slot": 7,
+      "target": [
+        40,
+        96
+      ],
+      "actual": [
+        39.5,
+        96
+      ],
+      "delta": [
+        -0.5,
+        0
+      ]
+    }
+  ],
+  "registration_scope": "Only selected support sole center/baseline rounding error is quantified, not every limb/joint. Rear toe and boot contours also inspected visually. Uniform scaling and rigid translation; no body clamp.",
+  "mirror_checks": [
+    {
+      "slot": 2,
+      "mirror_of": 6,
+      "source_and_output_size_rgba_exact": true
+    },
+    {
+      "slot": 3,
+      "mirror_of": 7,
+      "source_and_output_size_rgba_exact": true
+    }
+  ],
+  "frozen_battle_idle_sha256": {
+    "battle/frames/frame-005.png": "05e4f8626e101bea79912c24ab7ed0a1ad719dd78cae483e645baaa9f19df593",
+    "battle/frames/frame-004.png": "f63395714d534da3f71766a7b0bb930a1a62fe3d7487f4e1bbf5ca2588ddaa12",
+    "battle/frames/archer-battle-three.png": "4b94d8d76c9080787f767f3cd9e8fb53981288f3f742e39204b5f78ebf24b0ee",
+    "battle/frames/frame-001.png": "f7a6fcc515445b951208efcb0c98494a23f3e5f505b4e9ad50f1a0986cd0dda2",
+    "maps/idle-frames/frame-005.png": "7efa884aa4a09eb0b8a60b41e07b09713356fb9831f0e0d69ea82a03375eb852",
+    "maps/idle-frames/frame-004.png": "7efa884aa4a09eb0b8a60b41e07b09713356fb9831f0e0d69ea82a03375eb852",
+    "maps/idle-frames/frame-003.png": "7efa884aa4a09eb0b8a60b41e07b09713356fb9831f0e0d69ea82a03375eb852",
+    "maps/idle-frames/frame-002.png": "68b17aec7b6feec69f2cd199fc5849908da62bfcad47ba3fcfdafa4ca98cda4f",
+    "maps/idle-frames/frame-000.png": "7efa884aa4a09eb0b8a60b41e07b09713356fb9831f0e0d69ea82a03375eb852",
+    "maps/idle-frames/frame-001.png": "7efa884aa4a09eb0b8a60b41e07b09713356fb9831f0e0d69ea82a03375eb852"
+  },
+  "static_idle_scenario_preserved": true,
+  "raw_generations_preserved": true,
+  "source_prompts": "source/native-walk-prompts.md",
+  "old_mapping_backup": "source/previous-map-frame_mapping.json",
+  "max_independent_frame_bytes": 7121,
+  "atlas_bytes": 46982,
+  "deep_light_review_complete": true,
+  "timing": {
+    "native_fps": 60.0988,
+    "frame_ticks": 16,
+    "cycle_ticks": 32,
+    "phase_source": "$36 & $10 selects phase; L0BB62C",
+    "movement_pixels_per_tick": 1,
+    "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+  },
+  "runtime_integration": false,
+  "godot_started": false,
+  "this_agent_writes_actual": false
+}

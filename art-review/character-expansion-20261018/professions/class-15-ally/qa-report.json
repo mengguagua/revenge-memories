@@ -1,0 +1,47 @@
+{
+  "structural_pass": true,
+  "errors": [],
+  "battle_native_independent_poses": 3,
+  "map_walk_native_poses": 8,
+  "map_walk_unique_generated_pose": 6,
+  "map_idle_independent_poses": 3,
+  "original_walk_mirror_plus_four_output_pixels_exact": true,
+  "delivery_png_count": 20,
+  "largest_delivery_bytes": 64194,
+  "manual_checks": [
+    "Original garments and cape-versus-arm semantics inspected.",
+    "Original/new dark and light boards inspected.",
+    "Battle stance and cape-height correction inspected; source-visible boots used for registration.",
+    "Map original black pixels treated as opaque; original mirror phase and timing retained.",
+    "Idle1 ungrounded chest fist removed into original sleeve/cape occlusion."
+  ],
+  "root_review": "Root inspected and accepted battle-v2, map walk, and final map-light-3x idle comparison.",
+  "browser_or_game_screenshot": "Not performed; isolated art only, no game integration; prior browser restriction honored.",
+  "geometry_limit": "Fine garment and finger outlines are redesigned, not a pixel-identical recolor. Hidden anatomy not asserted.",
+  "runtime_integrated": false,
+  "native_tactical_walk": {
+    "source_audit_status": "verified_native_tactical",
+    "generated_body_poses": 6,
+    "source_slots": 8,
+    "mirror_proof": [
+      {
+        "slot": 6,
+        "source": 2,
+        "rgba_mirror_equal": true
+      },
+      {
+        "slot": 7,
+        "source": 3,
+        "rgba_mirror_equal": true
+      }
+    ],
+    "source_reference": "../../source-input/corrected-tactical-walk/overlay.json",
+    "phase_ticks": 16,
+    "source_table": "bank011:L0BB669 class15,CHR26",
+    "manual_review": "Original/source poses and native-v1 dark/light boards inspected; distinct cape occlusion and support phases retained; side phase1 edited to keep rear support boot and raise/occlude front boot; opaque original black retained.",
+    "registration_limit": "Selected visible boot anchor and head proportions, not every garment pixel, all boot pixels or hidden joint. Cape/shadow excluded from boot anchor. No weapon/bbox centering or clamp.",
+    "historical_old_walk_status": "superseded_by_corrected_native_tactical_reference",
+    "errors": []
+  },
+  "map_walk_independent_poses": 6
+}

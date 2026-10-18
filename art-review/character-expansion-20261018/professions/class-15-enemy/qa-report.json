@@ -1,0 +1,48 @@
+{
+  "status": "root_visual_pass",
+  "runtime_integrated": false,
+  "battle_canonical": [
+    0,
+    4,
+    5
+  ],
+  "map_source_slots": 5,
+  "map_generated_drawings": 4,
+  "accepted_sources": {
+    "battle0_5": "battle-v1-generated.png",
+    "battle4": "battle-pose004-v4-generated.png",
+    "map_walk": "walk-v2-generated.png",
+    "map_idle": "idle-v2-generated.png"
+  },
+  "checks": [
+    "source clothing identified as full robe and ivory cloth collar",
+    "battle hand/cuff endpoints reviewed and corrected",
+    "map hanging cuffs raised locally to match visible source pose",
+    "source walking pair exact mirror proven from tight RGBA",
+    "whole-image uniform scaling and hem registration only",
+    "transparent silhouette reviewed on dark and light backgrounds",
+    "no invented hidden leg/knee landmarks",
+    "all spell variants use original source effects and timing",
+    "actual resampled alpha checked outside frame: zero visible pixels clipped in all3 battle poses"
+  ],
+  "registration": "Battle continuous robe hem [140,256]; map walk hem [66,96], idle hem [46,80], x error <=0.5px",
+  "remaining_limits": "Source clothing edges do not locate hidden joints; approved visible-pose matching is not a claim of reconstructed hidden anatomy. Browser visual playback not performed due environment restriction.",
+  "source_map_semantics_audit": {
+    "sprite_id": 62,
+    "oam": [
+      "L0AA5D5",
+      "L0AA5E6"
+    ],
+    "tiles": [
+      "CE",
+      "CF",
+      "DE",
+      "DF"
+    ],
+    "attributes": [
+      "03",
+      "43"
+    ],
+    "finding": "Original second phase swaps tile positions and uses horizontal flip bits on the same tiles; whole-pattern mirror plus one native pixel registration shift is intentional. Upper projecting shape belongs to head/hat cloth, with separate lower sleeve contour; no extra hand inferred. Right direction denotes unmirrored program baseline, not strict face-facing direction every phase."
+  }
+}

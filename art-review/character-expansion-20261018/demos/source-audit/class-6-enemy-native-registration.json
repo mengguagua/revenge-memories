@@ -1,0 +1,47 @@
+{
+  "source": "source-input/enemy-motion/class-6-enemy.png",
+  "class_id": 6,
+  "side": "enemy",
+  "source_size": [
+    80,
+    64
+  ],
+  "source_anchor": [
+    40,
+    64
+  ],
+  "actor_origin": [
+    64,
+    128
+  ],
+  "source_oam_frame_count": 12,
+  "final_flip": true,
+  "coordinate_rule": "screenX=originX-anchorX+(width-1-sourceX)+(16 only for OAM frames when flipped)",
+  "frames": [
+    {
+      "frame": 6,
+      "upper_silhouette_scene_x": [
+        66,
+        79
+      ],
+      "visible_boot_scene_x": [
+        77,
+        81
+      ],
+      "foot_bottom_scene_y": 128
+    },
+    {
+      "frame": 19,
+      "upper_silhouette_scene_x": [
+        66,
+        79
+      ],
+      "visible_boot_scene_x": [
+        66,
+        75
+      ],
+      "foot_bottom_scene_y": 128
+    }
+  ],
+  "conclusion": "Preserve original canvas registration. The 16 native pixels of raw OAM/BG X displacement is exactly cancelled by the OAM-only flip correction; stride and idle foot X need not be identical."
+}

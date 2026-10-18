@@ -1,0 +1,50 @@
+{
+  "structural_pass": true,
+  "errors": [],
+  "battle_independent_poses": 2,
+  "map_walk_independent_poses": 6,
+  "map_idle_independent_poses": 2,
+  "delivery_png_count": 19,
+  "largest_delivery_bytes": 42602,
+  "lossless_optimizer": "oxipng -o4 --strip safe",
+  "manual_checks": [
+    "Source garments and staff inspected at native/4x/enlarged sizes.",
+    "Source/new dark and light comparison boards inspected.",
+    "Hands/shaft gesture refined without moving head/robe anchors.",
+    "Map walking has distinct passing/extended steps; planted rear foot and raised front foot preserved.",
+    "No raw art, reference or effect bitmap installed into game."
+  ],
+  "source_reference_audit": "source-inspection.json",
+  "battle_review": "Root approved final two poses; root requested map staff reach refined locally.",
+  "map_final_review": "Root viewed the final light board and approved the local staff/wrist reach correction; local dark/light checks completed.",
+  "browser_or_game_screenshot": "Not performed; no game integration and existing browser restriction honored.",
+  "limits": "Gesture interpretation follows visible original pixels; hidden anatomy is not asserted. Individual garment/hand silhouettes differ within the source pixel scale; not pixel-identical recoloring.",
+  "runtime_integrated": false,
+  "native_tactical_walk": {
+    "source_audit_status": "verified_native_tactical",
+    "generated_body_poses": 6,
+    "source_slots": 8,
+    "mirror_proof": [
+      {
+        "slot": 6,
+        "source": 2,
+        "rgba_mirror_equal": true
+      },
+      {
+        "slot": 7,
+        "source": 3,
+        "rgba_mirror_equal": true
+      }
+    ],
+    "source_reference": "../../source-input/corrected-tactical-walk/overlay.json",
+    "phase_ticks": 16,
+    "source_table": "bank011:L0BB669 class18,CHR27",
+    "manual_review": "Original/source poses and native-v2 dark/light boards inspected; rear staff raised through fixed hand, side hand/staff lifted; opaque black original retained.",
+    "registration_limit": "Visible robe/boot envelope and head proportions, not every garment pixel or hidden joint. No staff bbox centering/clamp.",
+    "historical_old_walk_status": "superseded_by_corrected_native_tactical_reference",
+    "errors": [],
+    "accepted_small_difference": "Rear-view staff cap approximately3output pixels below exact source cap; root accepted after dark/light review, no further refinement."
+  },
+  "map_walk_native_poses": 8,
+  "map_walk_unique_generated_pose": 6
+}

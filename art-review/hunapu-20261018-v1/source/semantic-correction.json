@@ -1,0 +1,28 @@
+{
+  "status": "corrected_after_user_feedback",
+  "incorrect_interpretation": "Lower segmented skirt armour was wrongly treated as exposed trousers/thighs and used to estimate hidden hip and knee positions.",
+  "withdrawn_claim": "v3 proportions are close to original",
+  "withdrawn_landmarks": [
+    "pelvis(198,204)",
+    "hips(188,208)/(210,208)",
+    "knees(188,220)/(216,220)"
+  ],
+  "visible_regions_4x_approximate": {
+    "waist_band_y": [
+      176,
+      184
+    ],
+    "segmented_lower_armour_y": [
+      184,
+      216
+    ],
+    "soles_y": 256
+  },
+  "new_constraints": [
+    "Treat lower armour as clothing covering pelvis and upper thighs.",
+    "Do not infer hidden joints from armour edges.",
+    "Use visible head, hands, sword endpoints, exposed lower legs and feet plus lower-garment occlusion as references.",
+    "Redesign garment but preserve corresponding lower coverage and segmented overlap."
+  ],
+  "reference": "reference/user-skirt-armor-correction.png"
+}

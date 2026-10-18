@@ -1,0 +1,67 @@
+{
+  "structural_pass": true,
+  "errors": [],
+  "battle_native_independent_poses": 9,
+  "battle_unique_generated_body_poses": 8,
+  "battle_required_source_frames": 11,
+  "bound_attack_programs": 7,
+  "map_walk_independent_poses": 6,
+  "map_idle_independent_poses": 3,
+  "delivery_png_count": 28,
+  "largest_delivery_bytes": 115366,
+  "manual_checks": [
+    "Original clothing, visible blade/grip and body occlusion inspected.",
+    "Original/new full canonical dark/light boards inspected.",
+    "Map idle2 white vertical blade recovered after pixel-coordinate audit, not inferred absent from light board.",
+    "Raw stray semitransparent marks removed via imagegen targeted cleanup, raw history retained.",
+    "Chosen visible feet/paired boot anchors registered with uniform resampling, no weapon bbox centering or clamping."
+  ],
+  "source7_reuse_proof": {
+    "source6_occupied_output_pixels": 2688,
+    "source6_all_rgba_pixels_exact_in_source7": true,
+    "transform": [
+      0,
+      0
+    ],
+    "source_effect_bounds": [
+      76,
+      144,
+      192,
+      240
+    ],
+    "new_frame7": "original isolated arc behind the approved new frame6; original coordinates and alpha, no generated effect",
+    "body_art_reused": true
+  },
+  "root_review": "Root accepted final battle keys/motion and final map dark/light boards.",
+  "geometry_limit": "Redrawn garment and weapon contours, some per-foot perspective offsets remain; see source-inspection known_redesign_differences. Anchor rounding is NOT a claim that every limb pixel matches.",
+  "browser_or_game_screenshot": "Not run; isolated art only; prior browser restriction honored.",
+  "runtime_integrated": false,
+  "map_walk_native_poses": 8,
+  "map_walk_unique_generated_pose": 6,
+  "native_tactical_walk": {
+    "source_audit_status": "verified_native_tactical",
+    "generated_body_poses": 6,
+    "source_slots": 8,
+    "mirror_proof": [
+      {
+        "slot": 6,
+        "source": 2,
+        "rgba_mirror_equal": true
+      },
+      {
+        "slot": 7,
+        "source": 3,
+        "rgba_mirror_equal": true
+      }
+    ],
+    "source_reference": "../../source-input/corrected-tactical-walk/overlay.json",
+    "phase_ticks": 16,
+    "source_table": "bank011:L0BB669 class14,CHR26",
+    "manual_review": "Original/source poses and native-v4 dark/light boards inspected; native support feet and short blade side retained; side rear arm raised to shoulder and up free fist restored beside upper head after cross-direction source audit; opaque original black retained.",
+    "registration_limit": "Selected visible boot anchor and head proportions, not every garment pixel, all boot pixels or hidden joint. Blade/native ground extensions excluded from boot anchor. No weapon/bbox centering or clamp.",
+    "historical_old_walk_status": "superseded_by_corrected_native_tactical_reference",
+    "errors": [],
+    "root_review": "Root accepted native-v4 complete eight-slot dark/light boards after correcting up free-arm semantic misreading.",
+    "retained_differences": "Selected support anchor only; upper fist relative hair-top varies about4–7 output pixels vs source4px; clothing/individual limb contour is a redesign, not pixel-identical."
+  }
+}

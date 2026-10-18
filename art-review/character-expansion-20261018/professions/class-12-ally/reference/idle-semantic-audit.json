@@ -1,0 +1,74 @@
+{
+  "conclusion": "class12 idle is a crouched northeast drawn-bow ready stance with one nocked arrow, not an upright empty bow or a large hat",
+  "native_frame_size": [
+    24,
+    24
+  ],
+  "native_coordinate_landmarks": {
+    "upper_bow_tip": [
+      8,
+      4
+    ],
+    "lower_bow_tip": [
+      18,
+      14
+    ],
+    "drawing_hand_string_junction": [
+      9,
+      12
+    ],
+    "bow_grip_approx": [
+      13,
+      8
+    ],
+    "arrow_axis_tip_approx": [
+      16,
+      4
+    ]
+  },
+  "identification": "Upper horizontal and right vertical pale outline form diagonally held bow limbs. The two lower-left edges converge at the drawn string/nock. Central pale staircase extends toward upper right as the arrow shaft/tip. Head and crouching body lie below-left. Both hands are active.",
+  "evidence": [
+    "reference/map-idle-two-pose-geometry-guide.png",
+    "reference/map-idle-00-tight-16x.png",
+    "reference/map-idle-02-tight-16x.png"
+  ],
+  "diagnostic_rotation": "Only the source crop was rotated clockwise45 for identification; no final art was programmatically rotated or drawn.",
+  "class_13_20_note": "Class13/20 carry their bows differently. Do not use their more vertical poses to reinterpret class12 or copy this crouch blindly to them.",
+  "selected_imagegen_source": "maps/source/idle-generated-v5.png",
+  "rejected_versions": {
+    "idle-generated-v1.png": "aim too shallow; large phase difference",
+    "idle-generated-v2.png": "aim still shallow",
+    "idle-generated-v3.png": "arrow intersected upper limb rather than hand/grip",
+    "idle-generated-v4.png": "weapon corrected, but second-frame upper settle too small"
+  },
+  "native_timing": {
+    "cycle": [
+      0,
+      1,
+      2,
+      1
+    ],
+    "frame_ticks": [
+      14,
+      8,
+      14,
+      8
+    ],
+    "aliases": [
+      [
+        0,
+        1,
+        3,
+        4,
+        5
+      ],
+      [
+        2
+      ]
+    ],
+    "projectile_event_added": false
+  },
+  "review": "Source geometry independently confirmed by source_catalog. Root passed final battle and map walk/idle light previews; agent checked both backgrounds and foot XY.",
+  "ally_enemy_comparison": "Idle alpha geometry identical with different native palette. Walk RGBA byte-identical. Battle canonical1/4/5 must use ally source, not enemy1/5/6.",
+  "shared_identification_evidence": "../class-12-enemy/reference/idle-semantic-audit.json"
+}

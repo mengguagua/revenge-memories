@@ -1,0 +1,158 @@
+{
+  "status": "complete_art_review_ready",
+  "character_id": "enemy-spearman",
+  "display_name": "敌方枪兵",
+  "class_id": 6,
+  "source_side": "enemy",
+  "qa": {
+    "native_walk_review": "previews/tactical-native-original-dark-light.png",
+    "native_walk_registration": "source/tactical-native-registration.json",
+    "static_idle_review": "previews/all-map-original-dark-light.png",
+    "identity": "Same approved chestnut hair, burgundy divided short coat/tassets, grey steel shoulders, exposed lower thighs, dark boots; one spear.",
+    "source_correction": "Previous FF missing-head explanation is withdrawn: the old hybrid used wrong CHR26; FF is not empty in correct village CHR30. Current tactical art follows independently verified native CHR19 CPU frames directly and is not a missing-head restoration.",
+    "orientation": "8 CPU slots include native directional flips. Slots6/7 derive only from exact full-canvas RGBA mirror proof of2/3; direction_mirror_x empty.",
+    "alpha_policy": "Retained pixels keep ImageGen alpha. Manually isolated grounded boot ROI excludes weapon. X uses opaque sole alpha>=128, Y visible sole alpha>4. Only outside-canvas noise alpha<=4 may be cropped.",
+    "limits": [
+      "Four-times art preserves visible source steps and weapon sides but does not claim every new garment edge matches native pixels.",
+      "No hidden hip/knee inferred from divided coat hem.",
+      "Up0 free fist is bent up beside the head, independently verified against up1 low wrist; only slot0 adopts local ImageGen v3 arm fix."
+    ],
+    "checks": [
+      "8 frames load at128x96",
+      "6 new ImageGen drawings plus2 exact native mirrors",
+      "grounded boot XY registered",
+      "dark/light alpha inspection",
+      "battle/static idle unchanged",
+      "raw images and prompts preserved"
+    ],
+    "max_frame_bytes": 6026
+  },
+  "sizes": [
+    {
+      "path": "deliverables/tactical-idle-00.png",
+      "purpose": "tactical-idle",
+      "pixels": [
+        96,
+        96
+      ],
+      "bytes": 5881
+    },
+    {
+      "path": "deliverables/tactical-idle-01.png",
+      "purpose": "tactical-idle",
+      "pixels": [
+        96,
+        96
+      ],
+      "bytes": 5832
+    },
+    {
+      "path": "deliverables/tactical-idle-02.png",
+      "purpose": "tactical-idle",
+      "pixels": [
+        96,
+        96
+      ],
+      "bytes": 5926
+    },
+    {
+      "path": "deliverables/tactical-idle-03.png",
+      "purpose": "tactical-idle",
+      "pixels": [
+        96,
+        96
+      ],
+      "bytes": 5832
+    },
+    {
+      "path": "deliverables/tactical-idle-04.png",
+      "purpose": "tactical-idle",
+      "pixels": [
+        96,
+        96
+      ],
+      "bytes": 5881
+    },
+    {
+      "path": "deliverables/tactical-idle-05.png",
+      "purpose": "tactical-idle",
+      "pixels": [
+        96,
+        96
+      ],
+      "bytes": 5832
+    },
+    {
+      "path": "tactical-native-frames/frame-000.png",
+      "purpose": "tactical-walk",
+      "pixels": [
+        128,
+        96
+      ],
+      "bytes": 5553
+    },
+    {
+      "path": "tactical-native-frames/frame-001.png",
+      "purpose": "tactical-walk",
+      "pixels": [
+        128,
+        96
+      ],
+      "bytes": 5709
+    },
+    {
+      "path": "tactical-native-frames/frame-002.png",
+      "purpose": "tactical-walk",
+      "pixels": [
+        128,
+        96
+      ],
+      "bytes": 5520
+    },
+    {
+      "path": "tactical-native-frames/frame-003.png",
+      "purpose": "tactical-walk",
+      "pixels": [
+        128,
+        96
+      ],
+      "bytes": 5808
+    },
+    {
+      "path": "tactical-native-frames/frame-004.png",
+      "purpose": "tactical-walk",
+      "pixels": [
+        128,
+        96
+      ],
+      "bytes": 6026
+    },
+    {
+      "path": "tactical-native-frames/frame-005.png",
+      "purpose": "tactical-walk",
+      "pixels": [
+        128,
+        96
+      ],
+      "bytes": 5716
+    },
+    {
+      "path": "tactical-native-frames/frame-006.png",
+      "purpose": "tactical-walk",
+      "pixels": [
+        128,
+        96
+      ],
+      "bytes": 5510
+    },
+    {
+      "path": "tactical-native-frames/frame-007.png",
+      "purpose": "tactical-walk",
+      "pixels": [
+        128,
+        96
+      ],
+      "bytes": 5824
+    }
+  ]
+}

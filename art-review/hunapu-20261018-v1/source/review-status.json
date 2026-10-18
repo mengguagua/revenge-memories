@@ -1,0 +1,49 @@
+{
+  "status": "V7_FULL_TEN_POSE_SAMPLE_READY_FOR_REVIEW_NOT_APPROVED",
+  "updatedAt": "2026-10-18",
+  "reason": "Source waist-down blue/white blocks are segmented skirt armor covering pelvis and upper thighs. Drafts incorrectly replaced this with an exposed trouser crotch and continuous long trouser legs. Prior body-proportion acceptance is withdrawn.",
+  "drafts": [
+    {
+      "version": 1,
+      "path": "source/generated-atlas-v1.png",
+      "result": "Rejected: bulkier body, larger head, limb drift, incorrect lower-garment semantics."
+    },
+    {
+      "version": 2,
+      "path": "source/generated-idle-v2.png",
+      "result": "Rejected: head too large, incorrect lower-garment semantics."
+    },
+    {
+      "version": 3,
+      "path": "source/generated-idle-v3.png",
+      "preview": "source/rejected-previews-v1-v4/idle-v3-registered.png",
+      "result": "Rejected: original skirt armor misread as hip/trousers; not an approved proportion base."
+    },
+    {
+      "version": 4,
+      "path": "source/generated-atlas-v4.png",
+      "preview": "source/rejected-previews-v1-v4/atlas-v4-registered.png",
+      "result": "Rejected: same lower-garment semantic error; also pose drift, edge fringes, adjacent-cell spill. Generated before user correction arrived."
+    },
+    {
+      "version": 5,
+      "path": "source/generated-idle-v5.png",
+      "preview": "source/idle-v5-registered.png",
+      "comparison": "source/idle-v5-comparison.png",
+      "result": "Pending review: lower skirt armor restored as central and side panels; no exposed trouser crotch. Anatomy/precise registration not yet approved."
+    },
+    {
+      "version": 6,
+      "path": "source/generated-atlas-v6.png",
+      "result": "Superseded: heads too wide, oversized magic-like sword arc; not for integration."
+    },
+    {
+      "version": 7,
+      "path": "source/generated-atlas-v7.png",
+      "preview": "deliverables/hunapu-ten-poses-no-trail.png",
+      "result": "Best complete sample: corrected skirt armor, reduced heads, no new slash effect. Ten320x288 frames ready for parent animation/review; approximate anatomical alignment and minor fringes remain."
+    }
+  ],
+  "technicalPackaging": "Registered previews use uniform scale and translation only. No limb decomposition or redrawing by script was performed.",
+  "nextAction": "Parent composes original pose8 sword arc on exact duplicated pose9 body, then exports original-timing animation and final review page. Await user art acceptance before game integration."
+}

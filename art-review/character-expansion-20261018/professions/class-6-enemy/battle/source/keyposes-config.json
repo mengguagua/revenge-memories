@@ -1,0 +1,44 @@
+{
+  "batch": "keyposes-v1",
+  "source_frames": [
+    19,
+    6,
+    11
+  ],
+  "grid": [
+    1,
+    3
+  ],
+  "crop_size_4x": [
+    256,
+    160
+  ],
+  "crop_offsets_4x": {
+    "19": [
+      0,
+      112
+    ],
+    "6": [
+      64,
+      112
+    ],
+    "11": [
+      32,
+      112
+    ]
+  },
+  "working_scale": 2,
+  "reference_canvas": [
+    512,
+    960
+  ],
+  "reference_cell": [
+    512,
+    320
+  ],
+  "output_frame_size": [
+    320,
+    256
+  ],
+  "note": "Independent source x crop offsets preserve native BG/OAM registration. Generated art will be pasted back to each exact source offset; no centering by weapon bounds."
+}
