@@ -1,0 +1,86 @@
+{
+  "scope": "Review-only mercenary class8 tactical idle and 4 directional walk for ally/enemy; neutral M11 refugees reuse mercenary appearance in preview only.",
+  "native_idle": {
+    "poses": [
+      0,
+      1,
+      2
+    ],
+    "aliases": [
+      0,
+      1,
+      2,
+      1,
+      0,
+      1
+    ],
+    "cycle": [
+      0,
+      1,
+      2,
+      1
+    ],
+    "ticks": [
+      14,
+      8,
+      14,
+      8
+    ],
+    "observation": "Head/feet remain registered; single upright sword at viewer left changes lean and position with holding arm; small coat-edge change near free arm. Sword is not carried on back."
+  },
+  "native_walk": {
+    "slots": {
+      "up": [
+        0,
+        1
+      ],
+      "right": [
+        2,
+        3
+      ],
+      "down": [
+        4,
+        5
+      ],
+      "left": [
+        6,
+        7
+      ]
+    },
+    "phase_ticks": 16,
+    "weapon_ownership": "Eight independent source poses; UP sword on viewer right; RIGHT/DOWN/LEFT sword on viewer left. No mirrored derivative allowed.",
+    "head": "Same registration in each directional pair.",
+    "legs": "Up/down alternate support leg, side clear closed/stride silhouettes from source."
+  },
+  "clothing": "Established redesign: dark tied hair, asymmetric shoulder guard, front-trimmed tunic and split coat hem, trousers and boots. These are clothing pieces, not enlarged torso or missing upper legs.",
+  "M11_runtime_observation": {
+    "ids": [
+      "M11_refugees0",
+      "M11_refugees1"
+    ],
+    "class_id": 14,
+    "neutral": true,
+    "visual_profile": "civilian",
+    "handling": "User requested mercenary appearance reuse; preview with class8 body, retain NPC/class14 game data. Runtime adapter deferred until acceptance."
+  },
+  "review_style": {
+    "opaque_colors": 4,
+    "density": 4,
+    "volume": "Match 0.8.7 accepted archers and spearmen",
+    "shadow": {
+      "path": "hunapu-story-shadow-20261018/story-shadow.png",
+      "size": [
+        11,
+        3
+      ],
+      "offset": [
+        -2,
+        -1
+      ],
+      "alpha": 0.38,
+      "kind": "continuous_fixed_ground_projection",
+      "source": "Reuse accepted protagonist continuous shadow; separate fixed ground layer beneath every foot phase."
+    },
+    "ground": "map-motion-review-v3/reference/grounds/tactical-M11.png"
+  }
+}
