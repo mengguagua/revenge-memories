@@ -1,5 +1,15 @@
 extends RefCounted
 ## Logical canvas coordinates; the selected sprite and arrow are hard exclusions.
+static func forecast(anchor: Vector2,canvas: Rect2,neighbours: Array=[]) -> Dictionary:
+	# A full forecast cannot fit above/below a central target on a 256x240
+	# canvas. Keep every field, with the existing small font in the compact card.
+	for height in [112,84]:
+		var result=place(anchor,Vector2(240,height),canvas,neighbours)
+		if result.valid:
+			result.compact=height==84
+			return result
+	return {"valid":false,"panel":Rect2(),"focus":Rect2(),"compact":true}
+
 static func place(anchor: Vector2, size: Vector2, canvas: Rect2, neighbours: Array=[], exclusions: Array=[]) -> Dictionary:
 	var safe=canvas.grow(-8)
 	var focus=Rect2(anchor+Vector2(-10,-26),Vector2(36,48))

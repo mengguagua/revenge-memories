@@ -2122,12 +2122,13 @@ func _draw_exp_progress(value: int, at: Vector2, width: float) -> void:
 			draw_texture_rect_region(_tex(health_ui.cells.ally.filled.path), Rect2(point, Vector2(1, 8)), Rect2(0, 0, 1, 8))
 	presentation_audit.exp_cells = {"count": 50, "points": filled, "bounds": Rect2(start, Vector2(150, 8))}
 
-func _draw_health(hp: int, maximum: int, at: Vector2, side: String) -> void:
+func _draw_health(hp: int, maximum: int, at: Vector2, side: String, max_height: float = 0) -> void:
 	var count = clampi(maximum, 1, 255)
 	var filled = clampi(hp, 0, count)
 	var columns = 52 if count > 52 else 26
 	var cell_size = Vector2(2, 4) if count > 52 else Vector2(4, 8)
 	var rows = ceili(float(count) / columns)
+	if max_height>0:cell_size.y*=minf(1.0,max_height/(rows*cell_size.y))
 	var bounds = Rect2(at, Vector2(mini(count, columns), rows) * cell_size)
 	if not safe_panels.is_empty() and not safe_panels[-1].encloses(bounds):
 		layout_errors.append("HP cells outside content-safe rectangle")

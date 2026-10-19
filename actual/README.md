@@ -1,20 +1,16 @@
 # 复仇与回忆 · 序章至第三章
 
-当前开发入口：`scenes/main.tscn`。当前运行版本 **0.8.3**，最新剧情阴影修订测试包：`dist/RevengeMemories-HunapuShadowTest-20261018.app`，窗口标题含版本号；此前0.8.2男主地图包、0.8.1动画测试包和原 `dist/RevengeMemories.app` 保留。
+当前开发入口：`scenes/main.tscn`。当前工程版本 **0.8.12**，当前测试包：`dist/RevengeMemories-PlaytestFixes-20261019.app`。目录中的旧 `RevengeMemories.app` 为历史版本，不能据此判断最新效果。
 
-0.8.3只修改男主剧情脚下阴影：收拢两侧、中央连续覆盖抬脚下方；人物帧、动作及其他场景投影不变。后台三张代表性截图、包检查见 `reports/hunapu-story-shadow-20261018/`。
+当前接入状态以 `data/reviewed_animations.json`、`data/party_visuals.json` 和 `data/portraits.json` 为准。人物视觉验收以用户最近反馈为准；旧版“预览认可”、旧演示和自动检查计数不代表所有角色均已验收。
 
-2026-10-18 男主地图修订接入：使用用户认可预览的 `art-review/character-expansion-20261018/map-motion-review-v3/` 成果，更新剧情、大地图、战斗四向行走与缩小后的待机。剧情与大地图像素一致，侧向盾面及完整手臂摆动保留；阴影通过独立地面层固定在脚底。继续使用游戏本身的地图背景。其他职业、战斗场景、成长、装备与存档结构未因此修改。无需重开存档，等待用户实际游戏测试；导入、定向运行、后台截图和包校验见 `reports/hunapu-map-test-20261018/`。
-
-2026-10-18 动画测试包接入独立美术目录中已完成的20组职业／阵营战斗身体、40组战术地图待机／原生四向行走，以及男主剧情／大地图动作，包括本次 sol 完成的盟方2、5、7、9。269个攻击程序沿用原作节奏、位移、投射物和单次命中结算。男主进阶战斗复用已完整映射的进阶程序，进阶地图及其他未完成职业、剧情身份仍用既有画面。本次包供用户实际视觉验收；不代表全部角色动画已完成。无需重开存档，未修改存档结构。定向运行与后台截图记录见 `reports/animation-test-20261018/`。
-
-**男主地图已获本轮预览认可，等待实际游戏测试；其他角色画面仍未通过完整视觉验收。** 资源加载、像素一致性或试玩通过均不代表人物造型和动作效果达标；后续判断应以用户要求和原作 NES/CHR/OAM/ASM 动作为依据，不以旧半成品、已否决对照图或旧报告为参考。
+2026-10-19 清理覆盖当天五次提交和当前工作区，保留正在修改、新增的美术资源及原稿、帧图、交付文件，只删除确认过期且与提交一致的演示、对照图和导入前备份。没有回退玩法或美术改动，没有重写 Git 历史；记录见 `reports/cleanup-20261019-evening/summary.json`。
 
 ## 当前内容
 
 正式世界图 39 据点、40 路线；可操作序章、第一章7场、第二章8场、第三章8场战斗，共23场。第三章包括两队各3场主线、2条救援支线、两路独立切换、重逢与营站会谈、共享救治及当面物资交接。第四章及后续尚未实施。剧情设定以 `../docs2/` 为准。独立存档保留成长、经验、装备及濒死救治规则，不覆盖根目录参考复刻工程。
 
-当前角色运行资源由 `data/party_visuals.json`、`data/m11_party_motion.json`、`data/portraits.json` 管理。主角大世界使用同一套剧情地图资源；职业战斗身体共享。此处只说明当前接入状态，不认定画面已获验收。
+当前角色运行资源由 `data/reviewed_animations.json`、`data/party_visuals.json`、`data/m11_party_motion.json`、`data/portraits.json` 管理。主角大世界使用同一套剧情地图资源；职业战斗身体共享。此处只说明当前接入状态，不认定画面已获验收。
 
 第二章完成菜单可选择“开始第三章”。西街脱围后按S切换队伍；两队完成调查并分别抵达营站后进行会谈。原第二章存档可直接接续，两队成长、装备和伤情保留。
 
@@ -22,10 +18,10 @@
 
 ## 可复用输入与工具
 
-- `source/characters/original-motion/`：直接解码原作的程序、职业身体及行走帧；是后续动作修改依据。
+- `source/characters/original-motion/`：保留原始战斗程序和职业身体帧。战术行走采用 `../art-review/character-expansion-20261018/source-input/corrected-tactical-walk/overlay.json`；早期混用 CHR26 的 original-walk 不可作为真实战术动作依据。战斗提取的修正见同级 `corrected-ally-motion/overlay.json`。
 - `source/characters/portrait-bases.json`、`portrait-bases/`、`portraits-generated/`：可复用画像输入、生成原图与记录。
 - `source/characters/map-bases.json`、`map-bases/`：仅用于重建当前未验收的发色绑定，不作为新的动作参考。
-- `tools/extract_character_motion.py`、`extract_character_walk.py`：原作动作提取。
+- `tools/extract_character_motion.py`：原始战斗程序提取；修正参考见上述 source-input。
 - `tools/build_map_identities.py`：现有地图角色发色绑定；不改四肢或动作时序。
 - `tests/map_identities.gd`、`tests/map_identity_play.gd`、`tools/capture_map_identities.gd`：当前资源检查与后台复核。
 

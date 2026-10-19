@@ -4,7 +4,10 @@ const EnvironmentBorder = preload("res://core/environment_border.gd")
 const BattlePanels = preload("res://core/battle_panel_layout.gd")
 const Portraits = preload("res://core/portrait_library.gd")
 const PartySprites = preload("res://core/party_sprites.gd")
+const JourneyScreen = preload("res://core/journey_screen.gd")
+var journey
 var battle_card_audit: Dictionary={}
+var battle_preview_audit: Dictionary={}
 var training_reward_open := false
 var objective_badge_rect := Rect2()
 var battle_pack: Dictionary
@@ -35,6 +38,7 @@ const NARRATOR_SPEAKERS := ["旁白", "", "叙述", "战场提示", "提示", "�
 
 func _ready() -> void:
 	super._ready()
+	journey=JourneyScreen.new(self);journey.refresh();title_menu=true
 	small_font=GameState.read_json("res://data/legacy/font_small_zh.json")
 	get_window().title="revenge-memories · 序章至第三章 · "+str(ProjectSettings.get_setting("application/config/version",""))
 	world=game.formal_world;battle_pack=GameState.read_json("res://assets/battle_tiles/battle-tiles.json")
@@ -56,6 +60,8 @@ func _resize_window_viewport() -> void:
 	if window.content_scale_size!=logical:window.content_scale_size=logical
 
 func _process(delta: float) -> void:
+	if view not in ["title","journal","journal_confirm"]:game.play_seconds+=delta
+	if journey!=null:journey.saved_left=maxf(0.0,journey.saved_left-delta)
 	super._process(delta)
 	if previous_canvas_size!=get_viewport_rect().size:
 		previous_canvas_size=get_viewport_rect().size
@@ -82,10 +88,12 @@ func _footer_shift() -> Vector2:
 
 func _mouse_accept(point: Vector2) -> void:
 	var local=point-_canvas_offset()
+	if view in ["journal","journal_confirm"]:journey.mouse(local);return
 	if view=="plot":_accept();return
 	if view=="overview" or (view=="chapter_end" and menu_items.is_empty()):_accept();return
 	if view=="title" and title_menu:
-		if Rect2(52,138,152,48).has_point(local):title_selected=0 if local.y<160 else 1;_accept()
+		for i in range(2):
+			if journey.title_button(i).has_point(local):title_selected=i;_accept();return
 		return
 	if view=="battle" and not busy and menu_items.is_empty() and ui_mode not in ["status","action"]:
 		var cell=_battle_screen_cell(local)
@@ -99,13 +107,34 @@ func _mouse_accept(point: Vector2) -> void:
 	super._mouse_accept(local)
 
 func _new_game() -> void:
-	game.new_game();_clear_menu();hub_controller.enter_room("P00")
+	journey.open("new")
+
+func _new_journey_in_slot() -> void:
+	_clear_menu();held_direction=Vector2i.ZERO;busy=false;batch_running=false;ui_mode="inspect";world_path=[]
+	hub_controller.enter_room("P00")
+
+func _resume_journey() -> void:
+	_clear_menu();busy=false;batch_running=false;ui_mode="inspect";view=game.mode;held_direction=Vector2i.ZERO;world_path=[]
+	world_actor=Vector2(world.nodes[str(game.world_node)].position[0],world.nodes[str(game.world_node)].position[1])*16
+	if view=="hub":hub_controller.resume()
+	elif view=="battle":_focus_battle(game.cursor,true);_play_phase_music()
+	elif view in ["victory","defeat"]:_show_result()
+	elif view=="world":audio.play_music("world_map")
+	if game.flags.has("active_plot"):_resume_plot()
+	elif not game.story_events.is_empty():_play_story_events()
+
+func _show_title() -> void:
+	# Keep the gameplay checkpoint mode intact when returning to the homepage.
+	view="title";title_menu=true;title_selected=0;elapsed=0.0;held_direction=Vector2i.ZERO
+	_clear_menu();audio.play_music("title")
+	if journey!=null:journey.refresh()
 
 func _begin_existing_battle() -> void:
 	notice_time=0
 	super._begin_existing_battle()
 
 func _accept() -> void:
+	if view in ["journal","journal_confirm"]:journey.accept();return
 	if view in ["victory","defeat"] and result_sequence_running:return
 	if view=="reward" and training_reward_open:
 		training_reward_open=false;view="victory";return
@@ -120,17 +149,8 @@ func _accept() -> void:
 			entries.push_front("开始第三章");actions.push_front("new:chapter3")
 		_open_menu("chapter_end",entries,actions,Vector2(44,120));return
 	if view=="title":
-		if not title_menu:title_menu=true;return
 		if title_selected==0:_new_game()
-		elif game.load_game():
-			_clear_menu();busy=false;batch_running=false;ui_mode="inspect";view=game.mode
-			world_actor=Vector2(world.nodes[str(game.world_node)].position[0],world.nodes[str(game.world_node)].position[1])*16
-			if view=="hub":hub_controller.resume()
-			elif view=="battle":_focus_battle(game.cursor,true);_play_phase_music()
-			elif view in ["victory","defeat"]:_show_result()
-			if game.flags.has("active_plot"):_resume_plot()
-			elif not game.story_events.is_empty():_play_story_events()
-		else:_notice("存档无法读取" if FileAccess.file_exists(game.save_path) else "暂无存档")
+		else:journey.open("load")
 		return
 	if view=="world" and menu_items.is_empty() and not busy:
 		var entries: Array=[];var actions: Array=[]
@@ -143,6 +163,7 @@ func _accept() -> void:
 	super._accept()
 
 func _direction(direction: Vector2i) -> void:
+	if view in ["journal","journal_confirm"]:journey.direction(direction);return
 	if view=="plot" or view=="overview" or view=="chapter_end":
 		if not menu_items.is_empty():super._direction(direction)
 		return
@@ -207,7 +228,7 @@ func _menu_action(action: String,context: String) -> void:
 				{"speaker":"提示","text":"状态页底部显示当前装备；左右方向键切换本队成员。装备没有耐久，不必另按装备按钮。"}],view)
 		"new:prepare":
 			if game.return_to_preparation():_continue_world();_notice("已重置本战，保留此前进度")
-		"new:save","save":_notice("进度已保存" if game.save_game() else "保存失败")
+		"new:save","save":journey.open("save")
 		"new:goal":
 			var text=str(game.battle_data.goal)
 			if not game.exit_marker().is_empty():text+="\n出口有旗标。S菜单可定位出口与首领。"
@@ -235,7 +256,7 @@ func _unit_action_menu() -> void:
 	for o in options:menu_items.push_front(str(o.label));menu_actions.push_front("interact:"+str(o.id))
 
 func _open_system_menu() -> void:
-	if view=="plot":return
+	if view in ["plot","title","journal","journal_confirm"]:return
 	if view=="world" and not busy and game.can_switch_route():
 		_open_menu("world_system",["部队整备","切换队伍","世界全图","保存进度","返回标题"],["new:camp","new:switch","new:overview","new:save","title"],Vector2(40,56));return
 	if view=="world" and not busy:
@@ -249,7 +270,7 @@ func _open_system_menu() -> void:
 		menu_items.append("返回整备（重置本战）");menu_actions.append("new:prepare")
 
 func _show_status() -> void:
-	if view=="plot" or view=="overview" or view=="chapter_end":return
+	if view in ["plot","overview","chapter_end","title","journal","journal_confirm"]:return
 	if view=="hub":
 		camp_context="hub";_camp_members("status");return
 	super._show_status()
@@ -379,6 +400,9 @@ func _advance_plot() -> void:
 
 func _draw() -> void:
 	draw_set_transform(_canvas_offset())
+	if view in ["title","journal","journal_confirm"] and journey!=null:
+		safe_panels.clear();text_checks.clear();layout_errors.clear();health_checks.clear()
+		journey.draw();return
 	if view in ["plot","overview","chapter_end"]:
 		safe_panels.clear();text_checks.clear();layout_errors.clear();health_checks.clear()
 		if view=="overview":_draw_overview();return
@@ -390,22 +414,10 @@ func _draw() -> void:
 		if not menu_items.is_empty():_draw_menu()
 		return
 	super._draw()
+	if journey!=null:journey.draw_saved()
 
 func _draw_title() -> void:
-	_draw_ocean(Vector2.ZERO)
-	_draw_layers(world.layers,32,_tex(world.atlas),Vector2(128-world.width*8,120-world.height*8))
-	draw_texture_rect_region(_tex("res://assets/world_tiles/formal-world-overview.png"),Rect2(0,0,256,240),Rect2(0,600,512,480))
-	draw_rect(Rect2(0,0,256,240),Color(0.05,0.08,0.1,.62))
-	_panel(Rect2(24,40,208,152))
-	_center_text("复仇与回忆",Rect2(36,56,184,24),Color(.93,.89,.74))
-	_center_text("雪下的名字",Rect2(36,86,184,20))
-	_center_text("序章至第三章",Rect2(36,112,184,16))
-	if title_menu:
-		_center_text("开始旅程",Rect2(52,138,152,16));_center_text("继续旅程",Rect2(52,162,152,16))
-		_draw_menu_arrow(Vector2(40,140+title_selected*24))
-	else:_center_text("确认开启旅程",Rect2(36,150,184,20))
-	_panel(Rect2(8,200,240,36))
-	_center_text("方向行走 Z确认 X返回 S菜单",Rect2(18,210,220,16))
+	journey.draw()
 
 func _draw_layers(layers: Array,columns: int,atlas: Texture2D,origin: Vector2,tint: Color=Color.WHITE,skip_cells: Dictionary={}) -> void:
 	var bounds=_visible_native_rect().grow(16)
@@ -657,7 +669,8 @@ func _map_unit_sprite(unit: Dictionary) -> Dictionary:
 	if art.is_empty() and moving:art=PartySprites.sprite("map",unit,game.chapter)
 	if art.is_empty():return super._map_unit_sprite(unit)
 	if not unit.get("acted",false):return art
-	var key=str(art.path)+":rest"
+	var enemy=unit.get("side","")=="enemy"
+	var key=str(art.path)+(":enemy_rest" if enemy else ":rest")
 	if not textures.has(key):
 		var image=_tex(art.path).get_image();image.convert(Image.FORMAT_RGBA8)
 		for y in range(image.get_height()):
@@ -665,9 +678,50 @@ func _map_unit_sprite(unit: Dictionary) -> Dictionary:
 				var color=image.get_pixel(x,y)
 				if color.a<=0:continue
 				var light=color.r*.299+color.g*.587+color.b*.114
-				image.set_pixel(x,y,Color8(52,70,80) if light<.23 else Color8(113,134,140) if light<.55 else Color8(185,200,202))
+				var shade=(Color8(74,37,44) if light<.23 else Color8(153,76,77) if light<.55 else Color8(222,143,135)) if enemy else (Color8(52,70,80) if light<.23 else Color8(113,134,140) if light<.55 else Color8(185,200,202))
+				shade.a=color.a;image.set_pixel(x,y,shade)
 		textures[key]=ImageTexture.create_from_image(image)
 	art.path=key;return art
+
+func _attack_preview_placement() -> Dictionary:
+	var neighbours=[]
+	for actor in game.units:
+		if int(actor.hp)>0 and not actor.get("hidden",false):
+			neighbours.append(Rect2(_battle_cell_screen(game.pos(actor))+Vector2(-4,-10),Vector2(24,30)))
+	return BattlePanels.forecast(_battle_cell_screen(game.cursor),_visible_native_rect(),neighbours)
+
+func _draw_preview() -> void:
+	if target_ids.is_empty():return
+	var attacker=game.find_unit(game.selected_id).duplicate(true)
+	var defender=game.find_unit(str(target_ids[target_index]))
+	var distance=absi(game.pos(attacker).x-game.pos(defender).x)+absi(game.pos(attacker).y-game.pos(defender).y)
+	var reply=Rules.default_counter(defender,distance)
+	var placement=_attack_preview_placement();battle_preview_audit=placement
+	if not placement.valid:return
+	var rect: Rect2=placement.panel
+	_panel(rect)
+	for unit in [attacker,reply]:
+		if int(unit.get("character_id",0))==167:unit.weapon_index=Rules.boss_weapon(unit,game.frame_counter)
+	for i in range(2):
+		var unit=attacker.duplicate(true) if i==0 else reply.duplicate(true)
+		var other=(reply if i==0 else attacker).duplicate(true)
+		unit.triangle_attack=Rules.combat_support(unit,other,game.living(str(unit.side)),distance)
+		other.story_invulnerable=Rules.boss_guard(other,game.turn)
+		var stats=Rules.attack_stats(unit,other,game.terrain_avoid(game.pos(other)))
+		var can_attack=Rules.can_attack(unit,distance);var blocked=Rules.attack_blocked(unit,other)
+		var x=rect.position.x+12+i*112;var y=rect.position.y
+		_text(str(unit.name_zh),Vector2(x,y+12))
+		var lines=["生命"+str(int(unit.hp)),"攻击无效" if blocked else ("伤害"+str(stats.damage)+" 命中"+str(stats.hit)+"%" if can_attack else "无法反击"),"不能造成伤害" if blocked else ("必杀"+str(stats.critical)+"%" if can_attack else "超出攻击范围")]
+		for row in range(3):
+			if placement.compact:_small_text(lines[row],Vector2(x,y+30+row*12))
+			else:_text(lines[row],Vector2(x,y+36+row*16))
+		_draw_health(int(unit.hp),int(unit.max_hp),Vector2(x,y+(64 if placement.compact else 90)),"ally" if unit.side=="player" else "enemy",8 if placement.compact else 12)
+	if target_ids.size()>1:
+		_draw_indicator("left",rect.position+Vector2(110,14))
+		_draw_indicator("right",rect.position+Vector2(220,14))
+	# The whole panel is outside this protected sprite/arrow rectangle.
+	var target_sprite=_map_unit_sprite(defender)
+	_draw_indicator("down",_battle_cell_screen(game.cursor)+Vector2(4,-int(target_sprite.get("tile_origin",[4,4])[1])-9))
 
 func _draw_unit_card(unit: Dictionary) -> void:
 	if busy or notice_time>0 or phase_time>0:return
@@ -786,6 +840,8 @@ func _draw_chapter_end() -> void:
 	_center_text("确认打开菜单",Rect2(24,186,208,16))
 
 func _cancel() -> void:
+	if view in ["journal","journal_confirm"]:journey.cancel();return
+	if view=="title":return
 	if view=="plot":return
 	if view=="overview":view="world";return
 	super._cancel()

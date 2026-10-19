@@ -6,6 +6,8 @@ const Equipment = preload("res://core/equipment_supply.gd")
 const Casualties = preload("res://core/casualty_rules.gd")
 const CampaignTactics = preload("res://core/campaign_tactics.gd")
 const CampaignExperience = preload("res://core/campaign_experience.gd")
+const RefugeeTactics = preload("res://core/refugee_tactics.gd")
+const Journals = preload("res://core/journey_slots.gd")
 const CAMPAIGN_ID := "revenge-memories-1"
 const SAVE_FIELDS := ["chapter","route","parties","route_positions","previous_world_node","convoy","hub_id","hub_position","battle_return","battle_settled","story_events","stage_id","world_node","cleared_stages","roster","battle_start_snapshot","victory_rewards","flags","party","mode","units","phase","turn","rng_state","frame_counter","kills","selected_id","cursor","move_origin","battle_outcome"]
 var campaign: Dictionary
@@ -13,6 +15,9 @@ var formal_world: Dictionary
 var hub_record := "P00"
 var _guard_target_context := false
 var _casualty_legacy_path := ""
+var slot_directory := "user://"
+var active_slot := 1
+var play_seconds := 0.0
 
 func _init() -> void:
 	var original_classes=read_json("res://data/legacy/campaign.json").get("classes",{}).duplicate(true)
@@ -20,9 +25,10 @@ func _init() -> void:
 	characters=campaign.characters.duplicate(true);stages.clear()
 	for key in campaign.stages:stages[int(key)]=read_json(str(campaign.stages[key].path))
 	catalog={"characters":characters,"classes":original_classes,"world_nodes":formal_world.nodes,"routes":{},"chapter_armies":{},"enemy_groups":{},"stages":{}}
-	battle_data=stages[101].duplicate(true);opening.characters=characters;save_path="user://revenge-memories-ch1.json"
+	battle_data=stages[101].duplicate(true);opening.characters=characters;save_path=Journals.path_for(slot_directory,active_slot)
 
 func new_game() -> void:
+	play_seconds=0.0
 	flags={"campaign_id":CAMPAIGN_ID,"hub_record":"P00","quest":{},"world_previous":1}
 	chapter=1;route="alm";world_node=1;previous_world_node=1
 	route_positions={"alm":1,"celica":17}
@@ -243,7 +249,7 @@ func _campaign_ai_action(unit: Dictionary,gather: bool=false) -> Dictionary:
 			and bool(unit.get("neutral",false)) and str(unit.quest_kind)=="escort"
 			and str(unit.id) in ["M11_refugees0","M11_refugees1"]
 			and pos(unit)!=Vector2i(battle_data.exit[0],battle_data.exit[1])):
-			var attack=super.ai_action(unit)
+			var attack=RefugeeTactics.safe_attack(self,unit)
 			if not str(attack.get("target","")).is_empty():return attack
 		# Escorted groups wait at an enemy-held stretch instead of marching into it.
 		var nearby=living("enemy").any(func(e):return absi(pos(e).x-pos(unit).x)+absi(pos(e).y-pos(unit).y)<=maxi(4,Rules.attack_range(e).y+1))
@@ -466,17 +472,22 @@ func finish_exchange(exchange: Dictionary) -> Dictionary:
 	return reward
 
 func save_game() -> bool:
+	if mode=="title" or flags.is_empty():return false
 	ensure_treatment_sources()
 	# Preserve the original schema-1/2 file before its first in-place upgrade.
 	if save_path==_casualty_legacy_path and FileAccess.file_exists(save_path) and not FileAccess.file_exists(save_path+".pre-casualty.bak"):
 		if DirAccess.copy_absolute(ProjectSettings.globalize_path(save_path),ProjectSettings.globalize_path(save_path+".pre-casualty.bak"))!=OK:return false
 	var state={"schema":3,"campaign_id":CAMPAIGN_ID,"hub_record":hub_record}
+	state.journal={"saved_unix":int(Time.get_unix_time_from_system()),"play_seconds":play_seconds}
 	state.map_revision=str(battle_data.get("tactical_review_version","0.2.0"))
 	for key in SAVE_FIELDS:
 		var value=get(key);state[key]=[value.x,value.y] if value is Vector2i else value
 	var file=FileAccess.open(save_path+".tmp",FileAccess.WRITE)
 	if file==null:return false
 	file.store_string(JSON.stringify(state));file.flush();file.close()
+	# Only a validated previous checkpoint may become the recovery copy.
+	if FileAccess.file_exists(save_path) and SaveValidation.campaign_valid(self,read_json(save_path),SAVE_FIELDS):
+		if DirAccess.copy_absolute(ProjectSettings.globalize_path(save_path),ProjectSettings.globalize_path(save_path+".bak"))!=OK:return false
 	var saved=DirAccess.rename_absolute(ProjectSettings.globalize_path(save_path+".tmp"),ProjectSettings.globalize_path(save_path))==OK
 	if saved and save_path==_casualty_legacy_path:_casualty_legacy_path=""
 	return saved
@@ -514,6 +525,35 @@ func load_game() -> bool:
 				if not followed.is_empty():o.position=followed.position.duplicate()
 	if mode not in ["battle","victory","defeat"]:Equipment.reconcile(self)
 	_casualty_legacy_path=save_path if previous_schema<3 else ""
+	var journal=s.get("journal",{})
+	var seconds=journal.get("play_seconds",0.0) if journal is Dictionary else 0.0
+	play_seconds=maxf(0.0,float(seconds)) if seconds is float or seconds is int else 0.0
+	return true
+
+func slot_records() -> Array:
+	var result=[]
+	for slot in range(1,Journals.COUNT+1):result.append(Journals.info(self,slot))
+	return result
+
+func save_to_slot(slot: int) -> bool:
+	var target=Journals.path_for(slot_directory,slot)
+	if target.is_empty():return false
+	var previous=save_path
+	save_path=target
+	if not save_game():save_path=previous;return false
+	active_slot=slot
+	return true
+
+func load_slot(slot: int) -> bool:
+	if slot<1 or slot>Journals.COUNT:return false
+	var record=Journals.info(self,slot)
+	if not record.valid:return false
+	var previous=save_path
+	save_path=record.path
+	if not load_game():save_path=previous;return false
+	active_slot=slot
+	# Subsequent auto-saves go to the chosen journal, leaving old saves intact.
+	save_path=Journals.path_for(slot_directory,slot)
 	return true
 
 func begin_chapter_two() -> bool:

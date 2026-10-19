@@ -1,4 +1,0 @@
-
-let version='sample',scene='lineup';const names={current:'当前版',sample:'增厚＋微放大样板',lineup:'五角色并排',battle:'关卡原有站位'};
-function refresh(){const path=`reviews/${scene}-${version}.png`;document.getElementById('scene').src=path;document.getElementById('scene').alt=names[version]+' · '+names[scene];document.getElementById('scene-label').textContent=names[version]+' · '+names[scene];document.getElementById('full-link').href=path;document.querySelectorAll('[data-version]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.version===version)));document.querySelectorAll('[data-scene]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.scene===scene)));}
-document.querySelectorAll('[data-version]').forEach(b=>b.addEventListener('click',()=>{version=b.dataset.version;refresh()}));document.querySelectorAll('[data-scene]').forEach(b=>b.addEventListener('click',()=>{scene=b.dataset.scene;refresh()}));
