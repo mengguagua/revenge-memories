@@ -38,10 +38,13 @@ def main():
                     camera=action['closeCamera'];cv=[origin[i]+offset[i]+camera['offset'][i]for i in range(2)]+camera['size'];checks+=1
                     if outside(box,cv):errors.append({'action':action['id'],'tick':ti,'kind':kind,'mode':'close','bounds':box,'viewport':cv})
             for effect in row.get('effects',[]):
-                meta=data['effects'][effect['sprite']];at=[effect['position'][i]-meta['anchor'][i]for i in range(2)]
-                if effect.get('flip'):at=[at[i]+meta.get('flip_origin_offset',[0,0])[i]for i in range(2)]
-                box=box_at(image(meta['path']),at,meta['frame_size'],effect.get('flip',False));checks+=1
-                if outside(box,view):errors.append({'action':action['id'],'tick':ti,'kind':'effect','mode':'scene','bounds':box,'viewport':view})
+                candidates=[('effect',data['effects'][effect['sprite']])]
+                if effect['sprite']in profile.get('revisedEffects',{}):candidates.append(('revised-effect',profile['revisedEffects'][effect['sprite']]))
+                for kind,meta in candidates:
+                    at=[effect['position'][i]-meta['anchor'][i]for i in range(2)]
+                    if effect.get('flip'):at=[at[i]+meta.get('flip_origin_offset',[0,0])[i]for i in range(2)]
+                    box=box_at(image(meta['path']),at,meta['frame_size'],effect.get('flip',False));checks+=1
+                    if outside(box,view):errors.append({'action':action['id'],'tick':ti,'kind':kind,'mode':'scene','bounds':box,'viewport':view})
     for script in(ROOT/'tools').glob('*.py'):ast.parse(script.read_text())
     for script in[ROOT/'tools/gallery.js',ROOT/'gallery-data.js']:subprocess.run(['node','--check',str(script)],check=True,capture_output=True)
     report={'schema':1,'real_alpha_extent_checks':checks,'geometry_errors':errors,'structural_errors':data['validation']['structuralIssues'],

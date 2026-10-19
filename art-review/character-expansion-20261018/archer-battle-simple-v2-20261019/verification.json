@@ -1,0 +1,504 @@
+{
+  "revision": "archer-battle-simple-v2-20261019",
+  "status": "pending_user_visual_acceptance",
+  "scope": "仅双方弓箭手战斗场景服装减色与敌方蓝紫设计；未接入游戏",
+  "colors": {
+    "ally": {
+      "previous_shared_colors": 32,
+      "current_shared_colors": 10,
+      "palette": [
+        "#172432",
+        "#173b4b",
+        "#2c6070",
+        "#4a7b84",
+        "#62412b",
+        "#9c693b",
+        "#c79b61",
+        "#cd9367",
+        "#efc797",
+        "#e8ddbb"
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "opaque_colors": 10,
+          "bounds": [
+            162,
+            100,
+            244,
+            256
+          ],
+          "foot_anchor": [
+            208.0,
+            256
+          ],
+          "blue_violet_pixel_fraction": 0.0
+        },
+        {
+          "frame": 4,
+          "opaque_colors": 10,
+          "bounds": [
+            118,
+            96,
+            254,
+            256
+          ],
+          "foot_anchor": [
+            208.0,
+            256
+          ],
+          "blue_violet_pixel_fraction": 0.0
+        },
+        {
+          "frame": 5,
+          "opaque_colors": 10,
+          "bounds": [
+            148,
+            99,
+            280,
+            256
+          ],
+          "foot_anchor": [
+            208.0,
+            256
+          ],
+          "blue_violet_pixel_fraction": 0.0
+        }
+      ],
+      "projectile_mask_preserved": true
+    },
+    "enemy": {
+      "previous_shared_colors": 32,
+      "current_shared_colors": 10,
+      "palette": [
+        "#1c2135",
+        "#343552",
+        "#5c5d95",
+        "#8b86bf",
+        "#60412d",
+        "#98663c",
+        "#c79b61",
+        "#ce9769",
+        "#efc797",
+        "#e4dcca"
+      ],
+      "frames": [
+        {
+          "frame": 1,
+          "opaque_colors": 10,
+          "bounds": [
+            92,
+            98,
+            187,
+            256
+          ],
+          "foot_anchor": [
+            144.0,
+            256
+          ],
+          "blue_violet_pixel_fraction": 0.3987
+        },
+        {
+          "frame": 5,
+          "opaque_colors": 10,
+          "bounds": [
+            60,
+            93,
+            192,
+            256
+          ],
+          "foot_anchor": [
+            144.5,
+            256
+          ],
+          "blue_violet_pixel_fraction": 0.3933
+        },
+        {
+          "frame": 6,
+          "opaque_colors": 10,
+          "bounds": [
+            75,
+            96,
+            222,
+            256
+          ],
+          "foot_anchor": [
+            144.0,
+            256
+          ],
+          "blue_violet_pixel_fraction": 0.4021
+        }
+      ],
+      "projectile_mask_preserved": true
+    }
+  },
+  "all_source_timelines_and_contacts_preserved": true,
+  "previous_body_width_height_preserved": true,
+  "foot_anchor_max_error_4x_pixels": 0.5,
+  "arrow_geometry_and_source_effects_preserved": true,
+  "changed_actions": 26,
+  "unchanged_actions": 521,
+  "video_probes": [
+    {
+      "path": "demos/videos/professions-class-12-ally-battle--class_12_ally_bow.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "81",
+      "bytes": 32090
+    },
+    {
+      "path": "demos/videos/professions-class-12-ally-battle--class_12_ally_bow--close.mp4",
+      "width": 1224,
+      "height": 584,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "81",
+      "bytes": 43741
+    },
+    {
+      "path": "demos/videos/professions-class-12-ally-battle--class_12_ally_bow_far_ally.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "83",
+      "bytes": 33864
+    },
+    {
+      "path": "demos/videos/professions-class-12-ally-battle--class_12_ally_bow_far_ally_vs_heavy.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "84",
+      "bytes": 35417
+    },
+    {
+      "path": "demos/videos/professions-class-12-ally-battle--class_12_ally_bow_far_enemy.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "83",
+      "bytes": 33850
+    },
+    {
+      "path": "demos/videos/professions-class-12-ally-battle--class_12_ally_bow_far_enemy_vs_heavy.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "81",
+      "bytes": 34017
+    },
+    {
+      "path": "demos/videos/professions-class-12-ally-battle--class_12_ally_bow_vs_heavy.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "81",
+      "bytes": 33163
+    },
+    {
+      "path": "demos/videos/professions-class-12-ally-battle--class_12_ally_silver_bow.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "81",
+      "bytes": 38886
+    },
+    {
+      "path": "demos/videos/professions-class-12-ally-battle--class_12_ally_silver_bow--close.mp4",
+      "width": 1224,
+      "height": 584,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "81",
+      "bytes": 43770
+    },
+    {
+      "path": "demos/videos/professions-class-12-ally-battle--class_12_ally_silver_bow_far_ally.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "83",
+      "bytes": 40530
+    },
+    {
+      "path": "demos/videos/professions-class-12-ally-battle--class_12_ally_silver_bow_far_ally_vs_heavy.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "84",
+      "bytes": 41510
+    },
+    {
+      "path": "demos/videos/professions-class-12-ally-battle--class_12_ally_silver_bow_far_enemy.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "83",
+      "bytes": 40545
+    },
+    {
+      "path": "demos/videos/professions-class-12-ally-battle--class_12_ally_silver_bow_far_enemy_vs_heavy.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "81",
+      "bytes": 40637
+    },
+    {
+      "path": "demos/videos/professions-class-12-ally-battle--class_12_ally_silver_bow_vs_heavy.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "81",
+      "bytes": 40073
+    },
+    {
+      "path": "demos/videos/professions-class-12-ally-battle--reaction-exit.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "32",
+      "bytes": 16735
+    },
+    {
+      "path": "demos/videos/professions-class-12-ally-battle--reaction-hit.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "28",
+      "bytes": 15546
+    },
+    {
+      "path": "demos/videos/professions-class-12-ally-battle--reaction-idle.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "60",
+      "bytes": 19252
+    },
+    {
+      "path": "demos/videos/professions-class-12-ally-battle--reaction-idle--close.mp4",
+      "width": 1224,
+      "height": 584,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "60",
+      "bytes": 22722
+    },
+    {
+      "path": "demos/videos/professions-class-12-ally-battle--reaction-miss.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "27",
+      "bytes": 14453
+    },
+    {
+      "path": "demos/videos/professions-class-12-enemy-battle--class_12_enemy_bow.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "81",
+      "bytes": 32662
+    },
+    {
+      "path": "demos/videos/professions-class-12-enemy-battle--class_12_enemy_bow--close.mp4",
+      "width": 1224,
+      "height": 584,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "81",
+      "bytes": 43470
+    },
+    {
+      "path": "demos/videos/professions-class-12-enemy-battle--class_12_enemy_bow_far_ally.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "83",
+      "bytes": 34587
+    },
+    {
+      "path": "demos/videos/professions-class-12-enemy-battle--class_12_enemy_bow_far_ally_vs_heavy.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "81",
+      "bytes": 34784
+    },
+    {
+      "path": "demos/videos/professions-class-12-enemy-battle--class_12_enemy_bow_far_enemy.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "83",
+      "bytes": 34576
+    },
+    {
+      "path": "demos/videos/professions-class-12-enemy-battle--class_12_enemy_bow_far_enemy_vs_heavy.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "84",
+      "bytes": 35995
+    },
+    {
+      "path": "demos/videos/professions-class-12-enemy-battle--class_12_enemy_bow_vs_heavy.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "81",
+      "bytes": 33596
+    },
+    {
+      "path": "demos/videos/professions-class-12-enemy-battle--reaction-exit.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "32",
+      "bytes": 16768
+    },
+    {
+      "path": "demos/videos/professions-class-12-enemy-battle--reaction-hit.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "28",
+      "bytes": 15958
+    },
+    {
+      "path": "demos/videos/professions-class-12-enemy-battle--reaction-idle.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "60",
+      "bytes": 19134
+    },
+    {
+      "path": "demos/videos/professions-class-12-enemy-battle--reaction-idle--close.mp4",
+      "width": 1224,
+      "height": 584,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "60",
+      "bytes": 22817
+    },
+    {
+      "path": "demos/videos/professions-class-12-enemy-battle--reaction-miss.mp4",
+      "width": 1224,
+      "height": 488,
+      "r_frame_rate": "150247/2500",
+      "nb_frames": "27",
+      "bytes": 14551
+    }
+  ],
+  "images": [
+    {
+      "path": "archer-battle-simple-v2-20261019/deliverables/ally/battle-atlas.png",
+      "pixels": [
+        960,
+        256
+      ],
+      "bytes": 6571,
+      "sha256": "4f542295248d5afbd2c265b6be84b63c795576b8f162299eefc4a409aae048c3"
+    },
+    {
+      "path": "archer-battle-simple-v2-20261019/deliverables/ally/flying-arrow.png",
+      "pixels": [
+        192,
+        64
+      ],
+      "bytes": 441,
+      "sha256": "57747cc41c8b42ec85cddacbd1177b94164a08aa565e634cd7e5fda64abb21ef"
+    },
+    {
+      "path": "archer-battle-simple-v2-20261019/deliverables/ally/frame-001.png",
+      "pixels": [
+        320,
+        256
+      ],
+      "bytes": 2384,
+      "sha256": "27c6bff3d05bb70b1708cc873d29b1e5d40c9aa011d1cfdcd0859df46ae5415c"
+    },
+    {
+      "path": "archer-battle-simple-v2-20261019/deliverables/ally/frame-004.png",
+      "pixels": [
+        320,
+        256
+      ],
+      "bytes": 2653,
+      "sha256": "f5b00504c54ec9ff445cd9009e3dd49539b9df6a7d409ac6963354268c786e38"
+    },
+    {
+      "path": "archer-battle-simple-v2-20261019/deliverables/ally/frame-005.png",
+      "pixels": [
+        320,
+        256
+      ],
+      "bytes": 2450,
+      "sha256": "6359cc185991a3c70381a93ebf43a5ddee4d61ac1804576d4eb5e8a4c9f3e0c7"
+    },
+    {
+      "path": "archer-battle-simple-v2-20261019/deliverables/enemy/battle-atlas.png",
+      "pixels": [
+        960,
+        256
+      ],
+      "bytes": 7436,
+      "sha256": "87a782c7e5dd110e932f4d936a968d289ef467de52be227b8f0541c7b1434962"
+    },
+    {
+      "path": "archer-battle-simple-v2-20261019/deliverables/enemy/flying-arrow.png",
+      "pixels": [
+        192,
+        64
+      ],
+      "bytes": 432,
+      "sha256": "040c0be493ffccb36436ca9ce9122115ad1ae77f079dedde3951210d86df55b2"
+    },
+    {
+      "path": "archer-battle-simple-v2-20261019/deliverables/enemy/frame-001.png",
+      "pixels": [
+        320,
+        256
+      ],
+      "bytes": 2740,
+      "sha256": "e6c3ecbbce9140ac03e3c7bddd1f887ecf45dae41911b05a606537940b8912c0"
+    },
+    {
+      "path": "archer-battle-simple-v2-20261019/deliverables/enemy/frame-005.png",
+      "pixels": [
+        320,
+        256
+      ],
+      "bytes": 2839,
+      "sha256": "35f43e967fc676c86189636db426cf8c90a5c0bff102ee10daf1638a5f4beb6a"
+    },
+    {
+      "path": "archer-battle-simple-v2-20261019/deliverables/enemy/frame-006.png",
+      "pixels": [
+        320,
+        256
+      ],
+      "bytes": 2872,
+      "sha256": "ea057f4f868a07f507f4892f38dd3c120e852f07491269aef370efbf15501316"
+    }
+  ],
+  "geometry_validation": {
+    "passed": true,
+    "alpha_extent_checks": 308923,
+    "errors": 0
+  },
+  "game_files_changed": false,
+  "new_package_created": false,
+  "manual_visual_review": [
+    "six previous/current poses",
+    "ally/enemy same-size dark-background pair",
+    "light-background faction pair and original-projectile launch stills"
+  ],
+  "browser_visual_inspection": "Not performed: local-file browser access was blocked previously; offline comparisons and frame geometry are verified.",
+  "notes": [
+    "Both character palettes have ten opaque colors, down from 32; teal ally and blue-violet enemy clothing use three principal shades.",
+    "Skin and hair remain warm-colored, bow remains wooden, ivory shafts remain readable.",
+    "Generated source and prior frames retained; lossless optimization applied to prepared PNGs."
+  ],
+  "gallery_links_resolve": true,
+  "overview_bytes": 473362,
+  "image_inventory": "image-inventory.json"
+}

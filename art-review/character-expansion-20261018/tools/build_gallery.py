@@ -193,6 +193,12 @@ def build():
             representative=str(record['mapped_art_frame'])
             if key not in frames and representative in frames:frames[key]=frames[representative]
         original_size = list(Image.open(source).size)
+        revised_effects = {}
+        for effect_key, asset_path in mapping.get('effect_overrides', {}).items():
+            if effect_key not in effects: raise ValueError('Unknown revised effect: '+effect_key)
+            asset = safe_path(mapping_path.parent, asset_path)
+            if not asset.is_file(): raise ValueError('Missing revised effect: '+str(asset))
+            revised_effects[effect_key] = {**effects[effect_key], 'path':relative(asset)}
         profile = {'id': profile_id, 'actor': actor_id, 'actorName': mapping.get('display_name',actors.get(actor_id,actor_id)),
           'classId': cid, 'className': mapping.get('display_class_name',(enemy_names if side=='enemy'else class_names).get(cid,cid)), 'context': 'battle', 'contextName': '战斗场景', 'side':side,
           'mapping': relative(mapping_path), 'mappingStatus': mapping.get('status', 'unknown'), 'revision':mapping.get('revision'), 'modifiedBy':mapping.get('modified_by'), 'reviewNote':mapping.get('review_note',''),
@@ -201,6 +207,7 @@ def build():
           'anchor': body['anchor'], 'sourceOamCutoff': body['source_oam_frame_count'],
           'flipOriginOffset': [16, 0], 'outputFrameSize': expected, 'newFrames': frames,
           'frameErrors': frame_errors, 'referenceArtAliases':art_aliases, 'links': []}
+        if revised_effects: profile['revisedEffects'] = revised_effects
         for batch in mapping.get('batches', []):
             if batch.get('review'):
                 f = safe_path(mapping_path.parent, batch['review'])
@@ -288,10 +295,13 @@ def build():
             expanded=[left,top,right-left,bottom-top]
             if expanded!=view:action['viewport']=expanded
         resources=[profile['sourceAtlas']]+[profile['newFrames'][str(f)]for f in needed if str(f)in profile['newFrames']]+[effects[k]['path']for k in effect_ids if k in effects]
+        resources += [profile['revisedEffects'][k]['path']for k in effect_ids if k in profile.get('revisedEffects',{})]
         if profile.get('mapGround'): resources.append(profile['mapGround'])
         if profile.get('mapShadow'): resources.append(profile['mapShadow']['path'])
         resource_hashes={path:file_hash(ROOT/path)for path in sorted(set(resources))if(ROOT/path).exists()}
         signature={'frames':action['frames'],'origin':action['origin'],'viewport':action.get('viewport',[-16,-32,288,176]),'closeCamera':action.get('closeCamera'),'anchor':profile['anchor'],'side':profile.get('side','ally'),'resources':resource_hashes,'render_version':3}
+        if profile.get('revisedEffects'):
+            signature['revised_effects']={k:profile['revisedEffects'][k]for k in effect_ids if k in profile['revisedEffects']}
         if profile.get('mapGround'): signature['map_ground_revision']=1
         if profile.get('mapShadow'): signature['map_shadow']=profile['mapShadow']
         if profile.get('revision')=='sol':

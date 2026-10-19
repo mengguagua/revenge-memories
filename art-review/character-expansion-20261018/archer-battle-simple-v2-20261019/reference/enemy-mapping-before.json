@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "character_id": "enemy-archer",
+  "display_name": "敌方弓箭手",
+  "original_class_id": 12,
+  "source_side": "enemy",
+  "status": "review_candidate",
+  "source_atlas": "../../../source-input/enemy-motion/class-12-enemy.png",
+  "source_atlas_base": "mapping directory",
+  "source_frame_size": [
+    80,
+    64
+  ],
+  "output_frame_size": [
+    320,
+    256
+  ],
+  "source_anchor": [
+    40,
+    64
+  ],
+  "output_anchor": [
+    160,
+    256
+  ],
+  "source_frame_count": 7,
+  "source_columns": 16,
+  "frame_mapping": {
+    "1": "../../../archer-battle-width-palette-20261019/deliverables/enemy/frame-001.png",
+    "5": "../../../archer-battle-width-palette-20261019/deliverables/enemy/frame-005.png",
+    "6": "../../../archer-battle-width-palette-20261019/deliverables/enemy/frame-006.png"
+  },
+  "records": [
+    {
+      "side": "enemy",
+      "frame": 1,
+      "original_bounds": [
+        94,
+        98,
+        180,
+        256
+      ],
+      "generated_crop": [
+        182,
+        83,
+        385,
+        424
+      ],
+      "target_size": [
+        95,
+        158
+      ],
+      "offset": [
+        92,
+        98
+      ],
+      "target_foot_anchor": [
+        144,
+        256
+      ],
+      "registered_foot_anchor": [
+        144.5,
+        256
+      ],
+      "width_factor": 1.1046511627906976,
+      "height_preserved": true,
+      "source_frame": 1,
+      "representative_frame": 1,
+      "kind": "registered_imagegen_width_palette_edit",
+      "path": "../../../archer-battle-width-palette-20261019/deliverables/enemy/frame-001.png",
+      "generated_source": "../../../archer-battle-width-palette-20261019/source/generated-v1.png",
+      "visible_bounds": [
+        92,
+        98,
+        187,
+        256
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 4891,
+      "sha256": "fde5e3289c987bcbb598716469f38e7cdc38dcbfebe1023fa49e53407d67af70"
+    },
+    {
+      "side": "enemy",
+      "frame": 5,
+      "original_bounds": [
+        66,
+        93,
+        186,
+        256
+      ],
+      "generated_crop": [
+        80,
+        74,
+        368,
+        424
+      ],
+      "target_size": [
+        132,
+        163
+      ],
+      "offset": [
+        59,
+        93
+      ],
+      "target_foot_anchor": [
+        144,
+        256
+      ],
+      "registered_foot_anchor": [
+        144.0,
+        256
+      ],
+      "width_factor": 1.1,
+      "height_preserved": true,
+      "source_frame": 5,
+      "representative_frame": 5,
+      "kind": "registered_imagegen_width_palette_edit",
+      "path": "../../../archer-battle-width-palette-20261019/deliverables/enemy/frame-005.png",
+      "generated_source": "../../../archer-battle-width-palette-20261019/source/generated-v1.png",
+      "visible_bounds": [
+        59,
+        93,
+        191,
+        256
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 5071,
+      "sha256": "16a6fbf191e5f6082f02f313a4d6b2f34f28974f35e082f93c11db092496fe27"
+    },
+    {
+      "side": "enemy",
+      "frame": 6,
+      "original_bounds": [
+        64,
+        96,
+        198,
+        256
+      ],
+      "generated_crop": [
+        83,
+        83,
+        378,
+        424
+      ],
+      "target_size": [
+        147,
+        160
+      ],
+      "offset": [
+        70,
+        96
+      ],
+      "target_foot_anchor": [
+        144,
+        256
+      ],
+      "registered_foot_anchor": [
+        143.5,
+        256
+      ],
+      "width_factor": 1.0970149253731343,
+      "height_preserved": true,
+      "source_frame": 6,
+      "representative_frame": 6,
+      "kind": "registered_imagegen_width_palette_edit",
+      "path": "../../../archer-battle-width-palette-20261019/deliverables/enemy/frame-006.png",
+      "generated_source": "../../../archer-battle-width-palette-20261019/source/generated-v1.png",
+      "visible_bounds": [
+        70,
+        96,
+        217,
+        256
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 5165,
+      "sha256": "dd07ee5069f8ade7d92262ee8bf7f64371fb72df53d8f2b802acb236f76dc43e"
+    }
+  ],
+  "canonical_frames": [
+    1,
+    5,
+    6
+  ],
+  "variant_keys": [
+    "class_12_enemy_bow",
+    "class_12_enemy_bow_vs_heavy",
+    "class_12_enemy_bow_far_ally",
+    "class_12_enemy_bow_far_ally_vs_heavy",
+    "class_12_enemy_bow_far_enemy",
+    "class_12_enemy_bow_far_enemy_vs_heavy"
+  ],
+  "output_atlas": "../../../archer-battle-width-palette-20261019/deliverables/enemy/battle-atlas.png",
+  "output_atlas_frame_order": [
+    1,
+    5,
+    6
+  ],
+  "batches": [
+    {
+      "id": "本轮战斗配色与宽度",
+      "review": "../../../archer-battle-width-palette-20261019/reviews/previous-and-new.png"
+    }
+  ],
+  "source_semantics": {
+    "1": "upright empty bow / recovery",
+    "5": "full draw with one nocked arrow",
+    "6": "post-release empty bow"
+  },
+  "foot_anchor_registration": {
+    "source_boot_roi": [
+      29,
+      60,
+      43,
+      64
+    ],
+    "source_feet": [
+      36,
+      64
+    ],
+    "target_feet": [
+      144,
+      256
+    ],
+    "x_tolerance": 0.5,
+    "y_tolerance": 1,
+    "no_body_clamp": true
+  },
+  "qa_report": "../../../archer-battle-width-palette-20261019/verification.json",
+  "art_review": "Pending user visual acceptance; registered ImageGen edit, unchanged source timeline.",
+  "revision": "archer-battle-width-palette-20261019",
+  "modified_by": "Codex",
+  "review_note": "战斗场景人物可见宽度增加约10%，高度与脚底锚点保留；每方统一32色，飞箭使用角色同组配色。原动作帧序、位移、出箭时刻与命中时刻保留。仅更新对照页，未接入游戏。",
+  "effect_overrides": {
+    "native-c8d32a72f8005f": "../../../archer-battle-width-palette-20261019/deliverables/enemy/flying-arrow.png"
+  }
+}

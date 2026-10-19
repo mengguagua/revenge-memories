@@ -56,7 +56,7 @@
       blit(ctx,imageFor(profile.sourceAtlas),[(f%profile.sourceColumns)*sw,Math.floor(f/profile.sourceColumns)*sh,sw,sh],at,[sw,sh],flip,row.alpha ?? 1,row.tint ?? 1);
     }
     if(!bodyOnly) for(const effect of row.effects || []) {
-      const info=data.effects[effect.sprite]; if(!info) continue;
+      const info=(revised && profile.revisedEffects?.[effect.sprite]) || data.effects[effect.sprite]; if(!info) continue;
       const eAt=[effect.position[0]-info.anchor[0],effect.position[1]-info.anchor[1]];
       if(effect.flip) {eAt[0]+=(info.flip_origin_offset?.[0]||0);eAt[1]+=(info.flip_origin_offset?.[1]||0);}
       const im=imageFor(info.path); if(im) blit(ctx,im,[0,0,im.width,im.height],eAt,info.frame_size,!!effect.flip);
@@ -121,12 +121,12 @@
     $('new-missing').hidden=false;$('new-missing').querySelector('strong').textContent=active.ready?'正在载入素材':active.sourceReviewPending?'参考来源复核中':'本动作素材未齐';
     $('new-missing').querySelector('span').textContent=active.ready?'':active.sourceReviewPending?'正在核对原战术移动的动作表与图块银行，旧素材保留待重审。':`尚缺源姿势 ${active.missingFrames.join('、')}；不回退使用旧图。`;
     catalog();links();draw();
-    const paths=[profile.sourceAtlas,...active.neededFrames.map(f=>profile.newFrames[String(f)]).filter(Boolean),...active.effectIds.map(id=>data.effects[id]?.path).filter(Boolean)];
+    const paths=[profile.sourceAtlas,...active.neededFrames.map(f=>profile.newFrames[String(f)]).filter(Boolean),...active.effectIds.map(id=>data.effects[id]?.path).filter(Boolean),...active.effectIds.map(id=>profile.revisedEffects?.[id]?.path).filter(Boolean)];
     if(profile.mapGround) paths.push(profile.mapGround);
     if(profile.mapShadow) paths.push(profile.mapShadow.path);
     await Promise.all(paths.map(loadImage));if(token!==selection)return;
     const runtimeMissing=active.neededFrames.filter(f=>!imageFor(profile.newFrames[String(f)]));
-    const effectMissing=active.effectIds.filter(id=>!imageFor(data.effects[id]?.path));
+    const effectMissing=active.effectIds.filter(id=>!imageFor(data.effects[id]?.path) || (profile.revisedEffects?.[id] && !imageFor(profile.revisedEffects[id].path)));
     $('old-missing').hidden=!!imageFor(profile.sourceAtlas);
     $('new-missing').hidden=active.ready&&!runtimeMissing.length&&!effectMissing.length;
     if(active.ready&&(runtimeMissing.length||effectMissing.length)){
