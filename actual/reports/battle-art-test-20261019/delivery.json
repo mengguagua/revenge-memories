@@ -1,0 +1,79 @@
+{
+  "version": "0.8.10",
+  "app": "/Users/gcc/gaocc/project/revenge-memories/actual/dist/RevengeMemories-BattleArtTest-20261019.app",
+  "zip": "/Users/gcc/gaocc/project/revenge-memories/actual/dist/RevengeMemories-0.8.10-BattleArtTest-20261019-macOS.zip",
+  "zip_bytes": 228159804,
+  "zip_sha256": "28e7086b7230380b9f5d7ed087e7b6e12488554cf9dc811b0c94a8501f4597e5",
+  "zip_integrity": true,
+  "zip_pck_matches_app": true,
+  "pck_sha256": "35e067ce9eb4883e258c30b8db27e7438ca47a43623d1d9be860b8fd6115dbef",
+  "ad_hoc_codesign_verified": true,
+  "scope": [
+    "双方弓箭手战斗场景轻甲与简洁配色，双方飞箭颜色",
+    "双方枪兵战斗场景适度加宽与简洁配色，敌军蓝紫衣甲",
+    "双方佣兵战斗场景简化服装配色，敌方深蓝鞋靴、护腕和肩甲"
+  ],
+  "approved_revisions": {
+    "6_ally": "spearman-battle-width-palette-20261019",
+    "6_enemy": "spearman-enemy-blue-violet-v2-20261019",
+    "8_ally": "mercenary-battle-simple-v1-20261019",
+    "8_enemy": "mercenary-enemy-deep-blue-v2-20261019",
+    "12_ally": "archer-battle-light-armor-v3-20261019",
+    "12_enemy": "archer-battle-light-armor-v3-20261019"
+  },
+  "verification": {
+    "source-runtime": {
+      "passed": true,
+      "checks": 210,
+      "version": "0.8.10"
+    },
+    "source-ai": {
+      "passed": true,
+      "checks": 28,
+      "version": "0.8.10"
+    },
+    "pack-runtime": {
+      "passed": true,
+      "checks": 210,
+      "version": "0.8.10"
+    },
+    "pack-ai": {
+      "passed": true,
+      "checks": 28,
+      "version": "0.8.10"
+    }
+  },
+  "pixel_identical_review_frame_slots": 44,
+  "runtime_attack_variants": 34,
+  "pack_comparison_with_089": {
+    "before_files": 3703,
+    "after_files": 3707,
+    "changed": [
+      "res://.godot/imported/professions-class-12-ally-battle.png-101aceece953323c4d01c487fe3875fe.ctex",
+      "res://.godot/imported/professions-class-12-enemy-battle.png-419e50d1a56cf7ff06bed5e27b1287b9.ctex",
+      "res://.godot/imported/professions-class-6-ally-battle.png-ac17b9446387142364c4e0d948f84b64.ctex",
+      "res://.godot/imported/professions-class-6-enemy-battle.png-e832705f7ca96992b93a0581570d19c6.ctex",
+      "res://.godot/imported/professions-class-8-ally-battle.png-176adf2c02a9b1cef173132c557615c5.ctex",
+      "res://.godot/imported/professions-class-8-enemy-battle.png-6e275e5d26366f6b04bc76adf71d98da.ctex",
+      "res://.godot/uid_cache.bin",
+      "res://data/reviewed_animations.json",
+      "res://project.binary"
+    ],
+    "added": [
+      "res://.godot/imported/reviewed-class-12-ally-5f107fe1afd7d2.png-1312b9e2593b5a0e02e87adfdf73ee52.ctex",
+      "res://.godot/imported/reviewed-class-12-enemy-native-c8d32a72f8005f.png-ed42ea6203eb4b68e3803bb96b0562a6.ctex",
+      "res://assets/reviewed-animation-20261018/effects/reviewed-class-12-ally-5f107fe1afd7d2.png.import",
+      "res://assets/reviewed-animation-20261018/effects/reviewed-class-12-enemy-native-c8d32a72f8005f.png.import"
+    ],
+    "removed": []
+  },
+  "gameplay_code_and_data_unchanged": true,
+  "all_map_art_unchanged": true,
+  "user_save_unchanged": true,
+  "old_089_package_retained": true,
+  "limitations": [
+    "Headless resource, timeline, gameplay-contact and M11 automatic-turn checks; native device visual acceptance remains with the user.",
+    "Godot reported unavailable system certificates and inability to save global editor preferences in the sandbox; export succeeded and package resource, signature and archive checks passed."
+  ],
+  "import_adjustment": "佣兵纹理关闭 Godot 自动 alpha 边缘改色，保留已验收低透明度边缘的原始 RGB。"
+}

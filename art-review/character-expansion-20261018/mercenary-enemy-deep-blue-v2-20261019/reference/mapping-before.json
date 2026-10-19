@@ -1,0 +1,694 @@
+{
+  "schema_version": 1,
+  "character_id": "enemy-mercenary",
+  "display_name": "敌方佣兵",
+  "original_class_id": 8,
+  "source_side": "enemy",
+  "variant_keys": [
+    "original_class_8_enemy_normal",
+    "class_8_enemy_levin",
+    "class_8_enemy_levin_vs_heavy",
+    "class_8_enemy_levin_far_ally",
+    "class_8_enemy_levin_far_ally_vs_heavy",
+    "class_8_enemy_levin_far_enemy",
+    "class_8_enemy_levin_far_enemy_vs_heavy"
+  ],
+  "source_atlas": "../../../source-input/enemy-motion/class-8-enemy.png",
+  "source_motion": "../../../source-input/enemy-motion/full-enemy-motion.json",
+  "source_frame_size": [
+    80,
+    64
+  ],
+  "output_frame_size": [
+    320,
+    256
+  ],
+  "source_anchor": [
+    40,
+    64
+  ],
+  "output_anchor": [
+    160,
+    256
+  ],
+  "source_oam_frame_count": 8,
+  "canonical_frames": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    16
+  ],
+  "required_source_frames": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    15,
+    16
+  ],
+  "unique_redraw_body_frames": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    16
+  ],
+  "source_aliases": {
+    "15": 8
+  },
+  "status": "review_candidate",
+  "runtime_integrated": false,
+  "frame_mapping": {
+    "0": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-000.png",
+    "1": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-001.png",
+    "2": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-002.png",
+    "3": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-003.png",
+    "4": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-004.png",
+    "5": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-005.png",
+    "6": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-006.png",
+    "7": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-007.png",
+    "8": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-008.png",
+    "15": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-015.png",
+    "16": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-016.png"
+  },
+  "records": [
+    {
+      "source_frame": 0,
+      "output_path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-000.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 8803,
+      "sha256": "c5133b4289191c5d1fdbe04111a68d10ddab3bb3050632b76e6619292ce52e68",
+      "generated_source": "source/keyposes-generated-v1.png",
+      "prompt": "source/keyposes-prompt-v1.txt",
+      "registration_record": "source/keyposes-registration-v1.json",
+      "compression": "oxipng -o3 lossless",
+      "path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-000.png",
+      "previous_source": "../../../mercenary-battle-simple-v1-20261019/reference/enemy-000.png",
+      "kind": "existing_pose_outfit_palette_simplification",
+      "shared_body_palette": [
+        "#1c2135",
+        "#343552",
+        "#5c5d95",
+        "#8b86bf",
+        "#737a9b",
+        "#bcc0d6",
+        "#49362c",
+        "#8a6041",
+        "#b29674",
+        "#6d625b",
+        "#c08c62",
+        "#efbd8b",
+        "#f2d3a4",
+        "#e4dcca"
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "alpha_bounds": [
+        127,
+        135,
+        228,
+        256
+      ],
+      "protected_blade": [
+        128,
+        240,
+        173,
+        198
+      ],
+      "previous_art_metadata_scope": "Older generation/registration fields document the unchanged prior pose geometry; current color processing is recorded in the revision registration.json."
+    },
+    {
+      "source_frame": 1,
+      "output_path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-001.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 7124,
+      "sha256": "d75ba75e04e753615bdb090a69798f0ae599f1b8e3adb9cd10efad9a8338eb55",
+      "generated_source": "source/transitions-generated-v2.png",
+      "prompt": "source/transitions-prompt-v2.txt",
+      "registration_record": "source/transitions-registration-v2.json",
+      "compression": "oxipng -o3 lossless",
+      "path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-001.png",
+      "previous_source": "../../../mercenary-battle-simple-v1-20261019/reference/enemy-001.png",
+      "kind": "existing_pose_outfit_palette_simplification",
+      "shared_body_palette": [
+        "#1c2135",
+        "#343552",
+        "#5c5d95",
+        "#8b86bf",
+        "#737a9b",
+        "#bcc0d6",
+        "#49362c",
+        "#8a6041",
+        "#b29674",
+        "#6d625b",
+        "#c08c62",
+        "#efbd8b",
+        "#f2d3a4",
+        "#e4dcca"
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "alpha_bounds": [
+        129,
+        142,
+        212,
+        256
+      ],
+      "protected_blade": [
+        134,
+        246,
+        170,
+        202
+      ],
+      "previous_art_metadata_scope": "Older generation/registration fields document the unchanged prior pose geometry; current color processing is recorded in the revision registration.json."
+    },
+    {
+      "source_frame": 2,
+      "output_path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-002.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 7271,
+      "sha256": "f2319f072367a41a15d44cd1d6b4bff256c6cf15f0775b6439f518142f965cb4",
+      "generated_source": "source/transitions-generated-v2.png",
+      "prompt": "source/transitions-prompt-v2.txt",
+      "registration_record": "source/transitions-registration-v2.json",
+      "compression": "oxipng -o3 lossless",
+      "path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-002.png",
+      "previous_source": "../../../mercenary-battle-simple-v1-20261019/reference/enemy-002.png",
+      "kind": "existing_pose_outfit_palette_simplification",
+      "shared_body_palette": [
+        "#1c2135",
+        "#343552",
+        "#5c5d95",
+        "#8b86bf",
+        "#737a9b",
+        "#bcc0d6",
+        "#49362c",
+        "#8a6041",
+        "#b29674",
+        "#6d625b",
+        "#c08c62",
+        "#efbd8b",
+        "#f2d3a4",
+        "#e4dcca"
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "alpha_bounds": [
+        131,
+        106,
+        208,
+        249
+      ],
+      "protected_blade": [
+        171,
+        104,
+        173,
+        170
+      ],
+      "previous_art_metadata_scope": "Older generation/registration fields document the unchanged prior pose geometry; current color processing is recorded in the revision registration.json."
+    },
+    {
+      "source_frame": 3,
+      "output_path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-003.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 7067,
+      "sha256": "061c6ee40875cce18f687a3edc40d84fd27390fef8c8e38f10f3030ba100ef63",
+      "generated_source": "source/keyposes-generated-v1.png",
+      "prompt": "source/keyposes-prompt-v1.txt",
+      "registration_record": "source/keyposes-registration-v1.json",
+      "compression": "oxipng -o3 lossless",
+      "path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-003.png",
+      "previous_source": "../../../mercenary-battle-simple-v1-20261019/reference/enemy-003.png",
+      "kind": "existing_pose_outfit_palette_simplification",
+      "shared_body_palette": [
+        "#1c2135",
+        "#343552",
+        "#5c5d95",
+        "#8b86bf",
+        "#737a9b",
+        "#bcc0d6",
+        "#49362c",
+        "#8a6041",
+        "#b29674",
+        "#6d625b",
+        "#c08c62",
+        "#efbd8b",
+        "#f2d3a4",
+        "#e4dcca"
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "alpha_bounds": [
+        134,
+        98,
+        203,
+        230
+      ],
+      "protected_blade": [
+        128,
+        99,
+        175,
+        129
+      ],
+      "previous_art_metadata_scope": "Older generation/registration fields document the unchanged prior pose geometry; current color processing is recorded in the revision registration.json."
+    },
+    {
+      "source_frame": 4,
+      "output_path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-004.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 7397,
+      "sha256": "61fb4dd1447ce7a3cf3e7aac5e70ab257686cbd110481af356bd9f45948510eb",
+      "generated_source": "source/air-slashes-generated-v1.png",
+      "prompt": "source/air-slashes-prompt-v1.txt",
+      "registration_record": "source/air-slashes-registration-v1.json",
+      "compression": "oxipng -o3 lossless",
+      "path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-004.png",
+      "previous_source": "../../../mercenary-battle-simple-v1-20261019/reference/enemy-004.png",
+      "kind": "existing_pose_outfit_palette_simplification",
+      "shared_body_palette": [
+        "#1c2135",
+        "#343552",
+        "#5c5d95",
+        "#8b86bf",
+        "#737a9b",
+        "#bcc0d6",
+        "#49362c",
+        "#8a6041",
+        "#b29674",
+        "#6d625b",
+        "#c08c62",
+        "#efbd8b",
+        "#f2d3a4",
+        "#e4dcca"
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "alpha_bounds": [
+        107,
+        99,
+        202,
+        241
+      ],
+      "protected_blade": [
+        125,
+        99,
+        164,
+        132
+      ],
+      "previous_art_metadata_scope": "Older generation/registration fields document the unchanged prior pose geometry; current color processing is recorded in the revision registration.json."
+    },
+    {
+      "source_frame": 5,
+      "output_path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-005.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 7288,
+      "sha256": "4c60330aadc56e78790e4244e63c1bc84aea7767956b2c1ccb7c1b3f8190795c",
+      "generated_source": "source/air-slashes-generated-v1.png",
+      "prompt": "source/air-slashes-prompt-v1.txt",
+      "registration_record": "source/air-slashes-registration-v1.json",
+      "compression": "oxipng -o3 lossless",
+      "path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-005.png",
+      "previous_source": "../../../mercenary-battle-simple-v1-20261019/reference/enemy-005.png",
+      "kind": "existing_pose_outfit_palette_simplification",
+      "shared_body_palette": [
+        "#1c2135",
+        "#343552",
+        "#5c5d95",
+        "#8b86bf",
+        "#737a9b",
+        "#bcc0d6",
+        "#49362c",
+        "#8a6041",
+        "#b29674",
+        "#6d625b",
+        "#c08c62",
+        "#efbd8b",
+        "#f2d3a4",
+        "#e4dcca"
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "alpha_bounds": [
+        107,
+        99,
+        212,
+        241
+      ],
+      "protected_blade": [
+        214,
+        97,
+        178,
+        133
+      ],
+      "previous_art_metadata_scope": "Older generation/registration fields document the unchanged prior pose geometry; current color processing is recorded in the revision registration.json."
+    },
+    {
+      "source_frame": 6,
+      "output_path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-006.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 7840,
+      "sha256": "95905b2c99d49d51f4b9606fd465e3a28bda3e343ce844b0c7e7ceb3b9188e29",
+      "generated_source": "source/followthrough-tip-generated-v3.png",
+      "prompt": "source/followthrough-tip-prompt-v3.txt",
+      "registration_record": "source/followthrough-tip-registration-v3.json",
+      "compression": "oxipng -o3 lossless",
+      "derived_from": 7,
+      "whole_frame_translation": [
+        -4,
+        0
+      ],
+      "effect_layer": "source/original-slash-layer-006.png",
+      "derivation": "Original7 occupies an exact RGBA subset of6 after translation; original additional arc reused unchanged",
+      "path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-006.png",
+      "previous_source": "../../../mercenary-battle-simple-v1-20261019/reference/enemy-006.png",
+      "kind": "existing_pose_outfit_palette_simplification",
+      "shared_body_palette": [
+        "#1c2135",
+        "#343552",
+        "#5c5d95",
+        "#8b86bf",
+        "#737a9b",
+        "#bcc0d6",
+        "#49362c",
+        "#8a6041",
+        "#b29674",
+        "#6d625b",
+        "#c08c62",
+        "#efbd8b",
+        "#f2d3a4",
+        "#e4dcca"
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "alpha_bounds": [
+        60,
+        96,
+        223,
+        256
+      ],
+      "preserved_slash_layer": "../../../mercenary-battle-simple-v1-20261019/reference/enemy-slash-006.png",
+      "previous_art_metadata_scope": "Older generation/registration fields document the unchanged prior pose geometry; current color processing is recorded in the revision registration.json."
+    },
+    {
+      "source_frame": 7,
+      "output_path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-007.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 7543,
+      "sha256": "c17ed2a369cc7626c2ddbb56210dc7faf5448488dcc4d889118ce6cc06f4308b",
+      "generated_source": "source/followthrough-tip-generated-v3.png",
+      "prompt": "source/followthrough-tip-prompt-v3.txt",
+      "registration_record": "source/followthrough-tip-registration-v3.json",
+      "compression": "oxipng -o3 lossless",
+      "path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-007.png",
+      "previous_source": "../../../mercenary-battle-simple-v1-20261019/reference/enemy-007.png",
+      "kind": "existing_pose_outfit_palette_simplification",
+      "shared_body_palette": [
+        "#1c2135",
+        "#343552",
+        "#5c5d95",
+        "#8b86bf",
+        "#737a9b",
+        "#bcc0d6",
+        "#49362c",
+        "#8a6041",
+        "#b29674",
+        "#6d625b",
+        "#c08c62",
+        "#efbd8b",
+        "#f2d3a4",
+        "#e4dcca"
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "alpha_bounds": [
+        129,
+        143,
+        227,
+        256
+      ],
+      "protected_blade": [
+        135,
+        242,
+        176,
+        202
+      ],
+      "previous_art_metadata_scope": "Older generation/registration fields document the unchanged prior pose geometry; current color processing is recorded in the revision registration.json."
+    },
+    {
+      "source_frame": 8,
+      "output_path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-008.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 8806,
+      "sha256": "4c19e26276e7c12f1b8cea0e3cd98b7b2b9c719709de6920b9f09f2db129186d",
+      "generated_source": "source/keyposes-generated-v1.png",
+      "prompt": "source/keyposes-prompt-v1.txt",
+      "registration_record": "source/keyposes-registration-v1.json",
+      "compression": "oxipng -o3 lossless",
+      "derived_from": 0,
+      "whole_frame_translation": [
+        -64,
+        0
+      ],
+      "derivation": "Exact original0-to8RGBA translation proof;15alias8",
+      "path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-008.png",
+      "previous_source": "../../../mercenary-battle-simple-v1-20261019/reference/enemy-008.png",
+      "kind": "existing_pose_outfit_palette_simplification",
+      "shared_body_palette": [
+        "#1c2135",
+        "#343552",
+        "#5c5d95",
+        "#8b86bf",
+        "#737a9b",
+        "#bcc0d6",
+        "#49362c",
+        "#8a6041",
+        "#b29674",
+        "#6d625b",
+        "#c08c62",
+        "#efbd8b",
+        "#f2d3a4",
+        "#e4dcca"
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "alpha_bounds": [
+        63,
+        135,
+        164,
+        256
+      ],
+      "previous_art_metadata_scope": "Older generation/registration fields document the unchanged prior pose geometry; current color processing is recorded in the revision registration.json."
+    },
+    {
+      "source_frame": 15,
+      "output_path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-015.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 8806,
+      "sha256": "4c19e26276e7c12f1b8cea0e3cd98b7b2b9c719709de6920b9f09f2db129186d",
+      "generated_source": "source/keyposes-generated-v1.png",
+      "prompt": "source/keyposes-prompt-v1.txt",
+      "registration_record": "source/keyposes-registration-v1.json",
+      "compression": "oxipng -o3 lossless",
+      "derived_from": 0,
+      "whole_frame_translation": [
+        -64,
+        0
+      ],
+      "derivation": "Exact original0-to8RGBA translation proof;15alias8",
+      "path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-015.png",
+      "previous_source": "../../../mercenary-battle-simple-v1-20261019/reference/enemy-015.png",
+      "kind": "existing_pose_outfit_palette_simplification",
+      "shared_body_palette": [
+        "#1c2135",
+        "#343552",
+        "#5c5d95",
+        "#8b86bf",
+        "#737a9b",
+        "#bcc0d6",
+        "#49362c",
+        "#8a6041",
+        "#b29674",
+        "#6d625b",
+        "#c08c62",
+        "#efbd8b",
+        "#f2d3a4",
+        "#e4dcca"
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "alpha_bounds": [
+        63,
+        135,
+        164,
+        256
+      ],
+      "previous_art_metadata_scope": "Older generation/registration fields document the unchanged prior pose geometry; current color processing is recorded in the revision registration.json."
+    },
+    {
+      "source_frame": 16,
+      "output_path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-016.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 7946,
+      "sha256": "031f78aa898609fea378cae2e6affd72679bf01c5890fbccc4d6a0c609e40327",
+      "generated_source": "source/keyposes-generated-v1.png",
+      "prompt": "source/keyposes-prompt-v1.txt",
+      "registration_record": "source/keyposes-registration-v1.json",
+      "compression": "oxipng -o3 lossless",
+      "path": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/frame-016.png",
+      "previous_source": "../../../mercenary-battle-simple-v1-20261019/reference/enemy-016.png",
+      "kind": "existing_pose_outfit_palette_simplification",
+      "shared_body_palette": [
+        "#1c2135",
+        "#343552",
+        "#5c5d95",
+        "#8b86bf",
+        "#737a9b",
+        "#bcc0d6",
+        "#49362c",
+        "#8a6041",
+        "#b29674",
+        "#6d625b",
+        "#c08c62",
+        "#efbd8b",
+        "#f2d3a4",
+        "#e4dcca"
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "alpha_bounds": [
+        100,
+        43,
+        164,
+        256
+      ],
+      "protected_blade": [
+        174,
+        26,
+        174,
+        142
+      ],
+      "previous_art_metadata_scope": "Older generation/registration fields document the unchanged prior pose geometry; current color processing is recorded in the revision registration.json."
+    }
+  ],
+  "art_mode": "ImageGen color reference, fixed body palettes, protected existing sword and slash pixels; no scaling or translation except proven source aliases.",
+  "reuse_proof": "source/pixel-reuse-proof.json",
+  "source_semantics": {
+    "clothing": "Slim armored/clothed legs and short waist coverage. New short moss jacket/hip hems preserve visible source occlusion; no hidden joint coordinates inferred.",
+    "weapon": "One narrow straight steel sword; pose2 grip is chest-side with upright blade, pose16 is true one-arm overhead raise. No baked lightning.",
+    "effect": "Frame6 original sweep isolated only after exact pixel-subset proof; new7 translated(-4,0) plus unmodified original sweep.",
+    "registration": "Enemy OAM0–7 and left-normalized BG8/15/16 keep distinct original frame placements; original flip-origin compensation remains renderer responsibility.",
+    "levin": "Native enemy selector program26, effect2, idle8; six existing variations remain original-program effects, no new abilities."
+  },
+  "qa": {
+    "comparison": "reviews/all-ten-original-dark-light.png",
+    "sword_tip_review": "reviews/slash-connection-tip-comparison.png",
+    "limitations": [
+      "Source and new costume silhouettes retain minor pixel-level differences; no exact anatomical-joint claim.",
+      "Original slash arc has a small intentional gap to sword; repaired endpoint preserves native closest-distance rather than stretching the original effect."
+    ],
+    "checks": [
+      "All11required framepaths loadRGBA320x256",
+      "8/15 body translated from0;15==8exact",
+      "6 uses proven original isolated sweep",
+      "Dark/light edges and complete weapon tips inspected",
+      "Airborne bottoms follow source228/240/248 rather than floor256",
+      "No game/frozen sources modified"
+    ]
+  },
+  "revision": "mercenary-battle-simple-v1-20261019",
+  "modified_by": "Codex",
+  "output_atlas": "../../../mercenary-battle-simple-v1-20261019/deliverables/enemy/battle-atlas.png",
+  "output_atlas_frame_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    16
+  ],
+  "qa_report": "../../../mercenary-battle-simple-v1-20261019/verification.json",
+  "art_review": "Pending user visual acceptance. Exact alpha/positions, sword protection and original slash/lightning retained.",
+  "review_note": "佣兵战斗场景减色：人物主体每方共用14色，服装合并明暗；盟军保留暖紫衣装、棕色皮具及少量浅金边，敌军统一偏蓝紫。保留现有比例、姿势、腾空高度与脚底位置，刀刃保护，原刀光和雷电效果保持。仅更新对照，未接入测试包。",
+  "batches": [
+    {
+      "id": "双方简色待机",
+      "review": "../../../mercenary-battle-simple-v1-20261019/reviews/factions-dark.png"
+    },
+    {
+      "id": "本方全姿势修改前后",
+      "review": "../../../mercenary-battle-simple-v1-20261019/reviews/enemy-previous-and-new-dark.png"
+    }
+  ]
+}

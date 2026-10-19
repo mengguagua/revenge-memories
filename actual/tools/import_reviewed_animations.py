@@ -2,6 +2,7 @@
 """Import the completed 2026-10-18 art review snapshot without changing rules/saves."""
 import hashlib
 import argparse
+import copy
 import json
 import shutil
 import subprocess
@@ -209,6 +210,158 @@ def import_reviewed_mercenary_maps():
         'neutral_status_and_escort_rules_unchanged': True}, ensure_ascii=False, indent=2) + '\n')
 
 
+def import_approved_battle_revision():
+    """Import the six approved battle bodies, with scoped recolored arrows.
+
+    Keep all map art, AI, source timing, gameplay data and other battle bodies.
+    Scoped sprite IDs let the existing effect renderer consume 4x arrows without
+    changing its code or recoloring arrows belonging to other professions.
+    """
+    gallery = read(REVIEW / 'demos/gallery-data.json')
+    runtime_path = GAME / 'data/reviewed_animations.json'
+    before = read(runtime_path)
+    data = copy.deepcopy(before)
+    report = GAME / 'reports/battle-art-test-20261019'
+    backup = report / 'before'
+    backup.mkdir(parents=True, exist_ok=True)
+    if not (backup / runtime_path.name).exists():
+        shutil.copy2(runtime_path, backup / runtime_path.name)
+    expected = {
+        '6_ally': 'spearman-battle-width-palette-20261019',
+        '6_enemy': 'spearman-enemy-blue-violet-v2-20261019',
+        '8_ally': 'mercenary-battle-simple-v1-20261019',
+        '8_enemy': 'mercenary-enemy-deep-blue-v2-20261019',
+        '12_ally': 'archer-battle-light-armor-v3-20261019',
+        '12_enemy': 'archer-battle-light-armor-v3-20261019',
+    }
+    hashes_before = {p: hashlib.sha256(p.read_bytes()).hexdigest() for p in OUT.rglob('*.png')}
+    changed = set()
+    affected_variants = set()
+    new_sprites = set()
+    inventory = []
+
+    def visible_hash(image):
+        pixels = bytearray(image.convert('RGBA').tobytes())
+        for i in range(0, len(pixels), 4):
+            if pixels[i + 3] == 0:
+                pixels[i:i + 3] = b'\0\0\0'
+        return hashlib.sha256(pixels).hexdigest()
+
+    for key, revision in expected.items():
+        cid, side = key.split('_')
+        pid = f'professions-class-{cid}-{side}-battle'
+        profile = next(p for p in gallery['profiles'] if p['id'] == pid)
+        assert profile['revision'] == revision and not profile['frameErrors'], pid
+        art = data['battle'][key]
+        old_art = before['battle'][key]
+        w, h = profile['outputFrameSize']
+        count, columns = art['frames'], art['columns']
+        assert [w, h] == art['frame_size']
+        assert count == profile['sourceFrameCount']
+        assert art['anchor'] == profile['anchor']
+        assert art['source_oam_frame_count'] == profile['sourceOamCutoff']
+        assert art['oam_flip_origin_offset'] == profile['flipOriginOffset']
+        atlas = Image.new('RGBA', (columns*w, ((count+columns-1)//columns)*h))
+        frames = {}
+        for slot, name in profile['newFrames'].items():
+            i = int(slot)
+            image = Image.open(REVIEW / name).convert('RGBA')
+            assert image.size == (w, h) and i < count
+            atlas.paste(image, (i % columns*w, i // columns*h))
+            frames[slot] = visible_hash(image)
+        target = GAME / art['path'].removeprefix('res://')
+        if not (backup / target.name).exists():
+            shutil.copy2(target, backup / target.name)
+        atlas.save(target, optimize=True)
+        subprocess.run(['/opt/homebrew/bin/oxipng', '-q', '-o', '3', str(target)], check=True)
+        if cid == '8':
+            # Godot's alpha-border fix also changes low-alpha visible RGB. The
+            # reviewed mercenary edges already contain their intended colors.
+            settings = target.with_suffix(target.suffix + '.import')
+            if settings.exists():
+                if not (backup / settings.name).exists():
+                    shutil.copy2(settings, backup / settings.name)
+                settings.write_text(settings.read_text().replace(
+                    'process/fix_alpha_border=true', 'process/fix_alpha_border=false'))
+        changed.add(target)
+        packed = Image.open(target).convert('RGBA')
+        for slot, digest in frames.items():
+            i = int(slot)
+            assert visible_hash(packed.crop((i%columns*w, i//columns*h,
+                                            i%columns*w+w, i//columns*h+h))) == digest
+        actions = [a for a in gallery['actions'] if a['profile'] == pid and a['kind'] == 'attack']
+        assert set(art['reviewed_variants']) == {a['key'] for a in actions}
+        aliases = {}
+        effects = []
+        for effect_id, meta in profile.get('revisedEffects', {}).items():
+            scoped_id = f'reviewed-class-{cid}-{side}-{effect_id}'
+            effect_target = OUT / 'effects' / (scoped_id + '.png')
+            shutil.copy2(REVIEW / meta['path'], effect_target)
+            image = Image.open(effect_target).convert('RGBA')
+            native_size = meta['frame_size']
+            assert image.size == tuple(n*4 for n in native_size)
+            runtime = copy.deepcopy(meta)
+            runtime.update(path=resource(effect_target), frame_size=list(image.size),
+                           native_density=4, columns=1, source_effect_id=effect_id,
+                           art_revision=revision)
+            assert runtime['anchor'] == before['sprites'][effect_id]['anchor']
+            assert runtime.get('flip_origin_offset', [0, 0]) == before['sprites'][effect_id].get('flip_origin_offset', [0, 0])
+            data['sprites'][scoped_id] = runtime
+            new_sprites.add(scoped_id)
+            changed.add(effect_target)
+            aliases[effect_id] = scoped_id
+            effects.append({'id': scoped_id, 'source_id': effect_id, 'path': runtime['path'],
+                            'native_frame_size': native_size, 'size': list(image.size),
+                            'visible_rgba_sha256': visible_hash(image),
+                            'bytes': effect_target.stat().st_size})
+        for action in actions:
+            runtime_key = art['reviewed_variants'][action['key']]
+            original = before['variants'][runtime_key]
+            assert original['contact_tick'] == action['contactTick']
+            assert len(original['frames']) == len(action['frames'])
+            variant = copy.deepcopy(original)
+            for row in variant['frames']:
+                assert str(int(row['frame'])) in frames
+                for effect in row.get('effects', []):
+                    if effect['sprite'] in aliases:
+                        effect['sprite'] = aliases[effect['sprite']]
+            normalized = copy.deepcopy(variant)
+            reverse = {v: k for k, v in aliases.items()}
+            for row in normalized['frames']:
+                for effect in row.get('effects', []):
+                    effect['sprite'] = reverse.get(effect['sprite'], effect['sprite'])
+            assert normalized == original
+            data['variants'][runtime_key] = variant
+            affected_variants.add(runtime_key)
+        art['art_revision'] = revision
+        art['effect_aliases'] = aliases
+        assert {k: v for k, v in art.items() if k not in ['art_revision', 'effect_aliases']} == old_art
+        inventory.append({'profile': pid, 'key': key, 'revision': revision, 'path': art['path'],
+                          'frame_size': [w, h], 'size': list(packed.size),
+                          'frames': count, 'columns': columns, 'frame_hashes': frames,
+                          'bytes': target.stat().st_size, 'sha256': hashlib.sha256(target.read_bytes()).hexdigest(),
+                          'effect_aliases': aliases, 'effects': effects,
+                          'attack_variants': len(actions), 'all_frames_pixel_identical_to_review': True})
+    assert data['maps'] == before['maps'] and data['map_revisions'] == before['map_revisions']
+    assert {k: v for k, v in data['battle'].items() if k not in expected} == {
+        k: v for k, v in before['battle'].items() if k not in expected}
+    assert {k: v for k, v in data['variants'].items() if k not in affected_variants} == {
+        k: v for k, v in before['variants'].items() if k not in affected_variants}
+    assert {k: v for k, v in data['sprites'].items() if k not in new_sprites} == before['sprites']
+    assert all(hashlib.sha256(p.read_bytes()).hexdigest() == digest
+               for p, digest in hashes_before.items() if p not in changed)
+    runtime_path.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')))
+    result = {'scope': 'Approved battle art for both archers, spearmen and mercenaries only',
+              'inventory': inventory, 'body_profiles': len(inventory),
+              'source_frame_slots_checked': sum(len(i['frame_hashes']) for i in inventory),
+              'source_attack_variants': len(affected_variants), 'scoped_arrow_textures': len(new_sprites),
+              'maps_and_other_battle_art_unchanged': True, 'unrelated_asset_hashes_unchanged': True,
+              'all_source_motion_preserved_except_scoped_effect_ids': True,
+              'rules_ai_and_save_data_modified': False}
+    (report / 'import.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
+    print(json.dumps({k: v for k, v in result.items() if k != 'inventory'}, ensure_ascii=False))
+
+
 def build():
     gallery = read(REVIEW / 'demos/gallery-data.json')
     ally = read(REVIEW / 'source-input/original-motion/full-original-motion.json')
@@ -311,8 +464,11 @@ if __name__ == '__main__':
     parser.add_argument('--spearman-maps-only', action='store_true')
     parser.add_argument('--body-volume-maps-only', action='store_true')
     parser.add_argument('--mercenary-maps-only', action='store_true')
+    parser.add_argument('--approved-battle-revision', action='store_true')
     args = parser.parse_args()
-    if args.mercenary_maps_only:
+    if args.approved_battle_revision:
+        import_approved_battle_revision()
+    elif args.mercenary_maps_only:
         import_reviewed_mercenary_maps()
     elif args.body_volume_maps_only:
         for cid, label in [('12', 'archer'), ('6', 'spearman')]:

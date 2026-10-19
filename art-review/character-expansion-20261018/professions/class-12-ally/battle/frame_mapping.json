@@ -4,7 +4,7 @@
   "display_name": "盟军弓箭手",
   "original_class_id": 12,
   "source_side": "ally",
-  "status": "review_candidate",
+  "status": "runtime_integrated_for_device_review",
   "source_atlas": "../../../source-input/original-motion/class-12.png",
   "source_atlas_base": "mapping directory",
   "source_frame_size": [
@@ -26,193 +26,106 @@
   "source_frame_count": 6,
   "source_columns": 16,
   "frame_mapping": {
-    "1": "../../../archer-battle-light-armor-v3-20261019/deliverables/ally/frame-001.png",
-    "4": "../../../archer-battle-light-armor-v3-20261019/deliverables/ally/frame-004.png",
-    "5": "../../../archer-battle-light-armor-v3-20261019/deliverables/ally/frame-005.png"
+    "1": "../../../archer-battle-scale-v4-20261019/deliverables/ally/frame-001.png",
+    "4": "../../../archer-battle-scale-v4-20261019/deliverables/ally/frame-004.png",
+    "5": "../../../archer-battle-scale-v4-20261019/deliverables/ally/frame-005.png"
   },
   "records": [
     {
       "side": "ally",
       "source_frame": 1,
-      "representative_frame": 1,
-      "kind": "imagegen_light_armor_revision",
-      "generated_crop": [
-        174,
-        134,
-        347,
-        440
-      ],
-      "previous_bounds": [
-        162,
-        100,
-        244,
-        256
-      ],
-      "target_size": [
-        82,
-        156
-      ],
-      "target_foot_anchor": [
+      "scale": 0.9,
+      "pivot_4x": [
         208,
         256
       ],
-      "registered_foot_anchor": [
-        208.5,
-        256
-      ],
-      "registration_offset": [
-        166,
-        100
-      ],
-      "shared_character_palette": [
-        "#172432",
-        "#173b4b",
-        "#2c6070",
-        "#4a7b84",
-        "#62412b",
-        "#9c693b",
-        "#c79b61",
-        "#cd9367",
-        "#efc797",
-        "#e8ddbb"
-      ],
-      "main_armor_shades": 3,
-      "path": "../../../archer-battle-light-armor-v3-20261019/deliverables/ally/frame-001.png",
-      "generated_source": "../../../archer-battle-light-armor-v3-20261019/source/generated-v1.png",
-      "size": [
-        320,
-        256
-      ],
-      "visible_bounds": [
+      "old_bounds": [
         166,
         100,
         248,
         256
       ],
-      "bytes": 2260,
-      "sha256": "7ed170e88ac9c46c59d48b69589427f849b51b56d4add4a909e5a083f7643533"
+      "new_bounds": [
+        170,
+        116,
+        244,
+        256
+      ],
+      "old_head_top": 115,
+      "new_head_top": 129,
+      "new_body_height_4x": 127,
+      "spearman_body_height_4x": 128,
+      "body_height_error_native_pixels": 0.25,
+      "foot_center_4x": 208.5,
+      "visible_rgba_sha256": "dfee07891f65a3e56a9234714d3c521fd6f0c66a24ae951ecc7d205c1d7c973c",
+      "path": "../../../archer-battle-scale-v4-20261019/deliverables/ally/frame-001.png",
+      "output_path": "../../../archer-battle-scale-v4-20261019/deliverables/ally/frame-001.png",
+      "kind": "uniform_90_percent_existing_pixel_art",
+      "scale_registration": "../../../archer-battle-scale-v4-20261019/registration.json"
     },
     {
       "side": "ally",
       "source_frame": 4,
-      "representative_frame": 4,
-      "kind": "imagegen_light_armor_revision",
-      "generated_crop": [
-        129,
-        122,
-        405,
-        440
-      ],
-      "previous_bounds": [
-        118,
-        96,
-        254,
-        256
-      ],
-      "target_size": [
-        136,
-        160
-      ],
-      "target_foot_anchor": [
+      "scale": 0.9,
+      "pivot_4x": [
         208,
         256
       ],
-      "registered_foot_anchor": [
-        207.5,
-        256
-      ],
-      "registration_offset": [
-        120,
-        96
-      ],
-      "shared_character_palette": [
-        "#172432",
-        "#173b4b",
-        "#2c6070",
-        "#4a7b84",
-        "#62412b",
-        "#9c693b",
-        "#c79b61",
-        "#cd9367",
-        "#efc797",
-        "#e8ddbb"
-      ],
-      "main_armor_shades": 3,
-      "path": "../../../archer-battle-light-armor-v3-20261019/deliverables/ally/frame-004.png",
-      "generated_source": "../../../archer-battle-light-armor-v3-20261019/source/generated-v1.png",
-      "size": [
-        320,
-        256
-      ],
-      "visible_bounds": [
+      "old_bounds": [
         120,
         96,
         256,
         256
       ],
-      "bytes": 2456,
-      "sha256": "dff16d5a81abf815f3312b10609db93500f63adeeb43a855ba6c43a9c6e7d61b"
+      "new_bounds": [
+        129,
+        112,
+        251,
+        256
+      ],
+      "old_head_top": 116,
+      "new_head_top": 130,
+      "new_body_height_4x": 126,
+      "spearman_body_height_4x": 128,
+      "body_height_error_native_pixels": 0.5,
+      "foot_center_4x": 207.5,
+      "visible_rgba_sha256": "a2055453d34b45c7362ce52dfb12026e771cd6cf9208a7d8e2f3d6b011479e27",
+      "path": "../../../archer-battle-scale-v4-20261019/deliverables/ally/frame-004.png",
+      "output_path": "../../../archer-battle-scale-v4-20261019/deliverables/ally/frame-004.png",
+      "kind": "uniform_90_percent_existing_pixel_art",
+      "scale_registration": "../../../archer-battle-scale-v4-20261019/registration.json"
     },
     {
       "side": "ally",
       "source_frame": 5,
-      "representative_frame": 5,
-      "kind": "imagegen_light_armor_revision",
-      "generated_crop": [
-        192,
-        130,
-        469,
-        440
-      ],
-      "previous_bounds": [
-        148,
-        99,
-        280,
-        256
-      ],
-      "target_size": [
-        132,
-        157
-      ],
-      "target_foot_anchor": [
+      "scale": 0.9,
+      "pivot_4x": [
         208,
         256
       ],
-      "registered_foot_anchor": [
-        208.5,
-        256
-      ],
-      "registration_offset": [
-        152,
-        99
-      ],
-      "shared_character_palette": [
-        "#172432",
-        "#173b4b",
-        "#2c6070",
-        "#4a7b84",
-        "#62412b",
-        "#9c693b",
-        "#c79b61",
-        "#cd9367",
-        "#efc797",
-        "#e8ddbb"
-      ],
-      "main_armor_shades": 3,
-      "path": "../../../archer-battle-light-armor-v3-20261019/deliverables/ally/frame-005.png",
-      "generated_source": "../../../archer-battle-light-armor-v3-20261019/source/generated-v1.png",
-      "size": [
-        320,
-        256
-      ],
-      "visible_bounds": [
+      "old_bounds": [
         152,
         99,
         284,
         256
       ],
-      "bytes": 2303,
-      "sha256": "87b3a59f3a453e72b29072cec58a0104171479a9b2d493ea386b0946f8170010"
+      "new_bounds": [
+        158,
+        115,
+        276,
+        256
+      ],
+      "old_head_top": 116,
+      "new_head_top": 130,
+      "new_body_height_4x": 126,
+      "spearman_body_height_4x": 128,
+      "body_height_error_native_pixels": 0.5,
+      "foot_center_4x": 208.0,
+      "visible_rgba_sha256": "8e89c75275e45a21ed9bbfbf00c107496cb340dee23911616674072d7100a4da",
+      "path": "../../../archer-battle-scale-v4-20261019/deliverables/ally/frame-005.png",
+      "output_path": "../../../archer-battle-scale-v4-20261019/deliverables/ally/frame-005.png",
+      "kind": "uniform_90_percent_existing_pixel_art",
+      "scale_registration": "../../../archer-battle-scale-v4-20261019/registration.json"
     }
   ],
   "canonical_frames": [
@@ -234,7 +147,7 @@
     "class_12_ally_silver_bow_far_enemy",
     "class_12_ally_silver_bow_far_enemy_vs_heavy"
   ],
-  "output_atlas": "../../../archer-battle-light-armor-v3-20261019/deliverables/ally/battle-atlas.png",
+  "output_atlas": "../../../archer-battle-scale-v4-20261019/deliverables/ally/battle-atlas.png",
   "output_atlas_frame_order": [
     1,
     4,
@@ -242,12 +155,8 @@
   ],
   "batches": [
     {
-      "id": "双方轻甲造型",
-      "review": "../../../archer-battle-light-armor-v3-20261019/reviews/factions-dark.png"
-    },
-    {
-      "id": "上一稿／轻甲稿全部姿势",
-      "review": "../../../archer-battle-light-armor-v3-20261019/reviews/previous-and-new.png"
+      "id": "枪兵与弓箭手等高对照",
+      "review": "../../../archer-battle-scale-v4-20261019/reviews/height-comparison-dark.png"
     }
   ],
   "source_semantics": {
@@ -256,30 +165,26 @@
     "5": "post-release empty bow"
   },
   "foot_anchor_registration": {
-    "source_boot_roi": [
-      45,
-      60,
-      59,
-      64
-    ],
-    "source_feet": [
-      52,
-      64
-    ],
-    "target_feet": [
+    "method": "Uniform 0.90 nearest-neighbor affine transform about fixed foot pivot",
+    "pivot": [
       208,
       256
     ],
-    "x_tolerance": 0.5,
-    "y_tolerance": 1,
-    "no_body_clamp": true
+    "scale": 0.9,
+    "record": "../../../archer-battle-scale-v4-20261019/registration.json"
   },
-  "qa_report": "../../../archer-battle-light-armor-v3-20261019/verification.json",
-  "art_review": "Pending user visual acceptance. Six regenerated light-armor poses retain the approved ten-color faction palettes, registered body sizes and native animation timelines.",
-  "revision": "archer-battle-light-armor-v3-20261019",
+  "qa_report": "../../../archer-battle-scale-v4-20261019/verification.json",
+  "art_review": "Uniform scale correction requested by user; pending device acceptance.",
+  "revision": "archer-battle-scale-v4-20261019",
   "modified_by": "Codex",
-  "review_note": "第三稿：服装重新生成为弓箭手轻甲，采用贴身皮甲、小肩护、护臂、短分片腰甲与轻便裤靴。友方青蓝内衬与棕色皮甲，敌方整体蓝紫；沿用已认可的每方10色调色板。尺寸与脚底锚点保留，原动作时序、飞箭资源和轨迹不变，尚未接入测试包。",
+  "review_note": "双方弓箭手人物与持弓整体等比缩至90%，以枪兵约32原生像素的人物高度对齐；固定脚底锚点，简洁配色、姿势、动作与命中时序保留。飞箭素材、轨迹及地图形象保持。已接入0.8.11测试包，等待实机验收。",
   "effect_overrides": {
     "5f107fe1afd7d2": "../../../archer-battle-light-armor-v3-20261019/deliverables/ally/flying-arrow.png"
+  },
+  "runtime_integrated": true,
+  "runtime_integration": {
+    "version": "0.8.11",
+    "device_review_pending": true,
+    "report": "../../../../../actual/reports/archer-battle-scale-test-20261019/delivery.json"
   }
 }
