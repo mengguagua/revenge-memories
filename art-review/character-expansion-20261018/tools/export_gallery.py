@@ -64,7 +64,7 @@ def render_frame(data,profile,action,tick,scale=4,light=False,close=False):
     margin=24;gap=24;top=76;bottom=60;w=left.width*2+margin*2+gap;h=left.height+top+bottom
     canvas=Image.new('RGB',(w+(w%2),h+(h%2)),(14,21,26));draw=ImageDraw.Draw(canvas)
     heading=profile['actorName']+' · '+action['name']
-    if profile.get('revision') in ['mercenary-eyes-v2-20261019','mercenary-map-review-20261019','body-volume-motion-20261018','sol','archer-spearman-map-20261018','archer-bow-v2-20261018','archer-arms-step-v3-20261018','archer-down-hand-v4-20261018','spearman-map-v2-20261018','spearman-stance-v3-20261018']:
+    if profile.get('revision') in ['mercenary-left-neck-v3-20261019','mercenary-eyes-v2-20261019','mercenary-map-review-20261019','body-volume-motion-20261018','sol','archer-spearman-map-20261018','archer-bow-v2-20261018','archer-arms-step-v3-20261018','archer-down-hand-v4-20261018','spearman-map-v2-20261018','spearman-stance-v3-20261018']:
         heading_font=next((font(n)for n in range(22,13,-1)if draw.textbbox((0,0),heading,font=font(n))[2]<=canvas.width-2*margin),font(14))
         hb=draw.textbbox((0,0),heading,font=heading_font)
         if hb[2]-hb[0]>canvas.width-2*margin:raise ValueError('Title exceeds measured text safe area')

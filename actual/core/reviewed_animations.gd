@@ -11,10 +11,15 @@ static func key(actor: Dictionary) -> String:
 	return str(int(actor.get("class_id", 0))) + ("_enemy" if actor.get("side", "player") == "enemy" else "_ally")
 
 static func map_sprite(kind: String, actor: Dictionary) -> Dictionary:
-	if actor.get("event_object", false) or actor.get("neutral", false): return {}
+	if actor.get("event_object", false): return {}
 	if int(actor.get("class_id", 0)) == 21 and bool(actor.get("promoted", actor.get("alm_promoted", false))): return {}
 	var context = {"map": "tactical-idle", "map_move": "tactical-walk", "hub": "story", "world": "world"}.get(kind, "")
 	if context.is_empty(): return {}
+	if actor.get("neutral", false):
+		# These two escorts reuse the approved mercenary art without changing class or AI.
+		if context in ["tactical-idle", "tactical-walk"] and int(actor.get("class_id", 0)) == 14 and actor.get("side", "player") == "player" and str(actor.get("id", "")) in ["M11_refugees0", "M11_refugees1"]:
+			return data().maps.get("8_neutral", {}).get(context, {}).duplicate(false)
+		return {}
 	# Approved friendly archers and spearmen use their static tactical idle identity.
 	var class_story = kind == "hub" and int(actor.get("class_id", 0)) in [6, 12] and actor.get("side", "player") == "player"
 	if kind in ["hub", "world"] and str(actor.get("id", "")) != "hunapu" and not class_story: return {}

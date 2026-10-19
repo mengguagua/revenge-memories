@@ -1,0 +1,61 @@
+{
+  "version": "0.8.9",
+  "app": "/Users/gcc/gaocc/project/revenge-memories/actual/dist/RevengeMemories-RefugeeAITest-20261019.app",
+  "zip": "/Users/gcc/gaocc/project/revenge-memories/actual/dist/RevengeMemories-0.8.9-RefugeeAITest-20261019-macOS.zip",
+  "zip_bytes": 228644113,
+  "zip_sha256": "922e51589013b1297ca21797960f107e3b19e53b53f4f294e7d1067b73a6176f",
+  "zip_integrity": true,
+  "zip_pck_matches_app": true,
+  "ad_hoc_codesign_verified": true,
+  "change_kind": "M11 automatic-combat adjustment matching the user-confirmed expectation; not a proven art-integration regression",
+  "policy": "Only M11_refugees0 and M11_refugees1: use existing friendly AI to move and attack when a target is reachable this turn; otherwise keep safe escort routing. At the exit, complete evacuation.",
+  "scope_preserved": [
+    "class14, neutral faction, temporary and uncontrollable flags",
+    "stats and movement points",
+    "normal combat, hit, damage, counterattack and rewards rules",
+    "escort arrival goal and refugee-death failure",
+    "other stages and all approved artwork"
+  ],
+  "verification": {
+    "ai-test.json": {
+      "passed": true,
+      "checks": 33,
+      "version": "0.8.9"
+    },
+    "pack-ai-test.json": {
+      "passed": true,
+      "checks": 33,
+      "version": "0.8.9"
+    },
+    "art-test.json": {
+      "passed": true,
+      "checks": 151,
+      "version": "0.8.9"
+    },
+    "pack-art-test.json": {
+      "passed": true,
+      "checks": 151,
+      "version": "0.8.9"
+    }
+  },
+  "pack_comparison_with_088": {
+    "before_files": 3703,
+    "after_files": 3703,
+    "changed": [
+      "res://core/game_state.gdc",
+      "res://data/stages/M11.json",
+      "res://project.binary"
+    ],
+    "added": [],
+    "removed": [],
+    "unchanged_asset_files": 3448
+  },
+  "user_save_unchanged": true,
+  "old_088_package_retained": true,
+  "notes": [
+    "Actual UI end-turn controller tests were headless. One movement and combat action used real timers with presentation acceleration, without instant-mode bypass.",
+    "Existing turn-three save was tested via a temporary copy; original save byte hash remains identical.",
+    "No new artwork or UI layouts; 3448 asset files are byte-identical to 0.8.8.",
+    "Export reported inability to save global Godot editor settings in the sandbox; the generated package passed version, behavior, artwork, signature and archive checks."
+  ]
+}

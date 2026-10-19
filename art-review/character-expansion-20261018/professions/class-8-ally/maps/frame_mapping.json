@@ -5,8 +5,8 @@
   "display_name": "友方佣兵（首关村民复用）",
   "class_id": 8,
   "source_side": "ally",
-  "status": "awaiting_user_review",
-  "runtime_integrated": false,
+  "status": "accepted_and_integrated_for_device_test",
+  "runtime_integrated": true,
   "width_height_scale": 4,
   "scenarios": [
     {
@@ -24,7 +24,7 @@
         16,
         24
       ],
-      "output_atlas": "../../../mercenary-eyes-v2-20261019/deliverables/class-8-ally/walk-atlas.png",
+      "output_atlas": "../../../mercenary-left-neck-v3-20261019/deliverables/class-8-ally/walk-atlas.png",
       "output_frame_size": [
         128,
         96
@@ -509,8 +509,8 @@
           "output_index": 7,
           "source_frame": 7,
           "canonical_frame": 7,
-          "output_path": "../../../mercenary-eyes-v2-20261019/deliverables/class-8-ally/walk-07.png",
-          "path": "../../../mercenary-eyes-v2-20261019/deliverables/class-8-ally/walk-07.png",
+          "output_path": "../../../mercenary-left-neck-v3-20261019/deliverables/class-8-ally/walk-07.png",
+          "path": "../../../mercenary-left-neck-v3-20261019/deliverables/class-8-ally/walk-07.png",
           "direction": "left",
           "registration": {
             "slot": 7,
@@ -553,8 +553,8 @@
             128,
             96
           ],
-          "bytes": 458,
-          "sha256": "1107476cbe87698edfd95102b1893ea47f8026aa83c1854773dcf8414c6d326b",
+          "bytes": 664,
+          "sha256": "ae8c2e8e171a12a4b0796025d90524810d6d2c9d583011179592bbd208a478eb",
           "alpha_bounds": [
             39,
             32,
@@ -564,12 +564,12 @@
           "visible_bounds": [
             46,
             31,
-            87,
+            89,
             96
           ],
-          "art_revision": "mercenary-eyes-v2-20261019",
-          "construction": "Built-in ImageGen eye correction; exact face-region-only composition; all other RGBA unchanged.",
-          "generation_record": "../../../mercenary-eyes-v2-20261019/README.md"
+          "art_revision": "mercenary-left-neck-v3-20261019",
+          "construction": "Reuse exact accepted left-phase0 upper-body layer; retain phase1 legs pixel-identically.",
+          "generation_record": "../../../mercenary-left-neck-v3-20261019/README.md"
         }
       ],
       "directions": {
@@ -624,8 +624,8 @@
         16
       ],
       "registration_note": "Eight independent native poses. No mirror aliases; facing labels do not authorize moving the sword to the other side.",
-      "revision": "mercenary-eyes-v2-20261019",
-      "output_atlas_bytes": 2492,
+      "revision": "mercenary-left-neck-v3-20261019",
+      "output_atlas_bytes": 2774,
       "preview_ground": "map-motion-review-v3/reference/grounds/tactical-M11.png",
       "ground_shadow": {
         "path": "hunapu-story-shadow-20261018/story-shadow.png",
@@ -641,7 +641,7 @@
         "kind": "continuous_fixed_ground_projection",
         "source": "Accepted continuous ground shadow, fixed below all support/lifted foot phases."
       },
-      "review_note": "头部固定、双腿按相位变化；上视剑在画面右侧，向右、向下与向左的剑都在画面左侧，四向分别制作，禁止整幅镜像改武器侧。",
+      "review_note": "向左两帧头、脖子、上半身、手臂、武器与衣摆固定；仅保留原有站直与跨腿变化。其余方向及眼睛修正保持。",
       "adaptation_note": "头部固定、双腿按相位变化；上视剑在画面右侧，向右、向下与向左的剑都在画面左侧，四向分别制作，禁止整幅镜像改武器侧。",
       "motion_review": {
         "reference": "mercenary-eyes-v2-20261019/source/motion-audit.json",
@@ -1138,5 +1138,6 @@
   "source_note": "Native tactical walker from original CPU bank11:L0BB5B1, CHR26. Static idle is original CHR24/25/21 metatile cycle. No old village-OAM hybrid used.",
   "revision": "mercenary-eyes-v2-20261019",
   "modified_by": "Codex",
-  "review_note": "佣兵眼睛修订：待机与向下露出双眼，左右侧眼与头发分离；动作、身体、阴影和四色保持。"
+  "review_note": "佣兵眼睛修订：待机与向下露出双眼，左右侧眼与头发分离；动作、身体、阴影和四色保持。",
+  "runtime_test_version": "0.8.8"
 }

@@ -237,6 +237,14 @@ func _campaign_ai_action(unit: Dictionary,gather: bool=false) -> Dictionary:
 	if not ranged.is_empty():return ranged
 	if unit.has("quest_kind"):
 		if bool(unit.get("locked",false)) or str(unit.quest_kind)=="witness":return {"destination":pos(unit),"target":""}
+		# The two armed M11 refugees can fight during their automatic friendly
+		# action. Keep escort routing when no attack is available this turn.
+		if (stage_id==101 and not gather and unit.get("side","")=="player"
+			and bool(unit.get("neutral",false)) and str(unit.quest_kind)=="escort"
+			and str(unit.id) in ["M11_refugees0","M11_refugees1"]
+			and pos(unit)!=Vector2i(battle_data.exit[0],battle_data.exit[1])):
+			var attack=super.ai_action(unit)
+			if not str(attack.get("target","")).is_empty():return attack
 		# Escorted groups wait at an enemy-held stretch instead of marching into it.
 		var nearby=living("enemy").any(func(e):return absi(pos(e).x-pos(unit).x)+absi(pos(e).y-pos(unit).y)<=maxi(4,Rules.attack_range(e).y+1))
 		if nearby:return {"destination":pos(unit),"target":""}

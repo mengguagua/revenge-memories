@@ -93,7 +93,7 @@ def import_hunapu_story_shadow():
     print('Updated Hunapu story/world shadow; tactical shadows and all character atlases retained')
 
 
-def import_reviewed_class_maps(class_id, label, revision=None, report_name=None):
+def import_reviewed_class_maps(class_id, label, revision=None, report_name=None, include_story=True):
     """Import one approved class's maps, retaining unrelated runtime art."""
     gallery = read(REVIEW / 'demos/gallery-data.json')
     runtime_path = GAME / 'data/reviewed_animations.json'
@@ -109,11 +109,11 @@ def import_reviewed_class_maps(class_id, label, revision=None, report_name=None)
     inventory = []
     for side in ['ally', 'enemy']:
         key = class_id + '_' + side
-        contexts = ['tactical-walk', 'tactical-idle'] + (['story'] if side == 'ally' else [])
+        contexts = ['tactical-walk', 'tactical-idle'] + (['story'] if side == 'ally' and include_story else [])
         for context in contexts:
             pid = 'professions-class-' + class_id + '-' + side + '-maps-' + context
             profile = next(p for p in gallery['profiles'] if p['id'] == pid)
-            expected_revision = revision or ('archer-down-hand-v4-20261018' if context == 'tactical-walk' else 'archer-arms-step-v3-20261018')
+            expected_revision = revision[context] if isinstance(revision, dict) else revision or ('archer-down-hand-v4-20261018' if context == 'tactical-walk' else 'archer-arms-step-v3-20261018')
             assert profile['revision'] == expected_revision and not profile['frameErrors']
             mapping = REVIEW / profile['mapping']
             scenario = next(s for s in read(mapping)['scenarios'] if s['id'] == context)
@@ -138,7 +138,7 @@ def import_reviewed_class_maps(class_id, label, revision=None, report_name=None)
                    'source_oam_frame_count': 0, 'oam_flip_origin_offset': [0, 0], 'original_motion': True,
                    'tile_origin': [profile['anchor'][0]-8, profile['anchor'][1]-16],
                    'directions': dict(scenario['directions']), 'default_facing': 'right',
-                   'static_facing': bool(scenario.get('static_facing', False)), 'art_revision': expected_revision}
+                   'static_facing': context != 'tactical-walk' or bool(scenario.get('static_facing', False)), 'art_revision': expected_revision}
             if context == 'tactical-walk':
                 art['directions']['side'] = art['directions']['right']
             else:
@@ -165,12 +165,48 @@ def import_reviewed_class_maps(class_id, label, revision=None, report_name=None)
     assert all(hashlib.sha256(p.read_bytes()).hexdigest() == digest for p, digest in hashes_before.items() if p not in changed)
     runtime_path.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')))
     shadow_image = Image.open(shadow_target)
-    result = {'scope': 'Both ' + label + ' tactical idle/walk; friendly story static pose; separate ground shadow',
+    result = {'scope': 'Both ' + label + ' tactical idle/walk; ' + ('friendly story static pose; ' if include_story else '') + 'separate ground shadow',
               'inventory': inventory, 'shadow': {'path': resource(shadow_target), 'size': list(shadow_image.size), 'bytes': shadow_target.stat().st_size},
               'other_maps_and_battle_data_unchanged': True, 'unrelated_asset_hashes_unchanged': True,
               'rules_and_save_data_modified': False}
     (report / 'import.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps(result, ensure_ascii=False))
+
+
+def import_reviewed_mercenary_maps():
+    revisions = {'tactical-walk': 'mercenary-left-neck-v3-20261019',
+                 'tactical-idle': 'mercenary-eyes-v2-20261019'}
+    report = GAME / 'reports/mercenary-map-test-20261019'
+    import_reviewed_class_maps('8', 'mercenary', revisions,
+                              'mercenary-map-test-20261019', include_story=False)
+    runtime_path = GAME / 'data/reviewed_animations.json'
+    data = read(runtime_path)
+    neutral = {}
+    inventory = []
+    civilian = read(GAME / 'data/party_visuals.json')['classes']['civilian']
+    for context, stem, kind in [('tactical-walk', 'walk', 'map_move'), ('tactical-idle', 'idle', 'map')]:
+        source = REVIEW / revisions[context] / ('deliverables/class-8-neutral/' + stem + '-atlas.png')
+        target = OUT / ('professions-class-8-neutral-maps-' + context + '.png')
+        art = dict(data['maps']['8_ally'][context])
+        ally = Image.open(OUT / Path(art['path']).name).convert('RGBA')
+        approved = Image.open(source).convert('RGBA')
+        assert approved.size == ally.size
+        recolored = [(143, 152, 111, 255) if pixel == (57, 118, 181, 255) else pixel for pixel in ally.getdata()]
+        assert list(approved.getdata()) == recolored
+        shutil.copy2(source, target)
+        art.update(path=resource(target), reviewed_profile='M11-refugees-mercenary-' + context,
+                   visual_alias_of='8_ally', native_move_ticks=int(civilian[kind].get('native_move_ticks', 16)))
+        neutral[context] = art
+        inventory.append({'context': context, 'path': resource(target), 'source': str(source.relative_to(REVIEW)),
+                          'bytes': target.stat().st_size, 'size': list(approved.size),
+                          'exact_mercenary_shape_and_reviewed_neutral_palette': True,
+                          'native_move_ticks': art['native_move_ticks']})
+    data['maps']['8_neutral'] = neutral
+    data.setdefault('map_revisions', {})['M11-refugees'] = revisions
+    runtime_path.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')))
+    (report / 'neutral-import.json').write_text(json.dumps({'inventory': inventory,
+        'actor_ids': ['M11_refugees0', 'M11_refugees1'], 'class_id_retained': 14,
+        'neutral_status_and_escort_rules_unchanged': True}, ensure_ascii=False, indent=2) + '\n')
 
 
 def build():
@@ -274,8 +310,11 @@ if __name__ == '__main__':
     parser.add_argument('--archer-maps-only', action='store_true')
     parser.add_argument('--spearman-maps-only', action='store_true')
     parser.add_argument('--body-volume-maps-only', action='store_true')
+    parser.add_argument('--mercenary-maps-only', action='store_true')
     args = parser.parse_args()
-    if args.body_volume_maps_only:
+    if args.mercenary_maps_only:
+        import_reviewed_mercenary_maps()
+    elif args.body_volume_maps_only:
         for cid, label in [('12', 'archer'), ('6', 'spearman')]:
             import_reviewed_class_maps(cid, label, 'body-volume-motion-20261018', 'body-volume-map-test-20261018/' + label)
     elif args.spearman_maps_only:

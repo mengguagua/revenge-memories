@@ -7,8 +7,8 @@
   "original_class_id": 8,
   "source_side": "enemy",
   "width_height_scale": 4,
-  "status": "awaiting_user_review",
-  "runtime_integrated": false,
+  "status": "accepted_and_integrated_for_device_test",
+  "runtime_integrated": true,
   "source_originals_unchanged": true,
   "art_mode": "Built-in ImageGen; rectangular crop, uniform scale, whole-frame translation, original runtime direction mirror and lossless oxipng. Alpha-zero RGB canonicalization changes no visible pixels.",
   "identity_reference": "../battle/frames/frame-000.png",
@@ -374,8 +374,8 @@
           "source_slot": 7,
           "source_frame": 7,
           "output_index": 7,
-          "path": "../../../mercenary-eyes-v2-20261019/deliverables/class-8-enemy/walk-07.png",
-          "output_path": "../../../mercenary-eyes-v2-20261019/deliverables/class-8-enemy/walk-07.png",
+          "path": "../../../mercenary-left-neck-v3-20261019/deliverables/class-8-enemy/walk-07.png",
+          "output_path": "../../../mercenary-left-neck-v3-20261019/deliverables/class-8-enemy/walk-07.png",
           "direction": "left",
           "phase": 1,
           "source_frame_index": 52,
@@ -402,21 +402,21 @@
             128,
             96
           ],
-          "bytes": 458,
-          "sha256": "d5efe9bc7c6f75259a5f72dacffded9f6f59a3fb28970ed20f11118124850c7f",
+          "bytes": 664,
+          "sha256": "b6b1e8679a82083b3c05a29ba7aeb01ff81f6a1ffbf35fac11d47bade7262f0e",
           "visible_bounds": [
             46,
             31,
-            87,
+            89,
             96
           ],
-          "art_revision": "mercenary-eyes-v2-20261019",
-          "construction": "Built-in ImageGen eye correction; exact face-region-only composition; all other RGBA unchanged.",
-          "generation_record": "../../../mercenary-eyes-v2-20261019/README.md"
+          "art_revision": "mercenary-left-neck-v3-20261019",
+          "construction": "Reuse exact accepted left-phase0 upper-body layer; retain phase1 legs pixel-identically.",
+          "generation_record": "../../../mercenary-left-neck-v3-20261019/README.md"
         }
       ],
-      "output_atlas": "../../../mercenary-eyes-v2-20261019/deliverables/class-8-enemy/walk-atlas.png",
-      "output_atlas_bytes": 2492,
+      "output_atlas": "../../../mercenary-left-neck-v3-20261019/deliverables/class-8-enemy/walk-atlas.png",
+      "output_atlas_bytes": 2774,
       "directions": {
         "up": [
           0,
@@ -483,7 +483,7 @@
       "adaptation_note": "头部固定、双腿按相位变化；上视剑在画面右侧，向右、向下与向左的剑都在画面左侧，四向分别制作，禁止整幅镜像改武器侧。",
       "preview_dark": "previews/tactical-native-walk-dark.gif",
       "preview_light": "previews/tactical-native-walk-light.gif",
-      "revision": "mercenary-eyes-v2-20261019",
+      "revision": "mercenary-left-neck-v3-20261019",
       "preview_ground": "map-motion-review-v3/reference/grounds/tactical-M11.png",
       "ground_shadow": {
         "path": "hunapu-story-shadow-20261018/story-shadow.png",
@@ -499,7 +499,7 @@
         "kind": "continuous_fixed_ground_projection",
         "source": "Accepted continuous ground shadow, fixed below all support/lifted foot phases."
       },
-      "review_note": "头部固定、双腿按相位变化；上视剑在画面右侧，向右、向下与向左的剑都在画面左侧，四向分别制作，禁止整幅镜像改武器侧。",
+      "review_note": "向左两帧头、脖子、上半身、手臂、武器与衣摆固定；仅保留原有站直与跨腿变化。其余方向及眼睛修正保持。",
       "motion_review": {
         "reference": "mercenary-eyes-v2-20261019/source/motion-audit.json",
         "fixed_and_moving_parts": "头部固定、双腿按相位变化；上视剑在画面右侧，向右、向下与向左的剑都在画面左侧，四向分别制作，禁止整幅镜像改武器侧。"
@@ -854,5 +854,6 @@
   "tactical_walk_status": "Corrected verified native CHR26 source; eight independently drawn ImageGen poses, no mirrors. Old hybrid references historical only.",
   "revision": "mercenary-eyes-v2-20261019",
   "modified_by": "Codex",
-  "review_note": "佣兵眼睛修订：待机与向下露出双眼，左右侧眼与头发分离；动作、身体、阴影和四色保持。"
+  "review_note": "佣兵眼睛修订：待机与向下露出双眼，左右侧眼与头发分离；动作、身体、阴影和四色保持。",
+  "runtime_test_version": "0.8.8"
 }
