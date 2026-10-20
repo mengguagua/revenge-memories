@@ -51,7 +51,8 @@ func run():
  g=fresh();g.world_node=2;check(g.start_battle(101),"Enter real M11")
  g.story_events.clear();g.units[0].acted=true;var snapshot=g.units.duplicate(true);g.turn=3;g.phase="enemy";g.flags.slot_test="battle"
  check(g.save_to_slot(5),"Record enemy-phase battle checkpoint")
- var resumed=fresh();check(resumed.load_slot(5) and resumed.phase=="enemy" and resumed.turn==3 and resumed.units==snapshot,"Resume exact battle units, actions and enemy phase")
+ var resumed=fresh();var loaded=resumed.load_slot(5)
+ check(loaded and resumed.phase=="enemy" and resumed.turn==3 and JSON.parse_string(JSON.stringify(resumed.units))==JSON.parse_string(JSON.stringify(snapshot)),"Resume exact battle units, actions and enemy phase")
  var report={"passed":failures.is_empty(),"checks":checks.size(),"labels":checks,"failures":failures,"isolated_directory":folder,"real_user_saves_touched":false}
  var out=FileAccess.open("res://reports/journey-home-20261019/round1-state.json",FileAccess.WRITE);out.store_string(JSON.stringify(report,"  "));out.close()
  print("JOURNEY_ROUND1 ",checks.size()," failures ",failures);quit(0 if failures.is_empty() else 1)

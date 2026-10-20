@@ -1,0 +1,72 @@
+{
+  "version": "0.8.13",
+  "started": "2026-10-19",
+  "completed": "2026-10-20",
+  "passed": true,
+  "visual_confirmation": "pending_user",
+  "round1": {
+    "state_checks": 38,
+    "visual_screens": 10,
+    "scope": "five isolated slots, metadata, corruption, failure atomicity, old single-file compatibility and enemy-phase payload"
+  },
+  "round2": {
+    "actual_key_mouse_checks": 42,
+    "visual_screens": 10,
+    "scope": "new/load/save-as/confirmed overwrite/cancel/failure/dialogue resume/enemy phase resume at 256 and 426 logical widths"
+  },
+  "regressions": {
+    "casualty_old_schema": 56,
+    "chapter3_state": 517,
+    "display_fixture": 191
+  },
+  "package_checks": 18,
+  "total_logic_and_package_checks": 862,
+  "pixel_identical_pairs": 10,
+  "background_guard": true,
+  "visible_godot_windows": false,
+  "real_user_save_files_touched": false,
+  "natural_full_campaign_replayed": false,
+  "production_assets": [
+    {
+      "path": "actual/assets/journey-home/journal-panel.png",
+      "purpose": "首页按钮/记录行/弹窗共用位图材质，8px固定四角，1px连续边缘与16px平铺中心",
+      "dimensions": [
+        94,
+        96
+      ],
+      "bytes": 12048
+    },
+    {
+      "path": "actual/assets/journey-home/snow-coast.png",
+      "purpose": "固定比例雪海首页背景；等比覆盖，宽窄画幅不拉伸",
+      "dimensions": [
+        426,
+        240
+      ],
+      "bytes": 172730
+    }
+  ],
+  "source_prompt_set": "actual/source/journey-home-20261019/prompts.json",
+  "review": "art-review/character-expansion-20261018/index.html#journey-home",
+  "detail_review": "art-review/character-expansion-20261018/journey-home-20261019/index.html",
+  "package": "actual/dist/RevengeMemories-0.8.13-JourneyHome-20261020-macOS.zip",
+  "package_zip_bytes": 228142114,
+  "package_signature": "codesign --verify --deep --strict passed",
+  "package_zip_integrity": "unzip -tq passed",
+  "animation": {
+    "seconds": 12,
+    "size": [
+      852,
+      480
+    ],
+    "fps": 12,
+    "path": "art-review/character-expansion-20261018/journey-home-20261019/overview.mp4"
+  },
+  "browser_review": {
+    "home": true,
+    "slot_comparison_controls": true,
+    "parent_review_entry": true,
+    "served_scope": "read-only allowlist for review directory, this report directory and one named package; no project root serving"
+  },
+  "panel_sampling": "Actual 94x96 texture dimensions; fixed 8px corners and safe area verified after final audit"
+}

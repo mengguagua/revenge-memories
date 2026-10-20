@@ -1243,6 +1243,77 @@
       "side": "player",
       "dead": false,
       "acted": false
+    },
+    "celine": {
+      "id": "celine",
+      "character_id": 30,
+      "slot_id": 30,
+      "key": "celine",
+      "name_ja": "ティータ",
+      "name_zh": "赛琳",
+      "class": "saint",
+      "class_id": 17,
+      "level": 6,
+      "hp": 28,
+      "max_hp": 28,
+      "exp": 0,
+      "strength": 14,
+      "skill": 12,
+      "speed": 10,
+      "luck": 2,
+      "defence": 3,
+      "magic_flags": 134,
+      "magic_level": 0,
+      "item_id": 0,
+      "move": 5,
+      "resistance": 18,
+      "growths": {
+        "strength": 10,
+        "skill": 15,
+        "speed": 15,
+        "luck": 20,
+        "defence": 40,
+        "hp": 40
+      },
+      "raw": [
+        30,
+        17,
+        1,
+        28,
+        0,
+        14,
+        12,
+        10,
+        2,
+        3,
+        134,
+        0
+      ],
+      "provenance": [
+        {
+          "file": "src/bank008.asm",
+          "label": "L08923E",
+          "line": 1633
+        },
+        {
+          "file": "src/bank009.asm",
+          "label": "L098EDB",
+          "line": 2011
+        },
+        {
+          "file": "src/bank015.asm",
+          "label": "L0FEE00",
+          "line": 7486
+        },
+        {
+          "file": "src/bank006.asm",
+          "label": "L068C0C",
+          "line": 1080
+        }
+      ],
+      "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+      "dead": false,
+      "acted": false
     }
   },
   "stages": {
@@ -1360,6 +1431,56 @@
       "code": "S32",
       "path": "res://data/stages/S32.json",
       "node": 36
+    },
+    "401": {
+      "code": "M41",
+      "path": "res://data/stages/M41.json",
+      "node": 10
+    },
+    "402": {
+      "code": "M42",
+      "path": "res://data/stages/M42.json",
+      "node": 11
+    },
+    "403": {
+      "code": "M43",
+      "path": "res://data/stages/M43.json",
+      "node": 12
+    },
+    "404": {
+      "code": "M44",
+      "path": "res://data/stages/M44.json",
+      "node": 13
+    },
+    "405": {
+      "code": "F41",
+      "path": "res://data/stages/F41.json",
+      "node": 26
+    },
+    "406": {
+      "code": "F42",
+      "path": "res://data/stages/F42.json",
+      "node": 27
+    },
+    "407": {
+      "code": "F43",
+      "path": "res://data/stages/F43.json",
+      "node": 28
+    },
+    "408": {
+      "code": "F44",
+      "path": "res://data/stages/F44.json",
+      "node": 29
+    },
+    "411": {
+      "code": "S41",
+      "path": "res://data/stages/S41.json",
+      "node": 37
+    },
+    "412": {
+      "code": "S42",
+      "path": "res://data/stages/S42.json",
+      "node": 38
     }
   },
   "initial_party": [
@@ -1742,9 +1863,31 @@
         "speaker": "旁白",
         "text": "营站成为共同补给与传信处。下一步，西队护住北境村庄，东队寻找安全停用的观测记录。"
       }
+    ],
+    "D41": [
+      {
+        "speaker": "赫兰",
+        "text": "北面那几座村庄，是你亲自送粮过去的。停了塔，他们怎么办？"
+      },
+      {
+        "speaker": "胡纳普",
+        "text": "他们已经撤出来了。观测台的办法也试过了。"
+      },
+      {
+        "speaker": "赫兰",
+        "text": "一次试成，下一次未必还能成。"
+      },
+      {
+        "speaker": "胡纳普",
+        "text": "东边也有人这样等过你。你一直没有派船。"
+      },
+      {
+        "speaker": "赫兰",
+        "text": "……我的人守住了西岸。我不能拿他们再赌一次。"
+      }
     ]
   },
-  "chapter_limit": 3,
+  "chapter_limit": 4,
   "asset_reuse": "Original portraits, map/class sprites, near combat animations; new identities and original campaign story",
   "mapping": {
     "hunapu": {
@@ -1814,6 +1957,10 @@
     "noya": {
       "story_name": "诺娅",
       "source_character": "sonya"
+    },
+    "celine": {
+      "story_name": "赛琳",
+      "source_character": "tatiana"
     }
   },
   "rewards": {

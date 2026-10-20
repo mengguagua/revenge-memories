@@ -35,7 +35,7 @@ static func info(game, slot: int) -> Dictionary:
 	result.time=timestamp(int(recorded))
 	var seconds=meta.get("play_seconds",0.0)
 	result.seconds=maxf(0.0,float(seconds)) if seconds is float or seconds is int else 0.0
-	result.chapter="序章" if str(state.get("hub_record",""))=="P00" else ["","第一章","第二章","第三章"][clampi(int(state.chapter),1,3)]
+	result.chapter="序章" if str(state.get("hub_record",""))=="P00" else ["","第一章","第二章","第三章","第四章"][clampi(int(state.chapter),1,4)]
 	result.location="海峡城庆典" if result.chapter=="序章" else str(game.formal_world.nodes.get(str(int(state.world_node)),{}).get("name_zh","旅途中"))
 	if str(state.mode) in ["battle","victory","defeat"]:result.location=str(game.stages[int(state.stage_id)].get("name_zh",result.location))
 	result.route="东队" if str(state.route)=="celica" else "西队"

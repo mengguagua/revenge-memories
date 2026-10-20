@@ -7,6 +7,7 @@ const GOLD := Color("d6ba80")
 var ui
 var audit: Array=[]
 var center_tile: AtlasTexture
+var material_safe := Rect2()
 
 func _init(owner):
  ui=owner
@@ -19,7 +20,7 @@ func title_button(index: int) -> Rect2:
  return Rect2(b.position.x+(b.size.x-180)/2.0 if compact() else b.position.x+30,128+index*37,180,30)
 func row_rect(index: int) -> Rect2:
  var b=bounds();var inset=12 if compact() else 24
- return Rect2(b.position.x+inset,52+index*33,b.size.x-inset*2,31)
+ return Rect2(b.position.x+inset,46+index*35,b.size.x-inset*2,34)
 func confirm_rect() -> Rect2:
  var w=minf(bounds().size.x-24,320)
  return Rect2(bounds().get_center().x-w/2,46,w,148)
@@ -28,6 +29,7 @@ func confirm_button(index: int) -> Rect2:
  return Rect2(d.position.x+16+index*(w+10),d.end.y-44,w,28)
 
 func panel(r: Rect2, selected: bool=false) -> void:
+ material_safe=r.grow(-8)
  if selected:
   var glow=StyleBoxFlat.new();glow.bg_color=Color(0,0,0,0);glow.shadow_color=Color(0.74,0.58,0.32,0.22+sin(ui.elapsed*2.2)*0.05);glow.shadow_size=5
   ui.draw_style_box(glow,r.grow(-3))
@@ -39,25 +41,20 @@ func panel(r: Rect2, selected: bool=false) -> void:
  for y in range(3):
   for x in range(3):
    if x==1 and y==1:continue
-   var sx=40 if x==1 else x*44;var sy=40 if y==1 else y*44
+   var sx=40 if x==1 else 0 if x==0 else t.get_width()-8;var sy=40 if y==1 else 0 if y==0 else t.get_height()-8
    ui.draw_texture_rect_region(t,Rect2(dx[x],dy[y],dw[x],dh[y]),Rect2(sx,sy,1 if x==1 else 8,1 if y==1 else 8),color)
 
 func text(value: String, r: Rect2, small: bool=false, color: Color=INK, align_center: bool=true) -> void:
  var size=Vector2(ui._small_text_width(value),8) if small else Vector2(ui._text_width(value),ui._text_height(value))
  var at=Vector2(r.position.x+(r.size.x-size.x)/2.0 if align_center else r.position.x,r.position.y+(r.size.y-size.y)/2.0).round()
  var ink=Rect2(at,size)
+ if material_safe.has_area():r=r.intersection(material_safe)
  audit.append({"text":value,"bounds":ink,"safe":r,"font":8 if small else 12})
  if not r.encloses(ink):ui.layout_errors.append("Journal text outside safe area: "+value)
  var previous=ui.safe_panels.duplicate();ui.safe_panels.clear();ui.safe_panels.append(r)
  if small:ui._small_text(value,at,color)
  else:ui._text(value,at,color)
  ui.safe_panels.assign(previous)
-
-func shortened(value: String, width: float) -> String:
- var result=value
- while ui._small_text_width(result)>width and not result.is_empty():result=result.left(result.length()-1)
- if result!=value and result.length()>1:result=result.left(result.length()-1)+"…"
- return result
 
 func background(dim: bool=false) -> void:
  var b=bounds();var texture=ui._tex(ASSET+"snow-coast.png")
@@ -90,16 +87,17 @@ func home(screen) -> void:
  for i in range(2):
   var r=title_button(i);panel(r,ui.title_selected==i)
   text("开始游戏" if i==0 else "继续游戏",r.grow(-7),false,INK if i==0 or has_save else MUTED)
+ material_safe=Rect2()
  text("方向选择   Z确认   X返回",Rect2(b.position.x+8,218,b.size.x-16,14),true,MUTED)
  if not has_save:text("暂无记录",Rect2(title_button(1).position.x,199,180,12),true,MUTED)
 
 func records_screen(screen) -> void:
  var b=bounds();var inset=4 if compact() else 12
- panel(Rect2(b.position.x+inset,8,b.size.x-inset*2,216))
+ panel(Rect2(b.position.x+inset,4,b.size.x-inset*2,226))
  var heading={"new":"开始游戏","load":"继续游戏","save":"保存旅程"}[screen.intent]
- text(heading,Rect2(b.position.x+24,17,b.size.x-48,16),false,GOLD)
+ text(heading,Rect2(b.position.x+24,12,b.size.x-48,16),false,GOLD)
  var hint={"new":"选择一个记录槽，写下新的旅程","load":"选择记录，回到上次停下的地方","save":"选择记录槽，保存当前旅程"}[screen.intent]
- text(hint,Rect2(b.position.x+16,35,b.size.x-32,10),true,MUTED)
+ text(hint,Rect2(b.position.x+16,30,b.size.x-32,10),true,MUTED)
  for i in range(5):
   var r=row_rect(i);var entry=screen.records[i];var active=i==screen.selected
   panel(r,active)
@@ -111,8 +109,9 @@ func records_screen(screen) -> void:
    detail=entry.time
    if entry.valid and not compact():detail+="   "+entry.route+"   "+ui.game.Journals.duration(entry.seconds)
    if entry.legacy and entry.valid:name+=" · 旧记录"
-  text(shortened(name,tw),Rect2(tx,r.position.y+5,tw,9),true,INK if entry.valid or not entry.exists else Color("d3a39c"),false)
-  text(shortened(detail,tw),Rect2(tx,r.position.y+18,tw,8),true,MUTED,false)
+  text(name,Rect2(tx,r.position.y+8,tw,8),true,INK if entry.valid or not entry.exists else Color("d3a39c"),false)
+  text(detail,Rect2(tx,r.position.y+18,tw,8),true,MUTED,false)
+ material_safe=Rect2()
  var footer=screen.message if not screen.message.is_empty() else "方向选择   Z确认   X返回"
  text(footer,Rect2(b.position.x+8,228,b.size.x-16,12),true,GOLD if not screen.message.is_empty() else MUTED)
 
@@ -128,14 +127,16 @@ func confirmation(screen) -> void:
   text("返回" if i==0 else "确认覆盖",button.grow(-7))
 
 func saved(screen) -> void:
- var b=bounds();var r=Rect2(b.get_center().x-116,b.end.y-60,232,44)
+ var b=bounds();var r=Rect2(b.get_center().x-116,b.end.y-116,232,44)
  panel(r,true)
  text("记录 %02d 已保存"%ui.game.active_slot,Rect2(r.position+Vector2(10,7),Vector2(212,14)),false,GOLD)
  text(screen.saved_time,Rect2(r.position+Vector2(10,26),Vector2(212,9)),true,MUTED)
 
 func draw(screen) -> void:
- audit.clear();background(ui.view!="title")
+ audit.clear();material_safe=Rect2();background(ui.view!="title")
  if ui.view=="title":home(screen)
  else:
   records_screen(screen)
   if ui.view=="journal_confirm":confirmation(screen)
+ var arrival=ui.elapsed if ui.view=="title" else ui.elapsed-screen.opened_at
+ if arrival<0.32:ui.draw_rect(bounds(),Color(.025,.035,.06,.6*(1.0-maxf(0,arrival)/.32)))

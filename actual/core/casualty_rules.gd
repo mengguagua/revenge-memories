@@ -1,6 +1,6 @@
 extends RefCounted
 ## Persistent injuries; chapter three combines unused sources at the meeting camp.
-const SOURCES := {"church":"alm", "lighthouse":"celica", "meeting":"shared"}
+const SOURCES := {"church":"alm", "lighthouse":"celica", "meeting":"shared", "final_delivery":"shared"}
 
 static func owner(state: Dictionary, id: String) -> String:
 	for route in ["alm", "celica"]:
@@ -25,6 +25,9 @@ static func ensure_sources(state: Dictionary) -> void:
 		flags.treatment_sources.lighthouse = true
 	if flags.get("D33_done",false) and clears.any(func(id):return int(id)==303) and clears.any(func(id):return int(id)==306):
 		flags.treatment_sources.meeting = true
+
+	if flags.get("west_tower_safe",false) and flags.get("island_loop_safe",false) and flags.get("D42_done",false):
+		flags.treatment_sources.final_delivery=true
 
 static func available(flags: Dictionary, route: String) -> int:
 	if flags.get("D33_done",false):

@@ -5,7 +5,9 @@ const BattlePanels = preload("res://core/battle_panel_layout.gd")
 const Portraits = preload("res://core/portrait_library.gd")
 const PartySprites = preload("res://core/party_sprites.gd")
 const JourneyScreen = preload("res://core/journey_screen.gd")
+const EquipmentScreen = preload("res://core/equipment_screen.gd")
 var journey
+var equipment_screen
 var battle_card_audit: Dictionary={}
 var battle_preview_audit: Dictionary={}
 var training_reward_open := false
@@ -39,6 +41,7 @@ const NARRATOR_SPEAKERS := ["旁白", "", "叙述", "战场提示", "提示", "�
 func _ready() -> void:
 	super._ready()
 	journey=JourneyScreen.new(self);journey.refresh();title_menu=true
+	equipment_screen=EquipmentScreen.new(self)
 	small_font=GameState.read_json("res://data/legacy/font_small_zh.json")
 	get_window().title="revenge-memories · 序章至第三章 · "+str(ProjectSettings.get_setting("application/config/version",""))
 	world=game.formal_world;battle_pack=GameState.read_json("res://assets/battle_tiles/battle-tiles.json")
@@ -88,6 +91,7 @@ func _footer_shift() -> Vector2:
 
 func _mouse_accept(point: Vector2) -> void:
 	var local=point-_canvas_offset()
+	if equipment_screen!=null and equipment_screen.active():equipment_screen.mouse(local);return
 	if view in ["journal","journal_confirm"]:journey.mouse(local);return
 	if view=="plot":_accept();return
 	if view=="overview" or (view=="chapter_end" and menu_items.is_empty()):_accept();return
@@ -115,13 +119,20 @@ func _new_journey_in_slot() -> void:
 
 func _resume_journey() -> void:
 	_clear_menu();busy=false;batch_running=false;ui_mode="inspect";view=game.mode;held_direction=Vector2i.ZERO;world_path=[]
+	if view=="battle" and not game.battle_outcome.is_empty():view=game.battle_outcome;game.mode=view
 	world_actor=Vector2(world.nodes[str(game.world_node)].position[0],world.nodes[str(game.world_node)].position[1])*16
 	if view=="hub":hub_controller.resume()
 	elif view=="battle":_focus_battle(game.cursor,true);_play_phase_music()
-	elif view in ["victory","defeat"]:_show_result()
-	elif view=="world":audio.play_music("world_map")
-	if game.flags.has("active_plot"):_resume_plot()
-	elif not game.story_events.is_empty():_play_story_events()
+	elif view=="world":audio.play_world(game.chapter)
+	if game.flags.has("active_plot"):
+		_resume_plot()
+		while not plot_finished:await get_tree().process_frame
+	if not game.story_events.is_empty():await _play_story_events()
+	if view in ["victory","defeat"]:_show_result()
+	elif view=="battle":
+		await _resolve_pending_loot()
+		# Continue the persisted enemy phase once, honoring already acted units.
+		if game.phase=="enemy" and view=="battle":_enemy_phase()
 
 func _show_title() -> void:
 	# Keep the gameplay checkpoint mode intact when returning to the homepage.
@@ -134,6 +145,7 @@ func _begin_existing_battle() -> void:
 	super._begin_existing_battle()
 
 func _accept() -> void:
+	if equipment_screen!=null and equipment_screen.active():equipment_screen.accept();return
 	if view in ["journal","journal_confirm"]:journey.accept();return
 	if view in ["victory","defeat"] and result_sequence_running:return
 	if view=="reward" and training_reward_open:
@@ -145,6 +157,8 @@ func _accept() -> void:
 		var actions=["new:world","new:save","title"]
 		if game.chapter==1 and game.flags.get("chapter1_complete",false):
 			entries.push_front("开始第二章");actions.push_front("new:chapter2")
+		if game.chapter==3 and game.flags.get("chapter3_complete",false):
+			entries.push_front("开始第四章");actions.push_front("new:chapter4")
 		if game.chapter==2 and game.flags.get("chapter2_complete",false):
 			entries.push_front("开始第三章");actions.push_front("new:chapter3")
 		_open_menu("chapter_end",entries,actions,Vector2(44,120));return
@@ -163,6 +177,7 @@ func _accept() -> void:
 	super._accept()
 
 func _direction(direction: Vector2i) -> void:
+	if equipment_screen!=null and equipment_screen.active():equipment_screen.direction(direction);return
 	if view in ["journal","journal_confirm"]:journey.direction(direction);return
 	if view=="plot" or view=="overview" or view=="chapter_end":
 		if not menu_items.is_empty():super._direction(direction)
@@ -200,6 +215,9 @@ func _menu_action(action: String,context: String) -> void:
 		return
 	if action.begins_with("hub:"):hub_controller.action(action.substr(4));return
 	match action:
+		"new:chapter4":
+			if game.begin_chapter_four():
+				busy=false;batch_running=false;ui_mode="inspect";_continue_world()
 		"new:chapter3":
 			if game.begin_chapter_three():
 				busy=false;batch_running=false;ui_mode="inspect";hub_controller.enter_room("H30")
@@ -256,6 +274,7 @@ func _unit_action_menu() -> void:
 	for o in options:menu_items.push_front(str(o.label));menu_actions.push_front("interact:"+str(o.id))
 
 func _open_system_menu() -> void:
+	if equipment_screen!=null and equipment_screen.active():return
 	if view in ["plot","title","journal","journal_confirm"]:return
 	if view=="world" and not busy and game.can_switch_route():
 		_open_menu("world_system",["部队整备","切换队伍","世界全图","保存进度","返回标题"],["new:camp","new:switch","new:overview","new:save","title"],Vector2(40,56));return
@@ -270,6 +289,7 @@ func _open_system_menu() -> void:
 		menu_items.append("返回整备（重置本战）");menu_actions.append("new:prepare")
 
 func _show_status() -> void:
+	if equipment_screen!=null and equipment_screen.active():equipment_screen.toggle_details();return
 	if view in ["plot","overview","chapter_end","title","journal","journal_confirm"]:return
 	if view=="hub":
 		camp_context="hub";_camp_members("status");return
@@ -281,6 +301,17 @@ func _open_camp_menu() -> void:
 	var ready=game.party.filter(func(id):return game.can_deploy(game.roster[id])).size()
 	menu_items[0]="部队状态 · "+str(ready)+"/"+str(game.party.size())+"可出阵"
 	_open_menu("camp",menu_items.duplicate(),menu_actions.duplicate(),Vector2(32,48))
+
+func _camp_action(action: String) -> void:
+	if action.begins_with("withdraw_item:"):
+		camp_first=action.get_slice(":",1);equipment_screen.open(int(camp_first));return
+	# Old camp action strings also lead to a preview, never a direct transfer.
+	if action.begins_with("withdraw_member:"):
+		equipment_screen.open(int(camp_first))
+		var index=equipment_screen.members.find(action.get_slice(":",1))
+		if index>=0:equipment_screen.selected=index;equipment_screen.accept()
+		return
+	super._camp_action(action)
 
 func _small_text_width(text: String) -> float:
 	var width=0.0
@@ -400,6 +431,9 @@ func _advance_plot() -> void:
 
 func _draw() -> void:
 	draw_set_transform(_canvas_offset())
+	if equipment_screen!=null and equipment_screen.active():
+		safe_panels.clear();text_checks.clear();layout_errors.clear();health_checks.clear()
+		equipment_screen.draw();return
 	if view in ["title","journal","journal_confirm"] and journey!=null:
 		safe_panels.clear();text_checks.clear();layout_errors.clear();health_checks.clear()
 		journey.draw();return
@@ -470,7 +504,8 @@ func _draw_nature_props(props: Array,origin: Vector2,tint: Color=Color.WHITE) ->
 
 func _draw_surroundings(origin: Vector2,footprint: Vector2i,layout: Dictionary) -> void:
 	var atlas=_tex("res://assets/battle_tiles/battle-tiles.png")
-	var material="snow" if layout.get("biome","")=="snow" else "cave" if layout.get("biome","")=="rock" else "grass"
+	var biome=str(layout.get("biome","grass"))
+	var material=biome if biome in ["snow","salt","marsh"] else "cave" if biome=="rock" else "grass"
 	var bounds=_visible_native_rect()
 	for y in range(floori((bounds.position.y-origin.y)/16),ceili((bounds.end.y-origin.y)/16)):
 		for x in range(floori((bounds.position.x-origin.x)/16),ceili((bounds.end.x-origin.x)/16)):
@@ -482,6 +517,8 @@ func _draw_surroundings(origin: Vector2,footprint: Vector2i,layout: Dictionary) 
 	_draw_nature_props(layout.get("props",[]),origin)
 
 func _draw_hub_surroundings(room: String,origin: Vector2) -> void:
+	if game.chapter==4 and hub_controller.chapter2_rooms.has(room):
+		_draw_surroundings(origin,Vector2i(14,9),{"biome":hub_controller.chapter2_rooms[room].get("biome_override","grass")});return
 	_draw_surroundings(origin,Vector2i(14,9),nature_layouts.get("hubs",{}).get(room,{}))
 
 func _draw_natural_grove(room: String,name: String,origin: Vector2,rect: Rect2i) -> bool:
@@ -536,7 +573,7 @@ func _draw_map(map: Dictionary,atlas: Texture2D,origin: Vector2) -> void:
 					objective_badge_rect=badge;_panel(badge)
 					_small_text(label,badge.position+Vector2(12,10),Color(.76,1.0,.82));break
 		var boss=game.find_unit(str(game.battle_data.boss_id))
-		if not boss.is_empty() and int(boss.hp)>0:
+		if not boss.is_empty() and int(boss.hp)>0 and not boss.get("surrendered",false):
 			var at=Vector2(boss.position[0],boss.position[1])*16+origin
 			_draw_camp_control_flag(at+Vector2(12,-12),false,Color(1,.55,.28))
 		for obj in game.battle_data.objects:
@@ -548,6 +585,9 @@ func _draw_map(map: Dictionary,atlas: Texture2D,origin: Vector2) -> void:
 				if not followed.is_empty():obj.position=followed.position.duplicate()
 			var at=Vector2(obj.position[0],obj.position[1])*16+origin
 			var done=game.flags.quest.objects.get(str(obj.id),false)
+			if game.stage_id==405 and game.flags.quest.wells.has(str(obj.id)):done=bool(game.flags.quest.wells[str(obj.id)])
+			if game.stage_id in [406,411] and game.flags.quest.get("record_lost",false) and obj.id in ["observatory_record","black_register"]:
+				draw_texture(_tex("res://assets/battle_tiles/modules/brazier.png"),at);continue
 			if obj.kind=="control":
 				_draw_camp_control_flag(at,done);continue
 			if done:
@@ -612,8 +652,8 @@ func _draw_world() -> void:
 		_draw_indicator(direction,world_actor+origin+d*20+Vector2(4,4))
 	var bottom=_footer_shift()
 	_panel(Rect2(Vector2(8,164)+bottom,Vector2(240,68)));var node=world.nodes[str(game.world_node)]
-	_center_text((str(game.stages[game.stage_for_node(game.world_node)].name_zh) if game.chapter==3 and game.world_has_battle(game.world_node) else str(node.name_zh)),Rect2(Vector2(20,174)+bottom,Vector2(216,16)))
-	_center_text(("第三章 · "+("东队" if game.route=="celica" else "西队")) if game.chapter==3 else "第二章 · 东群岛" if game.chapter==2 else "第一章 · 西大陆",Rect2(Vector2(20,192)+bottom,Vector2(216,16)),Color(.87,.84,.7))
+	_center_text((str(game.stages[game.stage_for_node(game.world_node)].name_zh) if game.chapter>=3 and game.world_has_battle(game.world_node) else str(node.name_zh)),Rect2(Vector2(20,174)+bottom,Vector2(216,16)))
+	_center_text((("第四章 · " if game.chapter==4 else "第三章 · ")+("东队" if game.route=="celica" else "西队")) if game.chapter>=3 else "第二章 · 东群岛" if game.chapter==2 else "第一章 · 西大陆",Rect2(Vector2(20,192)+bottom,Vector2(216,16)),Color(.87,.84,.7))
 	_center_text("确认:地点与道路 S:整备",Rect2(Vector2(20,206)+bottom,Vector2(216,14)))
 
 func _draw_plot() -> void:
@@ -752,11 +792,20 @@ func _terrain_name(cell: Vector2i) -> String:
 	for module in game.battle_data.get("art_modules",[]):
 		if module.name=="camp_palisade" and module.cells.any(func(p):return cell==Vector2i(p[0],p[1])):return "营地木栅"
 	for obj in game.battle_data.objects:
+		if cell==Vector2i(obj.position[0],obj.position[1]):
+			if game.stage_id==405:return ("北井" if obj.id=="well_n" else "南井")+("受控" if game.flags.quest.wells[str(obj.id)] else "失守，可夺回")
+			if game.stage_id in [406,411] and game.flags.quest.get("record_lost",false) and obj.id in ["observatory_record","black_register"]:return "记录已焚毁"
 		if obj.has("completed_label") and game.flags.quest.objects.get(str(obj.id),false) and cell==Vector2i(obj.position[0],obj.position[1]):return str(obj.completed_label)
 		if obj.get("kind","")=="visit" and game.visit_fronts(obj).has(cell):return "访问门前"
 		if obj.get("kind","")=="control" and cell==Vector2i(obj.position[0],obj.position[1]):
 			return str(obj.get("name_zh","道路哨卡"))+("已控制" if game.flags.quest.objects.get(str(obj.id),false) else "待控制")
 		if not obj.get("optional",false) and cell==Vector2i(obj.position[0],obj.position[1]):return str(obj.label)
+	if game.stage_id>=400:
+		var material=str(game.battle_data.logic_grid[cell.y]).substr(cell.x,1)
+		if material=="n":return "雪地"
+		if material=="a":return "盐地"
+		if material=="s":return "木栈台"
+		if material=="," and game.stage_id in [407,412]:return "干地通路"
 	match game.category(cell):
 		0:return "雪地" if game.battle_data.code=="M11" else "洞内平地" if game.battle_data.code in ["S11","S22"] else "平地"
 		1:return "林地"
@@ -815,7 +864,7 @@ func _draw_exit_direction() -> void:
 	var point=_battle_cell_screen(Vector2i(marker.position[0],marker.position[1]));var bounds=_visible_native_rect()
 	if bounds.grow(-20).has_point(point):return
 	var delta=point-bounds.get_center();var direction="东" if absf(delta.x)>absf(delta.y) and delta.x>0 else "西" if absf(delta.x)>absf(delta.y) else "南" if delta.y>0 else "北"
-	var text=str(marker.label)+" · "+direction+"方 · S定位"
+	var text=str(marker.label)+" · "+direction+"方 · S菜单定位"
 	var width=_small_text_width(text)+20;var rect=Rect2(bounds.position+Vector2(8,8),Vector2(width,28))
 	# Keep the selected unit and its nearby information panel unobstructed.
 	var focus=Rect2(_battle_cell_screen(game.cursor)+Vector2(-6,-12),Vector2(28,36))
@@ -833,13 +882,14 @@ func _draw_overview() -> void:
 
 func _draw_chapter_end() -> void:
 	draw_rect(Rect2(0,0,256,240),Color(.06,.1,.13));_panel(Rect2(12,20,232,196))
-	_center_text("第三章完成" if game.chapter==3 else "第二章完成" if game.chapter==2 else "第一章完成",Rect2(24,38,208,24),Color(.94,.88,.67))
-	_center_text("另一种胜利" if game.chapter==3 else "没有归来的船" if game.chapter==2 else "庆典前夜",Rect2(24,74,208,20))
-	_center_text("两队已会合，记录得到互证。\n下一步是验证安全停用方案。" if game.chapter==3 else "船团抵达西岸。\n艾琳被带往庆典广场。" if game.chapter==2 else "科兰已败，日光重返西大陆。",Rect2(24,108,208,32))
+	_center_text("第四章完成" if game.chapter==4 else "第三章完成" if game.chapter==3 else "第二章完成" if game.chapter==2 else "第一章完成",Rect2(24,38,208,24),Color(.94,.88,.67))
+	_center_text("故人的另一面" if game.chapter==4 else "另一种胜利" if game.chapter==3 else "没有归来的船" if game.chapter==2 else "庆典前夜",Rect2(24,74,208,20))
+	_center_text("两岸验证成功，村庄保住了日光。\n第五章尚未开放，可返回整理物资。" if game.chapter==4 else "两队已会合，记录得到互证。\n下一步是验证安全停用方案。" if game.chapter==3 else "船团抵达西岸。\n艾琳被带往庆典广场。" if game.chapter==2 else "科兰已败，日光重返西大陆。",Rect2(24,108,208,32))
 	_center_text("两队成长与伤情已保存" if game.chapter>=2 else "成长与伤亡已保存",Rect2(24,158,208,20))
 	_center_text("确认打开菜单",Rect2(24,186,208,16))
 
 func _cancel() -> void:
+	if equipment_screen!=null and equipment_screen.active():equipment_screen.cancel();return
 	if view in ["journal","journal_confirm"]:journey.cancel();return
 	if view=="title":return
 	if view=="plot":return

@@ -5,6 +5,6 @@ func run() -> void:
 	await process_frame
 	ui.game.save_path="res://reports/campaign/probe-save.json"
 	print("PROBE_TITLE=",ui.view," STAGES=",ui.game.stages.size()," NODES=",ui.world.nodes.size())
-	ui._new_game();await process_frame
+	ui.game.new_game();ui._new_journey_in_slot();await process_frame
 	print("PROBE_NEW=",ui.view," ROOM=",ui.game.hub_record," PARTY=",ui.game.party)
 	ui.queue_free();await process_frame;quit()

@@ -18,7 +18,7 @@ func run():
 	viewport.size_2d_override_stretch=true;viewport.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(viewport)
 	ui=load("res://scenes/main.tscn").instantiate();viewport.add_child(ui);await process_frame
 	ui.set_process(false);ui.game.save_path="/private/tmp/hunapu-map-capture-unused-save.json"
-	ui._new_game();ui.notice_time=0;ui.phase_time=0;ui._clear_menu();ui.busy=false
+	ui.game.new_game();ui._new_journey_in_slot();ui.notice_time=0;ui.phase_time=0;ui._clear_menu();ui.busy=false
 	for direction in [Vector2i.RIGHT,Vector2i.LEFT]:
 		for phase in [0,1]:
 			ui.hub_controller.facing=direction;ui.hub_controller.clock=(phase*16+0.1)/60.0988;ui.hub_controller.motion_left=0.1

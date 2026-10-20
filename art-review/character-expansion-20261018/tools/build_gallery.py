@@ -106,10 +106,10 @@ def map_bundle(mapping_path, mapping, actors, class_names, enemy_names):
                     if list(image.size)!=scenario['output_frame_size']: raise ValueError('Unexpected frame size')
                 frames[index]=relative(asset)
             except Exception as error: errors[index]=str(error)
-        profiles.append({'id':pid,'actor':actor_id,'actorName':mapping.get('display_name',actors.get(actor_id,actor_id)),'classId':cid,
+        profiles.append({'id':pid,'actor':actor_id,'actorName':scenario.get('display_name',mapping.get('display_name',actors.get(actor_id,actor_id))),'classId':cid,
           'className':mapping.get('display_class_name',(enemy_names if side=='enemy'else class_names).get(cid,cid)),
           'context':context,'contextName':names.get(context,context),'side':side,'source_side':side,
-          'mapping':relative(mapping_path),'mappingStatus':mapping.get('status','review_candidate'),'revision':scenario.get('revision',mapping.get('revision')),'modifiedBy':mapping.get('modified_by'),'reviewNote':scenario.get('review_note',mapping.get('review_note','')),'mapGround':scenario.get('preview_ground'),'mapShadow':scenario.get('ground_shadow'),'motionReview':scenario.get('motion_review'),'sourceAtlas':relative(source),
+          'mapping':relative(mapping_path),'mappingStatus':scenario.get('status',mapping.get('status','review_candidate')),'revision':scenario.get('revision',mapping.get('revision')),'modifiedBy':scenario.get('modified_by',mapping.get('modified_by')),'reviewNote':scenario.get('review_note',mapping.get('review_note','')),'mapGround':scenario.get('preview_ground'),'mapShadow':scenario.get('ground_shadow'),'motionReview':scenario.get('motion_review'),'sourceAtlas':relative(source),
           'sourceFrameSize':source_size,'sourceAtlasSize':source_atlas_size,'sourceColumns':columns,
           'sourceFrameCount':columns*(source_atlas_size[1]//source_size[1]),'anchor':scenario['source_anchor'],
           'sourceOamCutoff':0,'flipOriginOffset':[0,0],'outputFrameSize':scenario['output_frame_size'],

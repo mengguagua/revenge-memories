@@ -55,11 +55,7 @@ static func ai_action(g,u: Dictionary) -> Dictionary:
 	if kind not in ["prisoner","patient","sailor"]:return {}
 	var nearby=g.living("enemy").any(func(e):return _distance(g.pos(e),g.pos(u))<=maxi(4,g.Rules.attack_range(e).y+1))
 	if nearby:return {"destination":g.pos(u),"target":""}
-	var destination=Vector2i(g.battle_data.exit[0],g.battle_data.exit[1]);var action=g._toward(u,destination);var safe=g.pos(u)
-	for step in g.path_to(u,action.destination):
-		if g.living("enemy").any(func(e):return _distance(g.pos(e),step)<=maxi(4,g.Rules.attack_range(e).y+1)):break
-		safe=step
-	action.destination=safe;return action
+	return g._safe_escort_move(u,Vector2i(g.battle_data.exit[0],g.battle_data.exit[1]))
 
 static func after_wait(g,u: Dictionary) -> void:
 	if str(u.get("quest_kind","")) in ["prisoner","patient","sailor"] and not bool(u.get("locked",false)) and g.pos(u)==Vector2i(g.battle_data.exit[0],g.battle_data.exit[1]):

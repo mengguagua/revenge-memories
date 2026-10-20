@@ -1,5 +1,6 @@
 extends RefCounted
 ## Small explorable story rooms. Facing interaction and visual objects share cells.
+const FourthHub = preload("res://core/chapter4_hub.gd")
 const ThirdHub = preload("res://core/chapter3_hub.gd")
 var ui
 var room := "P00"
@@ -26,6 +27,8 @@ func _init(owner) -> void:
 	chapter2_rooms=data.get("rooms",{});east_materials=data.get("materials",{})
 	var third=ui.GameState.read_json("res://data/chapter3_hubs.json")
 	chapter2_rooms.merge(third.rooms);east_materials.merge(third.materials)
+	var fourth=ui.GameState.read_json("res://data/chapter4_hubs.json")
+	chapter2_rooms.merge(fourth.rooms);east_materials.merge(fourth.materials)
 func process(delta: float) -> void:
 	clock+=delta
 	if motion_left>0.0:
@@ -49,10 +52,12 @@ func mouse_accept(point: Vector2) -> void:
 		if absi(delta.x)+absi(delta.y)==1:facing=delta;accept()
 		else:ui._notice("先走到对象旁边，再面对确认")
  
-func resume() -> void:enter_room(ui.game.hub_record,true)
+func resume() -> void:enter_room(ui.game.hub_record,true,false)
 func enter(_id: int,_at: Vector2i) -> void:enter_world()
 
 func enter_world() -> void:
+	if ui.game.chapter==4:
+		enter_room(ui.game.ChapterFour.room_for(ui.game));return
 	if ui.game.chapter==3:
 		enter_room(ui.game.ChapterThree.room_for(ui.game));return
 	if ui.game.flags.get("chapter2_complete",false) and ui.game.route=="celica" and ui.game.world_node==6:
@@ -60,7 +65,7 @@ func enter_world() -> void:
 	var rooms={1:"H01",2:"H07",3:"H02",4:"H03",5:"H05",6:"H06",31:"H08",32:"H09",17:"H21",18:"H22",19:"H23",20:"H24",21:"H25",22:"H26",23:"H27",33:"H22",34:"H24"}
 	enter_room(rooms.get(ui.game.world_node,"H07"))
 
-func enter_room(id: String,resuming: bool=false) -> void:
+func enter_room(id: String,resuming: bool=false,checkpoint: bool=true) -> void:
 	ui.game.Equipment.reconcile(ui.game)
 	ui.game.ensure_treatment_sources()
 	room=id;ui.game.hub_record=id;ui.game.flags.hub_record=id;ui.view="hub";ui.game.mode="hub"
@@ -125,7 +130,9 @@ func enter_room(id: String,resuming: bool=false) -> void:
 			if module.name==entry[0]:
 				scenery.append({"name":entry[0],"rect":Rect2i(entry[1],entry[2],module.footprint[0],module.footprint[1])});break
 	if chapter2_rooms.has(room):_configure_east_room()
-	ui.audio.play_music("village");ui.game.save_game();ui.queue_redraw()
+	ui.audio.play_music("village")
+	if checkpoint:ui.game.save_game()
+	ui.queue_redraw()
 
 func obj(action: String,at: Array,name: String,sprite: String,source: int=0,text: String="") -> void:
 	objects.append({"action":action,"position":at,"name":name,"sprite":sprite,"source":source,"text":text})
@@ -176,6 +183,8 @@ func action(key: String) -> void:
 		return
 	if g.party.has(key) and g.is_dying(g.roster.get(key,{})):
 		await ui.play_pages([{"speaker":"医者","text":str(g.roster[key].name_zh)+"仍在队伍中，由我们照护，暂时不能出阵。可在部队状态查看伤情。"}],"hub");return
+	if g.chapter==4:
+		await FourthHub.action(self,key);g.save_game();return
 	if g.chapter==3:
 		await ThirdHub.action(self,key);g.save_game();return
 	if not east_data.is_empty():
@@ -333,7 +342,8 @@ func _configure_east_room() -> void:
 			if not ui.game.flags.get("east_recruit_ready",{}).get(id,false) and not ui.game.party.has(id):continue
 			if bool(ui.game.roster.get(id,{}).get("dead",false)):continue
 		if o.action=="resistance_spring" and ui.game.flags.get("lighthouse_spring_used",false):o.name="抗性泉 · 已用尽"
-		if o.action=="treatment":o.name=("共享救治 · 剩余" if ui.game.chapter==3 else "救治泉 · 东队剩余")+str(ui.game.treatment_remaining())+"份"
+		if o.action=="treatment":o.name=("共享救治 · 剩余" if ui.game.chapter>=3 else "救治泉 · 东队剩余")+str(ui.game.treatment_remaining())+"份"
+		if ui.game.chapter==4 and o.action=="fourth_celine" and not ui.game.flags.get("celine_ready",false):o.name="安置记录";o.sprite="orders_case"
 		if ui.game.chapter==3 and o.action in ["third_german","third_noya"]:
 			var member="german" if o.action=="third_german" else "noya"
 			if not ui.game.flags.get("chapter3_recruits",{}).get(member,false):o.name="安置记录";o.sprite="orders_case"
@@ -361,6 +371,7 @@ func east_walkable(at: Vector2i) -> bool:
 	return not scenery.any(func(d):return bool(d.get("blocking",true)) and d.rect.has_point(at))
 
 func _east_exit_allowed() -> bool:
+	if ui.game.chapter==4:return true
 	if ui.game.chapter==3:
 		if room=="H30":ui._notice("先面对赫兰，接续庆典");return false
 		return true

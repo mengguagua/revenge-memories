@@ -19,7 +19,7 @@ func run():
 	viewport.size_2d_override_stretch = true;viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS;root.add_child(viewport)
 	ui = load("res://scenes/main.tscn").instantiate();viewport.add_child(ui);await process_frame
 	ui.set_process(false);ui.game.new_game();ui.game.save_path = "/private/tmp/reviewed-animation-capture-unused.json"
-	ui._new_game();ui.hub_controller.facing = Vector2i.RIGHT;ui.hub_controller.clock = 0.3;ui.hub_controller.motion_left = 0.1
+	ui.game.new_game();ui._new_journey_in_slot();ui.hub_controller.facing = Vector2i.RIGHT;ui.hub_controller.clock = 0.3;ui.hub_controller.motion_left = 0.1
 	await shot("hunapu-story")
 	ui.game.new_game();ui.game.world_node = int(ui.game.stages[101].node)
 	if not ui.game.start_battle(101): errors.append("M11 battle fixture failed");quit(1);return

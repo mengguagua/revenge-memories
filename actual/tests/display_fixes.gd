@@ -15,7 +15,7 @@ func run() -> void:
 	viewport=SubViewport.new();viewport.size=Vector2i(426,240);root.add_child(viewport)
 	ui=load("res://scenes/main.tscn").instantiate();viewport.add_child(ui);await process_frame
 	ui.set_process(false);ui.set_physics_process(false)
-	ui.game.save_path="res://reports/campaign/display-fixtures-save.json";ui._new_game()
+	ui.game.save_path="res://reports/campaign/display-fixtures-save.json";ui.game.new_game();ui._new_journey_in_slot()
 	check(ProjectSettings.get_setting("display/window/handheld/orientation")==DisplayServer.SCREEN_SENSOR_LANDSCAPE,"mobile orientation allows landscape directions only")
 	var hub=ui.hub_controller;var start=Vector2(ui.game.hub_position)*16
 	tap(KEY_LEFT)
@@ -66,13 +66,14 @@ func run() -> void:
 	await process_frame
 	viewport.size=Vector2i(560,240);await process_frame
 	ui.game.world_node=2;ui.game.start_battle(101);ui.view="battle";ui.busy=false;ui.ui_mode="inspect";ui._clear_menu();ui._focus_battle(Vector2i(5,5),true)
-	var target=Vector2i(23,10);var local=ui._battle_cell_screen(target)+Vector2(8,8)
+	var expected_width=int(ui.game.stages[101].map.width)
+	var target=Vector2i(expected_width-1,10);var local=ui._battle_cell_screen(target)+Vector2(8,8)
 	check(local.x>256,"pointer target is in newly visible side area")
 	ui._mouse_accept(local+ui._canvas_offset())
 	check(ui.game.cursor==target,"expanded battlefield supports actual pointer selection")
 	var before=ui.game.cursor;ui._clear_menu();ui._mouse_accept(ui._battle_cell_screen(Vector2i(-1,10))+ui._canvas_offset()+Vector2(8,8))
 	check(ui.game.cursor==before,"padding pointer cannot select impassable outside map")
-	check(ui.game.battle_data.map.width==24 and ui.game.formal_world.nodes.size()==39,"responsive rendering does not enlarge playable maps")
+	check(ui.game.battle_data.map.width==expected_width and ui.game.formal_world.nodes.size()==39,"responsive rendering does not enlarge playable maps")
 	var report={"passed":errors.is_empty(),"checks":checks.size(),"errors":errors,"walk_samples":samples,"canvas_sizes":sizes,"scope":"Targeted resize, actual key walking, portrait coverage and pointer fixtures; no battle outcomes modified"}
 	var f=FileAccess.open("res://reports/campaign/display-fixes.json",FileAccess.WRITE);f.store_string(JSON.stringify(report,"  "));f.close()
 	print("DISPLAY_FIXES ",JSON.stringify(report))

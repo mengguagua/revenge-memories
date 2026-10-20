@@ -52,7 +52,7 @@ static func room_for(g) -> String:
 	return str({6:"H31",7:"H32",8:"H33",24:"H34",25:"H35",35:"H36",36:"H37",9:"H10"}.get(g.world_node,"H31"))
 
 static func transfer_supply(g,index: int) -> Dictionary:
-	if g.chapter!=3 or g.mode!="hub" or g.hub_record!="H10" or not g.flags.get("D33_done",false) or int(g.route_positions.alm)!=9 or int(g.route_positions.celica)!=9:
+	if g.chapter not in [3,4] or g.mode!="hub" or g.hub_record!="H10" or not g.flags.get("D33_done",false) or int(g.route_positions.alm)!=9 or int(g.route_positions.celica)!=9:
 		return {"valid":false,"reason":"两队都在营站时才能当面交接"}
 	var other="alm" if g.route=="celica" else "celica"
 	if index<0 or index>=g.convoy[other].size() or g.convoy[g.route].size()>=40:return {"valid":false,"reason":"物品已取走，或本队行囊已满"}

@@ -17,7 +17,7 @@ func run() -> void:
 	ui=load("res://scenes/main.tscn").instantiate();viewport.add_child(ui);await process_frame
 	ui.game.save_path="res://reports/campaign/qa-capture-save.json";ui.instant_mode=true
 	await shot("title")
-	ui._new_game();await shot("prologue")
+	ui.game.new_game();ui._new_journey_in_slot();await shot("prologue")
 	ui.hub_controller.enter_room("H01");await shot("snow-village")
 	ui.game.flags.village_ready=true;ui._continue_world();await shot("world-start")
 	ui.game.world_node=2;ui.game.start_battle(101);ui.view="battle";ui.ui_mode="inspect";ui._focus_battle(ui.game.cursor,true);await shot("M11-deploy")

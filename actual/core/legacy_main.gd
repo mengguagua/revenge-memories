@@ -1365,6 +1365,11 @@ func _enemy_phase() -> void:
 			return
 		game.next_phase()
 		await _play_story_events()
+		if game.battle_outcome != "":
+			busy = false
+			batch_running = false
+			await _show_result()
+			return
 	var forced = Inventory.forced_retreat(game)
 	if bool(forced.get("triggered", false)):
 		busy = false
@@ -1398,6 +1403,9 @@ func _enemy_phase() -> void:
 	_play_phase_music()
 	game.save_game()
 	await _play_story_events()
+	# Objectives can resolve on the phase boundary without a final attack.
+	if view == "battle" and game.battle_outcome != "":
+		await _show_result()
 
 func _auto_player(gather: bool) -> void:
 	if busy or batch_running or view != "battle" or game.battle_outcome != "" or game.phase != "player": return

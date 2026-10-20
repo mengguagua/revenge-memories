@@ -1,0 +1,507 @@
+{
+  "materials": {
+    "n": "snow"
+  },
+  "rooms": {
+    "H41": {
+      "title": "雪峡村 · 南口安置处",
+      "hint": "面对对象确认；南口返回地图",
+      "floor": [
+        "nnnnnpppnnnnnn",
+        "nnnnnpppnnnnnn",
+        "nnnnnpppnnnnnn",
+        "nnnnnpppnnnnnn",
+        "nnnnnpppnnnnnn",
+        "nnnppppppppnnn",
+        "nnnnnpppnnnnnn",
+        "nnnppppppppnnn",
+        "nnnnnpppnnnnnn"
+      ],
+      "objects": [
+        {
+          "action": "fourth_snow_settle",
+          "name": "居民名册",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "orders_case",
+          "source": 5
+        },
+        {
+          "action": "fourth_s41",
+          "name": "黑钟村来信",
+          "position": [
+            3,
+            5
+          ],
+          "sprite": "orders_case",
+          "source": 5
+        }
+      ],
+      "scenery": [
+        {
+          "name": "snow_cottage",
+          "position": [
+            9,
+            1
+          ],
+          "footprint": [
+            2,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/battle_tiles/modules/snow_cottage.png"
+        }
+      ],
+      "biome_override": "snow"
+    },
+    "H42": {
+      "title": "铁骑关 · 投送站",
+      "hint": "面对对象确认；南口返回地图",
+      "floor": [
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        "...pppppppp...",
+        ".....ppp......",
+        "...pppppppp...",
+        ".....ppp......"
+      ],
+      "objects": [
+        {
+          "action": "fourth_transfer_report",
+          "name": "投送站工匠",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "actor",
+          "source": 5
+        },
+        {
+          "action": "fourth_letters",
+          "name": "信使与家书",
+          "position": [
+            3,
+            5
+          ],
+          "sprite": "orders_case",
+          "source": 5
+        }
+      ],
+      "scenery": [
+        {
+          "name": "fishing_hut",
+          "position": [
+            9,
+            1
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/chapter2/modules/fishing_hut.png"
+        }
+      ],
+      "biome_override": "grass"
+    },
+    "H43": {
+      "title": "北境日塔 · 控制室",
+      "hint": "面对对象确认；南口返回地图",
+      "floor": [
+        "nnnnnpppnnnnnn",
+        "nnnnnpppnnnnnn",
+        "nnnnnpppnnnnnn",
+        "nnnnnpppnnnnnn",
+        "nnnnnpppnnnnnn",
+        "nnnppppppppnnn",
+        "nnnnnpppnnnnnn",
+        "nnnppppppppnnn",
+        "nnnnnpppnnnnnn"
+      ],
+      "objects": [
+        {
+          "action": "fourth_tower_shutdown",
+          "name": "安全停塔控制台",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "orders_case",
+          "source": 5
+        },
+        {
+          "action": "fourth_progress",
+          "name": "各地进度",
+          "position": [
+            3,
+            5
+          ],
+          "sprite": "orders_case",
+          "source": 5
+        }
+      ],
+      "scenery": [
+        {
+          "name": "snow_cottage",
+          "position": [
+            9,
+            1
+          ],
+          "footprint": [
+            2,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/battle_tiles/modules/snow_cottage.png"
+        }
+      ],
+      "biome_override": "snow"
+    },
+    "H44": {
+      "title": "王都 · 伤兵后撤门",
+      "hint": "面对对象确认；南口返回地图",
+      "floor": [
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        ".....ppp......",
+        "...pppppppp...",
+        ".....ppp......",
+        "...pppppppp...",
+        ".....ppp......"
+      ],
+      "objects": [
+        {
+          "action": "fourth_herlan",
+          "name": "赫兰",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "actor",
+          "source": 4
+        }
+      ],
+      "scenery": [
+        {
+          "name": "fishing_hut",
+          "position": [
+            9,
+            1
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/chapter2/modules/fishing_hut.png"
+        }
+      ],
+      "biome_override": "grass"
+    },
+    "H45": {
+      "title": "沙城 · 井台",
+      "hint": "面对对象确认；南口返回地图",
+      "floor": [
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaappppppppaaa",
+        "aaaaapppaaaaaa",
+        "aaappppppppaaa",
+        "aaaaapppaaaaaa"
+      ],
+      "objects": [
+        {
+          "action": "fourth_well_report",
+          "name": "古道向导",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "actor",
+          "source": 5
+        }
+      ],
+      "scenery": [
+        {
+          "name": "fishing_hut",
+          "position": [
+            9,
+            1
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/chapter2/modules/fishing_hut.png"
+        }
+      ],
+      "biome_override": "salt"
+    },
+    "H46": {
+      "title": "盐原观测台 · 东楼",
+      "hint": "面对对象确认；南口返回地图",
+      "floor": [
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaaaapppaaaaaa",
+        "aaappppppppaaa",
+        "aaaaapppaaaaaa",
+        "aaappppppppaaa",
+        "aaaaapppaaaaaa"
+      ],
+      "objects": [
+        {
+          "action": "fourth_obs_report",
+          "name": "观测记录",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "orders_case",
+          "source": 5
+        }
+      ],
+      "scenery": [
+        {
+          "name": "fishing_hut",
+          "position": [
+            9,
+            1
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/chapter2/modules/fishing_hut.png"
+        }
+      ],
+      "biome_override": "salt"
+    },
+    "H47": {
+      "title": "亡潮沼泽 · 船口",
+      "hint": "面对对象确认；南口返回地图",
+      "floor": [
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~~~pppp~~~~~~",
+        "~~~~pppp~~~~~~"
+      ],
+      "objects": [
+        {
+          "action": "fourth_marsh_report",
+          "name": "船团医者",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "actor",
+          "source": 5
+        },
+        {
+          "action": "fourth_s42",
+          "name": "孤岛求援",
+          "position": [
+            3,
+            5
+          ],
+          "sprite": "orders_case",
+          "source": 5
+        }
+      ],
+      "scenery": [
+        {
+          "name": "fishing_hut",
+          "position": [
+            9,
+            1
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/chapter2/modules/fishing_hut.png"
+        }
+      ],
+      "biome_override": "sea"
+    },
+    "H48": {
+      "title": "沉没祭所 · 调节庭",
+      "hint": "面对对象确认；南口返回地图",
+      "floor": [
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~~~pppp~~~~~~",
+        "~~~~pppp~~~~~~"
+      ],
+      "objects": [
+        {
+          "action": "fourth_island_verify",
+          "name": "隔离试验台",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "sun_altar",
+          "source": 5
+        },
+        {
+          "action": "fourth_d42",
+          "name": "两岸确认信",
+          "position": [
+            3,
+            5
+          ],
+          "sprite": "orders_case",
+          "source": 5
+        },
+        {
+          "action": "fourth_spring",
+          "name": "祭所力量泉",
+          "position": [
+            10,
+            5
+          ],
+          "sprite": "well",
+          "source": 5
+        }
+      ],
+      "scenery": [
+        {
+          "name": "sun_altar",
+          "position": [
+            10,
+            1
+          ],
+          "footprint": [
+            2,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/battle_tiles/modules/sun_altar.png"
+        }
+      ],
+      "biome_override": "sea"
+    },
+    "H49": {
+      "title": "黑钟村 · 避难院",
+      "hint": "面对对象确认；南口返回地图",
+      "floor": [
+        "nnnnnpppnnnnnn",
+        "nnnnnpppnnnnnn",
+        "nnnnnpppnnnnnn",
+        "nnnnnpppnnnnnn",
+        "nnnnnpppnnnnnn",
+        "nnnppppppppnnn",
+        "nnnnnpppnnnnnn",
+        "nnnppppppppnnn",
+        "nnnnnpppnnnnnn"
+      ],
+      "objects": [
+        {
+          "action": "fourth_black_report",
+          "name": "黑钟村名册",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "orders_case",
+          "source": 5
+        }
+      ],
+      "scenery": [
+        {
+          "name": "snow_cottage",
+          "position": [
+            9,
+            1
+          ],
+          "footprint": [
+            2,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/battle_tiles/modules/snow_cottage.png"
+        }
+      ],
+      "biome_override": "snow"
+    },
+    "H50": {
+      "title": "沼泽孤岛 · 诊疗处",
+      "hint": "面对对象确认；南口返回地图",
+      "floor": [
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~pppppppppp~~",
+        "~~~~pppp~~~~~~",
+        "~~~~pppp~~~~~~"
+      ],
+      "objects": [
+        {
+          "action": "fourth_celine",
+          "name": "赛琳",
+          "position": [
+            7,
+            3
+          ],
+          "sprite": "actor",
+          "source": 14
+        },
+        {
+          "action": "fourth_vya",
+          "name": "维娅旧航行记录",
+          "position": [
+            3,
+            5
+          ],
+          "sprite": "orders_case",
+          "source": 5
+        }
+      ],
+      "scenery": [
+        {
+          "name": "village_clinic",
+          "position": [
+            9,
+            1
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "blocking": true,
+          "sprite_path": "res://assets/battlefield-0.3.0/modules/village_clinic.png"
+        }
+      ],
+      "biome_override": "sea"
+    }
+  }
+}

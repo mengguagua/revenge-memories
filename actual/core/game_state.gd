@@ -1,5 +1,6 @@
 extends "res://core/legacy_game_state.gd"
 ## New campaign. Inherit original combat formulas; isolate campaign/save semantics.
+const ChapterFour = preload("res://core/chapter4_rules.gd")
 const ChapterThree = preload("res://core/chapter3_rules.gd")
 const ChapterTwo = preload("res://core/chapter2_rules.gd")
 const Equipment = preload("res://core/equipment_supply.gd")
@@ -8,6 +9,7 @@ const CampaignTactics = preload("res://core/campaign_tactics.gd")
 const CampaignExperience = preload("res://core/campaign_experience.gd")
 const RefugeeTactics = preload("res://core/refugee_tactics.gd")
 const Journals = preload("res://core/journey_slots.gd")
+const EquipmentComparison = preload("res://core/equipment_comparison.gd")
 const CAMPAIGN_ID := "revenge-memories-1"
 const SAVE_FIELDS := ["chapter","route","parties","route_positions","previous_world_node","convoy","hub_id","hub_position","battle_return","battle_settled","story_events","stage_id","world_node","cleared_stages","roster","battle_start_snapshot","victory_rewards","flags","party","mode","units","phase","turn","rng_state","frame_counter","kills","selected_id","cursor","move_origin","battle_outcome"]
 var campaign: Dictionary
@@ -63,14 +65,40 @@ func treat_member(id: String) -> Dictionary:
 func exchange_items(first_id: String,second_id: String) -> bool:
 	if not can_deploy(roster.get(first_id,{})) or not can_deploy(roster.get(second_id,{})):return false
 	return super.exchange_items(first_id,second_id)
+
+func equipment_preview(member_id: String,index: int) -> Dictionary:
+	if mode not in ["world","hub"] or not party.has(member_id) or not roster.has(member_id):return {}
+	var stored: Array=convoy.get(route,[])
+	if index<0 or index>=stored.size():return {}
+	var result=EquipmentComparison.compare(roster[member_id],int(stored[index]),catalog.classes)
+	if not can_deploy(roster[member_id]):result.can_equip=false;result.reason="濒死或无法出阵，暂不能分配装备"
+	return result
+
+func equip_from_convoy(member_id: String,index: int,expected_item: int) -> Dictionary:
+	var preview=equipment_preview(member_id,index)
+	if preview.is_empty() or int(preview.target_id)!=expected_item:return {"valid":false,"message":"道具已变化，请重新选择"}
+	if not preview.can_equip:return {"valid":false,"message":preview.reason}
+	var previous_unit: Dictionary=roster[member_id];var previous_stored: Array=convoy[route];var previous_flags=flags.duplicate(true)
+	var updated=previous_unit.duplicate(true);var stored=previous_stored.duplicate()
+	updated.item_id=expected_item;updated.erase("weapon_index")
+	if int(previous_unit.get("item_id",0))>0:stored[index]=int(previous_unit.item_id)
+	else:stored.remove_at(index)
+	roster[member_id]=updated;convoy[route]=stored
+	if not save_game():
+		roster[member_id]=previous_unit;convoy[route]=previous_stored;flags=previous_flags
+		return {"valid":false,"message":"保存失败，原装备与行囊已保留"}
+	return {"valid":true,"message":"已换装，原装备退回本队行囊" if int(previous_unit.get("item_id",0))>0 else "已领取并装备"}
+
 func leader_id() -> String:return "eileen" if route=="celica" else "hunapu"
-func can_switch_route() -> bool:return ChapterThree.can_switch(self)
-func switch_route() -> bool:return ChapterThree.switch_route(self)
+func can_switch_route() -> bool:return ChapterFour.can_switch(self) if chapter==4 else ChapterThree.can_switch(self)
+func switch_route() -> bool:return ChapterFour.switch_route(self) if chapter==4 else ChapterThree.switch_route(self)
+func begin_chapter_four() -> bool:return ChapterFour.begin(self)
 func begin_chapter_three() -> bool:return ChapterThree.begin(self)
 func can_return_to_final_preparation() -> bool:return false
 func needs_terrain_recovery() -> bool:return false
 
 func exit_marker() -> Dictionary:
+	if stage_id in [401,407,412]:return {"position":battle_data.exit,"label":"南口接应" if stage_id==401 else "古道出口" if stage_id==407 else "己方船口"}
 	if stage_id in [301,302,304,305]:return {"position":battle_data.exit,"label":"西门出口" if stage_id==301 else "运输车北口" if stage_id==302 else "己方船口" if stage_id==304 else "盐路出口"}
 	if stage_id==112:return {"position":battle_data.targets[0],"label":"药车目的地"}
 	if stage_id==105:return {"position":battle_data.exit,"label":"北门敌军退路"}
@@ -78,6 +106,7 @@ func exit_marker() -> Dictionary:
 	return {}
 
 func allowed_world_nodes() -> Array[int]:
+	if chapter==4:return ChapterFour.allowed_nodes(self)
 	if chapter==3:return ChapterThree.allowed_nodes(self)
 	if chapter==2:return ChapterTwo.allowed_nodes(self)
 	var result: Array[int]=[1]
@@ -107,6 +136,7 @@ func travel_to(node: int) -> bool:
 	if not node in world_neighbors():return false
 	previous_world_node=world_node;world_node=node;flags.world_previous=previous_world_node;route_positions[route]=node;return true
 func stage_for_node(node: int) -> int:
+	if chapter==4:return ChapterFour.stage_for_node(self,node)
 	if chapter==3:return ChapterThree.stage_for_node(self,node)
 	for key in campaign.stages:
 		if int(campaign.stages[key].node)==node and int(stages[int(key)].get("chapter",1))==chapter:return int(key)
@@ -115,6 +145,7 @@ func world_has_battle(node: int) -> bool:
 	var id=stage_for_node(node);return id>0 and not stage_cleared(id) and (chapter!=3 or flags.get("D31_done",false))
 
 func start_battle(id: int=101,_groups: Array=[],_from_hub: bool=false) -> bool:
+	if chapter==4 and (str(stages.get(id,{}).get("route",""))!=route or not allowed_world_nodes().has(world_node)):return false
 	if chapter==3 and (not flags.get("D31_done",false) or str(stages.get(id,{}).get("route",""))!=route):return false
 	if not stages.has(id) or stage_cleared(id) or int(stages[id].node)!=world_node:return false
 	if int(stages[id].get("chapter",2 if id>=200 else 1))!=chapter:return false
@@ -137,10 +168,12 @@ func start_battle(id: int=101,_groups: Array=[],_from_hub: bool=false) -> bool:
 	turn=1;phase="player";kills=0;selected_id="";battle_outcome="";battle_settled=false
 	flags.quest={"objects":{},"evacuated":[],"freed":[],"burn_streak":0,"reinforced":false,"mid_done":false}
 	ChapterTwo.initialize(self)
-	ChapterThree.initialize(self)
+	if chapter==4:ChapterFour.initialize(self)
+	else:ChapterThree.initialize(self)
 	flags.inventory_processed_deaths={}
 	mode="battle";cursor=pos(find_unit(leader_id()));log_lines.clear();victory_rewards.clear()
-	if stage_id>=300:ChapterThree.lines(self,ChapterThree.before_lines(self),battle_data.code+"-BEGIN")
+	if stage_id>=400:ChapterFour.before_lines(self)
+	elif stage_id>=300:ChapterThree.lines(self,ChapterThree.before_lines(self),battle_data.code+"-BEGIN")
 	else:queue_lines(ChapterTwo.before_lines(self) if stage_id>=200 else str(battle_data.before),battle_data.code+"-BEGIN")
 	battle_start_snapshot=_capture_battle_start();return true
 func retry_battle() -> bool:
@@ -194,6 +227,44 @@ func unit_at(cell: Vector2i,alive_only: bool=true) -> Dictionary:
 		if str(unit.side)=="evacuated" or bool(unit.get("hidden",false)):continue
 		if pos(unit)==cell and (not alive_only or int(unit.hp)>0):return unit
 	return {}
+func can_stop(unit: Dictionary,cell: Vector2i) -> bool:
+	# Inspect every occupant, including old saves where unit_at may return self
+	# before another living unit sharing the cell.
+	return not units.any(func(other):return int(other.hp)>0 and not other.get("hidden",false) and other.side!="evacuated" and str(other.id)!=str(unit.id) and pos(other)==cell)
+
+func _safe_escort_move(unit: Dictionary,target: Vector2i) -> Dictionary:
+	var action=_toward(unit,target);var safe=pos(unit)
+	for step in path_to(unit,action.destination):
+		if living("enemy").any(func(e):return absi(pos(e).x-step.x)+absi(pos(e).y-step.y)<=maxi(4,Rules.attack_range(e).y+1)):break
+		# Allies may be crossed, but a route shortened by danger still needs an
+		# empty landing cell. Otherwise the escort disappears under its ally.
+		if can_stop(unit,step):safe=step
+	action.destination=safe;return action
+
+func _repair_overlapped_escorts() -> void:
+	if mode!="battle" or not battle_outcome.is_empty():return
+	# Older safe-route truncation could save two friendly units on one cell.
+	# Keep earlier units in place and move only the later automatic escort.
+	var ordered=units.duplicate();ordered.reverse()
+	for unit in ordered:
+		if int(unit.hp)<=0 or unit.side!="player" or unit.get("hidden",false) or unit.get("locked",false):continue
+		if not unit.get("neutral",false) or unit.get("controllable",true):continue
+		if str(unit.get("quest_kind","")) not in ["escort","medicine","prisoner","patient","sailor"]:continue
+		var occupants=units.filter(func(other):return int(other.hp)>0 and not other.get("hidden",false) and other.side!="evacuated" and str(other.id)!=str(unit.id) and pos(other)==pos(unit))
+		if occupants.is_empty() or occupants.any(func(other):return other.side!=unit.side):continue
+		var graph=reachable(unit);var cells=graph.costs.keys();var enemies=living("enemy")
+		cells.sort_custom(func(a,b):
+			if int(graph.costs[a])!=int(graph.costs[b]):return int(graph.costs[a])<int(graph.costs[b])
+			var distance_a=999999;var distance_b=999999
+			for enemy in enemies:
+				distance_a=mini(distance_a,absi(pos(enemy).x-a.x)+absi(pos(enemy).y-a.y))
+				distance_b=mini(distance_b,absi(pos(enemy).x-b.x)+absi(pos(enemy).y-b.y))
+			if distance_a!=distance_b:return distance_a>distance_b
+			return a.y<b.y if a.y!=b.y else a.x<b.x)
+		for cell in cells:
+			if not can_stop(unit,cell) or movement_cost(unit,cell)>=255:continue
+			unit.position=[cell.x,cell.y];break
+
 func _toward(unit: Dictionary,destination: Vector2i) -> Dictionary:
 	var graph=reachable(unit);var best=pos(unit);var best_distance=999999
 	var seen={destination:0};var q: Array[Vector2i]=[destination]
@@ -233,7 +304,10 @@ func _campaign_ai_action(unit: Dictionary,gather: bool=false) -> Dictionary:
 	if unit.get("quest_kind","") in ["escort","medicine","prisoner","patient","sailor"] and not unit.get("locked",false):
 		if living("enemy").is_empty() and (battle_data.reinforcements.is_empty() or flags.quest.get("reinforced",false)):
 			unit.move=maxi(5,int(unit.move))
-	if stage_id>=300:
+	if stage_id>=400:
+		var fourth_override=ChapterFour.ai_action(self,unit)
+		if not fourth_override.is_empty():return fourth_override
+	if stage_id>=300 and stage_id<400:
 		var third_override=ChapterThree.ai_action(self,unit)
 		if not third_override.is_empty():return third_override
 	if stage_id>=200:
@@ -256,11 +330,7 @@ func _campaign_ai_action(unit: Dictionary,gather: bool=false) -> Dictionary:
 		if nearby:return {"destination":pos(unit),"target":""}
 		var target=Vector2i(battle_data.exit[0],battle_data.exit[1])
 		if str(unit.quest_kind)=="medicine":target=Vector2i(battle_data.targets[0][0],battle_data.targets[0][1])
-		var action=_toward(unit,target);var safe=pos(unit)
-		for step in path_to(unit,action.destination):
-			if living("enemy").any(func(e):return absi(pos(e).x-step.x)+absi(pos(e).y-step.y)<=maxi(4,Rules.attack_range(e).y+1)):break
-			safe=step
-		action.destination=safe;return action
+		return _safe_escort_move(unit,target)
 	if bool(unit.get("burner",false)):
 		if turn<int(battle_data.get("burner_departure_turn",5)):return {"destination":pos(unit),"target":""}
 		return _toward(unit,Vector2i(battle_data.targets[0][0],battle_data.targets[0][1]))
@@ -275,7 +345,8 @@ func _campaign_ai_action(unit: Dictionary,gather: bool=false) -> Dictionary:
 func mark_wait(id: String) -> void:
 	super.mark_wait(id);var u=find_unit(id)
 	if u.is_empty():return
-	if stage_id>=300:ChapterThree.after_wait(self,u)
+	if stage_id>=400:ChapterFour.after_wait(self,u)
+	elif stage_id>=300:ChapterThree.after_wait(self,u)
 	if stage_id>=200:ChapterTwo.after_wait(self,u)
 	if u.has("quest_kind") and str(u.quest_kind) in ["escort","medicine"]:
 		var goal=battle_data.targets[0] if str(u.quest_kind)=="medicine" else battle_data.exit
@@ -299,7 +370,8 @@ func next_phase() -> void:
 	super.next_phase()
 	for id in object_hp:find_unit(id).hp=object_hp[id]
 	ChapterTwo.after_phase(self)
-	if stage_id>=300:ChapterThree.after_phase(self)
+	if stage_id>=400:ChapterFour.after_phase(self)
+	elif stage_id>=300:ChapterThree.after_phase(self)
 	if phase=="player" and stage_id==102 and turn==int(battle_data.get("burner_departure_turn",5))-1:queue_lines("战场提示：焚毁兵下一回合从集合点出发。拦住他，别让他在门前连续点火。","M12-FIRE-WARNING")
 	if phase=="enemy" and turn==int(battle_data.reinforcement_turn) and not flags.quest.reinforced:
 		flags.quest.reinforced=true
@@ -325,8 +397,10 @@ func visit_fronts(object: Dictionary) -> Array:
 func interactions_for(unit: Dictionary) -> Array:
 	var result=[]
 	if unit.is_empty() or unit.side!="player" or not bool(unit.get("controllable",true)) or bool(unit.get("acted",false)):return result
-	if stage_id>=300:result.append_array(ChapterThree.extra_interactions(self,unit))
+	if stage_id>=400:result.append_array(ChapterFour.extra_interactions(self,unit))
+	elif stage_id>=300:result.append_array(ChapterThree.extra_interactions(self,unit))
 	for obj in battle_data.objects:
+		if stage_id in [406,411] and flags.quest.get("record_lost",false) and obj.id in ["observatory_record","black_register"]:continue
 		if obj.has("follows_unit"):
 			var followed=find_unit(str(obj.follows_unit))
 			if not followed.is_empty():obj.position=followed.position.duplicate()
@@ -362,6 +436,9 @@ func interact(id: String) -> bool:
 			var destination=str(roster[receipt.recipient].name_zh)+"装备" if str(receipt.destination)=="unit" else "收入运输队"
 			queue_lines("旁白：获得"+str(Items.item(reward).name_zh)+"，"+destination+"。",id+"-REWARD")
 		actor.acted=true;selected_id="";check_outcome();return true
+	if stage_id>=400:
+		ChapterFour.interact(self,id)
+		actor.acted=true;selected_id="";check_outcome();return true
 	if stage_id>=300:
 		ChapterThree.interact(self,id)
 		actor.acted=true;selected_id="";check_outcome();return true
@@ -387,6 +464,7 @@ func interact(id: String) -> bool:
 
 func check_outcome() -> String:
 	if battle_outcome=="defeat":return battle_outcome
+	if stage_id>=400:return ChapterFour.check_outcome(self)
 	if stage_id>=300:return ChapterThree.check_outcome(self)
 	if stage_id>=200:return ChapterTwo.check_outcome(self)
 	var leader=find_unit(leader_id());var q: Dictionary=flags.get("quest",{})
@@ -416,6 +494,10 @@ func story_on_death(unit: Dictionary) -> void:
 	if unit.id in characters and bool(unit.get("neutral",false)):
 		var dead=_initial_character(unit.id);dead.hp=0;dead.dead=true;roster[unit.id]=dead
 func story_on_victory() -> void:
+	if stage_id>=400:
+		ChapterFour.on_victory(self)
+		if stage_id!=411 or flags.get("S41_register_saved",false):Equipment.award_clear(self,stage_id)
+		return
 	if stage_id>=300:
 		ChapterThree.on_victory(self);Equipment.award_clear(self,stage_id);return
 	if stage_id>=200:
@@ -484,7 +566,9 @@ func save_game() -> bool:
 		var value=get(key);state[key]=[value.x,value.y] if value is Vector2i else value
 	var file=FileAccess.open(save_path+".tmp",FileAccess.WRITE)
 	if file==null:return false
-	file.store_string(JSON.stringify(state));file.flush();file.close()
+	file.store_string(JSON.stringify(state));file.flush()
+	var write_error=file.get_error();file.close()
+	if write_error!=OK:return false
 	# Only a validated previous checkpoint may become the recovery copy.
 	if FileAccess.file_exists(save_path) and SaveValidation.campaign_valid(self,read_json(save_path),SAVE_FIELDS):
 		if DirAccess.copy_absolute(ProjectSettings.globalize_path(save_path),ProjectSettings.globalize_path(save_path+".bak"))!=OK:return false
@@ -523,7 +607,10 @@ func load_game() -> bool:
 			if o.has("follows_unit"):
 				var followed=find_unit(str(o.follows_unit))
 				if not followed.is_empty():o.position=followed.position.duplicate()
+	if stage_id==408 and flags.get("quest",{}).get("transfer_cut_snapshot",false):battle_data.reinforcements=[];battle_data.reinforcement_turn=0
+	if stage_id==404 and flags.get("quest",{}).get("mid_done",false) and find_unit(str(battle_data.boss_id)).get("surrendered",false):battle_data.reinforcements=[]
 	if mode not in ["battle","victory","defeat"]:Equipment.reconcile(self)
+	_repair_overlapped_escorts()
 	_casualty_legacy_path=save_path if previous_schema<3 else ""
 	var journal=s.get("journal",{})
 	var seconds=journal.get("play_seconds",0.0) if journal is Dictionary else 0.0
@@ -582,6 +669,7 @@ func finish_chapter_two() -> bool:
 func event_boats() -> Array:return ChapterTwo.event_boats(self)
 
 func recruit(id: String) -> void:
+	if id=="celine" and not flags.get("celine_ready",false):return
 	if id in ["german","noya"] and not flags.get("chapter3_recruits",{}).get(id,false):return
 	if id in ["lord","roan","shia"] and not flags.get("east_recruit_ready",{}).get(id,false):return
 	super.recruit(id)
@@ -589,6 +677,7 @@ func recruit(id: String) -> void:
 	Equipment.reconcile(self)
 
 func objective_status() -> Array[String]:
+	if stage_id>=400:return ChapterFour.status(self)
 	if stage_id>=300:return ChapterThree.status(self)
 	if stage_id>=200:return ChapterTwo.status(self)
 	var result: Array[String]=[str(battle_data.get("goal","完成战场目标"))]
