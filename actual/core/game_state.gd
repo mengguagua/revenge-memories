@@ -23,6 +23,11 @@ var play_seconds := 0.0
 
 func _init() -> void:
 	var original_classes=read_json("res://data/legacy/campaign.json").get("classes",{}).duplicate(true)
+	# Campaign display names are separate from source classes and saved class IDs.
+	var class_names=read_json("res://data/class_names.json")
+	for class_id in class_names:
+		for name_key in class_names[class_id]:
+			original_classes[class_id][name_key]=class_names[class_id][name_key]
 	campaign=read_json("res://data/campaign.json");formal_world=read_json("res://data/formal_world.json")
 	characters=campaign.characters.duplicate(true);stages.clear()
 	for key in campaign.stages:stages[int(key)]=read_json(str(campaign.stages[key].path))

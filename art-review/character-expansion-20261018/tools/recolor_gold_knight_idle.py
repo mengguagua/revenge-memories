@@ -82,7 +82,7 @@ def review_sheet():
     """Save the review on the gallery filesystem; never emit a chat image."""
     from export_gallery import font
     sheet=Image.new('RGB',(1272,856),(14,21,26));draw=ImageDraw.Draw(sheet)
-    title='黄金骑士 · 待机与行走材质对照'
+    title='大骑士 · 待机与行走材质对照'
     draw.text((636,24),title,font=font(22),fill='#e5edef',anchor='mt')
     entries=[
       ('修改前待机',OLD/'idle-000.png','白灰高光较多'),

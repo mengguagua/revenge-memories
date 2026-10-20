@@ -42,6 +42,17 @@ def close_camera(profile, action):
             box=[box[0]*sx,box[1]*sy,box[2]*sx,box[3]*sy]
             if flip:box=[w-box[2],box[1],w-box[0],box[3]]
             bounds.append([box[0]-profile['anchor'][0]+correction[0],box[1]-profile['anchor'][1]+correction[1],box[2]-profile['anchor'][0]+correction[0],box[3]-profile['anchor'][1]+correction[1]])
+    for row in action.get('revisedFrames', []):
+        f=row['frame']
+        if str(f) not in profile['newFrames']:continue
+        image=Image.open(ROOT/profile['newFrames'][str(f)]).convert('RGBA');box=image.getbbox()
+        if not box:continue
+        sx=w/image.width;sy=h/image.height
+        box=[box[0]*sx,box[1]*sy,box[2]*sx,box[3]*sy]
+        flip=(profile.get('side')=='enemy')!=row.get('flip',False)
+        if flip:box=[w-box[2],box[1],w-box[0],box[3]]
+        correction=profile['flipOriginOffset']if flip and f<profile['sourceOamCutoff']else[0,0]
+        bounds.append([box[0]-profile['anchor'][0]+correction[0],box[1]-profile['anchor'][1]+correction[1],box[2]-profile['anchor'][0]+correction[0],box[3]-profile['anchor'][1]+correction[1]])
     if not bounds:return {'offset':[-72,-84],'size':[144,112]}
     union=[min(b[0]for b in bounds),min(b[1]for b in bounds),max(b[2]for b in bounds),max(b[3]for b in bounds)]
     width=max(144,math.ceil((union[2]-union[0]+24)/8)*8);height=max(112,math.ceil((union[3]-union[1]+24)/8)*8)
@@ -81,6 +92,22 @@ def safe_path(base, value):
     path.relative_to(ROOT)
     return path
 
+def apply_class_display_names(profiles, classes, overrides):
+    """Use approved campaign labels while preserving source IDs and enemy forms."""
+    source_classes={str(row['class_id']):row for row in classes['classes']}
+    for profile in profiles:
+        cid=str(profile['classId']);enemy=profile.get('side')=='enemy'
+        name_key='enemy_name_zh' if enemy else 'name_zh'
+        new_name=overrides.get(cid,{}).get(name_key)
+        if not new_name:continue
+        source=source_classes[cid]
+        old_name=source['enemy_source_name'] if enemy else source['name']
+        profile['actorName']=profile['actorName'].replace(old_name,new_name)
+        profile['className']=new_name
+        profile['reviewNote']=profile.get('reviewNote','').replace(old_name,new_name)
+        profile['sourceClassName']=old_name
+        profile['displayNameRevision']='profession-names-20261020'
+
 def map_bundle(mapping_path, mapping, actors, class_names, enemy_names):
     profiles, actions = [], []
     actor_id = mapping.get('actor_id', str(mapping.get('character_id', mapping_path.parent.parent.name)))
@@ -115,11 +142,12 @@ def map_bundle(mapping_path, mapping, actors, class_names, enemy_names):
           'sourceOamCutoff':0,'flipOriginOffset':[0,0],'outputFrameSize':scenario['output_frame_size'],
           'newFrames':frames,'frameErrors':errors,'sourceReviewPending': context=='tactical-walk' and scenario.get('source_audit',{}).get('status')!='verified_native_tactical','sourceReviewNote':'参考来源复核中：旧参考混用了场景动作表与图块银行，暂停作为战斗地图对照。','links':[{'label':'四倍重绘图集','href':relative(safe_path(mapping_path.parent,scenario['output_atlas']))}]})
         timing=scenario['timing'];fps=timing.get('native_fps',FPS)
-        def append(key,name,rows,kind,note,video=True):
+        def append(key,name,rows,kind,note,video=True,reference_label=None):
             actions.append({'id':pid+'--'+key,'profile':pid,'key':key,'name':name,'context':context,
               'kind':kind,'fps':fps,'origin':[32,36],'contactTick':None,'frames':rows,'notes':note,
               'viewport':[0,0,64,48],'defaultVideo':video})
-            if scenario.get('reference_label'): actions[-1]['referenceLabel']=scenario['reference_label']
+            if reference_label or scenario.get('reference_label'):
+                actions[-1]['referenceLabel']=reference_label or scenario['reference_label']
             if scenario.get('action_note'): actions[-1]['notes']+=' '+scenario['action_note']
         if scenario.get('static_pose_preview',False):
             rows=[{'frame':0,'offset':[0,0],'flip':False,'effects':[]}for _ in range(60)]
@@ -133,11 +161,19 @@ def map_bundle(mapping_path, mapping, actors, class_names, enemy_names):
             n=int(timing.get('frame_ticks',16))
             for direction,order in scenario['directions'].items():
                 flip=bool(scenario.get('direction_mirror_x',{}).get(direction,False));rows=[]
-                for _ in range(3):
-                    for f in order:rows.extend({'frame':f,'offset':[0,0],'flip':flip,'effects':[]}for _ in range(n))
+                ticks=scenario.get('direction_frame_ticks',{}).get(direction,[n]*len(order))
+                if len(ticks)!=len(order) or any(not isinstance(t,int) or t<=0 for t in ticks):
+                    raise ValueError('Invalid per-direction frame timing: '+pid+' '+direction)
+                repeats=scenario.get('direction_cycle_repeats',{}).get(direction,3)
+                if not isinstance(repeats,int) or repeats<=0:
+                    raise ValueError('Invalid per-direction cycle count: '+pid+' '+direction)
+                for _ in range(repeats):
+                    for f,count in zip(order,ticks):rows.extend({'frame':f,'offset':[0,0],'flip':flip,'effects':[]}for _ in range(count))
                 label=direction_names.get(direction,direction)
-                append('walk-'+direction,'行走 · '+label,rows,'map_walk','原地审查步态；每个腿姿势保持 16 帧，两姿势循环，共展示三个循环。')
-                append('idle-'+direction,'静止 · '+label,[{'frame':order[0],'offset':[0,0],'flip':flip,'effects':[]}for _ in range(32)],'map_idle','停止行走时保持当前方向的第一个姿势。',False)
+                reference_label=scenario.get('direction_reference_labels',{}).get(direction)
+                note=scenario.get('direction_action_notes',{}).get(direction,'原地审查步态；每个腿姿势保持 16 帧，两姿势循环，共展示三个循环。')
+                append('walk-'+direction,'行走 · '+label,rows,'map_walk',note,reference_label=reference_label)
+                append('idle-'+direction,'静止 · '+label,[{'frame':order[0],'offset':[0,0],'flip':flip,'effects':[]}for _ in range(32)],'map_idle','停止行走时保持当前方向的第一个姿势。',False,reference_label=reference_label)
     return profiles, actions
 
 def build():
@@ -208,6 +244,12 @@ def build():
           'flipOriginOffset': [16, 0], 'outputFrameSize': expected, 'newFrames': frames,
           'frameErrors': frame_errors, 'referenceArtAliases':art_aliases, 'links': []}
         if revised_effects: profile['revisedEffects'] = revised_effects
+        review_timeline = read(safe_path(mapping_path.parent,mapping['review_timeline'])) if mapping.get('review_timeline') else {}
+        for effect_key,meta in review_timeline.get('effects',{}).items():
+            if effect_key in effects:raise ValueError('Review effect ID collision: '+effect_key)
+            asset=safe_path(mapping_path.parent,meta['path'])
+            if not asset.is_file():raise ValueError('Missing review effect: '+str(asset))
+            effects[effect_key]={**meta,'path':relative(asset)}
         for batch in mapping.get('batches', []):
             if batch.get('review'):
                 f = safe_path(mapping_path.parent, batch['review'])
@@ -228,6 +270,13 @@ def build():
                 action['referenceLabel']=corrected['label']
                 action['notes']='原作校正参考：弓箭从原生持弓姿势开始，去除旧提取中的9像素残留剑片。动作时序、位移和外置效果不变。新满弓图复用已完成稿。'
                 action['referenceEvidence']='source-input/corrected-ally-motion/selector-audit.json'
+            if key in review_timeline.get('actions',{}):
+                revision=review_timeline['actions'][key]
+                base_hash=hashlib.sha256(json.dumps(action['frames'],sort_keys=True,separators=(',',':')).encode()).hexdigest()
+                if revision['source_frames_sha256']!=base_hash:raise ValueError('Review timeline source changed: '+key)
+                if len(revision['frames'])!=len(action['frames']):raise ValueError('Review timeline length mismatch: '+key)
+                action['revisedFrames']=revision['frames']
+                action['notes']=revision['note']
             actions.append(action)
         reaction_idle=int(mapping.get('source_idle_frame',body['sequences']['idle'][0]))
         reaction_origin=next((selected_motion['variants'][key]['actor_origin']for key in keys
@@ -246,13 +295,21 @@ def build():
             profile.setdefault('links', []); profile.setdefault('mappingStatus', 'review_candidate')
             profiles.append(profile)
         actions.extend(bundle.get('actions', []))
+    # Same complete confirmed display labels as docs2 / the running game. Frozen
+    # source catalogs and art mappings retain their original provenance names.
+    display_names=read(ROOT.parents[1]/'actual/data/class_names.json')
+    apply_class_display_names(profiles,classes,display_names)
     profile_lookup = {p['id']:p for p in profiles}
     effect_bounds = {}
     for action in actions:
         profile = profile_lookup[action['profile']]
-        needed = sorted(set(row['frame'] for row in action['frames']))
+        if profile.get('displayNameRevision'):
+            action['notes']=action['notes'].replace(profile['sourceClassName'],profile['className'])
+        source_needed = sorted(set(row['frame'] for row in action['frames']))
+        render_rows=action['frames']+action.get('revisedFrames',[])
+        needed = sorted(set(row['frame'] for row in render_rows))
         missing = [i for i in needed if str(i) not in profile['newFrames']]
-        effect_ids = sorted(set(effect['sprite'] for row in action['frames'] for effect in row.get('effects', [])))
+        effect_ids = sorted(set(effect['sprite'] for row in render_rows for effect in row.get('effects', [])))
         missing_effects = [key for key in effect_ids if key not in effects or not (ROOT / effects[key]['path']).is_file()]
         action.update(neededFrames=needed, missingFrames=missing, effectIds=effect_ids, missingEffects=missing_effects,
           ready=not missing and not missing_effects and not profile.get('sourceReviewPending'), sourceReviewPending=bool(profile.get('sourceReviewPending')), duration=len(action['frames']) / action['fps'])
@@ -265,7 +322,7 @@ def build():
         if action['context']=='battle' and effect_ids:
             # Include complete frozen effect textures, even when their top lies beyond the native field.
             minimum_y=-32
-            for row in action['frames']:
+            for row in render_rows:
                 for effect in row.get('effects',[]):
                     meta=effects[effect['sprite']]
                     minimum_y=min(minimum_y,effect['position'][1]-meta['anchor'][1]+(meta.get('flip_origin_offset',[0,0])[1]if effect.get('flip')else 0))
@@ -274,7 +331,7 @@ def build():
             # Keep earlier framing when sufficient; expand only for real visible pixels.
             view=action.get('viewport',[-16,-32,288,176])
             left,top,right,bottom=view[0],view[1],view[0]+view[2],view[1]+view[3]
-            for row in action['frames']:
+            for row in render_rows:
                 for effect in row.get('effects',[]):
                     key=effect['sprite'];meta=effects[key]
                     if key not in effect_bounds:
@@ -300,6 +357,7 @@ def build():
         if profile.get('mapShadow'): resources.append(profile['mapShadow']['path'])
         resource_hashes={path:file_hash(ROOT/path)for path in sorted(set(resources))if(ROOT/path).exists()}
         signature={'frames':action['frames'],'origin':action['origin'],'viewport':action.get('viewport',[-16,-32,288,176]),'closeCamera':action.get('closeCamera'),'anchor':profile['anchor'],'side':profile.get('side','ally'),'resources':resource_hashes,'render_version':3}
+        if action.get('revisedFrames'):signature['revised_frames']=action['revisedFrames']
         if profile.get('revisedEffects'):
             signature['revised_effects']={k:profile['revisedEffects'][k]for k in effect_ids if k in profile['revisedEffects']}
         if profile.get('mapGround'): signature['map_ground_revision']=1
@@ -310,6 +368,9 @@ def build():
         elif profile.get('revision') in ['archer-spearman-map-20261018','archer-bow-v2-20261018','archer-arms-step-v3-20261018','archer-down-hand-v4-20261018']:
             signature['centered_labels_version']=1
             signature['labels']=[profile['actorName'],action['name'],action.get('referenceLabel','原作')]
+        if profile.get('displayNameRevision'):
+            signature['display_name_revision']=profile['displayNameRevision']
+            signature['labels']=[profile['actorName'],action['name'],action.get('referenceLabel','原作')]
         action['contentDigest']=hashlib.sha256(json.dumps(signature,sort_keys=True,separators=(',',':')).encode()).hexdigest()
         video = ROOT / 'demos/videos' / (action['id'] + '.mp4')
         action['video'] = relative(video) if matched_export(video,action['contentDigest']) and action['ready'] else None
@@ -317,7 +378,7 @@ def build():
         action['closeVideo'] = relative(close_video) if matched_export(close_video,action['contentDigest']) and action['ready'] else None
         screenshot = ROOT / 'demos/stills' / (action['id'] + '.png')
         action['still'] = relative(screenshot) if matched_export(screenshot,action['contentDigest']) and action['ready'] else None
-        for i in needed:
+        for i in source_needed:
             if not 0 <= i < profile['sourceFrameCount']: issues.append({'action':action['id'],'error':'Source frame out of range','frame':i})
         if action['contactTick'] is not None and not 0 <= action['contactTick'] < len(action['frames']):
             issues.append({'action':action['id'],'error':'Invalid contact tick'})

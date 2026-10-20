@@ -66,7 +66,7 @@
   function draw() {
     if(!active) return;
     const row=active.frames[tick]; const view=viewport(row);
-    drawRow(contexts[0],row,false,view); drawRow(contexts[1],row,true,view);
+    drawRow(contexts[0],row,false,view); drawRow(contexts[1],active.revisedFrames?.[tick] || row,true,view);
     $('scrub').value=String(tick);
     $('time-info').textContent=`第 ${tick+1} / ${active.frames.length} 帧 · 源姿势 ${row.frame} · ${(tick/active.fps).toFixed(3)} / ${active.duration.toFixed(3)} 秒`;
     $('contact-info').textContent=active.key==='idle-pose' ? '剧情形象 · 静止展示' : active.contactTick === null ? (active.context==='battle'?'反应演示 · 不新增效果':'地图步态 · 原节奏') : `${tick===active.contactTick?'结算时刻 · ':''}结算：第 ${active.contactTick+1} 帧`;
