@@ -62,7 +62,7 @@ func run():
 	g.find_unit("daan").hp=0;g.Casualties.enter_dying(g,g.find_unit("daan"));g.Inventory.on_death(g,g.find_unit("daan"))
 	var casualty=g.roster.daan.duplicate(true);var quota=g.flags.treatment_used.duplicate(true)
 	var raw=checkpoint(g);var active=reload_raw(raw)
-	check(active.find_unit("hunapu").hp==16 and active.roster.daan==casualty,"active battle reload retains wounds and dying member")
+	check(active.find_unit("hunapu").hp==16 and active.roster.daan==JSON.parse_string(JSON.stringify(casualty)),"active battle reload retains wounds and dying member")
 	raw.mode="defeat";raw.battle_outcome="defeat";var failed=reload_raw(raw)
 	check(failed.find_unit("hunapu").hp==16,"defeat reload does not heal")
 	raw.mode="victory";raw.battle_outcome="victory";var pending=reload_raw(raw)
@@ -92,13 +92,19 @@ func run():
 	check(g.load_game() and g.begin_chapter_five(),"authentic two-army checkpoint enters chapter five")
 	g.cleared_stages.append_array([501,502,503,504]);g.flags.west_palace_gate=true;g.flags.east_palace_gate=true
 	g.route_positions={"alm":15,"celica":15};g.flags.chapter5_ready={"alm":true,"celica":true}
-	g.ChapterFive.selection(g,"alm");g.ChapterFive.selection(g,"celica")
-	check(g.ChapterFive.merge(g) and g.start_battle(533),"joint deployment starts without changing ownership")
+	var west=g.ChapterFive.selection(g,"alm");g.ChapterFive.selection(g,"celica")
+	var reserve=str(west[-1]);west.erase(reserve)
+	check(g.ChapterFive.merge(g),"two armies merge at the shared preparation area")
+	g.world_node=15
+	check(g.start_battle(533),"joint deployment starts without changing ownership")
+	g.roster[reserve].hp=2
+	check(g.find_unit(reserve).is_empty(),"formal reserve remains outside joint deployment")
 	var owners=g.parties.duplicate(true)
 	for unit in g.units:
 		if unit.side=="player" and not unit.get("temporary",false) and not unit.get("neutral",false):unit.hp=1
 	g.battle_outcome="victory";check(g.complete_battle(),"joint victory settles")
 	check(g.roster.hunapu.hp==g.roster.hunapu.max_hp and g.roster.eileen.hp==g.roster.eileen.max_hp,"joint victory restores both protagonists")
+	check(g.roster[reserve].hp==g.roster[reserve].max_hp,"victory also restores formal reserve HP")
 	check(g.parties==owners,"joint recovery retains original army ownership")
 	for id in g.parties.alm+g.parties.celica:
 		var unit=g.roster[id]

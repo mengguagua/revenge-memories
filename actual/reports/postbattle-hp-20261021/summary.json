@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "targeted_checks": 68,
+  "original_logic_failures": 24,
+  "existing_casualty_checks": 56,
+  "screenshots": 5,
+  "layout_errors": [],
+  "images": [
+    {
+      "file": "01-before-world-16-of-28.png",
+      "purpose": "生命16/28",
+      "width": 1278,
+      "height": 720,
+      "bytes": 39080
+    },
+    {
+      "file": "02-after-world-28-of-28.png",
+      "purpose": "生命28/28",
+      "width": 1278,
+      "height": 720,
+      "bytes": 39019
+    },
+    {
+      "file": "03-dying-remains-zero.png",
+      "purpose": "生命0/23",
+      "width": 1278,
+      "height": 720,
+      "bytes": 40581
+    },
+    {
+      "file": "04-after-compact-28-of-28.png",
+      "purpose": "生命28/28",
+      "width": 768,
+      "height": 720,
+      "bytes": 18596
+    },
+    {
+      "file": "05-active-battle-retains-16-of-28.png",
+      "purpose": "生命16/28",
+      "width": 768,
+      "height": 720,
+      "bytes": 31801
+    }
+  ],
+  "verification": "Directed state fixtures, isolated save/load, and background SubViewport rendering; not a full campaign replay.",
+  "package_reexported": false
+}

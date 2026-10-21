@@ -313,12 +313,15 @@ func _show_status() -> void:
 
 func _open_camp_menu() -> void:
 	super._open_camp_menu()
+	var title_index=menu_actions.find("title")
+	if title_index>=0:menu_items.remove_at(title_index);menu_actions.remove_at(title_index)
 	menu_items.insert(3,"装备说明");menu_actions.insert(3,"new:equipment")
 	var ready=game.party.filter(func(id):return game.can_deploy(game.roster[id])).size()
 	menu_items[0]="部队状态 · "+str(ready)+"/"+str(game.party.size())+"可出阵"
 	_open_menu("camp",menu_items.duplicate(),menu_actions.duplicate(),Vector2(32,48))
 
 func _camp_action(action: String) -> void:
+	if action=="save":journey.open("save");return
 	if action.begins_with("withdraw_item:"):
 		camp_first=action.get_slice(":",1);equipment_screen.open(int(camp_first));return
 	# Old camp action strings also lead to a preview, never a direct transfer.

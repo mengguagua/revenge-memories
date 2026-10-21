@@ -1,0 +1,32 @@
+{
+  "actual_keyboard_input": true,
+  "actual_mouse_slot_selection": true,
+  "checks": [
+    "seed independent first record",
+    "seed independent second record",
+    "preparation menu removes return-to-title entry",
+    "menu exposes camp:save",
+    "preparation save opens actual five-slot picker",
+    "save picker selects active slot and retains world mode",
+    "opening picker does not write either record",
+    "occupied destination requires confirmation with return selected",
+    "opening overwrite confirmation preserves destination",
+    "cancel returns to original world without writing or changing active slot",
+    "menu exposes camp:save",
+    "empty destination saves directly after explicit slot choice",
+    "save-as writes only chosen slot",
+    "menu exposes camp:save",
+    "hub preparation save retains hub checkpoint and return view",
+    "confirmed overwrite saves actual hub state to selected slot",
+    "confirmed overwrite leaves other records byte-identical",
+    "selected hub record reloads at the original location",
+    "menu exposes camp:save",
+    "save failure retains picker and previous active destination",
+    "save failure preserves all existing records",
+    "failed save cancels back to hub",
+    "requested removal is confined to preparation menu"
+  ],
+  "errors": [],
+  "isolated_saves": "/private/tmp/revenge-equipment-clarity-20261021/slots/",
+  "passed": true
+}
