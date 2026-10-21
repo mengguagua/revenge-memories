@@ -7,6 +7,8 @@ static var _rules: Dictionary = {}
 static func data() -> Dictionary:
 	if _rules.is_empty():
 		_rules = _integer_tables(JSON.parse_string(FileAccess.get_file_as_string("res://data/legacy/rules_full.json")))
+		# Confirmed display name; the original spell ID, cost and effect stay.
+		_rules.items[31].name_zh = "鬼火"
 		# Campaign additions have separate provenance; never renumber source IDs.
 		var additions = JSON.parse_string(FileAccess.get_file_as_string("res://data/equipment_progression.json"))
 		for entry in _integer_tables(additions).items:

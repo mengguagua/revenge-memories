@@ -729,6 +729,11 @@ func _map_unit_sprite(unit: Dictionary) -> Dictionary:
 	var art=PartySprites.sprite("map_move" if moving else "map",unit,game.chapter)
 	if art.is_empty() and moving:art=PartySprites.sprite("map",unit,game.chapter)
 	if art.is_empty():return super._map_unit_sprite(unit)
+	if moving and art.has("direction_cycles"):
+		var facing="up" if moving_direction.y<0 else "left" if moving_direction.x<0 else "right" if moving_direction.x>0 else "down"
+		var cycle:Dictionary=art.direction_cycles[facing]
+		art.native_cycle=cycle.frames
+		art.cycle_ticks=cycle.ticks
 	if not unit.get("acted",false):return art
 	var enemy=unit.get("side","")=="enemy"
 	var key=str(art.path)+(":enemy_rest" if enemy else ":rest")

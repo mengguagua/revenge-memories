@@ -86,7 +86,6 @@ def create():
     if not baseline.exists():
         rules=json.loads(rules_path.read_text());rule=next(x for x in rules['items']if x['id']==31)
         baseline.write_text(json.dumps({'digests':{a['id']:a['contentDigest']for a in data['actions']},
-          'actions':{a['id']:{k:a.get(k)for k in ['name','frames','revisedFrames','reviewTailFrames','fps','origin','contactTick','viewport','closeCamera','duration']}for a in data['actions']},
           'mappings':{s:json.loads(p.read_text())for s,p in paths.items()},'rule31':rule,'rules_sha256':sha(rules),
           'docs_sha256':hashlib.sha256(docs_path.read_bytes()).hexdigest()},ensure_ascii=False,indent=2)+'\n')
     before=json.loads(baseline.read_text());inventory=[];contracts=[]

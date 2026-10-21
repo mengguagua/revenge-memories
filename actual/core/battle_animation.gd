@@ -337,6 +337,15 @@ func draw_actors() -> void:
 		var sprites: Dictionary = _source().sprites
 		for effect in effects:
 			var graphic: Dictionary = sprites[str(effect.sprite)]
-			var at = _vec(effect.position) - _vec(graphic.anchor)
+			var at = effect_position(effect) - _vec(graphic.anchor)
 			if bool(effect.flip): at += _vec(graphic.get("flip_origin_offset", [0, 0]))
 			_draw_frame(graphic, 0, at, bool(effect.flip), Color.WHITE)
+
+func effect_position(effect: Dictionary) -> Vector2:
+	# Review-only example targets never ship. Engulf the real defender at its
+	# current battle origin; its existing body, HP and fade remain authoritative.
+	if effect.get("bind_target", false) and not active_event.is_empty():
+		var target=ui.game.find_unit(str(active_event.get("defender", "")))
+		if not target.is_empty():
+			return origin(target,ui.combat)+_vec(ui.combat_offsets.get(str(target.id),Vector2.ZERO))
+	return _vec(effect.position)

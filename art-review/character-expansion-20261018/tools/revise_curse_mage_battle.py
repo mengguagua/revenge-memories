@@ -75,7 +75,6 @@ def create():
     baseline=OUT/'baseline.json'
     if not baseline.exists():
         baseline.write_text(json.dumps({'digests':{a['id']:a['contentDigest']for a in data['actions']},
-          'actions':{a['id']:{k:a.get(k)for k in ['frames','origin','fps','contactTick','viewport','closeCamera']}for a in data['actions']},
           'mappings':{side:json.loads((ROOT/f'professions/class-15-{side}/battle/frame_mapping.json').read_text())for side in ['enemy','ally']}},ensure_ascii=False,indent=2)+'\n')
     inventory=[];contracts=[]
     for side in ['enemy','ally']:

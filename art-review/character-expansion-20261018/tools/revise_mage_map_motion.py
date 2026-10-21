@@ -88,7 +88,6 @@ def create():
     OUT.mkdir(exist_ok=True);data=json.loads((ROOT/'demos/gallery-data.json').read_text());mapping=json.loads(MAPPING.read_text());baseline=OUT/'baseline.json'
     if not baseline.exists():
         baseline.write_text(json.dumps({'mapping':mapping,'digests':{a['id']:a['contentDigest']for a in data['actions']},
-          'actions':{a['id']:{k:a.get(k)for k in ['name','frames','revisedFrames','reviewTailFrames','fps','origin','contactTick','viewport','closeCamera','duration']}for a in data['actions']},
           'rules_hash':hashlib.sha256((ROOT.parents[1]/'actual/data/legacy/rules_full.json').read_bytes()).hexdigest()},ensure_ascii=False,indent=2)+'\n')
     before=json.loads(baseline.read_text());old=next(s for s in before['mapping']['scenarios']if s['id']=='tactical-walk');idle=next(s for s in before['mapping']['scenarios']if s['id']=='tactical-idle')
     previous={int(rec['source_index']):Image.open((MAPPING.parent/rec['output_path']).resolve()).convert('RGBA')for rec in old['frame_mapping']}

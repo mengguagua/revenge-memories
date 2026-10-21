@@ -104,7 +104,6 @@ def create():
     baseline=OUT/'baseline.json'
     if not baseline.exists():
         baseline.write_text(json.dumps({'digests':{a['id']:a['contentDigest']for a in data['actions']},
-          'actions':{a['id']:{k:a.get(k)for k in ['name','frames','revisedFrames','reviewTailFrames','fps','origin','contactTick','viewport','closeCamera','duration']}for a in data['actions']},
           'mappings':{s:json.loads(p.read_text())for s,p in paths.items()},
           'rules_hash':hashlib.sha256((ROOT.parents[1]/'actual/data/legacy/rules_full.json').read_bytes()).hexdigest()},ensure_ascii=False,indent=2)+'\n')
     before=json.loads(baseline.read_text());inventory=[];contracts=[]

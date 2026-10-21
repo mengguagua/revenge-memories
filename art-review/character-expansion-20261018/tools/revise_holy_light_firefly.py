@@ -99,7 +99,6 @@ def create():
     baseline=OUT/'baseline.json'
     if not baseline.exists():
         baseline.write_text(json.dumps({'digests':{a['id']:a['contentDigest']for a in data['actions']},
-          'actions':{a['id']:{k:a.get(k)for k in ['frames','revisedFrames','fps','origin','contactTick','viewport','closeCamera']}for a in data['actions']},
           'mappings':{side:json.loads(p.read_text())for side,p in mapping_paths.items()}},ensure_ascii=False,indent=2)+'\n')
     inventory=[]
     for phase in range(3):
