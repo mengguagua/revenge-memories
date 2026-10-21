@@ -1,0 +1,51 @@
+{
+  "revision": "knight-redraw-v3-20261021",
+  "reviewer": "assistant",
+  "art_acceptance": "pending_user_review",
+  "runtime_integrated": false,
+  "method": "Original reference inspection, complete generated pose sheets, final dark/light sprite boards, and offline renderer output. Numeric checks are supplementary, not a substitute for user visual acceptance.",
+  "inspected": [
+    "original map idle and directional pose references",
+    "original battle ground, anticipation, leap, and throwing references",
+    "all generated master sheets and corrected source poses",
+    "ally-maps-dark.png",
+    "enemy-maps-dark.png",
+    "ally-battle-dark.png",
+    "enemy-battle-light.png",
+    "ally-throw-sequence.png",
+    "enemy-throw-sequence.png"
+  ],
+  "checks": {
+    "anatomy_and_garments": "Whole horse/rider drawings inspected for body, saddlecloth and limb continuity; no horizontal upper/lower-body splice or row-wise leg deformation used.",
+    "pose_corrections": "Corrected planted hind hoof in battle pose 2, rear-leg extension and rider posture in leap pose 7, lowered bent forehooves in anticipation poses 8/9, and single-lance/empty-hand states in throwing poses 41/43.",
+    "color": "Ally blue and white with warm skin/wood accents; enemy blue-violet; each uses 16 colors and retains lit surfaces and dark contours.",
+    "registration": "Whole-pose registration inspected along with the manifest landmark checks. Native combat approach, leap and return remain part of the action.",
+    "projectile": "Final actual renderer strips inspected at frames 1,18,19,22,31,55 for both sides: single held lance, empty hand on release, separate natural wood/steel ally projectile and blue-violet enemy projectile.",
+    "edges": "Dark/light boards inspected for complete silhouette and alpha edges; generated source sheets retained."
+  },
+  "browser": {
+    "status": "blocked",
+    "reason": "Browser tool denied local file protocol access. No alternate browser/server workaround was used. Live browser playback was not verified."
+  },
+  "presentation": "User allowed generation and visual inspection tool previews this round. Final answer uses text and gallery link only; no claim that client-generated attachments can be hidden.",
+  "extra_review_assets": [
+    {
+      "path": "ally-throw-sequence.png",
+      "purpose": "Six-frame throwing sequence inspection board",
+      "size": [
+        1728,
+        976
+      ],
+      "bytes": 44809
+    },
+    {
+      "path": "enemy-throw-sequence.png",
+      "purpose": "Six-frame throwing sequence inspection board",
+      "size": [
+        1728,
+        976
+      ],
+      "bytes": 47685
+    }
+  ]
+}

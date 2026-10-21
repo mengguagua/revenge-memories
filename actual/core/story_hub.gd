@@ -1,5 +1,6 @@
 extends RefCounted
 ## Small explorable story rooms. Facing interaction and visual objects share cells.
+const FifthHub = preload("res://core/chapter5_hub.gd")
 const FourthHub = preload("res://core/chapter4_hub.gd")
 const ThirdHub = preload("res://core/chapter3_hub.gd")
 var ui
@@ -29,6 +30,8 @@ func _init(owner) -> void:
 	chapter2_rooms.merge(third.rooms);east_materials.merge(third.materials)
 	var fourth=ui.GameState.read_json("res://data/chapter4_hubs.json")
 	chapter2_rooms.merge(fourth.rooms);east_materials.merge(fourth.materials)
+	var fifth=ui.GameState.read_json("res://data/chapter5_hubs.json")
+	chapter2_rooms.merge(fifth.rooms);east_materials.merge(fifth.materials)
 func process(delta: float) -> void:
 	clock+=delta
 	if motion_left>0.0:
@@ -56,6 +59,8 @@ func resume() -> void:enter_room(ui.game.hub_record,true,false)
 func enter(_id: int,_at: Vector2i) -> void:enter_world()
 
 func enter_world() -> void:
+	if ui.game.chapter==5:
+		enter_room(ui.game.ChapterFive.room_for(ui.game));return
 	if ui.game.chapter==4:
 		enter_room(ui.game.ChapterFour.room_for(ui.game));return
 	if ui.game.chapter==3:
@@ -183,6 +188,8 @@ func action(key: String) -> void:
 		return
 	if g.party.has(key) and g.is_dying(g.roster.get(key,{})):
 		await ui.play_pages([{"speaker":"医者","text":str(g.roster[key].name_zh)+"仍在队伍中，由我们照护，暂时不能出阵。可在部队状态查看伤情。"}],"hub");return
+	if g.chapter==5:
+		await FifthHub.action(self,key);g.save_game();return
 	if g.chapter==4:
 		await FourthHub.action(self,key);g.save_game();return
 	if g.chapter==3:
@@ -277,7 +284,7 @@ func open_system_menu() -> void:
 func _open_treatment() -> void:
 	var g=ui.game
 	var source="church" if room=="H04" else "lighthouse" if room=="H25" else ""
-	if not (room=="H10" and g.flags.get("D33_done",false)) and (source.is_empty() or g.Casualties.SOURCES[source]!=g.route or not g.flags.get("treatment_sources",{}).get(source,false)):
+	if not (g.chapter==5 and room in ["H51","H55"]) and not (room=="H10" and g.flags.get("D33_done",false)) and (source.is_empty() or g.Casualties.SOURCES[source]!=g.route or not g.flags.get("treatment_sources",{}).get(source,false)):
 		ui._notice("先完成教堂合作或安置岛民，开放本队救治份额",6);return
 	if g.treatment_remaining()<=0:ui._notice("本队救治份额已经用尽",6);return
 	var labels=[];var actions=[]

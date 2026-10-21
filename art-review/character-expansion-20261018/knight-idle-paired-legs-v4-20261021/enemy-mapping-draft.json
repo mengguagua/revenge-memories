@@ -1,0 +1,373 @@
+{
+  "schema_version": 1,
+  "revision": "knight-redraw-v3-20261021",
+  "class_id": 4,
+  "character_id": "enemy-knight",
+  "actor_id": "enemy-knight",
+  "source_side": "enemy",
+  "display_name": "敌方骑士",
+  "status": "review_candidate",
+  "runtime_integrated": false,
+  "modified_by": "Codex",
+  "scenarios": [
+    {
+      "id": "tactical-idle",
+      "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_4_enemy.png",
+      "source_frame_size": [
+        24,
+        24
+      ],
+      "source_anchor": [
+        12,
+        20
+      ],
+      "output_frame_size": [
+        96,
+        96
+      ],
+      "output_anchor": [
+        48,
+        80
+      ],
+      "output_atlas": "../../../knight-idle-paired-legs-v4-20261021/enemy/idle-atlas.png",
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "path": "../../../knight-idle-paired-legs-v4-20261021/enemy/frame-000.png",
+          "output_path": "../../../knight-idle-paired-legs-v4-20261021/enemy/frame-000.png",
+          "revision": "knight-idle-paired-legs-v4-20261021",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 2782,
+          "sha256": "4344477542ec7362ae738d327b43862090c79e9e7940015b6a8673da92c38d58",
+          "art_status": "review_candidate",
+          "idle_pose": 0
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "path": "../../../knight-idle-paired-legs-v4-20261021/enemy/frame-001.png",
+          "output_path": "../../../knight-idle-paired-legs-v4-20261021/enemy/frame-001.png",
+          "revision": "knight-idle-paired-legs-v4-20261021",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 2627,
+          "sha256": "f23d807f765bd3a58dcf2c48d9725759abce1b99de984dce0610ed229c93ae95",
+          "art_status": "review_candidate",
+          "idle_pose": 1
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "path": "../../../knight-idle-paired-legs-v4-20261021/enemy/frame-002.png",
+          "output_path": "../../../knight-idle-paired-legs-v4-20261021/enemy/frame-002.png",
+          "revision": "knight-idle-paired-legs-v4-20261021",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 2784,
+          "sha256": "d97cffdf4f276fc1844e2d736c65307b7ccaea3b2ab6284c344573ff62fbea5b",
+          "art_status": "review_candidate",
+          "idle_pose": 2
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "path": "../../../knight-idle-paired-legs-v4-20261021/enemy/frame-003.png",
+          "output_path": "../../../knight-idle-paired-legs-v4-20261021/enemy/frame-003.png",
+          "revision": "knight-idle-paired-legs-v4-20261021",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 2627,
+          "sha256": "f23d807f765bd3a58dcf2c48d9725759abce1b99de984dce0610ed229c93ae95",
+          "art_status": "review_candidate",
+          "idle_pose": 1
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "path": "../../../knight-idle-paired-legs-v4-20261021/enemy/frame-004.png",
+          "output_path": "../../../knight-idle-paired-legs-v4-20261021/enemy/frame-004.png",
+          "revision": "knight-idle-paired-legs-v4-20261021",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 2782,
+          "sha256": "4344477542ec7362ae738d327b43862090c79e9e7940015b6a8673da92c38d58",
+          "art_status": "review_candidate",
+          "idle_pose": 0
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "path": "../../../knight-idle-paired-legs-v4-20261021/enemy/frame-005.png",
+          "output_path": "../../../knight-idle-paired-legs-v4-20261021/enemy/frame-005.png",
+          "revision": "knight-idle-paired-legs-v4-20261021",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 2627,
+          "sha256": "f23d807f765bd3a58dcf2c48d9725759abce1b99de984dce0610ed229c93ae95",
+          "art_status": "review_candidate",
+          "idle_pose": 1
+        }
+      ],
+      "logical_render_scale": 0.25,
+      "revision": "knight-idle-paired-legs-v4-20261021",
+      "status": "review_candidate",
+      "display_name": "敌方骑士",
+      "review_note": "双前腿弯曲抬起、四腿站定、双后腿向前抬起、四腿站定；固定骑手面部中心，沿用16色配色与原14／8／14／8帧节奏。",
+      "directions": {
+        "all": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "direction_mirror_x": {},
+      "timing": {
+        "native_fps": 60.0988,
+        "cycle_frames": [
+          0,
+          1,
+          2,
+          1
+        ],
+        "frame_ticks": [
+          14,
+          8,
+          14,
+          8
+        ]
+      },
+      "motion_review": {
+        "registration": "one scale and one face anchor for complete drawings",
+        "phase_order": [
+          0,
+          1,
+          2,
+          1
+        ],
+        "phase_ticks": [
+          14,
+          8,
+          14,
+          8
+        ],
+        "runtime_integrated": false
+      },
+      "static_facing": true,
+      "action_note": "前双腿抬起→四腿站定→后双腿向前抬起→四腿站定。",
+      "ground_shadow": {
+        "path": "gold-knight-walk-v3-20261020/ground-shadow.png",
+        "size": [
+          12,
+          3
+        ],
+        "offset": [
+          0,
+          -1
+        ],
+        "alpha": 0.35
+      }
+    },
+    {
+      "id": "tactical-walk",
+      "source_atlas": "../../../source-input/corrected-tactical-walk/class-4-enemy.png",
+      "source_frame_size": [
+        32,
+        24
+      ],
+      "source_anchor": [
+        16,
+        24
+      ],
+      "output_frame_size": [
+        128,
+        96
+      ],
+      "output_anchor": [
+        64,
+        96
+      ],
+      "output_atlas": "../../../knight-redraw-v3-20261021/enemy/tactical-walk-atlas.png",
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-000.png",
+          "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-000.png",
+          "revision": "knight-redraw-v3-20261021",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 2081,
+          "sha256": "e8ae1af3a4df5fdf66e9aa67092afbeaef48928f380681f3eefb7e1c98039496",
+          "art_status": "review_candidate"
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-001.png",
+          "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-001.png",
+          "revision": "knight-redraw-v3-20261021",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1980,
+          "sha256": "9f875925ce5e28edf051170753092b5b58da0d12c26bb50666e41fa9c6325533",
+          "art_status": "review_candidate"
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-002.png",
+          "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-002.png",
+          "revision": "knight-redraw-v3-20261021",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 3079,
+          "sha256": "a930c6ce64ddf2d2c93b3924bb280223e069723b4bbb499e5f6725cb5b0250ce",
+          "art_status": "review_candidate"
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-003.png",
+          "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-003.png",
+          "revision": "knight-redraw-v3-20261021",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 3010,
+          "sha256": "d3a52424936ce1f64f3e54196797012f68e389a6bd0ace42d08602eadb1996cd",
+          "art_status": "review_candidate"
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-004.png",
+          "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-004.png",
+          "revision": "knight-redraw-v3-20261021",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 2427,
+          "sha256": "e77b011f0a1c96ede40fd0adfdb01e97f387172cd25e3d73fbda8c72c640c021",
+          "art_status": "review_candidate"
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-005.png",
+          "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-005.png",
+          "revision": "knight-redraw-v3-20261021",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 2373,
+          "sha256": "44f7d3c488135ca222d8789405079784ec8937f4c64950e036d33f15242be9be",
+          "art_status": "review_candidate"
+        },
+        {
+          "source_index": 6,
+          "source_frame": 6,
+          "path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-006.png",
+          "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-006.png",
+          "revision": "knight-redraw-v3-20261021",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 3103,
+          "sha256": "73a2f1c290da287dffc465c8284d6080276d6feb350a6210fa2945dc595fad65",
+          "art_status": "review_candidate"
+        },
+        {
+          "source_index": 7,
+          "source_frame": 7,
+          "path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-007.png",
+          "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-007.png",
+          "revision": "knight-redraw-v3-20261021",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 2853,
+          "sha256": "27ce308d2263f9a99fdd778d22b26c5cc9a407c9fadbfd141e1d29afc95f1358",
+          "art_status": "review_candidate"
+        }
+      ],
+      "logical_render_scale": 0.25,
+      "revision": "knight-redraw-v3-20261021",
+      "status": "review_candidate",
+      "display_name": "敌方骑士",
+      "review_note": "按原作姿势重新绘制完整骑士与白马，整帧定位。蓝白／蓝紫16色；原相位、循环与节奏保留。",
+      "directions": {
+        "up": [
+          0,
+          1
+        ],
+        "right": [
+          2,
+          3
+        ],
+        "down": [
+          4,
+          5
+        ],
+        "left": [
+          6,
+          7
+        ]
+      },
+      "direction_mirror_x": {},
+      "timing": {
+        "native_fps": 60.0988,
+        "frame_ticks": 16,
+        "cycle_ticks": 32
+      },
+      "motion_review": {
+        "registration": "whole-pose anchor; no body splicing or limb warp",
+        "runtime_integrated": false
+      },
+      "source_audit": {
+        "status": "verified_native_tactical",
+        "record_key": "class-4-enemy",
+        "verification": "../../../source-input/corrected-tactical-walk/verification.json",
+        "overlay": "../../../source-input/corrected-tactical-walk/overlay.json"
+      },
+      "ground_shadow": {
+        "path": "gold-knight-walk-v3-20261020/ground-shadow.png",
+        "size": [
+          12,
+          3
+        ],
+        "offset": [
+          0,
+          -1
+        ],
+        "alpha": 0.35
+      },
+      "action_note": "完整姿势重绘，按固定定位点登记；待本轮验收。"
+    }
+  ]
+}

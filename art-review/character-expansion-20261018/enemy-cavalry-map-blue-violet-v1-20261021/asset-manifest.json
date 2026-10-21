@@ -1,0 +1,949 @@
+{
+  "revision": "enemy-cavalry-map-blue-violet-v1-20261021",
+  "runtime_integrated": false,
+  "image_generation_invoked": false,
+  "chat_image_output": false,
+  "palette": [
+    "191c2b",
+    "292b45",
+    "30385d",
+    "425b83",
+    "647fa6",
+    "8eabc6",
+    "454064",
+    "635586",
+    "8b7da9",
+    "7e90a6",
+    "9eadc2",
+    "d6dce4",
+    "947b78",
+    "cbb5a5",
+    "4f607a",
+    "b0a2c6"
+  ],
+  "palette_roles": "dark blue armor, blue-violet fabric, cool blue-gray horse; skin only inside rider face masks",
+  "idle_fixed_point": [
+    48,
+    48
+  ],
+  "idle_translation": [
+    -6,
+    0
+  ],
+  "idle_foreleg_mask": [
+    [
+      30,
+      53
+    ],
+    [
+      49,
+      53
+    ],
+    [
+      48,
+      70
+    ],
+    [
+      48,
+      83
+    ],
+    [
+      25,
+      83
+    ],
+    [
+      25,
+      60
+    ],
+    [
+      29,
+      57
+    ]
+  ],
+  "idle_hindleg_mask": [
+    [
+      53,
+      58
+    ],
+    [
+      77,
+      58
+    ],
+    [
+      84,
+      64
+    ],
+    [
+      84,
+      83
+    ],
+    [
+      51,
+      83
+    ],
+    [
+      51,
+      64
+    ]
+  ],
+  "idle_phase_registration": {
+    "0": [
+      -1,
+      0
+    ],
+    "1": [
+      0,
+      0
+    ],
+    "2": [
+      -3,
+      0
+    ]
+  },
+  "idle_aliases": [
+    0,
+    1,
+    2,
+    1,
+    0,
+    1
+  ],
+  "walk_registration": [
+    {
+      "direction": "up",
+      "frame": 0,
+      "translation": [
+        0,
+        0
+      ],
+      "fixed_upper_box": [
+        0,
+        0,
+        128,
+        70
+      ],
+      "fixed_point": [
+        64,
+        44
+      ]
+    },
+    {
+      "direction": "up",
+      "frame": 1,
+      "translation": [
+        0,
+        -4
+      ],
+      "fixed_upper_box": [
+        0,
+        0,
+        128,
+        70
+      ],
+      "fixed_point": [
+        64,
+        44
+      ]
+    },
+    {
+      "direction": "right",
+      "frame": 2,
+      "translation": [
+        5,
+        -1
+      ],
+      "fixed_upper_box": [
+        0,
+        0,
+        128,
+        73
+      ],
+      "fixed_point": [
+        64,
+        54
+      ]
+    },
+    {
+      "direction": "right",
+      "frame": 3,
+      "translation": [
+        1,
+        0
+      ],
+      "fixed_upper_box": [
+        0,
+        0,
+        128,
+        73
+      ],
+      "fixed_point": [
+        64,
+        54
+      ]
+    },
+    {
+      "direction": "down",
+      "frame": 4,
+      "translation": [
+        0,
+        0
+      ],
+      "fixed_upper_box": [
+        0,
+        0,
+        128,
+        74
+      ],
+      "fixed_point": [
+        64,
+        48
+      ]
+    },
+    {
+      "direction": "down",
+      "frame": 5,
+      "translation": [
+        0,
+        -5
+      ],
+      "fixed_upper_box": [
+        0,
+        0,
+        128,
+        74
+      ],
+      "fixed_point": [
+        64,
+        48
+      ]
+    },
+    {
+      "direction": "left",
+      "frame": 6,
+      "mirror_of": 2,
+      "mirror_axis": 64,
+      "fixed_upper_box": [
+        0,
+        0,
+        128,
+        73
+      ],
+      "fixed_point": [
+        64,
+        54
+      ]
+    },
+    {
+      "direction": "left",
+      "frame": 7,
+      "mirror_of": 3,
+      "mirror_axis": 64,
+      "fixed_upper_box": [
+        0,
+        0,
+        128,
+        73
+      ],
+      "fixed_point": [
+        64,
+        54
+      ]
+    }
+  ],
+  "face_masks": {
+    "tactical-idle": {
+      "0": [
+        49,
+        26,
+        63,
+        35
+      ],
+      "1": [
+        48,
+        26,
+        62,
+        35
+      ],
+      "2": [
+        51,
+        26,
+        65,
+        35
+      ],
+      "3": [
+        48,
+        26,
+        62,
+        35
+      ],
+      "4": [
+        49,
+        26,
+        63,
+        35
+      ],
+      "5": [
+        48,
+        26,
+        62,
+        35
+      ]
+    },
+    "tactical-walk": {
+      "2": [
+        55,
+        38,
+        67,
+        48
+      ],
+      "3": [
+        59,
+        37,
+        71,
+        47
+      ],
+      "4": [
+        57,
+        27,
+        73,
+        39
+      ],
+      "5": [
+        57,
+        32,
+        73,
+        44
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "enemy-cavalry-map-blue-violet-v1-20261021/tactical-walk/frame-000.png",
+      "purpose": "enemy cavalry / fixed center / dark blue-violet sixteen-color palette",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2678,
+      "sha256": "7c1591f6a36435173f287d00ad4428c9e6735c32cbd6a5b9e542c3d12c5a1eef",
+      "visible_bounds": [
+        45,
+        15,
+        83,
+        91
+      ],
+      "visible_colors": 14
+    },
+    {
+      "path": "enemy-cavalry-map-blue-violet-v1-20261021/tactical-walk/frame-001.png",
+      "purpose": "enemy cavalry / fixed center / dark blue-violet sixteen-color palette",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2769,
+      "sha256": "3afaf80a5251e01d74cc2bea013b35b9c9fcc6e3307b6f608450032be42afa7c",
+      "visible_bounds": [
+        45,
+        15,
+        83,
+        91
+      ],
+      "visible_colors": 14
+    },
+    {
+      "path": "enemy-cavalry-map-blue-violet-v1-20261021/tactical-walk/frame-002.png",
+      "purpose": "enemy cavalry / fixed center / dark blue-violet sixteen-color palette",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 4286,
+      "sha256": "e24f0cf37891dbeed94c4d95ea984452e54f0292486dcadb1f14cd9c58a78e10",
+      "visible_bounds": [
+        23,
+        31,
+        100,
+        95
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "enemy-cavalry-map-blue-violet-v1-20261021/tactical-walk/frame-003.png",
+      "purpose": "enemy cavalry / fixed center / dark blue-violet sixteen-color palette",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 4312,
+      "sha256": "7e469e6f96f51b1f2e09b6042dfafdfea88f16a3ece3b015de0471fcaa07bccd",
+      "visible_bounds": [
+        24,
+        31,
+        100,
+        96
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "enemy-cavalry-map-blue-violet-v1-20261021/tactical-walk/frame-004.png",
+      "purpose": "enemy cavalry / fixed center / dark blue-violet sixteen-color palette",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 3415,
+      "sha256": "b771948ed0f47d8deab0db13eca68b095ffe22edd1ee78fbaa8a0b96026a5f34",
+      "visible_bounds": [
+        43,
+        19,
+        85,
+        96
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "enemy-cavalry-map-blue-violet-v1-20261021/tactical-walk/frame-005.png",
+      "purpose": "enemy cavalry / fixed center / dark blue-violet sixteen-color palette",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 3239,
+      "sha256": "a101f27fbd25c306cbb9c191271c46022d06720f1d57042a06e36e75d1b97a4a",
+      "visible_bounds": [
+        43,
+        19,
+        85,
+        90
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "enemy-cavalry-map-blue-violet-v1-20261021/tactical-walk/frame-006.png",
+      "purpose": "enemy cavalry / fixed center / dark blue-violet sixteen-color palette",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 4715,
+      "sha256": "24af2b224bccafc64f664b76d149ac0e1ea7a09fa15b2662b26e0242f9b70620",
+      "visible_bounds": [
+        29,
+        31,
+        106,
+        95
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "enemy-cavalry-map-blue-violet-v1-20261021/tactical-walk/frame-007.png",
+      "purpose": "enemy cavalry / fixed center / dark blue-violet sixteen-color palette",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 4708,
+      "sha256": "89fc8f1f24bd82c8c70764e5a2fe529a1514c97d3aa0209f056a52136c0b718d",
+      "visible_bounds": [
+        29,
+        31,
+        105,
+        96
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "enemy-cavalry-map-blue-violet-v1-20261021/tactical-walk-atlas.png",
+      "purpose": "offline enemy cavalry review atlas",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 17001,
+      "sha256": "72cd1b28dbc1d36063a0364efa08d254444fb34273d78e5cc03a0ee86825f061",
+      "visible_bounds": [
+        45,
+        15,
+        1001,
+        96
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "enemy-cavalry-map-blue-violet-v1-20261021/tactical-idle/frame-000.png",
+      "purpose": "enemy cavalry / fixed center / dark blue-violet sixteen-color palette",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 4182,
+      "sha256": "b05cd22ac91386d02aae501dbbcf5737dfa81422f6c8435c355db117c2c69c0e",
+      "visible_bounds": [
+        10,
+        15,
+        77,
+        80
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "enemy-cavalry-map-blue-violet-v1-20261021/tactical-idle/frame-001.png",
+      "purpose": "enemy cavalry / fixed center / dark blue-violet sixteen-color palette",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 4347,
+      "sha256": "72431add573cedaf29ef983b4427ba8d0f339a669403a973b6d75b7a9a8384a6",
+      "visible_bounds": [
+        10,
+        15,
+        77,
+        80
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "enemy-cavalry-map-blue-violet-v1-20261021/tactical-idle/frame-002.png",
+      "purpose": "enemy cavalry / fixed center / dark blue-violet sixteen-color palette",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 4218,
+      "sha256": "6cccf6de5d86e30d4d7269f4275ec6dc34f828e4c555b5b909c8fc6ba664446d",
+      "visible_bounds": [
+        10,
+        15,
+        77,
+        80
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "enemy-cavalry-map-blue-violet-v1-20261021/tactical-idle/frame-003.png",
+      "purpose": "enemy cavalry / fixed center / dark blue-violet sixteen-color palette",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 4347,
+      "sha256": "72431add573cedaf29ef983b4427ba8d0f339a669403a973b6d75b7a9a8384a6",
+      "visible_bounds": [
+        10,
+        15,
+        77,
+        80
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "enemy-cavalry-map-blue-violet-v1-20261021/tactical-idle/frame-004.png",
+      "purpose": "enemy cavalry / fixed center / dark blue-violet sixteen-color palette",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 4182,
+      "sha256": "b05cd22ac91386d02aae501dbbcf5737dfa81422f6c8435c355db117c2c69c0e",
+      "visible_bounds": [
+        10,
+        15,
+        77,
+        80
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "enemy-cavalry-map-blue-violet-v1-20261021/tactical-idle/frame-005.png",
+      "purpose": "enemy cavalry / fixed center / dark blue-violet sixteen-color palette",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 4347,
+      "sha256": "72431add573cedaf29ef983b4427ba8d0f339a669403a973b6d75b7a9a8384a6",
+      "visible_bounds": [
+        10,
+        15,
+        77,
+        80
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "enemy-cavalry-map-blue-violet-v1-20261021/tactical-idle-atlas.png",
+      "purpose": "offline enemy cavalry review atlas",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 6418,
+      "sha256": "e9466868ccad8ca8aa492417ac20956819d8f800659128f036345777d6db31ab",
+      "visible_bounds": [
+        10,
+        15,
+        557,
+        80
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "enemy-cavalry-map-blue-violet-v1-20261021/poses-dark.png",
+      "purpose": "offline pose review / dark background",
+      "size": [
+        1000,
+        1250
+      ],
+      "bytes": 61314,
+      "sha256": "4881c16a3b0460b4c1ad83bd1a94bee3d23c8e3dd4e55a83571bc2c95d030f1f"
+    },
+    {
+      "path": "enemy-cavalry-map-blue-violet-v1-20261021/poses-light.png",
+      "purpose": "offline pose review / light background",
+      "size": [
+        1000,
+        1250
+      ],
+      "bytes": 60333,
+      "sha256": "a333b38564375915a95312fb337e21d2a26c98687fb50bc580eae7068817d842"
+    },
+    {
+      "path": "enemy-cavalry-map-blue-violet-v1-20261021/idle-frame-72.png",
+      "purpose": "source/new idle comparison at user reference frame 72",
+      "size": [
+        584,
+        328
+      ],
+      "bytes": 20226,
+      "sha256": "f5cc527fb2c00a489ee2c1ee754b9e5c5573dc2602a2546168a1b5a92b29170e"
+    }
+  ],
+  "preview_text_safe_area_checks": [
+    {
+      "text": "敌方骑兵 · 固定中心 / 暗蓝紫统一16色",
+      "safe_box": [
+        16,
+        8,
+        984,
+        54
+      ]
+    },
+    {
+      "text": "待机",
+      "safe_box": [
+        12,
+        144,
+        112,
+        208
+      ]
+    },
+    {
+      "text": "抬前腿",
+      "safe_box": [
+        136,
+        258,
+        384,
+        286
+      ]
+    },
+    {
+      "text": "四腿站定",
+      "safe_box": [
+        416,
+        258,
+        664,
+        286
+      ]
+    },
+    {
+      "text": "抬后腿",
+      "safe_box": [
+        696,
+        258,
+        944,
+        286
+      ]
+    },
+    {
+      "text": "向上",
+      "safe_box": [
+        12,
+        374,
+        112,
+        438
+      ]
+    },
+    {
+      "text": "姿势 1",
+      "safe_box": [
+        136,
+        488,
+        384,
+        516
+      ]
+    },
+    {
+      "text": "姿势 2",
+      "safe_box": [
+        416,
+        488,
+        664,
+        516
+      ]
+    },
+    {
+      "text": "向右",
+      "safe_box": [
+        12,
+        604,
+        112,
+        668
+      ]
+    },
+    {
+      "text": "姿势 1",
+      "safe_box": [
+        136,
+        718,
+        384,
+        746
+      ]
+    },
+    {
+      "text": "姿势 2",
+      "safe_box": [
+        416,
+        718,
+        664,
+        746
+      ]
+    },
+    {
+      "text": "向下",
+      "safe_box": [
+        12,
+        834,
+        112,
+        898
+      ]
+    },
+    {
+      "text": "姿势 1",
+      "safe_box": [
+        136,
+        948,
+        384,
+        976
+      ]
+    },
+    {
+      "text": "姿势 2",
+      "safe_box": [
+        416,
+        948,
+        664,
+        976
+      ]
+    },
+    {
+      "text": "向左",
+      "safe_box": [
+        12,
+        1064,
+        112,
+        1128
+      ]
+    },
+    {
+      "text": "姿势 1",
+      "safe_box": [
+        136,
+        1178,
+        384,
+        1206
+      ]
+    },
+    {
+      "text": "姿势 2",
+      "safe_box": [
+        416,
+        1178,
+        664,
+        1206
+      ]
+    },
+    {
+      "text": "主体固定，马腿沿用原步态；新稿仅供对照页验收",
+      "safe_box": [
+        16,
+        1220,
+        984,
+        1250
+      ]
+    },
+    {
+      "text": "敌方骑兵 · 固定中心 / 暗蓝紫统一16色",
+      "safe_box": [
+        16,
+        8,
+        984,
+        54
+      ]
+    },
+    {
+      "text": "待机",
+      "safe_box": [
+        12,
+        144,
+        112,
+        208
+      ]
+    },
+    {
+      "text": "抬前腿",
+      "safe_box": [
+        136,
+        258,
+        384,
+        286
+      ]
+    },
+    {
+      "text": "四腿站定",
+      "safe_box": [
+        416,
+        258,
+        664,
+        286
+      ]
+    },
+    {
+      "text": "抬后腿",
+      "safe_box": [
+        696,
+        258,
+        944,
+        286
+      ]
+    },
+    {
+      "text": "向上",
+      "safe_box": [
+        12,
+        374,
+        112,
+        438
+      ]
+    },
+    {
+      "text": "姿势 1",
+      "safe_box": [
+        136,
+        488,
+        384,
+        516
+      ]
+    },
+    {
+      "text": "姿势 2",
+      "safe_box": [
+        416,
+        488,
+        664,
+        516
+      ]
+    },
+    {
+      "text": "向右",
+      "safe_box": [
+        12,
+        604,
+        112,
+        668
+      ]
+    },
+    {
+      "text": "姿势 1",
+      "safe_box": [
+        136,
+        718,
+        384,
+        746
+      ]
+    },
+    {
+      "text": "姿势 2",
+      "safe_box": [
+        416,
+        718,
+        664,
+        746
+      ]
+    },
+    {
+      "text": "向下",
+      "safe_box": [
+        12,
+        834,
+        112,
+        898
+      ]
+    },
+    {
+      "text": "姿势 1",
+      "safe_box": [
+        136,
+        948,
+        384,
+        976
+      ]
+    },
+    {
+      "text": "姿势 2",
+      "safe_box": [
+        416,
+        948,
+        664,
+        976
+      ]
+    },
+    {
+      "text": "向左",
+      "safe_box": [
+        12,
+        1064,
+        112,
+        1128
+      ]
+    },
+    {
+      "text": "姿势 1",
+      "safe_box": [
+        136,
+        1178,
+        384,
+        1206
+      ]
+    },
+    {
+      "text": "姿势 2",
+      "safe_box": [
+        416,
+        1178,
+        664,
+        1206
+      ]
+    },
+    {
+      "text": "主体固定，马腿沿用原步态；新稿仅供对照页验收",
+      "safe_box": [
+        16,
+        1220,
+        984,
+        1250
+      ]
+    }
+  ]
+}

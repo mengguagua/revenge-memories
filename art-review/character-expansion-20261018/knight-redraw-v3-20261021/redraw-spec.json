@@ -1,0 +1,78 @@
+{
+  "status": "whole_pose_redraw_completed_pending_user_review",
+  "revision": "knight-redraw-v3-20261021",
+  "runtime_integrated": false,
+  "gallery_updated": true,
+  "requirements": {
+    "center": "One stable saddle/torso reference per orientation; register complete poses. Preserve explicit original battle trajectory without adding image-to-image jitter.",
+    "motion": "Native class4 pose order, repeats, flips, offsets, projectile release and hit timings.",
+    "palette": "At most16 purposeful colors per side. Ally soft blue and ivory/white dominant, small warm skin and natural wood/steel. Enemy dark blue-violet with readable cool highlights. Slightly muted, never graywashed.",
+    "anatomy": "Complete continuous rider, cloak, saddle, horse barrel and four anatomically joined legs in every pose. No horizontal body swaps, row compression, synthetic knee warps or disconnected armor.",
+    "validation": "Inspect actual whole-pose sheets, full-speed and slow loops at intended size on dark/light backgrounds; numeric connectivity and timing checks supplement visual inspection."
+  },
+  "batches": [
+    {
+      "id": "map-idle",
+      "references": [
+        "reference/native-map-idle.png"
+      ],
+      "poses": [
+        0,
+        1,
+        2
+      ],
+      "purpose": "Three complete compact left-facing map poses. Reuse whole0/2 for side walk; mirror whole sprites for opposite facing."
+    },
+    {
+      "id": "map-up-down",
+      "references": [
+        "reference/native-map-up-down.png"
+      ],
+      "poses": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "purpose": "Rear and front full horse+rider pairs; same helmet, clothing and palette as accepted new map idle."
+    },
+    {
+      "id": "battle-ground",
+      "references": [
+        "reference/native-battle-ground.png"
+      ],
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "purpose": "Six full battle-scale ground/gallop poses; native leg positions and single continuous lance."
+    },
+    {
+      "id": "battle-special",
+      "references": [
+        "reference/native-battle-special.png"
+      ],
+      "poses": [
+        6,
+        7,
+        8,
+        9,
+        41,
+        43
+      ],
+      "purpose": "Rear/leap/return/throw/release. Native grip and empty-hand release. Projectile kept external."
+    }
+  ],
+  "prohibited_shortcuts": [
+    "Republish the failed v1/v2 sprites as a new drawing",
+    "Crop and splice clothing from different poses",
+    "Replace actual visual inspection with pixel counts",
+    "Quietly use paid API generation",
+    "Claim automatic chat images are hidden or folded"
+  ],
+  "tool_image_attachment_exception": "User explicitly permitted built-in generation and visual inspection images for this redraw; final reply remains text and gallery link only."
+}

@@ -1,0 +1,1990 @@
+{
+  "revision": "slime-engulf-v1-20261021",
+  "runtime_art_integrated": false,
+  "image_generation_invoked": false,
+  "chat_image_output": false,
+  "palettes": {
+    "enemy": {
+      "outline": [
+        23,
+        31,
+        53
+      ],
+      "shadow": [
+        29,
+        42,
+        72
+      ],
+      "body": [
+        58,
+        80,
+        126
+      ],
+      "edge": [
+        88,
+        111,
+        155
+      ],
+      "light": [
+        162,
+        181,
+        209
+      ]
+    },
+    "ally": {
+      "outline": [
+        38,
+        66,
+        91
+      ],
+      "shadow": [
+        49,
+        88,
+        120
+      ],
+      "body": [
+        114,
+        173,
+        201
+      ],
+      "edge": [
+        176,
+        211,
+        227
+      ],
+      "light": [
+        234,
+        245,
+        248
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "slime-engulf-v1-20261021/enemy/color-08e69bd7b8853e.png",
+      "purpose": "enemy / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        48,
+        40
+      ],
+      "bytes": 299,
+      "sha256": "c9ecdccc7b01a69f47ccd094b56fde4d75521a10809e2d6278f4a415c0c7a1e0",
+      "visible_bounds": [
+        13,
+        27,
+        43,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/color-0a82b77a7381c7.png",
+      "purpose": "enemy / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        40
+      ],
+      "bytes": 319,
+      "sha256": "2a013bcd8bd9acc336aeafe67cce1204edc1208735e5ea0384f09ad3fd74052c",
+      "visible_bounds": [
+        8,
+        22,
+        26,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/color-12fbf900c63f68.png",
+      "purpose": "enemy / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        40
+      ],
+      "bytes": 264,
+      "sha256": "7f08f371408344a2843c999d9c6e0266e82501c840b11c00132c145a3342b00d",
+      "visible_bounds": [
+        8,
+        22,
+        28,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/color-17573a3fa8db98.png",
+      "purpose": "enemy / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        40
+      ],
+      "bytes": 248,
+      "sha256": "838b3721eaf70b349edee8d8199aa4a2d0b89ef33ad69109c94091abde0ebe2d",
+      "visible_bounds": [
+        11,
+        28,
+        27,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/color-52075ccdac60ae.png",
+      "purpose": "enemy / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        24
+      ],
+      "bytes": 178,
+      "sha256": "eb8c4084a3f48a5f3971b17da707f0d1b39592b68cf72bcd6300cb2198f5c6ad",
+      "visible_bounds": [
+        5,
+        11,
+        12,
+        19
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/color-549afb2634113c.png",
+      "purpose": "enemy / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        40
+      ],
+      "bytes": 222,
+      "sha256": "b1c4ffadaafd9e32bdbd3e385437c1be1db13e03a597da1431d4eb21904ff81d",
+      "visible_bounds": [
+        8,
+        32,
+        28,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/color-5d10f709ac40fc.png",
+      "purpose": "enemy / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        40
+      ],
+      "bytes": 241,
+      "sha256": "568a511bf877eb4b660aaa4b32ee85c9b004551432a2b7703fdc565d27aa4f2f",
+      "visible_bounds": [
+        5,
+        31,
+        28,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/color-660414f068baf9.png",
+      "purpose": "enemy / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        48,
+        40
+      ],
+      "bytes": 297,
+      "sha256": "c0b4a34756b039bba74c52d9bbab530582a144250039e2e2d8a3b5e8ebd2bd78",
+      "visible_bounds": [
+        13,
+        27,
+        43,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/color-8fed9173a21834.png",
+      "purpose": "enemy / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        16,
+        32
+      ],
+      "bytes": 206,
+      "sha256": "f69b036f1ec60b31c0ee53cd0e99eb472c54623fcabcfdeb76c38cc6bc893169",
+      "visible_bounds": [
+        0,
+        21,
+        8,
+        30
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/color-a1a0d59b74b4bc.png",
+      "purpose": "enemy / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        24
+      ],
+      "bytes": 230,
+      "sha256": "421b399f02fc56c81a3b058afa3426d87e88e852c0dd0a272376d24655b98652",
+      "visible_bounds": [
+        5,
+        8,
+        28,
+        19
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/color-b62bf21876ef4f.png",
+      "purpose": "enemy / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        40
+      ],
+      "bytes": 194,
+      "sha256": "4d050632a3eb9bd5b29c89f98c79951f0f3baf972e2d27ed2c0e6714afe93bd8",
+      "visible_bounds": [
+        5,
+        34,
+        28,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/color-c3144dcb1ad7b0.png",
+      "purpose": "enemy / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        16,
+        24
+      ],
+      "bytes": 134,
+      "sha256": "7ec2207e615d59d2772d5ed1ee4cd0475be99b1f4f226d050d0fa5e0a99e9a87",
+      "visible_bounds": [
+        0,
+        20,
+        5,
+        24
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/color-c4541ef153ac8c.png",
+      "purpose": "enemy / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        48,
+        24
+      ],
+      "bytes": 298,
+      "sha256": "29bb9cce3cfc556ff76dd5aa066907a0bc32de5b2353386a683967b0bf0d7c07",
+      "visible_bounds": [
+        13,
+        3,
+        43,
+        19
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/color-d1d44a910606b7.png",
+      "purpose": "enemy / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        48,
+        24
+      ],
+      "bytes": 296,
+      "sha256": "dbd22b4b30c091f8f4486daaec87661f1942b01dd9188531509861ca3fb2b335",
+      "visible_bounds": [
+        13,
+        3,
+        43,
+        19
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/color-d997bea09afac7.png",
+      "purpose": "enemy / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        16,
+        40
+      ],
+      "bytes": 232,
+      "sha256": "72b4232623dd604d6433e011b1674422fae175ca42252b02f63c25f98903bbb2",
+      "visible_bounds": [
+        0,
+        21,
+        16,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/color-da916e2d994397.png",
+      "purpose": "enemy / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        24
+      ],
+      "bytes": 225,
+      "sha256": "4f0a18dd842456a01f1a8f6e82096b42ffde1174343066b0ee3466a7b7be0b14",
+      "visible_bounds": [
+        5,
+        9,
+        23,
+        19
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/color-e1b2bcefa48e73.png",
+      "purpose": "enemy / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        40
+      ],
+      "bytes": 247,
+      "sha256": "82d787635255fe24ff121183958dfe3ab0f6d422163b6a8125702a22b7cfe22e",
+      "visible_bounds": [
+        12,
+        24,
+        25,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/color-e93e6453f51f51.png",
+      "purpose": "enemy / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        24
+      ],
+      "bytes": 199,
+      "sha256": "e51df1695086620e5e636c51664531161db2a83ebe62feb96ebd4000edb519f2",
+      "visible_bounds": [
+        5,
+        10,
+        16,
+        19
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/target-reference.png",
+      "purpose": "neutral existing soldier reference; review only, not a battle unit or new hit",
+      "size": [
+        224,
+        144
+      ],
+      "bytes": 3247,
+      "sha256": "e7a0a88e8b021f0f731dfab2f4456cb6a6cd2defa016ad7717c4f324bde1c21f",
+      "visible_bounds": [
+        13,
+        17,
+        210,
+        144
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/grow-00.png",
+      "purpose": "enemy / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 824,
+      "sha256": "74c71c44e5abcc0926a1c574cd57b36fcccd7932087211797dcb7eb2c07731a7",
+      "visible_bounds": [
+        128,
+        256,
+        260,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/grow-01.png",
+      "purpose": "enemy / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 879,
+      "sha256": "f438558be83c63ec6126552f872b4c0eaa2878b1168a681256512e1a02b8ae71",
+      "visible_bounds": [
+        120,
+        240,
+        268,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/grow-02.png",
+      "purpose": "enemy / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 934,
+      "sha256": "31041ce0faba36bff03cad706bb00597cb30762d5a29baaaa498cef909e96eda",
+      "visible_bounds": [
+        116,
+        224,
+        272,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/grow-03.png",
+      "purpose": "enemy / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1062,
+      "sha256": "0bd2d02a29b09109d29d34b30c2d202631e41d15edc9a41c6e122b9a083f4879",
+      "visible_bounds": [
+        108,
+        208,
+        280,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/grow-04.png",
+      "purpose": "enemy / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1141,
+      "sha256": "8765317440814c11d1c987b2c986c9423c30ccbdd837d2716220859a3fd6618c",
+      "visible_bounds": [
+        100,
+        192,
+        288,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/grow-05.png",
+      "purpose": "enemy / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1284,
+      "sha256": "8c6d0ed4a96313b51017b5ab85ba9c9c8bbe1c00070b5e797cab27718450510d",
+      "visible_bounds": [
+        96,
+        176,
+        292,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/grow-06.png",
+      "purpose": "enemy / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1321,
+      "sha256": "e1432b000f668cb0968ed3ef639a29965257753bf40a3de14e4d2def4317f0e4",
+      "visible_bounds": [
+        88,
+        160,
+        300,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/grow-07.png",
+      "purpose": "enemy / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1352,
+      "sha256": "de7f214566dc6a74f5e215bf894294c9e0106524f1a7aea8845bf60130802331",
+      "visible_bounds": [
+        80,
+        144,
+        308,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/grow-08.png",
+      "purpose": "enemy / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1446,
+      "sha256": "523c198df98de42f6f367cc0853ece59ad9b8be757f947ac9683429c6052b8f6",
+      "visible_bounds": [
+        72,
+        128,
+        316,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/grow-09.png",
+      "purpose": "enemy / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1486,
+      "sha256": "e819dc89a881faa43d90b3775d101eea1cfc74b7a0e33a8e824958f805f951a7",
+      "visible_bounds": [
+        68,
+        112,
+        320,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/grow-10.png",
+      "purpose": "enemy / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1519,
+      "sha256": "71cd3d04ef58613074a39da83650fdb87b6dc4ec3bf23256f855ff97e8f0508e",
+      "visible_bounds": [
+        60,
+        96,
+        328,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/grow-11.png",
+      "purpose": "enemy / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1637,
+      "sha256": "9e3c895ab677a6f0386f331ee685309206b09c84117b826aa5a8c689d6bd8058",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/close-00.png",
+      "purpose": "enemy / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1637,
+      "sha256": "9e3c895ab677a6f0386f331ee685309206b09c84117b826aa5a8c689d6bd8058",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/close-01.png",
+      "purpose": "enemy / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1624,
+      "sha256": "037b6e0de4a0273153a460028bfcb644c31004f03215fc2312dbe11682b5e0e2",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/close-02.png",
+      "purpose": "enemy / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1619,
+      "sha256": "28027f8e560e836ffe67e134482f0ea836512597a14ca15b51e3c642584ef412",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/close-03.png",
+      "purpose": "enemy / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1604,
+      "sha256": "f6eb7c62175b7fb7025c13912a60943720cc88743fd02faa31ecf8835be0e901",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/close-04.png",
+      "purpose": "enemy / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1631,
+      "sha256": "273d32e67542ae84bdeaa9e56bd6805c20ff36380f63c607c9687544ca5d6a78",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/close-05.png",
+      "purpose": "enemy / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1640,
+      "sha256": "1728369ea931b40e1b2a5480f553b2657abb89e564015e245dfb7ed2206d05e1",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/close-06.png",
+      "purpose": "enemy / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1632,
+      "sha256": "c79c0d49bc0088d6da846030b69e3ee17db57931bf94cff2b5eef5358f6fc236",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/close-07.png",
+      "purpose": "enemy / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1563,
+      "sha256": "70a2606b6ff463ad2b5607c6e24aca8230ccf59c8c476818aac9397124d48ada",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/close-08.png",
+      "purpose": "enemy / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1493,
+      "sha256": "90c65343aba17a08dd813bfd19cc8fa70511cb964b8a13a5fa03e90ae3a59e06",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/close-09.png",
+      "purpose": "enemy / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1439,
+      "sha256": "e64cd31434f7ab3dc14dc5a45e47e5b089d11988bbccee07315b26e3d142440b",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/hold-00.png",
+      "purpose": "enemy / engulfed target held behind solid liquid volume",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1439,
+      "sha256": "e64cd31434f7ab3dc14dc5a45e47e5b089d11988bbccee07315b26e3d142440b",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/hold-01.png",
+      "purpose": "enemy / engulfed target held behind solid liquid volume",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1433,
+      "sha256": "cb537f5e937933092397823ced10d45ebe1f793cf93cad17e034da8f4a6ff413",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/hold-02.png",
+      "purpose": "enemy / engulfed target held behind solid liquid volume",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1439,
+      "sha256": "e64cd31434f7ab3dc14dc5a45e47e5b089d11988bbccee07315b26e3d142440b",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/hold-03.png",
+      "purpose": "enemy / engulfed target held behind solid liquid volume",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1433,
+      "sha256": "cb537f5e937933092397823ced10d45ebe1f793cf93cad17e034da8f4a6ff413",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/vanish-00.png",
+      "purpose": "enemy / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1439,
+      "sha256": "e64cd31434f7ab3dc14dc5a45e47e5b089d11988bbccee07315b26e3d142440b",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/vanish-01.png",
+      "purpose": "enemy / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1376,
+      "sha256": "daa7d3162d07daad4a7966b1f6f071eecce2095803dba39a07220dccb2b8df22",
+      "visible_bounds": [
+        60,
+        100,
+        328,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/vanish-02.png",
+      "purpose": "enemy / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1354,
+      "sha256": "30faa596af9f58d9efc524632119ee0ff12b300aaa25ba880d0640eb1bd2dfad",
+      "visible_bounds": [
+        68,
+        116,
+        320,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/vanish-03.png",
+      "purpose": "enemy / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1306,
+      "sha256": "52fd18a6f1dc9f26b9bfdac3a4ac47bf05e86cb41c273ffedad7e2538544882f",
+      "visible_bounds": [
+        76,
+        136,
+        312,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/vanish-04.png",
+      "purpose": "enemy / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1196,
+      "sha256": "07b256f943a670cba9c86ac9edc102392588afca0bb3c67c5f8cc5cc23ca0756",
+      "visible_bounds": [
+        80,
+        156,
+        308,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/vanish-05.png",
+      "purpose": "enemy / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1176,
+      "sha256": "b17f0123b0d4e5adc72c1095747163fc9569b5f4fe1b754a8c5e05d10f47a12a",
+      "visible_bounds": [
+        88,
+        176,
+        300,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/vanish-06.png",
+      "purpose": "enemy / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1055,
+      "sha256": "2ea4c9142524ec82e6453e043b7f9b6ef5c01dea6cd79bad5778ffffad3461a0",
+      "visible_bounds": [
+        96,
+        192,
+        292,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/vanish-07.png",
+      "purpose": "enemy / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 976,
+      "sha256": "5082463aed6a76ec46bdc58bc5fb445956fc1b71645c28e0e45dbf924b42c288",
+      "visible_bounds": [
+        100,
+        212,
+        288,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/vanish-08.png",
+      "purpose": "enemy / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 943,
+      "sha256": "3bf6078dfb814319f8473dee66d4f315c58dcf8a97f94f05ade2bd9cd728494a",
+      "visible_bounds": [
+        108,
+        232,
+        280,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/vanish-09.png",
+      "purpose": "enemy / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 876,
+      "sha256": "197df2b68c31a6fc3f4cf2995bcb5a8840ab0ee82f5debb1342b35cd229d5ff9",
+      "visible_bounds": [
+        116,
+        252,
+        272,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/vanish-10.png",
+      "purpose": "enemy / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 759,
+      "sha256": "95448a779addb10ecffdcf726a0d19e4a914fe82037c0d7927a2ac80a798478f",
+      "visible_bounds": [
+        124,
+        268,
+        264,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy/vanish-11.png",
+      "purpose": "enemy / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 556,
+      "sha256": "4dc08c0df9a6f28d184a3ad7f296556847abf2e3d0e1df0f9d0a6a20d788d2ca",
+      "visible_bounds": null
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/color-08e69bd7b8853e.png",
+      "purpose": "ally / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        48,
+        40
+      ],
+      "bytes": 291,
+      "sha256": "e979ee9a8a6c85c58bd41cb7ad47880d5b73ab3ed8dc5826474fbec2f50b38b9",
+      "visible_bounds": [
+        13,
+        27,
+        43,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/color-0a82b77a7381c7.png",
+      "purpose": "ally / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        40
+      ],
+      "bytes": 314,
+      "sha256": "f1ad63075d921045cf604af524208ba5c77105fbf3ff6029395e8a2d30f8bb66",
+      "visible_bounds": [
+        8,
+        22,
+        26,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/color-12fbf900c63f68.png",
+      "purpose": "ally / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        40
+      ],
+      "bytes": 261,
+      "sha256": "fa1173ad2c5fb308be2902c6514b42403adb0d1ce98bf5dcc51c859526c35bcb",
+      "visible_bounds": [
+        8,
+        22,
+        28,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/color-17573a3fa8db98.png",
+      "purpose": "ally / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        40
+      ],
+      "bytes": 248,
+      "sha256": "d01833f378126e3b5a83c0535b7a0098afbece49da118c4f59c3c8374f61a5f7",
+      "visible_bounds": [
+        11,
+        28,
+        27,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/color-52075ccdac60ae.png",
+      "purpose": "ally / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        24
+      ],
+      "bytes": 181,
+      "sha256": "50a8c3c598103a3f3931bbfbfc0d81bc12a384f235256d6962a62a65fff14073",
+      "visible_bounds": [
+        5,
+        11,
+        12,
+        19
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/color-549afb2634113c.png",
+      "purpose": "ally / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        40
+      ],
+      "bytes": 219,
+      "sha256": "fc99ea88aeef7fdefa540641bf54d4c726296ad46243c83745354afb21a77975",
+      "visible_bounds": [
+        8,
+        32,
+        28,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/color-5d10f709ac40fc.png",
+      "purpose": "ally / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        40
+      ],
+      "bytes": 239,
+      "sha256": "744cff7a65345d62cdf2ce757c7abc69c2c4bb47775cc5ca1ee9724d6034f602",
+      "visible_bounds": [
+        5,
+        31,
+        28,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/color-660414f068baf9.png",
+      "purpose": "ally / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        48,
+        40
+      ],
+      "bytes": 295,
+      "sha256": "5c891800ac29be18fd1056149cbea3e1261af3a4ec52432c2734e1b7fde642d1",
+      "visible_bounds": [
+        13,
+        27,
+        43,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/color-8fed9173a21834.png",
+      "purpose": "ally / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        16,
+        32
+      ],
+      "bytes": 204,
+      "sha256": "b9c13343635e214970df8cae994d24b8584942f8478c5151fa05d5590d4bf8cc",
+      "visible_bounds": [
+        0,
+        21,
+        8,
+        30
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/color-a1a0d59b74b4bc.png",
+      "purpose": "ally / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        24
+      ],
+      "bytes": 232,
+      "sha256": "a18d558dee5bbb513483a9ca75c579e5e4e42486316b1a479694eeab3605fb03",
+      "visible_bounds": [
+        5,
+        8,
+        28,
+        19
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/color-b62bf21876ef4f.png",
+      "purpose": "ally / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        40
+      ],
+      "bytes": 193,
+      "sha256": "5c51606fa5f21f963b038c0820dcd0ec72d557027903e6ea3d33209dec65ab3f",
+      "visible_bounds": [
+        5,
+        34,
+        28,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/color-c3144dcb1ad7b0.png",
+      "purpose": "ally / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        16,
+        24
+      ],
+      "bytes": 140,
+      "sha256": "af282d502ad1c77fe6a3257fe445a0211905670a37fceac2582785e8160fdaae",
+      "visible_bounds": [
+        0,
+        20,
+        5,
+        24
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/color-c4541ef153ac8c.png",
+      "purpose": "ally / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        48,
+        24
+      ],
+      "bytes": 297,
+      "sha256": "77cb5feeb20ef94059b83bc5e70758c67f73566e33d868e43b33b40a3c16fdc2",
+      "visible_bounds": [
+        13,
+        3,
+        43,
+        19
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/color-d1d44a910606b7.png",
+      "purpose": "ally / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        48,
+        24
+      ],
+      "bytes": 299,
+      "sha256": "aeb009a21d0b45524ff57383672b6f191cc73144759212c0b89f1fbb5f54412b",
+      "visible_bounds": [
+        13,
+        3,
+        43,
+        19
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/color-d997bea09afac7.png",
+      "purpose": "ally / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        16,
+        40
+      ],
+      "bytes": 244,
+      "sha256": "ded2347483269ab612e1a35993dcfa0ec91b572b53e3fa2dac89390db30a65cd",
+      "visible_bounds": [
+        0,
+        21,
+        16,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/color-da916e2d994397.png",
+      "purpose": "ally / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        24
+      ],
+      "bytes": 229,
+      "sha256": "710e27b53a6b699d1b9a41eabc59e61045c3352fdfc01223930e84f900c174d2",
+      "visible_bounds": [
+        5,
+        9,
+        23,
+        19
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/color-e1b2bcefa48e73.png",
+      "purpose": "ally / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        40
+      ],
+      "bytes": 240,
+      "sha256": "1509a480f7b34b98800e9053d7a78845fa8de57343c579addc8da80e87d8a82e",
+      "visible_bounds": [
+        12,
+        24,
+        25,
+        40
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/color-e93e6453f51f51.png",
+      "purpose": "ally / unchanged initial formation and travel pixels, faction colors",
+      "size": [
+        32,
+        24
+      ],
+      "bytes": 194,
+      "sha256": "45fe98ad0bccf5aee6efb25b47bd1a490ba3677b6c9f567f9ecc53ce01be9fb1",
+      "visible_bounds": [
+        5,
+        10,
+        16,
+        19
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/target-reference.png",
+      "purpose": "neutral existing soldier reference; review only, not a battle unit or new hit",
+      "size": [
+        224,
+        144
+      ],
+      "bytes": 2993,
+      "sha256": "3a5a072ee06e86662195429bfa8fe87390ba27aa1d28dc382434fb2fc46e6d9a",
+      "visible_bounds": [
+        32,
+        17,
+        192,
+        144
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/grow-00.png",
+      "purpose": "ally / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 825,
+      "sha256": "e0099c059c9d92a7fa26889f5ee8e18f6d20685f69eb5204cb7aa1d64333d0a2",
+      "visible_bounds": [
+        128,
+        256,
+        260,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/grow-01.png",
+      "purpose": "ally / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 891,
+      "sha256": "d7b68b3099fa4bc09081d8d34f0213cd5428edb57d93a8a1462f5fed76cb04c5",
+      "visible_bounds": [
+        120,
+        240,
+        268,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/grow-02.png",
+      "purpose": "ally / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 945,
+      "sha256": "ccae3641976d304c27a54cc1f62c3d7fe013ddb88d00ff4e0cb8f3ef5b691809",
+      "visible_bounds": [
+        116,
+        224,
+        272,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/grow-03.png",
+      "purpose": "ally / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1077,
+      "sha256": "eb48b6933bf2a0b5d699b3a8dce7469387c75cbe0fc9fa1285dfc06e9906365c",
+      "visible_bounds": [
+        108,
+        208,
+        280,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/grow-04.png",
+      "purpose": "ally / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1155,
+      "sha256": "213964127de617bb0883ea7b7021836dcf8f9aab35222f44f835954e0ee1da87",
+      "visible_bounds": [
+        100,
+        192,
+        288,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/grow-05.png",
+      "purpose": "ally / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1295,
+      "sha256": "1a2b560d151baa24a6f966ee562f378019ceda2cf41d9c15cb8b462da8d4849f",
+      "visible_bounds": [
+        96,
+        176,
+        292,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/grow-06.png",
+      "purpose": "ally / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1328,
+      "sha256": "8d8cf010046754d1d1bbcdf4e9982bdf4019365c81a1ba24db04c3ecb8bd2df0",
+      "visible_bounds": [
+        88,
+        160,
+        300,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/grow-07.png",
+      "purpose": "ally / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1365,
+      "sha256": "cbdc7d0981a6e5183707c30c90ccac399997c1ed3e3c4f31f4db8b963a0a6749",
+      "visible_bounds": [
+        80,
+        144,
+        308,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/grow-08.png",
+      "purpose": "ally / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1456,
+      "sha256": "997d7bbb1d2588128fd7817603e7ad3712d4bc37d5a12d0d1cccdf48baa930d9",
+      "visible_bounds": [
+        72,
+        128,
+        316,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/grow-09.png",
+      "purpose": "ally / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1500,
+      "sha256": "c0470b401c6d0eccf00299b9216a95b2b7c7aae7585f9406965e7a5ad2bbd3ff",
+      "visible_bounds": [
+        68,
+        112,
+        320,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/grow-10.png",
+      "purpose": "ally / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1534,
+      "sha256": "5868c82c8d68917579b70663f0da443f8bd6f4e1f5688ec0d77a9ee45ddf4018",
+      "visible_bounds": [
+        60,
+        96,
+        328,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/grow-11.png",
+      "purpose": "ally / grounded Slime grows around target",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1649,
+      "sha256": "b2d14215a77f2181e08f13e6779cae48dd6c92ff04a02df6a1fe3a7e26edbd98",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/close-00.png",
+      "purpose": "ally / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1649,
+      "sha256": "b2d14215a77f2181e08f13e6779cae48dd6c92ff04a02df6a1fe3a7e26edbd98",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/close-01.png",
+      "purpose": "ally / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1637,
+      "sha256": "1a5e4366637e4b33192d5279705d73db237a86f3961af12678bcab0996b542d8",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/close-02.png",
+      "purpose": "ally / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1632,
+      "sha256": "e399b11dd4dc6f8f09389cd13017523b5b8a8bf6c2514773eda6dcff88424b01",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/close-03.png",
+      "purpose": "ally / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1623,
+      "sha256": "e7843462e46a496214bca6b4d5c90d8798a23457fbfd5d0797692ac13064e941",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/close-04.png",
+      "purpose": "ally / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1642,
+      "sha256": "bf1b75dcbc5c82104cb715a2b14866ddbec36ab1aa564b713f87ca6c5a9c10db",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/close-05.png",
+      "purpose": "ally / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1648,
+      "sha256": "030b78e680b28bba19ec3ff1133d1b84ab1a57b79e546e610b67f3059c036f65",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/close-06.png",
+      "purpose": "ally / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1640,
+      "sha256": "cbb78a788eab72c616d2bc8c3fff7760a1fd34d4e17d89ec25be6f03b9dad3f8",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/close-07.png",
+      "purpose": "ally / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1574,
+      "sha256": "f0b40072fafbe7c3b2041192068d364f7e52874fc1229bab5f06fb6d7383c162",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/close-08.png",
+      "purpose": "ally / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1504,
+      "sha256": "7e09a36dad960e669447197cb5aad472fd1b8cdb52f361048cd6862584f67895",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/close-09.png",
+      "purpose": "ally / opening closes around target at original contact",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1448,
+      "sha256": "58ba5694fb8d270f04f335960d8a06901915d2f1ae3b0799344c4fb7b5a620cc",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/hold-00.png",
+      "purpose": "ally / engulfed target held behind solid liquid volume",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1448,
+      "sha256": "58ba5694fb8d270f04f335960d8a06901915d2f1ae3b0799344c4fb7b5a620cc",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/hold-01.png",
+      "purpose": "ally / engulfed target held behind solid liquid volume",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1449,
+      "sha256": "7d56e60b01f4617c99d433ad0ac35f3fa06fc56505477d2936f10e079bf1e930",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/hold-02.png",
+      "purpose": "ally / engulfed target held behind solid liquid volume",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1448,
+      "sha256": "58ba5694fb8d270f04f335960d8a06901915d2f1ae3b0799344c4fb7b5a620cc",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/hold-03.png",
+      "purpose": "ally / engulfed target held behind solid liquid volume",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1449,
+      "sha256": "7d56e60b01f4617c99d433ad0ac35f3fa06fc56505477d2936f10e079bf1e930",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/vanish-00.png",
+      "purpose": "ally / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1448,
+      "sha256": "58ba5694fb8d270f04f335960d8a06901915d2f1ae3b0799344c4fb7b5a620cc",
+      "visible_bounds": [
+        52,
+        80,
+        336,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/vanish-01.png",
+      "purpose": "ally / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1394,
+      "sha256": "40f3e2a81c30edaabf6ca601a61f55415753d6ef404c6421ea6166050066436c",
+      "visible_bounds": [
+        60,
+        100,
+        328,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/vanish-02.png",
+      "purpose": "ally / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1361,
+      "sha256": "5fc96c62d58c09a0e11f1fc268d06e4416373331376e80be75d148cb401a7c6c",
+      "visible_bounds": [
+        68,
+        116,
+        320,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/vanish-03.png",
+      "purpose": "ally / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1311,
+      "sha256": "e24d691a54b17748d2553f05bd3cbb7497621b3cd4a62dd8283b3296d47a3563",
+      "visible_bounds": [
+        76,
+        136,
+        312,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/vanish-04.png",
+      "purpose": "ally / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1213,
+      "sha256": "9350e18fab307e0392bc0a7accce483fd1ea9c95de7b5ed314c54e95b67f6865",
+      "visible_bounds": [
+        80,
+        156,
+        308,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/vanish-05.png",
+      "purpose": "ally / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1181,
+      "sha256": "f1aa217fbfdaa5678955448f26ca09521de556d4514d63fb5fb764bc531bee81",
+      "visible_bounds": [
+        88,
+        176,
+        300,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/vanish-06.png",
+      "purpose": "ally / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 1070,
+      "sha256": "7c0c07b2eb927a7ea3c804d7bdd0f6e639bed192e72d1cb8cbccab71644a14bf",
+      "visible_bounds": [
+        96,
+        192,
+        292,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/vanish-07.png",
+      "purpose": "ally / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 986,
+      "sha256": "effd817d9a158a6764ef53052c153bf8b0c729d8dec07e456206af73a8d62f98",
+      "visible_bounds": [
+        100,
+        212,
+        288,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/vanish-08.png",
+      "purpose": "ally / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 953,
+      "sha256": "fdf4731edaa348ca84d7e6fa58757a2f5c6b829bead8b491a3b9f98b60ebe485",
+      "visible_bounds": [
+        108,
+        232,
+        280,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/vanish-09.png",
+      "purpose": "ally / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 878,
+      "sha256": "c6cce11573c09d041dd788b4e938523a440b52b63da65f235ab36b32ab60e4a9",
+      "visible_bounds": [
+        116,
+        252,
+        272,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/vanish-10.png",
+      "purpose": "ally / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 761,
+      "sha256": "002a5d345ca361650967137dee4d35eb1e7e8bb565ed179206339484969dcd2a",
+      "visible_bounds": [
+        124,
+        268,
+        264,
+        288
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally/vanish-11.png",
+      "purpose": "ally / Slime settles and disappears, target reference remains",
+      "size": [
+        384,
+        320
+      ],
+      "bytes": 556,
+      "sha256": "4dc08c0df9a6f28d184a3ad7f296556847abf2e3d0e1df0f9d0a6a20d788d2ca",
+      "visible_bounds": null
+    },
+    {
+      "path": "slime-engulf-v1-20261021/engulf-stages.png",
+      "purpose": "four attack stages, both factions, dark and light backgrounds; measured title safe area",
+      "size": [
+        1240,
+        1400
+      ],
+      "bytes": 68979,
+      "sha256": "d21286f50b7f4f5ccf2733bce7370d59fa0f0dbf8535f2595a07cea2cee37834",
+      "visible_bounds": [
+        0,
+        0,
+        1240,
+        1400
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy-growth-frame-307.png",
+      "purpose": "enemy / source and revised growth-frame-307",
+      "size": [
+        2376,
+        840
+      ],
+      "bytes": 35511,
+      "sha256": "78d61f17d73c42696a54afcd0a32b6df923d0783635670540b4c78742adb91e3",
+      "visible_bounds": [
+        0,
+        0,
+        2376,
+        840
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy-contact-frame-349.png",
+      "purpose": "enemy / source and revised contact-frame-349",
+      "size": [
+        2376,
+        840
+      ],
+      "bytes": 32142,
+      "sha256": "d5c5cafb1a5e0a8491e3eaecfbbd5c2d891387ffee2a5bb82156b62cc00981a4",
+      "visible_bounds": [
+        0,
+        0,
+        2376,
+        840
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/enemy-gone-frame-389.png",
+      "purpose": "enemy / source and revised gone-frame-389",
+      "size": [
+        2376,
+        840
+      ],
+      "bytes": 33415,
+      "sha256": "c200566b70d94ddf4a91d97238dc4d281131b55fb785f60f653ef5e1a553d6a7",
+      "visible_bounds": [
+        0,
+        0,
+        2376,
+        840
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally-growth-frame-275.png",
+      "purpose": "ally / source and revised growth-frame-275",
+      "size": [
+        2376,
+        840
+      ],
+      "bytes": 52070,
+      "sha256": "24a31dfe1fd9a6b517eed35feac57468426bde5b6c1c834794e12c7fcff7c84e",
+      "visible_bounds": [
+        0,
+        0,
+        2376,
+        840
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally-contact-frame-307.png",
+      "purpose": "ally / source and revised contact-frame-307",
+      "size": [
+        2376,
+        840
+      ],
+      "bytes": 48811,
+      "sha256": "5ff0d7976c0f5786a52a93887aef41e34fb58956a9894ff334909aba0112ef8c",
+      "visible_bounds": [
+        0,
+        0,
+        2376,
+        840
+      ]
+    },
+    {
+      "path": "slime-engulf-v1-20261021/ally-gone-frame-330.png",
+      "purpose": "ally / source and revised gone-frame-330",
+      "size": [
+        2376,
+        840
+      ],
+      "bytes": 47657,
+      "sha256": "43145b4ed6deddd5394e7ee52ea8fee98ef0922355043c3b2a7014fc723712db",
+      "visible_bounds": [
+        0,
+        0,
+        2376,
+        840
+      ]
+    }
+  ]
+}

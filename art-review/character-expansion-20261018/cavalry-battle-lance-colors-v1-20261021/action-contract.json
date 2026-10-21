@@ -1,0 +1,206 @@
+{
+  "rules_source": "actual/data/legacy/rules_full.json",
+  "existing_items": [
+    {
+      "id": 4,
+      "name_zh": "投枪",
+      "name_ja": "てやり",
+      "kind": "weapon",
+      "might": 3,
+      "hp_cost": 0,
+      "weight": 2,
+      "hit": 70,
+      "critical": 0,
+      "effective": 0,
+      "target_flags": 14,
+      "effect_kind": 0,
+      "action": "attack"
+    },
+    {
+      "id": 7,
+      "name_zh": "格拉迪乌斯",
+      "name_ja": "グラディウス",
+      "kind": "weapon",
+      "might": 15,
+      "hp_cost": 0,
+      "weight": 0,
+      "hit": 100,
+      "critical": 0,
+      "effective": 0,
+      "target_flags": 14,
+      "effect_kind": 10,
+      "action": "attack"
+    }
+  ],
+  "actions": [
+    {
+      "actor_id": "ally-cavalry",
+      "class_id": 1,
+      "existing_card_item_ids": [
+        4,
+        7
+      ],
+      "action": "class_1_ally_javelin",
+      "effect": "one original flying lance; palette only",
+      "release_tick_zero_based": 21,
+      "contact_tick_zero_based": 51,
+      "total_frames": 74,
+      "timing_and_gameplay_changed": false
+    },
+    {
+      "actor_id": "ally-cavalry",
+      "class_id": 1,
+      "existing_card_item_ids": [
+        4,
+        7
+      ],
+      "action": "class_1_ally_javelin_vs_heavy",
+      "effect": "one original flying lance; palette only",
+      "release_tick_zero_based": 21,
+      "contact_tick_zero_based": 54,
+      "total_frames": 77,
+      "timing_and_gameplay_changed": false
+    },
+    {
+      "actor_id": "ally-cavalry",
+      "class_id": 1,
+      "existing_card_item_ids": [
+        4,
+        7
+      ],
+      "action": "class_1_ally_javelin_far_ally",
+      "effect": "one original flying lance; palette only",
+      "release_tick_zero_based": 21,
+      "contact_tick_zero_based": 61,
+      "total_frames": 84,
+      "timing_and_gameplay_changed": false
+    },
+    {
+      "actor_id": "ally-cavalry",
+      "class_id": 1,
+      "existing_card_item_ids": [
+        4,
+        7
+      ],
+      "action": "class_1_ally_javelin_far_ally_vs_heavy",
+      "effect": "one original flying lance; palette only",
+      "release_tick_zero_based": 21,
+      "contact_tick_zero_based": 64,
+      "total_frames": 87,
+      "timing_and_gameplay_changed": false
+    },
+    {
+      "actor_id": "ally-cavalry",
+      "class_id": 1,
+      "existing_card_item_ids": [
+        4,
+        7
+      ],
+      "action": "class_1_ally_javelin_far_enemy",
+      "effect": "one original flying lance; palette only",
+      "release_tick_zero_based": 21,
+      "contact_tick_zero_based": 61,
+      "total_frames": 84,
+      "timing_and_gameplay_changed": false
+    },
+    {
+      "actor_id": "ally-cavalry",
+      "class_id": 1,
+      "existing_card_item_ids": [
+        4,
+        7
+      ],
+      "action": "class_1_ally_javelin_far_enemy_vs_heavy",
+      "effect": "one original flying lance; palette only",
+      "release_tick_zero_based": 21,
+      "contact_tick_zero_based": 53,
+      "total_frames": 76,
+      "timing_and_gameplay_changed": false
+    },
+    {
+      "actor_id": "enemy-cavalry",
+      "class_id": 1,
+      "existing_card_item_ids": [
+        4,
+        7
+      ],
+      "action": "class_1_enemy_javelin",
+      "effect": "one original flying lance; palette only",
+      "release_tick_zero_based": 21,
+      "contact_tick_zero_based": 51,
+      "total_frames": 74,
+      "timing_and_gameplay_changed": false
+    },
+    {
+      "actor_id": "enemy-cavalry",
+      "class_id": 1,
+      "existing_card_item_ids": [
+        4,
+        7
+      ],
+      "action": "class_1_enemy_javelin_vs_heavy",
+      "effect": "one original flying lance; palette only",
+      "release_tick_zero_based": 21,
+      "contact_tick_zero_based": 53,
+      "total_frames": 76,
+      "timing_and_gameplay_changed": false
+    },
+    {
+      "actor_id": "enemy-cavalry",
+      "class_id": 1,
+      "existing_card_item_ids": [
+        4,
+        7
+      ],
+      "action": "class_1_enemy_javelin_far_ally",
+      "effect": "one original flying lance; palette only",
+      "release_tick_zero_based": 21,
+      "contact_tick_zero_based": 60,
+      "total_frames": 83,
+      "timing_and_gameplay_changed": false
+    },
+    {
+      "actor_id": "enemy-cavalry",
+      "class_id": 1,
+      "existing_card_item_ids": [
+        4,
+        7
+      ],
+      "action": "class_1_enemy_javelin_far_ally_vs_heavy",
+      "effect": "one original flying lance; palette only",
+      "release_tick_zero_based": 21,
+      "contact_tick_zero_based": 52,
+      "total_frames": 75,
+      "timing_and_gameplay_changed": false
+    },
+    {
+      "actor_id": "enemy-cavalry",
+      "class_id": 1,
+      "existing_card_item_ids": [
+        4,
+        7
+      ],
+      "action": "class_1_enemy_javelin_far_enemy",
+      "effect": "one original flying lance; palette only",
+      "release_tick_zero_based": 21,
+      "contact_tick_zero_based": 60,
+      "total_frames": 83,
+      "timing_and_gameplay_changed": false
+    },
+    {
+      "actor_id": "enemy-cavalry",
+      "class_id": 1,
+      "existing_card_item_ids": [
+        4,
+        7
+      ],
+      "action": "class_1_enemy_javelin_far_enemy_vs_heavy",
+      "effect": "one original flying lance; palette only",
+      "release_tick_zero_based": 21,
+      "contact_tick_zero_based": 64,
+      "total_frames": 87,
+      "timing_and_gameplay_changed": false
+    }
+  ],
+  "note": "Uses existing action paths only. No new hits, damage, weapon ability or unlocked effect."
+}

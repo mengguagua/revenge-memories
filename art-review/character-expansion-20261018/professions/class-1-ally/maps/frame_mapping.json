@@ -7,8 +7,8 @@
   "display_name": "盟军骑兵",
   "width_height_scale": 4,
   "runtime_integrated": false,
-  "status": "complete_art_review_passed",
-  "art_mode": "built-in ImageGen; crop, uniform scale, translation, exact-source mirror, lossless compression only",
+  "status": "review_candidate",
+  "art_mode": "exact palette replacement; accepted animation, alpha and registration unchanged",
   "scenarios": [
     {
       "id": "tactical-walk",
@@ -35,323 +35,515 @@
         64,
         96
       ],
-      "output_atlas": "frames/tactical-native-walk.png",
-      "output_atlas_bytes": 60989,
+      "output_atlas": "../../../cavalry-map-white-v2-20261021/tactical-walk-atlas.png",
+      "output_atlas_bytes": 13849,
       "logical_render_scale": 0.25,
       "frame_mapping": [
         {
           "source_index": 0,
           "source_frame": 0,
-          "path": "tactical-native-frames/frame-000.png",
-          "output_path": "tactical-native-frames/frame-000.png",
-          "raw": "source/native-up-v1-generated.png",
-          "cell": [
-            0,
-            0,
-            1024,
-            768
-          ],
-          "crop": [
-            372,
-            52,
-            713,
-            677
-          ],
-          "uniform_scale": 0.1148036253776435,
-          "translation": [
-            44,
-            16
-          ],
-          "native_visible_bounds": [
-            12,
-            4,
-            23,
-            23
-          ],
-          "registered_visible_bottom": 88,
-          "source_visible_bottom": 92,
-          "pair_uniform_scale": true,
-          "vertical_resampling_rounding_adjustment": 0,
-          "generated_helmet_top_component_center": 551.0,
-          "target_helmet_x": 64,
-          "registered_helmet_x": 64.47214076246334,
-          "visible_clipped_pixels_alpha32": 0,
-          "outside_nonzero_alpha_pixels": 0,
-          "registration_basis": "Helmet top/X and visible height with whole-image uniform scaling. Not an inferred anatomical hoof/pelvis anchor; all in-canvas generated alpha retained.",
-          "art_review_status": "parent_visual_review_passed",
+          "path": "../../../cavalry-map-white-v2-20261021/tactical-walk/frame-000.png",
+          "output_path": "../../../cavalry-map-white-v2-20261021/tactical-walk/frame-000.png",
+          "kind": "exact_palette_replacement_of_accepted_motion",
+          "previous_output_path": "tactical-native-frames/frame-000.png",
           "size": [
             128,
             96
           ],
-          "bytes": 6702,
-          "sha256": "8b6b9b4bbbf4ef9a7cb1bb3203c487b285cdf744e5a44facc1d237e234af2c8b"
+          "bytes": 2403,
+          "sha256": "28ea45ae8a789bac280205d080f0544c9fbc7cd539b51efd3a4e2858b4cc0942",
+          "visible_bounds": [
+            44,
+            16,
+            83,
+            87
+          ],
+          "revision": "cavalry-map-white-v2-20261021",
+          "previous_record": {
+            "source_index": 0,
+            "source_frame": 0,
+            "path": "tactical-native-frames/frame-000.png",
+            "output_path": "tactical-native-frames/frame-000.png",
+            "raw": "source/native-up-v1-generated.png",
+            "cell": [
+              0,
+              0,
+              1024,
+              768
+            ],
+            "crop": [
+              372,
+              52,
+              713,
+              677
+            ],
+            "uniform_scale": 0.1148036253776435,
+            "translation": [
+              44,
+              16
+            ],
+            "native_visible_bounds": [
+              12,
+              4,
+              23,
+              23
+            ],
+            "registered_visible_bottom": 88,
+            "source_visible_bottom": 92,
+            "pair_uniform_scale": true,
+            "vertical_resampling_rounding_adjustment": 0,
+            "generated_helmet_top_component_center": 551.0,
+            "target_helmet_x": 64,
+            "registered_helmet_x": 64.47214076246334,
+            "visible_clipped_pixels_alpha32": 0,
+            "outside_nonzero_alpha_pixels": 0,
+            "registration_basis": "Helmet top/X and visible height with whole-image uniform scaling. Not an inferred anatomical hoof/pelvis anchor; all in-canvas generated alpha retained.",
+            "art_review_status": "parent_visual_review_passed",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 6702,
+            "sha256": "8b6b9b4bbbf4ef9a7cb1bb3203c487b285cdf744e5a44facc1d237e234af2c8b"
+          },
+          "art_review_status": "pending_user_visual_acceptance",
+          "palette_source": "cavalry-map-anchor-palette-v1-20261021/tactical-walk/frame-000.png",
+          "palette_source_sha256": "af91289a81ed633b16e65957a92249cc3ca89669533a77f4650ddd3e2b69e3e8"
         },
         {
           "source_index": 1,
           "source_frame": 1,
-          "path": "tactical-native-frames/frame-001.png",
-          "output_path": "tactical-native-frames/frame-001.png",
-          "raw": "source/native-up-v1-generated.png",
-          "cell": [
-            1024,
-            0,
-            2048,
-            768
-          ],
-          "crop": [
-            329,
-            51,
-            675,
-            719
-          ],
-          "uniform_scale": 0.1148036253776435,
-          "translation": [
-            43,
-            19
-          ],
-          "native_visible_bounds": [
-            11,
-            5,
-            23,
-            24
-          ],
-          "registered_visible_bottom": 96,
-          "source_visible_bottom": 96,
-          "pair_uniform_scale": true,
-          "vertical_resampling_rounding_adjustment": -1,
-          "generated_helmet_top_component_center": 508.5,
-          "target_helmet_x": 64,
-          "registered_helmet_x": 63.7514450867052,
-          "visible_clipped_pixels_alpha32": 0,
-          "outside_nonzero_alpha_pixels": 0,
-          "registration_basis": "Helmet top/X and visible height with whole-image uniform scaling. Not an inferred anatomical hoof/pelvis anchor; all in-canvas generated alpha retained.",
-          "art_review_status": "parent_visual_review_passed",
+          "path": "../../../cavalry-map-white-v2-20261021/tactical-walk/frame-001.png",
+          "output_path": "../../../cavalry-map-white-v2-20261021/tactical-walk/frame-001.png",
+          "kind": "exact_palette_replacement_of_accepted_motion",
+          "previous_output_path": "tactical-native-frames/frame-001.png",
           "size": [
             128,
             96
           ],
-          "bytes": 7640,
-          "sha256": "d9765efddae8f737b3799192bef34a0a7d314e33c3ec4f6ad149966f3ea74cac"
+          "bytes": 2639,
+          "sha256": "7f4e97d8de364ede8d3a146304bb0e9fbeed8bbb307c4c5a8678c2ab06bf9313",
+          "visible_bounds": [
+            44,
+            16,
+            83,
+            93
+          ],
+          "revision": "cavalry-map-white-v2-20261021",
+          "previous_record": {
+            "source_index": 1,
+            "source_frame": 1,
+            "path": "tactical-native-frames/frame-001.png",
+            "output_path": "tactical-native-frames/frame-001.png",
+            "raw": "source/native-up-v1-generated.png",
+            "cell": [
+              1024,
+              0,
+              2048,
+              768
+            ],
+            "crop": [
+              329,
+              51,
+              675,
+              719
+            ],
+            "uniform_scale": 0.1148036253776435,
+            "translation": [
+              43,
+              19
+            ],
+            "native_visible_bounds": [
+              11,
+              5,
+              23,
+              24
+            ],
+            "registered_visible_bottom": 96,
+            "source_visible_bottom": 96,
+            "pair_uniform_scale": true,
+            "vertical_resampling_rounding_adjustment": -1,
+            "generated_helmet_top_component_center": 508.5,
+            "target_helmet_x": 64,
+            "registered_helmet_x": 63.7514450867052,
+            "visible_clipped_pixels_alpha32": 0,
+            "outside_nonzero_alpha_pixels": 0,
+            "registration_basis": "Helmet top/X and visible height with whole-image uniform scaling. Not an inferred anatomical hoof/pelvis anchor; all in-canvas generated alpha retained.",
+            "art_review_status": "parent_visual_review_passed",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 7640,
+            "sha256": "d9765efddae8f737b3799192bef34a0a7d314e33c3ec4f6ad149966f3ea74cac"
+          },
+          "art_review_status": "pending_user_visual_acceptance",
+          "palette_source": "cavalry-map-anchor-palette-v1-20261021/tactical-walk/frame-001.png",
+          "palette_source_sha256": "e65fceee29757643159ba9764f0bba75df6fc5577e8bc459bafe49b229251abd"
         },
         {
           "source_index": 2,
           "source_frame": 2,
-          "path": "tactical-native-frames/frame-002.png",
-          "output_path": "tactical-native-frames/frame-002.png",
-          "raw": "source/native-right-neck-v2-generated.png",
-          "cell": [
-            0,
-            0,
-            1024,
-            768
-          ],
-          "crop": [
-            154,
-            95,
-            882,
-            724
-          ],
-          "uniform_scale": 0.10272873194221509,
-          "translation": [
-            16,
-            31
-          ],
-          "native_visible_bounds": [
-            8,
-            8,
-            24,
-            24
-          ],
-          "registered_visible_bottom": 96,
-          "source_visible_bottom": 96,
-          "pair_uniform_scale": true,
-          "vertical_resampling_rounding_adjustment": -1,
-          "generated_helmet_top_component_center": 557.0,
-          "target_helmet_x": 58,
-          "registered_helmet_x": 57.517857142857146,
-          "visible_clipped_pixels_alpha32": 0,
-          "outside_nonzero_alpha_pixels": 0,
-          "registration_basis": "Helmet top/X and visible height with whole-image uniform scaling. Not an inferred anatomical hoof/pelvis anchor; all in-canvas generated alpha retained.",
-          "art_review_status": "parent_visual_review_passed",
+          "path": "../../../cavalry-map-white-v2-20261021/tactical-walk/frame-002.png",
+          "output_path": "../../../cavalry-map-white-v2-20261021/tactical-walk/frame-002.png",
+          "kind": "exact_palette_replacement_of_accepted_motion",
+          "previous_output_path": "tactical-native-frames/frame-002.png",
           "size": [
             128,
             96
           ],
-          "bytes": 10642,
-          "sha256": "e143b37ccc0d51eb71f6c84d1186bce15400cc808646dcffba42e8a8a261b4e0"
+          "bytes": 3547,
+          "sha256": "15f9504da5a650fba4a032dd9384eaf054d689689856c11ebe053c7a8328f827",
+          "visible_bounds": [
+            21,
+            31,
+            96,
+            96
+          ],
+          "revision": "cavalry-map-white-v2-20261021",
+          "previous_record": {
+            "source_index": 2,
+            "source_frame": 2,
+            "path": "tactical-native-frames/frame-002.png",
+            "output_path": "tactical-native-frames/frame-002.png",
+            "raw": "source/native-right-neck-v2-generated.png",
+            "cell": [
+              0,
+              0,
+              1024,
+              768
+            ],
+            "crop": [
+              154,
+              95,
+              882,
+              724
+            ],
+            "uniform_scale": 0.10272873194221509,
+            "translation": [
+              16,
+              31
+            ],
+            "native_visible_bounds": [
+              8,
+              8,
+              24,
+              24
+            ],
+            "registered_visible_bottom": 96,
+            "source_visible_bottom": 96,
+            "pair_uniform_scale": true,
+            "vertical_resampling_rounding_adjustment": -1,
+            "generated_helmet_top_component_center": 557.0,
+            "target_helmet_x": 58,
+            "registered_helmet_x": 57.517857142857146,
+            "visible_clipped_pixels_alpha32": 0,
+            "outside_nonzero_alpha_pixels": 0,
+            "registration_basis": "Helmet top/X and visible height with whole-image uniform scaling. Not an inferred anatomical hoof/pelvis anchor; all in-canvas generated alpha retained.",
+            "art_review_status": "parent_visual_review_passed",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 10642,
+            "sha256": "e143b37ccc0d51eb71f6c84d1186bce15400cc808646dcffba42e8a8a261b4e0"
+          },
+          "art_review_status": "pending_user_visual_acceptance",
+          "palette_source": "cavalry-map-anchor-palette-v1-20261021/tactical-walk/frame-002.png",
+          "palette_source_sha256": "cb42148011d85a8b2718d358b25c918b6a6701176da469d0d80fb98b5521bf7c"
         },
         {
           "source_index": 3,
           "source_frame": 3,
-          "path": "tactical-native-frames/frame-003.png",
-          "output_path": "tactical-native-frames/frame-003.png",
-          "raw": "source/native-right-neck-v2-generated.png",
-          "cell": [
-            1024,
-            0,
-            2048,
-            768
-          ],
-          "crop": [
-            214,
-            95,
-            931,
-            724
-          ],
-          "uniform_scale": 0.10272873194221509,
-          "translation": [
-            22,
-            31
-          ],
-          "native_visible_bounds": [
-            8,
-            8,
-            24,
-            24
-          ],
-          "registered_visible_bottom": 96,
-          "source_visible_bottom": 96,
-          "pair_uniform_scale": true,
-          "vertical_resampling_rounding_adjustment": -1,
-          "generated_helmet_top_component_center": 605.0,
-          "target_helmet_x": 62,
-          "registered_helmet_x": 62.35425383542538,
-          "visible_clipped_pixels_alpha32": 0,
-          "outside_nonzero_alpha_pixels": 0,
-          "registration_basis": "Helmet top/X and visible height with whole-image uniform scaling. Not an inferred anatomical hoof/pelvis anchor; all in-canvas generated alpha retained.",
-          "art_review_status": "parent_visual_review_passed",
+          "path": "../../../cavalry-map-white-v2-20261021/tactical-walk/frame-003.png",
+          "output_path": "../../../cavalry-map-white-v2-20261021/tactical-walk/frame-003.png",
+          "kind": "exact_palette_replacement_of_accepted_motion",
+          "previous_output_path": "tactical-native-frames/frame-003.png",
           "size": [
             128,
             96
           ],
-          "bytes": 9980,
-          "sha256": "97d4be53340e58bcd93ec13c6f425b0a1ec4822d18622c3bdf9d46fb9e6e11c9"
+          "bytes": 3392,
+          "sha256": "0428c6481e7b281a501baaad2376c50ca250c1d2d78b8ca857ab661e0a458741",
+          "visible_bounds": [
+            22,
+            31,
+            96,
+            96
+          ],
+          "revision": "cavalry-map-white-v2-20261021",
+          "previous_record": {
+            "source_index": 3,
+            "source_frame": 3,
+            "path": "tactical-native-frames/frame-003.png",
+            "output_path": "tactical-native-frames/frame-003.png",
+            "raw": "source/native-right-neck-v2-generated.png",
+            "cell": [
+              1024,
+              0,
+              2048,
+              768
+            ],
+            "crop": [
+              214,
+              95,
+              931,
+              724
+            ],
+            "uniform_scale": 0.10272873194221509,
+            "translation": [
+              22,
+              31
+            ],
+            "native_visible_bounds": [
+              8,
+              8,
+              24,
+              24
+            ],
+            "registered_visible_bottom": 96,
+            "source_visible_bottom": 96,
+            "pair_uniform_scale": true,
+            "vertical_resampling_rounding_adjustment": -1,
+            "generated_helmet_top_component_center": 605.0,
+            "target_helmet_x": 62,
+            "registered_helmet_x": 62.35425383542538,
+            "visible_clipped_pixels_alpha32": 0,
+            "outside_nonzero_alpha_pixels": 0,
+            "registration_basis": "Helmet top/X and visible height with whole-image uniform scaling. Not an inferred anatomical hoof/pelvis anchor; all in-canvas generated alpha retained.",
+            "art_review_status": "parent_visual_review_passed",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 9980,
+            "sha256": "97d4be53340e58bcd93ec13c6f425b0a1ec4822d18622c3bdf9d46fb9e6e11c9"
+          },
+          "art_review_status": "pending_user_visual_acceptance",
+          "palette_source": "cavalry-map-anchor-palette-v1-20261021/tactical-walk/frame-003.png",
+          "palette_source_sha256": "2091f10ed21794258c0e82658b936144b785b22badb8063ba3244e1504ab6dcb"
         },
         {
           "source_index": 4,
           "source_frame": 4,
-          "path": "tactical-native-frames/frame-004.png",
-          "output_path": "tactical-native-frames/frame-004.png",
-          "raw": "source/native-down-v1-generated.png",
-          "cell": [
-            0,
-            0,
-            1024,
-            768
-          ],
-          "crop": [
-            387,
-            65,
-            747,
-            741
-          ],
-          "uniform_scale": 0.11343283582089553,
-          "translation": [
-            44,
-            19
-          ],
-          "native_visible_bounds": [
-            10,
-            5,
-            21,
-            24
-          ],
-          "registered_visible_bottom": 96,
-          "source_visible_bottom": 96,
-          "pair_uniform_scale": true,
-          "vertical_resampling_rounding_adjustment": -1,
-          "generated_helmet_top_component_center": 558.5,
-          "target_helmet_x": 64,
-          "registered_helmet_x": 63.53194444444445,
-          "visible_clipped_pixels_alpha32": 0,
-          "outside_nonzero_alpha_pixels": 0,
-          "registration_basis": "Helmet top/X and visible height with whole-image uniform scaling. Not an inferred anatomical hoof/pelvis anchor; all in-canvas generated alpha retained.",
-          "art_review_status": "parent_visual_review_passed",
+          "path": "../../../cavalry-map-white-v2-20261021/tactical-walk/frame-004.png",
+          "output_path": "../../../cavalry-map-white-v2-20261021/tactical-walk/frame-004.png",
+          "kind": "exact_palette_replacement_of_accepted_motion",
+          "previous_output_path": "tactical-native-frames/frame-004.png",
           "size": [
             128,
             96
           ],
-          "bytes": 7853,
-          "sha256": "3e82cc028603c687e7e4801085dd2e3f9ea8c15876ec25aa687154f7df618c31"
+          "bytes": 2838,
+          "sha256": "ce0673783143ab4ad16ac0b71d593569adabbef71fb05c0ac861fbd36eab258a",
+          "visible_bounds": [
+            44,
+            19,
+            85,
+            96
+          ],
+          "revision": "cavalry-map-white-v2-20261021",
+          "previous_record": {
+            "source_index": 4,
+            "source_frame": 4,
+            "path": "tactical-native-frames/frame-004.png",
+            "output_path": "tactical-native-frames/frame-004.png",
+            "raw": "source/native-down-v1-generated.png",
+            "cell": [
+              0,
+              0,
+              1024,
+              768
+            ],
+            "crop": [
+              387,
+              65,
+              747,
+              741
+            ],
+            "uniform_scale": 0.11343283582089553,
+            "translation": [
+              44,
+              19
+            ],
+            "native_visible_bounds": [
+              10,
+              5,
+              21,
+              24
+            ],
+            "registered_visible_bottom": 96,
+            "source_visible_bottom": 96,
+            "pair_uniform_scale": true,
+            "vertical_resampling_rounding_adjustment": -1,
+            "generated_helmet_top_component_center": 558.5,
+            "target_helmet_x": 64,
+            "registered_helmet_x": 63.53194444444445,
+            "visible_clipped_pixels_alpha32": 0,
+            "outside_nonzero_alpha_pixels": 0,
+            "registration_basis": "Helmet top/X and visible height with whole-image uniform scaling. Not an inferred anatomical hoof/pelvis anchor; all in-canvas generated alpha retained.",
+            "art_review_status": "parent_visual_review_passed",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 7853,
+            "sha256": "3e82cc028603c687e7e4801085dd2e3f9ea8c15876ec25aa687154f7df618c31"
+          },
+          "art_review_status": "pending_user_visual_acceptance",
+          "palette_source": "cavalry-map-anchor-palette-v1-20261021/tactical-walk/frame-004.png",
+          "palette_source_sha256": "b70423169a9e9037b8169088754da56cf93b196b2fa29fd2d99c7078c6d3dbc8"
         },
         {
           "source_index": 5,
           "source_frame": 5,
-          "path": "tactical-native-frames/frame-005.png",
-          "output_path": "tactical-native-frames/frame-005.png",
-          "raw": "source/native-down-v1-generated.png",
-          "cell": [
-            1024,
-            0,
-            2048,
-            768
-          ],
-          "crop": [
-            282,
-            78,
-            641,
-            710
-          ],
-          "uniform_scale": 0.11343283582089553,
-          "translation": [
-            44,
-            24
-          ],
-          "native_visible_bounds": [
-            10,
-            6,
-            22,
-            24
-          ],
-          "registered_visible_bottom": 96,
-          "source_visible_bottom": 96,
-          "pair_uniform_scale": true,
-          "vertical_resampling_rounding_adjustment": 0,
-          "generated_helmet_top_component_center": 453.0,
-          "target_helmet_x": 64,
-          "registered_helmet_x": 63.52924791086351,
-          "visible_clipped_pixels_alpha32": 0,
-          "outside_nonzero_alpha_pixels": 0,
-          "registration_basis": "Helmet top/X and visible height with whole-image uniform scaling. Not an inferred anatomical hoof/pelvis anchor; all in-canvas generated alpha retained.",
-          "art_review_status": "parent_visual_review_passed",
+          "path": "../../../cavalry-map-white-v2-20261021/tactical-walk/frame-005.png",
+          "output_path": "../../../cavalry-map-white-v2-20261021/tactical-walk/frame-005.png",
+          "kind": "exact_palette_replacement_of_accepted_motion",
+          "previous_output_path": "tactical-native-frames/frame-005.png",
           "size": [
             128,
             96
           ],
-          "bytes": 7037,
-          "sha256": "ec48dc76c22d043b36f016758c458aad79cf7fb2d248d448a0b074cc7b86fef4"
+          "bytes": 2621,
+          "sha256": "ca4b385915ecc98aa149f699a791b4f77febcd0be2e5d8bdb87412a4e50884da",
+          "visible_bounds": [
+            44,
+            19,
+            85,
+            90
+          ],
+          "revision": "cavalry-map-white-v2-20261021",
+          "previous_record": {
+            "source_index": 5,
+            "source_frame": 5,
+            "path": "tactical-native-frames/frame-005.png",
+            "output_path": "tactical-native-frames/frame-005.png",
+            "raw": "source/native-down-v1-generated.png",
+            "cell": [
+              1024,
+              0,
+              2048,
+              768
+            ],
+            "crop": [
+              282,
+              78,
+              641,
+              710
+            ],
+            "uniform_scale": 0.11343283582089553,
+            "translation": [
+              44,
+              24
+            ],
+            "native_visible_bounds": [
+              10,
+              6,
+              22,
+              24
+            ],
+            "registered_visible_bottom": 96,
+            "source_visible_bottom": 96,
+            "pair_uniform_scale": true,
+            "vertical_resampling_rounding_adjustment": 0,
+            "generated_helmet_top_component_center": 453.0,
+            "target_helmet_x": 64,
+            "registered_helmet_x": 63.52924791086351,
+            "visible_clipped_pixels_alpha32": 0,
+            "outside_nonzero_alpha_pixels": 0,
+            "registration_basis": "Helmet top/X and visible height with whole-image uniform scaling. Not an inferred anatomical hoof/pelvis anchor; all in-canvas generated alpha retained.",
+            "art_review_status": "parent_visual_review_passed",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 7037,
+            "sha256": "ec48dc76c22d043b36f016758c458aad79cf7fb2d248d448a0b074cc7b86fef4"
+          },
+          "art_review_status": "pending_user_visual_acceptance",
+          "palette_source": "cavalry-map-anchor-palette-v1-20261021/tactical-walk/frame-005.png",
+          "palette_source_sha256": "f5d3bbf4ea6bc130be185531096081e85ed74d9b6303024f654d1ae7380cc13e"
         },
         {
           "source_index": 6,
           "source_frame": 6,
-          "representative_frame": 2,
-          "path": "tactical-native-frames/frame-006.png",
-          "output_path": "tactical-native-frames/frame-006.png",
-          "kind": "exact_full_canvas_source_mirror",
-          "proof": "native-reference/source-record.json",
-          "art_review_status": "parent_visual_review_passed",
+          "path": "../../../cavalry-map-white-v2-20261021/tactical-walk/frame-006.png",
+          "output_path": "../../../cavalry-map-white-v2-20261021/tactical-walk/frame-006.png",
+          "kind": "exact_palette_replacement_of_accepted_motion",
+          "previous_output_path": "tactical-native-frames/frame-006.png",
           "size": [
             128,
             96
           ],
-          "bytes": 10678,
-          "sha256": "9ec01ed2163db8746b0478504facb34e7c3144e7f95c816d250c9f3951b38ae0"
+          "bytes": 3566,
+          "sha256": "fdada1af772b44da1f3029a8c6593ec62159a9c1ef54fa253a0062f2721068e7",
+          "visible_bounds": [
+            33,
+            31,
+            108,
+            96
+          ],
+          "revision": "cavalry-map-white-v2-20261021",
+          "previous_record": {
+            "source_index": 6,
+            "source_frame": 6,
+            "representative_frame": 2,
+            "path": "tactical-native-frames/frame-006.png",
+            "output_path": "tactical-native-frames/frame-006.png",
+            "kind": "exact_full_canvas_source_mirror",
+            "proof": "native-reference/source-record.json",
+            "art_review_status": "parent_visual_review_passed",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 10678,
+            "sha256": "9ec01ed2163db8746b0478504facb34e7c3144e7f95c816d250c9f3951b38ae0"
+          },
+          "art_review_status": "pending_user_visual_acceptance",
+          "palette_source": "cavalry-map-anchor-palette-v1-20261021/tactical-walk/frame-006.png",
+          "palette_source_sha256": "40fc4de188c163a65949e973b782345975e52b45b085f7c4bde1b69c0f895828"
         },
         {
           "source_index": 7,
           "source_frame": 7,
-          "representative_frame": 3,
-          "path": "tactical-native-frames/frame-007.png",
-          "output_path": "tactical-native-frames/frame-007.png",
-          "kind": "exact_full_canvas_source_mirror",
-          "proof": "native-reference/source-record.json",
-          "art_review_status": "parent_visual_review_passed",
+          "path": "../../../cavalry-map-white-v2-20261021/tactical-walk/frame-007.png",
+          "output_path": "../../../cavalry-map-white-v2-20261021/tactical-walk/frame-007.png",
+          "kind": "exact_palette_replacement_of_accepted_motion",
+          "previous_output_path": "tactical-native-frames/frame-007.png",
           "size": [
             128,
             96
           ],
-          "bytes": 9991,
-          "sha256": "5326e65d1b4c5806c87c6b88e0bb6eb601829148a91a81d2d57be70fdb3aeb60"
+          "bytes": 3410,
+          "sha256": "2240fb78ed8729596783813cf9e25a0529f1aeb1aa93634fbb698c102f2b2b88",
+          "visible_bounds": [
+            33,
+            31,
+            107,
+            96
+          ],
+          "revision": "cavalry-map-white-v2-20261021",
+          "previous_record": {
+            "source_index": 7,
+            "source_frame": 7,
+            "representative_frame": 3,
+            "path": "tactical-native-frames/frame-007.png",
+            "output_path": "tactical-native-frames/frame-007.png",
+            "kind": "exact_full_canvas_source_mirror",
+            "proof": "native-reference/source-record.json",
+            "art_review_status": "parent_visual_review_passed",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 9991,
+            "sha256": "5326e65d1b4c5806c87c6b88e0bb6eb601829148a91a81d2d57be70fdb3aeb60"
+          },
+          "art_review_status": "pending_user_visual_acceptance",
+          "palette_source": "cavalry-map-anchor-palette-v1-20261021/tactical-walk/frame-007.png",
+          "palette_source_sha256": "c2c1e10bcdfba276b3a3785927ad71dc77f23682cc2a6b98ade91a4963eb4c51"
         }
       ],
       "directions": {
@@ -389,8 +581,12 @@
         "entry": "bank011:L0BB5B1",
         "source_chr": 19
       },
-      "art_review_status": "parent_visual_review_passed",
-      "registration_note": "Native tile-base anchor; new pair shares uniform scale, positioned by helmet/hair top and X. One output-pixel resampling adjustment protects visible contour. Not a claim of every hoof/joint exact alignment."
+      "art_review_status": "pending_user_visual_acceptance",
+      "registration_note": "Fixed rider/upper-body plate; original leg phases registered with integer translations. Shared sixteen-color palette without dithering.",
+      "revision": "cavalry-map-white-v2-20261021",
+      "status": "review_candidate",
+      "review_note": "已确认的固定中心和马腿动作逐像素保留；仅将灰色中间调提亮为柔和白色，蓝色、米金和肤色小幅恢复饱和度。待机与四向共用最多16色，未接入游戏。",
+      "motion_acceptance": "user_confirmed_cavalry-map-anchor-palette-v1-20261021"
     },
     {
       "id": "tactical-idle",
@@ -413,266 +609,410 @@
         48,
         96
       ],
-      "output_atlas": "frames/tactical-idle.png",
-      "output_atlas_bytes": 29232,
+      "output_atlas": "../../../cavalry-map-white-v2-20261021/tactical-idle-atlas.png",
+      "output_atlas_bytes": 5093,
       "frame_mapping": [
         {
           "source_index": 0,
           "source_frame": 0,
-          "representative_frame": 0,
-          "path": "idle-frames/frame-000.png",
-          "output_path": "idle-frames/frame-000.png",
-          "kind": "imagegen_native_pose",
-          "generated_source": "source/idle-v1-generated.png",
-          "generated_cell": [
-            0,
-            0,
-            724,
-            724
-          ],
-          "uniform_scale": 0.13008130081300814,
-          "registration_offset": [
-            18,
-            15
-          ],
-          "target_visible_hoof_anchor": [
-            62,
-            80
-          ],
-          "registered_visible_hoof_anchor": [
-            61.5,
-            80
-          ],
-          "registration_basis": "continuous visible horse legs; idle0 grounded hind, idle1 both pairs, idle2 grounded front; shadow/lance excluded",
-          "visible_clipped_pixels": 0,
-          "mirror_x": false,
+          "path": "../../../cavalry-map-white-v2-20261021/tactical-idle/frame-000.png",
+          "output_path": "../../../cavalry-map-white-v2-20261021/tactical-idle/frame-000.png",
+          "kind": "exact_palette_replacement_of_accepted_motion",
+          "previous_output_path": "idle-frames/frame-000.png",
           "size": [
             96,
             96
           ],
-          "bytes": 9281,
-          "sha256": "39786c2a0f7bd0c9265314c930a5f19233576fca6c5e41f32318269b0be2d34b",
+          "bytes": 3143,
+          "sha256": "dd3ac4ed1c7a078ab4a2358f73e38cc0454797ea7ab00575f728e77bea4be623",
           "visible_bounds": [
-            18,
+            7,
             15,
-            84,
+            77,
             80
-          ]
+          ],
+          "revision": "cavalry-map-white-v2-20261021",
+          "previous_record": {
+            "source_index": 0,
+            "source_frame": 0,
+            "representative_frame": 0,
+            "path": "idle-frames/frame-000.png",
+            "output_path": "idle-frames/frame-000.png",
+            "kind": "imagegen_native_pose",
+            "generated_source": "source/idle-v1-generated.png",
+            "generated_cell": [
+              0,
+              0,
+              724,
+              724
+            ],
+            "uniform_scale": 0.13008130081300814,
+            "registration_offset": [
+              18,
+              15
+            ],
+            "target_visible_hoof_anchor": [
+              62,
+              80
+            ],
+            "registered_visible_hoof_anchor": [
+              61.5,
+              80
+            ],
+            "registration_basis": "continuous visible horse legs; idle0 grounded hind, idle1 both pairs, idle2 grounded front; shadow/lance excluded",
+            "visible_clipped_pixels": 0,
+            "mirror_x": false,
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 9281,
+            "sha256": "39786c2a0f7bd0c9265314c930a5f19233576fca6c5e41f32318269b0be2d34b",
+            "visible_bounds": [
+              18,
+              15,
+              84,
+              80
+            ]
+          },
+          "art_review_status": "pending_user_visual_acceptance",
+          "palette_source": "cavalry-map-anchor-palette-v1-20261021/tactical-idle/frame-000.png",
+          "palette_source_sha256": "1e9ac73e65e59363416b4b9d187ecc7dc53c486abdac00f30813447198094b37"
         },
         {
           "source_index": 1,
           "source_frame": 1,
-          "representative_frame": 1,
-          "path": "idle-frames/frame-001.png",
-          "output_path": "idle-frames/frame-001.png",
-          "kind": "imagegen_native_pose",
-          "generated_source": "source/idle-v1-generated.png",
-          "generated_cell": [
-            724,
-            0,
-            1448,
-            724
-          ],
-          "uniform_scale": 0.12981744421906694,
-          "registration_offset": [
-            13,
-            15
-          ],
-          "target_visible_hoof_anchor": [
-            52,
-            80
-          ],
-          "registered_visible_hoof_anchor": [
-            52.0,
-            80
-          ],
-          "registration_basis": "continuous visible horse legs; idle0 grounded hind, idle1 both pairs, idle2 grounded front; shadow/lance excluded",
-          "visible_clipped_pixels": 0,
-          "mirror_x": false,
+          "path": "../../../cavalry-map-white-v2-20261021/tactical-idle/frame-001.png",
+          "output_path": "../../../cavalry-map-white-v2-20261021/tactical-idle/frame-001.png",
+          "kind": "exact_palette_replacement_of_accepted_motion",
+          "previous_output_path": "idle-frames/frame-001.png",
           "size": [
             96,
             96
           ],
-          "bytes": 10195,
-          "sha256": "f70394635f6454696f560c97ce7ed7bff467323404afb05e298eabf596eb8e4b",
+          "bytes": 3315,
+          "sha256": "68e4996610129d94017e18d933cd5514373f4cb3e2574e755ab556b489248f84",
           "visible_bounds": [
-            13,
+            7,
             15,
-            83,
+            77,
             80
-          ]
+          ],
+          "revision": "cavalry-map-white-v2-20261021",
+          "previous_record": {
+            "source_index": 1,
+            "source_frame": 1,
+            "representative_frame": 1,
+            "path": "idle-frames/frame-001.png",
+            "output_path": "idle-frames/frame-001.png",
+            "kind": "imagegen_native_pose",
+            "generated_source": "source/idle-v1-generated.png",
+            "generated_cell": [
+              724,
+              0,
+              1448,
+              724
+            ],
+            "uniform_scale": 0.12981744421906694,
+            "registration_offset": [
+              13,
+              15
+            ],
+            "target_visible_hoof_anchor": [
+              52,
+              80
+            ],
+            "registered_visible_hoof_anchor": [
+              52.0,
+              80
+            ],
+            "registration_basis": "continuous visible horse legs; idle0 grounded hind, idle1 both pairs, idle2 grounded front; shadow/lance excluded",
+            "visible_clipped_pixels": 0,
+            "mirror_x": false,
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 10195,
+            "sha256": "f70394635f6454696f560c97ce7ed7bff467323404afb05e298eabf596eb8e4b",
+            "visible_bounds": [
+              13,
+              15,
+              83,
+              80
+            ]
+          },
+          "art_review_status": "pending_user_visual_acceptance",
+          "palette_source": "cavalry-map-anchor-palette-v1-20261021/tactical-idle/frame-001.png",
+          "palette_source_sha256": "1d6a8cf929cbe6cd946376bbb38ff6c72b4eadd55eaddbe0adf78d7dac07a007"
         },
         {
           "source_index": 2,
           "source_frame": 2,
-          "representative_frame": 2,
-          "path": "idle-frames/frame-002.png",
-          "output_path": "idle-frames/frame-002.png",
-          "kind": "imagegen_native_pose",
-          "generated_source": "source/idle-v1-generated.png",
-          "generated_cell": [
-            1448,
-            0,
-            2172,
-            724
-          ],
-          "uniform_scale": 0.12903225806451613,
-          "registration_offset": [
-            12,
-            15
-          ],
-          "target_visible_hoof_anchor": [
-            42,
-            80
-          ],
-          "registered_visible_hoof_anchor": [
-            42.0,
-            80
-          ],
-          "registration_basis": "continuous visible horse legs; idle0 grounded hind, idle1 both pairs, idle2 grounded front; shadow/lance excluded",
-          "visible_clipped_pixels": 0,
-          "mirror_x": false,
+          "path": "../../../cavalry-map-white-v2-20261021/tactical-idle/frame-002.png",
+          "output_path": "../../../cavalry-map-white-v2-20261021/tactical-idle/frame-002.png",
+          "kind": "exact_palette_replacement_of_accepted_motion",
+          "previous_output_path": "idle-frames/frame-002.png",
           "size": [
             96,
             96
           ],
-          "bytes": 9546,
-          "sha256": "6ab481c8e40383c77539fa69d0ac1a32c4dade7975fd1d9808bc4761e75fdbb4",
+          "bytes": 3186,
+          "sha256": "5237f8d13a89df81b79f50e6c642aae2528d772febf4eb00de10544fb1aa2a63",
           "visible_bounds": [
-            12,
+            7,
             15,
-            85,
+            77,
             80
-          ]
+          ],
+          "revision": "cavalry-map-white-v2-20261021",
+          "previous_record": {
+            "source_index": 2,
+            "source_frame": 2,
+            "representative_frame": 2,
+            "path": "idle-frames/frame-002.png",
+            "output_path": "idle-frames/frame-002.png",
+            "kind": "imagegen_native_pose",
+            "generated_source": "source/idle-v1-generated.png",
+            "generated_cell": [
+              1448,
+              0,
+              2172,
+              724
+            ],
+            "uniform_scale": 0.12903225806451613,
+            "registration_offset": [
+              12,
+              15
+            ],
+            "target_visible_hoof_anchor": [
+              42,
+              80
+            ],
+            "registered_visible_hoof_anchor": [
+              42.0,
+              80
+            ],
+            "registration_basis": "continuous visible horse legs; idle0 grounded hind, idle1 both pairs, idle2 grounded front; shadow/lance excluded",
+            "visible_clipped_pixels": 0,
+            "mirror_x": false,
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 9546,
+            "sha256": "6ab481c8e40383c77539fa69d0ac1a32c4dade7975fd1d9808bc4761e75fdbb4",
+            "visible_bounds": [
+              12,
+              15,
+              85,
+              80
+            ]
+          },
+          "art_review_status": "pending_user_visual_acceptance",
+          "palette_source": "cavalry-map-anchor-palette-v1-20261021/tactical-idle/frame-002.png",
+          "palette_source_sha256": "00dde6eab34827007404ccd4d3532599af6243730abb29f17d1eb51f8b3c0150"
         },
         {
           "source_index": 3,
           "source_frame": 3,
-          "representative_frame": 1,
-          "path": "idle-frames/frame-003.png",
-          "output_path": "idle-frames/frame-003.png",
-          "kind": "imagegen_native_pose",
-          "generated_source": "source/idle-v1-generated.png",
-          "generated_cell": [
-            724,
-            0,
-            1448,
-            724
-          ],
-          "uniform_scale": 0.12981744421906694,
-          "registration_offset": [
-            13,
-            15
-          ],
-          "target_visible_hoof_anchor": [
-            52,
-            80
-          ],
-          "registered_visible_hoof_anchor": [
-            52.0,
-            80
-          ],
-          "registration_basis": "continuous visible horse legs; idle0 grounded hind, idle1 both pairs, idle2 grounded front; shadow/lance excluded",
-          "visible_clipped_pixels": 0,
-          "mirror_x": false,
+          "path": "../../../cavalry-map-white-v2-20261021/tactical-idle/frame-003.png",
+          "output_path": "../../../cavalry-map-white-v2-20261021/tactical-idle/frame-003.png",
+          "kind": "exact_palette_replacement_of_accepted_motion",
+          "previous_output_path": "idle-frames/frame-003.png",
           "size": [
             96,
             96
           ],
-          "bytes": 10195,
-          "sha256": "f70394635f6454696f560c97ce7ed7bff467323404afb05e298eabf596eb8e4b",
+          "bytes": 3315,
+          "sha256": "68e4996610129d94017e18d933cd5514373f4cb3e2574e755ab556b489248f84",
           "visible_bounds": [
-            13,
+            7,
             15,
-            83,
+            77,
             80
-          ]
+          ],
+          "revision": "cavalry-map-white-v2-20261021",
+          "previous_record": {
+            "source_index": 3,
+            "source_frame": 3,
+            "representative_frame": 1,
+            "path": "idle-frames/frame-003.png",
+            "output_path": "idle-frames/frame-003.png",
+            "kind": "imagegen_native_pose",
+            "generated_source": "source/idle-v1-generated.png",
+            "generated_cell": [
+              724,
+              0,
+              1448,
+              724
+            ],
+            "uniform_scale": 0.12981744421906694,
+            "registration_offset": [
+              13,
+              15
+            ],
+            "target_visible_hoof_anchor": [
+              52,
+              80
+            ],
+            "registered_visible_hoof_anchor": [
+              52.0,
+              80
+            ],
+            "registration_basis": "continuous visible horse legs; idle0 grounded hind, idle1 both pairs, idle2 grounded front; shadow/lance excluded",
+            "visible_clipped_pixels": 0,
+            "mirror_x": false,
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 10195,
+            "sha256": "f70394635f6454696f560c97ce7ed7bff467323404afb05e298eabf596eb8e4b",
+            "visible_bounds": [
+              13,
+              15,
+              83,
+              80
+            ]
+          },
+          "art_review_status": "pending_user_visual_acceptance",
+          "palette_source": "cavalry-map-anchor-palette-v1-20261021/tactical-idle/frame-003.png",
+          "palette_source_sha256": "1d6a8cf929cbe6cd946376bbb38ff6c72b4eadd55eaddbe0adf78d7dac07a007"
         },
         {
           "source_index": 4,
           "source_frame": 4,
-          "representative_frame": 0,
-          "path": "idle-frames/frame-004.png",
-          "output_path": "idle-frames/frame-004.png",
-          "kind": "imagegen_native_pose",
-          "generated_source": "source/idle-v1-generated.png",
-          "generated_cell": [
-            0,
-            0,
-            724,
-            724
-          ],
-          "uniform_scale": 0.13008130081300814,
-          "registration_offset": [
-            18,
-            15
-          ],
-          "target_visible_hoof_anchor": [
-            62,
-            80
-          ],
-          "registered_visible_hoof_anchor": [
-            61.5,
-            80
-          ],
-          "registration_basis": "continuous visible horse legs; idle0 grounded hind, idle1 both pairs, idle2 grounded front; shadow/lance excluded",
-          "visible_clipped_pixels": 0,
-          "mirror_x": false,
+          "path": "../../../cavalry-map-white-v2-20261021/tactical-idle/frame-004.png",
+          "output_path": "../../../cavalry-map-white-v2-20261021/tactical-idle/frame-004.png",
+          "kind": "exact_palette_replacement_of_accepted_motion",
+          "previous_output_path": "idle-frames/frame-004.png",
           "size": [
             96,
             96
           ],
-          "bytes": 9281,
-          "sha256": "39786c2a0f7bd0c9265314c930a5f19233576fca6c5e41f32318269b0be2d34b",
+          "bytes": 3143,
+          "sha256": "dd3ac4ed1c7a078ab4a2358f73e38cc0454797ea7ab00575f728e77bea4be623",
           "visible_bounds": [
-            18,
+            7,
             15,
-            84,
+            77,
             80
-          ]
+          ],
+          "revision": "cavalry-map-white-v2-20261021",
+          "previous_record": {
+            "source_index": 4,
+            "source_frame": 4,
+            "representative_frame": 0,
+            "path": "idle-frames/frame-004.png",
+            "output_path": "idle-frames/frame-004.png",
+            "kind": "imagegen_native_pose",
+            "generated_source": "source/idle-v1-generated.png",
+            "generated_cell": [
+              0,
+              0,
+              724,
+              724
+            ],
+            "uniform_scale": 0.13008130081300814,
+            "registration_offset": [
+              18,
+              15
+            ],
+            "target_visible_hoof_anchor": [
+              62,
+              80
+            ],
+            "registered_visible_hoof_anchor": [
+              61.5,
+              80
+            ],
+            "registration_basis": "continuous visible horse legs; idle0 grounded hind, idle1 both pairs, idle2 grounded front; shadow/lance excluded",
+            "visible_clipped_pixels": 0,
+            "mirror_x": false,
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 9281,
+            "sha256": "39786c2a0f7bd0c9265314c930a5f19233576fca6c5e41f32318269b0be2d34b",
+            "visible_bounds": [
+              18,
+              15,
+              84,
+              80
+            ]
+          },
+          "art_review_status": "pending_user_visual_acceptance",
+          "palette_source": "cavalry-map-anchor-palette-v1-20261021/tactical-idle/frame-004.png",
+          "palette_source_sha256": "1e9ac73e65e59363416b4b9d187ecc7dc53c486abdac00f30813447198094b37"
         },
         {
           "source_index": 5,
           "source_frame": 5,
-          "representative_frame": 1,
-          "path": "idle-frames/frame-005.png",
-          "output_path": "idle-frames/frame-005.png",
-          "kind": "imagegen_native_pose",
-          "generated_source": "source/idle-v1-generated.png",
-          "generated_cell": [
-            724,
-            0,
-            1448,
-            724
-          ],
-          "uniform_scale": 0.12981744421906694,
-          "registration_offset": [
-            13,
-            15
-          ],
-          "target_visible_hoof_anchor": [
-            52,
-            80
-          ],
-          "registered_visible_hoof_anchor": [
-            52.0,
-            80
-          ],
-          "registration_basis": "continuous visible horse legs; idle0 grounded hind, idle1 both pairs, idle2 grounded front; shadow/lance excluded",
-          "visible_clipped_pixels": 0,
-          "mirror_x": false,
+          "path": "../../../cavalry-map-white-v2-20261021/tactical-idle/frame-005.png",
+          "output_path": "../../../cavalry-map-white-v2-20261021/tactical-idle/frame-005.png",
+          "kind": "exact_palette_replacement_of_accepted_motion",
+          "previous_output_path": "idle-frames/frame-005.png",
           "size": [
             96,
             96
           ],
-          "bytes": 10195,
-          "sha256": "f70394635f6454696f560c97ce7ed7bff467323404afb05e298eabf596eb8e4b",
+          "bytes": 3315,
+          "sha256": "68e4996610129d94017e18d933cd5514373f4cb3e2574e755ab556b489248f84",
           "visible_bounds": [
-            13,
+            7,
             15,
-            83,
+            77,
             80
-          ]
+          ],
+          "revision": "cavalry-map-white-v2-20261021",
+          "previous_record": {
+            "source_index": 5,
+            "source_frame": 5,
+            "representative_frame": 1,
+            "path": "idle-frames/frame-005.png",
+            "output_path": "idle-frames/frame-005.png",
+            "kind": "imagegen_native_pose",
+            "generated_source": "source/idle-v1-generated.png",
+            "generated_cell": [
+              724,
+              0,
+              1448,
+              724
+            ],
+            "uniform_scale": 0.12981744421906694,
+            "registration_offset": [
+              13,
+              15
+            ],
+            "target_visible_hoof_anchor": [
+              52,
+              80
+            ],
+            "registered_visible_hoof_anchor": [
+              52.0,
+              80
+            ],
+            "registration_basis": "continuous visible horse legs; idle0 grounded hind, idle1 both pairs, idle2 grounded front; shadow/lance excluded",
+            "visible_clipped_pixels": 0,
+            "mirror_x": false,
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 10195,
+            "sha256": "f70394635f6454696f560c97ce7ed7bff467323404afb05e298eabf596eb8e4b",
+            "visible_bounds": [
+              13,
+              15,
+              83,
+              80
+            ]
+          },
+          "art_review_status": "pending_user_visual_acceptance",
+          "palette_source": "cavalry-map-anchor-palette-v1-20261021/tactical-idle/frame-005.png",
+          "palette_source_sha256": "1d6a8cf929cbe6cd946376bbb38ff6c72b4eadd55eaddbe0adf78d7dac07a007"
         }
       ],
       "logical_render_scale": 0.25,
@@ -700,8 +1040,15 @@
           14,
           8
         ]
-      }
+      },
+      "revision": "cavalry-map-white-v2-20261021",
+      "status": "review_candidate",
+      "art_review_status": "pending_user_visual_acceptance",
+      "registration_note": "Fixed rider/upper-body plate; original leg phases registered with integer translations. Shared sixteen-color palette without dithering.",
+      "review_note": "已确认的固定中心和马腿动作逐像素保留；仅将灰色中间调提亮为柔和白色，蓝色、米金和肤色小幅恢复饱和度。待机与四向共用最多16色，未接入游戏。",
+      "motion_acceptance": "user_confirmed_cavalry-map-anchor-palette-v1-20261021"
     }
   ],
-  "source_note": "Correct native tactical renderer supersedes old village-OAM/CHR26 hybrid; historical raw/mapping preserved. Battle and static idle unchanged."
+  "source_note": "Correct native tactical renderer supersedes old village-OAM/CHR26 hybrid; historical raw/mapping preserved. Battle and static idle unchanged.",
+  "revision": "cavalry-map-white-v2-20261021"
 }

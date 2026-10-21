@@ -124,6 +124,7 @@ func _resume_journey() -> void:
 	if view=="hub":hub_controller.resume()
 	elif view=="battle":_focus_battle(game.cursor,true);_play_phase_music()
 	elif view=="world":audio.play_world(game.chapter)
+	elif view=="ending":_start_ending();return
 	if game.flags.has("active_plot"):
 		_resume_plot()
 		while not plot_finished:await get_tree().process_frame
@@ -150,6 +151,14 @@ func _accept() -> void:
 	if view in ["victory","defeat"] and result_sequence_running:return
 	if view=="reward" and training_reward_open:
 		training_reward_open=false;view="victory";return
+	if view=="ending":
+		if not menu_items.is_empty():
+			var action=str(menu_actions[menu_selected]);var context=menu_context;_clear_menu();_menu_action(action,context);return
+		if ending_index+1<ending_pages.size():
+			ending_index+=1;game.flags.ending_index=ending_index;game.save_game()
+		else:
+			game.flags.ending_done=true;game.save_game();_open_menu("ending",["重看结局","返回标题"],["new:replay_ending","title"],Vector2(48,164))
+		return
 	if view=="plot":_advance_plot();return
 	if view=="overview":view="world";return
 	if view=="chapter_end" and menu_items.is_empty():
@@ -157,6 +166,8 @@ func _accept() -> void:
 		var actions=["new:world","new:save","title"]
 		if game.chapter==1 and game.flags.get("chapter1_complete",false):
 			entries.push_front("开始第二章");actions.push_front("new:chapter2")
+		if game.chapter==4 and game.flags.get("chapter4_closed",false):
+			entries.push_front("开始第五章");actions.push_front("new:chapter5")
 		if game.chapter==3 and game.flags.get("chapter3_complete",false):
 			entries.push_front("开始第四章");actions.push_front("new:chapter4")
 		if game.chapter==2 and game.flags.get("chapter2_complete",false):
@@ -215,6 +226,11 @@ func _menu_action(action: String,context: String) -> void:
 		return
 	if action.begins_with("hub:"):hub_controller.action(action.substr(4));return
 	match action:
+		"new:replay_ending":
+			game.flags.ending_index=0;_start_ending()
+		"new:chapter5":
+			if game.begin_chapter_five():
+				busy=false;batch_running=false;ui_mode="inspect";_continue_world()
 		"new:chapter4":
 			if game.begin_chapter_four():
 				busy=false;batch_running=false;ui_mode="inspect";_continue_world()
@@ -341,6 +357,8 @@ func _small_text(text: String,at: Vector2,color: Color=Color.WHITE) -> void:
 	if not safe_panels.is_empty() and not safe_panels[-1].encloses(bounds):layout_errors.append("Small text outside content-safe rectangle: "+text)
 
 func _draw_hub_caption(title: String,hint: String) -> void:
+	if game.chapter==5 and menu_context=="fifth_selection" and not menu_items.is_empty():
+		presentation_audit.hub_caption=Rect2();return
 	# Full native 12px glyphs preserve strokes in complex Chinese place names.
 	var limit=minf(240.0,get_viewport_rect().size.x-40.0)
 	var title_lines=_wrapped_lines(title,limit);var lines=_wrapped_lines(hint,limit)
@@ -517,7 +535,7 @@ func _draw_surroundings(origin: Vector2,footprint: Vector2i,layout: Dictionary) 
 	_draw_nature_props(layout.get("props",[]),origin)
 
 func _draw_hub_surroundings(room: String,origin: Vector2) -> void:
-	if game.chapter==4 and hub_controller.chapter2_rooms.has(room):
+	if game.chapter>=4 and hub_controller.chapter2_rooms.has(room):
 		_draw_surroundings(origin,Vector2i(14,9),{"biome":hub_controller.chapter2_rooms[room].get("biome_override","grass")});return
 	_draw_surroundings(origin,Vector2i(14,9),nature_layouts.get("hubs",{}).get(room,{}))
 
@@ -653,7 +671,7 @@ func _draw_world() -> void:
 	var bottom=_footer_shift()
 	_panel(Rect2(Vector2(8,164)+bottom,Vector2(240,68)));var node=world.nodes[str(game.world_node)]
 	_center_text((str(game.stages[game.stage_for_node(game.world_node)].name_zh) if game.chapter>=3 and game.world_has_battle(game.world_node) else str(node.name_zh)),Rect2(Vector2(20,174)+bottom,Vector2(216,16)))
-	_center_text((("第四章 · " if game.chapter==4 else "第三章 · ")+("东队" if game.route=="celica" else "西队")) if game.chapter>=3 else "第二章 · 东群岛" if game.chapter==2 else "第一章 · 西大陆",Rect2(Vector2(20,192)+bottom,Vector2(216,16)),Color(.87,.84,.7))
+	_center_text((("第五章 · " if game.chapter==5 else "第四章 · " if game.chapter==4 else "第三章 · ")+("东队" if game.route=="celica" else "西队")) if game.chapter>=3 else "第二章 · 东群岛" if game.chapter==2 else "第一章 · 西大陆",Rect2(Vector2(20,192)+bottom,Vector2(216,16)),Color(.87,.84,.7))
 	_center_text("确认:地点与道路 S:整备",Rect2(Vector2(20,206)+bottom,Vector2(216,14)))
 
 func _draw_plot() -> void:
@@ -884,7 +902,7 @@ func _draw_chapter_end() -> void:
 	draw_rect(Rect2(0,0,256,240),Color(.06,.1,.13));_panel(Rect2(12,20,232,196))
 	_center_text("第四章完成" if game.chapter==4 else "第三章完成" if game.chapter==3 else "第二章完成" if game.chapter==2 else "第一章完成",Rect2(24,38,208,24),Color(.94,.88,.67))
 	_center_text("故人的另一面" if game.chapter==4 else "另一种胜利" if game.chapter==3 else "没有归来的船" if game.chapter==2 else "庆典前夜",Rect2(24,74,208,20))
-	_center_text("两岸验证成功，村庄保住了日光。\n第五章尚未开放，可返回整理物资。" if game.chapter==4 else "两队已会合，记录得到互证。\n下一步是验证安全停用方案。" if game.chapter==3 else "船团抵达西岸。\n艾琳被带往庆典广场。" if game.chapter==2 else "科兰已败，日光重返西大陆。",Rect2(24,108,208,32))
+	_center_text("两岸验证成功，村庄保住了日光。\n下一步，两队分别向神宫进发。" if game.chapter==4 else "两队已会合，记录得到互证。\n下一步是验证安全停用方案。" if game.chapter==3 else "船团抵达西岸。\n艾琳被带往庆典广场。" if game.chapter==2 else "科兰已败，日光重返西大陆。",Rect2(24,108,208,32))
 	_center_text("两队成长与伤情已保存" if game.chapter>=2 else "成长与伤亡已保存",Rect2(24,158,208,20))
 	_center_text("确认打开菜单",Rect2(24,186,208,16))
 
@@ -902,3 +920,32 @@ func _show_result() -> void:
 	# Only the battle/result controller owns settlement, never a later world/hub.
 	if game.mode not in ["battle","victory","defeat"] or game.battle_outcome.is_empty():return
 	await super._show_result()
+	if game.stage_id==534 and game.battle_settled and game.flags.get("campaign_complete",false) and view=="victory":_start_ending()
+
+func _status_members() -> Array:
+	if game.stage_id in [533,534] and game.mode in ["battle","victory","defeat"]:
+		if game.Casualties.owner({"parties":game.parties},status_id).is_empty():return []
+		return game.units.filter(func(u):return u.side=="player" and not u.get("temporary",false) and not u.get("neutral",false)).map(func(u):return str(u.id))
+	return super._status_members()
+
+func _start_ending() -> void:
+	if not game.flags.get("campaign_complete",false):return
+	busy=false;batch_running=false;_clear_menu();ending_pages.clear()
+	if game.flags.get("ending_pages",[]).is_empty():
+		for page in preload("res://core/chapter5_endings.gd").entries(game):_ending_page(page.title,page.text,int(page.source_id))
+		game.flags.ending_pages=ending_pages.duplicate(true)
+	else:ending_pages=game.flags.ending_pages.duplicate(true)
+	ending_index=clampi(int(game.flags.get("ending_index",0)),0,ending_pages.size()-1)
+	game.flags.ending_index=ending_index;view="ending";game.mode="ending";audio.play_ending();game.save_game()
+
+func _draw_ending() -> void:
+	if ending_pages.is_empty():return
+	var page:Dictionary=ending_pages[clampi(ending_index,0,ending_pages.size()-1)]
+	# Dedicated 16:9 panorama retains its aspect ratio; the text uses an opaque safe panel.
+	draw_texture_rect(_tex("res://assets/chapter5/ending-coast.png"),Rect2(0,0,256,144),false)
+	var face=_portrait(int(page.source_id))
+	if not face.is_empty():draw_texture(_tex(face.path),Vector2(104,42))
+	_panel(Rect2(8,96,240,136))
+	_center_text(str(page.title),Rect2(24,107,208,20),Color(.94,.88,.67))
+	_center_text(str(page.text),Rect2(24,134,208,68))
+	_center_text("确认继续 · %d/%d"%[ending_index+1,ending_pages.size()],Rect2(24,208,208,14))

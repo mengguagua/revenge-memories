@@ -4,7 +4,7 @@
   "display_name": "敌方骑兵",
   "original_class_id": 1,
   "source_side": "enemy",
-  "status": "complete_art_review_passed",
+  "status": "review_candidate",
   "source_atlas": "../../../source-input/enemy-motion/class-1-enemy.png",
   "source_atlas_base": "mapping directory",
   "source_frame_size": [
@@ -40,18 +40,18 @@
   ],
   "independently_generated_drawings": 10,
   "frame_mapping": {
-    "0": "frames/frame-000.png",
-    "1": "frames/frame-001.png",
-    "2": "frames/frame-002.png",
-    "3": "frames/frame-003.png",
-    "4": "frames/frame-004.png",
-    "5": "frames/frame-005.png",
-    "6": "frames/frame-006.png",
-    "7": "frames/frame-007.png",
-    "9": "frames/frame-009.png",
-    "16": "frames/frame-016.png",
-    "17": "frames/frame-017.png",
-    "19": "frames/frame-019.png"
+    "0": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-000.png",
+    "1": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-001.png",
+    "2": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-002.png",
+    "3": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-003.png",
+    "4": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-004.png",
+    "5": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-005.png",
+    "6": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-006.png",
+    "7": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-007.png",
+    "9": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-009.png",
+    "16": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-016.png",
+    "17": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-017.png",
+    "19": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-019.png"
   },
   "records": [
     {
@@ -630,7 +630,7 @@
     "class_1_enemy_javelin_far_enemy",
     "class_1_enemy_javelin_far_enemy_vs_heavy"
   ],
-  "output_atlas": "frames/cavalry-battle.png",
+  "output_atlas": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body-atlas.png",
   "output_atlas_frame_order": [
     0,
     1,
@@ -645,6 +645,277 @@
     19
   ],
   "batches": [
+    {
+      "id": "本轮敌方战斗配色",
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        17,
+        19
+      ],
+      "status": "pending_user_visual_acceptance",
+      "review": "../../../cavalry-battle-lance-colors-v1-20261021/enemy-poses-dark.png"
+    }
+  ],
+  "source_semantics": {
+    "9": "mounted standing, diagonal lance: one blade at lower-left, blunt butt at upper-right",
+    "1-5": "distinct original horse leg phases; frame5 lowest visible hooves remain above ground",
+    "6": "rearing with raised horse head and diagonal lance",
+    "7": "rearing lance thrust",
+    "17": "standing horse, rider raises horizontal javelin overhead",
+    "19": "exact source standing body after35 lance pixels removed; no extra arm follow-through"
+  },
+  "art_mode": "existing battle art; exact-geometry sixteen-color blue-violet recolor; profile-local lance override",
+  "runtime_integrated": false,
+  "effect_overrides": {
+    "native-d48324673775fc": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/flying-lance.png"
+  },
+  "revision": "cavalry-battle-lance-colors-v1-20261021",
+  "review_note": "友方飞行投枪恢复手持武器的木色枪杆与金属枪头；敌方人物、战马和投枪统一蓝紫色。原动作、轨迹与命中时序保持，仅更新对照页。",
+  "body_review_records": [
+    {
+      "frame": 0,
+      "source": "professions/class-1-enemy/battle/frames/frame-000.png",
+      "source_sha256": "6c5d09c535c7e784fbea05f68e746989136b084139f2db5a173c64fbaf588efc",
+      "path": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-000.png",
+      "face_mask": [
+        175,
+        121,
+        195,
+        137
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 27776,
+      "sha256": "a0d6534121c46e974a443160da366b76e4858b2f9f78f58e1c62d97c5fd78638"
+    },
+    {
+      "frame": 1,
+      "source": "professions/class-1-enemy/battle/frames/frame-001.png",
+      "source_sha256": "3bb4fb178ffea1823821db842c1bea54ddb5f984fbc941470a792f7605347d40",
+      "path": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-001.png",
+      "face_mask": [
+        161,
+        124,
+        183,
+        140
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 28608,
+      "sha256": "23fda80aacb037edf7009861c13b598c6461480618dd26114fdb961d2aea5c66"
+    },
+    {
+      "frame": 2,
+      "source": "professions/class-1-enemy/battle/frames/frame-002.png",
+      "source_sha256": "b99c899adde757d915d8bf40efd236e52b27370acbf62feaf303471316eb75e5",
+      "path": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-002.png",
+      "face_mask": [
+        157,
+        124,
+        179,
+        140
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 29752,
+      "sha256": "be5f4746f236d6867b08eb2638d1ec2fffea76cdb01d7bb301dd5099449c6bbd"
+    },
+    {
+      "frame": 3,
+      "source": "professions/class-1-enemy/battle/frames/frame-003.png",
+      "source_sha256": "632ea728a154e2eeffaf60168d6c95453d6349710da2c5a262887e2b95f84427",
+      "path": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-003.png",
+      "face_mask": [
+        159,
+        124,
+        181,
+        140
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 28657,
+      "sha256": "e531170190dcde5b4dcd53f7fe376bc8e9fe31f32467ceab3b4e3244b337becc"
+    },
+    {
+      "frame": 4,
+      "source": "professions/class-1-enemy/battle/frames/frame-004.png",
+      "source_sha256": "11d8083af3c0fbc51efa52efa023cb8aeeb6a3da58ace63e9613b3acad4a30eb",
+      "path": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-004.png",
+      "face_mask": [
+        182,
+        124,
+        201,
+        140
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 26210,
+      "sha256": "fcda44da0c604734ac029095fa344d5f6b3260f3dfcaa1a0be72d08728f92965"
+    },
+    {
+      "frame": 5,
+      "source": "professions/class-1-enemy/battle/frames/frame-005.png",
+      "source_sha256": "cbeaeba51a9900108fc0594d25c45348f79e499487261981b48b9a45d14ecb3c",
+      "path": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-005.png",
+      "face_mask": [
+        168,
+        124,
+        184,
+        140
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 25698,
+      "sha256": "ea7e8675973f79cf6e6a02e9870f55c098cd8acd845ee136cf8f1d50117e8c74"
+    },
+    {
+      "frame": 6,
+      "source": "professions/class-1-enemy/battle/frames/frame-006.png",
+      "source_sha256": "2011f7c7f7f997d6d1b16f56b4a986e7e387eeb6fde24a18949a9fcdc072f3fc",
+      "path": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-006.png",
+      "face_mask": [
+        141,
+        118,
+        165,
+        133
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 23949,
+      "sha256": "d3e6ddaa49248f7b6b4cc0047c198b259a3575b82c2fe71681ed72ef89ced0e9"
+    },
+    {
+      "frame": 7,
+      "source": "professions/class-1-enemy/battle/frames/frame-007.png",
+      "source_sha256": "eadecdc355e549beb964fd0b8ac16d1b038e015209881d05b984b12495cab091",
+      "path": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-007.png",
+      "face_mask": [
+        133,
+        118,
+        155,
+        133
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 22949,
+      "sha256": "24f918cda8cffcdf6537d3f34ac7a211ba53c45cccb9c11284999bed44eb99e4"
+    },
+    {
+      "frame": 9,
+      "source": "professions/class-1-enemy/battle/frames/frame-009.png",
+      "source_sha256": "637eb1756bc8e51d37ad27d6da5911f08e281999b7dbbbbe43d6758412247dc1",
+      "path": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-009.png",
+      "face_mask": [
+        111,
+        121,
+        131,
+        137
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 27809,
+      "sha256": "8b91ca72c76ff7fe15d66ded82da44033d1a19448480e48b294fb30a5e748277"
+    },
+    {
+      "frame": 16,
+      "source": "professions/class-1-enemy/battle/frames/frame-016.png",
+      "source_sha256": "637eb1756bc8e51d37ad27d6da5911f08e281999b7dbbbbe43d6758412247dc1",
+      "path": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-016.png",
+      "face_mask": [
+        111,
+        121,
+        131,
+        137
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 27809,
+      "sha256": "8b91ca72c76ff7fe15d66ded82da44033d1a19448480e48b294fb30a5e748277"
+    },
+    {
+      "frame": 17,
+      "source": "professions/class-1-enemy/battle/frames/frame-017.png",
+      "source_sha256": "695f6cf1522b4e580457077a0eff271a9742a3e57f3ba8fad114ddc721b69d09",
+      "path": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-017.png",
+      "face_mask": [
+        105,
+        124,
+        123,
+        139
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 25276,
+      "sha256": "92b536c4206076288ccfff114e32f28b3d5e6061537f2c4c25bb9126a3310a00"
+    },
+    {
+      "frame": 19,
+      "source": "professions/class-1-enemy/battle/frames/frame-019.png",
+      "source_sha256": "4f1ca8fb52393a51a6063d0f565ab91a97a0d8069f7493948a4d86d536252e6c",
+      "path": "../../../cavalry-battle-lance-colors-v1-20261021/enemy/body/frame-019.png",
+      "face_mask": [
+        110,
+        124,
+        131,
+        139
+      ],
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 21446,
+      "sha256": "2a6ada6f6ead9ea33c778eee0de4fb4d102e6c1567f51c893c82e5af8f523cc0"
+    }
+  ],
+  "palette": [
+    "191c2b",
+    "292b45",
+    "30385d",
+    "425b83",
+    "647fa6",
+    "8eabc6",
+    "454064",
+    "635586",
+    "8b7da9",
+    "7e90a6",
+    "9eadc2",
+    "d6dce4",
+    "947b78",
+    "cbb5a5",
+    "4f607a",
+    "b0a2c6"
+  ],
+  "previous_batches": [
     {
       "id": "all-battle",
       "frames": [
@@ -663,15 +934,5 @@
       "status": "visual_review_pass",
       "review": "reviews/all-cavalry-original-new.png"
     }
-  ],
-  "source_semantics": {
-    "9": "mounted standing, diagonal lance: one blade at lower-left, blunt butt at upper-right",
-    "1-5": "distinct original horse leg phases; frame5 lowest visible hooves remain above ground",
-    "6": "rearing with raised horse head and diagonal lance",
-    "7": "rearing lance thrust",
-    "17": "standing horse, rider raises horizontal javelin overhead",
-    "19": "exact source standing body after35 lance pixels removed; no extra arm follow-through"
-  },
-  "art_mode": "Built-in imagegen. Crop/uniform scale/whole-image registration and proven translation aliases only.",
-  "runtime_integrated": false
+  ]
 }

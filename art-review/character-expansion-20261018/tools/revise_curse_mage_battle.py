@@ -21,6 +21,15 @@ def load(path):
     return Image.open(path).convert('RGBA')
 
 
+def visible_center(effect, effects):
+    meta=effects[effect['sprite']];image=load(ROOT/meta['path']);box=image.getbbox()
+    center=[(box[0]+box[2])/2*meta['frame_size'][0]/image.width,
+            (box[1]+box[3])/2*meta['frame_size'][1]/image.height]
+    if effect.get('flip'):center[0]=meta['frame_size'][0]-center[0]
+    delta=meta.get('flip_origin_offset',[0,0]) if effect.get('flip') else [0,0]
+    return [effect['position'][i]-meta['anchor'][i]+center[i]+delta[i]for i in range(2)]
+
+
 def muted_robe(im):
     colors = [tuple(bytes.fromhex(PALETTE[k])) for k in ['outline','robe_shadow','robe_mid','robe_light']]
     result = im.copy()
@@ -103,7 +112,8 @@ def create():
         # three-color ramp. Other spells and the source panel keep their art.
         used=set()
         for a in data['actions']:
-            if a['profile']==profile['id'] and ('_item_23' in a['key'] or '_item_25' in a['key']):used.update(a['effectIds'])
+            if a['profile']==profile['id'] and ('_item_23' in a['key'] or '_item_25' in a['key']):
+                used.update(k for k in a['effectIds'] if not k.startswith('review-'))
         recolored={}
         if side=='enemy':
             for key in sorted(used):
@@ -118,21 +128,22 @@ def create():
                 start=next(i for i,row in enumerate(rows)if row.get('effects'))
                 release=next(i for i,row in enumerate(rows)if i>start and row['frame']!=rows[start]['frame'])
                 new_release=release+8;contact=a['contactTick']
+                flight_end=max(i for i,row in enumerate(a['frames'][:contact+1]) if row.get('effects'))
                 end_effect=next(e for row in reversed(rows[:contact+1])for e in row.get('effects',[]))
                 direction=1 if end_effect['position'][0]>a['origin'][0]else -1
                 overhead=[a['origin'][0],a['origin'][1]-51]
                 for tick in range(start,new_release):
                     phase=((tick-start)//4)%3;size=min(5,(tick-start)//4)
                     rows[tick]['frame']=rows[start]['frame'];rows[tick]['effects']=[{'sprite':fire_ids[phase,size],'position':overhead,'flip':direction<0}]
-                for tick in range(new_release,contact+1):
-                    u=(tick-new_release)/max(1,contact-new_release)
-                    old_index=min(contact,release+round(u*(contact-release)))
+                for tick in range(new_release,flight_end+1):
+                    u=(tick-new_release)/max(1,flight_end-new_release)
+                    old_index=min(flight_end,release+round(u*(flight_end-release)))
                     rows[tick]=copy.deepcopy(a['frames'][old_index])
                     if rows[tick].get('effects'):
-                        e=rows[tick]['effects'][0];p=e['position']
+                        e=rows[tick]['effects'][0];p=visible_center(e,data['effects'])
                         e['position']=[round(overhead[j]*(1-u)+p[j]*u)for j in range(2)]
                         e['sprite']=fire_ids[(tick//4)%3,5 if u<.4 else 4 if u<.7 else 3]
-                events={'overhead_start':start,'original_release':release,'revised_release':new_release,'head_hold_added_ticks':8,'growth_scales':SCALES,'head_center':overhead,'contact_tick_kept':contact}
+                events={'overhead_start':start,'original_release':release,'revised_release':new_release,'head_hold_added_ticks':8,'growth_scales':SCALES,'head_center':overhead,'last_visible_flight_tick':flight_end,'contact_tick_kept':contact}
                 note='火球在头顶逐级蓄大并延长停留8帧，再释放；最后飞行段相应收紧，原总帧数、命中帧与单次结算保持。'
             elif match==24:
                 start=next(i for i,row in enumerate(rows)if row.get('effects'))
@@ -169,6 +180,9 @@ def create():
                               'action':a['id'],'contact_tick':a['contactTick'],'total_ticks':len(rows),'events':events,'additional_hits':0})
         (OUT/f'{side}-motion.json').write_text(json.dumps(timeline,ensure_ascii=False,separators=(',',':'))+'\n')
         (OUT/f'{side}-body-paths.json').write_text(json.dumps(body_paths,ensure_ascii=False,indent=2)+'\n')
+    for side in ['enemy','ally']:
+        atlas=OUT/side/'body-atlas.png'
+        if atlas.exists():save(atlas,load(atlas),inventory,'review body atlas / canonical and three staff poses')
     (OUT/'asset-manifest.json').write_text(json.dumps({'revision':REVISION,'runtime_integrated':False,'image_generation_invoked':False,'chat_image_output':False,
       'robe_palette':PALETTE,'enemy_fire_palette':BLUE_FIRE,'assets':inventory},ensure_ascii=False,indent=2)+'\n')
     (OUT/'spell-action-contract.json').write_text(json.dumps({'source':'actual/data/legacy/rules_full.json IDs23,24,25; docs2/完整游戏设定.md',

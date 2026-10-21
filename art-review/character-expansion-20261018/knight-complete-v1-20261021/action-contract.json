@@ -1,0 +1,202 @@
+{
+  "route": [
+    "骑兵",
+    "骑士",
+    "大骑士"
+  ],
+  "class_ids": [
+    1,
+    4,
+    7
+  ],
+  "source": "actual/data/legacy/rules_full.json",
+  "items": [
+    {
+      "id": 4,
+      "name_zh": "投枪",
+      "name_ja": "てやり",
+      "kind": "weapon",
+      "might": 3,
+      "hp_cost": 0,
+      "weight": 2,
+      "hit": 70,
+      "critical": 0,
+      "effective": 0,
+      "target_flags": 14,
+      "effect_kind": 0,
+      "action": "attack"
+    },
+    {
+      "id": 7,
+      "name_zh": "格拉迪乌斯",
+      "name_ja": "グラディウス",
+      "kind": "weapon",
+      "might": 15,
+      "hp_cost": 0,
+      "weight": 0,
+      "hit": 100,
+      "critical": 0,
+      "effective": 0,
+      "target_flags": 14,
+      "effect_kind": 10,
+      "action": "attack"
+    }
+  ],
+  "actions": [
+    {
+      "character_id": "ally-knight",
+      "class_id": 4,
+      "action": "original_class_4_normal",
+      "source_item_id": 0,
+      "source_effect_id": 0,
+      "contact_tick": 194,
+      "frame_count": 270,
+      "first_external_effect_tick": null,
+      "contract": "Same native one-card action, no added damage, attack count, defense, magic or awakening."
+    },
+    {
+      "character_id": "ally-knight",
+      "class_id": 4,
+      "action": "class_4_ally_javelin",
+      "source_item_id": 4,
+      "source_effect_id": 0,
+      "contact_tick": 54,
+      "frame_count": 77,
+      "first_external_effect_tick": 21,
+      "contract": "Same native one-card action, no added damage, attack count, defense, magic or awakening."
+    },
+    {
+      "character_id": "ally-knight",
+      "class_id": 4,
+      "action": "class_4_ally_javelin_vs_heavy",
+      "source_item_id": 4,
+      "source_effect_id": 0,
+      "contact_tick": 56,
+      "frame_count": 79,
+      "first_external_effect_tick": 21,
+      "contract": "Same native one-card action, no added damage, attack count, defense, magic or awakening."
+    },
+    {
+      "character_id": "ally-knight",
+      "class_id": 4,
+      "action": "class_4_ally_javelin_far_ally",
+      "source_item_id": 4,
+      "source_effect_id": 0,
+      "contact_tick": 54,
+      "frame_count": 77,
+      "first_external_effect_tick": 21,
+      "contract": "Same native one-card action, no added damage, attack count, defense, magic or awakening."
+    },
+    {
+      "character_id": "ally-knight",
+      "class_id": 4,
+      "action": "class_4_ally_javelin_far_ally_vs_heavy",
+      "source_item_id": 4,
+      "source_effect_id": 0,
+      "contact_tick": 56,
+      "frame_count": 79,
+      "first_external_effect_tick": 21,
+      "contract": "Same native one-card action, no added damage, attack count, defense, magic or awakening."
+    },
+    {
+      "character_id": "ally-knight",
+      "class_id": 4,
+      "action": "class_4_ally_javelin_far_enemy",
+      "source_item_id": 4,
+      "source_effect_id": 0,
+      "contact_tick": 66,
+      "frame_count": 89,
+      "first_external_effect_tick": 21,
+      "contract": "Same native one-card action, no added damage, attack count, defense, magic or awakening."
+    },
+    {
+      "character_id": "ally-knight",
+      "class_id": 4,
+      "action": "class_4_ally_javelin_far_enemy_vs_heavy",
+      "source_item_id": 4,
+      "source_effect_id": 0,
+      "contact_tick": 56,
+      "frame_count": 79,
+      "first_external_effect_tick": 21,
+      "contract": "Same native one-card action, no added damage, attack count, defense, magic or awakening."
+    },
+    {
+      "character_id": "enemy-knight",
+      "class_id": 4,
+      "action": "original_class_4_enemy_normal",
+      "source_item_id": 0,
+      "source_effect_id": 0,
+      "contact_tick": 197,
+      "frame_count": 273,
+      "first_external_effect_tick": null,
+      "contract": "Same native one-card action, no added damage, attack count, defense, magic or awakening."
+    },
+    {
+      "character_id": "enemy-knight",
+      "class_id": 4,
+      "action": "class_4_enemy_javelin",
+      "source_item_id": 4,
+      "source_effect_id": 0,
+      "contact_tick": 53,
+      "frame_count": 76,
+      "first_external_effect_tick": 21,
+      "contract": "Same native one-card action, no added damage, attack count, defense, magic or awakening."
+    },
+    {
+      "character_id": "enemy-knight",
+      "class_id": 4,
+      "action": "class_4_enemy_javelin_vs_heavy",
+      "source_item_id": 4,
+      "source_effect_id": 0,
+      "contact_tick": 56,
+      "frame_count": 79,
+      "first_external_effect_tick": 21,
+      "contract": "Same native one-card action, no added damage, attack count, defense, magic or awakening."
+    },
+    {
+      "character_id": "enemy-knight",
+      "class_id": 4,
+      "action": "class_4_enemy_javelin_far_ally",
+      "source_item_id": 4,
+      "source_effect_id": 0,
+      "contact_tick": 66,
+      "frame_count": 89,
+      "first_external_effect_tick": 21,
+      "contract": "Same native one-card action, no added damage, attack count, defense, magic or awakening."
+    },
+    {
+      "character_id": "enemy-knight",
+      "class_id": 4,
+      "action": "class_4_enemy_javelin_far_ally_vs_heavy",
+      "source_item_id": 4,
+      "source_effect_id": 0,
+      "contact_tick": 56,
+      "frame_count": 79,
+      "first_external_effect_tick": 21,
+      "contract": "Same native one-card action, no added damage, attack count, defense, magic or awakening."
+    },
+    {
+      "character_id": "enemy-knight",
+      "class_id": 4,
+      "action": "class_4_enemy_javelin_far_enemy",
+      "source_item_id": 4,
+      "source_effect_id": 0,
+      "contact_tick": 53,
+      "frame_count": 76,
+      "first_external_effect_tick": 21,
+      "contract": "Same native one-card action, no added damage, attack count, defense, magic or awakening."
+    },
+    {
+      "character_id": "enemy-knight",
+      "class_id": 4,
+      "action": "class_4_enemy_javelin_far_enemy_vs_heavy",
+      "source_item_id": 4,
+      "source_effect_id": 0,
+      "contact_tick": 56,
+      "frame_count": 79,
+      "first_external_effect_tick": 21,
+      "contract": "Same native one-card action, no added damage, attack count, defense, magic or awakening."
+    }
+  ],
+  "runtime_integrated": false
+}

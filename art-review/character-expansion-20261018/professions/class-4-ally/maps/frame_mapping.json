@@ -1,0 +1,454 @@
+{
+  "schema_version": 1,
+  "revision": "knight-redraw-v3-20261021",
+  "class_id": 4,
+  "character_id": "ally-knight",
+  "actor_id": "ally-knight",
+  "source_side": "ally",
+  "display_name": "盟军骑士",
+  "status": "review_candidate",
+  "runtime_integrated": false,
+  "modified_by": "Codex",
+  "scenarios": [
+    {
+      "id": "tactical-idle",
+      "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_4_ally.png",
+      "source_frame_size": [
+        24,
+        24
+      ],
+      "source_anchor": [
+        12,
+        20
+      ],
+      "output_frame_size": [
+        96,
+        96
+      ],
+      "output_anchor": [
+        48,
+        80
+      ],
+      "output_atlas": "../../../knight-idle-paired-legs-v4-20261021/ally/idle-atlas.png",
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "path": "../../../knight-idle-paired-legs-v4-20261021/ally/frame-000.png",
+          "output_path": "../../../knight-idle-paired-legs-v4-20261021/ally/frame-000.png",
+          "revision": "knight-idle-paired-legs-v4-20261021",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 2727,
+          "sha256": "fc1be8cfb5506ebfe8d18d1cb0ec47998e5aa9f101774f4f06acadb85eb6e8aa",
+          "art_status": "review_candidate",
+          "idle_pose": 0
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "path": "../../../knight-idle-paired-legs-v4-20261021/ally/frame-001.png",
+          "output_path": "../../../knight-idle-paired-legs-v4-20261021/ally/frame-001.png",
+          "revision": "knight-idle-paired-legs-v4-20261021",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 2640,
+          "sha256": "512d445b79ce87180e1542c07e411637ec8ca5002ea96c9a3cc99214ce1a9328",
+          "art_status": "review_candidate",
+          "idle_pose": 1
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "path": "../../../knight-idle-paired-legs-v4-20261021/ally/frame-002.png",
+          "output_path": "../../../knight-idle-paired-legs-v4-20261021/ally/frame-002.png",
+          "revision": "knight-idle-paired-legs-v4-20261021",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 2642,
+          "sha256": "c862d6514a16553c8d92b0f8dddce00c950e59eba1c22251823293d65b4b2898",
+          "art_status": "review_candidate",
+          "idle_pose": 2
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "path": "../../../knight-idle-paired-legs-v4-20261021/ally/frame-003.png",
+          "output_path": "../../../knight-idle-paired-legs-v4-20261021/ally/frame-003.png",
+          "revision": "knight-idle-paired-legs-v4-20261021",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 2640,
+          "sha256": "512d445b79ce87180e1542c07e411637ec8ca5002ea96c9a3cc99214ce1a9328",
+          "art_status": "review_candidate",
+          "idle_pose": 1
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "path": "../../../knight-idle-paired-legs-v4-20261021/ally/frame-004.png",
+          "output_path": "../../../knight-idle-paired-legs-v4-20261021/ally/frame-004.png",
+          "revision": "knight-idle-paired-legs-v4-20261021",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 2727,
+          "sha256": "fc1be8cfb5506ebfe8d18d1cb0ec47998e5aa9f101774f4f06acadb85eb6e8aa",
+          "art_status": "review_candidate",
+          "idle_pose": 0
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "path": "../../../knight-idle-paired-legs-v4-20261021/ally/frame-005.png",
+          "output_path": "../../../knight-idle-paired-legs-v4-20261021/ally/frame-005.png",
+          "revision": "knight-idle-paired-legs-v4-20261021",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 2640,
+          "sha256": "512d445b79ce87180e1542c07e411637ec8ca5002ea96c9a3cc99214ce1a9328",
+          "art_status": "review_candidate",
+          "idle_pose": 1
+        }
+      ],
+      "logical_render_scale": 0.25,
+      "revision": "knight-idle-paired-legs-v4-20261021",
+      "status": "review_candidate",
+      "display_name": "盟军骑士",
+      "review_note": "双前腿弯曲抬起、四腿站定、双后腿向前抬起、四腿站定；固定骑手面部中心，沿用16色配色与原14／8／14／8帧节奏。",
+      "directions": {
+        "all": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "direction_mirror_x": {},
+      "timing": {
+        "native_fps": 60.0988,
+        "cycle_frames": [
+          0,
+          1,
+          2,
+          1
+        ],
+        "frame_ticks": [
+          14,
+          8,
+          14,
+          8
+        ]
+      },
+      "motion_review": {
+        "registration": "one scale and one face anchor for complete drawings",
+        "phase_order": [
+          0,
+          1,
+          2,
+          1
+        ],
+        "phase_ticks": [
+          14,
+          8,
+          14,
+          8
+        ],
+        "runtime_integrated": false
+      },
+      "static_facing": true,
+      "action_note": "前双腿抬起→四腿站定→后双腿向前抬起→四腿站定。",
+      "ground_shadow": {
+        "path": "gold-knight-walk-v3-20261020/ground-shadow.png",
+        "size": [
+          12,
+          3
+        ],
+        "offset": [
+          0,
+          -1
+        ],
+        "alpha": 0.35
+      }
+    },
+    {
+      "id": "tactical-walk",
+      "source_atlas": "../../../source-input/corrected-tactical-walk/class-4-ally.png",
+      "source_frame_size": [
+        32,
+        24
+      ],
+      "source_anchor": [
+        16,
+        24
+      ],
+      "output_frame_size": [
+        128,
+        96
+      ],
+      "output_anchor": [
+        64,
+        96
+      ],
+      "output_atlas": "../../../knight-walk-paired-legs-v5-20261021/ally/walk-atlas.png",
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "path": "../../../knight-walk-paired-legs-v5-20261021/ally/frame-000.png",
+          "output_path": "../../../knight-walk-paired-legs-v5-20261021/ally/frame-000.png",
+          "revision": "knight-walk-paired-legs-v5-20261021",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1868,
+          "sha256": "b31f84833882da6881092b7b447ed34786cdefbf85ed32d463b5d4942bce7866",
+          "art_status": "review_candidate"
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-001.png",
+          "output_path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-001.png",
+          "revision": "knight-redraw-v3-20261021",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1991,
+          "sha256": "671f6f0e177caea9dfb52838bb565a07f856da17b674eae446c5ce8d486d14dd",
+          "art_status": "review_candidate"
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "path": "../../../knight-walk-paired-legs-v5-20261021/ally/frame-002.png",
+          "output_path": "../../../knight-walk-paired-legs-v5-20261021/ally/frame-002.png",
+          "revision": "knight-walk-paired-legs-v5-20261021",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 2761,
+          "sha256": "5f4bd314010ebd4a3904defbf46e980cf9ae9fdbe4f82d96cd0bbfb809073ba3",
+          "art_status": "review_candidate"
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "path": "../../../knight-walk-paired-legs-v5-20261021/ally/frame-003.png",
+          "output_path": "../../../knight-walk-paired-legs-v5-20261021/ally/frame-003.png",
+          "revision": "knight-walk-paired-legs-v5-20261021",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 2742,
+          "sha256": "beb82dc722889bcf2171e8c7c5e4a92fb794c7224f0947aa1f233ebbe32fa071",
+          "art_status": "review_candidate"
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-004.png",
+          "output_path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-004.png",
+          "revision": "knight-redraw-v3-20261021",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 2416,
+          "sha256": "84f39b76497250689100eed8e4a191f05b154ad794df2f139b763295edb7fc6d",
+          "art_status": "review_candidate"
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-005.png",
+          "output_path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-005.png",
+          "revision": "knight-redraw-v3-20261021",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 2293,
+          "sha256": "d66d513bf86787c8c543a5d8f2eff95ef6f408dbc2c49b637618146e26e8e64f",
+          "art_status": "review_candidate"
+        },
+        {
+          "source_index": 6,
+          "source_frame": 6,
+          "path": "../../../knight-walk-paired-legs-v5-20261021/ally/frame-006.png",
+          "output_path": "../../../knight-walk-paired-legs-v5-20261021/ally/frame-006.png",
+          "revision": "knight-walk-paired-legs-v5-20261021",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 2784,
+          "sha256": "beecdbc3a41a166e8714b76c94129b0fce312ea94bf094b45a7124756aa27e58",
+          "art_status": "review_candidate"
+        },
+        {
+          "source_index": 7,
+          "source_frame": 7,
+          "path": "../../../knight-walk-paired-legs-v5-20261021/ally/frame-007.png",
+          "output_path": "../../../knight-walk-paired-legs-v5-20261021/ally/frame-007.png",
+          "revision": "knight-walk-paired-legs-v5-20261021",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 2693,
+          "sha256": "41261073a9fe67d8775f5960c22f181938a4d3aa066d6a21d70d9ad926bccd15",
+          "art_status": "review_candidate"
+        },
+        {
+          "source_index": 8,
+          "source_frame": 6,
+          "path": "../../../knight-walk-paired-legs-v5-20261021/ally/frame-008.png",
+          "output_path": "../../../knight-walk-paired-legs-v5-20261021/ally/frame-008.png",
+          "revision": "knight-walk-paired-legs-v5-20261021",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 2696,
+          "sha256": "d0c49289797d473d9150d69e786c42bd08355b62b0e31624778fffde95f6dc63",
+          "art_status": "review_candidate"
+        },
+        {
+          "source_index": 9,
+          "source_frame": 2,
+          "path": "../../../knight-walk-paired-legs-v5-20261021/ally/frame-009.png",
+          "output_path": "../../../knight-walk-paired-legs-v5-20261021/ally/frame-009.png",
+          "revision": "knight-walk-paired-legs-v5-20261021",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 2722,
+          "sha256": "e89bf10ee00924abfa683fa58abb69dfdc157245135aa966133dec046f736379",
+          "art_status": "review_candidate"
+        }
+      ],
+      "logical_render_scale": 0.25,
+      "revision": "knight-walk-paired-legs-v5-20261021",
+      "status": "review_candidate",
+      "display_name": "盟军骑士",
+      "review_note": "左右四阶段双腿循环，每相8帧、总周期32帧；向上腾空相四腿向后收屈、减少露出。沿用固定中心与16色蓝白／蓝紫。",
+      "directions": {
+        "up": [
+          0,
+          1
+        ],
+        "right": [
+          2,
+          3
+        ],
+        "down": [
+          4,
+          5
+        ],
+        "left": [
+          6,
+          7
+        ]
+      },
+      "direction_mirror_x": {},
+      "timing": {
+        "native_fps": 60.0988,
+        "frame_ticks": 16,
+        "cycle_ticks": 32
+      },
+      "motion_review": {
+        "side_cycle_ticks": 32,
+        "side_phase_ticks": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "up_phase_ticks": [
+          16,
+          16
+        ],
+        "runtime_integrated": false
+      },
+      "source_audit": {
+        "status": "verified_native_tactical",
+        "record_key": "class-4-ally",
+        "verification": "../../../source-input/corrected-tactical-walk/verification.json",
+        "overlay": "../../../source-input/corrected-tactical-walk/overlay.json"
+      },
+      "ground_shadow": {
+        "path": "gold-knight-walk-v3-20261020/ground-shadow.png",
+        "size": [
+          12,
+          3
+        ],
+        "offset": [
+          0,
+          -1
+        ],
+        "alpha": 0.35
+      },
+      "action_note": "本轮修改左右四阶段和向上腾空姿势。",
+      "direction_preview_cycles": {
+        "left": {
+          "frames": [
+            6,
+            8,
+            7,
+            8
+          ],
+          "frame_ticks": [
+            8,
+            8,
+            8,
+            8
+          ]
+        },
+        "right": {
+          "frames": [
+            2,
+            9,
+            3,
+            9
+          ],
+          "frame_ticks": [
+            8,
+            8,
+            8,
+            8
+          ]
+        }
+      },
+      "review_frame_sources": {
+        "8": 6,
+        "9": 2
+      },
+      "review_frame_labels": {
+        "8": "新增站定姿势 · 向左",
+        "9": "新增站定姿势 · 向右"
+      },
+      "direction_action_notes": {
+        "left": "新稿前双腿抬起→四腿站定→后双腿向前抬起→四腿站定；每阶段8帧，保持原32帧总周期。",
+        "right": "新稿前双腿抬起→四腿站定→后双腿向前抬起→四腿站定；每阶段8帧，保持原32帧总周期。",
+        "up": "腾空相四腿向后收屈、抬高并部分遮挡；落地相保留。每相16帧，中心与阴影固定。"
+      }
+    }
+  ]
+}

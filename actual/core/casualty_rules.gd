@@ -130,7 +130,7 @@ static func enter_dying(game, unit: Dictionary) -> void:
 		game.queue_pages([{"speaker":"战场提示", "text":str(unit.name_zh)+"濒死，已撤至照护处，暂时不能出阵。"}])
 
 static func treat(game, id: String) -> Dictionary:
-	if game.mode!="hub" or (not (game.hub_record=="H10" and game.flags.get("D33_done",false)) and ((game.route=="alm" and game.hub_record!="H04") or (game.route=="celica" and game.hub_record!="H25"))):
+	if game.mode!="hub" or (not (game.chapter==5 and game.hub_record in ["H51","H55"]) and not (game.hub_record=="H10" and game.flags.get("D33_done",false)) and ((game.route=="alm" and game.hub_record!="H04") or (game.route=="celica" and game.hub_record!="H25"))):
 		return {"valid":false, "reason":"请到本队救治泉接受救治"}
 	game.ensure_treatment_sources()
 	if not game.party.has(id) or id in ["hunapu", "eileen"]: return {"valid":false, "reason":"只能救治本队正式同伴"}

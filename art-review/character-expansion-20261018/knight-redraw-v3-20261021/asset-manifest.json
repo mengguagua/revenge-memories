@@ -1,0 +1,1512 @@
+{
+  "revision": "knight-redraw-v3-20261021",
+  "status": "ready_for_user_visual_review",
+  "image_generation": "built-in image_gen",
+  "runtime_integrated": false,
+  "palette": {
+    "ally": [
+      "181d29",
+      "303847",
+      "596574",
+      "a5b3c1",
+      "d6dfe4",
+      "f5f5ef",
+      "243756",
+      "3d5680",
+      "7292b8",
+      "4d3428",
+      "85603e",
+      "b88b56",
+      "b38360",
+      "e8ba8d",
+      "c4a15a",
+      "fff8df"
+    ],
+    "enemy": [
+      "161b2b",
+      "292c49",
+      "343e68",
+      "4a5c86",
+      "64779e",
+      "8f9ec0",
+      "282c50",
+      "494876",
+      "7579aa",
+      "29283d",
+      "444260",
+      "6d6688",
+      "947c7b",
+      "cfb2ad",
+      "9b8cae",
+      "c3cce2"
+    ]
+  },
+  "registration": [
+    {
+      "source": "map-idle-master-v1.png",
+      "source_sha256": "e03bafdcb34676aae72600bb080087c26424aad3aba5260f2f4c47bb73e00dae",
+      "source_bounds": [
+        166,
+        109,
+        680,
+        631
+      ],
+      "opaque_pixels": 155533,
+      "label": "idle-0",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        227.0,
+        108.5
+      ],
+      "target_landmark": [
+        48,
+        29
+      ],
+      "scale": 0.12260536398467432,
+      "resampled_size": [
+        63,
+        64
+      ],
+      "translation": [
+        20,
+        16
+      ],
+      "actual_landmark": [
+        47.822957198443575,
+        29.302681992337163
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "map-idle-master-v1.png",
+      "source_sha256": "e03bafdcb34676aae72600bb080087c26424aad3aba5260f2f4c47bb73e00dae",
+      "source_bounds": [
+        829,
+        109,
+        1348,
+        631
+      ],
+      "opaque_pixels": 154342,
+      "label": "idle-1",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        227.5,
+        108.5
+      ],
+      "target_landmark": [
+        48,
+        29
+      ],
+      "scale": 0.12260536398467432,
+      "resampled_size": [
+        64,
+        64
+      ],
+      "translation": [
+        20,
+        16
+      ],
+      "actual_landmark": [
+        48.053949903660886,
+        29.302681992337163
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "map-idle-master-v1.png",
+      "source_sha256": "e03bafdcb34676aae72600bb080087c26424aad3aba5260f2f4c47bb73e00dae",
+      "source_bounds": [
+        1525,
+        109,
+        2043,
+        631
+      ],
+      "opaque_pixels": 149167,
+      "label": "idle-2",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        229.0,
+        108.5
+      ],
+      "target_landmark": [
+        48,
+        29
+      ],
+      "scale": 0.12260536398467432,
+      "resampled_size": [
+        64,
+        64
+      ],
+      "translation": [
+        20,
+        16
+      ],
+      "actual_landmark": [
+        48.293436293436294,
+        29.302681992337163
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "map-up-down-master-v1.png",
+      "source_sha256": "f56873310a565073fd682ea36632b177cd587f0312fef31b651089470a8ee1b3",
+      "source_bounds": [
+        241,
+        79,
+        470,
+        570
+      ],
+      "opaque_pixels": 71168,
+      "label": "walk-0",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        103.5,
+        62.0
+      ],
+      "target_landmark": [
+        64,
+        26
+      ],
+      "scale": 0.15478615071283094,
+      "resampled_size": [
+        35,
+        76
+      ],
+      "translation": [
+        48,
+        16
+      ],
+      "actual_landmark": [
+        63.81877729257642,
+        25.596741344195518
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "map-up-down-master-v1.png",
+      "source_sha256": "f56873310a565073fd682ea36632b177cd587f0312fef31b651089470a8ee1b3",
+      "source_bounds": [
+        817,
+        79,
+        1046,
+        567
+      ],
+      "opaque_pixels": 73398,
+      "label": "walk-1",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        103.5,
+        61.0
+      ],
+      "target_landmark": [
+        64,
+        26
+      ],
+      "scale": 0.15478615071283094,
+      "resampled_size": [
+        35,
+        76
+      ],
+      "translation": [
+        48,
+        16
+      ],
+      "actual_landmark": [
+        63.81877729257642,
+        25.5
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "map-up-down-master-v1.png",
+      "source_sha256": "f56873310a565073fd682ea36632b177cd587f0312fef31b651089470a8ee1b3",
+      "source_bounds": [
+        243,
+        647,
+        489,
+        1136
+      ],
+      "opaque_pixels": 80052,
+      "label": "walk-4",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        120.0,
+        106.5
+      ],
+      "target_landmark": [
+        64,
+        37
+      ],
+      "scale": 0.1554192229038855,
+      "resampled_size": [
+        38,
+        76
+      ],
+      "translation": [
+        45,
+        20
+      ],
+      "actual_landmark": [
+        63.53658536585366,
+        36.5521472392638
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "map-up-down-master-v1.png",
+      "source_sha256": "f56873310a565073fd682ea36632b177cd587f0312fef31b651089470a8ee1b3",
+      "source_bounds": [
+        819,
+        644,
+        1065,
+        1097
+      ],
+      "opaque_pixels": 72372,
+      "label": "walk-5",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        119.5,
+        108.0
+      ],
+      "target_landmark": [
+        64,
+        37
+      ],
+      "scale": 0.1554192229038855,
+      "resampled_size": [
+        38,
+        70
+      ],
+      "translation": [
+        46,
+        20
+      ],
+      "actual_landmark": [
+        64.45934959349594,
+        36.688741721854306
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-ground-master-v1.png",
+      "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+      "source_bounds": [
+        30,
+        110,
+        495,
+        509
+      ],
+      "opaque_pixels": 77819,
+      "label": "battle-0",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        241.0,
+        78.0
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.4423676012461059,
+      "resampled_size": [
+        206,
+        177
+      ],
+      "translation": [
+        77,
+        77
+      ],
+      "actual_landmark": [
+        183.76559139784945,
+        111.6015037593985
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-ground-master-v1.png",
+      "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+      "source_bounds": [
+        542,
+        110,
+        974,
+        509
+      ],
+      "opaque_pixels": 71863,
+      "label": "battle-1",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        218.0,
+        78.0
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.4423676012461059,
+      "resampled_size": [
+        191,
+        177
+      ],
+      "translation": [
+        88,
+        77
+      ],
+      "actual_landmark": [
+        184.38425925925927,
+        111.6015037593985
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-ground-master-v1.png",
+      "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+      "source_bounds": [
+        38,
+        583,
+        532,
+        966
+      ],
+      "opaque_pixels": 76265,
+      "label": "battle-3",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        233.0,
+        78.0
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.4423676012461059,
+      "resampled_size": [
+        219,
+        169
+      ],
+      "translation": [
+        81,
+        78
+      ],
+      "actual_landmark": [
+        184.29352226720647,
+        112.4177545691906
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-ground-master-v1.png",
+      "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+      "source_bounds": [
+        538,
+        582,
+        937,
+        966
+      ],
+      "opaque_pixels": 68645,
+      "label": "battle-4",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        222.0,
+        78.0
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.4423676012461059,
+      "resampled_size": [
+        177,
+        170
+      ],
+      "translation": [
+        86,
+        77
+      ],
+      "actual_landmark": [
+        184.4812030075188,
+        111.53125
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-ground-master-v1.png",
+      "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+      "source_bounds": [
+        1024,
+        582,
+        1469,
+        932
+      ],
+      "opaque_pixels": 69158,
+      "label": "battle-5",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        229.5,
+        78.0
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.4423676012461059,
+      "resampled_size": [
+        197,
+        155
+      ],
+      "translation": [
+        82,
+        77
+      ],
+      "actual_landmark": [
+        183.59887640449438,
+        111.54285714285714
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-002-master-v2.png",
+      "source_sha256": "0daf0b2b022b21dabdd6b1edb3872511798508896888af9b567b8e0813ff2131",
+      "source_bounds": [
+        6,
+        266,
+        1193,
+        1239
+      ],
+      "opaque_pixels": 464198,
+      "label": "battle-2",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        555.0,
+        195.0
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.18251928020565553,
+      "resampled_size": [
+        217,
+        178
+      ],
+      "translation": [
+        83,
+        76
+      ],
+      "actual_landmark": [
+        184.46166807076662,
+        111.67317574511819
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-008-009-master-v2.png",
+      "source_sha256": "c5a696f2f166e73291df0e7b54e919b7e762b607a7d2a497df6c04db287840b7",
+      "source_bounds": [
+        59,
+        123,
+        883,
+        824
+      ],
+      "opaque_pixels": 254171,
+      "label": "battle-8",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        398.0,
+        142.0
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.25402504472271914,
+      "resampled_size": [
+        209,
+        178
+      ],
+      "translation": [
+        83,
+        76
+      ],
+      "actual_landmark": [
+        183.9490291262136,
+        112.05706134094152
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-008-009-master-v2.png",
+      "source_sha256": "c5a696f2f166e73291df0e7b54e919b7e762b607a7d2a497df6c04db287840b7",
+      "source_bounds": [
+        938,
+        123,
+        1765,
+        824
+      ],
+      "opaque_pixels": 253322,
+      "label": "battle-9",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        395.5,
+        142.0
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.25402504472271914,
+      "resampled_size": [
+        210,
+        178
+      ],
+      "translation": [
+        84,
+        76
+      ],
+      "actual_landmark": [
+        184.4292623941959,
+        112.05706134094152
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-throw-master-v2.png",
+      "source_sha256": "f2ff7adba302fccaa7ff2a6d4e6d705e92a0a86bd32b1687099275e0a352f5f3",
+      "source_bounds": [
+        31,
+        104,
+        873,
+        802
+      ],
+      "opaque_pixels": 264036,
+      "label": "battle-41",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        417.5,
+        135.0
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.25199645075421473,
+      "resampled_size": [
+        212,
+        176
+      ],
+      "translation": [
+        79,
+        78
+      ],
+      "actual_landmark": [
+        184.1187648456057,
+        112.04011461318052
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-throw-master-v2.png",
+      "source_sha256": "f2ff7adba302fccaa7ff2a6d4e6d705e92a0a86bd32b1687099275e0a352f5f3",
+      "source_bounds": [
+        1022,
+        104,
+        1759,
+        802
+      ],
+      "opaque_pixels": 260715,
+      "label": "battle-43",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        311.5,
+        134.5
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.25199645075421473,
+      "resampled_size": [
+        186,
+        176
+      ],
+      "translation": [
+        105,
+        78
+      ],
+      "actual_landmark": [
+        183.6146540027137,
+        111.91404011461319
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-special-master-v1.png",
+      "source_sha256": "7e4e8e2b947763f128d367b643e551c93798fcf5c08c14b3b3fd951e756ff469",
+      "source_bounds": [
+        57,
+        96,
+        439,
+        505
+      ],
+      "opaque_pixels": 66623,
+      "label": "battle-6",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        251.0,
+        93.5
+      ],
+      "target_landmark": [
+        198,
+        100
+      ],
+      "scale": 0.48811410459587956,
+      "resampled_size": [
+        186,
+        200
+      ],
+      "translation": [
+        76,
+        54
+      ],
+      "actual_landmark": [
+        198.21465968586386,
+        99.72127139364304
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-007-master-v2.png",
+      "source_sha256": "ccdf29b361c72a3094bd4db6efbdc124a6fb1541875e5e5f70fafb6f2747d5a8",
+      "source_bounds": [
+        129,
+        129,
+        1392,
+        943
+      ],
+      "opaque_pixels": 374786,
+      "label": "battle-7",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        696.0,
+        169.0
+      ],
+      "target_landmark": [
+        204,
+        84
+      ],
+      "scale": 0.19753086419753085,
+      "resampled_size": [
+        249,
+        161
+      ],
+      "translation": [
+        67,
+        51
+      ],
+      "actual_landmark": [
+        204.21615201900238,
+        84.42628992628993
+      ],
+      "clipped_pixels": 0
+    }
+  ],
+  "assets": [
+    {
+      "path": "knight-redraw-v3-20261021/ally/tactical-idle/frame-000.png",
+      "purpose": "whole drawn knight pose; tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2864,
+      "sha256": "28f2c20c28b079707f44dec172df76008fdcac2e493e68d25e10310724253198",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/tactical-idle/frame-001.png",
+      "purpose": "whole drawn knight pose; tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2745,
+      "sha256": "0195e0d382e5cd099313ec6f6a383a63e33aad4978b5eaf5465c92da20b938c6",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/tactical-idle/frame-002.png",
+      "purpose": "whole drawn knight pose; tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2757,
+      "sha256": "4f51c36917fe431dfce38b821a0f5489c3b67f1bc0281472468be7657c8c01cd",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/tactical-idle/frame-003.png",
+      "purpose": "whole drawn knight pose; tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2745,
+      "sha256": "0195e0d382e5cd099313ec6f6a383a63e33aad4978b5eaf5465c92da20b938c6",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/tactical-idle/frame-004.png",
+      "purpose": "whole drawn knight pose; tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2864,
+      "sha256": "28f2c20c28b079707f44dec172df76008fdcac2e493e68d25e10310724253198",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/tactical-idle/frame-005.png",
+      "purpose": "whole drawn knight pose; tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2745,
+      "sha256": "0195e0d382e5cd099313ec6f6a383a63e33aad4978b5eaf5465c92da20b938c6",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/tactical-idle-atlas.png",
+      "purpose": "offline whole-pose atlas",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 7589,
+      "sha256": "c07f44a1c59756ce1d2b9a0049814ec61f68c72abf4dcf6d111bffe06e3f3d0e",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/tactical-walk/frame-000.png",
+      "purpose": "whole drawn knight pose; tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2024,
+      "sha256": "0c7c9881c1bb1a9feefed95abb2b5a7860dbc32c8c64f8cf3d26a07e614c6b46",
+      "colors": 12
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/tactical-walk/frame-001.png",
+      "purpose": "whole drawn knight pose; tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1991,
+      "sha256": "671f6f0e177caea9dfb52838bb565a07f856da17b674eae446c5ce8d486d14dd",
+      "colors": 13
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/tactical-walk/frame-002.png",
+      "purpose": "whole drawn knight pose; tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2920,
+      "sha256": "8a9149df963d26dc74b62855f5fad6163231f6dc3610ef7db97b3de9b5fa5604",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/tactical-walk/frame-003.png",
+      "purpose": "whole drawn knight pose; tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2909,
+      "sha256": "aef2103442df11c2cba431f5edc49b8e83fd78f2fd2d0349d43433e100ebf535",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/tactical-walk/frame-004.png",
+      "purpose": "whole drawn knight pose; tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2416,
+      "sha256": "84f39b76497250689100eed8e4a191f05b154ad794df2f139b763295edb7fc6d",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/tactical-walk/frame-005.png",
+      "purpose": "whole drawn knight pose; tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2293,
+      "sha256": "d66d513bf86787c8c543a5d8f2eff95ef6f408dbc2c49b637618146e26e8e64f",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/tactical-walk/frame-006.png",
+      "purpose": "whole drawn knight pose; tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2917,
+      "sha256": "350f53a03f1ce9746154e1d17a752419bbe5af177214152a37c32322518160c9",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/tactical-walk/frame-007.png",
+      "purpose": "whole drawn knight pose; tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2809,
+      "sha256": "e957c6709c493a716c8040d8f2cc9e8dce3851ff08a5c42d578b60049453dcf2",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/tactical-walk-atlas.png",
+      "purpose": "offline whole-pose atlas",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 16530,
+      "sha256": "2c7eeff9c5d5aae83e8a124a3c4ee0f117d748f0b3073f55b4c8ccc652d77a63",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/battle/frame-000.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 11052,
+      "sha256": "3ebf02818114119456db7a772100629f47dd8a13625561761a961c4122d9060a",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/battle/frame-001.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 10822,
+      "sha256": "2e3bdf96182eb1b605bca5f7fecf53235f6957671aa742cc5069b602103fd719",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/battle/frame-002.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 9960,
+      "sha256": "fac433bb3fe9ad3dfaf3a3acbb7a41f42f58e75f3f601655090688636efcd50c",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/battle/frame-003.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 11245,
+      "sha256": "f780e890acedfb159ef8b595fc234620634ebf96de682f43771beb69a3e59a39",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/battle/frame-004.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 10267,
+      "sha256": "a28c6adccd563aea0810f824adf49b30f547a7f6b01cdbf11638d49e2483cac3",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/battle/frame-005.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 10444,
+      "sha256": "8dbb73d209be9425993860f0643df005768381b3f3440e40207c4fa2e2109b29",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/battle/frame-006.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 12172,
+      "sha256": "47e90acee2993beebb5d3c1348bd94f1cb46478454623c8889f76fe51241a854",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/battle/frame-007.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 9450,
+      "sha256": "8a165c1522f052de9c917e208caa5a24315029fa05e1333de59f4b57b8ad5382",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/battle/frame-008.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 10728,
+      "sha256": "8e3bc47c6d471b5c7945357826456488d9769d9f5ed18f776d367321cfd070e8",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/battle/frame-009.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 10856,
+      "sha256": "6cd06d8c1da90b42d84f08b312c871a0491bdf03fb4bead7019892b7ed29c19c",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/battle/frame-021.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 11052,
+      "sha256": "3ebf02818114119456db7a772100629f47dd8a13625561761a961c4122d9060a",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/battle/frame-040.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 11052,
+      "sha256": "3ebf02818114119456db7a772100629f47dd8a13625561761a961c4122d9060a",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/battle/frame-041.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 10164,
+      "sha256": "547480092380b34ceaacb4e08e8c03e860d214b4f27226bdd0e9e0d63350ff24",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/battle/frame-043.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 10018,
+      "sha256": "e1c001f56a5bf3d3cb7285249c74f761f70decde29ade6a51b804af6c9b3a66d",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/battle-atlas.png",
+      "purpose": "offline whole battle atlas",
+      "size": [
+        4480,
+        256
+      ],
+      "bytes": 48474,
+      "sha256": "5f7d35b9ebb6cab46d03998702ba0e7a527d29576a7900f03c9ffad184c8e952",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally/flying-lance.png",
+      "purpose": "new drawn lance; original logical canvas, anchor and flight envelope",
+      "size": [
+        256,
+        64
+      ],
+      "bytes": 594,
+      "sha256": "418aad646f5e855498de9383b47b365d03362876dff4e7ea5742c9c33682451f",
+      "colors": 11
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/tactical-idle/frame-000.png",
+      "purpose": "whole drawn knight pose; tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 3050,
+      "sha256": "4ef3e37ae34a2952ce8108c401041ccc48f4cbf4110678248eab548a6de517a9",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/tactical-idle/frame-001.png",
+      "purpose": "whole drawn knight pose; tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2784,
+      "sha256": "5b8beb2c0b0e0dcfc1090e93b1cd582cad8a6aae742d6be20b77a44d32ee9c83",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/tactical-idle/frame-002.png",
+      "purpose": "whole drawn knight pose; tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2804,
+      "sha256": "20265f985b96cd9806f0a70838ca303afa0f9cd20050b7b43bea43f3859444e8",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/tactical-idle/frame-003.png",
+      "purpose": "whole drawn knight pose; tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2784,
+      "sha256": "5b8beb2c0b0e0dcfc1090e93b1cd582cad8a6aae742d6be20b77a44d32ee9c83",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/tactical-idle/frame-004.png",
+      "purpose": "whole drawn knight pose; tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 3050,
+      "sha256": "4ef3e37ae34a2952ce8108c401041ccc48f4cbf4110678248eab548a6de517a9",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/tactical-idle/frame-005.png",
+      "purpose": "whole drawn knight pose; tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2784,
+      "sha256": "5b8beb2c0b0e0dcfc1090e93b1cd582cad8a6aae742d6be20b77a44d32ee9c83",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/tactical-idle-atlas.png",
+      "purpose": "offline whole-pose atlas",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 7753,
+      "sha256": "4cf7ab77f2007a185694ceda3d11acf0dfcc3b4ec9a2ffb97e55a45c4dcb66e7",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/tactical-walk/frame-000.png",
+      "purpose": "whole drawn knight pose; tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2081,
+      "sha256": "e8ae1af3a4df5fdf66e9aa67092afbeaef48928f380681f3eefb7e1c98039496",
+      "colors": 12
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/tactical-walk/frame-001.png",
+      "purpose": "whole drawn knight pose; tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1980,
+      "sha256": "9f875925ce5e28edf051170753092b5b58da0d12c26bb50666e41fa9c6325533",
+      "colors": 13
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/tactical-walk/frame-002.png",
+      "purpose": "whole drawn knight pose; tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 3079,
+      "sha256": "a930c6ce64ddf2d2c93b3924bb280223e069723b4bbb499e5f6725cb5b0250ce",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/tactical-walk/frame-003.png",
+      "purpose": "whole drawn knight pose; tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 3010,
+      "sha256": "d3a52424936ce1f64f3e54196797012f68e389a6bd0ace42d08602eadb1996cd",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/tactical-walk/frame-004.png",
+      "purpose": "whole drawn knight pose; tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2427,
+      "sha256": "e77b011f0a1c96ede40fd0adfdb01e97f387172cd25e3d73fbda8c72c640c021",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/tactical-walk/frame-005.png",
+      "purpose": "whole drawn knight pose; tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2373,
+      "sha256": "44f7d3c488135ca222d8789405079784ec8937f4c64950e036d33f15242be9be",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/tactical-walk/frame-006.png",
+      "purpose": "whole drawn knight pose; tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 3103,
+      "sha256": "73a2f1c290da287dffc465c8284d6080276d6feb350a6210fa2945dc595fad65",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/tactical-walk/frame-007.png",
+      "purpose": "whole drawn knight pose; tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2853,
+      "sha256": "27ce308d2263f9a99fdd778d22b26c5cc9a407c9fadbfd141e1d29afc95f1358",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/tactical-walk-atlas.png",
+      "purpose": "offline whole-pose atlas",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 16687,
+      "sha256": "61b5aeed743c1b636a291dcd67df85e11e34570c2c0a348edd00fbc547c0fc97",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/battle/frame-010.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 11123,
+      "sha256": "a378791c6bb1f843278470b6449d156bd9cd4b9cf6cb0e49ad6c9d46f70c7650",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/battle/frame-011.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 10932,
+      "sha256": "98fb4ff90a5be158889033464e309e2afdfdf5d7c72b5d3ce4e32b809929a83f",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/battle/frame-012.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 10151,
+      "sha256": "bfb9230df48b0c168daf4b4c5658f07434b6ea1f04549800f191e9356caba96c",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/battle/frame-013.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 11400,
+      "sha256": "ee5f569fa98f0558f89abd16a9b866723211744bdace990a3be1bef6f314f381",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/battle/frame-014.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 10365,
+      "sha256": "ad546a6a1886218901f2ac43087df1d3e61dfc44782f418142ebfe049b364091",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/battle/frame-015.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 10401,
+      "sha256": "aecc1ce956687d82d37b9603ab0ecf8b455f9abd01da9f42c4a4d7682e361f54",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/battle/frame-016.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 12255,
+      "sha256": "fdc931b96cad1cc671fed85df00afb0aee484ebc7bbb27c6aca5cef95ab8d0ca",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/battle/frame-017.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 9660,
+      "sha256": "a2208d3b5d6219b7bea5599ba660f32634aa09384dd23cf3bad11dd6ef63ea02",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/battle/frame-018.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 10930,
+      "sha256": "9b5c1045a726d9f8e63a29b331f5821f98dd589e84973af0c4b3589e6d75aae0",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/battle/frame-019.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 10938,
+      "sha256": "bbe7484202bb80b25626a31d6eafef87a41600ae02ec941de91944a02a124658",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/battle/frame-031.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 11077,
+      "sha256": "b64e2d5f1e0c7fec4e415c738135ef6f2549de0f935f09c19cd9b25e8fa0dcb9",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/battle/frame-040.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 11077,
+      "sha256": "b64e2d5f1e0c7fec4e415c738135ef6f2549de0f935f09c19cd9b25e8fa0dcb9",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/battle/frame-041.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 10219,
+      "sha256": "217bdbc413ab183327a8a0375b8826bc1a367a4438b1c99003d8209daabe63fb",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/battle/frame-045.png",
+      "purpose": "whole drawn knight battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 10142,
+      "sha256": "cced2250e40eb6e901158ad95c1a149059f0996cc4faaf4b712d973bde62b1db",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/battle-atlas.png",
+      "purpose": "offline whole battle atlas",
+      "size": [
+        4480,
+        256
+      ],
+      "bytes": 48763,
+      "sha256": "b4c974b59647db302d857ed40db89c1a83dd95a81c01eeabba982bd543014998",
+      "colors": 16
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy/flying-lance.png",
+      "purpose": "new drawn lance; original logical canvas, anchor and flight envelope",
+      "size": [
+        256,
+        64
+      ],
+      "bytes": 593,
+      "sha256": "12afc46fe85986e37fa40f6d735bcb4da1bb11f9072db6bdcf90dc4e7f169074",
+      "colors": 11
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally-maps-dark.png",
+      "purpose": "offline full-pose visual review board",
+      "size": [
+        864,
+        1056
+      ],
+      "bytes": 41289,
+      "sha256": "2a629717fc15d545d19841e7a9f8480add1afd5754eca5582b67c5e4410b2ed2",
+      "colors": 270
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally-maps-light.png",
+      "purpose": "offline full-pose visual review board",
+      "size": [
+        864,
+        1056
+      ],
+      "bytes": 41378,
+      "sha256": "84cb1cd065a56545c600bf0e4c07a150a42cd8a2e8666799d889834b3092c568",
+      "colors": 263
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally-battle-dark.png",
+      "purpose": "offline full-pose visual review board",
+      "size": [
+        1032,
+        1240
+      ],
+      "bytes": 75204,
+      "sha256": "1bf3d2fc0671c38a9f8092994bde5d55d398e3b0baad5888b4829fa7b23db3ba",
+      "colors": 269,
+      "quality_reason": "Offline multi-pose atlas/inspection board kept at full pixel resolution after lossless compression; independent sprites below50KB."
+    },
+    {
+      "path": "knight-redraw-v3-20261021/ally-battle-light.png",
+      "purpose": "offline full-pose visual review board",
+      "size": [
+        1032,
+        1240
+      ],
+      "bytes": 75198,
+      "sha256": "4ed141c2bc06c29cbb6717cb29bb3836e22b9e8685e133ba301d7efba62ecc4d",
+      "colors": 262,
+      "quality_reason": "Offline multi-pose atlas/inspection board kept at full pixel resolution after lossless compression; independent sprites below50KB."
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy-maps-dark.png",
+      "purpose": "offline full-pose visual review board",
+      "size": [
+        864,
+        1056
+      ],
+      "bytes": 41733,
+      "sha256": "18f7698c0e2ef70de5b0ddde200315c42388859c07ca785bbdc8506f6f402365",
+      "colors": 272
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy-maps-light.png",
+      "purpose": "offline full-pose visual review board",
+      "size": [
+        864,
+        1056
+      ],
+      "bytes": 41568,
+      "sha256": "3e098d068b54d51332fba6e6c668c3c765ef6bec5889f26e6157ddb04c8f0398",
+      "colors": 265
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy-battle-dark.png",
+      "purpose": "offline full-pose visual review board",
+      "size": [
+        1032,
+        1240
+      ],
+      "bytes": 75324,
+      "sha256": "4d6e766e6d93c4f9038130a85102c5d21b7f2dc8b850220bd9d84a791d4e123e",
+      "colors": 270,
+      "quality_reason": "Offline multi-pose atlas/inspection board kept at full pixel resolution after lossless compression; independent sprites below50KB."
+    },
+    {
+      "path": "knight-redraw-v3-20261021/enemy-battle-light.png",
+      "purpose": "offline full-pose visual review board",
+      "size": [
+        1032,
+        1240
+      ],
+      "bytes": 75204,
+      "sha256": "593076ae1e3ef4dc69188b852331eab3633de67f947563ff164a26c928419973",
+      "colors": 263,
+      "quality_reason": "Offline multi-pose atlas/inspection board kept at full pixel resolution after lossless compression; independent sprites below50KB."
+    }
+  ],
+  "body_splicing": false,
+  "limb_warping": false,
+  "native_timing_modified": false
+}

@@ -17,6 +17,7 @@
     return cache.get(path).promise;
   }
   const imageFor = path => cache.get(path)?.image || null;
+  const frameCount = () => active.frames.length + (active.reviewTailFrames?.length || 0);
   function setPlaying(value) { playing = value; last = null; accumulated = 0; $('play').textContent = playing ? '暂停' : '播放'; }
   function viewport(row) {
     if (close && active.context==='battle') {
@@ -41,7 +42,8 @@
     ctx.clearRect(0,0,width,height); ctx.save(); ctx.scale(scale,scale); ctx.translate(-view[0],-view[1]);
     const ground=mapGround && !bodyOnly && profile.mapGround ? imageFor(profile.mapGround) : null;
     if(ground) blit(ctx,ground,[0,0,ground.width,ground.height],[view[0],view[1]],[view[2],view[3]],false);
-    const f = row.frame, flip = (profile.context==='battle'&&profile.side==='enemy') !== !!row.flip;
+    const f = (!revised && bodyOnly ? profile.reviewFrameSources?.[String(row.frame)] : undefined) ?? row.frame;
+    const flip = (profile.context==='battle'&&profile.side==='enemy') !== !!row.flip;
     const at = [active.origin[0]+(row.offset?.[0]||0)-profile.anchor[0]+(row.shake||0), active.origin[1]+(row.offset?.[1]||0)-profile.anchor[1]];
     if (flip && f < profile.sourceOamCutoff) { at[0] += profile.flipOriginOffset[0]; at[1] += profile.flipOriginOffset[1]; }
     if(revised && !bodyOnly && profile.mapShadow){
@@ -65,13 +67,14 @@
   }
   function draw() {
     if(!active) return;
-    const row=active.frames[tick]; const view=viewport(row);
-    drawRow(contexts[0],row,false,view); drawRow(contexts[1],active.revisedFrames?.[tick] || row,true,view);
+    const row=active.frames[Math.min(tick,active.frames.length-1)]; const view=viewport(row);
+    const revised=tick<active.frames.length ? (active.revisedFrames?.[tick] || row) : active.reviewTailFrames[tick-active.frames.length];
+    drawRow(contexts[0],row,false,view); drawRow(contexts[1],revised,true,view);
     $('scrub').value=String(tick);
-    $('time-info').textContent=`第 ${tick+1} / ${active.frames.length} 帧 · 源姿势 ${row.frame} · ${(tick/active.fps).toFixed(3)} / ${active.duration.toFixed(3)} 秒`;
+    $('time-info').textContent=`第 ${tick+1} / ${frameCount()} 帧 · 源姿势 ${row.frame} · ${(tick/active.fps).toFixed(3)} / ${active.duration.toFixed(3)} 秒${tick>=active.frames.length?' · 原作结束，新稿'+(active.reviewTailLabel||'光点收尾'):''}`;
     $('contact-info').textContent=active.key==='idle-pose' ? '剧情形象 · 静止展示' : active.contactTick === null ? (active.context==='battle'?'反应演示 · 不新增效果':'地图步态 · 原节奏') : `${tick===active.contactTick?'结算时刻 · ':''}结算：第 ${active.contactTick+1} 帧`;
   }
-  function seek(value) { if(!active)return; tick=Math.max(0,Math.min(active.frames.length-1,value)); accumulated=0; draw(); }
+  function seek(value) { if(!active)return; tick=Math.max(0,Math.min(frameCount()-1,value)); accumulated=0; draw(); }
   function links() {
     const links=[...(profile.links||[])];
     if(active.video) links.unshift({label:'下载当前动作视频',href:active.video});
@@ -88,7 +91,7 @@
     for(const f of active.neededFrames){
       const card=document.createElement('article');card.className='pose-card';
       const title=document.createElement('div');title.className='pose-title';
-      const a=document.createElement('span');a.textContent=`源姿势 ${f}`;
+      const a=document.createElement('span');a.textContent=profile.reviewFrameLabels?.[String(f)] ?? (profile.reviewFrameSources?.[String(f)]!==undefined ? `举杖姿势 ${f-99} · 参考 ${profile.reviewFrameSources[String(f)]}` : `源姿势 ${f}`);
       const b=document.createElement('span');const available=!!imageFor(profile.newFrames[String(f)]);b.textContent=available?'新稿已就绪':'新稿缺失';title.append(a,b);
       const pair=document.createElement('div');pair.className='pose-stage';
       const old=document.createElement('canvas'),redraw=document.createElement('canvas');pair.append(old,redraw);
@@ -113,7 +116,7 @@
     profile=data.profiles.find(p=>p.id===active.profile);tick=0;
     $('map-ground').hidden=!profile.mapGround;
     $('map-ground').setAttribute('aria-pressed',String(mapGround && !!profile.mapGround));
-    $('scrub').max=String(active.frames.length-1);$('source-size').textContent=profile.sourceFrameSize.join(' × ')+' 像素';
+    $('scrub').max=String(frameCount()-1);$('source-size').textContent=profile.sourceFrameSize.join(' × ')+' 像素';
     $('source-label').textContent=active.referenceLabel||'原作';
     $('ready-state').textContent=active.ready?'素材齐备 · 待验收':active.sourceReviewPending?'参考来源复核中':`尚缺 ${active.missingFrames.length} 个源姿势`;
     $('ready-state').className=active.ready?'status-ready':'status-pending';
@@ -161,7 +164,7 @@
   $('map-ground').onclick=()=>{mapGround=true;$('map-ground').setAttribute('aria-pressed','true');$('dark').setAttribute('aria-pressed','false');$('light').setAttribute('aria-pressed','false');draw();};
   document.addEventListener('keydown',event=>{if(event.target.matches('input,button,textarea,select')||event.altKey||event.ctrlKey||event.metaKey)return;if(event.code==='Space'){event.preventDefault();setPlaying(!playing);}if(event.code==='ArrowLeft'||event.code==='ArrowRight'){event.preventDefault();setPlaying(false);seek(tick+(event.code==='ArrowRight'?1:-1));}});
   document.addEventListener('visibilitychange',()=>{last=null;});
-  function animate(now){if(playing&&active){if(last!==null){accumulated+=(now-last)/1000*active.fps*speed;const steps=Math.floor(accumulated);if(steps){accumulated-=steps;tick=(tick+steps)%active.frames.length;draw();}}last=now;}requestAnimationFrame(animate);}
+  function animate(now){if(playing&&active){if(last!==null){accumulated+=(now-last)/1000*active.fps*speed;const steps=Math.floor(accumulated);if(steps){accumulated-=steps;tick=(tick+steps)%frameCount();draw();}}last=now;}requestAnimationFrame(animate);}
   const requestedId=new URLSearchParams(location.search).get('action')||document.body.dataset.defaultAction;
   const requested=data.actions.find(a=>a.id===requestedId);
   const requestedProfile=data.profiles.find(p=>p.id===requested?.profile);

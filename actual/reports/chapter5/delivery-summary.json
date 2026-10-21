@@ -1,0 +1,909 @@
+{
+  "passed": true,
+  "version": "0.10.0",
+  "chapter5_battles": 7,
+  "total_battles": 40,
+  "state_checks": 430,
+  "hub_checks": 31,
+  "hub_inputs": 188,
+  "package_checks": 53,
+  "rounds": [
+    {
+      "round": "round1",
+      "inputs": 10166,
+      "battles": [
+        {
+          "code": "M51",
+          "final_turn": 15,
+          "outcome": "victory"
+        },
+        {
+          "code": "M52",
+          "final_turn": 13,
+          "outcome": "victory"
+        },
+        {
+          "code": "F51",
+          "final_turn": 17,
+          "outcome": "victory"
+        },
+        {
+          "code": "F52",
+          "final_turn": 15,
+          "outcome": "victory"
+        },
+        {
+          "code": "S51",
+          "final_turn": 9,
+          "outcome": "victory"
+        },
+        {
+          "code": "J53",
+          "final_turn": 8,
+          "outcome": "victory"
+        },
+        {
+          "code": "J54",
+          "final_turn": 13,
+          "outcome": "victory"
+        }
+      ],
+      "stat_edits": false,
+      "forced_victories": false
+    },
+    {
+      "round": "round2",
+      "inputs": 10467,
+      "battles": [
+        {
+          "code": "F51",
+          "final_turn": 16,
+          "outcome": "victory"
+        },
+        {
+          "code": "F52",
+          "final_turn": 11,
+          "outcome": "victory"
+        },
+        {
+          "code": "S51",
+          "final_turn": 11,
+          "outcome": "victory"
+        },
+        {
+          "code": "M51",
+          "final_turn": 13,
+          "outcome": "victory"
+        },
+        {
+          "code": "M52",
+          "final_turn": 12,
+          "outcome": "victory"
+        },
+        {
+          "code": "J53",
+          "final_turn": 10,
+          "outcome": "victory"
+        },
+        {
+          "code": "J54",
+          "final_turn": 13,
+          "outcome": "victory"
+        }
+      ],
+      "stat_edits": false,
+      "forced_victories": false
+    }
+  ],
+  "final_sample": {
+    "passed": true,
+    "inputs": 2642,
+    "turn": 14
+  },
+  "additional_sample_failure": "round2final：终战截图复打时艾琳被击倒，真实失败保留；调整试玩的后排保护策略后round2finalsafe通过，未改游戏数值或强制胜利。",
+  "fixes": [
+    "修正新增数组的GDScript类型转换",
+    "合流结算保留两队归属、成长与装备",
+    "完成结局菜单从旧翻页分支分离，支持重看与继续",
+    "柱身切片剔除相邻碎片，保持整柱轮廓",
+    "神宫院落、岸线、墙柱与据点建筑补齐，入口和出生格连通复检"
+  ],
+  "screenshots": [
+    {
+      "path": "reports/chapter5/visual/F51-goal-text.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 34059,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/F51-objective.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 41010,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/F51-whole.png",
+      "size": [
+        768,
+        576
+      ],
+      "bytes": 188308,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/F52-goal-text.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 44984,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/F52-objective.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 54862,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/F52-whole.png",
+      "size": [
+        768,
+        576
+      ],
+      "bytes": 215214,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/H51.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 29239,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/H52.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 23941,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/H53.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 21204,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/H54.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 18619,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/H55.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 24831,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/H56.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 30449,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/J53-goal-text.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 40735,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/J53-objective.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 47040,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/J53-whole.png",
+      "size": [
+        768,
+        576
+      ],
+      "bytes": 244325,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/J54-goal-text.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 34466,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/J54-objective.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 40897,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/J54-whole.png",
+      "size": [
+        768,
+        576
+      ],
+      "bytes": 250123,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/M51-goal-text.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 51188,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/M51-objective.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 60745,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/M51-whole.png",
+      "size": [
+        768,
+        576
+      ],
+      "bytes": 233378,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/M52-goal-text.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 24616,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/M52-objective.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 29060,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/M52-whole.png",
+      "size": [
+        768,
+        576
+      ],
+      "bytes": 118879,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/S51-goal-text.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 38013,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/S51-objective.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 44321,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/visual/S51-whole.png",
+      "size": [
+        768,
+        576
+      ],
+      "bytes": 164188,
+      "lossless": true,
+      "purpose": "地图／目标／据点定向视口"
+    },
+    {
+      "path": "reports/chapter5/screenshots/01-royal-wards.png",
+      "size": [
+        640,
+        480
+      ],
+      "bytes": 95842,
+      "lossless": true,
+      "purpose": "真实试玩存档视口"
+    },
+    {
+      "path": "reports/chapter5/screenshots/02-sky-bridge.png",
+      "size": [
+        640,
+        480
+      ],
+      "bytes": 40260,
+      "lossless": true,
+      "purpose": "真实试玩存档视口"
+    },
+    {
+      "path": "reports/chapter5/screenshots/03-lower-shrine.png",
+      "size": [
+        640,
+        480
+      ],
+      "bytes": 70516,
+      "lossless": true,
+      "purpose": "真实试玩存档视口"
+    },
+    {
+      "path": "reports/chapter5/screenshots/04-lower-palace.png",
+      "size": [
+        640,
+        480
+      ],
+      "bytes": 76596,
+      "lossless": true,
+      "purpose": "真实试玩存档视口"
+    },
+    {
+      "path": "reports/chapter5/screenshots/05-archive.png",
+      "size": [
+        640,
+        400
+      ],
+      "bytes": 44128,
+      "lossless": true,
+      "purpose": "真实试玩存档视口"
+    },
+    {
+      "path": "reports/chapter5/screenshots/06-preparation.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 25196,
+      "lossless": true,
+      "purpose": "真实试玩存档视口"
+    },
+    {
+      "path": "reports/chapter5/screenshots/07-deployment-list.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 17126,
+      "lossless": true,
+      "purpose": "真实试玩存档视口"
+    },
+    {
+      "path": "reports/chapter5/screenshots/08-forecourt.png",
+      "size": [
+        768,
+        576
+      ],
+      "bytes": 242042,
+      "lossless": true,
+      "purpose": "真实试玩存档视口"
+    },
+    {
+      "path": "reports/chapter5/screenshots/09-throne.png",
+      "size": [
+        768,
+        576
+      ],
+      "bytes": 245650,
+      "lossless": true,
+      "purpose": "真实试玩存档视口"
+    },
+    {
+      "path": "reports/chapter5/screenshots/10-throne-close.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 41337,
+      "lossless": true,
+      "purpose": "真实试玩存档视口"
+    },
+    {
+      "path": "reports/chapter5/screenshots/11-final-phase.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 42991,
+      "lossless": true,
+      "purpose": "真实试玩存档视口"
+    },
+    {
+      "path": "reports/chapter5/screenshots/12-daylight-ending.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 59082,
+      "lossless": true,
+      "purpose": "真实试玩存档视口"
+    },
+    {
+      "path": "reports/chapter5/screenshots/13-mireille-care.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 58315,
+      "lossless": true,
+      "purpose": "真实试玩存档视口"
+    },
+    {
+      "path": "reports/chapter5/screenshots/14-future-reunion.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 59190,
+      "lossless": true,
+      "purpose": "真实试玩存档视口"
+    }
+  ],
+  "visual_errors": [],
+  "new_art": [
+    {
+      "path": "assets/chapter5/archive.png",
+      "purpose": "旧书库",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 16949,
+      "quality_note": "完整原比例位图／16像素原生图块；无损压缩"
+    },
+    {
+      "path": "assets/chapter5/column.png",
+      "purpose": "神宫柱廊与桥柱",
+      "size": [
+        32,
+        80
+      ],
+      "bytes": 4436,
+      "quality_note": "完整原比例位图／16像素原生图块；无损压缩"
+    },
+    {
+      "path": "assets/chapter5/ending-coast.png",
+      "purpose": "结局专用海岸全景，固定16:9",
+      "size": [
+        512,
+        288
+      ],
+      "bytes": 303380,
+      "quality_note": "保留512×288完整色彩与日出渐层，视觉质量优先；无损压缩后303380字节，高于200KB参考值，不牺牲画质"
+    },
+    {
+      "path": "assets/chapter5/infirmary.png",
+      "purpose": "伤兵病房",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 15344,
+      "quality_note": "完整原比例位图／16像素原生图块；无损压缩"
+    },
+    {
+      "path": "assets/chapter5/palace.png",
+      "purpose": "神宫／王都主体",
+      "size": [
+        112,
+        112
+      ],
+      "bytes": 21608,
+      "quality_note": "完整原比例位图／16像素原生图块；无损压缩"
+    },
+    {
+      "path": "assets/chapter5/regulator.png",
+      "purpose": "地方循环装置",
+      "size": [
+        64,
+        64
+      ],
+      "bytes": 7042,
+      "quality_note": "完整原比例位图／16像素原生图块；无损压缩"
+    },
+    {
+      "path": "assets/chapter5/stair.png",
+      "purpose": "祭所北侧阶梯",
+      "size": [
+        64,
+        64
+      ],
+      "bytes": 7010,
+      "quality_note": "完整原比例位图／16像素原生图块；无损压缩"
+    },
+    {
+      "path": "assets/chapter5/sun_gate.png",
+      "purpose": "神宫门廊",
+      "size": [
+        80,
+        96
+      ],
+      "bytes": 12285,
+      "quality_note": "完整原比例位图／16像素原生图块；无损压缩"
+    },
+    {
+      "path": "assets/chapter5/temple-tiles.png",
+      "purpose": "完整共享图集＋16种新铺地",
+      "size": [
+        512,
+        688
+      ],
+      "bytes": 96691,
+      "quality_note": "完整原比例位图／16像素原生图块；无损压缩"
+    },
+    {
+      "path": "assets/chapter5/throne.png",
+      "purpose": "七羽神座",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 16979,
+      "quality_note": "完整原比例位图／16像素原生图块；无损压缩"
+    }
+  ],
+  "source_sha256": "ef32cf748301e9a2f95f2581c979dc4542f601d9ac65c464c84f4358b53fdfac",
+  "pck_sha256": "87a70e8636b83c3891414e4aecd5fa249f73035c11d23a1fcf70fc222a33c526",
+  "pck_bytes": 169614288,
+  "remaining_treatment": 0.0,
+  "limitations": [
+    "前四章未在本轮重跑完整流程；读取真实第四章存档并验证章节过渡",
+    "角色待机、移动、战斗动画沿用现有代码，未作为本次动画验收对象",
+    "图形由Mac Godot后台视口捕获，未进行移动设备实机测试"
+  ],
+  "palette_revision": "muted-v2",
+  "palette_checks": {
+    "passed": true,
+    "palette": "muted-v2",
+    "assets": [
+      {
+        "asset": "palace",
+        "size": [
+          112,
+          112
+        ],
+        "before": {
+          "mean_saturation": 0.4101,
+          "alpha_bounds": [
+            2,
+            16,
+            110,
+            110
+          ]
+        },
+        "after": {
+          "mean_saturation": 0.2445,
+          "alpha_bounds": [
+            2,
+            16,
+            110,
+            110
+          ]
+        },
+        "bytes": 21608
+      },
+      {
+        "asset": "infirmary",
+        "size": [
+          96,
+          96
+        ],
+        "before": {
+          "mean_saturation": 0.3993,
+          "alpha_bounds": [
+            2,
+            15,
+            92,
+            93
+          ]
+        },
+        "after": {
+          "mean_saturation": 0.2428,
+          "alpha_bounds": [
+            2,
+            16,
+            94,
+            94
+          ]
+        },
+        "bytes": 15344
+      },
+      {
+        "asset": "sun_gate",
+        "size": [
+          80,
+          96
+        ],
+        "before": {
+          "mean_saturation": 0.4495,
+          "alpha_bounds": [
+            4,
+            12,
+            78,
+            92
+          ]
+        },
+        "after": {
+          "mean_saturation": 0.2742,
+          "alpha_bounds": [
+            3,
+            9,
+            78,
+            92
+          ]
+        },
+        "bytes": 12285
+      },
+      {
+        "asset": "archive",
+        "size": [
+          96,
+          96
+        ],
+        "before": {
+          "mean_saturation": 0.4645,
+          "alpha_bounds": [
+            6,
+            6,
+            94,
+            94
+          ]
+        },
+        "after": {
+          "mean_saturation": 0.2664,
+          "alpha_bounds": [
+            5,
+            5,
+            94,
+            94
+          ]
+        },
+        "bytes": 16949
+      },
+      {
+        "asset": "regulator",
+        "size": [
+          64,
+          64
+        ],
+        "before": {
+          "mean_saturation": 0.4308,
+          "alpha_bounds": [
+            4,
+            9,
+            61,
+            59
+          ]
+        },
+        "after": {
+          "mean_saturation": 0.2711,
+          "alpha_bounds": [
+            2,
+            11,
+            61,
+            62
+          ]
+        },
+        "bytes": 7042
+      },
+      {
+        "asset": "stair",
+        "size": [
+          64,
+          64
+        ],
+        "before": {
+          "mean_saturation": 0.3516,
+          "alpha_bounds": [
+            3,
+            9,
+            60,
+            62
+          ]
+        },
+        "after": {
+          "mean_saturation": 0.2383,
+          "alpha_bounds": [
+            3,
+            10,
+            60,
+            62
+          ]
+        },
+        "bytes": 7010
+      },
+      {
+        "asset": "column",
+        "size": [
+          32,
+          80
+        ],
+        "before": {
+          "mean_saturation": 0.4343,
+          "alpha_bounds": [
+            2,
+            5,
+            30,
+            78
+          ]
+        },
+        "after": {
+          "mean_saturation": 0.2761,
+          "alpha_bounds": [
+            2,
+            6,
+            30,
+            78
+          ]
+        },
+        "bytes": 4436
+      },
+      {
+        "asset": "throne",
+        "size": [
+          96,
+          96
+        ],
+        "before": {
+          "mean_saturation": 0.4279,
+          "alpha_bounds": [
+            2,
+            4,
+            94,
+            94
+          ]
+        },
+        "after": {
+          "mean_saturation": 0.2642,
+          "alpha_bounds": [
+            3,
+            2,
+            94,
+            90
+          ]
+        },
+        "bytes": 16979
+      }
+    ],
+    "geometry_changed": false,
+    "animation_changed": false
+  },
+  "palette_package_checks": {
+    "checks": [
+      {
+        "height": 112,
+        "path": "res://assets/chapter5/palace.png",
+        "pixels_match": true,
+        "width": 112
+      },
+      {
+        "height": 96,
+        "path": "res://assets/chapter5/infirmary.png",
+        "pixels_match": true,
+        "width": 96
+      },
+      {
+        "height": 96,
+        "path": "res://assets/chapter5/sun_gate.png",
+        "pixels_match": true,
+        "width": 80
+      },
+      {
+        "height": 96,
+        "path": "res://assets/chapter5/archive.png",
+        "pixels_match": true,
+        "width": 96
+      },
+      {
+        "height": 64,
+        "path": "res://assets/chapter5/regulator.png",
+        "pixels_match": true,
+        "width": 64
+      },
+      {
+        "height": 64,
+        "path": "res://assets/chapter5/stair.png",
+        "pixels_match": true,
+        "width": 64
+      },
+      {
+        "height": 80,
+        "path": "res://assets/chapter5/column.png",
+        "pixels_match": true,
+        "width": 32
+      },
+      {
+        "height": 96,
+        "path": "res://assets/chapter5/throne.png",
+        "pixels_match": true,
+        "width": 96
+      }
+    ],
+    "errors": [],
+    "passed": true,
+    "revision": "muted-v2",
+    "scope": "art-only exported texture verification; gameplay tests were not rerun"
+  },
+  "palette_scope": "本次仅八张建筑／装置调色、11张既有试玩视口更新和导出纹理校验；既有两轮战役检查未重跑。visual目录保留初版定向检查。"
+}

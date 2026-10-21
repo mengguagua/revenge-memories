@@ -1,0 +1,956 @@
+{
+  "revision": "ghost-fire-v1-20261021",
+  "runtime_integrated": false,
+  "image_generation_invoked": false,
+  "chat_image_output": false,
+  "palettes": {
+    "enemy": {
+      "shadow": [
+        29,
+        42,
+        72
+      ],
+      "flame": [
+        58,
+        80,
+        126
+      ],
+      "light": [
+        147,
+        170,
+        205
+      ],
+      "eye_ink": [
+        18,
+        27,
+        50
+      ],
+      "eye_light": [
+        215,
+        225,
+        237
+      ]
+    },
+    "ally": {
+      "shadow": [
+        49,
+        88,
+        120
+      ],
+      "flame": [
+        114,
+        173,
+        201
+      ],
+      "light": [
+        230,
+        241,
+        244
+      ],
+      "eye_ink": [
+        40,
+        68,
+        96
+      ],
+      "eye_light": [
+        255,
+        255,
+        255
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "ghost-fire-v1-20261021/enemy/flight-16e4b27c3357ee.png",
+      "purpose": "enemy / original flight flame with two stable visible eyes",
+      "size": [
+        192,
+        64
+      ],
+      "bytes": 418,
+      "sha256": "c30f7bc49bbe429b9d46ee0efffe4b060cdc138e690ab15559988ee6180a68d7",
+      "visible_bounds": [
+        8,
+        32,
+        116,
+        64
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/flight-3a16e2c933bc40.png",
+      "purpose": "enemy / original flight flame with two stable visible eyes",
+      "size": [
+        192,
+        64
+      ],
+      "bytes": 408,
+      "sha256": "0c88e49ae9228f52f87337f2be43d4bbecd944725734333222a2afb854234372",
+      "visible_bounds": [
+        8,
+        32,
+        116,
+        64
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/blast-3e6396202ccac1.png",
+      "purpose": "enemy / original burst shape enlarged about fifteen percent",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 537,
+      "sha256": "e3a4613059491aa614ba4d1d6b33890f0f04507a4d5917d474dad6c58dcb8e40",
+      "visible_bounds": [
+        68,
+        68,
+        124,
+        124
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/color-417803ca18cf79.png",
+      "purpose": "enemy / unchanged blank transition registration",
+      "size": [
+        16,
+        8
+      ],
+      "bytes": 72,
+      "sha256": "72e401dce76c44463206a1281a79461b703c5624142e059b925d50da16c928d5",
+      "visible_bounds": null
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/flight-484a0b9bc15faa.png",
+      "purpose": "enemy / original flight flame with two stable visible eyes",
+      "size": [
+        192,
+        64
+      ],
+      "bytes": 417,
+      "sha256": "2c3595af33d7051e4db7d6e1fe9af51e9d7b4e485cb77ddad7e65ec366d70eff",
+      "visible_bounds": [
+        4,
+        32,
+        116,
+        64
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/blast-4c6ee9651eccb2.png",
+      "purpose": "enemy / original burst shape enlarged about fifteen percent",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 294,
+      "sha256": "b7d2167179858a7e6e6537b25b190c448050a08d617e44f2c86d299fc1ddd5bc",
+      "visible_bounds": [
+        87,
+        87,
+        105,
+        105
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/blast-79c300aa34e915.png",
+      "purpose": "enemy / original burst shape enlarged about fifteen percent",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 1128,
+      "sha256": "8a5f1fd7f7add1112c04bc4c260f7c4f5d94ce6ba76fcf90632ca45a14647f60",
+      "visible_bounds": [
+        32,
+        32,
+        160,
+        160
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/blast-aab3481f3e0706.png",
+      "purpose": "enemy / original burst shape enlarged about fifteen percent",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 664,
+      "sha256": "4df1e0bd27001c5f607855484dad30255d2f14d5c38345ff572cb2b6921d54b8",
+      "visible_bounds": [
+        59,
+        59,
+        133,
+        133
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/blast-bcab8c7f7893aa.png",
+      "purpose": "enemy / original burst shape enlarged about fifteen percent",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 652,
+      "sha256": "58e64db63cbd6db279c55f22062b44beb59239ed403f86d3b0da608a741a1b6c",
+      "visible_bounds": [
+        59,
+        59,
+        133,
+        133
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/flight-ca271c883ab5b7.png",
+      "purpose": "enemy / original flight flame with two stable visible eyes",
+      "size": [
+        192,
+        64
+      ],
+      "bytes": 427,
+      "sha256": "a23c84241073b72ef7c03854f98d99226b288f58fb2fe462b5b6278473a5693e",
+      "visible_bounds": [
+        4,
+        32,
+        116,
+        64
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/rise-00.png",
+      "purpose": "enemy / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 730,
+      "sha256": "a37a1e967ac178cb4ad6bf5494c19d8385b41e8aa371e5a144a3e8a267ae7c6c",
+      "visible_bounds": [
+        112,
+        92,
+        145,
+        160
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/rise-01.png",
+      "purpose": "enemy / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 673,
+      "sha256": "626714a7ad7ec17ac95fb0f5d9915265e5664822aff4deb8d7e7db464c1624fc",
+      "visible_bounds": [
+        113,
+        88,
+        145,
+        155
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/rise-02.png",
+      "purpose": "enemy / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 703,
+      "sha256": "8f5cff151cd89b4f9894610dc39009d0d29197738d24dce34b060e4ac565255a",
+      "visible_bounds": [
+        115,
+        83,
+        146,
+        149
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/rise-03.png",
+      "purpose": "enemy / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 677,
+      "sha256": "ebf7047bbfead087e67b9474cd33666b6e37c923ed1cd3aef3725b9ee996af53",
+      "visible_bounds": [
+        116,
+        79,
+        147,
+        145
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/rise-04.png",
+      "purpose": "enemy / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 709,
+      "sha256": "7a92558727a5b5af20bda41ac2c88d4c40711c6380d218a3af561a1f9f2cf45c",
+      "visible_bounds": [
+        116,
+        74,
+        146,
+        138
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/rise-05.png",
+      "purpose": "enemy / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 662,
+      "sha256": "736bf9b67b0241b359a38cf70c38b4fd4ec00c00ca27a4f891cad97d54ed6a16",
+      "visible_bounds": [
+        116,
+        69,
+        145,
+        132
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/rise-06.png",
+      "purpose": "enemy / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 693,
+      "sha256": "463546a2411d7b5fc98892fd3daf8a3153c505ca6663f1fc5e272acc2ab94c5e",
+      "visible_bounds": [
+        114,
+        65,
+        144,
+        127
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/rise-07.png",
+      "purpose": "enemy / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 667,
+      "sha256": "56ab6beee0d6508530a1dbb83eeeb1cfd43783986ef0a71641cefdf67ecc3e2a",
+      "visible_bounds": [
+        113,
+        60,
+        143,
+        121
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/rise-08.png",
+      "purpose": "enemy / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 711,
+      "sha256": "3e64f30c338300abe2d97530213fec9da49aff822d26270170d647ce3e12e5c2",
+      "visible_bounds": [
+        113,
+        56,
+        142,
+        116
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/rise-09.png",
+      "purpose": "enemy / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 655,
+      "sha256": "0f2e813ccbc5e53d477c90fb08e6aba80440cb2ebfbb3d4b2dce0c0f6843c7bd",
+      "visible_bounds": [
+        112,
+        51,
+        140,
+        110
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/rise-10.png",
+      "purpose": "enemy / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 689,
+      "sha256": "2d72d2b704b5c5135a2051dc0f078e86cc7fda7fc7b7bfb320b27984cf251e72",
+      "visible_bounds": [
+        112,
+        47,
+        139,
+        105
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/rise-11.png",
+      "purpose": "enemy / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 658,
+      "sha256": "0888f63c58f2598443183c409054c5cedaf963e8b10a727c69bc793813b87c79",
+      "visible_bounds": [
+        112,
+        42,
+        139,
+        98
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/rise-12.png",
+      "purpose": "enemy / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 675,
+      "sha256": "a3706cce390ca5028f3509d56bb950be2bcea599d8b96e108ba11cc12d3b726b",
+      "visible_bounds": [
+        113,
+        37,
+        139,
+        92
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/rise-13.png",
+      "purpose": "enemy / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 654,
+      "sha256": "203eb17ec09fd5fe326cb2c7919da35c1b1667f12d908300fdc518c7c9242545",
+      "visible_bounds": [
+        115,
+        33,
+        140,
+        87
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy/rise-14.png",
+      "purpose": "enemy / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 334,
+      "sha256": "70a213096a8a3aa52d8b05ee5ff5f8d14305a01d51f9305d2555880a4a2b458c",
+      "visible_bounds": null
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/flight-16e4b27c3357ee.png",
+      "purpose": "ally / original flight flame with two stable visible eyes",
+      "size": [
+        192,
+        64
+      ],
+      "bytes": 424,
+      "sha256": "aa1ccc0a04bd43cb769b8d561c2327ce08faddf89e85ee6102ab3f7e621ad412",
+      "visible_bounds": [
+        8,
+        32,
+        116,
+        64
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/flight-3a16e2c933bc40.png",
+      "purpose": "ally / original flight flame with two stable visible eyes",
+      "size": [
+        192,
+        64
+      ],
+      "bytes": 403,
+      "sha256": "ecca160b7072ec39fef27bfc9317cae5fa967e3b321834006e91a3644da99e78",
+      "visible_bounds": [
+        8,
+        32,
+        116,
+        64
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/blast-3e6396202ccac1.png",
+      "purpose": "ally / original burst shape enlarged about fifteen percent",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 537,
+      "sha256": "4d2b0869e83405446ca48de1700273c4c622979022da77a28f75603e45c3f8e9",
+      "visible_bounds": [
+        68,
+        68,
+        124,
+        124
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/color-417803ca18cf79.png",
+      "purpose": "ally / unchanged blank transition registration",
+      "size": [
+        16,
+        8
+      ],
+      "bytes": 72,
+      "sha256": "72e401dce76c44463206a1281a79461b703c5624142e059b925d50da16c928d5",
+      "visible_bounds": null
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/flight-484a0b9bc15faa.png",
+      "purpose": "ally / original flight flame with two stable visible eyes",
+      "size": [
+        192,
+        64
+      ],
+      "bytes": 418,
+      "sha256": "0c74dc89daa8091c6d1c518d5e905184d58d2a661cff5e5844415201b2cce74c",
+      "visible_bounds": [
+        4,
+        32,
+        116,
+        64
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/blast-4c6ee9651eccb2.png",
+      "purpose": "ally / original burst shape enlarged about fifteen percent",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 299,
+      "sha256": "44c3ec403abd4b846e7142d5de2d7c0ee11b61ed7a3ee2eba58953c11effe530",
+      "visible_bounds": [
+        87,
+        87,
+        105,
+        105
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/blast-79c300aa34e915.png",
+      "purpose": "ally / original burst shape enlarged about fifteen percent",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 1103,
+      "sha256": "386dfa2420389e1553e0e290e903bbd7e64ed368b3995a7d984f94f62f0d8a20",
+      "visible_bounds": [
+        32,
+        32,
+        160,
+        160
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/blast-aab3481f3e0706.png",
+      "purpose": "ally / original burst shape enlarged about fifteen percent",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 654,
+      "sha256": "5c6d06f7fa026e6974e768b8d1a55ef42a16c82ea006f3641c30204e149069fb",
+      "visible_bounds": [
+        59,
+        59,
+        133,
+        133
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/blast-bcab8c7f7893aa.png",
+      "purpose": "ally / original burst shape enlarged about fifteen percent",
+      "size": [
+        192,
+        192
+      ],
+      "bytes": 635,
+      "sha256": "b15ebca05f08edc23c9fce6176143a2d1977c211feadc8d3766a06be10bbdea8",
+      "visible_bounds": [
+        59,
+        59,
+        133,
+        133
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/flight-ca271c883ab5b7.png",
+      "purpose": "ally / original flight flame with two stable visible eyes",
+      "size": [
+        192,
+        64
+      ],
+      "bytes": 427,
+      "sha256": "d133ff2864cd963ba5696d21bd6fe4b355d0d743091dc29c3d081bdb7d49fabf",
+      "visible_bounds": [
+        4,
+        32,
+        116,
+        64
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/rise-00.png",
+      "purpose": "ally / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 728,
+      "sha256": "e9d7744edea4c92b0f6fd5151905b93fb933c1e11b7d20d8325ea6e1260b082e",
+      "visible_bounds": [
+        112,
+        92,
+        145,
+        160
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/rise-01.png",
+      "purpose": "ally / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 668,
+      "sha256": "3f6426472f7ea18d05488cb580815981a65ad89f38430225b7504146af4961d2",
+      "visible_bounds": [
+        113,
+        88,
+        145,
+        155
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/rise-02.png",
+      "purpose": "ally / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 687,
+      "sha256": "cb311846115b893dd87c21944cd5c02eb9562310cca1db6f5b478f2b58d5ce1b",
+      "visible_bounds": [
+        115,
+        83,
+        146,
+        149
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/rise-03.png",
+      "purpose": "ally / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 663,
+      "sha256": "b83de1d2b1eea41fb1e7484ed58935438861e4b479d932b9f99de101cce7fe09",
+      "visible_bounds": [
+        116,
+        79,
+        147,
+        145
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/rise-04.png",
+      "purpose": "ally / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 725,
+      "sha256": "82b876f8e4610531510e1d94547e8040ea4be60a8bac3b3d76ae8579a4b7345b",
+      "visible_bounds": [
+        116,
+        74,
+        146,
+        138
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/rise-05.png",
+      "purpose": "ally / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 662,
+      "sha256": "27f9f8216470108a173741d7105a9b4371f7f7936a3862206b7b2e21e0370b6c",
+      "visible_bounds": [
+        116,
+        69,
+        145,
+        132
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/rise-06.png",
+      "purpose": "ally / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 678,
+      "sha256": "c54660e7e62564c49dab8e6e888f7257b8e88265e00f5ad7f58a03dd49203e26",
+      "visible_bounds": [
+        114,
+        65,
+        144,
+        127
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/rise-07.png",
+      "purpose": "ally / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 663,
+      "sha256": "3bf9ac266a48e93b48c53badd1a21c68f0aed6f99038fed0ab625d2fb4fad207",
+      "visible_bounds": [
+        113,
+        60,
+        143,
+        121
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/rise-08.png",
+      "purpose": "ally / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 712,
+      "sha256": "55e77ac60693ce9c0f81d4b275a147ff9a1f636830cb83ceccf6dc9a72b9187b",
+      "visible_bounds": [
+        113,
+        56,
+        142,
+        116
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/rise-09.png",
+      "purpose": "ally / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 653,
+      "sha256": "2adbf697cdf76079fc535db46fdbc5f510e807220b260639c729b71e1fddc71f",
+      "visible_bounds": [
+        112,
+        51,
+        140,
+        110
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/rise-10.png",
+      "purpose": "ally / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 671,
+      "sha256": "94f7135fc08032e38bcec6e4d8e8be4d5cc292a62bb092235e0a0b287c199edb",
+      "visible_bounds": [
+        112,
+        47,
+        139,
+        105
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/rise-11.png",
+      "purpose": "ally / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 646,
+      "sha256": "faa46260a96bdf2d76ac9a39e32db8b412b8ed94c3851aceeff667b3822601d9",
+      "visible_bounds": [
+        112,
+        42,
+        139,
+        98
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/rise-12.png",
+      "purpose": "ally / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 691,
+      "sha256": "8508b16a57ee1c44af105c27ea6f58ae62ef48998dfbdefcbcae862579f186cd",
+      "visible_bounds": [
+        113,
+        37,
+        139,
+        92
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/rise-13.png",
+      "purpose": "ally / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 654,
+      "sha256": "a3bdc6a3e298aca6761a566b031ce19f07d2a031d0ab901587b24c40ce454125",
+      "visible_bounds": [
+        115,
+        33,
+        140,
+        87
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally/rise-14.png",
+      "purpose": "ally / upright flame with eyes rises after the original blast, then fades",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 334,
+      "sha256": "70a213096a8a3aa52d8b05ee5ff5f8d14305a01d51f9305d2555880a4a2b458c",
+      "visible_bounds": null
+    },
+    {
+      "path": "ghost-fire-v1-20261021/flight-eyes.png",
+      "purpose": "four flight phases, both factions, dark and light backgrounds; measured label padding",
+      "size": [
+        1240,
+        916
+      ],
+      "bytes": 24685,
+      "sha256": "ccc513ad1c8f5d7e856a4ac095762061f154b8888c9c9255652d3a1ea9f78077",
+      "visible_bounds": [
+        0,
+        0,
+        1240,
+        916
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy-flight-frame-89.png",
+      "purpose": "enemy / original and revised flight-frame-89",
+      "size": [
+        2376,
+        840
+      ],
+      "bytes": 29305,
+      "sha256": "0a6fc7e93996b835d09ca7cb2d27db84736b6d4c49d9492da1250a365b1ebbbd",
+      "visible_bounds": [
+        0,
+        0,
+        2376,
+        840
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy-blast-frame-138.png",
+      "purpose": "enemy / original and revised blast-frame-138",
+      "size": [
+        2376,
+        840
+      ],
+      "bytes": 30887,
+      "sha256": "c958517afd741ee61939e1cd0357071b78479468be8ac928bbffebac31ffad5f",
+      "visible_bounds": [
+        0,
+        0,
+        2376,
+        840
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/enemy-rise-frame-174.png",
+      "purpose": "enemy / original and revised rise-frame-174",
+      "size": [
+        2376,
+        840
+      ],
+      "bytes": 33061,
+      "sha256": "5b3ac826e5817fd8c0a2a0b6d20c74556abe0e1b90fdbe90d6f38415a13c07ce",
+      "visible_bounds": [
+        0,
+        0,
+        2376,
+        840
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally-flight-frame-89.png",
+      "purpose": "ally / original and revised flight-frame-89",
+      "size": [
+        2376,
+        840
+      ],
+      "bytes": 46525,
+      "sha256": "d0a44dc0730700c9b80f18578835ce233ae69aa5ceab895b04b98c67f28a761c",
+      "visible_bounds": [
+        0,
+        0,
+        2376,
+        840
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally-blast-frame-120.png",
+      "purpose": "ally / original and revised blast-frame-120",
+      "size": [
+        2376,
+        840
+      ],
+      "bytes": 44360,
+      "sha256": "0950e36a9fd5915b9432090ba511a53c08ff4fbd067358aa50dff4b5da540213",
+      "visible_bounds": [
+        0,
+        0,
+        2376,
+        840
+      ]
+    },
+    {
+      "path": "ghost-fire-v1-20261021/ally-rise-frame-141.png",
+      "purpose": "ally / original and revised rise-frame-141",
+      "size": [
+        2376,
+        840
+      ],
+      "bytes": 47390,
+      "sha256": "a1ff78a7ba4199c88c9ec412d9ffc68dd1ba7c1d1341e846c1ea25c4b4847a79",
+      "visible_bounds": [
+        0,
+        0,
+        2376,
+        840
+      ]
+    }
+  ]
+}

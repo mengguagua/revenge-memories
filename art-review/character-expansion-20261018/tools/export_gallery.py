@@ -60,13 +60,17 @@ def render_panel(data,profile,action,row,revised,scale=4,light=False,close=False
         paste_at(canvas,load(meta['path']),at,meta['frame_size'],scale,viewport,effect.get('flip',False))
     return canvas
 
+def playback_count(action):
+    return len(action['frames'])+len(action.get('reviewTailFrames',[]))
+
 def render_frame(data,profile,action,tick,scale=4,light=False,close=False):
-    row=action['frames'][tick];revised_row=action.get('revisedFrames',action['frames'])[tick]
+    row=action['frames'][min(tick,len(action['frames'])-1)]
+    revised_row=action.get('revisedFrames',action['frames'])[tick]if tick<len(action['frames'])else action['reviewTailFrames'][tick-len(action['frames'])]
     left=render_panel(data,profile,action,row,False,scale,light,close);right=render_panel(data,profile,action,revised_row,True,scale,light,close)
     margin=24;gap=24;top=76;bottom=60;w=left.width*2+margin*2+gap;h=left.height+top+bottom
     canvas=Image.new('RGB',(w+(w%2),h+(h%2)),(14,21,26));draw=ImageDraw.Draw(canvas)
     heading=profile['actorName']+' · '+action['name']
-    if profile.get('revision') in ['curse-mage-cross-step-v5-20261020','curse-mage-low-arm-v4-20261020','curse-mage-sleeve-inset-v3-20261020','curse-mage-map-v2-20261020','curse-mage-idle-v1-20261020','gold-knight-idle-style-v6-20261020','gold-knight-side-anchor-v5-20261020','gold-knight-down-v4-20261020','gold-knight-walk-v3-20261020','gold-knight-idle-v2-20261020','mercenary-pixel-grid-v3-20261019','archer-battle-scale-v4-20261019','mercenary-enemy-deep-blue-v2-20261019','mercenary-battle-simple-v1-20261019','spearman-enemy-blue-violet-v2-20261019','spearman-battle-width-palette-20261019','archer-battle-light-armor-v3-20261019','archer-battle-simple-v2-20261019','archer-battle-width-palette-20261019','mercenary-left-neck-v3-20261019','mercenary-eyes-v2-20261019','mercenary-map-review-20261019','body-volume-motion-20261018','sol','archer-spearman-map-20261018','archer-bow-v2-20261018','archer-arms-step-v3-20261018','archer-down-hand-v4-20261018','spearman-map-v2-20261018','spearman-stance-v3-20261018']:
+    if profile.get('revision') in ['knight-walk-paired-legs-v5-20261021','knight-idle-paired-legs-v4-20261021','knight-redraw-v3-20261021','knight-map-joints-v2-20261021','knight-complete-v1-20261021','cavalry-battle-lance-colors-v1-20261021','enemy-cavalry-map-blue-violet-v1-20261021','cavalry-map-white-v2-20261021','cavalry-map-anchor-palette-v1-20261021','mage-battle-round-hat-v1-20261021','mage-map-motion-v3-20261021','mage-robe-idle-warm-v2-20261021','mage-robe-idle-v1-20261021','curse-mage-battle-v1-20261020','curse-mage-cross-step-v5-20261020','curse-mage-low-arm-v4-20261020','curse-mage-sleeve-inset-v3-20261020','curse-mage-map-v2-20261020','curse-mage-idle-v1-20261020','gold-knight-idle-style-v6-20261020','gold-knight-side-anchor-v5-20261020','gold-knight-down-v4-20261020','gold-knight-walk-v3-20261020','gold-knight-idle-v2-20261020','mercenary-pixel-grid-v3-20261019','archer-battle-scale-v4-20261019','mercenary-enemy-deep-blue-v2-20261019','mercenary-battle-simple-v1-20261019','spearman-enemy-blue-violet-v2-20261019','spearman-battle-width-palette-20261019','archer-battle-light-armor-v3-20261019','archer-battle-simple-v2-20261019','archer-battle-width-palette-20261019','mercenary-left-neck-v3-20261019','mercenary-eyes-v2-20261019','mercenary-map-review-20261019','body-volume-motion-20261018','sol','archer-spearman-map-20261018','archer-bow-v2-20261018','archer-arms-step-v3-20261018','archer-down-hand-v4-20261018','spearman-map-v2-20261018','spearman-stance-v3-20261018']:
         heading_font=next((font(n)for n in range(22,13,-1)if draw.textbbox((0,0),heading,font=font(n))[2]<=canvas.width-2*margin),font(14))
         hb=draw.textbbox((0,0),heading,font=heading_font)
         if hb[2]-hb[0]>canvas.width-2*margin:raise ValueError('Title exceeds measured text safe area')
@@ -77,7 +81,8 @@ def render_frame(data,profile,action,tick,scale=4,light=False,close=False):
         draw.text((margin,14),heading,font=font(22),fill=(235,243,242))
         draw.text((margin,48),action.get('referenceLabel','原作'),font=font(15),fill=(160,178,189));draw.text((margin+left.width+gap,48),'四倍像素重绘',font=font(15),fill=(168,214,200))
     canvas.paste(left.convert('RGB'),(margin,top));canvas.paste(right.convert('RGB'),(margin+left.width+gap,top))
-    label=f'第 {tick+1} / {len(action["frames"])} 帧  ·  源姿势 {row["frame"]}  ·  {tick/action["fps"]:.3f} 秒'
+    ending='  ·  原作结束，新稿'+action.get('reviewTailLabel','光点收尾')if tick>=len(action['frames'])else''
+    label=f'第 {tick+1} / {playback_count(action)} 帧  ·  源姿势 {row["frame"]}  ·  {tick/action["fps"]:.3f} 秒'+ending
     draw.text((margin,top+left.height+16),label,font=font(15),fill=(160,178,189))
     return canvas
 
@@ -100,13 +105,13 @@ def export(data,action,args):
     command=[ffmpeg,'-hide_banner','-loglevel','error','-y','-f','rawvideo','-pix_fmt','rgb24','-s',size,'-r',fps,'-i','pipe:0','-an','-c:v','libx264','-preset','medium','-crf','17','-pix_fmt','yuv420p','-movflags','+faststart',str(video)]
     process=subprocess.Popen(command,stdin=subprocess.PIPE,stderr=subprocess.PIPE)
     try:
-        for tick in range(len(action['frames'])):process.stdin.write(render_frame(data,profile,action,tick,args.scale,args.light,args.close).tobytes())
+        for tick in range(playback_count(action)):process.stdin.write(render_frame(data,profile,action,tick,args.scale,args.light,args.close).tobytes())
         process.stdin.close();error=process.stderr.read().decode();status=process.wait()
         if status:raise RuntimeError(error)
     except Exception:
         process.kill();process.wait();raise
     video.with_suffix('.json').write_text(json.dumps(snapshot,indent=2)+'\n')
-    return {'action':action['id'],'frames':len(action['frames']),'fps':action['fps'],'expected_duration':action['duration'],'video':str(video.relative_to(ROOT)),'video_bytes':video.stat().st_size,'still':str(still_path.relative_to(ROOT)),'still_bytes':still_path.stat().st_size,'dimensions':list(still.size)}
+    return {'action':action['id'],'frames':playback_count(action),'fps':action['fps'],'expected_duration':action['duration'],'video':str(video.relative_to(ROOT)),'video_bytes':video.stat().st_size,'still':str(still_path.relative_to(ROOT)),'still_bytes':still_path.stat().st_size,'dimensions':list(still.size)}
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--action',action='append');parser.add_argument('--all-ready',action='store_true');parser.add_argument('--stills-only',action='store_true');parser.add_argument('--scale',type=int,default=4);parser.add_argument('--light',action='store_true');parser.add_argument('--close',action='store_true');args=parser.parse_args()

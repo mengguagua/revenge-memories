@@ -4,7 +4,7 @@
   "display_name": "男魔道士（职业样板）",
   "original_class_id": 15,
   "source_side": "ally",
-  "status": "complete_art_review_passed",
+  "status": "review_candidate",
   "runtime_integrated": false,
   "source_atlas": "../../../source-input/original-motion/class-15.png",
   "source_frame_size": [
@@ -28,9 +28,12 @@
   "source_idle_frame": 0,
   "source_frame_count": 3,
   "frame_mapping": {
-    "0": "frames/frame-000.png",
-    "1": "frames/frame-001.png",
-    "2": "frames/frame-002.png"
+    "0": "../../../mage-battle-round-hat-v1-20261021/body/frame-000.png",
+    "1": "../../../mage-battle-round-hat-v1-20261021/body/frame-001.png",
+    "2": "../../../mage-battle-round-hat-v1-20261021/body/frame-002.png",
+    "100": "../../../mage-battle-round-hat-v1-20261021/body/frame-100.png",
+    "101": "../../../mage-battle-round-hat-v1-20261021/body/frame-101.png",
+    "102": "../../../mage-battle-round-hat-v1-20261021/body/frame-102.png"
   },
   "canonical_frames": [
     0,
@@ -229,13 +232,325 @@
       ]
     }
   ],
-  "output_atlas": "deliverables/battle-three-poses.png",
+  "output_atlas": "../../../mage-battle-round-hat-v1-20261021/body-atlas.png",
   "output_atlas_frame_order": [
     0,
     1,
-    2
+    2,
+    100,
+    101,
+    102
   ],
   "external_effects": "Original separately rendered spell effects; none baked into body.",
   "art_generator": "built-in image_gen",
-  "identity_scope": "Profession exemplar; does not unlock additional magic for Hervi, Carlo or another named actor."
+  "identity_scope": "Profession exemplar; does not unlock additional magic for Hervi, Carlo or another named actor.",
+  "revision": "mage-battle-round-hat-v1-20261021",
+  "modified_by": "Codex",
+  "review_timeline": "../../../slime-engulf-v1-20261021/ally-motion.json",
+  "art_mode": "existing body pixels mildly desaturated; separate rounded brim under source crown; face protected",
+  "review_note": "友方术法师战斗形象补椭圆宽帽檐，保留原尖帽帽锥与面部，六姿势帽型统一；全身饱和度仅轻降10%，原暖色保留。原动作和所有已确认法术特效、结算不变。",
+  "review_frame_sources": {
+    "100": 1,
+    "101": 1,
+    "102": 1
+  },
+  "review_records": [
+    {
+      "frame": 100,
+      "source": "curse-mage-battle-v1-20261020/ally/body/frame-100.png",
+      "source_frame": 1,
+      "hat": {
+        "center": [
+          194,
+          134
+        ],
+        "radius": 27,
+        "face": [
+          192,
+          139,
+          217,
+          148
+        ]
+      },
+      "path": "../../../mage-battle-round-hat-v1-20261021/body/frame-100.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 25183,
+      "sha256": "319fcdfd370d4e7e7441994766c9c7372a65ed5dc94bcba1d83e6e73db4aefee",
+      "visible_bounds": [
+        112,
+        63,
+        282,
+        256
+      ],
+      "revision": "mage-battle-round-hat-v1-20261021"
+    },
+    {
+      "frame": 101,
+      "source": "curse-mage-battle-v1-20261020/ally/body/frame-101.png",
+      "source_frame": 1,
+      "hat": {
+        "center": [
+          194,
+          134
+        ],
+        "radius": 27,
+        "face": [
+          192,
+          139,
+          217,
+          148
+        ]
+      },
+      "path": "../../../mage-battle-round-hat-v1-20261021/body/frame-101.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 24866,
+      "sha256": "d0fcc54cb2aab972e9b6cdf03893535a2607173fa2de320d0d4c62fb48522737",
+      "visible_bounds": [
+        112,
+        54,
+        282,
+        256
+      ],
+      "revision": "mage-battle-round-hat-v1-20261021"
+    },
+    {
+      "frame": 102,
+      "source": "curse-mage-battle-v1-20261020/ally/body/frame-102.png",
+      "source_frame": 1,
+      "hat": {
+        "center": [
+          194,
+          134
+        ],
+        "radius": 27,
+        "face": [
+          192,
+          139,
+          217,
+          148
+        ]
+      },
+      "path": "../../../mage-battle-round-hat-v1-20261021/body/frame-102.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 24290,
+      "sha256": "8b32fcfbe56c1270af5ce976da8cc8ce387e692891fe295ef6efa3c40b7ee012",
+      "visible_bounds": [
+        112,
+        52,
+        282,
+        256
+      ],
+      "revision": "mage-battle-round-hat-v1-20261021"
+    }
+  ],
+  "holy_light_revision": "holy-light-firefly-v1-20261021",
+  "wind_blade_revision": "wind-blade-spin-v1-20261021",
+  "arrow_rain_revision": "arrow-rain-medieval-v1-20261021",
+  "halo_revision": "halo-charge-v1-20261021",
+  "ghost_fire_revision": "ghost-fire-v1-20261021",
+  "slime_revision": "slime-engulf-v1-20261021",
+  "hat_revision": "mage-battle-round-hat-v1-20261021",
+  "body_review_records": [
+    {
+      "frame": 0,
+      "source": "professions/class-15-ally/battle/frames/frame-000.png",
+      "source_frame": 0,
+      "hat": {
+        "center": [
+          199,
+          139
+        ],
+        "radius": 26,
+        "face": [
+          180,
+          145,
+          213,
+          158
+        ]
+      },
+      "path": "../../../mage-battle-round-hat-v1-20261021/body/frame-000.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 19469,
+      "sha256": "5e0c7f78e8c1bad12c9dfbd408c70354debadba08b424d60eb3422a0517733a3",
+      "visible_bounds": [
+        158,
+        109,
+        232,
+        256
+      ],
+      "revision": "mage-battle-round-hat-v1-20261021"
+    },
+    {
+      "frame": 1,
+      "source": "professions/class-15-ally/battle/frames/frame-001.png",
+      "source_frame": 1,
+      "hat": {
+        "center": [
+          194,
+          134
+        ],
+        "radius": 27,
+        "face": [
+          192,
+          139,
+          217,
+          148
+        ]
+      },
+      "path": "../../../mage-battle-round-hat-v1-20261021/body/frame-001.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 23719,
+      "sha256": "77131422c588278b949fde0d5f713c192cc8c6175d20e930d2ca246c8a8798ee",
+      "visible_bounds": [
+        112,
+        101,
+        282,
+        256
+      ],
+      "revision": "mage-battle-round-hat-v1-20261021"
+    },
+    {
+      "frame": 2,
+      "source": "professions/class-15-ally/battle/frames/frame-002.png",
+      "source_frame": 2,
+      "hat": {
+        "center": [
+          183,
+          137
+        ],
+        "radius": 26,
+        "face": [
+          164,
+          142,
+          195,
+          154
+        ]
+      },
+      "path": "../../../mage-battle-round-hat-v1-20261021/body/frame-002.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 23471,
+      "sha256": "547836d30aaa9abbf9d5b73be37d90f243e6f20900854d7fa31f4d14e020e20a",
+      "visible_bounds": [
+        120,
+        109,
+        243,
+        256
+      ],
+      "revision": "mage-battle-round-hat-v1-20261021"
+    },
+    {
+      "frame": 100,
+      "source": "curse-mage-battle-v1-20261020/ally/body/frame-100.png",
+      "source_frame": 1,
+      "hat": {
+        "center": [
+          194,
+          134
+        ],
+        "radius": 27,
+        "face": [
+          192,
+          139,
+          217,
+          148
+        ]
+      },
+      "path": "../../../mage-battle-round-hat-v1-20261021/body/frame-100.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 25183,
+      "sha256": "319fcdfd370d4e7e7441994766c9c7372a65ed5dc94bcba1d83e6e73db4aefee",
+      "visible_bounds": [
+        112,
+        63,
+        282,
+        256
+      ],
+      "revision": "mage-battle-round-hat-v1-20261021"
+    },
+    {
+      "frame": 101,
+      "source": "curse-mage-battle-v1-20261020/ally/body/frame-101.png",
+      "source_frame": 1,
+      "hat": {
+        "center": [
+          194,
+          134
+        ],
+        "radius": 27,
+        "face": [
+          192,
+          139,
+          217,
+          148
+        ]
+      },
+      "path": "../../../mage-battle-round-hat-v1-20261021/body/frame-101.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 24866,
+      "sha256": "d0fcc54cb2aab972e9b6cdf03893535a2607173fa2de320d0d4c62fb48522737",
+      "visible_bounds": [
+        112,
+        54,
+        282,
+        256
+      ],
+      "revision": "mage-battle-round-hat-v1-20261021"
+    },
+    {
+      "frame": 102,
+      "source": "curse-mage-battle-v1-20261020/ally/body/frame-102.png",
+      "source_frame": 1,
+      "hat": {
+        "center": [
+          194,
+          134
+        ],
+        "radius": 27,
+        "face": [
+          192,
+          139,
+          217,
+          148
+        ]
+      },
+      "path": "../../../mage-battle-round-hat-v1-20261021/body/frame-102.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 24290,
+      "sha256": "8b32fcfbe56c1270af5ce976da8cc8ce387e692891fe295ef6efa3c40b7ee012",
+      "visible_bounds": [
+        112,
+        52,
+        282,
+        256
+      ],
+      "revision": "mage-battle-round-hat-v1-20261021"
+    }
+  ]
 }

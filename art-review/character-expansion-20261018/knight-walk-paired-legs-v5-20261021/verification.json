@@ -1,0 +1,78 @@
+{
+  "status": "passed",
+  "runtime_integrated": false,
+  "changed_actions": [
+    "professions-class-4-ally-maps-tactical-walk--idle-left",
+    "professions-class-4-ally-maps-tactical-walk--idle-right",
+    "professions-class-4-ally-maps-tactical-walk--idle-up",
+    "professions-class-4-ally-maps-tactical-walk--walk-left",
+    "professions-class-4-ally-maps-tactical-walk--walk-right",
+    "professions-class-4-ally-maps-tactical-walk--walk-up",
+    "professions-class-4-enemy-maps-tactical-walk--idle-left",
+    "professions-class-4-enemy-maps-tactical-walk--idle-right",
+    "professions-class-4-enemy-maps-tactical-walk--idle-up",
+    "professions-class-4-enemy-maps-tactical-walk--walk-left",
+    "professions-class-4-enemy-maps-tactical-walk--walk-right",
+    "professions-class-4-enemy-maps-tactical-walk--walk-up"
+  ],
+  "unchanged_actions": 575,
+  "checks": [
+    {
+      "side": "ally",
+      "up_before_bounds": [
+        48,
+        16,
+        83,
+        92
+      ],
+      "up_after_bounds": [
+        48,
+        16,
+        83,
+        86
+      ],
+      "fixed_shadow": true,
+      "side_cycle": "front(8),standing(8),rear(8),standing(8)",
+      "cycle_ticks": 32
+    },
+    {
+      "side": "enemy",
+      "up_before_bounds": [
+        48,
+        16,
+        83,
+        92
+      ],
+      "up_after_bounds": [
+        48,
+        16,
+        83,
+        86
+      ],
+      "fixed_shadow": true,
+      "side_cycle": "front(8),standing(8),rear(8),standing(8)",
+      "cycle_ticks": 32
+    }
+  ],
+  "fixed_centers": true,
+  "exact_side_mirrors": true,
+  "map_idle_and_down_and_battles_preserved": true,
+  "review_cycles_reject_changed_duration": true,
+  "javascript_syntax_check": "passed",
+  "palette_colors_per_side": 16,
+  "assets_load_and_hashes_match": true,
+  "all_new_images_under_50KB": true,
+  "visual_inspection": "Generated upward folded pose, final ally dark and enemy light boards inspected. Sideways four-stage sequence and much less exposed upward airborne legs checked. Pending user visual acceptance.",
+  "browser_check": "Local file access previously denied; offline renderer used. No browser workaround.",
+  "decoded_videos_passed": 6,
+  "stills_refreshed": 12,
+  "actual_render_check": {
+    "path": "actual-render-check.png",
+    "size": [
+      768,
+      456
+    ],
+    "bytes": 17946,
+    "inspected": "Ally left gait frames 1/9/17/25 and up gait frames 1/17; correct phase order and fixed ground shadow."
+  }
+}

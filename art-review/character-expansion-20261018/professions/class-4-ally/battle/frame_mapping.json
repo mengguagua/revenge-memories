@@ -1,0 +1,527 @@
+{
+  "schema_version": 1,
+  "revision": "knight-redraw-v3-20261021",
+  "character_id": "ally-knight",
+  "display_name": "盟军骑士",
+  "original_class_id": 4,
+  "source_side": "ally",
+  "source_frame_size": [
+    80,
+    64
+  ],
+  "output_frame_size": [
+    320,
+    256
+  ],
+  "source_anchor": [
+    40,
+    64
+  ],
+  "output_anchor": [
+    160,
+    256
+  ],
+  "source_columns": 16,
+  "source_idle_frame": 21,
+  "status": "review_candidate",
+  "runtime_integrated": false,
+  "modified_by": "Codex",
+  "variant_keys": [
+    "original_class_4_normal",
+    "class_4_ally_javelin",
+    "class_4_ally_javelin_vs_heavy",
+    "class_4_ally_javelin_far_ally",
+    "class_4_ally_javelin_far_ally_vs_heavy",
+    "class_4_ally_javelin_far_enemy",
+    "class_4_ally_javelin_far_enemy_vs_heavy"
+  ],
+  "frame_mapping": {
+    "0": "../../../knight-redraw-v3-20261021/ally/battle/frame-000.png",
+    "1": "../../../knight-redraw-v3-20261021/ally/battle/frame-001.png",
+    "2": "../../../knight-redraw-v3-20261021/ally/battle/frame-002.png",
+    "3": "../../../knight-redraw-v3-20261021/ally/battle/frame-003.png",
+    "4": "../../../knight-redraw-v3-20261021/ally/battle/frame-004.png",
+    "5": "../../../knight-redraw-v3-20261021/ally/battle/frame-005.png",
+    "6": "../../../knight-redraw-v3-20261021/ally/battle/frame-006.png",
+    "7": "../../../knight-redraw-v3-20261021/ally/battle/frame-007.png",
+    "8": "../../../knight-redraw-v3-20261021/ally/battle/frame-008.png",
+    "9": "../../../knight-redraw-v3-20261021/ally/battle/frame-009.png",
+    "21": "../../../knight-redraw-v3-20261021/ally/battle/frame-021.png",
+    "40": "../../../knight-redraw-v3-20261021/ally/battle/frame-040.png",
+    "41": "../../../knight-redraw-v3-20261021/ally/battle/frame-041.png",
+    "43": "../../../knight-redraw-v3-20261021/ally/battle/frame-043.png"
+  },
+  "output_atlas": "../../../knight-redraw-v3-20261021/ally/battle-atlas.png",
+  "output_atlas_frame_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    21,
+    40,
+    41,
+    43
+  ],
+  "effect_overrides": {
+    "5660a52a5bb041": "../../../knight-redraw-v3-20261021/ally/flying-lance.png"
+  },
+  "palette": [
+    "181d29",
+    "303847",
+    "596574",
+    "a5b3c1",
+    "d6dfe4",
+    "f5f5ef",
+    "243756",
+    "3d5680",
+    "7292b8",
+    "4d3428",
+    "85603e",
+    "b88b56",
+    "b38360",
+    "e8ba8d",
+    "c4a15a",
+    "fff8df"
+  ],
+  "batches": [
+    {
+      "id": "完整重绘全姿势",
+      "review": "../../../knight-redraw-v3-20261021/ally-battle-dark.png",
+      "status": "pending_user_visual_acceptance"
+    }
+  ],
+  "review_note": "双方骑士完整重绘，平地动作以同一面部定位点登记；保留原作冲锋、腾跃与回位。投枪准备仅一根水平长枪，释放帧空手。16色柔和蓝白／蓝紫配色。",
+  "art_provenance": "New built-in image_gen whole-pose drawings, original source pose references; whole-pose registration only.",
+  "semantic_aliases": {
+    "21": "ally standing 0",
+    "40": "standing background pose"
+  },
+  "body_review_records": [
+    {
+      "source": "battle-ground-master-v1.png",
+      "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+      "source_bounds": [
+        30,
+        110,
+        495,
+        509
+      ],
+      "opaque_pixels": 77819,
+      "label": "battle-0",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        241.0,
+        78.0
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.4423676012461059,
+      "resampled_size": [
+        206,
+        177
+      ],
+      "translation": [
+        77,
+        77
+      ],
+      "actual_landmark": [
+        183.76559139784945,
+        111.6015037593985
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-ground-master-v1.png",
+      "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+      "source_bounds": [
+        542,
+        110,
+        974,
+        509
+      ],
+      "opaque_pixels": 71863,
+      "label": "battle-1",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        218.0,
+        78.0
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.4423676012461059,
+      "resampled_size": [
+        191,
+        177
+      ],
+      "translation": [
+        88,
+        77
+      ],
+      "actual_landmark": [
+        184.38425925925927,
+        111.6015037593985
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-ground-master-v1.png",
+      "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+      "source_bounds": [
+        38,
+        583,
+        532,
+        966
+      ],
+      "opaque_pixels": 76265,
+      "label": "battle-3",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        233.0,
+        78.0
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.4423676012461059,
+      "resampled_size": [
+        219,
+        169
+      ],
+      "translation": [
+        81,
+        78
+      ],
+      "actual_landmark": [
+        184.29352226720647,
+        112.4177545691906
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-ground-master-v1.png",
+      "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+      "source_bounds": [
+        538,
+        582,
+        937,
+        966
+      ],
+      "opaque_pixels": 68645,
+      "label": "battle-4",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        222.0,
+        78.0
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.4423676012461059,
+      "resampled_size": [
+        177,
+        170
+      ],
+      "translation": [
+        86,
+        77
+      ],
+      "actual_landmark": [
+        184.4812030075188,
+        111.53125
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-ground-master-v1.png",
+      "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+      "source_bounds": [
+        1024,
+        582,
+        1469,
+        932
+      ],
+      "opaque_pixels": 69158,
+      "label": "battle-5",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        229.5,
+        78.0
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.4423676012461059,
+      "resampled_size": [
+        197,
+        155
+      ],
+      "translation": [
+        82,
+        77
+      ],
+      "actual_landmark": [
+        183.59887640449438,
+        111.54285714285714
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-002-master-v2.png",
+      "source_sha256": "0daf0b2b022b21dabdd6b1edb3872511798508896888af9b567b8e0813ff2131",
+      "source_bounds": [
+        6,
+        266,
+        1193,
+        1239
+      ],
+      "opaque_pixels": 464198,
+      "label": "battle-2",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        555.0,
+        195.0
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.18251928020565553,
+      "resampled_size": [
+        217,
+        178
+      ],
+      "translation": [
+        83,
+        76
+      ],
+      "actual_landmark": [
+        184.46166807076662,
+        111.67317574511819
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-008-009-master-v2.png",
+      "source_sha256": "c5a696f2f166e73291df0e7b54e919b7e762b607a7d2a497df6c04db287840b7",
+      "source_bounds": [
+        59,
+        123,
+        883,
+        824
+      ],
+      "opaque_pixels": 254171,
+      "label": "battle-8",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        398.0,
+        142.0
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.25402504472271914,
+      "resampled_size": [
+        209,
+        178
+      ],
+      "translation": [
+        83,
+        76
+      ],
+      "actual_landmark": [
+        183.9490291262136,
+        112.05706134094152
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-008-009-master-v2.png",
+      "source_sha256": "c5a696f2f166e73291df0e7b54e919b7e762b607a7d2a497df6c04db287840b7",
+      "source_bounds": [
+        938,
+        123,
+        1765,
+        824
+      ],
+      "opaque_pixels": 253322,
+      "label": "battle-9",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        395.5,
+        142.0
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.25402504472271914,
+      "resampled_size": [
+        210,
+        178
+      ],
+      "translation": [
+        84,
+        76
+      ],
+      "actual_landmark": [
+        184.4292623941959,
+        112.05706134094152
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-throw-master-v2.png",
+      "source_sha256": "f2ff7adba302fccaa7ff2a6d4e6d705e92a0a86bd32b1687099275e0a352f5f3",
+      "source_bounds": [
+        31,
+        104,
+        873,
+        802
+      ],
+      "opaque_pixels": 264036,
+      "label": "battle-41",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        417.5,
+        135.0
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.25199645075421473,
+      "resampled_size": [
+        212,
+        176
+      ],
+      "translation": [
+        79,
+        78
+      ],
+      "actual_landmark": [
+        184.1187648456057,
+        112.04011461318052
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-throw-master-v2.png",
+      "source_sha256": "f2ff7adba302fccaa7ff2a6d4e6d705e92a0a86bd32b1687099275e0a352f5f3",
+      "source_bounds": [
+        1022,
+        104,
+        1759,
+        802
+      ],
+      "opaque_pixels": 260715,
+      "label": "battle-43",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        311.5,
+        134.5
+      ],
+      "target_landmark": [
+        184,
+        112
+      ],
+      "scale": 0.25199645075421473,
+      "resampled_size": [
+        186,
+        176
+      ],
+      "translation": [
+        105,
+        78
+      ],
+      "actual_landmark": [
+        183.6146540027137,
+        111.91404011461319
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-special-master-v1.png",
+      "source_sha256": "7e4e8e2b947763f128d367b643e551c93798fcf5c08c14b3b3fd951e756ff469",
+      "source_bounds": [
+        57,
+        96,
+        439,
+        505
+      ],
+      "opaque_pixels": 66623,
+      "label": "battle-6",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        251.0,
+        93.5
+      ],
+      "target_landmark": [
+        198,
+        100
+      ],
+      "scale": 0.48811410459587956,
+      "resampled_size": [
+        186,
+        200
+      ],
+      "translation": [
+        76,
+        54
+      ],
+      "actual_landmark": [
+        198.21465968586386,
+        99.72127139364304
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "battle-007-master-v2.png",
+      "source_sha256": "ccdf29b361c72a3094bd4db6efbdc124a6fb1541875e5e5f70fafb6f2747d5a8",
+      "source_bounds": [
+        129,
+        129,
+        1392,
+        943
+      ],
+      "opaque_pixels": 374786,
+      "label": "battle-7",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        696.0,
+        169.0
+      ],
+      "target_landmark": [
+        204,
+        84
+      ],
+      "scale": 0.19753086419753085,
+      "resampled_size": [
+        249,
+        161
+      ],
+      "translation": [
+        67,
+        51
+      ],
+      "actual_landmark": [
+        204.21615201900238,
+        84.42628992628993
+      ],
+      "clipped_pixels": 0
+    }
+  ]
+}

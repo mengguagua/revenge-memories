@@ -1,5 +1,6 @@
 extends "res://core/legacy_game_state.gd"
 ## New campaign. Inherit original combat formulas; isolate campaign/save semantics.
+const ChapterFive = preload("res://core/chapter5_rules.gd")
 const ChapterFour = preload("res://core/chapter4_rules.gd")
 const ChapterThree = preload("res://core/chapter3_rules.gd")
 const ChapterTwo = preload("res://core/chapter2_rules.gd")
@@ -60,6 +61,20 @@ func is_dying(unit: Dictionary) -> bool:
 func can_deploy(unit: Dictionary) -> bool:
 	return not unit.is_empty() and not is_dying(unit) and not bool(unit.get("dead",false)) and int(unit.get("hp",0))>0
 
+func _restore_preparation_hp() -> void:
+	# Recover after settlement (including HP growth), never revive casualties or
+	# alter the pre-battle snapshot used to retry the encounter.
+	for id in roster:
+		var unit: Dictionary=roster[id]
+		if Casualties.owner({"parties":parties},str(id)).is_empty():continue
+		if unit.get("side","player")!="player" or unit.get("temporary",false) or unit.get("neutral",false):continue
+		if can_deploy(unit):unit.hp=int(unit.max_hp)
+	for unit in units:
+		var member: Dictionary=roster.get(str(unit.id),{})
+		if Casualties.owner({"parties":parties},str(unit.id)).is_empty() or not can_deploy(member):continue
+		if unit.side!="player" or unit.get("temporary",false) or unit.get("neutral",false):continue
+		if can_deploy(unit):unit.hp=int(unit.max_hp)
+
 func treatment_remaining() -> int:
 	ensure_treatment_sources()
 	return Casualties.available(flags,route)
@@ -95,14 +110,17 @@ func equip_from_convoy(member_id: String,index: int,expected_item: int) -> Dicti
 	return {"valid":true,"message":"已换装，原装备退回本队行囊" if int(previous_unit.get("item_id",0))>0 else "已领取并装备"}
 
 func leader_id() -> String:return "eileen" if route=="celica" else "hunapu"
-func can_switch_route() -> bool:return ChapterFour.can_switch(self) if chapter==4 else ChapterThree.can_switch(self)
-func switch_route() -> bool:return ChapterFour.switch_route(self) if chapter==4 else ChapterThree.switch_route(self)
+func can_switch_route() -> bool:return ChapterFive.can_switch(self) if chapter==5 else ChapterFour.can_switch(self) if chapter==4 else ChapterThree.can_switch(self)
+func switch_route() -> bool:return ChapterFive.switch_route(self) if chapter==5 else ChapterFour.switch_route(self) if chapter==4 else ChapterThree.switch_route(self)
+func begin_chapter_five() -> bool:return ChapterFive.begin(self)
 func begin_chapter_four() -> bool:return ChapterFour.begin(self)
 func begin_chapter_three() -> bool:return ChapterThree.begin(self)
 func can_return_to_final_preparation() -> bool:return false
 func needs_terrain_recovery() -> bool:return false
 
 func exit_marker() -> Dictionary:
+	if stage_id==501:return {"position":battle_data.exit,"label":"南侧后撤门"}
+	if stage_id==511:return {"position":battle_data.exit,"label":"南门交接点"}
 	if stage_id in [401,407,412]:return {"position":battle_data.exit,"label":"南口接应" if stage_id==401 else "古道出口" if stage_id==407 else "己方船口"}
 	if stage_id in [301,302,304,305]:return {"position":battle_data.exit,"label":"西门出口" if stage_id==301 else "运输车北口" if stage_id==302 else "己方船口" if stage_id==304 else "盐路出口"}
 	if stage_id==112:return {"position":battle_data.targets[0],"label":"药车目的地"}
@@ -111,6 +129,7 @@ func exit_marker() -> Dictionary:
 	return {}
 
 func allowed_world_nodes() -> Array[int]:
+	if chapter==5:return ChapterFive.allowed_nodes(self)
 	if chapter==4:return ChapterFour.allowed_nodes(self)
 	if chapter==3:return ChapterThree.allowed_nodes(self)
 	if chapter==2:return ChapterTwo.allowed_nodes(self)
@@ -139,8 +158,12 @@ func route_between(a: int,b: int) -> Dictionary:
 	return {}
 func travel_to(node: int) -> bool:
 	if not node in world_neighbors():return false
-	previous_world_node=world_node;world_node=node;flags.world_previous=previous_world_node;route_positions[route]=node;return true
+	previous_world_node=world_node;world_node=node;flags.world_previous=previous_world_node;route_positions[route]=node
+	if chapter==5 and flags.get("chapter5_merged",false):
+		for side in ["alm","celica"]:route_positions[side]=node;flags.chapter5_previous[side]=previous_world_node
+	return true
 func stage_for_node(node: int) -> int:
+	if chapter==5:return ChapterFive.stage_for_node(self,node)
 	if chapter==4:return ChapterFour.stage_for_node(self,node)
 	if chapter==3:return ChapterThree.stage_for_node(self,node)
 	for key in campaign.stages:
@@ -150,6 +173,7 @@ func world_has_battle(node: int) -> bool:
 	var id=stage_for_node(node);return id>0 and not stage_cleared(id) and (chapter!=3 or flags.get("D31_done",false))
 
 func start_battle(id: int=101,_groups: Array=[],_from_hub: bool=false) -> bool:
+	if chapter==5 and not ChapterFive.can_start(self,id):return false
 	if chapter==4 and (str(stages.get(id,{}).get("route",""))!=route or not allowed_world_nodes().has(world_node)):return false
 	if chapter==3 and (not flags.get("D31_done",false) or str(stages.get(id,{}).get("route",""))!=route):return false
 	if not stages.has(id) or stage_cleared(id) or int(stages[id].node)!=world_node:return false
@@ -157,13 +181,19 @@ func start_battle(id: int=101,_groups: Array=[],_from_hub: bool=false) -> bool:
 	stage_id=id;battle_data=stages[id].duplicate(true);encounter_groups=[]
 	Equipment.reconcile(self)
 	battle_return={"mode":"world","world_node":world_node,"previous_world_node":previous_world_node};units.clear();var slot=0
-	for member in party:
+	var battle_party=party.duplicate()
+	if id in [533,534]:battle_party=ChapterFive.selection(self,"alm").duplicate()+ChapterFive.selection(self,"celica").duplicate()
+	var route_slots={"alm":0,"celica":0}
+	for member in battle_party:
 		if not roster.has(member):continue
 		var u: Dictionary=roster[member].duplicate(true)
 		if not can_deploy(u):continue
 		if slot>=battle_data.player_positions.size():break
-		u.position=battle_data.player_positions[slot].duplicate();u.hp=int(u.max_hp);u.acted=false;u.side="player";u.player_slot=slot
-		u.erase("weapon_index");u.route=route;units.append(u);slot+=1
+		var owner=Casualties.owner({"parties":parties},member)
+		var positions=battle_data.player_positions_by_route[owner] if id in [533,534] else battle_data.player_positions
+		var local_slot=int(route_slots[owner]) if id in [533,534] else slot
+		u.position=positions[local_slot].duplicate();route_slots[owner]+=1;u.hp=int(u.max_hp);u.acted=false;u.side="player";u.player_slot=slot
+		u.erase("weapon_index");u.route=owner;units.append(u);slot+=1
 	for i in range(battle_data.enemies.size()):
 		var u: Dictionary=battle_data.enemies[i].duplicate(true);u.enemy_slot=i;units.append(u)
 	for raw in battle_data.npc_units:
@@ -173,11 +203,13 @@ func start_battle(id: int=101,_groups: Array=[],_from_hub: bool=false) -> bool:
 	turn=1;phase="player";kills=0;selected_id="";battle_outcome="";battle_settled=false
 	flags.quest={"objects":{},"evacuated":[],"freed":[],"burn_streak":0,"reinforced":false,"mid_done":false}
 	ChapterTwo.initialize(self)
-	if chapter==4:ChapterFour.initialize(self)
+	if chapter==5:ChapterFive.initialize(self)
+	elif chapter==4:ChapterFour.initialize(self)
 	else:ChapterThree.initialize(self)
 	flags.inventory_processed_deaths={}
 	mode="battle";cursor=pos(find_unit(leader_id()));log_lines.clear();victory_rewards.clear()
-	if stage_id>=400:ChapterFour.before_lines(self)
+	if stage_id>=500:ChapterFive.before_lines(self)
+	elif stage_id>=400:ChapterFour.before_lines(self)
 	elif stage_id>=300:ChapterThree.lines(self,ChapterThree.before_lines(self),battle_data.code+"-BEGIN")
 	else:queue_lines(ChapterTwo.before_lines(self) if stage_id>=200 else str(battle_data.before),battle_data.code+"-BEGIN")
 	battle_start_snapshot=_capture_battle_start();return true
@@ -350,7 +382,7 @@ func _campaign_ai_action(unit: Dictionary,gather: bool=false) -> Dictionary:
 func mark_wait(id: String) -> void:
 	super.mark_wait(id);var u=find_unit(id)
 	if u.is_empty():return
-	if stage_id>=400:ChapterFour.after_wait(self,u)
+	if stage_id>=400 and stage_id<500:ChapterFour.after_wait(self,u)
 	elif stage_id>=300:ChapterThree.after_wait(self,u)
 	if stage_id>=200:ChapterTwo.after_wait(self,u)
 	if u.has("quest_kind") and str(u.quest_kind) in ["escort","medicine"]:
@@ -375,7 +407,8 @@ func next_phase() -> void:
 	super.next_phase()
 	for id in object_hp:find_unit(id).hp=object_hp[id]
 	ChapterTwo.after_phase(self)
-	if stage_id>=400:ChapterFour.after_phase(self)
+	if stage_id>=500:ChapterFive.after_phase(self)
+	elif stage_id>=400:ChapterFour.after_phase(self)
 	elif stage_id>=300:ChapterThree.after_phase(self)
 	if phase=="player" and stage_id==102 and turn==int(battle_data.get("burner_departure_turn",5))-1:queue_lines("战场提示：焚毁兵下一回合从集合点出发。拦住他，别让他在门前连续点火。","M12-FIRE-WARNING")
 	if phase=="enemy" and turn==int(battle_data.reinforcement_turn) and not flags.quest.reinforced:
@@ -402,7 +435,7 @@ func visit_fronts(object: Dictionary) -> Array:
 func interactions_for(unit: Dictionary) -> Array:
 	var result=[]
 	if unit.is_empty() or unit.side!="player" or not bool(unit.get("controllable",true)) or bool(unit.get("acted",false)):return result
-	if stage_id>=400:result.append_array(ChapterFour.extra_interactions(self,unit))
+	if stage_id>=400 and stage_id<500:result.append_array(ChapterFour.extra_interactions(self,unit))
 	elif stage_id>=300:result.append_array(ChapterThree.extra_interactions(self,unit))
 	for obj in battle_data.objects:
 		if stage_id in [406,411] and flags.quest.get("record_lost",false) and obj.id in ["observatory_record","black_register"]:continue
@@ -441,6 +474,9 @@ func interact(id: String) -> bool:
 			var destination=str(roster[receipt.recipient].name_zh)+"装备" if str(receipt.destination)=="unit" else "收入运输队"
 			queue_lines("旁白：获得"+str(Items.item(reward).name_zh)+"，"+destination+"。",id+"-REWARD")
 		actor.acted=true;selected_id="";check_outcome();return true
+	if stage_id>=500:
+		ChapterFive.interact(self,id)
+		actor.acted=true;selected_id="";check_outcome();return true
 	if stage_id>=400:
 		ChapterFour.interact(self,id)
 		actor.acted=true;selected_id="";check_outcome();return true
@@ -469,6 +505,7 @@ func interact(id: String) -> bool:
 
 func check_outcome() -> String:
 	if battle_outcome=="defeat":return battle_outcome
+	if stage_id>=500:return ChapterFive.check_outcome(self)
 	if stage_id>=400:return ChapterFour.check_outcome(self)
 	if stage_id>=300:return ChapterThree.check_outcome(self)
 	if stage_id>=200:return ChapterTwo.check_outcome(self)
@@ -499,6 +536,8 @@ func story_on_death(unit: Dictionary) -> void:
 	if unit.id in characters and bool(unit.get("neutral",false)):
 		var dead=_initial_character(unit.id);dead.hp=0;dead.dead=true;roster[unit.id]=dead
 func story_on_victory() -> void:
+	if stage_id>=500:
+		ChapterFive.on_victory(self);Equipment.award_clear(self,stage_id);return
 	if stage_id>=400:
 		ChapterFour.on_victory(self)
 		if stage_id!=411 or flags.get("S41_register_saved",false):Equipment.award_clear(self,stage_id)
@@ -524,7 +563,7 @@ func complete_battle() -> bool:
 	victory_rewards.clear()
 	for unit in units:
 		if unit.side!="player" or unit.get("temporary",false) or unit.get("neutral",false):continue
-		if not party.has(unit.id):continue
+		if Casualties.owner({"parties":parties},str(unit.id)).is_empty():continue
 		if int(unit.hp)<=0:
 			Casualties.enter_dying(self,unit)
 			Inventory.on_death(self,unit)
@@ -539,12 +578,14 @@ func complete_battle() -> bool:
 	battle_settled=true
 	Scenario.on_victory(self);Inventory.on_victory(self)
 	parties[route]=party.duplicate()
+	_restore_preparation_hp()
 	ensure_treatment_sources()
 	return true
 
 func return_to_preparation() -> bool:
 	if not retry_battle():return false
-	world_node=previous_world_node;route_positions[route]=world_node;story_events.clear();mode="world";battle_outcome="";selected_id=""
+	world_node=15 if stage_id in [533,534] else previous_world_node;route_positions[route]=world_node;story_events.clear();mode="world";battle_outcome="";selected_id=""
+	if stage_id in [533,534]:route_positions={"alm":15,"celica":15};flags.chapter5_previous={"alm":15,"celica":15};previous_world_node=15
 	return true
 
 func support_targets(caster: Dictionary,spell_id: int) -> Array:
@@ -615,6 +656,9 @@ func load_game() -> bool:
 	if stage_id==408 and flags.get("quest",{}).get("transfer_cut_snapshot",false):battle_data.reinforcements=[];battle_data.reinforcement_turn=0
 	if stage_id==404 and flags.get("quest",{}).get("mid_done",false) and find_unit(str(battle_data.boss_id)).get("surrendered",false):battle_data.reinforcements=[]
 	if mode not in ["battle","victory","defeat"]:Equipment.reconcile(self)
+	# Older peaceful checkpoints retained the last battle's wounds until the
+	# next deployment. Active fights and unprocessed results keep their HP.
+	if mode in ["hub","world","chapter_end","ending"] or (mode=="victory" and battle_settled):_restore_preparation_hp()
 	_repair_overlapped_escorts()
 	_casualty_legacy_path=save_path if previous_schema<3 else ""
 	var journal=s.get("journal",{})
@@ -682,6 +726,7 @@ func recruit(id: String) -> void:
 	Equipment.reconcile(self)
 
 func objective_status() -> Array[String]:
+	if stage_id>=500:return ChapterFive.status(self)
 	if stage_id>=400:return ChapterFour.status(self)
 	if stage_id>=300:return ChapterThree.status(self)
 	if stage_id>=200:return ChapterTwo.status(self)

@@ -1,0 +1,1767 @@
+{
+  "professions/class-4-ally/maps/frame_mapping.json": {
+    "schema_version": 1,
+    "revision": "knight-redraw-v3-20261021",
+    "class_id": 4,
+    "character_id": "ally-knight",
+    "actor_id": "ally-knight",
+    "source_side": "ally",
+    "display_name": "盟军骑士",
+    "status": "review_candidate",
+    "runtime_integrated": false,
+    "modified_by": "Codex",
+    "scenarios": [
+      {
+        "id": "tactical-idle",
+        "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_4_ally.png",
+        "source_frame_size": [
+          24,
+          24
+        ],
+        "source_anchor": [
+          12,
+          20
+        ],
+        "output_frame_size": [
+          96,
+          96
+        ],
+        "output_anchor": [
+          48,
+          80
+        ],
+        "output_atlas": "../../../knight-redraw-v3-20261021/ally/tactical-idle-atlas.png",
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "path": "../../../knight-redraw-v3-20261021/ally/tactical-idle/frame-000.png",
+            "output_path": "../../../knight-redraw-v3-20261021/ally/tactical-idle/frame-000.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2864,
+            "sha256": "28f2c20c28b079707f44dec172df76008fdcac2e493e68d25e10310724253198",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "path": "../../../knight-redraw-v3-20261021/ally/tactical-idle/frame-001.png",
+            "output_path": "../../../knight-redraw-v3-20261021/ally/tactical-idle/frame-001.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2745,
+            "sha256": "0195e0d382e5cd099313ec6f6a383a63e33aad4978b5eaf5465c92da20b938c6",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "path": "../../../knight-redraw-v3-20261021/ally/tactical-idle/frame-002.png",
+            "output_path": "../../../knight-redraw-v3-20261021/ally/tactical-idle/frame-002.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2757,
+            "sha256": "4f51c36917fe431dfce38b821a0f5489c3b67f1bc0281472468be7657c8c01cd",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "path": "../../../knight-redraw-v3-20261021/ally/tactical-idle/frame-003.png",
+            "output_path": "../../../knight-redraw-v3-20261021/ally/tactical-idle/frame-003.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2745,
+            "sha256": "0195e0d382e5cd099313ec6f6a383a63e33aad4978b5eaf5465c92da20b938c6",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "path": "../../../knight-redraw-v3-20261021/ally/tactical-idle/frame-004.png",
+            "output_path": "../../../knight-redraw-v3-20261021/ally/tactical-idle/frame-004.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2864,
+            "sha256": "28f2c20c28b079707f44dec172df76008fdcac2e493e68d25e10310724253198",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "path": "../../../knight-redraw-v3-20261021/ally/tactical-idle/frame-005.png",
+            "output_path": "../../../knight-redraw-v3-20261021/ally/tactical-idle/frame-005.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2745,
+            "sha256": "0195e0d382e5cd099313ec6f6a383a63e33aad4978b5eaf5465c92da20b938c6",
+            "art_status": "review_candidate"
+          }
+        ],
+        "logical_render_scale": 0.25,
+        "revision": "knight-redraw-v3-20261021",
+        "status": "review_candidate",
+        "display_name": "盟军骑士",
+        "review_note": "按原作姿势重新绘制完整骑士与白马，整帧定位。蓝白／蓝紫16色；原相位、循环与节奏保留。",
+        "directions": {
+          "all": [
+            0,
+            1,
+            2,
+            1
+          ]
+        },
+        "direction_mirror_x": {},
+        "timing": {
+          "native_fps": 60.0988,
+          "cycle_frames": [
+            0,
+            1,
+            2,
+            1
+          ],
+          "frame_ticks": [
+            14,
+            8,
+            14,
+            8
+          ]
+        },
+        "motion_review": {
+          "registration": "whole-pose anchor; no body splicing or limb warp",
+          "runtime_integrated": false
+        },
+        "static_facing": true,
+        "action_note": "完整姿势重绘，按固定定位点登记；待本轮验收。",
+        "ground_shadow": {
+          "path": "gold-knight-walk-v3-20261020/ground-shadow.png",
+          "size": [
+            12,
+            3
+          ],
+          "offset": [
+            0,
+            -1
+          ],
+          "alpha": 0.35
+        }
+      },
+      {
+        "id": "tactical-walk",
+        "source_atlas": "../../../source-input/corrected-tactical-walk/class-4-ally.png",
+        "source_frame_size": [
+          32,
+          24
+        ],
+        "source_anchor": [
+          16,
+          24
+        ],
+        "output_frame_size": [
+          128,
+          96
+        ],
+        "output_anchor": [
+          64,
+          96
+        ],
+        "output_atlas": "../../../knight-redraw-v3-20261021/ally/tactical-walk-atlas.png",
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-000.png",
+            "output_path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-000.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2024,
+            "sha256": "0c7c9881c1bb1a9feefed95abb2b5a7860dbc32c8c64f8cf3d26a07e614c6b46",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-001.png",
+            "output_path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-001.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1991,
+            "sha256": "671f6f0e177caea9dfb52838bb565a07f856da17b674eae446c5ce8d486d14dd",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-002.png",
+            "output_path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-002.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2920,
+            "sha256": "8a9149df963d26dc74b62855f5fad6163231f6dc3610ef7db97b3de9b5fa5604",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-003.png",
+            "output_path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-003.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2909,
+            "sha256": "aef2103442df11c2cba431f5edc49b8e83fd78f2fd2d0349d43433e100ebf535",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-004.png",
+            "output_path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-004.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2416,
+            "sha256": "84f39b76497250689100eed8e4a191f05b154ad794df2f139b763295edb7fc6d",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-005.png",
+            "output_path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-005.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2293,
+            "sha256": "d66d513bf86787c8c543a5d8f2eff95ef6f408dbc2c49b637618146e26e8e64f",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 6,
+            "source_frame": 6,
+            "path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-006.png",
+            "output_path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-006.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2917,
+            "sha256": "350f53a03f1ce9746154e1d17a752419bbe5af177214152a37c32322518160c9",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 7,
+            "source_frame": 7,
+            "path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-007.png",
+            "output_path": "../../../knight-redraw-v3-20261021/ally/tactical-walk/frame-007.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2809,
+            "sha256": "e957c6709c493a716c8040d8f2cc9e8dce3851ff08a5c42d578b60049453dcf2",
+            "art_status": "review_candidate"
+          }
+        ],
+        "logical_render_scale": 0.25,
+        "revision": "knight-redraw-v3-20261021",
+        "status": "review_candidate",
+        "display_name": "盟军骑士",
+        "review_note": "按原作姿势重新绘制完整骑士与白马，整帧定位。蓝白／蓝紫16色；原相位、循环与节奏保留。",
+        "directions": {
+          "up": [
+            0,
+            1
+          ],
+          "right": [
+            2,
+            3
+          ],
+          "down": [
+            4,
+            5
+          ],
+          "left": [
+            6,
+            7
+          ]
+        },
+        "direction_mirror_x": {},
+        "timing": {
+          "native_fps": 60.0988,
+          "frame_ticks": 16,
+          "cycle_ticks": 32
+        },
+        "motion_review": {
+          "registration": "whole-pose anchor; no body splicing or limb warp",
+          "runtime_integrated": false
+        },
+        "source_audit": {
+          "status": "verified_native_tactical",
+          "record_key": "class-4-ally",
+          "verification": "../../../source-input/corrected-tactical-walk/verification.json",
+          "overlay": "../../../source-input/corrected-tactical-walk/overlay.json"
+        },
+        "ground_shadow": {
+          "path": "gold-knight-walk-v3-20261020/ground-shadow.png",
+          "size": [
+            12,
+            3
+          ],
+          "offset": [
+            0,
+            -1
+          ],
+          "alpha": 0.35
+        },
+        "action_note": "完整姿势重绘，按固定定位点登记；待本轮验收。"
+      }
+    ]
+  },
+  "professions/class-4-ally/battle/frame_mapping.json": {
+    "schema_version": 1,
+    "revision": "knight-redraw-v3-20261021",
+    "character_id": "ally-knight",
+    "display_name": "盟军骑士",
+    "original_class_id": 4,
+    "source_side": "ally",
+    "source_frame_size": [
+      80,
+      64
+    ],
+    "output_frame_size": [
+      320,
+      256
+    ],
+    "source_anchor": [
+      40,
+      64
+    ],
+    "output_anchor": [
+      160,
+      256
+    ],
+    "source_columns": 16,
+    "source_idle_frame": 21,
+    "status": "review_candidate",
+    "runtime_integrated": false,
+    "modified_by": "Codex",
+    "variant_keys": [
+      "original_class_4_normal",
+      "class_4_ally_javelin",
+      "class_4_ally_javelin_vs_heavy",
+      "class_4_ally_javelin_far_ally",
+      "class_4_ally_javelin_far_ally_vs_heavy",
+      "class_4_ally_javelin_far_enemy",
+      "class_4_ally_javelin_far_enemy_vs_heavy"
+    ],
+    "frame_mapping": {
+      "0": "../../../knight-redraw-v3-20261021/ally/battle/frame-000.png",
+      "1": "../../../knight-redraw-v3-20261021/ally/battle/frame-001.png",
+      "2": "../../../knight-redraw-v3-20261021/ally/battle/frame-002.png",
+      "3": "../../../knight-redraw-v3-20261021/ally/battle/frame-003.png",
+      "4": "../../../knight-redraw-v3-20261021/ally/battle/frame-004.png",
+      "5": "../../../knight-redraw-v3-20261021/ally/battle/frame-005.png",
+      "6": "../../../knight-redraw-v3-20261021/ally/battle/frame-006.png",
+      "7": "../../../knight-redraw-v3-20261021/ally/battle/frame-007.png",
+      "8": "../../../knight-redraw-v3-20261021/ally/battle/frame-008.png",
+      "9": "../../../knight-redraw-v3-20261021/ally/battle/frame-009.png",
+      "21": "../../../knight-redraw-v3-20261021/ally/battle/frame-021.png",
+      "40": "../../../knight-redraw-v3-20261021/ally/battle/frame-040.png",
+      "41": "../../../knight-redraw-v3-20261021/ally/battle/frame-041.png",
+      "43": "../../../knight-redraw-v3-20261021/ally/battle/frame-043.png"
+    },
+    "output_atlas": "../../../knight-redraw-v3-20261021/ally/battle-atlas.png",
+    "output_atlas_frame_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      21,
+      40,
+      41,
+      43
+    ],
+    "effect_overrides": {
+      "5660a52a5bb041": "../../../knight-redraw-v3-20261021/ally/flying-lance.png"
+    },
+    "palette": [
+      "181d29",
+      "303847",
+      "596574",
+      "a5b3c1",
+      "d6dfe4",
+      "f5f5ef",
+      "243756",
+      "3d5680",
+      "7292b8",
+      "4d3428",
+      "85603e",
+      "b88b56",
+      "b38360",
+      "e8ba8d",
+      "c4a15a",
+      "fff8df"
+    ],
+    "batches": [
+      {
+        "id": "完整重绘全姿势",
+        "review": "../../../knight-redraw-v3-20261021/ally-battle-dark.png",
+        "status": "pending_user_visual_acceptance"
+      }
+    ],
+    "review_note": "双方骑士完整重绘，平地动作以同一面部定位点登记；保留原作冲锋、腾跃与回位。投枪准备仅一根水平长枪，释放帧空手。16色柔和蓝白／蓝紫配色。",
+    "art_provenance": "New built-in image_gen whole-pose drawings, original source pose references; whole-pose registration only.",
+    "semantic_aliases": {
+      "21": "ally standing 0",
+      "40": "standing background pose"
+    },
+    "body_review_records": [
+      {
+        "source": "battle-ground-master-v1.png",
+        "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+        "source_bounds": [
+          30,
+          110,
+          495,
+          509
+        ],
+        "opaque_pixels": 77819,
+        "label": "battle-0",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          241.0,
+          78.0
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.4423676012461059,
+        "resampled_size": [
+          206,
+          177
+        ],
+        "translation": [
+          77,
+          77
+        ],
+        "actual_landmark": [
+          183.76559139784945,
+          111.6015037593985
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-ground-master-v1.png",
+        "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+        "source_bounds": [
+          542,
+          110,
+          974,
+          509
+        ],
+        "opaque_pixels": 71863,
+        "label": "battle-1",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          218.0,
+          78.0
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.4423676012461059,
+        "resampled_size": [
+          191,
+          177
+        ],
+        "translation": [
+          88,
+          77
+        ],
+        "actual_landmark": [
+          184.38425925925927,
+          111.6015037593985
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-ground-master-v1.png",
+        "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+        "source_bounds": [
+          38,
+          583,
+          532,
+          966
+        ],
+        "opaque_pixels": 76265,
+        "label": "battle-3",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          233.0,
+          78.0
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.4423676012461059,
+        "resampled_size": [
+          219,
+          169
+        ],
+        "translation": [
+          81,
+          78
+        ],
+        "actual_landmark": [
+          184.29352226720647,
+          112.4177545691906
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-ground-master-v1.png",
+        "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+        "source_bounds": [
+          538,
+          582,
+          937,
+          966
+        ],
+        "opaque_pixels": 68645,
+        "label": "battle-4",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          222.0,
+          78.0
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.4423676012461059,
+        "resampled_size": [
+          177,
+          170
+        ],
+        "translation": [
+          86,
+          77
+        ],
+        "actual_landmark": [
+          184.4812030075188,
+          111.53125
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-ground-master-v1.png",
+        "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+        "source_bounds": [
+          1024,
+          582,
+          1469,
+          932
+        ],
+        "opaque_pixels": 69158,
+        "label": "battle-5",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          229.5,
+          78.0
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.4423676012461059,
+        "resampled_size": [
+          197,
+          155
+        ],
+        "translation": [
+          82,
+          77
+        ],
+        "actual_landmark": [
+          183.59887640449438,
+          111.54285714285714
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-002-master-v2.png",
+        "source_sha256": "0daf0b2b022b21dabdd6b1edb3872511798508896888af9b567b8e0813ff2131",
+        "source_bounds": [
+          6,
+          266,
+          1193,
+          1239
+        ],
+        "opaque_pixels": 464198,
+        "label": "battle-2",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          555.0,
+          195.0
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.18251928020565553,
+        "resampled_size": [
+          217,
+          178
+        ],
+        "translation": [
+          83,
+          76
+        ],
+        "actual_landmark": [
+          184.46166807076662,
+          111.67317574511819
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-008-009-master-v2.png",
+        "source_sha256": "c5a696f2f166e73291df0e7b54e919b7e762b607a7d2a497df6c04db287840b7",
+        "source_bounds": [
+          59,
+          123,
+          883,
+          824
+        ],
+        "opaque_pixels": 254171,
+        "label": "battle-8",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          398.0,
+          142.0
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.25402504472271914,
+        "resampled_size": [
+          209,
+          178
+        ],
+        "translation": [
+          83,
+          76
+        ],
+        "actual_landmark": [
+          183.9490291262136,
+          112.05706134094152
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-008-009-master-v2.png",
+        "source_sha256": "c5a696f2f166e73291df0e7b54e919b7e762b607a7d2a497df6c04db287840b7",
+        "source_bounds": [
+          938,
+          123,
+          1765,
+          824
+        ],
+        "opaque_pixels": 253322,
+        "label": "battle-9",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          395.5,
+          142.0
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.25402504472271914,
+        "resampled_size": [
+          210,
+          178
+        ],
+        "translation": [
+          84,
+          76
+        ],
+        "actual_landmark": [
+          184.4292623941959,
+          112.05706134094152
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-throw-master-v2.png",
+        "source_sha256": "f2ff7adba302fccaa7ff2a6d4e6d705e92a0a86bd32b1687099275e0a352f5f3",
+        "source_bounds": [
+          31,
+          104,
+          873,
+          802
+        ],
+        "opaque_pixels": 264036,
+        "label": "battle-41",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          417.5,
+          135.0
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.25199645075421473,
+        "resampled_size": [
+          212,
+          176
+        ],
+        "translation": [
+          79,
+          78
+        ],
+        "actual_landmark": [
+          184.1187648456057,
+          112.04011461318052
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-throw-master-v2.png",
+        "source_sha256": "f2ff7adba302fccaa7ff2a6d4e6d705e92a0a86bd32b1687099275e0a352f5f3",
+        "source_bounds": [
+          1022,
+          104,
+          1759,
+          802
+        ],
+        "opaque_pixels": 260715,
+        "label": "battle-43",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          311.5,
+          134.5
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.25199645075421473,
+        "resampled_size": [
+          186,
+          176
+        ],
+        "translation": [
+          105,
+          78
+        ],
+        "actual_landmark": [
+          183.6146540027137,
+          111.91404011461319
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-special-master-v1.png",
+        "source_sha256": "7e4e8e2b947763f128d367b643e551c93798fcf5c08c14b3b3fd951e756ff469",
+        "source_bounds": [
+          57,
+          96,
+          439,
+          505
+        ],
+        "opaque_pixels": 66623,
+        "label": "battle-6",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          251.0,
+          93.5
+        ],
+        "target_landmark": [
+          198,
+          100
+        ],
+        "scale": 0.48811410459587956,
+        "resampled_size": [
+          186,
+          200
+        ],
+        "translation": [
+          76,
+          54
+        ],
+        "actual_landmark": [
+          198.21465968586386,
+          99.72127139364304
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-007-master-v2.png",
+        "source_sha256": "ccdf29b361c72a3094bd4db6efbdc124a6fb1541875e5e5f70fafb6f2747d5a8",
+        "source_bounds": [
+          129,
+          129,
+          1392,
+          943
+        ],
+        "opaque_pixels": 374786,
+        "label": "battle-7",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          696.0,
+          169.0
+        ],
+        "target_landmark": [
+          204,
+          84
+        ],
+        "scale": 0.19753086419753085,
+        "resampled_size": [
+          249,
+          161
+        ],
+        "translation": [
+          67,
+          51
+        ],
+        "actual_landmark": [
+          204.21615201900238,
+          84.42628992628993
+        ],
+        "clipped_pixels": 0
+      }
+    ]
+  },
+  "professions/class-4-enemy/maps/frame_mapping.json": {
+    "schema_version": 1,
+    "revision": "knight-redraw-v3-20261021",
+    "class_id": 4,
+    "character_id": "enemy-knight",
+    "actor_id": "enemy-knight",
+    "source_side": "enemy",
+    "display_name": "敌方骑士",
+    "status": "review_candidate",
+    "runtime_integrated": false,
+    "modified_by": "Codex",
+    "scenarios": [
+      {
+        "id": "tactical-idle",
+        "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_4_enemy.png",
+        "source_frame_size": [
+          24,
+          24
+        ],
+        "source_anchor": [
+          12,
+          20
+        ],
+        "output_frame_size": [
+          96,
+          96
+        ],
+        "output_anchor": [
+          48,
+          80
+        ],
+        "output_atlas": "../../../knight-redraw-v3-20261021/enemy/tactical-idle-atlas.png",
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "path": "../../../knight-redraw-v3-20261021/enemy/tactical-idle/frame-000.png",
+            "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-idle/frame-000.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 3050,
+            "sha256": "4ef3e37ae34a2952ce8108c401041ccc48f4cbf4110678248eab548a6de517a9",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "path": "../../../knight-redraw-v3-20261021/enemy/tactical-idle/frame-001.png",
+            "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-idle/frame-001.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2784,
+            "sha256": "5b8beb2c0b0e0dcfc1090e93b1cd582cad8a6aae742d6be20b77a44d32ee9c83",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "path": "../../../knight-redraw-v3-20261021/enemy/tactical-idle/frame-002.png",
+            "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-idle/frame-002.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2804,
+            "sha256": "20265f985b96cd9806f0a70838ca303afa0f9cd20050b7b43bea43f3859444e8",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "path": "../../../knight-redraw-v3-20261021/enemy/tactical-idle/frame-003.png",
+            "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-idle/frame-003.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2784,
+            "sha256": "5b8beb2c0b0e0dcfc1090e93b1cd582cad8a6aae742d6be20b77a44d32ee9c83",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "path": "../../../knight-redraw-v3-20261021/enemy/tactical-idle/frame-004.png",
+            "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-idle/frame-004.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 3050,
+            "sha256": "4ef3e37ae34a2952ce8108c401041ccc48f4cbf4110678248eab548a6de517a9",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "path": "../../../knight-redraw-v3-20261021/enemy/tactical-idle/frame-005.png",
+            "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-idle/frame-005.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2784,
+            "sha256": "5b8beb2c0b0e0dcfc1090e93b1cd582cad8a6aae742d6be20b77a44d32ee9c83",
+            "art_status": "review_candidate"
+          }
+        ],
+        "logical_render_scale": 0.25,
+        "revision": "knight-redraw-v3-20261021",
+        "status": "review_candidate",
+        "display_name": "敌方骑士",
+        "review_note": "按原作姿势重新绘制完整骑士与白马，整帧定位。蓝白／蓝紫16色；原相位、循环与节奏保留。",
+        "directions": {
+          "all": [
+            0,
+            1,
+            2,
+            1
+          ]
+        },
+        "direction_mirror_x": {},
+        "timing": {
+          "native_fps": 60.0988,
+          "cycle_frames": [
+            0,
+            1,
+            2,
+            1
+          ],
+          "frame_ticks": [
+            14,
+            8,
+            14,
+            8
+          ]
+        },
+        "motion_review": {
+          "registration": "whole-pose anchor; no body splicing or limb warp",
+          "runtime_integrated": false
+        },
+        "static_facing": true,
+        "action_note": "完整姿势重绘，按固定定位点登记；待本轮验收。",
+        "ground_shadow": {
+          "path": "gold-knight-walk-v3-20261020/ground-shadow.png",
+          "size": [
+            12,
+            3
+          ],
+          "offset": [
+            0,
+            -1
+          ],
+          "alpha": 0.35
+        }
+      },
+      {
+        "id": "tactical-walk",
+        "source_atlas": "../../../source-input/corrected-tactical-walk/class-4-enemy.png",
+        "source_frame_size": [
+          32,
+          24
+        ],
+        "source_anchor": [
+          16,
+          24
+        ],
+        "output_frame_size": [
+          128,
+          96
+        ],
+        "output_anchor": [
+          64,
+          96
+        ],
+        "output_atlas": "../../../knight-redraw-v3-20261021/enemy/tactical-walk-atlas.png",
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-000.png",
+            "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-000.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2081,
+            "sha256": "e8ae1af3a4df5fdf66e9aa67092afbeaef48928f380681f3eefb7e1c98039496",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-001.png",
+            "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-001.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1980,
+            "sha256": "9f875925ce5e28edf051170753092b5b58da0d12c26bb50666e41fa9c6325533",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-002.png",
+            "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-002.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 3079,
+            "sha256": "a930c6ce64ddf2d2c93b3924bb280223e069723b4bbb499e5f6725cb5b0250ce",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-003.png",
+            "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-003.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 3010,
+            "sha256": "d3a52424936ce1f64f3e54196797012f68e389a6bd0ace42d08602eadb1996cd",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-004.png",
+            "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-004.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2427,
+            "sha256": "e77b011f0a1c96ede40fd0adfdb01e97f387172cd25e3d73fbda8c72c640c021",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-005.png",
+            "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-005.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2373,
+            "sha256": "44f7d3c488135ca222d8789405079784ec8937f4c64950e036d33f15242be9be",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 6,
+            "source_frame": 6,
+            "path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-006.png",
+            "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-006.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 3103,
+            "sha256": "73a2f1c290da287dffc465c8284d6080276d6feb350a6210fa2945dc595fad65",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 7,
+            "source_frame": 7,
+            "path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-007.png",
+            "output_path": "../../../knight-redraw-v3-20261021/enemy/tactical-walk/frame-007.png",
+            "revision": "knight-redraw-v3-20261021",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2853,
+            "sha256": "27ce308d2263f9a99fdd778d22b26c5cc9a407c9fadbfd141e1d29afc95f1358",
+            "art_status": "review_candidate"
+          }
+        ],
+        "logical_render_scale": 0.25,
+        "revision": "knight-redraw-v3-20261021",
+        "status": "review_candidate",
+        "display_name": "敌方骑士",
+        "review_note": "按原作姿势重新绘制完整骑士与白马，整帧定位。蓝白／蓝紫16色；原相位、循环与节奏保留。",
+        "directions": {
+          "up": [
+            0,
+            1
+          ],
+          "right": [
+            2,
+            3
+          ],
+          "down": [
+            4,
+            5
+          ],
+          "left": [
+            6,
+            7
+          ]
+        },
+        "direction_mirror_x": {},
+        "timing": {
+          "native_fps": 60.0988,
+          "frame_ticks": 16,
+          "cycle_ticks": 32
+        },
+        "motion_review": {
+          "registration": "whole-pose anchor; no body splicing or limb warp",
+          "runtime_integrated": false
+        },
+        "source_audit": {
+          "status": "verified_native_tactical",
+          "record_key": "class-4-enemy",
+          "verification": "../../../source-input/corrected-tactical-walk/verification.json",
+          "overlay": "../../../source-input/corrected-tactical-walk/overlay.json"
+        },
+        "ground_shadow": {
+          "path": "gold-knight-walk-v3-20261020/ground-shadow.png",
+          "size": [
+            12,
+            3
+          ],
+          "offset": [
+            0,
+            -1
+          ],
+          "alpha": 0.35
+        },
+        "action_note": "完整姿势重绘，按固定定位点登记；待本轮验收。"
+      }
+    ]
+  },
+  "professions/class-4-enemy/battle/frame_mapping.json": {
+    "schema_version": 1,
+    "revision": "knight-redraw-v3-20261021",
+    "character_id": "enemy-knight",
+    "display_name": "敌方骑士",
+    "original_class_id": 4,
+    "source_side": "enemy",
+    "source_frame_size": [
+      80,
+      64
+    ],
+    "output_frame_size": [
+      320,
+      256
+    ],
+    "source_anchor": [
+      40,
+      64
+    ],
+    "output_anchor": [
+      160,
+      256
+    ],
+    "source_columns": 16,
+    "source_idle_frame": 31,
+    "status": "review_candidate",
+    "runtime_integrated": false,
+    "modified_by": "Codex",
+    "variant_keys": [
+      "original_class_4_enemy_normal",
+      "class_4_enemy_javelin",
+      "class_4_enemy_javelin_vs_heavy",
+      "class_4_enemy_javelin_far_ally",
+      "class_4_enemy_javelin_far_ally_vs_heavy",
+      "class_4_enemy_javelin_far_enemy",
+      "class_4_enemy_javelin_far_enemy_vs_heavy"
+    ],
+    "frame_mapping": {
+      "10": "../../../knight-redraw-v3-20261021/enemy/battle/frame-010.png",
+      "11": "../../../knight-redraw-v3-20261021/enemy/battle/frame-011.png",
+      "12": "../../../knight-redraw-v3-20261021/enemy/battle/frame-012.png",
+      "13": "../../../knight-redraw-v3-20261021/enemy/battle/frame-013.png",
+      "14": "../../../knight-redraw-v3-20261021/enemy/battle/frame-014.png",
+      "15": "../../../knight-redraw-v3-20261021/enemy/battle/frame-015.png",
+      "16": "../../../knight-redraw-v3-20261021/enemy/battle/frame-016.png",
+      "17": "../../../knight-redraw-v3-20261021/enemy/battle/frame-017.png",
+      "18": "../../../knight-redraw-v3-20261021/enemy/battle/frame-018.png",
+      "19": "../../../knight-redraw-v3-20261021/enemy/battle/frame-019.png",
+      "31": "../../../knight-redraw-v3-20261021/enemy/battle/frame-031.png",
+      "40": "../../../knight-redraw-v3-20261021/enemy/battle/frame-040.png",
+      "41": "../../../knight-redraw-v3-20261021/enemy/battle/frame-041.png",
+      "45": "../../../knight-redraw-v3-20261021/enemy/battle/frame-045.png"
+    },
+    "output_atlas": "../../../knight-redraw-v3-20261021/enemy/battle-atlas.png",
+    "output_atlas_frame_order": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      31,
+      40,
+      41,
+      45
+    ],
+    "effect_overrides": {
+      "native-3a296bda027dbe": "../../../knight-redraw-v3-20261021/enemy/flying-lance.png"
+    },
+    "palette": [
+      "161b2b",
+      "292c49",
+      "343e68",
+      "4a5c86",
+      "64779e",
+      "8f9ec0",
+      "282c50",
+      "494876",
+      "7579aa",
+      "29283d",
+      "444260",
+      "6d6688",
+      "947c7b",
+      "cfb2ad",
+      "9b8cae",
+      "c3cce2"
+    ],
+    "batches": [
+      {
+        "id": "完整重绘全姿势",
+        "review": "../../../knight-redraw-v3-20261021/enemy-battle-dark.png",
+        "status": "pending_user_visual_acceptance"
+      }
+    ],
+    "review_note": "双方骑士完整重绘，平地动作以同一面部定位点登记；保留原作冲锋、腾跃与回位。投枪准备仅一根水平长枪，释放帧空手。16色柔和蓝白／蓝紫配色。",
+    "art_provenance": "New built-in image_gen whole-pose drawings, original source pose references; whole-pose registration only.",
+    "semantic_aliases": {
+      "10..19": "corresponding class-4 ally poses 0..9",
+      "31/40": "standing pose shifted -64 output pixels for native background placement",
+      "41/45": "class-4 throw/release shifted -64 output pixels"
+    },
+    "body_review_records": [
+      {
+        "source": "battle-ground-master-v1.png",
+        "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+        "source_bounds": [
+          30,
+          110,
+          495,
+          509
+        ],
+        "opaque_pixels": 77819,
+        "label": "battle-0",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          241.0,
+          78.0
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.4423676012461059,
+        "resampled_size": [
+          206,
+          177
+        ],
+        "translation": [
+          77,
+          77
+        ],
+        "actual_landmark": [
+          183.76559139784945,
+          111.6015037593985
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-ground-master-v1.png",
+        "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+        "source_bounds": [
+          542,
+          110,
+          974,
+          509
+        ],
+        "opaque_pixels": 71863,
+        "label": "battle-1",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          218.0,
+          78.0
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.4423676012461059,
+        "resampled_size": [
+          191,
+          177
+        ],
+        "translation": [
+          88,
+          77
+        ],
+        "actual_landmark": [
+          184.38425925925927,
+          111.6015037593985
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-ground-master-v1.png",
+        "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+        "source_bounds": [
+          38,
+          583,
+          532,
+          966
+        ],
+        "opaque_pixels": 76265,
+        "label": "battle-3",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          233.0,
+          78.0
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.4423676012461059,
+        "resampled_size": [
+          219,
+          169
+        ],
+        "translation": [
+          81,
+          78
+        ],
+        "actual_landmark": [
+          184.29352226720647,
+          112.4177545691906
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-ground-master-v1.png",
+        "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+        "source_bounds": [
+          538,
+          582,
+          937,
+          966
+        ],
+        "opaque_pixels": 68645,
+        "label": "battle-4",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          222.0,
+          78.0
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.4423676012461059,
+        "resampled_size": [
+          177,
+          170
+        ],
+        "translation": [
+          86,
+          77
+        ],
+        "actual_landmark": [
+          184.4812030075188,
+          111.53125
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-ground-master-v1.png",
+        "source_sha256": "e727c9057886a92502cdabba500ce74541aff28360c5d115f4be51837bd6f8bb",
+        "source_bounds": [
+          1024,
+          582,
+          1469,
+          932
+        ],
+        "opaque_pixels": 69158,
+        "label": "battle-5",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          229.5,
+          78.0
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.4423676012461059,
+        "resampled_size": [
+          197,
+          155
+        ],
+        "translation": [
+          82,
+          77
+        ],
+        "actual_landmark": [
+          183.59887640449438,
+          111.54285714285714
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-002-master-v2.png",
+        "source_sha256": "0daf0b2b022b21dabdd6b1edb3872511798508896888af9b567b8e0813ff2131",
+        "source_bounds": [
+          6,
+          266,
+          1193,
+          1239
+        ],
+        "opaque_pixels": 464198,
+        "label": "battle-2",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          555.0,
+          195.0
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.18251928020565553,
+        "resampled_size": [
+          217,
+          178
+        ],
+        "translation": [
+          83,
+          76
+        ],
+        "actual_landmark": [
+          184.46166807076662,
+          111.67317574511819
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-008-009-master-v2.png",
+        "source_sha256": "c5a696f2f166e73291df0e7b54e919b7e762b607a7d2a497df6c04db287840b7",
+        "source_bounds": [
+          59,
+          123,
+          883,
+          824
+        ],
+        "opaque_pixels": 254171,
+        "label": "battle-8",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          398.0,
+          142.0
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.25402504472271914,
+        "resampled_size": [
+          209,
+          178
+        ],
+        "translation": [
+          83,
+          76
+        ],
+        "actual_landmark": [
+          183.9490291262136,
+          112.05706134094152
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-008-009-master-v2.png",
+        "source_sha256": "c5a696f2f166e73291df0e7b54e919b7e762b607a7d2a497df6c04db287840b7",
+        "source_bounds": [
+          938,
+          123,
+          1765,
+          824
+        ],
+        "opaque_pixels": 253322,
+        "label": "battle-9",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          395.5,
+          142.0
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.25402504472271914,
+        "resampled_size": [
+          210,
+          178
+        ],
+        "translation": [
+          84,
+          76
+        ],
+        "actual_landmark": [
+          184.4292623941959,
+          112.05706134094152
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-throw-master-v2.png",
+        "source_sha256": "f2ff7adba302fccaa7ff2a6d4e6d705e92a0a86bd32b1687099275e0a352f5f3",
+        "source_bounds": [
+          31,
+          104,
+          873,
+          802
+        ],
+        "opaque_pixels": 264036,
+        "label": "battle-41",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          417.5,
+          135.0
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.25199645075421473,
+        "resampled_size": [
+          212,
+          176
+        ],
+        "translation": [
+          79,
+          78
+        ],
+        "actual_landmark": [
+          184.1187648456057,
+          112.04011461318052
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-throw-master-v2.png",
+        "source_sha256": "f2ff7adba302fccaa7ff2a6d4e6d705e92a0a86bd32b1687099275e0a352f5f3",
+        "source_bounds": [
+          1022,
+          104,
+          1759,
+          802
+        ],
+        "opaque_pixels": 260715,
+        "label": "battle-43",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          311.5,
+          134.5
+        ],
+        "target_landmark": [
+          184,
+          112
+        ],
+        "scale": 0.25199645075421473,
+        "resampled_size": [
+          186,
+          176
+        ],
+        "translation": [
+          105,
+          78
+        ],
+        "actual_landmark": [
+          183.6146540027137,
+          111.91404011461319
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-special-master-v1.png",
+        "source_sha256": "7e4e8e2b947763f128d367b643e551c93798fcf5c08c14b3b3fd951e756ff469",
+        "source_bounds": [
+          57,
+          96,
+          439,
+          505
+        ],
+        "opaque_pixels": 66623,
+        "label": "battle-6",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          251.0,
+          93.5
+        ],
+        "target_landmark": [
+          198,
+          100
+        ],
+        "scale": 0.48811410459587956,
+        "resampled_size": [
+          186,
+          200
+        ],
+        "translation": [
+          76,
+          54
+        ],
+        "actual_landmark": [
+          198.21465968586386,
+          99.72127139364304
+        ],
+        "clipped_pixels": 0
+      },
+      {
+        "source": "battle-007-master-v2.png",
+        "source_sha256": "ccdf29b361c72a3094bd4db6efbdc124a6fb1541875e5e5f70fafb6f2747d5a8",
+        "source_bounds": [
+          129,
+          129,
+          1392,
+          943
+        ],
+        "opaque_pixels": 374786,
+        "label": "battle-7",
+        "method": "whole-pose uniform scale and integer translation only",
+        "source_landmark": [
+          696.0,
+          169.0
+        ],
+        "target_landmark": [
+          204,
+          84
+        ],
+        "scale": 0.19753086419753085,
+        "resampled_size": [
+          249,
+          161
+        ],
+        "translation": [
+          67,
+          51
+        ],
+        "actual_landmark": [
+          204.21615201900238,
+          84.42628992628993
+        ],
+        "clipped_pixels": 0
+      }
+    ]
+  }
+}

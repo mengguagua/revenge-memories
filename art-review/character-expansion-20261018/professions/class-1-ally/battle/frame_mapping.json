@@ -4,7 +4,7 @@
   "display_name": "盟军骑兵",
   "original_class_id": 1,
   "source_side": "ally",
-  "status": "complete_art_review_passed",
+  "status": "review_candidate",
   "source_atlas": "../../../source-input/original-motion/class-1.png",
   "source_atlas_base": "mapping directory",
   "source_frame_size": [
@@ -680,5 +680,10 @@
     "19": "exact source standing body after35 lance pixels removed; no extra arm follow-through"
   },
   "art_mode": "Built-in imagegen. Crop/uniform scale/whole-image registration and proven translation aliases only.",
-  "runtime_integrated": false
+  "runtime_integrated": false,
+  "effect_overrides": {
+    "5660a52a5bb041": "../../../cavalry-battle-lance-colors-v1-20261021/ally/flying-lance.png"
+  },
+  "revision": "cavalry-battle-lance-colors-v1-20261021",
+  "review_note": "友方飞行投枪恢复手持武器的木色枪杆与金属枪头；敌方人物、战马和投枪统一蓝紫色。原动作、轨迹与命中时序保持，仅更新对照页。"
 }

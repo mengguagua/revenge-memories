@@ -1,0 +1,1874 @@
+{
+  "revision": "knight-complete-v1-20261021",
+  "runtime_integrated": false,
+  "image_generation_invoked": false,
+  "chat_image_output": false,
+  "palette": {
+    "ally": [
+      "1c2027",
+      "34373d",
+      "59616a",
+      "bcc8d0",
+      "e8edeb",
+      "f1f0e8",
+      "293a54",
+      "3e5578",
+      "7589a7",
+      "59483c",
+      "95785e",
+      "ba9b67",
+      "dcc08f",
+      "b38a6f",
+      "e3b78e",
+      "fff9e9"
+    ],
+    "enemy": [
+      "191c2b",
+      "292b45",
+      "30385d",
+      "425b83",
+      "647fa6",
+      "8eabc6",
+      "454064",
+      "635586",
+      "8b7da9",
+      "7e90a6",
+      "9eadc2",
+      "d6dce4",
+      "947b78",
+      "cbb5a5",
+      "4f607a",
+      "b0a2c6"
+    ]
+  },
+  "sources": "Existing class-4 drafts; raw sources kept unchanged. Alpha below128 removed as transparent dust before nearest-pixel registration.",
+  "registration": [
+    {
+      "label": "idle-0",
+      "source_solid_bounds": [
+        121,
+        89,
+        661,
+        664
+      ],
+      "source_landmark": [
+        413,
+        89
+      ],
+      "target_landmark": [
+        48,
+        16
+      ],
+      "registered_landmark": [
+        47.903703703703705,
+        16.0
+      ],
+      "uniform_scale": 0.10902896081771721,
+      "resampled_size": [
+        59,
+        63
+      ],
+      "translation": [
+        16,
+        16
+      ],
+      "visible_clipped_pixels": 0
+    },
+    {
+      "label": "idle-1",
+      "source_solid_bounds": [
+        119,
+        82,
+        623,
+        669
+      ],
+      "source_landmark": [
+        386,
+        82
+      ],
+      "target_landmark": [
+        48,
+        16
+      ],
+      "registered_landmark": [
+        48.13690476190476,
+        16.0
+      ],
+      "uniform_scale": 0.10902896081771721,
+      "resampled_size": [
+        55,
+        64
+      ],
+      "translation": [
+        19,
+        16
+      ],
+      "visible_clipped_pixels": 0
+    },
+    {
+      "label": "idle-2",
+      "source_solid_bounds": [
+        103,
+        86,
+        603,
+        664
+      ],
+      "source_landmark": [
+        360,
+        86
+      ],
+      "target_landmark": [
+        48,
+        16
+      ],
+      "registered_landmark": [
+        48.269999999999996,
+        16.0
+      ],
+      "uniform_scale": 0.10902896081771721,
+      "resampled_size": [
+        55,
+        63
+      ],
+      "translation": [
+        20,
+        16
+      ],
+      "visible_clipped_pixels": 0
+    },
+    {
+      "label": "walk-up-0",
+      "source_solid_bounds": [
+        276,
+        134,
+        478,
+        576
+      ],
+      "source_landmark": [
+        403.5,
+        134
+      ],
+      "target_landmark": [
+        64,
+        16
+      ],
+      "registered_landmark": [
+        64.09158415841584,
+        16.0
+      ],
+      "uniform_scale": 0.17194570135746606,
+      "resampled_size": [
+        35,
+        76
+      ],
+      "translation": [
+        42,
+        16
+      ],
+      "visible_clipped_pixels": 0
+    },
+    {
+      "label": "walk-up-1",
+      "source_solid_bounds": [
+        165,
+        142,
+        363,
+        583
+      ],
+      "source_landmark": [
+        289.5,
+        142
+      ],
+      "target_landmark": [
+        64,
+        16
+      ],
+      "registered_landmark": [
+        64.37878787878788,
+        16.0
+      ],
+      "uniform_scale": 0.17194570135746606,
+      "resampled_size": [
+        34,
+        76
+      ],
+      "translation": [
+        43,
+        16
+      ],
+      "visible_clipped_pixels": 0
+    },
+    {
+      "label": "walk-down-4",
+      "source_solid_bounds": [
+        274,
+        75,
+        473,
+        487
+      ],
+      "source_landmark": [
+        381.0,
+        75
+      ],
+      "target_landmark": [
+        64,
+        20
+      ],
+      "registered_landmark": [
+        63.89447236180904,
+        20.0
+      ],
+      "uniform_scale": 0.18446601941747573,
+      "resampled_size": [
+        37,
+        76
+      ],
+      "translation": [
+        44,
+        20
+      ],
+      "visible_clipped_pixels": 0
+    },
+    {
+      "label": "walk-down-5",
+      "source_solid_bounds": [
+        156,
+        86,
+        356,
+        487
+      ],
+      "source_landmark": [
+        259.5,
+        86
+      ],
+      "target_landmark": [
+        64,
+        20
+      ],
+      "registered_landmark": [
+        64.14750000000001,
+        20.0
+      ],
+      "uniform_scale": 0.18446601941747573,
+      "resampled_size": [
+        37,
+        74
+      ],
+      "translation": [
+        45,
+        20
+      ],
+      "visible_clipped_pixels": 0
+    },
+    {
+      "label": "battle-0",
+      "source_solid_bounds": [
+        69,
+        94,
+        248,
+        256
+      ],
+      "source_landmark": [
+        182,
+        120
+      ],
+      "target_landmark": [
+        184,
+        120
+      ],
+      "registered_landmark": [
+        184.0,
+        120.0
+      ],
+      "uniform_scale": 1.0,
+      "resampled_size": [
+        179,
+        162
+      ],
+      "translation": [
+        71,
+        94
+      ],
+      "visible_clipped_pixels": 0
+    },
+    {
+      "label": "battle-1",
+      "source_solid_bounds": [
+        48,
+        91,
+        254,
+        255
+      ],
+      "source_landmark": [
+        150,
+        120
+      ],
+      "target_landmark": [
+        184,
+        120
+      ],
+      "registered_landmark": [
+        183.99029126213594,
+        120.17682926829268
+      ],
+      "uniform_scale": 1.0074074074074073,
+      "resampled_size": [
+        208,
+        165
+      ],
+      "translation": [
+        81,
+        91
+      ],
+      "visible_clipped_pixels": 0
+    },
+    {
+      "label": "battle-2",
+      "source_solid_bounds": [
+        74,
+        92,
+        280,
+        255
+      ],
+      "source_landmark": [
+        174,
+        118
+      ],
+      "target_landmark": [
+        184,
+        120
+      ],
+      "registered_landmark": [
+        184.02912621359224,
+        119.84049079754601
+      ],
+      "uniform_scale": 0.9927007299270073,
+      "resampled_size": [
+        204,
+        162
+      ],
+      "translation": [
+        85,
+        94
+      ],
+      "visible_clipped_pixels": 0
+    },
+    {
+      "label": "battle-3",
+      "source_solid_bounds": [
+        83,
+        95,
+        300,
+        255
+      ],
+      "source_landmark": [
+        190,
+        120
+      ],
+      "target_landmark": [
+        184,
+        120
+      ],
+      "registered_landmark": [
+        183.98617511520737,
+        120.15625
+      ],
+      "uniform_scale": 1.0074074074074073,
+      "resampled_size": [
+        219,
+        161
+      ],
+      "translation": [
+        76,
+        95
+      ],
+      "visible_clipped_pixels": 0
+    },
+    {
+      "label": "battle-4",
+      "source_solid_bounds": [
+        69,
+        89,
+        256,
+        256
+      ],
+      "source_landmark": [
+        178,
+        118
+      ],
+      "target_landmark": [
+        184,
+        120
+      ],
+      "registered_landmark": [
+        184.25133689839572,
+        119.65269461077844
+      ],
+      "uniform_scale": 0.9855072463768116,
+      "resampled_size": [
+        184,
+        165
+      ],
+      "translation": [
+        77,
+        91
+      ],
+      "visible_clipped_pixels": 0
+    },
+    {
+      "label": "battle-5",
+      "source_solid_bounds": [
+        82,
+        85,
+        265,
+        244
+      ],
+      "source_landmark": [
+        188,
+        114
+      ],
+      "target_landmark": [
+        184,
+        120
+      ],
+      "registered_landmark": [
+        184.36612021857923,
+        119.72327044025157
+      ],
+      "uniform_scale": 0.9538461538461539,
+      "resampled_size": [
+        175,
+        152
+      ],
+      "translation": [
+        83,
+        92
+      ],
+      "visible_clipped_pixels": 0
+    },
+    {
+      "label": "battle-6",
+      "source_solid_bounds": [
+        92,
+        64,
+        263,
+        256
+      ],
+      "source_landmark": [
+        166,
+        110
+      ],
+      "target_landmark": [
+        194,
+        108
+      ],
+      "registered_landmark": [
+        193.86549707602342,
+        107.71875
+      ],
+      "uniform_scale": 1.0136986301369864,
+      "resampled_size": [
+        173,
+        195
+      ],
+      "translation": [
+        119,
+        61
+      ],
+      "visible_clipped_pixels": 0
+    },
+    {
+      "label": "battle-7",
+      "source_solid_bounds": [
+        67,
+        18,
+        279,
+        214
+      ],
+      "source_landmark": [
+        168,
+        80
+      ],
+      "target_landmark": [
+        184,
+        80
+      ],
+      "registered_landmark": [
+        184.42924528301887,
+        79.94897959183675
+      ],
+      "uniform_scale": 1.0149253731343284,
+      "resampled_size": [
+        215,
+        199
+      ],
+      "translation": [
+        82,
+        17
+      ],
+      "visible_clipped_pixels": 0
+    },
+    {
+      "label": "battle-8",
+      "source_solid_bounds": [
+        76,
+        98,
+        244,
+        256
+      ],
+      "source_landmark": [
+        176,
+        122
+      ],
+      "target_landmark": [
+        184,
+        120
+      ],
+      "registered_landmark": [
+        183.78571428571428,
+        120.30379746835443
+      ],
+      "uniform_scale": 1.0149253731343284,
+      "resampled_size": [
+        171,
+        160
+      ],
+      "translation": [
+        82,
+        96
+      ],
+      "visible_clipped_pixels": 0
+    },
+    {
+      "label": "battle-9",
+      "source_solid_bounds": [
+        79,
+        96,
+        247,
+        255
+      ],
+      "source_landmark": [
+        176,
+        122
+      ],
+      "target_landmark": [
+        184,
+        120
+      ],
+      "registered_landmark": [
+        184.3095238095238,
+        119.65408805031447
+      ],
+      "uniform_scale": 1.0225563909774436,
+      "resampled_size": [
+        172,
+        163
+      ],
+      "translation": [
+        85,
+        93
+      ],
+      "visible_clipped_pixels": 0
+    },
+    {
+      "label": "battle-41",
+      "source_solid_bounds": [
+        62,
+        97,
+        245,
+        255
+      ],
+      "source_landmark": [
+        176,
+        122
+      ],
+      "target_landmark": [
+        184,
+        120
+      ],
+      "registered_landmark": [
+        184.4918032786885,
+        119.63291139240506
+      ],
+      "uniform_scale": 1.0225563909774436,
+      "resampled_size": [
+        187,
+        162
+      ],
+      "translation": [
+        68,
+        94
+      ],
+      "visible_clipped_pixels": 0
+    },
+    {
+      "label": "battle-43",
+      "source_solid_bounds": [
+        114,
+        97,
+        244,
+        255
+      ],
+      "source_landmark": [
+        176,
+        122
+      ],
+      "target_landmark": [
+        184,
+        120
+      ],
+      "registered_landmark": [
+        184.43076923076922,
+        119.63291139240506
+      ],
+      "uniform_scale": 1.0225563909774436,
+      "resampled_size": [
+        133,
+        162
+      ],
+      "translation": [
+        121,
+        94
+      ],
+      "visible_clipped_pixels": 0
+    }
+  ],
+  "assets": [
+    {
+      "path": "knight-complete-v1-20261021/ally/tactical-idle/frame-000.png",
+      "purpose": "盟军骑士 / tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 3808,
+      "sha256": "34fb9ae57d620ea9b74a40c7ac734854474e8d42e326bcba1233691105b1279a",
+      "visible_bounds": [
+        16,
+        16,
+        75,
+        79
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/tactical-idle/frame-001.png",
+      "purpose": "盟军骑士 / tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 3850,
+      "sha256": "9ee93fa3e0ab8c03d989f3d99255b0e7a99bdb4dab6f7d750f80a5335869d54c",
+      "visible_bounds": [
+        16,
+        16,
+        74,
+        80
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/tactical-idle/frame-002.png",
+      "purpose": "盟军骑士 / tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 3644,
+      "sha256": "35cabb773aec1ed534b9d709a9815f53555b399a286ef02fe512c44431f29633",
+      "visible_bounds": [
+        16,
+        16,
+        75,
+        79
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/tactical-idle/frame-003.png",
+      "purpose": "盟军骑士 / tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 3850,
+      "sha256": "9ee93fa3e0ab8c03d989f3d99255b0e7a99bdb4dab6f7d750f80a5335869d54c",
+      "visible_bounds": [
+        16,
+        16,
+        74,
+        80
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/tactical-idle/frame-004.png",
+      "purpose": "盟军骑士 / tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 3808,
+      "sha256": "34fb9ae57d620ea9b74a40c7ac734854474e8d42e326bcba1233691105b1279a",
+      "visible_bounds": [
+        16,
+        16,
+        75,
+        79
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/tactical-idle/frame-005.png",
+      "purpose": "盟军骑士 / tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 3850,
+      "sha256": "9ee93fa3e0ab8c03d989f3d99255b0e7a99bdb4dab6f7d750f80a5335869d54c",
+      "visible_bounds": [
+        16,
+        16,
+        74,
+        80
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/tactical-idle-atlas.png",
+      "purpose": "盟军骑士 offline map atlas",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 7442,
+      "sha256": "69cb828ee9727c7034e6a581f80c019e4ec63ad4a351f05b830a4ceec8da2413",
+      "visible_bounds": [
+        16,
+        16,
+        554,
+        80
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/tactical-walk/frame-000.png",
+      "purpose": "盟军骑士 / tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2510,
+      "sha256": "e32d95a8b249f383751483ac55c49649840c8d288a902c6430e74d03d4d991dd",
+      "visible_bounds": [
+        42,
+        16,
+        77,
+        92
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/tactical-walk/frame-001.png",
+      "purpose": "盟军骑士 / tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2584,
+      "sha256": "3f301281816daaaacd90ad57eebe1afd123d095906422f7dec57c1db1f96d78f",
+      "visible_bounds": [
+        42,
+        16,
+        77,
+        92
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/tactical-walk/frame-002.png",
+      "purpose": "盟军骑士 / tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 3848,
+      "sha256": "7fd590171ac40be23a5da91ab2ed4e9530715ad1a5c840993980ac77ee511597",
+      "visible_bounds": [
+        38,
+        32,
+        97,
+        95
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/tactical-walk/frame-003.png",
+      "purpose": "盟军骑士 / tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 3668,
+      "sha256": "1a1c2bd66f75dce975dba11c26a3015fa716e41336438d31d2cd78c2d5aae370",
+      "visible_bounds": [
+        38,
+        32,
+        97,
+        95
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/tactical-walk/frame-004.png",
+      "purpose": "盟军骑士 / tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2834,
+      "sha256": "2a35b1efcba7b47112c9a97b58d4e9a0c094fa1d3ae3ee52e7f0ec564284330a",
+      "visible_bounds": [
+        44,
+        20,
+        81,
+        96
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/tactical-walk/frame-005.png",
+      "purpose": "盟军骑士 / tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2754,
+      "sha256": "75fe97bde1593ab213af8cd1f889f5995fe1da87f7a5495856341729c3cc1f1e",
+      "visible_bounds": [
+        44,
+        20,
+        81,
+        94
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/tactical-walk/frame-006.png",
+      "purpose": "盟军骑士 / tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 3875,
+      "sha256": "894a5dcc50ef7e3be8370430c9d36e1e86ccb188c9510c3a30ac241b0c0af91a",
+      "visible_bounds": [
+        32,
+        32,
+        91,
+        95
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/tactical-walk/frame-007.png",
+      "purpose": "盟军骑士 / tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 3697,
+      "sha256": "d10f66eb644580817e547fe03127eb4a087e9b87e220f08c368a19d67469be7b",
+      "visible_bounds": [
+        32,
+        32,
+        91,
+        95
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/tactical-walk-atlas.png",
+      "purpose": "盟军骑士 offline map atlas",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 16210,
+      "sha256": "ee3e56812de762dc053c6223691ce843507b48928f93413efb36cf67b52811f5",
+      "visible_bounds": [
+        42,
+        16,
+        987,
+        96
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/battle/frame-000.png",
+      "purpose": "盟军骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 14688,
+      "sha256": "cbf190ac904de7e8140944ccb92cea5db7cc6b53d30bafa20d0ca76456ad3ba1",
+      "visible_bounds": [
+        71,
+        94,
+        250,
+        256
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/battle/frame-001.png",
+      "purpose": "盟军骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 14585,
+      "sha256": "6d799b36b49fbf1ac98cabf54b456901e4fe1e4dd81c7f0d09f902e9c7ede66e",
+      "visible_bounds": [
+        81,
+        91,
+        289,
+        256
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/battle/frame-002.png",
+      "purpose": "盟军骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 14421,
+      "sha256": "aa0839e1590edeec94b0886bbeb3502c4891bfc8d3fca6868d7793fc1452432d",
+      "visible_bounds": [
+        85,
+        94,
+        289,
+        256
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/battle/frame-003.png",
+      "purpose": "盟军骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 15347,
+      "sha256": "3329c5b756d375e382d3bcee0fae4a0db48696d55006cef057be08332b8f08ec",
+      "visible_bounds": [
+        76,
+        95,
+        295,
+        256
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/battle/frame-004.png",
+      "purpose": "盟军骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 14646,
+      "sha256": "a4412ce380d85322160ea7f589e3a8e9bc3363a44a1fd0551320cbf10b9e97b4",
+      "visible_bounds": [
+        77,
+        91,
+        261,
+        256
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/battle/frame-005.png",
+      "purpose": "盟军骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 13244,
+      "sha256": "0528cf03e948ba852fb7d2888e2a145b6a06675a097dee7b9f1d7b14d19ebb69",
+      "visible_bounds": [
+        83,
+        92,
+        258,
+        244
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/battle/frame-006.png",
+      "purpose": "盟军骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 15947,
+      "sha256": "0690c17fbb1fa1cd864d927b1b0d45797e2272a794459b4edd7c9012ce03f253",
+      "visible_bounds": [
+        119,
+        61,
+        292,
+        256
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/battle/frame-007.png",
+      "purpose": "盟军骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 14869,
+      "sha256": "8862baf0d7eb9d3655fd926d6708758d0e7656fbdb27bf00a84a518ceaeabc8c",
+      "visible_bounds": [
+        82,
+        17,
+        297,
+        216
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/battle/frame-008.png",
+      "purpose": "盟军骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 14251,
+      "sha256": "dbb0defcb21f0c8c6dd4636a20a0564122fb6a9c8c93bdf8ffcff3915f9eba4c",
+      "visible_bounds": [
+        82,
+        96,
+        253,
+        256
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/battle/frame-009.png",
+      "purpose": "盟军骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 13869,
+      "sha256": "3b33148f5b51422882946ff7f795ee264780e3dec3f28e0fc154012a419bc86f",
+      "visible_bounds": [
+        85,
+        93,
+        257,
+        256
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/battle/frame-021.png",
+      "purpose": "盟军骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 14688,
+      "sha256": "cbf190ac904de7e8140944ccb92cea5db7cc6b53d30bafa20d0ca76456ad3ba1",
+      "visible_bounds": [
+        71,
+        94,
+        250,
+        256
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/battle/frame-040.png",
+      "purpose": "盟军骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 14688,
+      "sha256": "cbf190ac904de7e8140944ccb92cea5db7cc6b53d30bafa20d0ca76456ad3ba1",
+      "visible_bounds": [
+        71,
+        94,
+        250,
+        256
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/battle/frame-041.png",
+      "purpose": "盟军骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 14383,
+      "sha256": "4f69c883d0235b4eee044320465a7ccf67beeb92bff0315b27920bceee70bcf8",
+      "visible_bounds": [
+        68,
+        94,
+        255,
+        256
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/battle/frame-043.png",
+      "purpose": "盟军骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 13813,
+      "sha256": "8910105403c4d4b686306f80b9325eee2224be06156f2c6d12bfa46dfe08ddca",
+      "visible_bounds": [
+        121,
+        94,
+        254,
+        256
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/battle-atlas.png",
+      "purpose": "盟军骑士 offline battle atlas",
+      "size": [
+        4480,
+        256
+      ],
+      "bytes": 59383,
+      "sha256": "4a32a2f020fe20b61b15323cdce852bc7c53b79d7807327f84bfead8aabc40f1",
+      "visible_bounds": [
+        71,
+        17,
+        4414,
+        256
+      ],
+      "visible_colors": 16,
+      "size_reason": "Offline multi-pose atlas/inspection board; full pixel detail retained after lossless compression. Independent character frames remain below50KB."
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally/flying-lance.png",
+      "purpose": "盟军骑士 / natural ally lance or blue-violet enemy lance",
+      "size": [
+        64,
+        16
+      ],
+      "bytes": 153,
+      "sha256": "623c804c533df44364b294e063693b85e8ac617aeb9527c7510a69b013904c79",
+      "visible_bounds": [
+        25,
+        12,
+        63,
+        15
+      ],
+      "visible_colors": 5
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/tactical-idle/frame-000.png",
+      "purpose": "敌方骑士 / tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 3804,
+      "sha256": "a4710ddd8f38d860ba92d0548bf84fc1c3086ecd1dc8f9d79d17a6e98be50977",
+      "visible_bounds": [
+        16,
+        16,
+        75,
+        79
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/tactical-idle/frame-001.png",
+      "purpose": "敌方骑士 / tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 3863,
+      "sha256": "9902c48d40332acd996e7d38c444c9c2a3e3983d9df471658bc1aad5529c5619",
+      "visible_bounds": [
+        16,
+        16,
+        74,
+        80
+      ],
+      "visible_colors": 13
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/tactical-idle/frame-002.png",
+      "purpose": "敌方骑士 / tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 3801,
+      "sha256": "2130c6d12c559e053001af00ab8c7703aa854cff519693e826ca09971821c7fa",
+      "visible_bounds": [
+        16,
+        16,
+        75,
+        79
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/tactical-idle/frame-003.png",
+      "purpose": "敌方骑士 / tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 3863,
+      "sha256": "9902c48d40332acd996e7d38c444c9c2a3e3983d9df471658bc1aad5529c5619",
+      "visible_bounds": [
+        16,
+        16,
+        74,
+        80
+      ],
+      "visible_colors": 13
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/tactical-idle/frame-004.png",
+      "purpose": "敌方骑士 / tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 3804,
+      "sha256": "a4710ddd8f38d860ba92d0548bf84fc1c3086ecd1dc8f9d79d17a6e98be50977",
+      "visible_bounds": [
+        16,
+        16,
+        75,
+        79
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/tactical-idle/frame-005.png",
+      "purpose": "敌方骑士 / tactical-idle",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 3863,
+      "sha256": "9902c48d40332acd996e7d38c444c9c2a3e3983d9df471658bc1aad5529c5619",
+      "visible_bounds": [
+        16,
+        16,
+        74,
+        80
+      ],
+      "visible_colors": 13
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/tactical-idle-atlas.png",
+      "purpose": "敌方骑士 offline map atlas",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 7255,
+      "sha256": "7a9aaec60d34981a770d6ece929f0e494cc5874905cdd73a16cc9810210b4316",
+      "visible_bounds": [
+        16,
+        16,
+        554,
+        80
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/tactical-walk/frame-000.png",
+      "purpose": "敌方骑士 / tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2624,
+      "sha256": "124ff4ca885ce50465e484aa4442d1a39f38c8d7095e23b98d43150bb026757a",
+      "visible_bounds": [
+        42,
+        16,
+        77,
+        92
+      ],
+      "visible_colors": 10
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/tactical-walk/frame-001.png",
+      "purpose": "敌方骑士 / tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2733,
+      "sha256": "5e19e0ef31097f676f2c21e07eabf849cae11ef94325d5dddb2d1e56e15f1d30",
+      "visible_bounds": [
+        42,
+        16,
+        77,
+        92
+      ],
+      "visible_colors": 10
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/tactical-walk/frame-002.png",
+      "purpose": "敌方骑士 / tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 3843,
+      "sha256": "bca45b9a40547b64ab353581dfa214f1c42a0a2f8781f867aa859b797daec3fa",
+      "visible_bounds": [
+        38,
+        32,
+        97,
+        95
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/tactical-walk/frame-003.png",
+      "purpose": "敌方骑士 / tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 3652,
+      "sha256": "162dcc6576a1bc10a06c1c4bd76d1815a6bd6f131c2187ea17a56a57374452f6",
+      "visible_bounds": [
+        38,
+        32,
+        97,
+        95
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/tactical-walk/frame-004.png",
+      "purpose": "敌方骑士 / tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 3078,
+      "sha256": "4d21e1c1a36ec01e8c69de3837f4002efdea3d6fd137127414b026226c23a70e",
+      "visible_bounds": [
+        44,
+        20,
+        81,
+        96
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/tactical-walk/frame-005.png",
+      "purpose": "敌方骑士 / tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2958,
+      "sha256": "767464c2173d31b5486cfb1f25e31c669f55fd7f806abbf4acabbe13d7979b4c",
+      "visible_bounds": [
+        44,
+        20,
+        81,
+        94
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/tactical-walk/frame-006.png",
+      "purpose": "敌方骑士 / tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 3877,
+      "sha256": "d20f7bcd39c05a7202a0a1a2dae62bb94b6514a0785c0156d0646d8d69155301",
+      "visible_bounds": [
+        32,
+        32,
+        91,
+        95
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/tactical-walk/frame-007.png",
+      "purpose": "敌方骑士 / tactical-walk",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 3867,
+      "sha256": "9d7ae4c86c8c048319bca6c23870d582b700a1b5f2f5f19f7676b754a7a6d16a",
+      "visible_bounds": [
+        32,
+        32,
+        91,
+        95
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/tactical-walk-atlas.png",
+      "purpose": "敌方骑士 offline map atlas",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 15788,
+      "sha256": "3cb0e258e4bf9e9e3787a3ad9f199896292493316cccfe173c68fa4c11e6cdda",
+      "visible_bounds": [
+        42,
+        16,
+        987,
+        96
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/battle/frame-010.png",
+      "purpose": "敌方骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 14882,
+      "sha256": "fc5f311c0c5b0a7eaf3a8fc348e39b0dd2f71b54c8caa3ecdcd49d94adca1748",
+      "visible_bounds": [
+        71,
+        94,
+        250,
+        256
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/battle/frame-011.png",
+      "purpose": "敌方骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 14430,
+      "sha256": "e13987ab80fa15dc78e68b3faf5b5eda37a73d76e8e3af16c1ed478021e73570",
+      "visible_bounds": [
+        81,
+        91,
+        289,
+        256
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/battle/frame-012.png",
+      "purpose": "敌方骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 14191,
+      "sha256": "800a30fe8af4c2f5b34130b1eaab6e47f4ed300f929811fcd86e43c45643d08e",
+      "visible_bounds": [
+        85,
+        94,
+        289,
+        256
+      ],
+      "visible_colors": 14
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/battle/frame-013.png",
+      "purpose": "敌方骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 14744,
+      "sha256": "b63b60f89b9bcba86a9fc8a4448440cc95ac1472cd35f251bb6437ae572fc1d5",
+      "visible_bounds": [
+        76,
+        95,
+        295,
+        256
+      ],
+      "visible_colors": 14
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/battle/frame-014.png",
+      "purpose": "敌方骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 14591,
+      "sha256": "34fbef01456c85afaa082b0b3964eb5e62a919cea7f8f42e66dc1ce3fe73a180",
+      "visible_bounds": [
+        77,
+        91,
+        261,
+        256
+      ],
+      "visible_colors": 14
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/battle/frame-015.png",
+      "purpose": "敌方骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 13099,
+      "sha256": "cba1daff768b48b746f10eea605da63d232de4807a4210a6f64d2915a3dde314",
+      "visible_bounds": [
+        83,
+        92,
+        258,
+        244
+      ],
+      "visible_colors": 14
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/battle/frame-016.png",
+      "purpose": "敌方骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 15489,
+      "sha256": "a3832d8a6071caed915f248805621669a364a6c04724e6797c58cc571315992a",
+      "visible_bounds": [
+        119,
+        61,
+        292,
+        256
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/battle/frame-017.png",
+      "purpose": "敌方骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 15591,
+      "sha256": "0e886345ffd0e0f4edef0b4d28a5210d1edd4f3809a986e39c5f105b8bf26708",
+      "visible_bounds": [
+        82,
+        17,
+        297,
+        216
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/battle/frame-018.png",
+      "purpose": "敌方骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 13374,
+      "sha256": "0e3abef5a83077c3ab839e7daf7a197a454b6b9b61a27520537532618e165b75",
+      "visible_bounds": [
+        82,
+        96,
+        253,
+        256
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/battle/frame-019.png",
+      "purpose": "敌方骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 13858,
+      "sha256": "743c1c642ad5f8a0bf42455e7b11ceca397f661110073f5a51be5f0463cfed9e",
+      "visible_bounds": [
+        85,
+        93,
+        257,
+        256
+      ],
+      "visible_colors": 13
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/battle/frame-031.png",
+      "purpose": "敌方骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 14918,
+      "sha256": "5d354cef72689241e3e012a623a972122a915a2d584bc47eea0e840a4d30caa3",
+      "visible_bounds": [
+        7,
+        94,
+        186,
+        256
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/battle/frame-040.png",
+      "purpose": "敌方骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 14918,
+      "sha256": "5d354cef72689241e3e012a623a972122a915a2d584bc47eea0e840a4d30caa3",
+      "visible_bounds": [
+        7,
+        94,
+        186,
+        256
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/battle/frame-041.png",
+      "purpose": "敌方骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 13504,
+      "sha256": "b07b065cb9058bd8d3b423e244ed4a362d511cfa3c16427da0f2ae322c95bce4",
+      "visible_bounds": [
+        4,
+        94,
+        191,
+        256
+      ],
+      "visible_colors": 15
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/battle/frame-045.png",
+      "purpose": "敌方骑士 battle pose",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 12752,
+      "sha256": "292bd57f71939dedc23151854b8649025bba714491a1efc043e071194ece5244",
+      "visible_bounds": [
+        57,
+        94,
+        190,
+        256
+      ],
+      "visible_colors": 16
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/battle-atlas.png",
+      "purpose": "敌方骑士 offline battle atlas",
+      "size": [
+        4480,
+        256
+      ],
+      "bytes": 58903,
+      "sha256": "c8351b041b06b597c7f16f25da310f287b18b0a0827e62fd0eeb1c9c64b33561",
+      "visible_bounds": [
+        71,
+        17,
+        4350,
+        256
+      ],
+      "visible_colors": 16,
+      "size_reason": "Offline multi-pose atlas/inspection board; full pixel detail retained after lossless compression. Independent character frames remain below50KB."
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy/flying-lance.png",
+      "purpose": "敌方骑士 / natural ally lance or blue-violet enemy lance",
+      "size": [
+        64,
+        16
+      ],
+      "bytes": 153,
+      "sha256": "7c26d6c513883729674d4f6ff9fa53947fc197f1d7546416a48bd80d549dd560",
+      "visible_bounds": [
+        25,
+        12,
+        63,
+        15
+      ],
+      "visible_colors": 5
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally-map-dark.png",
+      "purpose": "offline dark/light pose inspection board",
+      "size": [
+        840,
+        540
+      ],
+      "bytes": 39155,
+      "sha256": "6ff18f153e5cfa306ea2f7a8000e8db8a2d1a882ed7faecc320aaca653c607df",
+      "visible_bounds": [
+        0,
+        0,
+        840,
+        540
+      ],
+      "visible_colors": 438
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally-map-light.png",
+      "purpose": "offline dark/light pose inspection board",
+      "size": [
+        840,
+        540
+      ],
+      "bytes": 38257,
+      "sha256": "48168b458c73277ded5e0089f4abc622241993baa864b37ae91043fd41ab0f13",
+      "visible_bounds": [
+        0,
+        0,
+        840,
+        540
+      ],
+      "visible_colors": 418
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally-battle-dark.png",
+      "purpose": "offline dark/light pose inspection board",
+      "size": [
+        1376,
+        1276
+      ],
+      "bytes": 99658,
+      "sha256": "bfb9c61aa65abecc2c8367fab7492e590895cab1ce8c72b5e4e32a1a1d61de3f",
+      "visible_bounds": [
+        0,
+        0,
+        1376,
+        1276
+      ],
+      "visible_colors": 433,
+      "size_reason": "Offline multi-pose atlas/inspection board; full pixel detail retained after lossless compression. Independent character frames remain below50KB."
+    },
+    {
+      "path": "knight-complete-v1-20261021/ally-battle-light.png",
+      "purpose": "offline dark/light pose inspection board",
+      "size": [
+        1376,
+        1276
+      ],
+      "bytes": 99487,
+      "sha256": "453d7946784a60873bce6bdb7adfc4b98c35402c5bf556520f9726da8c3c3c5c",
+      "visible_bounds": [
+        0,
+        0,
+        1376,
+        1276
+      ],
+      "visible_colors": 408,
+      "size_reason": "Offline multi-pose atlas/inspection board; full pixel detail retained after lossless compression. Independent character frames remain below50KB."
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy-map-dark.png",
+      "purpose": "offline dark/light pose inspection board",
+      "size": [
+        840,
+        540
+      ],
+      "bytes": 39889,
+      "sha256": "844e847b108ed2f0c57f1f79e16f86f418eae090b8be37452a4e8dcb88ba7d28",
+      "visible_bounds": [
+        0,
+        0,
+        840,
+        540
+      ],
+      "visible_colors": 435
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy-map-light.png",
+      "purpose": "offline dark/light pose inspection board",
+      "size": [
+        840,
+        540
+      ],
+      "bytes": 37941,
+      "sha256": "4cd49a59a2a7c1a1b9e0bcadd288d1f39d6e02bfc00ae67f11c8c29900a5765f",
+      "visible_bounds": [
+        0,
+        0,
+        840,
+        540
+      ],
+      "visible_colors": 416
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy-battle-dark.png",
+      "purpose": "offline dark/light pose inspection board",
+      "size": [
+        1376,
+        1276
+      ],
+      "bytes": 99021,
+      "sha256": "852dd005e143e7ac66025468073956fb08be6420cc9ae957bb39a5da75767319",
+      "visible_bounds": [
+        0,
+        0,
+        1376,
+        1276
+      ],
+      "visible_colors": 437,
+      "size_reason": "Offline multi-pose atlas/inspection board; full pixel detail retained after lossless compression. Independent character frames remain below50KB."
+    },
+    {
+      "path": "knight-complete-v1-20261021/enemy-battle-light.png",
+      "purpose": "offline dark/light pose inspection board",
+      "size": [
+        1376,
+        1276
+      ],
+      "bytes": 98751,
+      "sha256": "99bc153ba124ea6f699c9aaabe95f9aed9b2924e7433bc172a32ea61fccbe76e",
+      "visible_bounds": [
+        0,
+        0,
+        1376,
+        1276
+      ],
+      "visible_colors": 413,
+      "size_reason": "Offline multi-pose atlas/inspection board; full pixel detail retained after lossless compression. Independent character frames remain below50KB."
+    }
+  ],
+  "art_review_status": "pending_user_visual_acceptance",
+  "side_walk_source_aliases": {
+    "6": 0,
+    "7": 2,
+    "proof": "Native ally walking6/7 tight RGBA exactly equals idle0/2; source-space offsets excluded. Right is their mirror."
+  }
+}

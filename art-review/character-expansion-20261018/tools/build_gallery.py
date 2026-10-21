@@ -7,7 +7,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 FPS = 60.0988
-SPELL_NAMES={23:'火球',24:'雷电',25:'诸神黄昏',26:'圣光',27:'风刃',28:'箭雨',29:'光环',30:'盖亚',31:'多拉',32:'史莱姆',33:'死亡',34:'美杜莎',35:'恢复',36:'全体恢复',37:'召唤',38:'眼光',39:'眼球',40:'恢复',41:'远程恢复',42:'吸血',43:'传送',44:'全体恢复',45:'幻影',46:'驱邪',47:'无法攻击'}
+SPELL_NAMES={23:'火球',24:'雷电',25:'诸神黄昏',26:'圣光',27:'风刃',28:'箭雨',29:'光环',30:'盖亚',31:'鬼火',32:'史莱姆',33:'死亡',34:'美杜莎',35:'恢复',36:'全体恢复',37:'召唤',38:'眼光',39:'眼球',40:'恢复',41:'远程恢复',42:'吸血',43:'传送',44:'全体恢复',45:'幻影',46:'驱邪',47:'无法攻击'}
 
 def read(path):
     return json.loads(path.read_text())
@@ -42,7 +42,7 @@ def close_camera(profile, action):
             box=[box[0]*sx,box[1]*sy,box[2]*sx,box[3]*sy]
             if flip:box=[w-box[2],box[1],w-box[0],box[3]]
             bounds.append([box[0]-profile['anchor'][0]+correction[0],box[1]-profile['anchor'][1]+correction[1],box[2]-profile['anchor'][0]+correction[0],box[3]-profile['anchor'][1]+correction[1]])
-    for row in action.get('revisedFrames', []):
+    for row in action.get('revisedFrames', [])+action.get('reviewTailFrames', []):
         f=row['frame']
         if str(f) not in profile['newFrames']:continue
         image=Image.open(ROOT/profile['newFrames'][str(f)]).convert('RGBA');box=image.getbbox()
@@ -141,6 +141,8 @@ def map_bundle(mapping_path, mapping, actors, class_names, enemy_names):
           'sourceFrameCount':columns*(source_atlas_size[1]//source_size[1]),'anchor':scenario['source_anchor'],
           'sourceOamCutoff':0,'flipOriginOffset':[0,0],'outputFrameSize':scenario['output_frame_size'],
           'newFrames':frames,'frameErrors':errors,'sourceReviewPending': context=='tactical-walk' and scenario.get('source_audit',{}).get('status')!='verified_native_tactical','sourceReviewNote':'参考来源复核中：旧参考混用了场景动作表与图块银行，暂停作为战斗地图对照。','links':[{'label':'四倍重绘图集','href':relative(safe_path(mapping_path.parent,scenario['output_atlas']))}]})
+        for source_key,profile_key in [('review_frame_sources','reviewFrameSources'),('review_frame_labels','reviewFrameLabels')]:
+            if scenario.get(source_key):profiles[-1][profile_key]=scenario[source_key]
         timing=scenario['timing'];fps=timing.get('native_fps',FPS)
         def append(key,name,rows,kind,note,video=True,reference_label=None):
             actions.append({'id':pid+'--'+key,'profile':pid,'key':key,'name':name,'context':context,
@@ -173,6 +175,19 @@ def map_bundle(mapping_path, mapping, actors, class_names, enemy_names):
                 reference_label=scenario.get('direction_reference_labels',{}).get(direction)
                 note=scenario.get('direction_action_notes',{}).get(direction,'原地审查步态；每个腿姿势保持 16 帧，两姿势循环，共展示三个循环。')
                 append('walk-'+direction,'行走 · '+label,rows,'map_walk',note,reference_label=reference_label)
+                preview=scenario.get('direction_preview_cycles',{}).get(direction)
+                if preview:
+                    # Review-only extra poses retain the frozen source rows and
+                    # total cycle duration in the side-by-side comparison.
+                    indices=preview['frames'];counts=preview['frame_ticks']
+                    if len(indices)!=len(counts) or any(not isinstance(t,int) or t<=0 for t in counts):
+                        raise ValueError('Invalid directional preview cycle: '+pid+' '+direction)
+                    revised=[]
+                    for _ in range(repeats):
+                        for f,count in zip(indices,counts):
+                            revised.extend({'frame':f,'offset':[0,0],'flip':flip,'effects':[]}for _ in range(count))
+                    if len(revised)!=len(rows):raise ValueError('Directional preview duration changed: '+pid+' '+direction)
+                    actions[-1]['revisedFrames']=revised
                 append('idle-'+direction,'静止 · '+label,[{'frame':order[0],'offset':[0,0],'flip':flip,'effects':[]}for _ in range(32)],'map_idle','停止行走时保持当前方向的第一个姿势。',False,reference_label=reference_label)
     return profiles, actions
 
@@ -244,6 +259,7 @@ def build():
           'flipOriginOffset': [16, 0], 'outputFrameSize': expected, 'newFrames': frames,
           'frameErrors': frame_errors, 'referenceArtAliases':art_aliases, 'links': []}
         if revised_effects: profile['revisedEffects'] = revised_effects
+        if mapping.get('review_frame_sources'):profile['reviewFrameSources']=mapping['review_frame_sources']
         review_timeline = read(safe_path(mapping_path.parent,mapping['review_timeline'])) if mapping.get('review_timeline') else {}
         for effect_key,meta in review_timeline.get('effects',{}).items():
             if effect_key in effects:raise ValueError('Review effect ID collision: '+effect_key)
@@ -276,6 +292,13 @@ def build():
                 if revision['source_frames_sha256']!=base_hash:raise ValueError('Review timeline source changed: '+key)
                 if len(revision['frames'])!=len(action['frames']):raise ValueError('Review timeline length mismatch: '+key)
                 action['revisedFrames']=revision['frames']
+                if revision.get('tail_frames'):
+                    # Explicit review-only endings extend playback without editing
+                    # the frozen source sequence or moving its contact tick.
+                    tail=revision['tail_frames']
+                    if len(tail)>round(action['fps']*2):raise ValueError('Review ending exceeds two seconds: '+key)
+                    action['reviewTailFrames']=tail
+                    if revision.get('tail_label'):action['reviewTailLabel']=revision['tail_label']
                 action['notes']=revision['note']
             actions.append(action)
         reaction_idle=int(mapping.get('source_idle_frame',body['sequences']['idle'][0]))
@@ -306,13 +329,13 @@ def build():
         if profile.get('displayNameRevision'):
             action['notes']=action['notes'].replace(profile['sourceClassName'],profile['className'])
         source_needed = sorted(set(row['frame'] for row in action['frames']))
-        render_rows=action['frames']+action.get('revisedFrames',[])
+        render_rows=action['frames']+action.get('revisedFrames',[])+action.get('reviewTailFrames',[])
         needed = sorted(set(row['frame'] for row in render_rows))
         missing = [i for i in needed if str(i) not in profile['newFrames']]
         effect_ids = sorted(set(effect['sprite'] for row in render_rows for effect in row.get('effects', [])))
         missing_effects = [key for key in effect_ids if key not in effects or not (ROOT / effects[key]['path']).is_file()]
         action.update(neededFrames=needed, missingFrames=missing, effectIds=effect_ids, missingEffects=missing_effects,
-          ready=not missing and not missing_effects and not profile.get('sourceReviewPending'), sourceReviewPending=bool(profile.get('sourceReviewPending')), duration=len(action['frames']) / action['fps'])
+          ready=not missing and not missing_effects and not profile.get('sourceReviewPending'), sourceReviewPending=bool(profile.get('sourceReviewPending')), duration=(len(action['frames'])+len(action.get('reviewTailFrames',[]))) / action['fps'])
         if action['sourceReviewPending']:action['notes']=profile['sourceReviewNote']
         if profile.get('revision'):
             action['revision']=profile['revision']
@@ -358,6 +381,8 @@ def build():
         resource_hashes={path:file_hash(ROOT/path)for path in sorted(set(resources))if(ROOT/path).exists()}
         signature={'frames':action['frames'],'origin':action['origin'],'viewport':action.get('viewport',[-16,-32,288,176]),'closeCamera':action.get('closeCamera'),'anchor':profile['anchor'],'side':profile.get('side','ally'),'resources':resource_hashes,'render_version':3}
         if action.get('revisedFrames'):signature['revised_frames']=action['revisedFrames']
+        if action.get('reviewTailFrames'):signature['review_tail_frames']=action['reviewTailFrames']
+        if action.get('reviewTailLabel'):signature['review_tail_label']=action['reviewTailLabel']
         if profile.get('revisedEffects'):
             signature['revised_effects']={k:profile['revisedEffects'][k]for k in effect_ids if k in profile['revisedEffects']}
         if profile.get('mapGround'): signature['map_ground_revision']=1
