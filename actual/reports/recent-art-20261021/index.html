@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>0.10.1 · 确认美术接入</title>
+<style>:root{color-scheme:dark;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;background:#102127;color:#edf0e9}*{box-sizing:border-box}body{margin:0}main{max-width:1200px;margin:auto;padding:36px 24px 60px}h1{font-size:30px;line-height:1.4;margin:0 0 16px}p{line-height:1.9;color:#becdc9}nav,.stats{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}a{color:#b4dacf;text-underline-offset:4px}nav a,.stats span{padding:10px 16px;border-radius:8px;background:#253c42}a:focus-visible{outline:none;box-shadow:0 0 0 5px #b4dacf33}section{margin-top:28px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}article{background:#1b3036;border-radius:12px;overflow:hidden}img{display:block;width:100%;height:auto;image-rendering:pixelated}h2{font-size:17px;margin:0;padding:18px 20px;line-height:1.5}details{margin-top:24px;background:#1b3036;padding:18px 22px;border-radius:10px;line-height:1.9}summary{cursor:pointer}.note{padding:20px 24px;background:#1b3036;border-radius:10px}@media(max-width:700px){main{padding:24px 14px 40px}.grid{grid-template-columns:1fr}h1{font-size:25px}}</style></head>
+<body><main><h1>0.10.1 · 确认美术接入与本地测试</h1>
+<p>最近确认的骑兵、骑士、术法师、咒法师、大骑士和乡勇已接入源码及本地应用。包含战后回血、整备字体和五槽保存修复。本轮交付 .app，未制作压缩包。</p>
+<nav><a href="../../dist/RevengeMemories-0.10.1-ReviewedArt-20261021.app">本地测试应用 · 0.10.1</a><a href="../../../art-review/character-expansion-20261018/index.html">角色重绘 · 全动作对照</a><a href="README.md">范围与验证说明</a><a href="package-checks.json">独立包检查汇总</a></nav>
+<div class="stats"><span>16组地图动画</span><span>6组战斗动画</span><span>148条攻击程序</span><span>183个身体帧槽</span><span>339张效果图</span><span>26张实际运行截图</span></div>
+<p class="note">骑士左右四阶段和乡勇侧向屈肘进入实际播放器；法术视觉收尾保留原命中帧与一次结算。史莱姆直接包覆实际防守角色，示例士兵图未导入游戏。下方为后台防抢焦点守卫捕获的实际画面，全部截图文字布局检查通过。</p>
+<section class="grid">
+<article><a href="screenshots/01-map-all-idle.png"><img src="screenshots/01-map-all-idle.png" alt="双方地图新稿的实际运行画面"></a><h2>双方地图新稿</h2></article>
+<article><a href="screenshots/04-militia-bent-arm--1.png"><img src="screenshots/04-militia-bent-arm--1.png" alt="乡勇向左屈肘实际运行画面"></a><h2>乡勇向左屈肘</h2></article>
+<article><a href="screenshots/05-cavalry-lance-player.png"><img src="screenshots/05-cavalry-lance-player.png" alt="友军投枪原色实际运行画面"></a><h2>友军投枪原色</h2></article>
+<article><a href="screenshots/07-fire-charge-enemy.png"><img src="screenshots/07-fire-charge-enemy.png" alt="敌方暗蓝火球蓄力实际运行画面"></a><h2>敌方暗蓝火球蓄力</h2></article>
+<article><a href="screenshots/10-slime-real-cavalry-enemy.png"><img src="screenshots/10-slime-real-cavalry-enemy.png" alt="史莱姆包覆实际骑兵目标"></a><h2>史莱姆 · 实际骑兵目标</h2></article>
+<article><a href="screenshots/11-slime-real-soldier-enemy.png"><img src="screenshots/11-slime-real-soldier-enemy.png" alt="史莱姆包覆实际士兵目标"></a><h2>史莱姆 · 实际士兵目标</h2></article>
+</section>
+<details><summary>地图循环与全部检查文件</summary><p><a href="map-motion-review.png">骑士四阶段与乡勇左右屈肘 · 运行局部</a></p><p><a href="screenshots/checks.json">全部26张截图及布局检查</a> · <a href="image-manifest.json">截图尺寸和字节</a> · <a href="import.json">素材导入清单</a> · <a href="action-contract.json">动作与物品／结算对应</a></p><p>源码和独立应用均通过动画选择、图像像素、一次结算与目标绑定检查；独立应用通过68项战后HP、23项五槽保存、48项装备预览检查。此为定向验证，未重新通关全部五章。原0.10.0应用保留，真实玩家存档未改动。</p></details>
+</main></body></html>
