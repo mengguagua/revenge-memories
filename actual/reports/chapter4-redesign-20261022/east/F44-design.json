@@ -1,0 +1,553 @@
+{
+  "passed": true,
+  "code": "F44",
+  "size": [
+    34,
+    30
+  ],
+  "connected_inner_cells": 357,
+  "all_actors_deployments_exit_strictly_inside": true,
+  "unit_identity_order_attributes_equipment_AI_preserved": true,
+  "story_rules_times_counts_preserved": true,
+  "special_terrain_counts": {
+    "+": 1,
+    "h": 0,
+    "t": 0
+  },
+  "interaction_fronts": {
+    "regulator_1": {
+      "object": [
+        16,
+        17
+      ],
+      "fronts": [
+        [
+          16,
+          17
+        ]
+      ],
+      "shortest_steps": 18
+    },
+    "regulator_2": {
+      "object": [
+        27,
+        19
+      ],
+      "fronts": [
+        [
+          27,
+          19
+        ]
+      ],
+      "shortest_steps": 29
+    },
+    "regulator_3": {
+      "object": [
+        9,
+        11
+      ],
+      "fronts": [
+        [
+          9,
+          11
+        ]
+      ],
+      "shortest_steps": 17
+    }
+  },
+  "coordinate_changes": {
+    "enemies": [
+      {
+        "id": "F44_boss",
+        "before": [
+          27,
+          4
+        ],
+        "after": [
+          24,
+          7
+        ]
+      },
+      {
+        "id": "F44_e1",
+        "before": [
+          25,
+          6
+        ],
+        "after": [
+          24,
+          9
+        ]
+      },
+      {
+        "id": "F44_e2",
+        "before": [
+          19,
+          11
+        ],
+        "after": [
+          19,
+          16
+        ]
+      },
+      {
+        "id": "F44_e3",
+        "before": [
+          25,
+          21
+        ],
+        "after": [
+          29,
+          21
+        ]
+      },
+      {
+        "id": "F44_e4",
+        "before": [
+          13,
+          5
+        ],
+        "after": [
+          11,
+          11
+        ]
+      },
+      {
+        "id": "F44_e5",
+        "before": [
+          25,
+          7
+        ],
+        "after": [
+          22,
+          8
+        ]
+      },
+      {
+        "id": "F44_e6",
+        "before": [
+          19,
+          12
+        ],
+        "after": [
+          20,
+          14
+        ]
+      },
+      {
+        "id": "F44_e7",
+        "before": [
+          25,
+          22
+        ],
+        "after": [
+          29,
+          18
+        ]
+      },
+      {
+        "id": "F44_e8",
+        "before": [
+          14,
+          5
+        ],
+        "after": [
+          11,
+          8
+        ]
+      },
+      {
+        "id": "F44_e9",
+        "before": [
+          26,
+          6
+        ],
+        "after": [
+          26,
+          8
+        ]
+      },
+      {
+        "id": "F44_e10",
+        "before": [
+          20,
+          11
+        ],
+        "after": [
+          18,
+          15
+        ]
+      },
+      {
+        "id": "F44_e11",
+        "before": [
+          26,
+          21
+        ],
+        "after": [
+          30,
+          16
+        ]
+      }
+    ],
+    "npc_units": [
+      {
+        "id": "repairer0",
+        "before": [
+          8,
+          22
+        ],
+        "after": [
+          6,
+          24
+        ]
+      },
+      {
+        "id": "repairer1",
+        "before": [
+          13,
+          16
+        ],
+        "after": [
+          14,
+          20
+        ]
+      }
+    ],
+    "reinforcements": [
+      {
+        "id": "F44_r0",
+        "before": [
+          27,
+          21
+        ],
+        "after": [
+          31,
+          20
+        ]
+      },
+      {
+        "id": "F44_r1",
+        "before": [
+          27,
+          22
+        ],
+        "after": [
+          31,
+          21
+        ]
+      }
+    ],
+    "deployment_before": [
+      [
+        2,
+        23
+      ],
+      [
+        3,
+        23
+      ],
+      [
+        4,
+        23
+      ],
+      [
+        5,
+        23
+      ],
+      [
+        2,
+        24
+      ],
+      [
+        3,
+        24
+      ],
+      [
+        4,
+        24
+      ],
+      [
+        5,
+        24
+      ],
+      [
+        2,
+        25
+      ],
+      [
+        3,
+        25
+      ]
+    ],
+    "deployment_after": [
+      [
+        6,
+        25
+      ],
+      [
+        7,
+        25
+      ],
+      [
+        6,
+        26
+      ],
+      [
+        7,
+        26
+      ],
+      [
+        8,
+        26
+      ],
+      [
+        9,
+        26
+      ],
+      [
+        6,
+        22
+      ],
+      [
+        7,
+        22
+      ],
+      [
+        8,
+        22
+      ],
+      [
+        9,
+        22
+      ]
+    ],
+    "objects_before": [
+      {
+        "id": "regulator_1",
+        "kind": "control",
+        "position": [
+          16,
+          14
+        ],
+        "label": "交接中央调节点",
+        "adjacent": false,
+        "sprite": "white_flag",
+        "name_zh": "中央调节点",
+        "completed_label": "已交接中央调节点"
+      },
+      {
+        "id": "regulator_2",
+        "kind": "control",
+        "position": [
+          25,
+          16
+        ],
+        "label": "交接东调节点",
+        "adjacent": false,
+        "sprite": "white_flag",
+        "name_zh": "东调节点",
+        "completed_label": "已交接东调节点"
+      },
+      {
+        "id": "regulator_3",
+        "kind": "control",
+        "position": [
+          10,
+          10
+        ],
+        "label": "交接西调节点",
+        "adjacent": false,
+        "sprite": "white_flag",
+        "name_zh": "西调节点",
+        "completed_label": "已交接西调节点"
+      }
+    ],
+    "objects_after": [
+      {
+        "id": "regulator_1",
+        "kind": "control",
+        "position": [
+          16,
+          17
+        ],
+        "label": "交接中央调节点",
+        "adjacent": false,
+        "sprite": "white_flag",
+        "name_zh": "中央调节点",
+        "completed_label": "已交接中央调节点"
+      },
+      {
+        "id": "regulator_2",
+        "kind": "control",
+        "position": [
+          27,
+          19
+        ],
+        "label": "交接东调节点",
+        "adjacent": false,
+        "sprite": "white_flag",
+        "name_zh": "东调节点",
+        "completed_label": "已交接东调节点"
+      },
+      {
+        "id": "regulator_3",
+        "kind": "control",
+        "position": [
+          9,
+          11
+        ],
+        "label": "交接西调节点",
+        "adjacent": false,
+        "sprite": "white_flag",
+        "name_zh": "西调节点",
+        "completed_label": "已交接西调节点"
+      }
+    ],
+    "targets": [
+      [
+        16,
+        17
+      ],
+      [
+        27,
+        19
+      ],
+      [
+        9,
+        11
+      ]
+    ],
+    "exit": [
+      27,
+      3
+    ]
+  },
+  "routes": [
+    {
+      "name": "南接应台作业路",
+      "waypoints": [
+        [
+          7,
+          26
+        ],
+        [
+          7,
+          22
+        ],
+        [
+          9,
+          22
+        ]
+      ],
+      "width": 2,
+      "surface": "b"
+    },
+    {
+      "name": "西侧调节台",
+      "waypoints": [
+        [
+          7,
+          12
+        ],
+        [
+          9,
+          12
+        ],
+        [
+          9,
+          10
+        ]
+      ],
+      "width": 2,
+      "surface": "b"
+    },
+    {
+      "name": "中央作业台主道",
+      "waypoints": [
+        [
+          14,
+          21
+        ],
+        [
+          15,
+          19
+        ],
+        [
+          16,
+          17
+        ],
+        [
+          18,
+          17
+        ],
+        [
+          20,
+          17
+        ]
+      ],
+      "width": 2,
+      "surface": "b"
+    },
+    {
+      "name": "东调节台与援军落点",
+      "waypoints": [
+        [
+          26,
+          18
+        ],
+        [
+          27,
+          18
+        ],
+        [
+          27,
+          21
+        ],
+        [
+          30,
+          21
+        ]
+      ],
+      "width": 2,
+      "surface": "b"
+    },
+    {
+      "name": "北神门前庭",
+      "waypoints": [
+        [
+          19,
+          8
+        ],
+        [
+          22,
+          8
+        ],
+        [
+          24,
+          8
+        ],
+        [
+          27,
+          8
+        ],
+        [
+          28,
+          6
+        ],
+        [
+          27,
+          3
+        ]
+      ],
+      "width": 2,
+      "surface": "b"
+    }
+  ],
+  "notes": [
+    "沉没祭所由西调节台、中央作业台、东调节台与北神门四处残存石台组成，水体贯穿其间；南接应台留出工匠棚和泊船位置。",
+    "南侧双格便桥可直接进入中央作业台，西侧长桥通往旧石拱，再经一格短桥侧接中央；东桥连接独立援军平台，北方另有两条接近神门的维护线。",
+    "三处设备各有可站交接点和完整岸上落脚面，工匠位于南侧与中央后方；三点交接后等待到下一己方回合、至少一名工匠存活及投送切断入场快照均保持。"
+  ],
+  "map_sha256": "f781bef09d590c5dad55b5b6523c53021d244953609120b59f7b42b9cb3b6708"
+}

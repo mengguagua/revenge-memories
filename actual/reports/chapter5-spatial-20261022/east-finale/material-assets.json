@@ -1,0 +1,58 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "path": "actual/assets/chapter5-spatial-20261022/east-finale/courtyard-stone.png",
+      "purpose": "generated native64px material sheet",
+      "size": [
+        64,
+        64
+      ],
+      "bytes": 7832,
+      "quality_note": "Native source pixels are preserved in atlases; no resizing of complete scene sprites. Atlas size prioritizes complete source tile coverage and lossless alpha; runtime material sources are64px."
+    },
+    {
+      "path": "actual/assets/chapter5-spatial-20261022/east-finale/east.png",
+      "purpose": "independent native terrain atlas",
+      "size": [
+        512,
+        2784
+      ],
+      "bytes": 273973,
+      "quality_note": "Native source pixels are preserved in atlases; no resizing of complete scene sprites. Atlas size prioritizes complete source tile coverage and lossless alpha; runtime material sources are64px."
+    },
+    {
+      "path": "actual/assets/chapter5-spatial-20261022/east-finale/finale.png",
+      "purpose": "independent native terrain atlas",
+      "size": [
+        512,
+        928
+      ],
+      "bytes": 162844,
+      "quality_note": "Native source pixels are preserved in atlases; no resizing of complete scene sprites. Atlas size prioritizes complete source tile coverage and lossless alpha; runtime material sources are64px."
+    },
+    {
+      "path": "actual/assets/chapter5-spatial-20261022/east-finale/palace-marble.png",
+      "purpose": "generated native64px material sheet",
+      "size": [
+        64,
+        64
+      ],
+      "bytes": 7591,
+      "quality_note": "Native source pixels are preserved in atlases; no resizing of complete scene sprites. Atlas size prioritizes complete source tile coverage and lossless alpha; runtime material sources are64px."
+    }
+  ],
+  "source_originals": "source/palace-marble-original.png and source/courtyard-stone-original.png, kept behind .gdignore",
+  "prompts": [
+    {
+      "asset": "palace-marble.png",
+      "request": "One seamless top-down pixel-art indoor palace marble floor field. Low-saturation warm ivory and cool pearl-gray large rectangular slabs, sparse pale gray veins, tidy narrow joints, horizontal staggered rows, flat even ambient lighting, no perspective/shadows/objects/margins/text. Intended uniform64x64 reduction and16x16 splitting; all edges should tile."
+    },
+    {
+      "asset": "courtyard-stone.png",
+      "request": "One seamless top-down pixel-art outdoor courtyard paving field. Muted beige-gray limestone rectangular flagstones in staggered rows, softly weathered edges and sparse tiny chips; matte low-saturation stone, distinct from polished indoor marble. Flat even light, no perspective/shadows/grass/objects/margins/text. Intended uniform64x64 reduction and16x16 splitting; all edges should tile."
+    }
+  ],
+  "sampling": "Uniform1254x1254 to64x64; each full material field repeats with fixed world XY phase. No independent rotation of individual16px cells. Native-size maps and2x2 repeat sheets visually checked.",
+  "compression": "Atlas oxipng lossless. Originals preserved; reference byte budgets subordinate to visible quality."
+}

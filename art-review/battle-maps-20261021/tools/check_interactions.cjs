@@ -49,9 +49,11 @@ change('search','不存在的关卡','input');check(state().visible===0 && ids['
 ids['reset-filters'].click();check(state().visible===40 && !ids['map-content'].hidden,'重置筛选');
 kinds[2].click();check(state().visible===9,'9张支线');ids['reset-filters'].click();
 change('search','书库','input');check(state().visible===1 && state().selected==='S51','地点搜索');ids['reset-filters'].click();
-change('map-select','J53');zooms[2].click();check(inners[0].style.width==='1152px','原图完整2倍缩放');
+const jointMap=maps.find(m=>m.code==='J53');
+change('map-select','J53');zooms[2].click();check(inners[0].style.width===`${jointMap.canvas[0]*2}px`,'原图完整2倍缩放');
 ids['show-grid'].checked=true;ids['show-grid'].events.change();ids['show-blocked'].checked=true;ids['show-blocked'].events.change();
-ids.tactical.events.click({clientX:32+6*16+8,clientY:32+12*16+8});check(ids.inspection.textContent.includes('前庭西阵'),'点击合流门阵');
+const westArray=jointMap.objects.find(o=>o.id==='court_west');
+ids.tactical.events.click({clientX:jointMap.padding+westArray.position[0]*16+8,clientY:jointMap.padding+westArray.position[1]*16+8});check(ids.inspection.textContent.includes('前庭西阵'),'点击合流门阵');
 document.events.keydown({key:'Escape',target:{tagName:'BODY'}});check(ids.inspection.textContent.includes('悬停查看'),'清除选点');
 ids.next.click();check(state().selected==='J54','下一张');ids.previous.click();check(state().selected==='J53','上一张');
 const report=JSON.parse(fs.readFileSync(path.join(root,'verification.json'),'utf8'));

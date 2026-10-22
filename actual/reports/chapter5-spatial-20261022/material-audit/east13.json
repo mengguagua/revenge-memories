@@ -1,0 +1,718 @@
+{
+  "passed": true,
+  "scope": "13 individually viewed native map images plus original material atlas inspection; new five-map native captures independently reviewed after completed imports. Pure materials only; no gameplay geometry change.",
+  "maps": [
+    {
+      "code": "F21",
+      "scene": "室外海面上的运输船与搜捕舰甲板、登船跳板",
+      "materials": [
+        {
+          "material": "ship_timber",
+          "use": "棕色船甲板长板",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "timber24–27 + original directional walkway variants",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/ships/terrain.png"
+        },
+        {
+          "material": "sea",
+          "use": "水面",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "sea28–31",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/ships/terrain.png"
+        }
+      ],
+      "findings": [
+        "甲板为有方向的棕色长木板，船医区/货区仍是船面；没有用室内拼木、大理石或泥沙替代甲板。",
+        "上下跳板与海面有明确边界，甲板木纹与室内S51人字拼木不同。"
+      ],
+      "changes": [],
+      "passed": true,
+      "map_sha256": "ff015967c7bb2ed00a24684cf15b598925e76b7a624e5e9ad63b91476b2c3109",
+      "image_reviewed": "art-review/battle-maps-20261021/images/F21.png",
+      "pixel_sha256": "988fa57b8601b851483fc444e9b8ae9cec22f0d9443cdcf3059f2352d8122fa8",
+      "image_size": [
+        576,
+        480
+      ],
+      "geometry_rules_all_coordinates_identical": true,
+      "proof": "Current stage equals east13-baseline stage byte for byte."
+    },
+    {
+      "code": "F22",
+      "scene": "室外押送舰/接应船甲板与铁栅囚舱",
+      "materials": [
+        {
+          "material": "ship_timber",
+          "use": "棕色船甲板长板",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "timber24–27 + original directional walkway variants",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/ships/terrain.png"
+        },
+        {
+          "material": "sea",
+          "use": "水面",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "sea28–31",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/ships/terrain.png"
+        }
+      ],
+      "findings": [
+        "铁栅囚舱内部仍沿用舰船木甲板，符合囚舱位于船上的关系；不能因有围栏便改成陆地石牢地面。",
+        "舷边与闭合跳板的原有材质过渡保持。"
+      ],
+      "changes": [],
+      "passed": true,
+      "map_sha256": "9a8ec3ef017183aebc1aedde2747d784137c6c86bbb0502003a16d76a46834b9",
+      "image_reviewed": "art-review/battle-maps-20261021/images/F22.png",
+      "pixel_sha256": "708eec85b2bf9883ec1d6718312cb5e4005f890ce173762abd3dbb30eaa22ac5",
+      "image_size": [
+        608,
+        512
+      ],
+      "geometry_rules_all_coordinates_identical": true,
+      "proof": "Current stage equals east13-baseline stage byte for byte."
+    },
+    {
+      "code": "F23",
+      "scene": "海岛沙滩、林地草坡与村庄土路",
+      "materials": [
+        {
+          "material": "grass",
+          "use": "草地底纹",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "grass 0–3",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png"
+        },
+        {
+          "material": "sand",
+          "use": "沙滩或风积砂",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "sand 36–39",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png"
+        },
+        {
+          "material": "dirt",
+          "use": "行军土路/干土脊",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "dirt 8–11",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png"
+        },
+        {
+          "material": "rock",
+          "use": "山脊/崖石",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "rock52–55 / native mountain-ground variants",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png"
+        },
+        {
+          "material": "sea",
+          "use": "水面",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "sea28–31",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png"
+        }
+      ],
+      "findings": [
+        "浅黄细砂海滩、带细碎草纹的草坡和土质道路三个表面可分辨；树丛底部仍是草地。",
+        "岸滩与海水之间保持原有轮廓，不将白盐壳或宫殿石地用作沙滩。"
+      ],
+      "changes": [],
+      "passed": true,
+      "map_sha256": "af6f7e997d49cef3b92debbdcf00624c5fcab045f9b2e4e7f6040f337da89deb",
+      "image_reviewed": "art-review/battle-maps-20261021/images/F23.png",
+      "pixel_sha256": "62577ab97411545f108492fc0db065c4699e05b240a8918fa481e462686b69da",
+      "image_size": [
+        576,
+        480
+      ],
+      "geometry_rules_all_coordinates_identical": true,
+      "proof": "Current stage equals east13-baseline stage byte for byte."
+    },
+    {
+      "code": "F24",
+      "scene": "黑昼海岛、灯庭露天石台、岸滩与村道",
+      "materials": [
+        {
+          "material": "grass",
+          "use": "草地底纹",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "grass 0–3",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png"
+        },
+        {
+          "material": "sand",
+          "use": "沙滩或风积砂",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "sand 36–39",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png"
+        },
+        {
+          "material": "dirt",
+          "use": "行军土路/干土脊",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "dirt 8–11",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png"
+        },
+        {
+          "material": "outdoor_stone",
+          "use": "露天粗砌石路/石台",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "cobble 20–23 / stone16–19",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png"
+        },
+        {
+          "material": "sea",
+          "use": "水面",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "sea28–31",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png"
+        }
+      ],
+      "findings": [
+        "夜色/黑昼统一色调下，草地、沙滩、土路和灯庭石台仍保有不同纹理。",
+        "神灯前的台阶接露天砌石台，未把整岛铺成室内地板。"
+      ],
+      "changes": [],
+      "passed": true,
+      "map_sha256": "e7526eda3e7c452c79fa78e743de1c2e606fd4b9b0e62025dfa6f4cf67230fe8",
+      "image_reviewed": "art-review/battle-maps-20261021/images/F24.png",
+      "pixel_sha256": "3b3267fd451b7577d6b5fd8969092cd8fd580005c1183573cc6e58a08feb1dc3",
+      "image_size": [
+        576,
+        512
+      ],
+      "geometry_rules_all_coordinates_identical": true,
+      "proof": "Current stage equals east13-baseline stage byte for byte."
+    },
+    {
+      "code": "F25",
+      "scene": "室外军港、岸上土路/石台与露天木码头",
+      "materials": [
+        {
+          "material": "grass",
+          "use": "草地底纹",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "grass 0–3",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/F25-terrain.png"
+        },
+        {
+          "material": "dirt",
+          "use": "行军土路/干土脊",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "dirt 8–11",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/F25-terrain.png"
+        },
+        {
+          "material": "outdoor_stone",
+          "use": "露天粗砌石路/石台",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "cobble 20–23 / stone16–19",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/F25-terrain.png"
+        },
+        {
+          "material": "outdoor_timber",
+          "use": "暴露于风雨盐雾的岸栈/检修桥",
+          "source": "res://assets/chapter5-spatial-20261022/east-materials/outdoor-timber.png",
+          "method": "New built-in image_gen source;64px logical repeat; only existing timber surfaces changed"
+        },
+        {
+          "material": "sea",
+          "use": "水面",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "sea28–31",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/F25-terrain.png"
+        }
+      ],
+      "findings": [
+        "原露天木码头与船板来自同一timber纹理族，语义差别不够。",
+        "本次岸侧木码头改成风化灰木，原木边框与海岸轮廓保留；陆上土路、草地与室外粗石台保持。"
+      ],
+      "changes": [
+        "art_atlas",
+        "art_layers",
+        "material_review_version"
+      ],
+      "passed": true,
+      "map_sha256": "398b53f36ef48e0acd5563119f986c7b7fd7fcd0a63436fabc766f12065f65ed",
+      "image_reviewed": "actual/reports/chapter5-spatial-20261022/material-audit/east13-images/F25.png",
+      "pixel_sha256": "b128b07b8b98e392b6ea9601e08eb26fa43509db6d73cc911f2894189122880e",
+      "image_size": [
+        608,
+        512
+      ],
+      "geometry_rules_all_coordinates_identical": true,
+      "proof": "east13-material-proof.json"
+    },
+    {
+      "code": "F26",
+      "scene": "室外海岸水道、砌石海堤与堤后土路",
+      "materials": [
+        {
+          "material": "grass",
+          "use": "草地底纹",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "grass 0–3",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/harbor-channel/terrain.png"
+        },
+        {
+          "material": "dirt",
+          "use": "行军土路/干土脊",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "dirt 8–11",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/harbor-channel/terrain.png"
+        },
+        {
+          "material": "outdoor_stone",
+          "use": "露天粗砌石路/石台",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "cobble 20–23 / stone16–19",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/harbor-channel/terrain.png"
+        },
+        {
+          "material": "rock",
+          "use": "山脊/崖石",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "rock52–55 / native mountain-ground variants",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/harbor-channel/terrain.png"
+        },
+        {
+          "material": "sea",
+          "use": "水面",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "sea28–31",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/harbor-channel/terrain.png"
+        }
+      ],
+      "findings": [
+        "砌石海堤/水道护岸与堤后土路、植被分开，石路为露天粗砌石，不是神宫抛光大理石。",
+        "连续沿海石堤的表面、转角与海水边界完整。"
+      ],
+      "changes": [],
+      "passed": true,
+      "map_sha256": "c3f52143fbbacb987040ff07928c5bc2a1d5a89fc05ba18f7a0eb2875b6551ad",
+      "image_reviewed": "art-review/battle-maps-20261021/images/F26.png",
+      "pixel_sha256": "5bcda5c4ce1a4a39671d2f599fe61633242804b56c9a3f4462c0544ae0d4332a",
+      "image_size": [
+        672,
+        544
+      ],
+      "geometry_rules_all_coordinates_identical": true,
+      "proof": "Current stage equals east13-baseline stage byte for byte."
+    },
+    {
+      "code": "S21",
+      "scene": "漂泊渔船甲板、登船跳板与沙岸停泊口",
+      "materials": [
+        {
+          "material": "ship_timber",
+          "use": "棕色船甲板长板",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "timber24–27 + original directional walkway variants",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/ships/terrain.png"
+        },
+        {
+          "material": "grass",
+          "use": "草地底纹",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "grass 0–3",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/ships/terrain.png"
+        },
+        {
+          "material": "sand",
+          "use": "沙滩或风积砂",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "sand 36–39",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/ships/terrain.png"
+        },
+        {
+          "material": "sea",
+          "use": "水面",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "sea28–31",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/ships/terrain.png"
+        }
+      ],
+      "findings": [
+        "船体保持棕色长木板，岸边采用浅黄沙和草地，船岸跳板保持木质。",
+        "没有将船面套用新室内拼木纹理。"
+      ],
+      "changes": [],
+      "passed": true,
+      "map_sha256": "c195bfa305017dcbca0fa5fa2a33b73fa05cec5a2f50a40831973192a2feb02c",
+      "image_reviewed": "art-review/battle-maps-20261021/images/S21.png",
+      "pixel_sha256": "444996ee2e7a7f8c9246327736116f9bc5bb35125f379dd236c2840853623f21",
+      "image_size": [
+        576,
+        480
+      ],
+      "geometry_rules_all_coordinates_identical": true,
+      "proof": "Current stage equals east13-baseline stage byte for byte."
+    },
+    {
+      "code": "S22",
+      "scene": "潮湿海洞：岩壁、浅滩湿地与较干的通行土脊",
+      "materials": [
+        {
+          "material": "cave_rock",
+          "use": "海洞粗岩",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "cave12–15 + native cliff transitions",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png"
+        },
+        {
+          "material": "wet_silt",
+          "use": "潮湿暗色淤泥地",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "marsh44–47",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png"
+        },
+        {
+          "material": "dirt",
+          "use": "行军土路/干土脊",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "dirt 8–11",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png"
+        },
+        {
+          "material": "sea",
+          "use": "水面",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "sea28–31",
+          "runtime_atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png"
+        }
+      ],
+      "findings": [
+        "海洞保留粗岩壁、潮湿暗色淤泥/湿地和更干的土脊通路。",
+        "自然洞室不是建筑室内，未替换成整齐室内石板或神宫大理石。"
+      ],
+      "changes": [],
+      "passed": true,
+      "map_sha256": "a477b2e6500e9de2d3c4efc5c95c7d18c5fc956057dc4b4afaa68e6f14dbb035",
+      "image_reviewed": "art-review/battle-maps-20261021/images/S22.png",
+      "pixel_sha256": "f841af208542562d00df20012a2c2f163b9d4fba0a79d5ccef86aaca8b3ba5b3",
+      "image_size": [
+        512,
+        448
+      ],
+      "geometry_rules_all_coordinates_identical": true,
+      "proof": "Current stage equals east13-baseline stage byte for byte."
+    },
+    {
+      "code": "F31",
+      "scene": "室外码头街区、岸侧木栈与接应船甲板",
+      "materials": [
+        {
+          "material": "ship_timber",
+          "use": "棕色船甲板长板",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "timber24–27 + original directional walkway variants",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/F31-terrain.png"
+        },
+        {
+          "material": "outdoor_timber",
+          "use": "暴露于风雨盐雾的岸栈/检修桥",
+          "source": "res://assets/chapter5-spatial-20261022/east-materials/outdoor-timber.png",
+          "method": "New built-in image_gen source;64px logical repeat; only existing timber surfaces changed"
+        },
+        {
+          "material": "outdoor_stone",
+          "use": "露天粗砌石路/石台",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "cobble 20–23 / stone16–19",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/F31-terrain.png"
+        },
+        {
+          "material": "dirt",
+          "use": "行军土路/干土脊",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "dirt 8–11",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/F31-terrain.png"
+        },
+        {
+          "material": "sea",
+          "use": "水面",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "sea28–31",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/F31-terrain.png"
+        }
+      ],
+      "findings": [
+        "原岸栈、跳板与船体木面过于接近。",
+        "本次仅x>=7的露天岸栈/跳板换风化灰木，西南船体甲板保留棕色原板；可从两种表面看出船与固定岸栈。",
+        "码头石路/土质仓街仍是室外材质。"
+      ],
+      "changes": [
+        "art_atlas",
+        "art_layers",
+        "material_review_version"
+      ],
+      "passed": true,
+      "map_sha256": "62b2661e4a407625d0c84737961225db2421019c3b0205d876750e0f1133b794",
+      "image_reviewed": "actual/reports/chapter5-spatial-20261022/material-audit/east13-images/F31.png",
+      "pixel_sha256": "1104302b4e65bdfb4e197a8a35bb8813ce8b05d5fc657581466f27eb3e10aed5",
+      "image_size": [
+        576,
+        480
+      ],
+      "geometry_rules_all_coordinates_identical": true,
+      "proof": "east13-material-proof.json"
+    },
+    {
+      "code": "F32",
+      "scene": "露天旧海床盐原、盐池、土质干道与岩脊",
+      "materials": [
+        {
+          "material": "salt",
+          "use": "白灰盐壳",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "salt40–43",
+          "runtime_atlas": "res://assets/chapter3-redesign-20261022/east/terrain.png"
+        },
+        {
+          "material": "dirt",
+          "use": "行军土路/干土脊",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "dirt 8–11",
+          "runtime_atlas": "res://assets/chapter3-redesign-20261022/east/terrain.png"
+        },
+        {
+          "material": "rock",
+          "use": "山脊/崖石",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "rock52–55 / native mountain-ground variants",
+          "runtime_atlas": "res://assets/chapter3-redesign-20261022/east/terrain.png"
+        },
+        {
+          "material": "sea",
+          "use": "水面",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "sea28–31",
+          "runtime_atlas": "res://assets/chapter3-redesign-20261022/east/terrain.png"
+        }
+      ],
+      "findings": [
+        "白灰盐壳、浅褐干道、水池与粗岩脊纹理不同；盐地未误用普通沙滩或宫殿大理石。",
+        "原件源同时包含sand与salt类别，实际这图采用salt主体，符合旧海床盐路。"
+      ],
+      "changes": [],
+      "passed": true,
+      "map_sha256": "4a5b0310087eebe20a79cf1c3ced871f3704cd81c72f6980fe47130ed47c223e",
+      "image_reviewed": "art-review/battle-maps-20261021/images/F32.png",
+      "pixel_sha256": "13fa65977236f7bf4a88535acb6e289df93833b880603254c7a0eaad40af9b33",
+      "image_size": [
+        544,
+        480
+      ],
+      "geometry_rules_all_coordinates_identical": true,
+      "proof": "Current stage equals east13-baseline stage byte for byte."
+    },
+    {
+      "code": "F33",
+      "scene": "室外提炼院后庭、砌石环廊、水庭与木检修桥",
+      "materials": [
+        {
+          "material": "salt",
+          "use": "白灰盐壳",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "salt40–43",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/F33-terrain.png"
+        },
+        {
+          "material": "dirt",
+          "use": "行军土路/干土脊",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "dirt 8–11",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/F33-terrain.png"
+        },
+        {
+          "material": "outdoor_stone",
+          "use": "露天粗砌石路/石台",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "cobble 20–23 / stone16–19",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/F33-terrain.png"
+        },
+        {
+          "material": "outdoor_timber",
+          "use": "暴露于风雨盐雾的岸栈/检修桥",
+          "source": "res://assets/chapter5-spatial-20261022/east-materials/outdoor-timber.png",
+          "method": "New built-in image_gen source;64px logical repeat; only existing timber surfaces changed"
+        },
+        {
+          "material": "sea",
+          "use": "水面",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "sea28–31",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/F33-terrain.png"
+        }
+      ],
+      "findings": [
+        "原短检修木桥与船甲板共用纹理族。",
+        "本次仅5格现有木桥表面换风化灰木，保留桥端原生边框；周围露天砌石廊、土庭、水面与中央阵台保持各自材质。"
+      ],
+      "changes": [
+        "art_atlas",
+        "art_layers",
+        "material_review_version"
+      ],
+      "passed": true,
+      "map_sha256": "76fa402358dcb54bcc8f66726639492a4ba8d6f5ba7b345486485494a0dcc834",
+      "image_reviewed": "actual/reports/chapter5-spatial-20261022/material-audit/east13-images/F33.png",
+      "pixel_sha256": "2b0da92015ea1ba8a9ab315df0b61565300dcdcd02900308b5f8e32b19324bad",
+      "image_size": [
+        544,
+        480
+      ],
+      "geometry_rules_all_coordinates_identical": true,
+      "proof": "east13-material-proof.json"
+    },
+    {
+      "code": "S31",
+      "scene": "户外山村接近区与两处剖面牢室",
+      "materials": [
+        {
+          "material": "grass",
+          "use": "草地底纹",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "grass 0–3",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/S31-terrain.png"
+        },
+        {
+          "material": "dirt",
+          "use": "行军土路/干土脊",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "dirt 8–11",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/S31-terrain.png"
+        },
+        {
+          "material": "outdoor_stone",
+          "use": "露天粗砌石路/石台",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "cobble 20–23 / stone16–19",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/S31-terrain.png"
+        },
+        {
+          "material": "interior_stone",
+          "use": "剖面牢室/拘押营房的磨损室内石地",
+          "source": "res://assets/chapter5-spatial-20261022/library/interior-stone.png",
+          "method": "New built-in image_gen source; only12 existing walkable indoor cells per map"
+        },
+        {
+          "material": "rock",
+          "use": "山脊/崖石",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "rock52–55 / native mountain-ground variants",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/S31-terrain.png"
+        }
+      ],
+      "findings": [
+        "户外山村接近区保留草地、土路与露天砌石；两处剖面牢室各自有真实内部地格与牢门。",
+        "原室内地格与室外粗cobble相同，本次仅12格可走室内地面换磨损暖灰石板，门槛与开门贴图保持。",
+        "原案style为dungeon，但原台词未限定整个战斗在地下；本次只按当前分区纠正材质，不宣称重做地下层。"
+      ],
+      "changes": [
+        "art_atlas",
+        "art_layers",
+        "material_review_version"
+      ],
+      "passed": true,
+      "map_sha256": "824773ef637ec05d73f452575d864a991eba5ba567d17f743664fe4b90f0a1bd",
+      "image_reviewed": "actual/reports/chapter5-spatial-20261022/material-audit/east13-images/S31.png",
+      "pixel_sha256": "411c7d26e8dd59fb4cebcc6666cbb732407b6d0a56cf1187f7497e1b7b51f42f",
+      "image_size": [
+        544,
+        480
+      ],
+      "geometry_rules_all_coordinates_identical": true,
+      "proof": "east13-material-proof.json"
+    },
+    {
+      "code": "S32",
+      "scene": "露天盐原营地、土路/沙区与两处剖面拘押营房",
+      "materials": [
+        {
+          "material": "salt",
+          "use": "白灰盐壳",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "salt40–43",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/S32-terrain.png"
+        },
+        {
+          "material": "sand",
+          "use": "沙滩或风积砂",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "sand 36–39",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/S32-terrain.png"
+        },
+        {
+          "material": "dirt",
+          "use": "行军土路/干土脊",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "dirt 8–11",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/S32-terrain.png"
+        },
+        {
+          "material": "outdoor_stone",
+          "use": "露天粗砌石路/石台",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "cobble 20–23 / stone16–19",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/S32-terrain.png"
+        },
+        {
+          "material": "interior_stone",
+          "use": "剖面牢室/拘押营房的磨损室内石地",
+          "source": "res://assets/chapter5-spatial-20261022/library/interior-stone.png",
+          "method": "New built-in image_gen source; only12 existing walkable indoor cells per map"
+        },
+        {
+          "material": "rock",
+          "use": "山脊/崖石",
+          "source": "res://assets/battle_tiles/battle-tiles.png",
+          "native_material": "rock52–55 / native mountain-ground variants",
+          "runtime_atlas": "res://assets/chapter5-spatial-20261022/east-materials/S32-terrain.png"
+        }
+      ],
+      "findings": [
+        "盐地、黄色砂区与夯土通路各有独立材料，营房外场保持露天环境。",
+        "两处剖面拘押营房内12格可走地面换磨损室内石板，外部石场及真实门槛不变。"
+      ],
+      "changes": [
+        "art_atlas",
+        "art_layers",
+        "material_review_version"
+      ],
+      "passed": true,
+      "map_sha256": "cb7898f0bb1d59af6c7b2e5b9eded23e8c7235fdde97178b61c99f28cb7e588a",
+      "image_reviewed": "actual/reports/chapter5-spatial-20261022/material-audit/east13-images/S32.png",
+      "pixel_sha256": "79bff49975f6ae8cca321a20c6970546834913ef56c83fc780760b33863096a6",
+      "image_size": [
+        576,
+        480
+      ],
+      "geometry_rules_all_coordinates_identical": true,
+      "proof": "east13-material-proof.json"
+    }
+  ],
+  "changed_maps": [
+    "F25",
+    "F31",
+    "F33",
+    "S31",
+    "S32"
+  ],
+  "unchanged_maps": [
+    "F21",
+    "F22",
+    "F23",
+    "F24",
+    "F26",
+    "S21",
+    "S22",
+    "F32"
+  ],
+  "no_core_or_animation_changes": true,
+  "source_prompts": [
+    "actual/source/chapter5-spatial-20261022/outdoor-timber/prompt.txt",
+    "actual/source/chapter5-spatial-20261022/library-floors/prompts.json"
+  ],
+  "method": "Original bitmap sources viewed, current scene PNGs viewed individually, source atlas/material selectors inspected, pure-art invariants asserted."
+}

@@ -1,0 +1,132 @@
+{
+  "passed": true,
+  "background_guard": true,
+  "actual_input_snapshots": true,
+  "layout_errors": [],
+  "shots": [
+    {
+      "room": "H02",
+      "title": "丘堡粮站",
+      "before": "before/H02.png",
+      "after": "after/H02.png",
+      "size": [
+        562,
+        320
+      ],
+      "after_bytes": 136266,
+      "after_pixel_sha256": "dc505130de2e3ae79d6a2ea6b4f3d7c379f99cd8ff53d624d1b7ab44c3ed2a71",
+      "pixels_identical": false,
+      "passed": true,
+      "review": "雪地、雪松和门前清扫土路，互动位置与原来一致。"
+    },
+    {
+      "room": "H03",
+      "title": "南岗哨所",
+      "before": "before/H03.png",
+      "after": "after/H03.png",
+      "size": [
+        562,
+        320
+      ],
+      "after_bytes": 141653,
+      "after_pixel_sha256": "8ecc61fa7092a86164b27eb80465fbd4a008e3b78f4569a363d26cc2d1874f68",
+      "pixels_identical": false,
+      "passed": true,
+      "review": "雪地、雪松和门前清扫土路，互动位置与原来一致。"
+    },
+    {
+      "room": "H05",
+      "title": "旧塔外营",
+      "before": "before/H05.png",
+      "after": "after/H05.png",
+      "size": [
+        562,
+        320
+      ],
+      "after_bytes": 143401,
+      "after_pixel_sha256": "7580c522910fea4eb383dc110e84165b1ea9d7e351c5dee3ed6d4dd89d7e22e2",
+      "pixels_identical": false,
+      "passed": true,
+      "review": "雪地、雪松和门前清扫土路，互动位置与原来一致。"
+    },
+    {
+      "room": "H06",
+      "title": "海峡城旧塔内院",
+      "before": "before/H06.png",
+      "after": "after/H06.png",
+      "size": [
+        562,
+        320
+      ],
+      "after_bytes": 143603,
+      "after_pixel_sha256": "4bdff5c66b979033a96e9a064b0ba67ea1c0df3d9d4cec696298e31089534390",
+      "pixels_identical": false,
+      "passed": true,
+      "review": "石铺院落清扫保留，周围积雪与冬季植被一致。"
+    },
+    {
+      "room": "H07",
+      "title": "林路营地",
+      "before": "before/H07.png",
+      "after": "after/H07.png",
+      "size": [
+        562,
+        320
+      ],
+      "after_bytes": 130097,
+      "after_pixel_sha256": "cbf86d0c98e87555a1ed3179c13e3957424747b3a673d4f25e748134b89ddc7c",
+      "pixels_identical": false,
+      "passed": true,
+      "review": "雪地、雪松和门前清扫土路，互动位置与原来一致。"
+    },
+    {
+      "room": "H09",
+      "title": "林村诊所",
+      "before": "before/H09.png",
+      "after": "after/H09.png",
+      "size": [
+        562,
+        320
+      ],
+      "after_bytes": 135372,
+      "after_pixel_sha256": "0bbaf223c3e6b347eae2297f4b822bed01ce8b953b04a41eab9c5c6206092b12",
+      "pixels_identical": false,
+      "passed": true,
+      "review": "雪地、雪松和门前清扫土路，互动位置与原来一致。"
+    },
+    {
+      "room": "H04",
+      "title": "教堂内部",
+      "before": "before/H04.png",
+      "after": "after/H04.png",
+      "size": [
+        562,
+        320
+      ],
+      "after_bytes": 172519,
+      "after_pixel_sha256": "16fca3f4d94b256222dd58f5d7211aa1fe757620e092c6666f6313f43e979f62",
+      "pixels_identical": true,
+      "passed": true,
+      "review": "室内保留干燥石地或地下岩地，未铺雪。"
+    },
+    {
+      "room": "H08",
+      "title": "矿道内部",
+      "before": "before/H08.png",
+      "after": "after/H08.png",
+      "size": [
+        562,
+        320
+      ],
+      "after_bytes": 161354,
+      "after_pixel_sha256": "0508d4b74d113952f1af52f58ea478bc09ce76db262796a76a331003e9e873d8",
+      "pixels_identical": true,
+      "passed": true,
+      "review": "室内保留干燥石地或地下岩地，未铺雪。"
+    }
+  ],
+  "condition": "chapter == 1 and not chapter1_complete",
+  "excluded_h01_keeps_existing_winter": true,
+  "excluded_h04_h08_pixels_identical": true,
+  "scope": "Native Godot 562×320 hub viewport; genuine saved checkpoints, normal world/hub/walking inputs; no animation or interaction changes."
+}

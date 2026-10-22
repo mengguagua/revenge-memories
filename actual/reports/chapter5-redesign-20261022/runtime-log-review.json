@@ -1,0 +1,115 @@
+{
+  "passed": true,
+  "scope": "Final seven-map outcomes, original pilot failures, exact continuation, native captures, rules and preview guard. Known initial failures retained and resolved, never counted as wins.",
+  "logs": [
+    {
+      "path": "logs/ch5-first-west.log",
+      "sha256": "cb39213b058e31d6229ffcc691d2ea7be54e41c2e3118cde50f34d7ab7935192",
+      "diagnostics": [],
+      "classification": "No diagnostics."
+    },
+    {
+      "path": "logs/ch5-first-east.log",
+      "sha256": "680a28f0545dabd873f1c35564c810c04354f94607bc631235cd77218c5b9e23",
+      "diagnostics": [],
+      "classification": "No diagnostics."
+    },
+    {
+      "path": "logs/ch5-first-finale.log",
+      "sha256": "3f5442bdc9f06bf49cec6d06468104789340e83525f4019ebb3ea77e54c9bf98",
+      "diagnostics": [],
+      "classification": "No diagnostics."
+    },
+    {
+      "path": "logs/ch5-final-round1-west.log",
+      "sha256": "b9c80efb59787c737a45cf42c8d0853c1701824a1b14dc5b7fdf64303794d47f",
+      "diagnostics": [],
+      "classification": "No diagnostics."
+    },
+    {
+      "path": "logs/ch5-final-round2-west.log",
+      "sha256": "d952ed66f7763b1505637fdc7224856781ecc48dce81e751eebf5f8cc9265ddf",
+      "diagnostics": [],
+      "classification": "No diagnostics."
+    },
+    {
+      "path": "logs/ch5-final-round1-east.log",
+      "sha256": "27c38db0c9f7799cbf1726af1ea8227b3fc418758528d724f758d0ddb6949f94",
+      "diagnostics": [
+        "ERROR: Natural battle failed: F51 { \"objects\": { \"repair_1\": true }, \"evacuated\": [], \"freed\": [], \"burn_streak\": 0, \"reinforced\": true, \"mid_done\": false, &\"beacon_since\": -1, &\"beacon_contested\": false, &\"boats\": [], &\"repair_since\": { \"repair_1\": 13, \"repair_2\": -1 }, &\"final_phase\": false, &\"summon_wave\": false }"
+      ],
+      "classification": "Retained F51 input-driver formation stall; two final ordinary-input victories supersede it."
+    },
+    {
+      "path": "logs/ch5-final-F51-one.log",
+      "sha256": "81d02516244e3240d6f8df5fc675de37c3a12991e1df6d5536d6093386ab4625",
+      "diagnostics": [],
+      "classification": "No diagnostics."
+    },
+    {
+      "path": "logs/ch5-final-round2-east.log",
+      "sha256": "0e6773a635e880eaed1464f9a6be4270582586b24ed9324a4d74b9ed0f0a632f",
+      "diagnostics": [],
+      "classification": "No diagnostics."
+    },
+    {
+      "path": "logs/ch5-final-round1-finale.log",
+      "sha256": "cd30c6a90bea371d85523785cf00cff1152044aa558b7a18ee7e79e25771d891",
+      "diagnostics": [],
+      "classification": "No diagnostics."
+    },
+    {
+      "path": "logs/ch5-final-round2-finale.log",
+      "sha256": "88566dbcb1884dde72b3a915f7832d8cd92214b56bf46849d3581f82f1aab005",
+      "diagnostics": [],
+      "classification": "No diagnostics."
+    },
+    {
+      "path": "logs/ch5-continuous-final.log",
+      "sha256": "471aa2214964425a2cfddfdd5ca347c04be5973a5b0a873f97a13ecc5c89461b",
+      "diagnostics": [
+        "SCRIPT ERROR: Invalid access to property or key 'position' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'position' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'max_hp' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'position' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'position' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'max_hp' on a base object of type 'Dictionary'.",
+        "ERROR: Natural battle failed: S51 { \"objects\": {  }, \"evacuated\": [], \"freed\": [], \"burn_streak\": 0, \"reinforced\": false, \"mid_done\": false, &\"beacon_since\": -1, &\"beacon_contested\": false, &\"boats\": [], &\"repair_since\": { \"repair_1\": -1, \"repair_2\": -1 }, &\"final_phase\": false, &\"summon_wave\": false }"
+      ],
+      "classification": "Retained S51 objective-order stall, resumed from exact T91 state; stale combat-preview actor errors corrected by separately verified UI guard."
+    },
+    {
+      "path": "logs/ch5-continuous-resumed.log",
+      "sha256": "0102fb75da8dada79bf270328ccb60a761a1971218c136ecad250fa7849c0da3",
+      "diagnostics": [
+        "ERROR: Condition \"ret != noErr\" is true. Returning: \"\""
+      ],
+      "classification": "macOS get_system_ca_certificates returned no system certificate data; headless local play has no network dependency and completed. No gameplay/script error."
+    },
+    {
+      "path": "logs/ch5-final-panorama.log",
+      "sha256": "8d94dcbee3ac5cf67e512877dce925aa2537321b926700fda171b7a44b89ebc9",
+      "diagnostics": [],
+      "classification": "No diagnostics."
+    },
+    {
+      "path": "logs/ch5-final-play-capture.log",
+      "sha256": "6b069e95fc9186302ee11a242161ede2fb208c209ed0bde879653787eb9ad664",
+      "diagnostics": [],
+      "classification": "No diagnostics."
+    },
+    {
+      "path": "logs/ch5-rules-final.log",
+      "sha256": "033b15f65f4eee770ffdcd5192abf3f8d788625eda47e64769058176a958ca93",
+      "diagnostics": [],
+      "classification": "No diagnostics."
+    },
+    {
+      "path": "logs/ch5-preview-guard.log",
+      "sha256": "20fa376ef5b7b1b8435236b182c61a05988ba3461063b905925d773cf8ff4cd0",
+      "diagnostics": [],
+      "classification": "No diagnostics."
+    }
+  ],
+  "unresolved_gameplay_errors": []
+}

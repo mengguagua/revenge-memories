@@ -1,0 +1,395 @@
+{
+  "passed": true,
+  "code": "S42",
+  "size": [
+    30,
+    26
+  ],
+  "connected": 459,
+  "coordinate_changes": {
+    "player_positions": {
+      "before": [
+        [
+          2,
+          17
+        ],
+        [
+          3,
+          17
+        ],
+        [
+          4,
+          17
+        ],
+        [
+          5,
+          17
+        ],
+        [
+          2,
+          18
+        ],
+        [
+          3,
+          18
+        ],
+        [
+          4,
+          18
+        ],
+        [
+          5,
+          18
+        ],
+        [
+          2,
+          19
+        ],
+        [
+          3,
+          19
+        ]
+      ],
+      "after": [
+        [
+          8,
+          18
+        ],
+        [
+          9,
+          18
+        ],
+        [
+          10,
+          18
+        ],
+        [
+          10,
+          17
+        ],
+        [
+          8,
+          19
+        ],
+        [
+          9,
+          19
+        ],
+        [
+          10,
+          19
+        ],
+        [
+          9,
+          17
+        ],
+        [
+          7,
+          19
+        ],
+        [
+          7,
+          20
+        ]
+      ]
+    },
+    "exit": {
+      "before": [
+        6,
+        19
+      ],
+      "after": [
+        4,
+        22
+      ]
+    },
+    "targets": {
+      "before": [
+        [
+          6,
+          18
+        ],
+        [
+          16,
+          11
+        ]
+      ],
+      "after": [
+        [
+          5,
+          22
+        ],
+        [
+          21,
+          16
+        ]
+      ]
+    },
+    "objects": {
+      "before": [
+        {
+          "id": "landing",
+          "kind": "control",
+          "position": [
+            6,
+            18
+          ],
+          "label": "确认船边接应点",
+          "adjacent": false,
+          "sprite": "white_flag",
+          "name_zh": "船边接应点",
+          "completed_label": "已确认船边接应点"
+        },
+        {
+          "id": "clinic_note",
+          "kind": "record",
+          "position": [
+            16,
+            11
+          ],
+          "label": "查看维娅航行记录",
+          "adjacent": true,
+          "sprite": "orders_case",
+          "approach": [
+            16,
+            12
+          ],
+          "optional": true,
+          "completed_label": "查看维娅航行记录"
+        }
+      ],
+      "after": [
+        {
+          "id": "landing",
+          "kind": "control",
+          "position": [
+            5,
+            22
+          ],
+          "label": "确认船边接应点",
+          "adjacent": false,
+          "sprite": "white_flag",
+          "name_zh": "船边接应点",
+          "completed_label": "已确认船边接应点"
+        },
+        {
+          "id": "clinic_note",
+          "kind": "record",
+          "position": [
+            21,
+            16
+          ],
+          "label": "查看维娅航行记录",
+          "adjacent": true,
+          "sprite": "orders_case",
+          "approach": [
+            21,
+            17
+          ],
+          "optional": true,
+          "completed_label": "查看维娅航行记录"
+        }
+      ]
+    },
+    "enemies": {
+      "before": {
+        "S42_boss": [
+          19,
+          4
+        ],
+        "S42_e1": [
+          20,
+          2
+        ],
+        "S42_e2": [
+          14,
+          3
+        ],
+        "S42_e3": [
+          8,
+          2
+        ],
+        "S42_e4": [
+          20,
+          6
+        ],
+        "S42_e5": [
+          20,
+          3
+        ],
+        "S42_e6": [
+          14,
+          4
+        ],
+        "S42_e7": [
+          8,
+          3
+        ],
+        "S42_e8": [
+          20,
+          7
+        ]
+      },
+      "after": {
+        "S42_boss": [
+          22,
+          6
+        ],
+        "S42_e1": [
+          26,
+          3
+        ],
+        "S42_e2": [
+          17,
+          2
+        ],
+        "S42_e3": [
+          8,
+          2
+        ],
+        "S42_e4": [
+          23,
+          8
+        ],
+        "S42_e5": [
+          24,
+          4
+        ],
+        "S42_e6": [
+          20,
+          9
+        ],
+        "S42_e7": [
+          9,
+          8
+        ],
+        "S42_e8": [
+          24,
+          9
+        ]
+      }
+    },
+    "npc_units": {
+      "before": {
+        "celine": [
+          18,
+          13
+        ],
+        "island_group0": [
+          11,
+          13
+        ],
+        "island_group1": [
+          17,
+          14
+        ]
+      },
+      "after": {
+        "celine": [
+          20,
+          18
+        ],
+        "island_group0": [
+          14,
+          19
+        ],
+        "island_group1": [
+          19,
+          20
+        ]
+      }
+    },
+    "reinforcements": {
+      "before": {},
+      "after": {}
+    }
+  },
+  "bridges": [
+    {
+      "waypoints": [
+        [
+          10,
+          10
+        ],
+        [
+          10,
+          16
+        ]
+      ],
+      "width": 2,
+      "name": "北岛至诊疗院的主木桥"
+    },
+    {
+      "waypoints": [
+        [
+          24,
+          10
+        ],
+        [
+          24,
+          17
+        ]
+      ],
+      "width": 1,
+      "name": "沿东岸绕进北岛的窄便桥"
+    },
+    {
+      "waypoints": [
+        [
+          3,
+          22
+        ],
+        [
+          6,
+          22
+        ]
+      ],
+      "width": 2,
+      "name": "西南靠船木台"
+    }
+  ],
+  "berths": [
+    {
+      "boat_origin": [
+        1,
+        21
+      ],
+      "water_footprint": [
+        [
+          1,
+          21
+        ],
+        [
+          2,
+          21
+        ],
+        [
+          1,
+          22
+        ],
+        [
+          2,
+          22
+        ],
+        [
+          1,
+          23
+        ],
+        [
+          2,
+          23
+        ]
+      ]
+    }
+  ],
+  "notes": [
+    "诊疗屋、井台、药车和照护住屋组成南岸医疗院；两组病人位于护卫队后方，南侧转运路直接通西南接应船，不穿北端敌阵。",
+    "主木桥形成可保护诊疗处的前沿，东侧窄栈可绕到北端守军侧面；两桥完整跨过真实水沟，两端都有落脚地。",
+    "北端三名飞行敌保留第3回合压近时机，玩家需要先接住病人并守住诊疗院；赛琳留在院内，航行记录就在诊疗屋南门。",
+    "必须让两组病人存活并撤离、确认船边接应点并击败队长；赛琳生死与后续邀请原样记录，保留单格恢复点。"
+  ],
+  "unit_stats_ai_timing_identity_unchanged": true,
+  "healing_tiles": 1,
+  "fixed_summon_source": null,
+  "stage_sha256": "4f5e18075ccdd6a99bf9f16b42c5ddb205a23fec2497ec6565855d77daa0f16f"
+}

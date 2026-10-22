@@ -1,0 +1,77 @@
+{
+  "reviewed": true,
+  "maps": [
+    {
+      "code": "F31",
+      "reviewed": true,
+      "scope": "Background Godot full-map visual inspection; ordinary-input gameplay verification handled independently by root.",
+      "map_sha256": "9ffc062c4f812f477a807fdf274161f4852fee8e1820e5b76392b110acb08c99",
+      "image": "actual/reports/chapter3-redesign-20261022/east/images/F31.png",
+      "image_sha256": "25a50ed94b9c5d08cf3262775f0671be58b924a22cbfba938910ac07b23a9482",
+      "image_size": [
+        576,
+        480
+      ],
+      "image_bytes": 56193,
+      "findings": [
+        "己船完整落在海面，西南跳板跨过海水接码头仓街。",
+        "南北拘留院的横栏、竖栏、四角和门口连续；关门墙体对应不可走格。",
+        "门前转运路连接已部署一侧，拘留院外东街为守军巡逻区。"
+      ],
+      "resolved": [
+        "Native corner modules and continuous vertical middle strips close inset-endcap visual gaps."
+      ],
+      "geometry_and_invariants_report": "actual/reports/chapter3-redesign-20261022/east/F31-geometry.json",
+      "compression": "oxipng lossless"
+    },
+    {
+      "code": "F32",
+      "reviewed": true,
+      "scope": "Background Godot full-map visual inspection; ordinary-input gameplay verification handled independently by root.",
+      "map_sha256": "4a5b0310087eebe20a79cf1c3ced871f3704cd81c72f6980fe47130ed47c223e",
+      "image": "actual/reports/chapter3-redesign-20261022/east/images/F32.png",
+      "image_sha256": "1ce1027e0c35884321ba3b77c49303489a20419018251662db778a6d5b8bb371",
+      "image_size": [
+        544,
+        480
+      ],
+      "image_bytes": 58870,
+      "findings": [
+        "中央盐池/西盐洼/南盐洼与岩脊形成连续地理分区。",
+        "干道表面收窄、自然转向；中央井与 14,12 台词区域可辨。",
+        "路障位于东侧暴露支路，向导从护卫后方出发。"
+      ],
+      "resolved": [
+        "Narrow variable paths replace ruler-like rectangular surface routes without changing map.tiles or actor coordinates."
+      ],
+      "geometry_and_invariants_report": "actual/reports/chapter3-redesign-20261022/east/F32-geometry.json",
+      "compression": "oxipng lossless"
+    },
+    {
+      "code": "F33",
+      "reviewed": true,
+      "scope": "Background Godot full-map visual inspection; ordinary-input gameplay verification handled independently by root.",
+      "map_sha256": "b9872eb06ead4cefc881ca17ab9dfe41a1a884dfbad595a91a42137cd64d4a03",
+      "image": "actual/reports/chapter3-redesign-20261022/east/images/F33.png",
+      "image_sha256": "f706a4f98b6fbc03c91f89fb85dd4b7e90d1770913f6356963e34a26ef4f0686",
+      "image_size": [
+        544,
+        480
+      ],
+      "image_bytes": 77711,
+      "findings": [
+        "南工房、档案屋、北控制楼和水院组织为围合设施。",
+        "两条维修桥各跨真实水格，阵台位于可站石岛，桥两端落岸。",
+        "工房围墙、角柱和唯一南门完整，两名术士位于安全后侧室内。"
+      ],
+      "resolved": [
+        "Native corner modules and continuous vertical middle strips close inset-endcap visual gaps."
+      ],
+      "geometry_and_invariants_report": "actual/reports/chapter3-redesign-20261022/east/F33-geometry.json",
+      "compression": "oxipng lossless"
+    }
+  ],
+  "shared_assets_changed": false,
+  "core_changed": false,
+  "animations_changed": false
+}

@@ -1,0 +1,10 @@
+Run from /Users/gcc/gaocc/project/revenge-memories
+
+/Applications/Godot.app/Contents/MacOS/Godot --headless --audio-driver Dummy --path actual --log-file /private/tmp/ch5-rules-final.log --script res://tests/ch5_redesign_rules_probe.gd
+python3 actual/tools/audit_ch5_redesign_invariants.py
+
+Outputs: rules-probe.json (2601 checks), invariants-audit.json (3417 checks, including the exact reviewed UI preview guard exception).
+This is an isolated rule fixture, not actual playthrough evidence. It deliberately establishes HP, turn, flag and position states only inside isolated in-memory fixtures and writes only report checkpoints. Original sources, production maps and all core scripts remain unchanged.
+First fixture report is retained as rules-probe-initial-fixture-findings.json. Its five failures were due to testing deployment after fixture interactions mutated the shared snapshot, and direct JSON numeric type comparisons after settlement. Final fixture preserves the original deployment snapshot and compares JSON-normalized structures. No production changes were made to resolve these probe artifacts.
+
+A later actual-play render fix is explicitly audited: only the approved stale-target guard inside core/main.gd _draw_preview differs from the frozen baseline. The invariant script reconstructs the exact source change and verifies its fixed SHA256; all remaining core files and 33 other maps remain byte-for-byte unchanged. See ui-preview/core-exception.json and the dedicated preview regression report.

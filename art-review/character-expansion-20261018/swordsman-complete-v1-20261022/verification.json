@@ -1,0 +1,745 @@
+{
+  "status": "passed",
+  "profiles": 6,
+  "affected_actions": 40,
+  "new_enemy_actions": 20,
+  "revised_ally_actions": 20,
+  "unrelated_existing_actions_unchanged": 607,
+  "gallery_profiles": 79,
+  "gallery_actions": 647,
+  "native_schedules": [
+    {
+      "key": "original_class_9_normal",
+      "frames": 202,
+      "contact_tick": 91,
+      "contact_count": 1,
+      "exact_source_rows": true,
+      "native_program": "L05B205"
+    },
+    {
+      "key": "class_9_ally_levin",
+      "frames": 159,
+      "contact_tick": 122,
+      "contact_count": 1,
+      "exact_source_rows": true,
+      "native_program": "L05B4A6"
+    },
+    {
+      "key": "class_9_ally_levin_vs_heavy",
+      "frames": 159,
+      "contact_tick": 122,
+      "contact_count": 1,
+      "exact_source_rows": true,
+      "native_program": "L05B4A6"
+    },
+    {
+      "key": "class_9_ally_levin_far_ally",
+      "frames": 159,
+      "contact_tick": 122,
+      "contact_count": 1,
+      "exact_source_rows": true,
+      "native_program": "L05B4A6"
+    },
+    {
+      "key": "class_9_ally_levin_far_ally_vs_heavy",
+      "frames": 159,
+      "contact_tick": 122,
+      "contact_count": 1,
+      "exact_source_rows": true,
+      "native_program": "L05B4A6"
+    },
+    {
+      "key": "class_9_ally_levin_far_enemy",
+      "frames": 159,
+      "contact_tick": 122,
+      "contact_count": 1,
+      "exact_source_rows": true,
+      "native_program": "L05B4A6"
+    },
+    {
+      "key": "class_9_ally_levin_far_enemy_vs_heavy",
+      "frames": 159,
+      "contact_tick": 122,
+      "contact_count": 1,
+      "exact_source_rows": true,
+      "native_program": "L05B4A6"
+    },
+    {
+      "key": "original_class_9_enemy_normal",
+      "frames": 202,
+      "contact_tick": 91,
+      "contact_count": 1,
+      "exact_source_rows": true,
+      "native_program": "L05B205"
+    },
+    {
+      "key": "class_9_enemy_levin",
+      "frames": 159,
+      "contact_tick": 122,
+      "contact_count": 1,
+      "exact_source_rows": true,
+      "native_program": "L05B4A6"
+    },
+    {
+      "key": "class_9_enemy_levin_vs_heavy",
+      "frames": 159,
+      "contact_tick": 122,
+      "contact_count": 1,
+      "exact_source_rows": true,
+      "native_program": "L05B4A6"
+    },
+    {
+      "key": "class_9_enemy_levin_far_ally",
+      "frames": 159,
+      "contact_tick": 122,
+      "contact_count": 1,
+      "exact_source_rows": true,
+      "native_program": "L05B4A6"
+    },
+    {
+      "key": "class_9_enemy_levin_far_ally_vs_heavy",
+      "frames": 159,
+      "contact_tick": 122,
+      "contact_count": 1,
+      "exact_source_rows": true,
+      "native_program": "L05B4A6"
+    },
+    {
+      "key": "class_9_enemy_levin_far_enemy",
+      "frames": 159,
+      "contact_tick": 122,
+      "contact_count": 1,
+      "exact_source_rows": true,
+      "native_program": "L05B4A6"
+    },
+    {
+      "key": "class_9_enemy_levin_far_enemy_vs_heavy",
+      "frames": 159,
+      "contact_tick": 122,
+      "contact_count": 1,
+      "exact_source_rows": true,
+      "native_program": "L05B4A6"
+    }
+  ],
+  "map_core_rgba_identical": true,
+  "independent_walk_slots": 8,
+  "eye_and_skin_material_present": true,
+  "pure_hair_fill_with_outline": true,
+  "runtime_integrated": false,
+  "user_visual_acceptance": "pending",
+  "visual_scope": "Dark/light all-pose boards and offline original/redraw captures; no browser file-access workaround or foreground game window.",
+  "asset_checks": [
+    {
+      "path": "swordsman-complete-v1-20261022/ally/tactical-walk/frame-000.png",
+      "dimensions": [
+        128,
+        96
+      ],
+      "bytes": 1570,
+      "colors": 12,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/tactical-walk/frame-001.png",
+      "dimensions": [
+        128,
+        96
+      ],
+      "bytes": 1546,
+      "colors": 12,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/tactical-walk/frame-002.png",
+      "dimensions": [
+        128,
+        96
+      ],
+      "bytes": 1809,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/tactical-walk/frame-003.png",
+      "dimensions": [
+        128,
+        96
+      ],
+      "bytes": 1788,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/tactical-walk/frame-004.png",
+      "dimensions": [
+        128,
+        96
+      ],
+      "bytes": 1667,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/tactical-walk/frame-005.png",
+      "dimensions": [
+        128,
+        96
+      ],
+      "bytes": 1591,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/tactical-walk/frame-006.png",
+      "dimensions": [
+        128,
+        96
+      ],
+      "bytes": 1866,
+      "colors": 12,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/tactical-walk/frame-007.png",
+      "dimensions": [
+        128,
+        96
+      ],
+      "bytes": 1790,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/tactical-idle/frame-000.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "bytes": 1594,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/tactical-idle/frame-001.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "bytes": 1610,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/tactical-idle/frame-002.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "bytes": 1589,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/tactical-idle/frame-003.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "bytes": 1610,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/tactical-idle/frame-004.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "bytes": 1594,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/tactical-idle/frame-005.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "bytes": 1610,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/battle/frame-000.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 3135,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/battle/frame-001.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2662,
+      "colors": 12,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/battle/frame-002.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2608,
+      "colors": 12,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/battle/frame-003.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2426,
+      "colors": 12,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/battle/frame-004.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2661,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/battle/frame-005.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2820,
+      "colors": 11,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/battle/frame-006.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2932,
+      "colors": 13,
+      "components": 2
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/battle/frame-007.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2852,
+      "colors": 12,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/battle/frame-008.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2807,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/battle/frame-009.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2527,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/battle/frame-010.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2490,
+      "colors": 11,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/battle/frame-011.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2742,
+      "colors": 11,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/battle/frame-012.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 3135,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/battle/frame-023.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 3135,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/ally/battle/frame-024.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 3032,
+      "colors": 12,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/tactical-walk/frame-000.png",
+      "dimensions": [
+        128,
+        96
+      ],
+      "bytes": 1570,
+      "colors": 12,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/tactical-walk/frame-001.png",
+      "dimensions": [
+        128,
+        96
+      ],
+      "bytes": 1546,
+      "colors": 12,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/tactical-walk/frame-002.png",
+      "dimensions": [
+        128,
+        96
+      ],
+      "bytes": 1809,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/tactical-walk/frame-003.png",
+      "dimensions": [
+        128,
+        96
+      ],
+      "bytes": 1788,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/tactical-walk/frame-004.png",
+      "dimensions": [
+        128,
+        96
+      ],
+      "bytes": 1667,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/tactical-walk/frame-005.png",
+      "dimensions": [
+        128,
+        96
+      ],
+      "bytes": 1591,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/tactical-walk/frame-006.png",
+      "dimensions": [
+        128,
+        96
+      ],
+      "bytes": 1866,
+      "colors": 12,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/tactical-walk/frame-007.png",
+      "dimensions": [
+        128,
+        96
+      ],
+      "bytes": 1790,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/tactical-idle/frame-000.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "bytes": 1594,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/tactical-idle/frame-001.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "bytes": 1610,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/tactical-idle/frame-002.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "bytes": 1589,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/tactical-idle/frame-003.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "bytes": 1610,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/tactical-idle/frame-004.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "bytes": 1594,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/tactical-idle/frame-005.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "bytes": 1610,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/battle/frame-000.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 3135,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/battle/frame-001.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2662,
+      "colors": 12,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/battle/frame-002.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2608,
+      "colors": 12,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/battle/frame-003.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2426,
+      "colors": 12,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/battle/frame-004.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2661,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/battle/frame-005.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2820,
+      "colors": 11,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/battle/frame-006.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2932,
+      "colors": 13,
+      "components": 2
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/battle/frame-007.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2852,
+      "colors": 12,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/battle/frame-008.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2807,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/battle/frame-009.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2527,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/battle/frame-010.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2490,
+      "colors": 11,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/battle/frame-011.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 2741,
+      "colors": 11,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/battle/frame-012.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 3133,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/battle/frame-023.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 3133,
+      "colors": 13,
+      "components": 1
+    },
+    {
+      "path": "swordsman-complete-v1-20261022/enemy/battle/frame-024.png",
+      "dimensions": [
+        320,
+        256
+      ],
+      "bytes": 3033,
+      "colors": 12,
+      "components": 1
+    }
+  ],
+  "playback_captures": [
+    "swordsman-complete-v1-20261022/ally-battle-pose-00-playback.png",
+    "swordsman-complete-v1-20261022/ally-battle-pose-04-playback.png",
+    "swordsman-complete-v1-20261022/ally-battle-pose-05-playback.png",
+    "swordsman-complete-v1-20261022/ally-battle-pose-06-playback.png",
+    "swordsman-complete-v1-20261022/ally-battle-pose-07-playback.png",
+    "swordsman-complete-v1-20261022/ally-battle-pose-08-playback.png",
+    "swordsman-complete-v1-20261022/ally-battle-pose-09-playback.png",
+    "swordsman-complete-v1-20261022/ally-battle-pose-10-playback.png",
+    "swordsman-complete-v1-20261022/ally-battle-pose-11-playback.png",
+    "swordsman-complete-v1-20261022/ally-battle-pose-24-playback.png",
+    "swordsman-complete-v1-20261022/ally-walk-up-playback.png",
+    "swordsman-complete-v1-20261022/ally-walk-right-playback.png",
+    "swordsman-complete-v1-20261022/ally-walk-down-playback.png",
+    "swordsman-complete-v1-20261022/ally-walk-left-playback.png",
+    "swordsman-complete-v1-20261022/ally-idle-cycle-playback.png",
+    "swordsman-complete-v1-20261022/enemy-battle-pose-00-playback.png",
+    "swordsman-complete-v1-20261022/enemy-battle-pose-04-playback.png",
+    "swordsman-complete-v1-20261022/enemy-battle-pose-05-playback.png",
+    "swordsman-complete-v1-20261022/enemy-battle-pose-06-playback.png",
+    "swordsman-complete-v1-20261022/enemy-battle-pose-07-playback.png",
+    "swordsman-complete-v1-20261022/enemy-battle-pose-08-playback.png",
+    "swordsman-complete-v1-20261022/enemy-battle-pose-09-playback.png",
+    "swordsman-complete-v1-20261022/enemy-battle-pose-10-playback.png",
+    "swordsman-complete-v1-20261022/enemy-battle-pose-11-playback.png",
+    "swordsman-complete-v1-20261022/enemy-battle-pose-24-playback.png",
+    "swordsman-complete-v1-20261022/enemy-walk-up-playback.png",
+    "swordsman-complete-v1-20261022/enemy-walk-right-playback.png",
+    "swordsman-complete-v1-20261022/enemy-walk-down-playback.png",
+    "swordsman-complete-v1-20261022/enemy-walk-left-playback.png",
+    "swordsman-complete-v1-20261022/enemy-idle-cycle-playback.png"
+  ]
+}

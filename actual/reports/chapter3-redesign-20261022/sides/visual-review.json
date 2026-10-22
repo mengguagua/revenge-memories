@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "native_tile_size": 16,
+  "all_props_native_scale": true,
+  "images": [
+    {
+      "path": "actual/assets/chapter3-redesign-20261022/sides/terrain.png",
+      "dimensions": [
+        512,
+        2752
+      ],
+      "bytes": 239676,
+      "optimization": "oxipng lossless, native pixels and dimensions retained",
+      "quality_reason": "完整原生图集/全景纹理，超过200KB参考值时保留原生细节，不缩放或有损量化。"
+    },
+    {
+      "path": "actual/reports/chapter3-redesign-20261022/sides/images/S31.png",
+      "dimensions": [
+        544,
+        480
+      ],
+      "bytes": 70675,
+      "optimization": "oxipng lossless, native pixels and dimensions retained",
+      "quality_reason": "within reference size"
+    },
+    {
+      "path": "actual/reports/chapter3-redesign-20261022/sides/images/S32.png",
+      "dimensions": [
+        576,
+        480
+      ],
+      "bytes": 68804,
+      "optimization": "oxipng lossless, native pixels and dimensions retained",
+      "quality_reason": "within reference size"
+    }
+  ],
+  "checks": [
+    "查看实际Godot后台全景；两院门均完整，顶栏与侧栏相接，门前道路可读。",
+    "S31山体与树林完整落在相应阻挡/树林格，住房与医舍、粮仓门前有勤务路接主街。",
+    "S32石砾直接落盐原底色，无深色山底矩形块；两营房后屋/前院、井台、粮仓和指挥帐分区清楚。",
+    "无新增桥梁/河流，无船体遮挡或强制跨水。",
+    "全部新地形/人物锚点、对象开门与锁定NPC身份已做静态可达和不变量断言；真实按键试玩由主代理执行。"
+  ],
+  "capture_log": "/private/tmp/ch3-sides-render-final.log"
+}

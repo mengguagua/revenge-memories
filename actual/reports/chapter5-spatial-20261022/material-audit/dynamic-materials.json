@@ -1,0 +1,160 @@
+{
+  "background_guard": true,
+  "errors": [],
+  "maps": [
+    {
+      "code": "M13",
+      "done_objects": {
+        "M13_door_0": true,
+        "M13_door_1": true
+      },
+      "image": "images/M13-opened.png",
+      "objects": [
+        {
+          "adjacent": true,
+          "id": "M13_door_0",
+          "kind": "door",
+          "label": "打开牢门1",
+          "open_art_cells": [
+            {
+              "base_tile": 16.0,
+              "clear_layers": [
+                1.0,
+                2.0
+              ],
+              "position": [
+                6.0,
+                10.0
+              ]
+            }
+          ],
+          "open_tile": 48.0,
+          "position": [
+            6.0,
+            10.0
+          ],
+          "sprite": "jail_door"
+        },
+        {
+          "adjacent": true,
+          "id": "M13_door_1",
+          "kind": "door",
+          "label": "打开牢门2",
+          "open_art_cells": [
+            {
+              "base_tile": 18.0,
+              "clear_layers": [
+                1.0,
+                2.0
+              ],
+              "position": [
+                25.0,
+                13.0
+              ]
+            }
+          ],
+          "open_tile": 48.0,
+          "position": [
+            25.0,
+            13.0
+          ],
+          "sprite": "jail_door"
+        },
+        {
+          "adjacent": true,
+          "approach": [
+            20.0,
+            5.0
+          ],
+          "approaches": [
+            [
+              20.0,
+              5.0
+            ],
+            [
+              19.0,
+              5.0
+            ]
+          ],
+          "building": "command_pavilion",
+          "dialogue": "记录员：两处囚门各关着一队劳工。把两处都打开，再替他们清出撤离的路。",
+          "door_visual": "native_building_art",
+          "entrance_cells": [
+            [
+              20.0,
+              4.0
+            ],
+            [
+              19.0,
+              4.0
+            ]
+          ],
+          "id": "M13_visit_0",
+          "kind": "visit",
+          "label": "访问营地文书帐",
+          "optional": true,
+          "position": [
+            20.0,
+            4.0
+          ],
+          "reward_item": 60.0,
+          "show_indicator": false
+        }
+      ]
+    },
+    {
+      "code": "S11",
+      "done_objects": {
+        "S11_tools_0": true
+      },
+      "image": "images/S11-opened.png",
+      "objects": [
+        {
+          "adjacent": true,
+          "id": "S11_tools_0",
+          "kind": "tools",
+          "label": "取回工具",
+          "position": [
+            20.0,
+            13.0
+          ],
+          "sprite": "crates"
+        },
+        {
+          "adjacent": true,
+          "approach": [
+            20.0,
+            3.0
+          ],
+          "approaches": [
+            [
+              20.0,
+              3.0
+            ]
+          ],
+          "building": "mine_adit",
+          "dialogue": "矿工：工具留在这里，先救人。东边支巷绕过岩室，伤员走主巷撤离更稳妥。",
+          "door_visual": "native_building_art",
+          "entrance_cells": [
+            [
+              20.0,
+              2.0
+            ]
+          ],
+          "id": "S11_visit_0",
+          "kind": "visit",
+          "label": "访问矿口工具间",
+          "optional": true,
+          "position": [
+            20.0,
+            2.0
+          ],
+          "reward_item": 64.0,
+          "show_indicator": false
+        }
+      ]
+    }
+  ],
+  "passed": true,
+  "scope": "In-memory ordinary object interaction + real main._draw_map after door/tools action. Fixture positions a genuine actor at the action front; no save files or gameplay source changed, not a full playthrough."
+}

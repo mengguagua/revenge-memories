@@ -1,0 +1,379 @@
+{
+  "passed": true,
+  "size": [
+    30,
+    26
+  ],
+  "closed_reachable_cells": 508,
+  "opened_reachable_cells": 509,
+  "escorts": [
+    {
+      "id": "salt_guide",
+      "position": [
+        7,
+        24
+      ],
+      "opened_exit_steps": 42,
+      "initially_enclosed": false
+    }
+  ],
+  "rooms": [],
+  "bridges": [],
+  "coordinate_changes": {
+    "enemies": [
+      {
+        "id": "F32_boss",
+        "before": [
+          23,
+          4
+        ],
+        "after": [
+          26,
+          4
+        ]
+      },
+      {
+        "id": "F32_e1",
+        "before": [
+          21,
+          6
+        ],
+        "after": [
+          21,
+          7
+        ]
+      },
+      {
+        "id": "F32_e2",
+        "before": [
+          17,
+          9
+        ],
+        "after": [
+          15,
+          7
+        ]
+      },
+      {
+        "id": "F32_e3",
+        "before": [
+          21,
+          17
+        ],
+        "after": [
+          22,
+          19
+        ]
+      },
+      {
+        "id": "F32_e4",
+        "before": [
+          11,
+          5
+        ],
+        "after": [
+          11,
+          5
+        ]
+      },
+      {
+        "id": "F32_e5",
+        "before": [
+          21,
+          7
+        ],
+        "after": [
+          23,
+          5
+        ]
+      },
+      {
+        "id": "F32_e6",
+        "before": [
+          17,
+          10
+        ],
+        "after": [
+          20,
+          16
+        ]
+      },
+      {
+        "id": "F32_e7",
+        "before": [
+          21,
+          18
+        ],
+        "after": [
+          25,
+          16
+        ]
+      },
+      {
+        "id": "F32_e8",
+        "before": [
+          11,
+          6
+        ],
+        "after": [
+          25,
+          11
+        ]
+      },
+      {
+        "id": "F32_e9",
+        "before": [
+          22,
+          6
+        ],
+        "after": [
+          25,
+          7
+        ]
+      },
+      {
+        "id": "F32_e10",
+        "before": [
+          18,
+          9
+        ],
+        "after": [
+          18,
+          5
+        ]
+      },
+      {
+        "id": "F32_e11",
+        "before": [
+          22,
+          17
+        ],
+        "after": [
+          26,
+          17
+        ]
+      }
+    ],
+    "npc_units": [
+      {
+        "id": "salt_guide",
+        "before": [
+          5,
+          18
+        ],
+        "after": [
+          7,
+          24
+        ]
+      }
+    ],
+    "reinforcements": [],
+    "deploy_before": [
+      [
+        2,
+        19
+      ],
+      [
+        3,
+        19
+      ],
+      [
+        4,
+        19
+      ],
+      [
+        5,
+        19
+      ],
+      [
+        2,
+        20
+      ],
+      [
+        3,
+        20
+      ],
+      [
+        4,
+        20
+      ],
+      [
+        5,
+        20
+      ],
+      [
+        2,
+        21
+      ],
+      [
+        3,
+        21
+      ]
+    ],
+    "deploy_after": [
+      [
+        7,
+        20
+      ],
+      [
+        8,
+        20
+      ],
+      [
+        9,
+        20
+      ],
+      [
+        10,
+        20
+      ],
+      [
+        7,
+        21
+      ],
+      [
+        8,
+        21
+      ],
+      [
+        9,
+        21
+      ],
+      [
+        10,
+        21
+      ],
+      [
+        7,
+        22
+      ],
+      [
+        8,
+        22
+      ]
+    ],
+    "objects_before": [
+      {
+        "id": "salt_barrier",
+        "kind": "bridge",
+        "position": [
+          21,
+          14
+        ],
+        "label": "移开干道路障",
+        "adjacent": true,
+        "sprite": "crates",
+        "optional": true,
+        "opens": [
+          [
+            21,
+            14
+          ]
+        ],
+        "open_tile": 208,
+        "open_art_cells": [
+          {
+            "position": [
+              21,
+              14
+            ],
+            "base_tile": 8
+          }
+        ]
+      },
+      {
+        "id": "guide_notes",
+        "kind": "record",
+        "position": [
+          8,
+          16
+        ],
+        "label": "查看船民路线册",
+        "adjacent": true,
+        "sprite": "orders_case",
+        "optional": true,
+        "completed_label": "路线册已取得"
+      }
+    ],
+    "objects_after": [
+      {
+        "id": "salt_barrier",
+        "kind": "bridge",
+        "position": [
+          23,
+          14
+        ],
+        "label": "移开干道路障",
+        "adjacent": true,
+        "sprite": "crates",
+        "optional": true,
+        "opens": [
+          [
+            23,
+            14
+          ]
+        ],
+        "open_tile": 208,
+        "open_art_cells": [
+          {
+            "position": [
+              23,
+              14
+            ],
+            "base_tile": 8,
+            "clear_layers": [
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "id": "guide_notes",
+        "kind": "record",
+        "position": [
+          8,
+          19
+        ],
+        "label": "查看船民路线册",
+        "adjacent": true,
+        "sprite": "orders_case",
+        "optional": true,
+        "completed_label": "路线册已取得"
+      }
+    ],
+    "exit_before": [
+      24,
+      3
+    ],
+    "exit_after": [
+      27,
+      2
+    ],
+    "targets_before": [
+      [
+        21,
+        14
+      ],
+      [
+        8,
+        16
+      ]
+    ],
+    "targets_after": [
+      [
+        23,
+        14
+      ],
+      [
+        8,
+        19
+      ]
+    ]
+  },
+  "notes": [
+    "盐池和低岩脊围出西侧弯曲干道，中央旧井与休息格形成可辨认的停靠处；14,12附近的既有台词触发区位于干道上。",
+    "东侧直行盐盘短而开阔，路障、弓手和术士形成较危险的直线选择；西侧旧井干道与北丘小路提供有层次的接近路线。",
+    "向导从护卫后方起步，通过中央井院向北关撤离；路线册就在南侧向导住屋前，向导死亡分支仍可按原规则完成。"
+  ]
+}

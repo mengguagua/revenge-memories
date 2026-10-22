@@ -1,0 +1,991 @@
+{
+  "passed": true,
+  "maps": [
+    {
+      "passed": true,
+      "code": "M31",
+      "size": [
+        30,
+        24
+      ],
+      "closed_connected": 526,
+      "opened_connected": 534,
+      "notes": [
+        "西门横街、医舍主巷与南街围出完整住区，民宅、仓房和医舍朝街开门；西城墙在左上方留下真实门道，撤离旗在门内横街（2,7），队长守在门前。",
+        "拘押院位于东街，有实体四边围栏和唯一南门；开门后居民经南街转入医舍主巷，再走横街出西门。仓房之间的一格侧街可移开路障后抄近路。",
+        "部队在南街集合，未被拘押居民位于队伍后方；第4敌回合追兵仍从东南巷口进入。两名拘押居民必须存活撤离，原开门与胜负条件保持。"
+      ],
+      "units_only_positions_changed": true,
+      "story_timing_rules_preserved": true,
+      "coordinate_changes": {
+        "enemies": [
+          {
+            "id": "M31_boss",
+            "before": [
+              6,
+              7
+            ],
+            "after": [
+              4,
+              7
+            ]
+          },
+          {
+            "id": "M31_e1",
+            "before": [
+              7,
+              12
+            ],
+            "after": [
+              9,
+              14
+            ]
+          },
+          {
+            "id": "M31_e2",
+            "before": [
+              20,
+              9
+            ],
+            "after": [
+              25,
+              9
+            ]
+          },
+          {
+            "id": "M31_e3",
+            "before": [
+              20,
+              18
+            ],
+            "after": [
+              24,
+              18
+            ]
+          },
+          {
+            "id": "M31_e4",
+            "before": [
+              10,
+              7
+            ],
+            "after": [
+              10,
+              7
+            ]
+          },
+          {
+            "id": "M31_e5",
+            "before": [
+              7,
+              13
+            ],
+            "after": [
+              6,
+              15
+            ]
+          },
+          {
+            "id": "M31_e6",
+            "before": [
+              20,
+              10
+            ],
+            "after": [
+              25,
+              11
+            ]
+          },
+          {
+            "id": "M31_e7",
+            "before": [
+              20,
+              19
+            ],
+            "after": [
+              23,
+              19
+            ]
+          },
+          {
+            "id": "M31_e8",
+            "before": [
+              10,
+              8
+            ],
+            "after": [
+              8,
+              6
+            ]
+          },
+          {
+            "id": "M31_e9",
+            "before": [
+              8,
+              12
+            ],
+            "after": [
+              12,
+              8
+            ]
+          },
+          {
+            "id": "M31_e10",
+            "before": [
+              21,
+              9
+            ],
+            "after": [
+              25,
+              14
+            ]
+          }
+        ],
+        "npc_units": [
+          {
+            "id": "detained0",
+            "before": [
+              13,
+              11
+            ],
+            "after": [
+              21,
+              11
+            ]
+          },
+          {
+            "id": "detained1",
+            "before": [
+              15,
+              11
+            ],
+            "after": [
+              23,
+              11
+            ]
+          },
+          {
+            "id": "street_resident",
+            "before": [
+              5,
+              18
+            ],
+            "after": [
+              11,
+              21
+            ]
+          }
+        ],
+        "reinforcements": [
+          {
+            "id": "M31_r0",
+            "before": [
+              25,
+              20
+            ],
+            "after": [
+              28,
+              20
+            ]
+          },
+          {
+            "id": "M31_r1",
+            "before": [
+              25,
+              21
+            ],
+            "after": [
+              28,
+              21
+            ]
+          }
+        ],
+        "objects": [
+          {
+            "id": "court",
+            "before": [
+              14,
+              13
+            ],
+            "after": [
+              22,
+              13
+            ]
+          },
+          {
+            "id": "barricade",
+            "before": [
+              20,
+              16
+            ],
+            "after": [
+              13,
+              11
+            ]
+          },
+          {
+            "id": "street_clinic",
+            "before": [
+              3,
+              10
+            ],
+            "after": [
+              6,
+              11
+            ]
+          }
+        ]
+      },
+      "deployment_before": [
+        [
+          2,
+          19
+        ],
+        [
+          3,
+          19
+        ],
+        [
+          4,
+          19
+        ],
+        [
+          5,
+          19
+        ],
+        [
+          2,
+          20
+        ],
+        [
+          3,
+          20
+        ],
+        [
+          4,
+          20
+        ],
+        [
+          5,
+          20
+        ],
+        [
+          2,
+          21
+        ],
+        [
+          3,
+          21
+        ]
+      ],
+      "deployment_after": [
+        [
+          13,
+          19
+        ],
+        [
+          14,
+          19
+        ],
+        [
+          15,
+          19
+        ],
+        [
+          16,
+          19
+        ],
+        [
+          13,
+          20
+        ],
+        [
+          14,
+          20
+        ],
+        [
+          12,
+          19
+        ],
+        [
+          15,
+          20
+        ],
+        [
+          16,
+          20
+        ],
+        [
+          12,
+          20
+        ]
+      ],
+      "exit": [
+        2,
+        7
+      ],
+      "targets": [
+        [
+          22,
+          13
+        ],
+        [
+          13,
+          11
+        ],
+        [
+          6,
+          11
+        ]
+      ],
+      "interaction_front_distances": {
+        "court": 14,
+        "barricade": 7,
+        "street_clinic": 14
+      },
+      "residents_require_single_gate": true,
+      "resident_to_west_gate_steps": {
+        "detained0": 31,
+        "detained1": 31,
+        "street_resident": 23
+      },
+      "map_sha256": "07113aea71b95c08e7647b6bfa8fa59c30300722bd1bb8215ee41b6bd7e73868"
+    },
+    {
+      "passed": true,
+      "code": "M32",
+      "size": [
+        30,
+        24
+      ],
+      "closed_connected": 545,
+      "opened_connected": 545,
+      "notes": [
+        "两格军需大道贯通南北，运输车完整车体沿路向北口行进；西站粮仓、北站仓库与车场各自围出小型装卸坪。",
+        "西南入口先接西运输站，主路可继续截车并夺北站；一格西坡林缘路绕到北站侧面，骑兵有东侧车场与大道可调动。",
+        "运输车从南站附近起步，距北口13步；第6己方回合开始每轮一格、控制任一站或打开车锁即停车的规则保持，两站与车锁仍须分别确认。"
+      ],
+      "units_only_positions_changed": true,
+      "story_timing_rules_preserved": true,
+      "coordinate_changes": {
+        "enemies": [
+          {
+            "id": "M32_boss",
+            "before": [
+              27,
+              4
+            ],
+            "after": [
+              22,
+              3
+            ]
+          },
+          {
+            "id": "M32_e1",
+            "before": [
+              25,
+              6
+            ],
+            "after": [
+              22,
+              7
+            ]
+          },
+          {
+            "id": "M32_e2",
+            "before": [
+              19,
+              9
+            ],
+            "after": [
+              15,
+              9
+            ]
+          },
+          {
+            "id": "M32_e3",
+            "before": [
+              25,
+              17
+            ],
+            "after": [
+              25,
+              16
+            ]
+          },
+          {
+            "id": "M32_e4",
+            "before": [
+              13,
+              5
+            ],
+            "after": [
+              13,
+              5
+            ]
+          },
+          {
+            "id": "M32_e5",
+            "before": [
+              25,
+              7
+            ],
+            "after": [
+              19,
+              6
+            ]
+          },
+          {
+            "id": "M32_e6",
+            "before": [
+              19,
+              10
+            ],
+            "after": [
+              14,
+              12
+            ]
+          },
+          {
+            "id": "M32_e7",
+            "before": [
+              25,
+              18
+            ],
+            "after": [
+              24,
+              18
+            ]
+          },
+          {
+            "id": "M32_e8",
+            "before": [
+              13,
+              6
+            ],
+            "after": [
+              11,
+              12
+            ]
+          },
+          {
+            "id": "M32_e9",
+            "before": [
+              26,
+              6
+            ],
+            "after": [
+              23,
+              7
+            ]
+          },
+          {
+            "id": "M32_e10",
+            "before": [
+              20,
+              9
+            ],
+            "after": [
+              16,
+              11
+            ]
+          }
+        ],
+        "npc_units": [
+          {
+            "id": "transport_cart",
+            "before": [
+              15,
+              14
+            ],
+            "after": [
+              20,
+              15
+            ]
+          },
+          {
+            "id": "road_worker",
+            "before": [
+              5,
+              18
+            ],
+            "after": [
+              5,
+              21
+            ]
+          }
+        ],
+        "reinforcements": [],
+        "objects": [
+          {
+            "id": "station_w",
+            "before": [
+              16,
+              12
+            ],
+            "after": [
+              13,
+              14
+            ]
+          },
+          {
+            "id": "station_n",
+            "before": [
+              25,
+              14
+            ],
+            "after": [
+              20,
+              7
+            ]
+          },
+          {
+            "id": "cart_release",
+            "before": [
+              15,
+              14
+            ],
+            "after": [
+              20,
+              15
+            ]
+          }
+        ]
+      },
+      "deployment_before": [
+        [
+          2,
+          19
+        ],
+        [
+          3,
+          19
+        ],
+        [
+          4,
+          19
+        ],
+        [
+          5,
+          19
+        ],
+        [
+          2,
+          20
+        ],
+        [
+          3,
+          20
+        ],
+        [
+          4,
+          20
+        ],
+        [
+          5,
+          20
+        ],
+        [
+          2,
+          21
+        ],
+        [
+          3,
+          21
+        ]
+      ],
+      "deployment_after": [
+        [
+          7,
+          19
+        ],
+        [
+          8,
+          19
+        ],
+        [
+          7,
+          20
+        ],
+        [
+          8,
+          20
+        ],
+        [
+          6,
+          19
+        ],
+        [
+          9,
+          19
+        ],
+        [
+          6,
+          20
+        ],
+        [
+          9,
+          20
+        ],
+        [
+          7,
+          21
+        ],
+        [
+          8,
+          21
+        ]
+      ],
+      "exit": [
+        20,
+        2
+      ],
+      "targets": [
+        [
+          13,
+          14
+        ],
+        [
+          20,
+          7
+        ],
+        [
+          20,
+          15
+        ]
+      ],
+      "interaction_front_distances": {
+        "station_w": 11,
+        "station_n": 25,
+        "cart_release": 16
+      },
+      "transport_steps": 13,
+      "earliest_unopposed_escape_turn": 18,
+      "full_cart_footprint_clear": true,
+      "map_sha256": "91c97784be57e70e3e33a174fee1c9ba1bb2a61783ae8bf28e607bd05f02f131"
+    },
+    {
+      "passed": true,
+      "code": "M33",
+      "size": [
+        32,
+        28
+      ],
+      "closed_connected": 522,
+      "opened_connected": 522,
+      "notes": [
+        "海崖石堡由连续北墙、西墙、东墙及海蚀崖围住旧石内庭，完整主楼位于北端；南侧外院与东侧工房码头分区清楚。",
+        "两格主道穿过南墙三格正门，西崖林缘路经西侧门进入内庭；东南两格港门直通工房接应路和真正伸入海面的投送栈桥，东北侧联络出口设在可达的墙内通路（26,2）。",
+        "格曼站在工房前庭，工匠偏在院侧，不堵住记录室唯一南门；投送码头、记录和堡主败北后的投降／解除武装／死亡分支均沿用。"
+      ],
+      "units_only_positions_changed": true,
+      "story_timing_rules_preserved": true,
+      "coordinate_changes": {
+        "enemies": [
+          {
+            "id": "M33_boss",
+            "before": [
+              23,
+              4
+            ],
+            "after": [
+              24,
+              7
+            ]
+          },
+          {
+            "id": "M33_e1",
+            "before": [
+              21,
+              6
+            ],
+            "after": [
+              21,
+              8
+            ]
+          },
+          {
+            "id": "M33_e2",
+            "before": [
+              17,
+              10
+            ],
+            "after": [
+              16,
+              11
+            ]
+          },
+          {
+            "id": "M33_e3",
+            "before": [
+              21,
+              19
+            ],
+            "after": [
+              23,
+              20
+            ]
+          },
+          {
+            "id": "M33_e4",
+            "before": [
+              11,
+              5
+            ],
+            "after": [
+              9,
+              9
+            ]
+          },
+          {
+            "id": "M33_e5",
+            "before": [
+              21,
+              7
+            ],
+            "after": [
+              22,
+              10
+            ]
+          },
+          {
+            "id": "M33_e6",
+            "before": [
+              17,
+              11
+            ],
+            "after": [
+              16,
+              14
+            ]
+          },
+          {
+            "id": "M33_e7",
+            "before": [
+              21,
+              20
+            ],
+            "after": [
+              24,
+              18
+            ]
+          },
+          {
+            "id": "M33_e8",
+            "before": [
+              11,
+              6
+            ],
+            "after": [
+              12,
+              7
+            ]
+          },
+          {
+            "id": "M33_e9",
+            "before": [
+              22,
+              6
+            ],
+            "after": [
+              24,
+              9
+            ]
+          },
+          {
+            "id": "M33_e10",
+            "before": [
+              18,
+              10
+            ],
+            "after": [
+              18,
+              10
+            ]
+          },
+          {
+            "id": "M33_e11",
+            "before": [
+              22,
+              19
+            ],
+            "after": [
+              22,
+              21
+            ]
+          },
+          {
+            "id": "german",
+            "before": [
+              16,
+              18
+            ],
+            "after": [
+              20,
+              21
+            ]
+          }
+        ],
+        "npc_units": [
+          {
+            "id": "fort_workers",
+            "before": [
+              12,
+              10
+            ],
+            "after": [
+              17,
+              21
+            ]
+          }
+        ],
+        "reinforcements": [],
+        "objects": [
+          {
+            "id": "dock_control",
+            "before": [
+              23,
+              12
+            ],
+            "after": [
+              26,
+              16
+            ]
+          },
+          {
+            "id": "workshop",
+            "before": [
+              18,
+              18
+            ],
+            "after": [
+              19,
+              19
+            ]
+          }
+        ]
+      },
+      "deployment_before": [
+        [
+          2,
+          21
+        ],
+        [
+          3,
+          21
+        ],
+        [
+          4,
+          21
+        ],
+        [
+          5,
+          21
+        ],
+        [
+          2,
+          22
+        ],
+        [
+          3,
+          22
+        ],
+        [
+          4,
+          22
+        ],
+        [
+          5,
+          22
+        ],
+        [
+          2,
+          23
+        ],
+        [
+          3,
+          23
+        ]
+      ],
+      "deployment_after": [
+        [
+          8,
+          23
+        ],
+        [
+          9,
+          23
+        ],
+        [
+          8,
+          24
+        ],
+        [
+          9,
+          24
+        ],
+        [
+          7,
+          23
+        ],
+        [
+          10,
+          23
+        ],
+        [
+          7,
+          24
+        ],
+        [
+          10,
+          24
+        ],
+        [
+          8,
+          25
+        ],
+        [
+          9,
+          25
+        ]
+      ],
+      "exit": [
+        26,
+        2
+      ],
+      "targets": [
+        [
+          26,
+          16
+        ],
+        [
+          19,
+          19
+        ]
+      ],
+      "interaction_front_distances": {
+        "dock_control": 25,
+        "workshop": 14
+      },
+      "german_accessible_sides": [
+        [
+          20,
+          20
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          20,
+          22
+        ],
+        [
+          19,
+          21
+        ]
+      ],
+      "map_sha256": "c30fb8486266fa77bcf85b492f6115f981d11b5d790bbdfff3b3d039e2bbb15a"
+    }
+  ]
+}

@@ -1,0 +1,1070 @@
+{
+  "schema": 1,
+  "native_tile_size": 16,
+  "size": [
+    14,
+    9
+  ],
+  "origin": [
+    16,
+    8
+  ],
+  "rooms": {
+    "H21": {
+      "node": 17,
+      "title": "半年前 · 风灯岛船坞",
+      "hint": "与卡洛谈船牌，确认出航",
+      "biome": "sea",
+      "floor": [
+        "~~~ss....sss~~",
+        "~sss........s~",
+        "ss...........s",
+        "s......d.....s",
+        "s.....ddd....s",
+        "~s....d.....s~",
+        "~ss...d....ss~",
+        "~~ssss=ssss~~~",
+        "~~~~~~=~~~~~~~"
+      ],
+      "spawn": [
+        6,
+        7
+      ],
+      "exit": [
+        6,
+        8
+      ],
+      "objects": [
+        {
+          "action": "east_departure",
+          "position": [
+            8,
+            5
+          ],
+          "name": "卡洛",
+          "sprite": "actor",
+          "source": 27,
+          "text": ""
+        },
+        {
+          "action": "east_mireille",
+          "position": [
+            3,
+            4
+          ],
+          "name": "米蕾",
+          "sprite": "actor",
+          "source": 15,
+          "text": "",
+          "party": "mireille"
+        },
+        {
+          "action": "east_lisa",
+          "position": [
+            6,
+            2
+          ],
+          "name": "莉莎",
+          "sprite": "actor",
+          "source": 13,
+          "text": "",
+          "party": "lisa"
+        },
+        {
+          "action": "east_chart_start",
+          "position": [
+            5,
+            1
+          ],
+          "name": "母亲的残图",
+          "sprite": "orders_case",
+          "source": 0,
+          "text": "",
+          "sprite_path": "res://assets/battle_tiles/modules/orders_case.png",
+          "footprint": [
+            1,
+            1
+          ]
+        }
+      ],
+      "scenery": [
+        {
+          "name": "fishing_hut",
+          "position": [
+            2,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "sprite_path": "res://assets/chapter2/modules/fishing_hut.png",
+          "blocking": true
+        },
+        {
+          "name": "lighthouse",
+          "position": [
+            10,
+            0
+          ],
+          "footprint": [
+            3,
+            5
+          ],
+          "sprite_path": "res://assets/chapter2/modules/lighthouse.png",
+          "blocking": true
+        },
+        {
+          "name": "bollard",
+          "position": [
+            4,
+            7
+          ],
+          "footprint": [
+            1,
+            1
+          ],
+          "sprite_path": "res://assets/chapter2/modules/bollard.png",
+          "blocking": true
+        },
+        {
+          "name": "rowboat",
+          "position": [
+            11,
+            6
+          ],
+          "footprint": [
+            2,
+            3
+          ],
+          "sprite_path": "res://assets/chapter2/modules/rowboat.png",
+          "blocking": false
+        },
+        {
+          "name": "pine_broad",
+          "position": [
+            8,
+            0
+          ],
+          "footprint": [
+            2,
+            2
+          ],
+          "sprite_path": "res://assets/nature/pine_broad.png",
+          "blocking": true
+        },
+        {
+          "name": "brush",
+          "position": [
+            2,
+            6
+          ],
+          "footprint": [
+            1,
+            1
+          ],
+          "sprite_path": "res://assets/nature/brush.png",
+          "blocking": true
+        }
+      ]
+    },
+    "H22": {
+      "node": 18,
+      "title": "船团停泊栈桥",
+      "hint": "向船长确认灯线，查看求助",
+      "biome": "sea",
+      "floor": [
+        "~~~========~~~",
+        "~============~",
+        "~============~",
+        "~============~",
+        "~============~",
+        "~============~",
+        "~============~",
+        "~~==========~~",
+        "~~~~~~=~~~~~~~"
+      ],
+      "spawn": [
+        6,
+        7
+      ],
+      "exit": [
+        6,
+        8
+      ],
+      "objects": [
+        {
+          "action": "sea_route",
+          "position": [
+            6,
+            2
+          ],
+          "name": "船长",
+          "sprite": "actor",
+          "source": 5,
+          "text": ""
+        },
+        {
+          "action": "invite_s21",
+          "position": [
+            4,
+            4
+          ],
+          "name": "求救船员",
+          "sprite": "actor",
+          "source": 7,
+          "text": ""
+        },
+        {
+          "action": "s21_report",
+          "position": [
+            9,
+            5
+          ],
+          "name": "地方医者",
+          "sprite": "actor",
+          "source": 15,
+          "text": ""
+        }
+      ],
+      "scenery": [
+        {
+          "name": "captain_cabin",
+          "position": [
+            1,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "sprite_path": "res://assets/chapter2/modules/captain_cabin.png",
+          "blocking": true
+        },
+        {
+          "name": "mast",
+          "position": [
+            10,
+            2
+          ],
+          "footprint": [
+            2,
+            4
+          ],
+          "sprite_path": "res://assets/chapter2/modules/mast.png",
+          "blocking": true
+        },
+        {
+          "name": "bollard",
+          "position": [
+            3,
+            6
+          ],
+          "footprint": [
+            1,
+            1
+          ],
+          "sprite_path": "res://assets/chapter2/modules/bollard.png",
+          "blocking": true
+        },
+        {
+          "name": "rail_h",
+          "position": [
+            5,
+            0
+          ],
+          "footprint": [
+            4,
+            1
+          ],
+          "sprite_path": "res://assets/chapter2/modules/rail_h.png",
+          "blocking": true
+        },
+        {
+          "name": "rail_v",
+          "position": [
+            0,
+            2
+          ],
+          "footprint": [
+            1,
+            4
+          ],
+          "sprite_path": "res://assets/chapter2/modules/rail_v.png",
+          "blocking": true
+        },
+        {
+          "name": "rail_h",
+          "position": [
+            7,
+            7
+          ],
+          "footprint": [
+            4,
+            1
+          ],
+          "sprite_path": "res://assets/chapter2/modules/rail_h.png",
+          "blocking": true
+        },
+        {
+          "name": "rowboat",
+          "position": [
+            12,
+            5
+          ],
+          "footprint": [
+            2,
+            3
+          ],
+          "sprite_path": "res://assets/chapter2/modules/rowboat.png",
+          "blocking": false
+        }
+      ]
+    },
+    "H23": {
+      "node": 19,
+      "title": "押送舰旁 · 救护栈桥",
+      "hint": "安置全部伤者，再与洛德交谈",
+      "biome": "sea",
+      "floor": [
+        "~~~========~~~",
+        "~============~",
+        "~============~",
+        "~============~",
+        "~============~",
+        "~============~",
+        "~============~",
+        "~~==========~~",
+        "~~~~~~=~~~~~~~"
+      ],
+      "spawn": [
+        6,
+        7
+      ],
+      "exit": [
+        6,
+        8
+      ],
+      "objects": [
+        {
+          "action": "prisoners_treat",
+          "position": [
+            3,
+            4
+          ],
+          "name": "伤者安置处",
+          "sprite": "medicine_wagon",
+          "source": 0,
+          "text": "",
+          "sprite_path": "res://assets/battle_tiles/modules/medicine_wagon.png",
+          "footprint": [
+            2,
+            1
+          ]
+        },
+        {
+          "action": "lord",
+          "position": [
+            9,
+            5
+          ],
+          "name": "洛德",
+          "sprite": "actor",
+          "source": 18,
+          "text": "",
+          "recruit": "lord"
+        },
+        {
+          "action": "captives_route",
+          "position": [
+            6,
+            2
+          ],
+          "name": "引航者",
+          "sprite": "actor",
+          "source": 7,
+          "text": ""
+        }
+      ],
+      "scenery": [
+        {
+          "name": "captain_cabin",
+          "position": [
+            1,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "sprite_path": "res://assets/chapter2/modules/captain_cabin.png",
+          "blocking": true
+        },
+        {
+          "name": "hatch",
+          "position": [
+            10,
+            0
+          ],
+          "footprint": [
+            2,
+            2
+          ],
+          "sprite_path": "res://assets/chapter2/modules/hatch.png",
+          "blocking": true
+        },
+        {
+          "name": "rail_h",
+          "position": [
+            9,
+            7
+          ],
+          "footprint": [
+            4,
+            1
+          ],
+          "sprite_path": "res://assets/chapter2/modules/rail_h.png",
+          "blocking": true
+        },
+        {
+          "name": "bollard",
+          "position": [
+            2,
+            6
+          ],
+          "footprint": [
+            1,
+            1
+          ],
+          "sprite_path": "res://assets/chapter2/modules/bollard.png",
+          "blocking": true
+        },
+        {
+          "name": "rail_h",
+          "position": [
+            5,
+            0
+          ],
+          "footprint": [
+            4,
+            1
+          ],
+          "sprite_path": "res://assets/chapter2/modules/rail_h.png",
+          "blocking": true
+        },
+        {
+          "name": "rail_v",
+          "position": [
+            0,
+            2
+          ],
+          "footprint": [
+            1,
+            4
+          ],
+          "sprite_path": "res://assets/chapter2/modules/rail_v.png",
+          "blocking": true
+        },
+        {
+          "name": "rowboat",
+          "position": [
+            12,
+            4
+          ],
+          "footprint": [
+            2,
+            3
+          ],
+          "sprite_path": "res://assets/chapter2/modules/rowboat.png",
+          "blocking": false
+        }
+      ]
+    },
+    "H24": {
+      "node": 20,
+      "title": "礁岛 · 渔村岸边",
+      "hint": "向长者问路，海洞可先行",
+      "biome": "sea",
+      "floor": [
+        "~~~~sss.sss~~~",
+        "~~sss......ss~",
+        "~ss.........ss",
+        "ss...d.......s",
+        "s....dd......s",
+        "ss....d.....ss",
+        "~ss...d....ss~",
+        "~~~sss=ssss~~~",
+        "~~~~~~=~~~~~~~"
+      ],
+      "spawn": [
+        6,
+        7
+      ],
+      "exit": [
+        6,
+        8
+      ],
+      "objects": [
+        {
+          "action": "reef_route",
+          "position": [
+            6,
+            2
+          ],
+          "name": "渔村长者",
+          "sprite": "actor",
+          "source": 7,
+          "text": ""
+        },
+        {
+          "action": "roan",
+          "position": [
+            3,
+            5
+          ],
+          "name": "罗恩",
+          "sprite": "actor",
+          "source": 22,
+          "text": "",
+          "recruit": "roan"
+        },
+        {
+          "action": "invite_s22",
+          "position": [
+            10,
+            5
+          ],
+          "name": "旧船员",
+          "sprite": "actor",
+          "source": 7,
+          "text": ""
+        },
+        {
+          "action": "holy_sword",
+          "position": [
+            8,
+            3
+          ],
+          "name": "岸上宝箱",
+          "sprite": "orders_case",
+          "source": 0,
+          "text": "",
+          "sprite_path": "res://assets/battle_tiles/modules/orders_case.png",
+          "footprint": [
+            1,
+            1
+          ]
+        }
+      ],
+      "scenery": [
+        {
+          "name": "fishing_hut",
+          "position": [
+            2,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "sprite_path": "res://assets/chapter2/modules/fishing_hut.png",
+          "blocking": true
+        },
+        {
+          "name": "boulders",
+          "position": [
+            10,
+            0
+          ],
+          "footprint": [
+            1,
+            1
+          ],
+          "sprite_path": "res://assets/battle_tiles/modules/boulders.png",
+          "blocking": true
+        },
+        {
+          "name": "rowboat",
+          "position": [
+            11,
+            6
+          ],
+          "footprint": [
+            2,
+            3
+          ],
+          "sprite_path": "res://assets/chapter2/modules/rowboat.png",
+          "blocking": false
+        },
+        {
+          "name": "bollard",
+          "position": [
+            4,
+            7
+          ],
+          "footprint": [
+            1,
+            1
+          ],
+          "sprite_path": "res://assets/chapter2/modules/bollard.png",
+          "blocking": true
+        },
+        {
+          "name": "pine_tall",
+          "position": [
+            10,
+            1
+          ],
+          "footprint": [
+            2,
+            2
+          ],
+          "sprite_path": "res://assets/nature/pine_tall.png",
+          "blocking": true
+        },
+        {
+          "name": "brush",
+          "position": [
+            11,
+            3
+          ],
+          "footprint": [
+            1,
+            1
+          ],
+          "sprite_path": "res://assets/nature/brush.png",
+          "blocking": true
+        }
+      ]
+    },
+    "H25": {
+      "node": 21,
+      "title": "海灯岛 · 航灯院",
+      "hint": "先安置岛民，可训练与取泉",
+      "biome": "sea",
+      "floor": [
+        "~~sss.....ssss",
+        "~ss..........s",
+        "ss...........s",
+        "s....dd......s",
+        "s....dd.....ss",
+        "ss....d....ss~",
+        "~ss...d...sss~",
+        "~~~sss=ssss~~~",
+        "~~~~~~=~~~~~~~"
+      ],
+      "spawn": [
+        6,
+        7
+      ],
+      "exit": [
+        6,
+        8
+      ],
+      "objects": [
+        {
+          "action": "islanders_settle",
+          "position": [
+            6,
+            2
+          ],
+          "name": "留守骑士",
+          "sprite": "actor",
+          "source": 10,
+          "text": ""
+        },
+        {
+          "action": "shia",
+          "position": [
+            9,
+            5
+          ],
+          "name": "希雅",
+          "sprite": "actor",
+          "source": 31,
+          "text": "",
+          "recruit": "shia"
+        },
+        {
+          "action": "east_training",
+          "position": [
+            3,
+            4
+          ],
+          "name": "训练台",
+          "sprite": "sun_altar",
+          "source": 0,
+          "text": "",
+          "sprite_path": "res://assets/battle_tiles/modules/sun_altar.png",
+          "footprint": [
+            2,
+            2
+          ]
+        },
+        {
+          "action": "resistance_spring",
+          "position": [
+            3,
+            6
+          ],
+          "name": "抗性泉 · 剩余一次",
+          "sprite": "well",
+          "source": 0,
+          "text": "",
+          "sprite_path": "res://assets/battle_tiles/modules/well.png",
+          "footprint": [
+            1,
+            1
+          ]
+        },
+        {
+          "action": "r05",
+          "position": [
+            8,
+            6
+          ],
+          "name": "卡洛",
+          "sprite": "actor",
+          "source": 27,
+          "text": "",
+          "party": "carlo"
+        },
+        {
+          "action": "treatment",
+          "position": [
+            5,
+            6
+          ],
+          "name": "救治泉 · 东队",
+          "sprite": "well",
+          "source": 0,
+          "text": "",
+          "sprite_path": "res://assets/battle_tiles/modules/well.png",
+          "footprint": [
+            1,
+            1
+          ]
+        }
+      ],
+      "scenery": [
+        {
+          "name": "fishing_hut",
+          "position": [
+            2,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "sprite_path": "res://assets/chapter2/modules/fishing_hut.png",
+          "blocking": true
+        },
+        {
+          "name": "lighthouse",
+          "position": [
+            10,
+            0
+          ],
+          "footprint": [
+            3,
+            5
+          ],
+          "sprite_path": "res://assets/chapter2/modules/lighthouse.png",
+          "blocking": true
+        },
+        {
+          "name": "brush",
+          "position": [
+            2,
+            5
+          ],
+          "footprint": [
+            1,
+            1
+          ],
+          "sprite_path": "res://assets/nature/brush.png",
+          "blocking": true
+        },
+        {
+          "name": "pine_young",
+          "position": [
+            8,
+            0
+          ],
+          "footprint": [
+            1,
+            1
+          ],
+          "sprite_path": "res://assets/nature/pine_young.png",
+          "blocking": true
+        }
+      ],
+      "environment_tint": [
+        0.75,
+        0.8,
+        0.9
+      ]
+    },
+    "H26": {
+      "node": 22,
+      "title": "潮狩军港 · 神教仓院",
+      "hint": "查看航图，确认伤者再西渡",
+      "biome": "sea",
+      "floor": [
+        "~~~cccccccc~~~",
+        "~cccccccccccc~",
+        "sccccccccccccs",
+        "sccccccccccccs",
+        "sccccccccccccs",
+        "~cccccccccccc~",
+        "~sccccccccccs~",
+        "~~ssss=ssss~~~",
+        "~~~~~~=~~~~~~~"
+      ],
+      "spawn": [
+        6,
+        7
+      ],
+      "exit": [
+        6,
+        8
+      ],
+      "objects": [
+        {
+          "action": "chart_recover",
+          "position": [
+            6,
+            2
+          ],
+          "name": "神教箱",
+          "sprite": "orders_case",
+          "source": 0,
+          "text": "",
+          "sprite_path": "res://assets/battle_tiles/modules/orders_case.png",
+          "footprint": [
+            1,
+            1
+          ]
+        },
+        {
+          "action": "holy_bow",
+          "position": [
+            3,
+            4
+          ],
+          "name": "军港武器箱",
+          "sprite": "crates",
+          "source": 0,
+          "text": "",
+          "sprite_path": "res://assets/battle_tiles/modules/crates.png",
+          "footprint": [
+            1,
+            1
+          ]
+        },
+        {
+          "action": "ancient_departure",
+          "position": [
+            10,
+            5
+          ],
+          "name": "船长",
+          "sprite": "actor",
+          "source": 5,
+          "text": ""
+        },
+        {
+          "action": "harbor_patients",
+          "position": [
+            6,
+            5
+          ],
+          "name": "撤离者安置处",
+          "sprite": "medicine_wagon",
+          "source": 0,
+          "text": "",
+          "sprite_path": "res://assets/battle_tiles/modules/medicine_wagon.png",
+          "footprint": [
+            2,
+            1
+          ]
+        },
+        {
+          "action": "r05",
+          "position": [
+            9,
+            3
+          ],
+          "name": "卡洛",
+          "sprite": "actor",
+          "source": 27,
+          "text": "",
+          "party": "carlo"
+        }
+      ],
+      "scenery": [
+        {
+          "name": "barracks",
+          "position": [
+            1,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "sprite_path": "res://assets/battle_tiles/modules/barracks.png",
+          "blocking": true
+        },
+        {
+          "name": "captain_cabin",
+          "position": [
+            10,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "sprite_path": "res://assets/chapter2/modules/captain_cabin.png",
+          "blocking": true
+        },
+        {
+          "name": "bollard",
+          "position": [
+            4,
+            7
+          ],
+          "footprint": [
+            1,
+            1
+          ],
+          "sprite_path": "res://assets/chapter2/modules/bollard.png",
+          "blocking": true
+        },
+        {
+          "name": "rowboat",
+          "position": [
+            11,
+            6
+          ],
+          "footprint": [
+            2,
+            3
+          ],
+          "sprite_path": "res://assets/chapter2/modules/rowboat.png",
+          "blocking": false
+        }
+      ],
+      "environment_tint": [
+        0.75,
+        0.8,
+        0.9
+      ]
+    },
+    "H27": {
+      "node": 23,
+      "title": "现在 · 海峡城广场外",
+      "hint": "与守卫交涉，接回庆典",
+      "biome": "sea",
+      "floor": [
+        "cccccccccccccc",
+        "cccccccccccccc",
+        "cccccccccccccc",
+        "cccccccccccccc",
+        "cccccccccccccc",
+        "cccccccccccccc",
+        "cccccccccccccc",
+        "cccccccccccccc",
+        "cccccccccccccc"
+      ],
+      "spawn": [
+        6,
+        7
+      ],
+      "exit": [
+        6,
+        8
+      ],
+      "objects": [
+        {
+          "action": "east_finale",
+          "position": [
+            7,
+            3
+          ],
+          "name": "教团守卫",
+          "sprite": "actor",
+          "source": 5,
+          "text": ""
+        },
+        {
+          "action": "arrival_captain",
+          "position": [
+            3,
+            5
+          ],
+          "name": "船长",
+          "sprite": "actor",
+          "source": 5,
+          "text": ""
+        },
+        {
+          "action": "arrival_altar",
+          "position": [
+            6,
+            1
+          ],
+          "name": "传光台",
+          "sprite": "sun_altar",
+          "source": 0,
+          "text": "",
+          "sprite_path": "res://assets/battle_tiles/modules/sun_altar.png",
+          "footprint": [
+            2,
+            2
+          ]
+        }
+      ],
+      "scenery": [
+        {
+          "name": "barracks",
+          "position": [
+            1,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "sprite_path": "res://assets/battle_tiles/modules/barracks.png",
+          "blocking": true
+        },
+        {
+          "name": "barracks",
+          "position": [
+            10,
+            0
+          ],
+          "footprint": [
+            3,
+            2
+          ],
+          "sprite_path": "res://assets/battle_tiles/modules/barracks.png",
+          "blocking": true
+        }
+      ],
+      "biome_override": "cobble"
+    }
+  },
+  "materials": {
+    "~": "sea",
+    "s": "sand",
+    ".": "grass",
+    "=": "timber",
+    "c": "cobble",
+    "d": "dirt"
+  },
+  "logic": "Water is impassable; complete objects and modules block their full footprints; all interactions have a reachable adjacent cell."
+}

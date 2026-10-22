@@ -32,7 +32,7 @@
 
 本次资源与配置检查通过，并用本地DOM替身执行了40图切换及全部对象定位等脚本抽查。自动浏览器被工具的 `file://` 协议策略拦截，未绕过限制；桌面与手机宽度的浏览器渲染、文字间距和实际下载行为尚未自动验收，`verification.json` 单独记录此限制。
 
-说明来源为 `docs2/完整游戏流程.md` 的当前40关章节，不使用历史布局蓝图。页面及下载包均为2026-10-22快照，后续修改地图须重新生成。生成步骤（在项目根目录执行）：
+说明来源为 `docs2/完整游戏流程.md` 的当前40关章节，不使用历史布局蓝图。页面及下载包均为2026-10-23快照，后续修改地图须重新生成。生成步骤（在项目根目录执行）：
 
 ```sh
 CAMPAIGN_CAPTURE_LOG=/private/tmp/map-catalog-render.log bash actual/tools/capture_campaign.sh res://tools/capture_map_catalog.gd
@@ -51,3 +51,6 @@ CAMPAIGN_CAPTURE_LOG=/private/tmp/map-catalog-render.log bash actual/tools/captu
 2026-10-22：M41样板已确认，第一章M12—M15、S11/S12六图完成构图与战术重设计，M11保持。当前目录已同步六图原生全景、尺寸、部署与交互坐标；详见[前后对照与实机复查](../../actual/reports/chapter1-redesign-20261022/index.html)。
 
 2026-10-22：第二章F21—F26、S21/S22八图按已确认方法重设计，目录同步新地形、部署、任务点与居民船水路。见[前后对照与实机复查](../../actual/reports/chapter2-redesign-20261022/index.html)。第一章及其他章节保持。
+
+
+2026-10-23 · 当前修订0.10.11：第一章M12—M15与S12完成寒地一致性修正，目录同步7张第一章当前原生图与同版地形记录。M11原图、S11地下矿道和其余章节保持；雪只用于室外，清扫土路、室内石地、木桥及开放流水仍清楚区分。五图说明优先采用本轮气候复查，另外35图继续采用此前材质复查结论。见[第一章寒地一致性对照](../../actual/reports/chapter1-climate-20261022/index.html)与[据点实机前后对照](../../actual/reports/chapter1-climate-20261022/side/hubs/index.html)。世界与据点冬景只在第一章日返前启用。

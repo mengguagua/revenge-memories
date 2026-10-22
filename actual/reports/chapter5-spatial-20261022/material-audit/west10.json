@@ -1,0 +1,3095 @@
+{
+  "passed": true,
+  "scope": "第一章M11–M15/S11/S12与第三章西线M31–M33，共10图逐张材质审核；另M51/M52在west-spatial-audit.json复核，总12图。",
+  "map_count": 10,
+  "images_directly_inspected": 10,
+  "modified_maps": [
+    "M13",
+    "S11"
+  ],
+  "unchanged_maps": [
+    "M11",
+    "M12",
+    "M14",
+    "M15",
+    "S12",
+    "M31",
+    "M32",
+    "M33"
+  ],
+  "layout_coordinates_core_shared_assets_unchanged": true,
+  "maps": [
+    {
+      "code": "M11",
+      "name": "流民林路",
+      "scene": "雪原室外林路、渡溪木桥与安全村舍",
+      "original_story_evidence": {
+        "style": "forest_escort",
+        "cause": "科兰押送兵把凯尔放走的居民重新赶回雪原；胡纳普先完成兄长没完成的护送。",
+        "before": "达恩：他们又被赶回来了。／胡纳普：奥托，你带他们沿林边走，我挡住后面。",
+        "object_semantics": "T1林路路障；T2转移停靠点；A1/A2各一组流民；G安全村口。"
+      },
+      "evidence_source": "docs2/规划索引.json",
+      "materials": {
+        "observed_in_native_image": "实际画面是浅雪底、压实黄褐土路、蓝灰河水、带边框横板木桥；没有室内地板当雪地或桥面。",
+        "actual_source_summary": "snow4–7；snow_path/winter_river/walkway原生过渡；snow_cottage完整屋顶",
+        "atlas_before": "res://assets/battlefield-0.3.0/terrain.png",
+        "atlas_current": "res://assets/battlefield-0.3.0/terrain.png",
+        "base_definitions": "res://assets/battle_tiles/battle-tiles.json",
+        "inherited_native_transitions": "res://assets/battlefield-0.3.0/terrain.json",
+        "before_floor_counts_by_actual_atlas_mapping": {
+          "base.snow": 235,
+          "native.transitions.snow_path.255": 31,
+          "native.transitions.snow_path.38": 2,
+          "native.transitions.snow_path.110": 20,
+          "native.transitions.snow_path.55": 8,
+          "native.transitions.snow_path.223": 3,
+          "native.transitions.snow_path.155": 19,
+          "native.transitions.snow_path.191": 2,
+          "native.transitions.snow_path.205": 10,
+          "native.transitions.walkway.v6": 2,
+          "native.transitions.walkway.v14": 1,
+          "native.transitions.walkway.v12": 2,
+          "native.transitions.snow_path.137": 3,
+          "native.transitions.snow_path.127": 3,
+          "native.transitions.winter_river.nwwn": 1,
+          "native.transitions.winter_river.nwww": 11,
+          "native.transitions.walkway.v7": 4,
+          "native.transitions.walkway.v15": 2,
+          "native.transitions.walkway.v13": 4,
+          "native.transitions.winter_river.pwww": 5,
+          "native.transitions.winter_river.wwwn": 2,
+          "native.transitions.winter_river.wwww": 2,
+          "native.transitions.winter_river.wwnw": 11,
+          "native.transitions.winter_river.wnww": 2,
+          "native.transitions.walkway.v3": 2,
+          "native.transitions.walkway.v11": 1,
+          "native.transitions.walkway.v9": 2,
+          "native.transitions.winter_river.wwpw": 5,
+          "native.transitions.winter_river.wnpw": 1
+        },
+        "actual_prop_sources": [
+          "res://assets/battle_tiles/modules/snow_cottage.png"
+        ]
+      },
+      "findings": [
+        "符合雪原护送场景，保持用户已确认M11。"
+      ],
+      "changes": [],
+      "passed": true,
+      "map_sha256": "4170c977adebe2688d181316b149c173edae39ba97cc317811f0fdc99c367a9a",
+      "image_reviewed": "art-review/battle-maps-20261021/images/M11.png",
+      "image_before_reviewed": "art-review/battle-maps-20261021/images/M11.png",
+      "image_reviewed_sha256": "349144cef98e976b2c7df792b150275c95df488f6c754543de279fc5f6c961d9",
+      "review_method": "逐张view_image直接目检完整运行地图，再检查实际art_layers tile ID与atlas/source mapping；不是仅凭visual_ground字符判定。"
+    },
+    {
+      "code": "M12",
+      "name": "丘堡粮站",
+      "scene": "室外丘坡粮站、粮仓门前作业院",
+      "original_story_evidence": {
+        "style": "grain_fort",
+        "cause": "赈灾粮被科兰扣留，修女芙拉与领粮居民也被拘押。",
+        "before": "芙拉：粮在北边那间仓里。他们说谁敢靠近就烧掉。／胡纳普：先挡住拿火把的人。",
+        "object_semantics": "T1粮仓门；T2焚毁队集合点；A1芙拉；A2领粮居民。"
+      },
+      "evidence_source": "docs2/规划索引.json",
+      "materials": {
+        "observed_in_native_image": "草地与林缘接浅土路，粮车作业院沿用压实土；岩坡和完整粮仓本身独立，不把仓屋室内地坪画在屋外。",
+        "actual_source_summary": "grass0–3；dirt8–11的dirt:grass过渡；hill_granary/tactical_store完整素材",
+        "atlas_before": "res://assets/chapter1-redesign-20261022/grain-prison/terrain.png",
+        "atlas_current": "res://assets/chapter1-redesign-20261022/grain-prison/terrain.png",
+        "base_definitions": "res://assets/battle_tiles/battle-tiles.json",
+        "inherited_native_transitions": "res://assets/battlefield-0.3.0/terrain.json",
+        "before_floor_counts_by_actual_atlas_mapping": {
+          "base.grass": 564,
+          "atlas.additional_transitions.dirt:grass:6": 4,
+          "atlas.additional_transitions.dirt:grass:10": 13,
+          "atlas.additional_transitions.dirt:grass:8": 1,
+          "atlas.additional_transitions.dirt:grass:5": 15,
+          "atlas.additional_transitions.dirt:grass:4": 1,
+          "atlas.additional_transitions.dirt:grass:11": 1,
+          "atlas.additional_transitions.dirt:grass:46": 2,
+          "atlas.additional_transitions.dirt:grass:110": 17,
+          "atlas.additional_transitions.dirt:grass:76": 1,
+          "atlas.additional_transitions.dirt:grass:55": 12,
+          "atlas.additional_transitions.dirt:grass:255": 28,
+          "atlas.additional_transitions.dirt:grass:205": 10,
+          "atlas.additional_transitions.dirt:grass:9": 2,
+          "atlas.additional_transitions.dirt:grass:38": 3,
+          "atlas.additional_transitions.dirt:grass:127": 4,
+          "atlas.additional_transitions.dirt:grass:239": 2,
+          "atlas.additional_transitions.dirt:grass:77": 3,
+          "atlas.additional_transitions.dirt:grass:223": 6,
+          "atlas.additional_transitions.dirt:grass:155": 15,
+          "atlas.additional_transitions.dirt:grass:137": 6,
+          "atlas.additional_transitions.dirt:grass:141": 2,
+          "atlas.additional_transitions.dirt:grass:2": 1,
+          "atlas.additional_transitions.dirt:grass:191": 2,
+          "atlas.additional_transitions.dirt:grass:19": 4,
+          "atlas.additional_transitions.dirt:grass:39": 1
+        },
+        "actual_prop_sources": [
+          "res://assets/battle_tiles/modules/crates.png",
+          "res://assets/battle_tiles/modules/grain_sacks.png",
+          "res://assets/battle_tiles/modules/grain_wagon.png",
+          "res://assets/battlefield-0.3.0/modules/camp_palisade.png",
+          "res://assets/battlefield-0.3.0/modules/hill_granary.png",
+          "res://assets/battlefield-0.3.0/modules/tactical_store.png",
+          "res://assets/battlefield-0.3.0/modules/village_clinic.png"
+        ]
+      },
+      "findings": [
+        "用途匹配，粮站裸土院无需铺室内木地板。"
+      ],
+      "changes": [],
+      "passed": true,
+      "map_sha256": "1b3f4dd3233ab5c083dc7356c34a44cdcefff2938d52121e4b67b8fd51cb82a5",
+      "image_reviewed": "art-review/battle-maps-20261021/images/M12.png",
+      "image_before_reviewed": "art-review/battle-maps-20261021/images/M12.png",
+      "image_reviewed_sha256": "8c19f799e04d11f32aabcd95c8ee876b18fb100087885d602b7896a687bae446",
+      "review_method": "逐张view_image直接目检完整运行地图，再检查实际art_layers tile ID与atlas/source mapping；不是仅凭visual_ground字符判定。"
+    },
+    {
+      "code": "M13",
+      "name": "南岗押送所",
+      "scene": "河岸押送所外院、两间囚室和木桥",
+      "original_story_evidence": {
+        "style": "prison",
+        "cause": "牢中有违抗强迁命令的骑士蕾娜，以及准备运往旧塔堡的劳工。",
+        "before": "奥托：牢门在两边，先把院子清出来。／胡纳普：有人开门，其他人挡住押送兵。",
+        "object_semantics": "T1/T2分别为左右牢门；A1蕾娜、A2一组劳工。"
+      },
+      "evidence_source": "docs2/规划索引.json",
+      "materials": {
+        "observed_in_native_image": "原两间囚室地坪与外院土路完全相同；新图内室使用低饱和石砖，门槛与室内连续，外院仍为土路、河桥仍为木板。",
+        "actual_source_summary": "修正前dirt:grass；修正后囚室全范围使用stone16–19，独立图集；外围grass/dirt/water/walkway保持",
+        "atlas_before": "res://assets/chapter1-redesign-20261022/grain-prison/terrain.png",
+        "atlas_current": "res://assets/chapter5-spatial-20261022/materials-west/M13/terrain.png",
+        "base_definitions": "res://assets/battle_tiles/battle-tiles.json",
+        "inherited_native_transitions": "res://assets/battlefield-0.3.0/terrain.json",
+        "before_floor_counts_by_actual_atlas_mapping": {
+          "base.grass": 585,
+          "native.module_or_variant.5145": 4,
+          "native.module_or_variant.5149": 7,
+          "native.module_or_variant.5152": 5,
+          "atlas.additional_transitions.dirt:grass:4": 2,
+          "native.module_or_variant.5142": 6,
+          "native.module_or_variant.5148": 6,
+          "native.module_or_variant.5150": 3,
+          "atlas.additional_transitions.dirt:grass:5": 17,
+          "native.module_or_variant.5151": 4,
+          "native.module_or_variant.5146": 5,
+          "native.module_or_variant.5144": 4,
+          "native.module_or_variant.5155": 1,
+          "atlas.additional_transitions.dirt:grass:38": 5,
+          "atlas.additional_transitions.dirt:grass:110": 14,
+          "atlas.additional_transitions.dirt:grass:76": 6,
+          "native.module_or_variant.5159": 1,
+          "atlas.additional_transitions.dirt:grass:55": 13,
+          "atlas.additional_transitions.dirt:grass:255": 30,
+          "atlas.additional_transitions.dirt:grass:205": 13,
+          "native.module_or_variant.5163": 2,
+          "native.module_or_variant.5169": 1,
+          "native.module_or_variant.5172": 1,
+          "atlas.additional_transitions.dirt:grass:6": 1,
+          "atlas.additional_transitions.dirt:grass:8": 1,
+          "native.transitions.walkway.h2": 1,
+          "native.transitions.walkway.h10": 4,
+          "native.transitions.walkway.h8": 1,
+          "atlas.additional_transitions.dirt:grass:19": 6,
+          "atlas.additional_transitions.dirt:grass:155": 14,
+          "atlas.additional_transitions.dirt:grass:139": 1,
+          "atlas.additional_transitions.dirt:grass:10": 11,
+          "atlas.additional_transitions.dirt:grass:14": 1,
+          "atlas.additional_transitions.dirt:grass:9": 1,
+          "native.module_or_variant.5184": 1,
+          "native.module_or_variant.5188": 1,
+          "native.module_or_variant.5193": 2,
+          "atlas.additional_transitions.dirt:grass:191": 2,
+          "atlas.additional_transitions.dirt:grass:111": 1,
+          "atlas.additional_transitions.dirt:grass:239": 2,
+          "atlas.additional_transitions.dirt:grass:78": 1,
+          "atlas.additional_transitions.dirt:grass:13": 1,
+          "native.module_or_variant.5154": 1,
+          "native.module_or_variant.5153": 5,
+          "atlas.additional_transitions.dirt:grass:137": 6,
+          "native.module_or_variant.5158": 1,
+          "atlas.additional_transitions.dirt:grass:1": 2,
+          "native.module_or_variant.5143": 3,
+          "atlas.additional_transitions.dirt:grass:23": 1,
+          "native.module_or_variant.5166": 1,
+          "native.module_or_variant.5171": 1,
+          "atlas.additional_transitions.dirt:grass:39": 2,
+          "native.transitions.walkway.h6": 1,
+          "native.transitions.walkway.h14": 3,
+          "native.transitions.walkway.h12": 1,
+          "atlas.additional_transitions.dirt:grass:127": 2,
+          "atlas.additional_transitions.dirt:grass:223": 2,
+          "native.transitions.walkway.h3": 1,
+          "native.transitions.walkway.h11": 3,
+          "native.transitions.walkway.h9": 1,
+          "atlas.additional_transitions.dirt:grass:159": 1,
+          "native.module_or_variant.5185": 1,
+          "native.module_or_variant.5187": 1,
+          "native.module_or_variant.5147": 1,
+          "atlas.additional_transitions.dirt:grass:2": 1,
+          "atlas.additional_transitions.dirt:grass:11": 1,
+          "atlas.additional_transitions.dirt:grass:12": 1
+        },
+        "actual_prop_sources": [
+          "res://assets/battle_tiles/modules/barracks.png",
+          "res://assets/battle_tiles/modules/crates.png",
+          "res://assets/battle_tiles/modules/grain_wagon.png",
+          "res://assets/battlefield-0.3.0/modules/camp_palisade.png",
+          "res://assets/battlefield-0.3.0/modules/command_pavilion.png",
+          "res://assets/battlefield-0.3.0/modules/quay_warehouse.png",
+          "res://assets/battlefield-0.3.0/modules/tactical_fort.png"
+        ]
+      },
+      "findings": [
+        "已作40格纯材质修复，实际逻辑/门/部署/单位/目标不变。"
+      ],
+      "changes": {
+        "code": "M13",
+        "reason": "原剧情明确两间牢房；此前牢房地坪与外院同一土路材质。仅囚室内部及墙/门槛下地坪换朴素室内石砖16–19，外院土路、河岸草地、木桥保持。",
+        "permitted_fields": [
+          "art_atlas",
+          "art_layers",
+          "material_review_version",
+          "objects[].open_art_cells[].base_tile"
+        ],
+        "actual_changed_fields": [
+          "art_layers",
+          "art_atlas",
+          "material_review_version",
+          "objects"
+        ],
+        "tiles_logic_coords_objects_rules_unchanged": true,
+        "changed_art_cells": [
+          [
+            4,
+            7,
+            5096,
+            19
+          ],
+          [
+            5,
+            7,
+            5072,
+            16
+          ],
+          [
+            6,
+            7,
+            5073,
+            17
+          ],
+          [
+            7,
+            7,
+            5070,
+            18
+          ],
+          [
+            8,
+            7,
+            5077,
+            19
+          ],
+          [
+            4,
+            8,
+            5081,
+            16
+          ],
+          [
+            5,
+            8,
+            5082,
+            17
+          ],
+          [
+            6,
+            8,
+            5084,
+            18
+          ],
+          [
+            7,
+            8,
+            5082,
+            19
+          ],
+          [
+            8,
+            8,
+            5087,
+            16
+          ],
+          [
+            4,
+            9,
+            5080,
+            17
+          ],
+          [
+            5,
+            9,
+            5084,
+            18
+          ],
+          [
+            6,
+            9,
+            5082,
+            19
+          ],
+          [
+            7,
+            9,
+            5085,
+            16
+          ],
+          [
+            8,
+            9,
+            5088,
+            17
+          ],
+          [
+            4,
+            10,
+            5134,
+            18
+          ],
+          [
+            5,
+            10,
+            5132,
+            19
+          ],
+          [
+            6,
+            10,
+            5083,
+            16
+          ],
+          [
+            7,
+            10,
+            5084,
+            17
+          ],
+          [
+            8,
+            10,
+            5089,
+            18
+          ],
+          [
+            23,
+            10,
+            5097,
+            17
+          ],
+          [
+            24,
+            10,
+            5071,
+            18
+          ],
+          [
+            25,
+            10,
+            5195,
+            19
+          ],
+          [
+            26,
+            10,
+            5070,
+            16
+          ],
+          [
+            27,
+            10,
+            5076,
+            17
+          ],
+          [
+            23,
+            11,
+            5081,
+            18
+          ],
+          [
+            24,
+            11,
+            5085,
+            19
+          ],
+          [
+            25,
+            11,
+            5085,
+            16
+          ],
+          [
+            26,
+            11,
+            5084,
+            17
+          ],
+          [
+            27,
+            11,
+            5087,
+            18
+          ],
+          [
+            23,
+            12,
+            5081,
+            19
+          ],
+          [
+            24,
+            12,
+            5083,
+            16
+          ],
+          [
+            25,
+            12,
+            5083,
+            17
+          ],
+          [
+            26,
+            12,
+            5082,
+            18
+          ],
+          [
+            27,
+            12,
+            5088,
+            19
+          ],
+          [
+            23,
+            13,
+            5080,
+            16
+          ],
+          [
+            24,
+            13,
+            5085,
+            17
+          ],
+          [
+            25,
+            13,
+            5082,
+            18
+          ],
+          [
+            26,
+            13,
+            5084,
+            19
+          ],
+          [
+            27,
+            13,
+            5087,
+            16
+          ]
+        ],
+        "before_sha256": "a3de181d8632bf8b5db745cd5b0d5c677025f6592c5ce54990b76a51390c0b11",
+        "sha256": "5e09e9fd810cf05aadb528e3f9d747dac61821ba16ba7255b2ba2dee0895bcd6",
+        "atlas_source": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/chapter1-redesign-20261022/grain-prison/terrain.png",
+        "atlas": "res://assets/chapter5-spatial-20261022/materials-west/M13/terrain.png",
+        "dynamic_open_art_correction": [
+          {
+            "object": "M13_door_0",
+            "position": [
+              6,
+              10
+            ],
+            "before_base_tile": 8,
+            "after_base_tile": 16
+          },
+          {
+            "object": "M13_door_1",
+            "position": [
+              25,
+              13
+            ],
+            "before_base_tile": 8,
+            "after_base_tile": 18
+          }
+        ],
+        "objects_rules_positions_unchanged": true
+      },
+      "passed": true,
+      "map_sha256": "5e09e9fd810cf05aadb528e3f9d747dac61821ba16ba7255b2ba2dee0895bcd6",
+      "image_reviewed": "actual/reports/chapter5-spatial-20261022/material-audit/images/M13.png",
+      "image_before_reviewed": "art-review/battle-maps-20261021/images/M13.png",
+      "image_reviewed_sha256": "74699096738a27864b1067e8917a6f2290cf55570df291268447a7758264e0c5",
+      "review_method": "逐张view_image直接目检完整运行地图，再检查实际art_layers tile ID与atlas/source mapping；不是仅凭visual_ground字符判定。"
+    },
+    {
+      "code": "M14",
+      "name": "旧塔外营",
+      "scene": "室外军营、营帐与营路",
+      "original_story_evidence": {
+        "style": "camp",
+        "cause": "赫兰正式提供援军；外营阻断夺城与释放塔工的路线。",
+        "before": "兰斯：赫兰大人让我带你们进城。右边是骑兵营，别都挤在那条路上。",
+        "object_semantics": "T1骑兵营路口；T2步兵营路口；A1营内劳工、A2可投降兵。"
+      },
+      "evidence_source": "docs2/规划索引.json",
+      "materials": {
+        "observed_in_native_image": "土路和开敞夯土地面形成营区，帐篷自身为完整帆布/木架，边缘草地与树林清楚；没有地板材质错当营地草土。",
+        "actual_source_summary": "grass0–3；dirt8–11及dirt:grass过渡；command_pavilion/tactical_tent",
+        "atlas_before": "res://assets/chapter1-redesign-20261022/camp-fort/terrain.png",
+        "atlas_current": "res://assets/chapter1-redesign-20261022/camp-fort/terrain.png",
+        "base_definitions": "res://assets/battle_tiles/battle-tiles.json",
+        "inherited_native_transitions": "res://assets/battlefield-0.3.0/terrain.json",
+        "before_floor_counts_by_actual_atlas_mapping": {
+          "base.grass": 589,
+          "atlas.additional_transitions.dirt:grass:38": 3,
+          "atlas.additional_transitions.dirt:grass:76": 5,
+          "atlas.additional_transitions.dirt:grass:55": 22,
+          "atlas.additional_transitions.dirt:grass:205": 25,
+          "atlas.additional_transitions.dirt:grass:23": 5,
+          "atlas.additional_transitions.dirt:grass:137": 5,
+          "atlas.additional_transitions.dirt:grass:6": 3,
+          "atlas.additional_transitions.dirt:grass:10": 11,
+          "atlas.additional_transitions.dirt:grass:46": 3,
+          "atlas.additional_transitions.dirt:grass:110": 24,
+          "atlas.additional_transitions.dirt:grass:77": 3,
+          "atlas.additional_transitions.dirt:grass:5": 12,
+          "atlas.additional_transitions.dirt:grass:255": 59,
+          "atlas.additional_transitions.dirt:grass:223": 3,
+          "atlas.additional_transitions.dirt:grass:155": 23,
+          "atlas.additional_transitions.dirt:grass:139": 2,
+          "atlas.additional_transitions.dirt:grass:8": 2,
+          "atlas.additional_transitions.dirt:grass:111": 2,
+          "atlas.additional_transitions.dirt:grass:191": 7,
+          "atlas.additional_transitions.dirt:grass:239": 4,
+          "atlas.additional_transitions.dirt:grass:1": 1,
+          "atlas.additional_transitions.dirt:grass:127": 3,
+          "atlas.additional_transitions.dirt:grass:4": 1,
+          "atlas.additional_transitions.dirt:grass:2": 1,
+          "atlas.additional_transitions.dirt:grass:63": 1,
+          "atlas.additional_transitions.dirt:grass:175": 1,
+          "atlas.additional_transitions.dirt:grass:78": 1,
+          "atlas.additional_transitions.dirt:grass:27": 2,
+          "atlas.additional_transitions.dirt:grass:9": 1,
+          "atlas.additional_transitions.dirt:grass:19": 5,
+          "atlas.additional_transitions.dirt:grass:207": 1,
+          "atlas.additional_transitions.dirt:grass:3": 1,
+          "atlas.additional_transitions.dirt:grass:39": 1
+        },
+        "actual_prop_sources": [
+          "res://assets/battle_tiles/modules/crates.png",
+          "res://assets/battle_tiles/modules/grain_store.png",
+          "res://assets/battle_tiles/modules/well.png",
+          "res://assets/battlefield-0.3.0/modules/camp_palisade.png",
+          "res://assets/battlefield-0.3.0/modules/command_pavilion.png",
+          "res://assets/battlefield-0.3.0/modules/ruined_watchtower.png",
+          "res://assets/battlefield-0.3.0/modules/tactical_fort.png",
+          "res://assets/battlefield-0.3.0/modules/tactical_tent.png"
+        ]
+      },
+      "findings": [
+        "用途匹配，保持。"
+      ],
+      "changes": [],
+      "passed": true,
+      "map_sha256": "ccfbff46bd6e607add0cff0d31264c3935012af4cc92631ae303dac2f02e6bf9",
+      "image_reviewed": "art-review/battle-maps-20261021/images/M14.png",
+      "image_before_reviewed": "art-review/battle-maps-20261021/images/M14.png",
+      "image_reviewed_sha256": "4ed8bbae8609a4d8c982dde2d59229c98187be3f2f9cb70cfa4d2e80dd842e2a",
+      "review_method": "逐张view_image直接目检完整运行地图，再检查实际art_layers tile ID与atlas/source mapping；不是仅凭visual_ground字符判定。"
+    },
+    {
+      "code": "M15",
+      "name": "海峡旧塔堡",
+      "scene": "海峡旧堡的露天内院、外营与码头栈道",
+      "original_story_evidence": {
+        "style": "citadel",
+        "cause": "科兰带亲兵与粮食准备逃离，把劳工留在内院。胡纳普进入复仇终点。",
+        "before": "科兰：守住粮车，内院的人留在那里。／胡纳普：先去内院，别让他们把门堵上。",
+        "object_semantics": "T1劳工内院门；T2第二组劳工；A1/A2两组劳工；B科兰；G北侧撤离点。"
+      },
+      "evidence_source": "docs2/规划索引.json",
+      "materials": {
+        "observed_in_native_image": "石堡院子采用较粗不规则石铺，外部土路/草岸不同；东侧栈道和码头有清楚木板纹理，与石院不混。",
+        "actual_source_summary": "cobble20–23及cobble:grass过渡；dirt8–11；walkway木板；sea/shore_water；coastal_keep",
+        "atlas_before": "res://assets/chapter1-redesign-20261022/camp-fort/terrain.png",
+        "atlas_current": "res://assets/chapter1-redesign-20261022/camp-fort/terrain.png",
+        "base_definitions": "res://assets/battle_tiles/battle-tiles.json",
+        "inherited_native_transitions": "res://assets/battlefield-0.3.0/terrain.json",
+        "before_floor_counts_by_actual_atlas_mapping": {
+          "native.module_or_variant.5176": 45,
+          "native.module_or_variant.5177": 56,
+          "native.module_or_variant.5174": 48,
+          "native.module_or_variant.5181": 7,
+          "base.grass": 367,
+          "atlas.additional_transitions.cobble:grass:38": 9,
+          "atlas.additional_transitions.cobble:grass:110": 22,
+          "atlas.additional_transitions.cobble:grass:76": 4,
+          "native.module_or_variant.5195": 1,
+          "native.module_or_variant.5175": 44,
+          "native.module_or_variant.5199": 1,
+          "atlas.additional_transitions.cobble:grass:55": 14,
+          "atlas.additional_transitions.cobble:grass:255": 50,
+          "atlas.additional_transitions.cobble:grass:205": 19,
+          "native.module_or_variant.5217": 1,
+          "native.module_or_variant.5198": 1,
+          "atlas.additional_transitions.cobble:grass:19": 11,
+          "atlas.additional_transitions.cobble:grass:155": 13,
+          "atlas.additional_transitions.cobble:grass:137": 10,
+          "native.module_or_variant.5231": 4,
+          "native.module_or_variant.5179": 6,
+          "atlas.additional_transitions.dirt:grass:4": 2,
+          "native.transitions.walkway.v6": 1,
+          "native.transitions.walkway.v12": 2,
+          "native.module_or_variant.5237": 2,
+          "atlas.additional_transitions.cobble:grass:223": 6,
+          "atlas.additional_transitions.dirt:grass:5": 4,
+          "native.transitions.walkway.v7": 18,
+          "native.transitions.walkway.v13": 19,
+          "native.module_or_variant.5178": 2,
+          "atlas.additional_transitions.cobble:grass:127": 5,
+          "atlas.additional_transitions.dirt:grass:38": 9,
+          "atlas.additional_transitions.dirt:grass:76": 7,
+          "atlas.additional_transitions.cobble:grass:4": 1,
+          "atlas.additional_transitions.dirt:grass:110": 8,
+          "atlas.additional_transitions.dirt:grass:78": 2,
+          "atlas.additional_transitions.dirt:grass:10": 8,
+          "atlas.additional_transitions.dirt:grass:9": 1,
+          "native.transitions.walkway.v3": 1,
+          "native.transitions.walkway.v11": 1,
+          "native.transitions.walkway.v14": 1,
+          "atlas.additional_transitions.dirt:grass:55": 18,
+          "atlas.additional_transitions.dirt:grass:205": 19,
+          "atlas.additional_transitions.cobble:grass:5": 2,
+          "atlas.additional_transitions.dirt:grass:23": 2,
+          "atlas.additional_transitions.dirt:grass:155": 10,
+          "atlas.additional_transitions.dirt:grass:137": 8,
+          "native.module_or_variant.5232": 3,
+          "native.module_or_variant.5201": 1,
+          "atlas.additional_transitions.dirt:grass:19": 5,
+          "atlas.additional_transitions.cobble:grass:159": 1,
+          "atlas.additional_transitions.cobble:grass:191": 7,
+          "atlas.additional_transitions.cobble:grass:207": 1,
+          "atlas.additional_transitions.cobble:grass:10": 2,
+          "atlas.additional_transitions.cobble:grass:9": 1,
+          "base.rock": 4,
+          "atlas.additional_transitions.cobble:grass:1": 1,
+          "atlas.additional_transitions.dirt:grass:11": 1,
+          "atlas.additional_transitions.dirt:grass:8": 1,
+          "native.module_or_variant.5230": 3,
+          "atlas.additional_transitions.dirt:grass:39": 1,
+          "native.module_or_variant.5282": 1,
+          "atlas.additional_transitions.dirt:grass:223": 2,
+          "native.module_or_variant.5286": 3,
+          "atlas.additional_transitions.dirt:grass:95": 1,
+          "atlas.additional_transitions.dirt:grass:239": 3,
+          "native.module_or_variant.5180": 3,
+          "atlas.additional_transitions.dirt:grass:255": 29,
+          "native.module_or_variant.5296": 1,
+          "native.module_or_variant.5299": 2,
+          "atlas.additional_transitions.dirt:grass:0": 1,
+          "native.module_or_variant.5233": 1,
+          "native.module_or_variant.5285": 1,
+          "native.module_or_variant.5298": 3,
+          "atlas.additional_transitions.dirt:grass:1": 1,
+          "atlas.additional_transitions.dirt:grass:127": 3,
+          "native.module_or_variant.5287": 2,
+          "atlas.additional_transitions.dirt:grass:2": 1,
+          "atlas.additional_transitions.dirt:grass:63": 1,
+          "native.module_or_variant.5288": 1,
+          "native.module_or_variant.5295": 1,
+          "atlas.additional_transitions.dirt:grass:191": 2,
+          "native.transitions.walkway.h4": 1,
+          "atlas.additional_transitions.dirt:grass:139": 1,
+          "atlas.additional_transitions.dirt:grass:27": 1,
+          "native.transitions.walkway.h6": 1,
+          "native.transitions.walkway.h14": 1,
+          "native.transitions.walkway.h15": 1,
+          "native.module_or_variant.5300": 1,
+          "native.transitions.walkway.h3": 1,
+          "native.transitions.walkway.h10": 5,
+          "native.transitions.walkway.h11": 3,
+          "native.transitions.walkway.v9": 1,
+          "native.module_or_variant.5301": 1,
+          "native.module_or_variant.5306": 1,
+          "native.module_or_variant.5307": 1,
+          "native.module_or_variant.5309": 1
+        },
+        "actual_prop_sources": [
+          "res://assets/battle_tiles/modules/barracks.png",
+          "res://assets/battle_tiles/modules/crates.png",
+          "res://assets/battle_tiles/modules/north_wall.png",
+          "res://assets/battlefield-0.3.0/modules/breached_wall.png",
+          "res://assets/battlefield-0.3.0/modules/coastal_keep.png",
+          "res://assets/battlefield-0.3.0/modules/quay_warehouse.png",
+          "res://assets/battlefield-0.3.0/modules/sea_cliff.png",
+          "res://assets/battlefield-0.3.0/modules/sea_gate.png",
+          "res://assets/battlefield-0.3.0/modules/tactical_fort.png",
+          "res://assets/battlefield-0.3.0/modules/tactical_store.png"
+        ]
+      },
+      "findings": [
+        "露天城堡石院、码头木板与泥土道路用途匹配，保持。"
+      ],
+      "changes": [],
+      "passed": true,
+      "map_sha256": "10f940b168b9a124b65412c00b439ea10406c689811de5af19dd269084fde414",
+      "image_reviewed": "art-review/battle-maps-20261021/images/M15.png",
+      "image_before_reviewed": "art-review/battle-maps-20261021/images/M15.png",
+      "image_reviewed_sha256": "1ce0623f8389ad61c16110b149a079be2b60614afea7854ff271c83826fb94b9",
+      "review_method": "逐张view_image直接目检完整运行地图，再检查实际art_layers tile ID与atlas/source mapping；不是仅凭visual_ground字符判定。"
+    },
+    {
+      "code": "S11",
+      "name": "旧矿道救援",
+      "scene": "地下旧矿道大厅、采掘岩体与压实矿路",
+      "original_story_evidence": {
+        "style": "mine",
+        "cause": "村民请求带出塌道后的矿工与工具。",
+        "before": "贝克：工具还在里面。先带他们走，我去拿。／胡纳普：你跟他们一起出去，我去看。",
+        "object_semantics": "T1工具箱；T2塌道出口；A1贝克与矿工、A2另一名矿工。"
+      },
+      "evidence_source": "docs2/规划索引.json",
+      "materials": {
+        "observed_in_native_image": "旧大厅实际为marsh44–47沼泽底纹，像湿草泥地，剧情没有沼泽说明；修复后是粗岩屑地面，浅土矿道、深色连续矿壁与开采岩脊分开。",
+        "actual_source_summary": "修复前marsh44–47及dirt:marsh；修复后cave12–15及dirt:cave；mine-wall原生岩体过渡和完整灰岩缘保留",
+        "atlas_before": "res://assets/chapter1-redesign-20261022/side/terrain.png",
+        "atlas_current": "res://assets/chapter5-spatial-20261022/materials-west/S11/terrain.png",
+        "base_definitions": "res://assets/battle_tiles/battle-tiles.json",
+        "inherited_native_transitions": "res://assets/battlefield-0.3.0/terrain.json",
+        "before_floor_counts_by_actual_atlas_mapping": {
+          "atlas.additional_transitions.mine-wall:0000": 184,
+          "atlas.additional_transitions.mine-wall:0010": 12,
+          "atlas.additional_transitions.mine-wall:0110": 7,
+          "base.marsh": 203,
+          "atlas.additional_transitions.dirt:marsh:38": 3,
+          "atlas.additional_transitions.dirt:marsh:76": 2,
+          "atlas.additional_transitions.mine-wall:0001": 8,
+          "atlas.additional_transitions.dirt:marsh:55": 15,
+          "atlas.additional_transitions.dirt:marsh:205": 16,
+          "atlas.additional_transitions.mine-wall:0100": 17,
+          "atlas.additional_transitions.dirt:marsh:2": 1,
+          "atlas.additional_transitions.dirt:marsh:10": 13,
+          "atlas.additional_transitions.dirt:marsh:63": 2,
+          "atlas.additional_transitions.mine-wall:0011": 4,
+          "atlas.additional_transitions.dirt:marsh:110": 15,
+          "atlas.additional_transitions.dirt:marsh:127": 3,
+          "atlas.additional_transitions.dirt:marsh:6": 2,
+          "atlas.additional_transitions.dirt:marsh:223": 3,
+          "atlas.additional_transitions.dirt:marsh:155": 16,
+          "atlas.additional_transitions.dirt:marsh:137": 4,
+          "atlas.additional_transitions.dirt:marsh:9": 1,
+          "atlas.additional_transitions.dirt:marsh:5": 7,
+          "atlas.additional_transitions.mine-wall:1011": 3,
+          "atlas.additional_transitions.mine-wall:1010": 4,
+          "atlas.additional_transitions.mine-wall:1110": 2,
+          "atlas.additional_transitions.mine-wall:1001": 8,
+          "atlas.additional_transitions.mine-wall:1100": 2,
+          "atlas.additional_transitions.mine-wall:1101": 1,
+          "atlas.additional_transitions.dirt:marsh:239": 1,
+          "atlas.additional_transitions.mine-wall:0111": 1,
+          "atlas.additional_transitions.dirt:marsh:39": 1,
+          "atlas.additional_transitions.mine-wall:1000": 10,
+          "atlas.additional_transitions.dirt:marsh:19": 1
+        },
+        "actual_prop_sources": [
+          "res://assets/battle_tiles/modules/crates.png",
+          "res://assets/battle_tiles/modules/grain_wagon.png",
+          "res://assets/battlefield-0.3.0/modules/camp_palisade.png",
+          "res://assets/battlefield-0.3.0/modules/mine_adit.png",
+          "res://assets/chapter1-redesign-20261022/side/mine-rims/boulder.png",
+          "res://assets/chapter1-redesign-20261022/side/mine-rims/outcrop.png",
+          "res://assets/chapter1-redesign-20261022/side/mine-rims/ridge_bent.png"
+        ]
+      },
+      "findings": [
+        "已作309格纯材质修复，洞穴地面语义恢复，逻辑/坐标/剧情规则不变。"
+      ],
+      "changes": {
+        "code": "S11",
+        "reason": "旧矿道大厅和土路边使用marsh44–47，没有剧情沼泽依据；改为cave12–15岩屑地面，土路只保留压实矿道语义。连续矿岩/全部地形逻辑和坐标不变。",
+        "permitted_fields": [
+          "art_atlas",
+          "art_layers",
+          "material_review_version"
+        ],
+        "actual_changed_fields": [
+          "art_layers",
+          "art_atlas",
+          "material_review_version"
+        ],
+        "tiles_logic_coords_objects_rules_unchanged": true,
+        "changed_art_cells": [
+          [
+            22,
+            0,
+            45,
+            13
+          ],
+          [
+            23,
+            0,
+            5056,
+            5340
+          ],
+          [
+            24,
+            0,
+            5060,
+            5344
+          ],
+          [
+            19,
+            1,
+            46,
+            14
+          ],
+          [
+            20,
+            1,
+            46,
+            14
+          ],
+          [
+            21,
+            1,
+            47,
+            15
+          ],
+          [
+            22,
+            1,
+            45,
+            13
+          ],
+          [
+            23,
+            1,
+            5067,
+            5347
+          ],
+          [
+            24,
+            1,
+            5072,
+            5352
+          ],
+          [
+            18,
+            2,
+            45,
+            13
+          ],
+          [
+            19,
+            2,
+            47,
+            15
+          ],
+          [
+            20,
+            2,
+            47,
+            15
+          ],
+          [
+            21,
+            2,
+            47,
+            15
+          ],
+          [
+            22,
+            2,
+            44,
+            12
+          ],
+          [
+            23,
+            2,
+            5069,
+            5349
+          ],
+          [
+            24,
+            2,
+            5073,
+            5353
+          ],
+          [
+            14,
+            3,
+            46,
+            14
+          ],
+          [
+            15,
+            3,
+            47,
+            15
+          ],
+          [
+            16,
+            3,
+            47,
+            15
+          ],
+          [
+            17,
+            3,
+            47,
+            15
+          ],
+          [
+            18,
+            3,
+            45,
+            13
+          ],
+          [
+            19,
+            3,
+            45,
+            13
+          ],
+          [
+            20,
+            3,
+            5078,
+            5354
+          ],
+          [
+            21,
+            3,
+            5084,
+            5360
+          ],
+          [
+            22,
+            3,
+            5084,
+            5360
+          ],
+          [
+            23,
+            3,
+            5086,
+            5362
+          ],
+          [
+            24,
+            3,
+            5070,
+            5350
+          ],
+          [
+            14,
+            4,
+            46,
+            14
+          ],
+          [
+            15,
+            4,
+            44,
+            12
+          ],
+          [
+            16,
+            4,
+            45,
+            13
+          ],
+          [
+            17,
+            4,
+            46,
+            14
+          ],
+          [
+            18,
+            4,
+            47,
+            15
+          ],
+          [
+            19,
+            4,
+            46,
+            14
+          ],
+          [
+            20,
+            4,
+            45,
+            13
+          ],
+          [
+            21,
+            4,
+            44,
+            12
+          ],
+          [
+            22,
+            4,
+            47,
+            15
+          ],
+          [
+            23,
+            4,
+            5068,
+            5348
+          ],
+          [
+            24,
+            4,
+            5070,
+            5350
+          ],
+          [
+            25,
+            4,
+            44,
+            12
+          ],
+          [
+            7,
+            5,
+            46,
+            14
+          ],
+          [
+            14,
+            5,
+            44,
+            12
+          ],
+          [
+            15,
+            5,
+            46,
+            14
+          ],
+          [
+            16,
+            5,
+            47,
+            15
+          ],
+          [
+            17,
+            5,
+            45,
+            13
+          ],
+          [
+            18,
+            5,
+            45,
+            13
+          ],
+          [
+            19,
+            5,
+            45,
+            13
+          ],
+          [
+            20,
+            5,
+            47,
+            15
+          ],
+          [
+            21,
+            5,
+            45,
+            13
+          ],
+          [
+            22,
+            5,
+            45,
+            13
+          ],
+          [
+            23,
+            5,
+            5067,
+            5347
+          ],
+          [
+            24,
+            5,
+            5070,
+            5350
+          ],
+          [
+            25,
+            5,
+            45,
+            13
+          ],
+          [
+            3,
+            6,
+            45,
+            13
+          ],
+          [
+            4,
+            6,
+            47,
+            15
+          ],
+          [
+            5,
+            6,
+            46,
+            14
+          ],
+          [
+            6,
+            6,
+            45,
+            13
+          ],
+          [
+            7,
+            6,
+            45,
+            13
+          ],
+          [
+            8,
+            6,
+            45,
+            13
+          ],
+          [
+            9,
+            6,
+            46,
+            14
+          ],
+          [
+            10,
+            6,
+            47,
+            15
+          ],
+          [
+            11,
+            6,
+            45,
+            13
+          ],
+          [
+            14,
+            6,
+            46,
+            14
+          ],
+          [
+            15,
+            6,
+            44,
+            12
+          ],
+          [
+            16,
+            6,
+            45,
+            13
+          ],
+          [
+            17,
+            6,
+            44,
+            12
+          ],
+          [
+            18,
+            6,
+            5055,
+            5339
+          ],
+          [
+            19,
+            6,
+            5097,
+            5369
+          ],
+          [
+            20,
+            6,
+            5096,
+            5368
+          ],
+          [
+            21,
+            6,
+            5094,
+            5366
+          ],
+          [
+            22,
+            6,
+            5097,
+            5369
+          ],
+          [
+            23,
+            6,
+            5101,
+            5373
+          ],
+          [
+            24,
+            6,
+            5070,
+            5350
+          ],
+          [
+            25,
+            6,
+            45,
+            13
+          ],
+          [
+            3,
+            7,
+            46,
+            14
+          ],
+          [
+            4,
+            7,
+            45,
+            13
+          ],
+          [
+            5,
+            7,
+            44,
+            12
+          ],
+          [
+            6,
+            7,
+            45,
+            13
+          ],
+          [
+            7,
+            7,
+            47,
+            15
+          ],
+          [
+            8,
+            7,
+            45,
+            13
+          ],
+          [
+            9,
+            7,
+            5103,
+            5375
+          ],
+          [
+            10,
+            7,
+            5083,
+            5359
+          ],
+          [
+            11,
+            7,
+            5084,
+            5360
+          ],
+          [
+            12,
+            7,
+            5085,
+            5361
+          ],
+          [
+            13,
+            7,
+            5085,
+            5361
+          ],
+          [
+            14,
+            7,
+            5082,
+            5358
+          ],
+          [
+            15,
+            7,
+            5084,
+            5360
+          ],
+          [
+            16,
+            7,
+            5083,
+            5359
+          ],
+          [
+            17,
+            7,
+            5083,
+            5359
+          ],
+          [
+            18,
+            7,
+            5088,
+            5364
+          ],
+          [
+            19,
+            7,
+            5106,
+            5378
+          ],
+          [
+            20,
+            7,
+            5111,
+            5383
+          ],
+          [
+            21,
+            7,
+            5113,
+            5385
+          ],
+          [
+            22,
+            7,
+            5112,
+            5384
+          ],
+          [
+            23,
+            7,
+            5112,
+            5384
+          ],
+          [
+            24,
+            7,
+            5117,
+            5389
+          ],
+          [
+            25,
+            7,
+            44,
+            12
+          ],
+          [
+            3,
+            8,
+            47,
+            15
+          ],
+          [
+            4,
+            8,
+            44,
+            12
+          ],
+          [
+            5,
+            8,
+            5103,
+            5375
+          ],
+          [
+            6,
+            8,
+            5085,
+            5361
+          ],
+          [
+            7,
+            8,
+            5084,
+            5360
+          ],
+          [
+            8,
+            8,
+            5083,
+            5359
+          ],
+          [
+            9,
+            8,
+            5120,
+            5392
+          ],
+          [
+            10,
+            8,
+            46,
+            14
+          ],
+          [
+            11,
+            8,
+            45,
+            13
+          ],
+          [
+            12,
+            8,
+            44,
+            12
+          ],
+          [
+            13,
+            8,
+            46,
+            14
+          ],
+          [
+            14,
+            8,
+            44,
+            12
+          ],
+          [
+            15,
+            8,
+            45,
+            13
+          ],
+          [
+            16,
+            8,
+            47,
+            15
+          ],
+          [
+            17,
+            8,
+            44,
+            12
+          ],
+          [
+            18,
+            8,
+            5068,
+            5348
+          ],
+          [
+            19,
+            8,
+            5070,
+            5350
+          ],
+          [
+            20,
+            8,
+            45,
+            13
+          ],
+          [
+            21,
+            8,
+            46,
+            14
+          ],
+          [
+            22,
+            8,
+            44,
+            12
+          ],
+          [
+            23,
+            8,
+            44,
+            12
+          ],
+          [
+            24,
+            8,
+            44,
+            12
+          ],
+          [
+            25,
+            8,
+            47,
+            15
+          ],
+          [
+            3,
+            9,
+            44,
+            12
+          ],
+          [
+            4,
+            9,
+            45,
+            13
+          ],
+          [
+            5,
+            9,
+            5122,
+            5394
+          ],
+          [
+            6,
+            9,
+            45,
+            13
+          ],
+          [
+            7,
+            9,
+            47,
+            15
+          ],
+          [
+            8,
+            9,
+            44,
+            12
+          ],
+          [
+            9,
+            9,
+            46,
+            14
+          ],
+          [
+            10,
+            9,
+            44,
+            12
+          ],
+          [
+            11,
+            9,
+            46,
+            14
+          ],
+          [
+            16,
+            9,
+            45,
+            13
+          ],
+          [
+            17,
+            9,
+            46,
+            14
+          ],
+          [
+            18,
+            9,
+            5069,
+            5349
+          ],
+          [
+            19,
+            9,
+            5070,
+            5350
+          ],
+          [
+            20,
+            9,
+            46,
+            14
+          ],
+          [
+            21,
+            9,
+            47,
+            15
+          ],
+          [
+            22,
+            9,
+            47,
+            15
+          ],
+          [
+            23,
+            9,
+            46,
+            14
+          ],
+          [
+            24,
+            9,
+            45,
+            13
+          ],
+          [
+            4,
+            10,
+            46,
+            14
+          ],
+          [
+            5,
+            10,
+            5124,
+            5396
+          ],
+          [
+            6,
+            10,
+            47,
+            15
+          ],
+          [
+            7,
+            10,
+            45,
+            13
+          ],
+          [
+            8,
+            10,
+            46,
+            14
+          ],
+          [
+            9,
+            10,
+            46,
+            14
+          ],
+          [
+            10,
+            10,
+            47,
+            15
+          ],
+          [
+            12,
+            10,
+            47,
+            15
+          ],
+          [
+            13,
+            10,
+            44,
+            12
+          ],
+          [
+            14,
+            10,
+            44,
+            12
+          ],
+          [
+            15,
+            10,
+            46,
+            14
+          ],
+          [
+            16,
+            10,
+            45,
+            13
+          ],
+          [
+            17,
+            10,
+            45,
+            13
+          ],
+          [
+            18,
+            10,
+            5069,
+            5349
+          ],
+          [
+            19,
+            10,
+            5070,
+            5350
+          ],
+          [
+            20,
+            10,
+            45,
+            13
+          ],
+          [
+            21,
+            10,
+            46,
+            14
+          ],
+          [
+            22,
+            10,
+            45,
+            13
+          ],
+          [
+            23,
+            10,
+            44,
+            12
+          ],
+          [
+            4,
+            11,
+            44,
+            12
+          ],
+          [
+            5,
+            11,
+            5122,
+            5394
+          ],
+          [
+            6,
+            11,
+            45,
+            13
+          ],
+          [
+            7,
+            11,
+            45,
+            13
+          ],
+          [
+            8,
+            11,
+            47,
+            15
+          ],
+          [
+            9,
+            11,
+            47,
+            15
+          ],
+          [
+            12,
+            11,
+            47,
+            15
+          ],
+          [
+            13,
+            11,
+            44,
+            12
+          ],
+          [
+            14,
+            11,
+            47,
+            15
+          ],
+          [
+            15,
+            11,
+            47,
+            15
+          ],
+          [
+            16,
+            11,
+            46,
+            14
+          ],
+          [
+            17,
+            11,
+            47,
+            15
+          ],
+          [
+            18,
+            11,
+            5066,
+            5346
+          ],
+          [
+            19,
+            11,
+            5070,
+            5350
+          ],
+          [
+            20,
+            11,
+            44,
+            12
+          ],
+          [
+            21,
+            11,
+            45,
+            13
+          ],
+          [
+            22,
+            11,
+            46,
+            14
+          ],
+          [
+            5,
+            12,
+            5124,
+            5396
+          ],
+          [
+            6,
+            12,
+            46,
+            14
+          ],
+          [
+            12,
+            12,
+            46,
+            14
+          ],
+          [
+            13,
+            12,
+            44,
+            12
+          ],
+          [
+            14,
+            12,
+            5054,
+            5338
+          ],
+          [
+            15,
+            12,
+            5095,
+            5367
+          ],
+          [
+            16,
+            12,
+            5094,
+            5366
+          ],
+          [
+            17,
+            12,
+            5095,
+            5367
+          ],
+          [
+            18,
+            12,
+            5100,
+            5372
+          ],
+          [
+            19,
+            12,
+            5150,
+            5398
+          ],
+          [
+            20,
+            12,
+            5061,
+            5345
+          ],
+          [
+            21,
+            12,
+            47,
+            15
+          ],
+          [
+            22,
+            12,
+            44,
+            12
+          ],
+          [
+            23,
+            12,
+            47,
+            15
+          ],
+          [
+            4,
+            13,
+            44,
+            12
+          ],
+          [
+            5,
+            13,
+            5123,
+            5395
+          ],
+          [
+            6,
+            13,
+            45,
+            13
+          ],
+          [
+            7,
+            13,
+            47,
+            15
+          ],
+          [
+            8,
+            13,
+            44,
+            12
+          ],
+          [
+            9,
+            13,
+            46,
+            14
+          ],
+          [
+            12,
+            13,
+            47,
+            15
+          ],
+          [
+            13,
+            13,
+            47,
+            15
+          ],
+          [
+            14,
+            13,
+            5066,
+            5346
+          ],
+          [
+            15,
+            13,
+            5109,
+            5381
+          ],
+          [
+            16,
+            13,
+            5111,
+            5383
+          ],
+          [
+            17,
+            13,
+            5111,
+            5383
+          ],
+          [
+            18,
+            13,
+            5113,
+            5385
+          ],
+          [
+            19,
+            13,
+            5110,
+            5382
+          ],
+          [
+            20,
+            13,
+            5116,
+            5388
+          ],
+          [
+            21,
+            13,
+            46,
+            14
+          ],
+          [
+            22,
+            13,
+            44,
+            12
+          ],
+          [
+            23,
+            13,
+            46,
+            14
+          ],
+          [
+            3,
+            14,
+            47,
+            15
+          ],
+          [
+            4,
+            14,
+            47,
+            15
+          ],
+          [
+            5,
+            14,
+            5125,
+            5397
+          ],
+          [
+            6,
+            14,
+            44,
+            12
+          ],
+          [
+            7,
+            14,
+            44,
+            12
+          ],
+          [
+            8,
+            14,
+            46,
+            14
+          ],
+          [
+            9,
+            14,
+            47,
+            15
+          ],
+          [
+            10,
+            14,
+            47,
+            15
+          ],
+          [
+            12,
+            14,
+            46,
+            14
+          ],
+          [
+            13,
+            14,
+            44,
+            12
+          ],
+          [
+            14,
+            14,
+            5068,
+            5348
+          ],
+          [
+            15,
+            14,
+            5070,
+            5350
+          ],
+          [
+            16,
+            14,
+            46,
+            14
+          ],
+          [
+            17,
+            14,
+            47,
+            15
+          ],
+          [
+            18,
+            14,
+            47,
+            15
+          ],
+          [
+            19,
+            14,
+            46,
+            14
+          ],
+          [
+            20,
+            14,
+            47,
+            15
+          ],
+          [
+            21,
+            14,
+            45,
+            13
+          ],
+          [
+            22,
+            14,
+            45,
+            13
+          ],
+          [
+            2,
+            15,
+            44,
+            12
+          ],
+          [
+            3,
+            15,
+            45,
+            13
+          ],
+          [
+            4,
+            15,
+            44,
+            12
+          ],
+          [
+            5,
+            15,
+            5123,
+            5395
+          ],
+          [
+            6,
+            15,
+            47,
+            15
+          ],
+          [
+            7,
+            15,
+            46,
+            14
+          ],
+          [
+            8,
+            15,
+            44,
+            12
+          ],
+          [
+            9,
+            15,
+            47,
+            15
+          ],
+          [
+            10,
+            15,
+            46,
+            14
+          ],
+          [
+            11,
+            15,
+            46,
+            14
+          ],
+          [
+            12,
+            15,
+            44,
+            12
+          ],
+          [
+            13,
+            15,
+            45,
+            13
+          ],
+          [
+            14,
+            15,
+            5067,
+            5347
+          ],
+          [
+            15,
+            15,
+            5072,
+            5352
+          ],
+          [
+            16,
+            15,
+            46,
+            14
+          ],
+          [
+            17,
+            15,
+            45,
+            13
+          ],
+          [
+            18,
+            15,
+            46,
+            14
+          ],
+          [
+            19,
+            15,
+            44,
+            12
+          ],
+          [
+            20,
+            15,
+            47,
+            15
+          ],
+          [
+            21,
+            15,
+            46,
+            14
+          ],
+          [
+            22,
+            15,
+            45,
+            13
+          ],
+          [
+            2,
+            16,
+            45,
+            13
+          ],
+          [
+            3,
+            16,
+            44,
+            12
+          ],
+          [
+            4,
+            16,
+            47,
+            15
+          ],
+          [
+            5,
+            16,
+            5161,
+            5405
+          ],
+          [
+            6,
+            16,
+            5096,
+            5368
+          ],
+          [
+            7,
+            16,
+            5095,
+            5367
+          ],
+          [
+            8,
+            16,
+            5096,
+            5368
+          ],
+          [
+            9,
+            16,
+            5095,
+            5367
+          ],
+          [
+            10,
+            16,
+            5097,
+            5369
+          ],
+          [
+            11,
+            16,
+            5094,
+            5366
+          ],
+          [
+            12,
+            16,
+            5095,
+            5367
+          ],
+          [
+            13,
+            16,
+            5096,
+            5368
+          ],
+          [
+            14,
+            16,
+            5099,
+            5371
+          ],
+          [
+            15,
+            16,
+            5072,
+            5352
+          ],
+          [
+            16,
+            16,
+            45,
+            13
+          ],
+          [
+            2,
+            17,
+            45,
+            13
+          ],
+          [
+            3,
+            17,
+            46,
+            14
+          ],
+          [
+            4,
+            17,
+            44,
+            12
+          ],
+          [
+            5,
+            17,
+            5069,
+            5349
+          ],
+          [
+            6,
+            17,
+            5107,
+            5379
+          ],
+          [
+            7,
+            17,
+            5111,
+            5383
+          ],
+          [
+            8,
+            17,
+            5113,
+            5385
+          ],
+          [
+            9,
+            17,
+            5111,
+            5383
+          ],
+          [
+            10,
+            17,
+            5112,
+            5384
+          ],
+          [
+            11,
+            17,
+            5112,
+            5384
+          ],
+          [
+            12,
+            17,
+            5113,
+            5385
+          ],
+          [
+            13,
+            17,
+            5113,
+            5385
+          ],
+          [
+            14,
+            17,
+            5112,
+            5384
+          ],
+          [
+            15,
+            17,
+            5117,
+            5389
+          ],
+          [
+            2,
+            18,
+            45,
+            13
+          ],
+          [
+            3,
+            18,
+            45,
+            13
+          ],
+          [
+            4,
+            18,
+            44,
+            12
+          ],
+          [
+            5,
+            18,
+            5066,
+            5346
+          ],
+          [
+            6,
+            18,
+            5071,
+            5351
+          ],
+          [
+            7,
+            18,
+            45,
+            13
+          ],
+          [
+            8,
+            18,
+            44,
+            12
+          ],
+          [
+            9,
+            18,
+            44,
+            12
+          ],
+          [
+            10,
+            18,
+            45,
+            13
+          ],
+          [
+            11,
+            18,
+            47,
+            15
+          ],
+          [
+            2,
+            19,
+            47,
+            15
+          ],
+          [
+            3,
+            19,
+            44,
+            12
+          ],
+          [
+            4,
+            19,
+            44,
+            12
+          ],
+          [
+            5,
+            19,
+            5068,
+            5348
+          ],
+          [
+            6,
+            19,
+            5073,
+            5353
+          ],
+          [
+            7,
+            19,
+            44,
+            12
+          ],
+          [
+            8,
+            19,
+            44,
+            12
+          ],
+          [
+            9,
+            19,
+            44,
+            12
+          ],
+          [
+            10,
+            19,
+            45,
+            13
+          ],
+          [
+            11,
+            19,
+            44,
+            12
+          ],
+          [
+            3,
+            20,
+            44,
+            12
+          ],
+          [
+            4,
+            20,
+            47,
+            15
+          ],
+          [
+            5,
+            20,
+            5068,
+            5348
+          ],
+          [
+            6,
+            20,
+            5071,
+            5351
+          ],
+          [
+            7,
+            20,
+            45,
+            13
+          ],
+          [
+            8,
+            20,
+            45,
+            13
+          ],
+          [
+            9,
+            20,
+            46,
+            14
+          ],
+          [
+            10,
+            20,
+            45,
+            13
+          ],
+          [
+            11,
+            20,
+            46,
+            14
+          ],
+          [
+            3,
+            21,
+            45,
+            13
+          ],
+          [
+            4,
+            21,
+            46,
+            14
+          ],
+          [
+            5,
+            21,
+            5166,
+            5406
+          ],
+          [
+            6,
+            21,
+            5117,
+            5389
+          ],
+          [
+            7,
+            21,
+            46,
+            14
+          ],
+          [
+            8,
+            21,
+            44,
+            12
+          ]
+        ],
+        "before_sha256": "33937d30c221b93d96c63a0dfa7055ebbca2da729b420c574ecdd420efe23a8c",
+        "sha256": "5e040a66a55e8767bee134aeb3566389f916f22268e64afdb3289ff8fd114c40",
+        "atlas_source": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/chapter1-redesign-20261022/side/terrain.png",
+        "atlas": "res://assets/chapter5-spatial-20261022/materials-west/S11/terrain.png"
+      },
+      "passed": true,
+      "map_sha256": "5e040a66a55e8767bee134aeb3566389f916f22268e64afdb3289ff8fd114c40",
+      "image_reviewed": "actual/reports/chapter5-spatial-20261022/material-audit/images/S11.png",
+      "image_before_reviewed": "art-review/battle-maps-20261021/images/S11.png",
+      "image_reviewed_sha256": "6e17bc96aa8a2c461d38b80db1553c104e82da1f6fb6fb4e65b7f15015949cdf",
+      "review_method": "逐张view_image直接目检完整运行地图，再检查实际art_layers tile ID与atlas/source mapping；不是仅凭visual_ground字符判定。"
+    },
+    {
+      "code": "S12",
+      "name": "林村诊所道路",
+      "scene": "室外林村诊所道路、装车院与双木桥",
+      "original_story_evidence": {
+        "style": "forest_clinic",
+        "cause": "赫维不愿放下病人，诊所缺药而军队征用道路。",
+        "before": "赫维：药没到，我不能走。／芙拉或管理员：先把路打开，我们再谈。",
+        "object_semantics": "T1诊所门；T2药箱停靠点；A1赫维、A2药车。"
+      },
+      "evidence_source": "docs2/规划索引.json",
+      "materials": {
+        "observed_in_native_image": "绿色林地、黄褐村道、蓝灰溪流和木板桥分明；诊所是完整外观建筑，诊所前为村路。",
+        "actual_source_summary": "grass0–3；dirt8–11及dirt:grass；walkway桥面；shore_water；village_clinic",
+        "atlas_before": "res://assets/chapter1-redesign-20261022/side/terrain.png",
+        "atlas_current": "res://assets/chapter1-redesign-20261022/side/terrain.png",
+        "base_definitions": "res://assets/battle_tiles/battle-tiles.json",
+        "inherited_native_transitions": "res://assets/battlefield-0.3.0/terrain.json",
+        "before_floor_counts_by_actual_atlas_mapping": {
+          "base.grass": 484,
+          "atlas.additional_transitions.dirt:grass:4": 2,
+          "atlas.additional_transitions.dirt:grass:1": 2,
+          "atlas.additional_transitions.dirt:grass:38": 3,
+          "atlas.additional_transitions.dirt:grass:110": 14,
+          "atlas.additional_transitions.dirt:grass:76": 2,
+          "atlas.additional_transitions.dirt:grass:6": 2,
+          "atlas.additional_transitions.dirt:grass:10": 9,
+          "atlas.additional_transitions.dirt:grass:11": 1,
+          "atlas.additional_transitions.dirt:grass:63": 1,
+          "atlas.additional_transitions.dirt:grass:255": 7,
+          "atlas.additional_transitions.dirt:grass:207": 1,
+          "atlas.additional_transitions.dirt:grass:8": 2,
+          "atlas.additional_transitions.dirt:grass:2": 2,
+          "atlas.additional_transitions.dirt:grass:9": 1,
+          "atlas.additional_transitions.dirt:grass:55": 8,
+          "atlas.additional_transitions.dirt:grass:223": 5,
+          "atlas.additional_transitions.dirt:grass:137": 6,
+          "atlas.additional_transitions.dirt:grass:5": 4,
+          "atlas.additional_transitions.dirt:grass:127": 3,
+          "atlas.additional_transitions.dirt:grass:155": 12,
+          "native.transitions.walkway.v4": 1,
+          "native.module_or_variant.5250": 1,
+          "native.module_or_variant.5255": 1,
+          "native.module_or_variant.5258": 2,
+          "native.module_or_variant.5264": 2,
+          "native.module_or_variant.5266": 2,
+          "native.module_or_variant.5268": 1,
+          "native.module_or_variant.5259": 4,
+          "native.module_or_variant.5270": 2,
+          "native.transitions.walkway.v5": 3,
+          "native.module_or_variant.5274": 1,
+          "atlas.additional_transitions.dirt:grass:205": 6,
+          "native.module_or_variant.5285": 1,
+          "native.module_or_variant.5254": 1,
+          "native.module_or_variant.5288": 5,
+          "native.module_or_variant.5286": 3,
+          "native.module_or_variant.5287": 7,
+          "native.module_or_variant.5260": 4,
+          "native.module_or_variant.5291": 1,
+          "native.module_or_variant.5297": 1,
+          "native.module_or_variant.5261": 2,
+          "native.transitions.walkway.v6": 1,
+          "native.transitions.walkway.v12": 1,
+          "native.module_or_variant.5300": 1,
+          "native.module_or_variant.5302": 4,
+          "native.module_or_variant.5303": 2,
+          "native.module_or_variant.5305": 6,
+          "native.module_or_variant.5289": 6,
+          "native.module_or_variant.5304": 4,
+          "native.module_or_variant.5308": 1,
+          "native.module_or_variant.5310": 2,
+          "native.transitions.walkway.v7": 3,
+          "native.transitions.walkway.v13": 3,
+          "native.module_or_variant.5296": 1,
+          "native.module_or_variant.5314": 1,
+          "native.module_or_variant.5320": 1,
+          "native.transitions.walkway.v1": 1,
+          "native.module_or_variant.5318": 1,
+          "native.module_or_variant.5290": 1,
+          "native.module_or_variant.5316": 1,
+          "native.module_or_variant.5321": 1,
+          "native.module_or_variant.5307": 1,
+          "native.transitions.walkway.v3": 1,
+          "native.transitions.walkway.v9": 1,
+          "atlas.additional_transitions.dirt:grass:46": 1,
+          "atlas.additional_transitions.dirt:grass:239": 1,
+          "atlas.additional_transitions.dirt:grass:19": 2,
+          "atlas.additional_transitions.dirt:grass:191": 1
+        },
+        "actual_prop_sources": [
+          "res://assets/battle_tiles/modules/well.png",
+          "res://assets/battlefield-0.3.0/modules/camp_palisade.png",
+          "res://assets/battlefield-0.3.0/modules/fishing_cottage.png",
+          "res://assets/battlefield-0.3.0/modules/tactical_house.png",
+          "res://assets/battlefield-0.3.0/modules/village_clinic.png"
+        ]
+      },
+      "findings": [
+        "村外道路与桥面用途匹配，保持。"
+      ],
+      "changes": [],
+      "passed": true,
+      "map_sha256": "83fec7706bf734ef164f834dfc23ff821f3bd987578fd505e2a7271d4c48e64b",
+      "image_reviewed": "art-review/battle-maps-20261021/images/S12.png",
+      "image_before_reviewed": "art-review/battle-maps-20261021/images/S12.png",
+      "image_reviewed_sha256": "33db121c9193b315c8463282de8b5337cbd0589b428a732eab4741433ac4713d",
+      "review_method": "逐张view_image直接目检完整运行地图，再检查实际art_layers tile ID与atlas/source mapping；不是仅凭visual_ground字符判定。"
+    },
+    {
+      "code": "M31",
+      "name": "西街撤离",
+      "scene": "西街室外街坊、民宅门坪与拘押院",
+      "original_story_evidence": {
+        "style": "city_escape",
+        "cause": "D31后神令拘押阻止仪式的人，胡纳普保护艾琳后带西队出城。",
+        "before": "蕾娜：西门还没封，先让居民过去。／胡纳普：愿意放下武器的人留在街边。",
+        "object_semantics": "T1拘押院门；T2侧街路障；A1居民、A2被拘押者；G西门出口。"
+      },
+      "evidence_source": "docs2/规划索引.json",
+      "materials": {
+        "observed_in_native_image": "土街与草院相接，屋门前是粗石门坪；拘押院石铺与主街有区别。画面没有完整屋顶摆在室内石地大厅中。",
+        "actual_source_summary": "grass0–3；dirt8–11/dirt:grass；cobble20–23/cobble:grass；完整民居/仓屋",
+        "atlas_before": "res://assets/chapter3-redesign-20261022/west/terrain.png",
+        "atlas_current": "res://assets/chapter3-redesign-20261022/west/terrain.png",
+        "base_definitions": "res://assets/battle_tiles/battle-tiles.json",
+        "inherited_native_transitions": "res://assets/battlefield-0.3.0/terrain.json",
+        "before_floor_counts_by_actual_atlas_mapping": {
+          "base.grass": 459,
+          "atlas.additional_transitions.cobble:grass:6": 8,
+          "atlas.additional_transitions.cobble:grass:10": 9,
+          "atlas.additional_transitions.cobble:grass:12": 6,
+          "atlas.additional_transitions.cobble:grass:46": 3,
+          "atlas.additional_transitions.cobble:grass:76": 4,
+          "atlas.additional_transitions.cobble:grass:1": 14,
+          "atlas.additional_transitions.dirt:grass:4": 5,
+          "atlas.additional_transitions.cobble:grass:19": 4,
+          "atlas.additional_transitions.cobble:grass:137": 4,
+          "atlas.additional_transitions.dirt:grass:5": 29,
+          "atlas.additional_transitions.dirt:grass:38": 3,
+          "atlas.additional_transitions.dirt:grass:110": 34,
+          "atlas.additional_transitions.dirt:grass:111": 5,
+          "atlas.additional_transitions.dirt:grass:76": 5,
+          "atlas.additional_transitions.dirt:grass:19": 4,
+          "atlas.additional_transitions.dirt:grass:155": 36,
+          "atlas.additional_transitions.dirt:grass:191": 3,
+          "atlas.additional_transitions.dirt:grass:223": 2,
+          "atlas.additional_transitions.dirt:grass:159": 4,
+          "atlas.additional_transitions.dirt:grass:137": 4,
+          "atlas.additional_transitions.dirt:grass:23": 1,
+          "atlas.additional_transitions.cobble:grass:38": 1,
+          "atlas.additional_transitions.cobble:grass:110": 3,
+          "atlas.additional_transitions.cobble:grass:2": 2,
+          "atlas.additional_transitions.cobble:grass:55": 2,
+          "atlas.additional_transitions.cobble:grass:255": 6,
+          "atlas.additional_transitions.cobble:grass:205": 2,
+          "atlas.additional_transitions.dirt:grass:39": 2,
+          "atlas.additional_transitions.dirt:grass:78": 1,
+          "atlas.additional_transitions.dirt:grass:8": 2,
+          "atlas.additional_transitions.dirt:grass:7": 1,
+          "atlas.additional_transitions.dirt:grass:10": 2,
+          "atlas.additional_transitions.dirt:grass:55": 15,
+          "atlas.additional_transitions.dirt:grass:205": 16,
+          "atlas.additional_transitions.cobble:grass:155": 3,
+          "atlas.additional_transitions.dirt:grass:2": 2,
+          "atlas.additional_transitions.dirt:grass:47": 1,
+          "atlas.additional_transitions.dirt:grass:127": 3,
+          "atlas.additional_transitions.dirt:grass:239": 3,
+          "atlas.additional_transitions.dirt:grass:139": 1,
+          "atlas.additional_transitions.dirt:grass:27": 1,
+          "atlas.additional_transitions.dirt:grass:1": 1,
+          "atlas.additional_transitions.dirt:grass:0": 2,
+          "atlas.additional_transitions.cobble:grass:8": 1,
+          "atlas.additional_transitions.dirt:grass:9": 1
+        },
+        "actual_prop_sources": [
+          "res://assets/battle_tiles/modules/crates.png",
+          "res://assets/battle_tiles/modules/well.png",
+          "res://assets/battlefield-0.3.0/modules/fishing_cottage.png",
+          "res://assets/battlefield-0.3.0/modules/quay_warehouse.png",
+          "res://assets/battlefield-0.3.0/modules/village_clinic.png"
+        ]
+      },
+      "findings": [
+        "小城室外土街和石门坪合理，保持。"
+      ],
+      "changes": [],
+      "passed": true,
+      "map_sha256": "07113aea71b95c08e7647b6bfa8fa59c30300722bd1bb8215ee41b6bd7e73868",
+      "image_reviewed": "art-review/battle-maps-20261021/images/M31.png",
+      "image_before_reviewed": "art-review/battle-maps-20261021/images/M31.png",
+      "image_reviewed_sha256": "e535ec02dfd61b7f3ea4ba4aff2d16ac5c88f13f5a54e3f1c572fcf4048bd28d",
+      "review_method": "逐张view_image直接目检完整运行地图，再检查实际art_layers tile ID与atlas/source mapping；不是仅凭visual_ground字符判定。"
+    },
+    {
+      "code": "M32",
+      "name": "军需大道截运",
+      "scene": "室外军需大道、两座运输站装卸坪",
+      "original_story_evidence": {
+        "style": "convoy",
+        "cause": "神军从道路向东群岛投送物资与拘押工匠，继续扩大仪式。",
+        "before": "兰斯：那不是粮车，后面关着修塔的人。／胡纳普：堵住北口，别把车烧了。",
+        "object_semantics": "T1/T2两处运输站；A1工匠、A2运输车事件；G敌车北口。"
+      },
+      "evidence_source": "docs2/规划索引.json",
+      "materials": {
+        "observed_in_native_image": "车行大道为压实土路，林缘支路同类土面；两运输站小石坪区别于土路和草地，军需车辆不驶在室内地板上。",
+        "actual_source_summary": "grass0–3；dirt8–11及dirt:grass；cobble20–23运输站；hill_granary/quay_warehouse",
+        "atlas_before": "res://assets/chapter3-redesign-20261022/west/terrain.png",
+        "atlas_current": "res://assets/chapter3-redesign-20261022/west/terrain.png",
+        "base_definitions": "res://assets/battle_tiles/battle-tiles.json",
+        "inherited_native_transitions": "res://assets/battlefield-0.3.0/terrain.json",
+        "before_floor_counts_by_actual_atlas_mapping": {
+          "base.grass": 561,
+          "atlas.additional_transitions.dirt:grass:38": 4,
+          "atlas.additional_transitions.dirt:grass:76": 4,
+          "atlas.additional_transitions.dirt:grass:55": 17,
+          "atlas.additional_transitions.dirt:grass:205": 21,
+          "atlas.additional_transitions.dirt:grass:2": 3,
+          "atlas.additional_transitions.dirt:grass:10": 17,
+          "atlas.additional_transitions.dirt:grass:63": 2,
+          "atlas.additional_transitions.dirt:grass:6": 3,
+          "atlas.additional_transitions.dirt:grass:5": 12,
+          "atlas.additional_transitions.cobble:grass:4": 1,
+          "atlas.additional_transitions.dirt:grass:19": 5,
+          "atlas.additional_transitions.dirt:grass:139": 1,
+          "atlas.additional_transitions.dirt:grass:8": 1,
+          "atlas.additional_transitions.cobble:grass:39": 1,
+          "atlas.additional_transitions.cobble:grass:110": 4,
+          "atlas.additional_transitions.cobble:grass:76": 3,
+          "atlas.additional_transitions.dirt:grass:9": 2,
+          "atlas.additional_transitions.cobble:grass:19": 3,
+          "atlas.additional_transitions.cobble:grass:155": 3,
+          "atlas.additional_transitions.cobble:grass:137": 2,
+          "atlas.additional_transitions.dirt:grass:12": 2,
+          "atlas.additional_transitions.cobble:grass:38": 2,
+          "atlas.additional_transitions.cobble:grass:55": 2,
+          "atlas.additional_transitions.cobble:grass:205": 3,
+          "atlas.additional_transitions.cobble:grass:191": 1,
+          "atlas.additional_transitions.dirt:grass:1": 1,
+          "atlas.additional_transitions.dirt:grass:110": 10,
+          "atlas.additional_transitions.dirt:grass:127": 2,
+          "atlas.additional_transitions.dirt:grass:239": 1,
+          "atlas.additional_transitions.cobble:grass:139": 1,
+          "atlas.additional_transitions.cobble:grass:10": 1,
+          "atlas.additional_transitions.cobble:grass:27": 1,
+          "atlas.additional_transitions.dirt:grass:155": 8,
+          "atlas.additional_transitions.dirt:grass:191": 3,
+          "atlas.additional_transitions.dirt:grass:255": 3,
+          "atlas.additional_transitions.dirt:grass:223": 2,
+          "atlas.additional_transitions.dirt:grass:137": 4,
+          "atlas.additional_transitions.dirt:grass:3": 1,
+          "atlas.additional_transitions.dirt:grass:39": 1,
+          "atlas.additional_transitions.dirt:grass:27": 1
+        },
+        "actual_prop_sources": [
+          "res://assets/battle_tiles/modules/crates.png",
+          "res://assets/battle_tiles/modules/grain_sacks.png",
+          "res://assets/battlefield-0.3.0/modules/camp_palisade.png",
+          "res://assets/battlefield-0.3.0/modules/command_pavilion.png",
+          "res://assets/battlefield-0.3.0/modules/fishing_cottage.png",
+          "res://assets/battlefield-0.3.0/modules/hill_granary.png",
+          "res://assets/battlefield-0.3.0/modules/quay_warehouse.png"
+        ]
+      },
+      "findings": [
+        "运输道路、站台和林地用途匹配，保持。"
+      ],
+      "changes": [],
+      "passed": true,
+      "map_sha256": "91c97784be57e70e3e33a174fee1c9ba1bb2a61783ae8bf28e607bd05f02f131",
+      "image_reviewed": "art-review/battle-maps-20261021/images/M32.png",
+      "image_before_reviewed": "art-review/battle-maps-20261021/images/M32.png",
+      "image_reviewed_sha256": "98406c30d20cb4cca41cf4548a064f1111cacd3f01b33c0064b152036f8c6d96",
+      "review_method": "逐张view_image直接目检完整运行地图，再检查实际art_layers tile ID与atlas/source mapping；不是仅凭visual_ground字符判定。"
+    },
+    {
+      "code": "M33",
+      "name": "沿海石堡",
+      "scene": "沿海石堡露天守备院、工房外巷与投送木码头",
+      "original_story_evidence": {
+        "style": "shore_fort",
+        "cause": "石堡护卫提炼院和投送码头，阻止东西队伍联系。",
+        "before": "格曼：里面有工匠，别把主楼拆了。／胡纳普：放下武器的人从南门出来。",
+        "object_semantics": "T1码头控制室；T2工房门；A1格曼部下、A2工匠。"
+      },
+      "evidence_source": "docs2/规划索引.json",
+      "materials": {
+        "observed_in_native_image": "堡院为风化砌石，围墙和主堡将其界定为露天外院；南侧工房接土路，投送码头为木板，海水独立。",
+        "actual_source_summary": "stone16–19及stone:grass；cobble20–23；dirt8–11；timber/walkway24–27；sea28–31",
+        "atlas_before": "res://assets/chapter3-redesign-20261022/west/terrain.png",
+        "atlas_current": "res://assets/chapter3-redesign-20261022/west/terrain.png",
+        "base_definitions": "res://assets/battle_tiles/battle-tiles.json",
+        "inherited_native_transitions": "res://assets/battlefield-0.3.0/terrain.json",
+        "before_floor_counts_by_actual_atlas_mapping": {
+          "base.sea": 185,
+          "base.grass": 382,
+          "atlas.additional_transitions.cobble:grass:6": 1,
+          "atlas.additional_transitions.cobble:grass:10": 17,
+          "atlas.additional_transitions.cobble:grass:8": 3,
+          "atlas.additional_transitions.dirt:grass:0": 1,
+          "atlas.additional_transitions.cobble:grass:2": 3,
+          "atlas.additional_transitions.cobble:grass:12": 1,
+          "atlas.additional_transitions.cobble:grass:5": 12,
+          "atlas.additional_transitions.stone:grass:38": 1,
+          "atlas.additional_transitions.stone:grass:110": 13,
+          "atlas.additional_transitions.stone:grass:76": 1,
+          "atlas.additional_transitions.stone:grass:55": 8,
+          "atlas.additional_transitions.stone:grass:255": 102,
+          "atlas.additional_transitions.stone:grass:205": 7,
+          "atlas.additional_transitions.cobble:grass:1": 3,
+          "atlas.additional_transitions.stone:grass:223": 3,
+          "atlas.additional_transitions.stone:grass:137": 4,
+          "atlas.additional_transitions.dirt:grass:6": 1,
+          "atlas.additional_transitions.dirt:grass:10": 11,
+          "atlas.additional_transitions.dirt:grass:8": 1,
+          "atlas.additional_transitions.dirt:grass:5": 15,
+          "atlas.additional_transitions.cobble:grass:4": 2,
+          "atlas.additional_transitions.stone:grass:19": 3,
+          "atlas.additional_transitions.stone:grass:155": 8,
+          "atlas.additional_transitions.stone:grass:191": 2,
+          "atlas.additional_transitions.cobble:grass:11": 1,
+          "atlas.additional_transitions.cobble:grass:0": 1,
+          "atlas.additional_transitions.dirt:grass:38": 3,
+          "atlas.additional_transitions.dirt:grass:76": 6,
+          "atlas.additional_transitions.dirt:grass:55": 14,
+          "atlas.additional_transitions.dirt:grass:205": 15,
+          "atlas.additional_transitions.dirt:grass:39": 2,
+          "atlas.additional_transitions.dirt:grass:23": 1,
+          "atlas.additional_transitions.dirt:grass:137": 4,
+          "native.transitions.walkway.h6": 1,
+          "native.transitions.walkway.h14": 3,
+          "native.transitions.walkway.h12": 1,
+          "atlas.additional_transitions.dirt:grass:19": 4,
+          "atlas.additional_transitions.dirt:grass:141": 1,
+          "native.transitions.walkway.h7": 1,
+          "native.transitions.walkway.h15": 3,
+          "native.transitions.walkway.h13": 1,
+          "native.transitions.walkway.h3": 1,
+          "native.transitions.walkway.h11": 3,
+          "native.transitions.walkway.h9": 1,
+          "atlas.additional_transitions.dirt:grass:4": 1,
+          "atlas.additional_transitions.dirt:grass:110": 8,
+          "atlas.additional_transitions.dirt:grass:127": 3,
+          "atlas.additional_transitions.dirt:grass:239": 2,
+          "atlas.additional_transitions.dirt:grass:7": 1,
+          "atlas.additional_transitions.dirt:grass:12": 1,
+          "atlas.additional_transitions.dirt:grass:223": 2,
+          "atlas.additional_transitions.dirt:grass:155": 10,
+          "atlas.additional_transitions.dirt:grass:139": 1,
+          "atlas.additional_transitions.dirt:grass:46": 1,
+          "atlas.additional_transitions.dirt:grass:3": 2,
+          "atlas.additional_transitions.dirt:grass:15": 1,
+          "atlas.additional_transitions.dirt:grass:63": 1,
+          "atlas.additional_transitions.dirt:grass:255": 3,
+          "atlas.additional_transitions.dirt:grass:191": 1,
+          "atlas.additional_transitions.dirt:grass:47": 1
+        },
+        "actual_prop_sources": [
+          "res://assets/battle_tiles/modules/crates.png",
+          "res://assets/battle_tiles/modules/grain_sacks.png",
+          "res://assets/battlefield-0.3.0/modules/coastal_keep.png",
+          "res://assets/battlefield-0.3.0/modules/command_pavilion.png",
+          "res://assets/battlefield-0.3.0/modules/quay_warehouse.png",
+          "res://assets/battlefield-0.3.0/modules/sea_cliff.png",
+          "res://assets/battlefield-0.3.0/modules/village_clinic.png"
+        ]
+      },
+      "findings": [
+        "围墙内露天石院并非室内大理石厅；室外石、土、木、水各自用途正确，保持。"
+      ],
+      "changes": [],
+      "passed": true,
+      "map_sha256": "c30fb8486266fa77bcf85b492f6115f981d11b5d790bbdfff3b3d039e2bbb15a",
+      "image_reviewed": "art-review/battle-maps-20261021/images/M33.png",
+      "image_before_reviewed": "art-review/battle-maps-20261021/images/M33.png",
+      "image_reviewed_sha256": "f85273018202effe110bb1bc4ec219f730230f4a804559c4249bd3efecbbfaf7",
+      "review_method": "逐张view_image直接目检完整运行地图，再检查实际art_layers tile ID与atlas/source mapping；不是仅凭visual_ground字符判定。"
+    }
+  ],
+  "fifth_chapter_west_audit": "../west-spatial-audit.json",
+  "dynamic_material_check": {
+    "passed": true,
+    "path": "dynamic-materials.json",
+    "M13": "两门open_art_cells.base_tile由土8改室内石16/18，其余对象字段完全相同；实际交互后native图目检通过",
+    "S11": "无开门材质覆盖字段；实际tools交互后图面保持洞穴底，未改objects"
+  }
+}

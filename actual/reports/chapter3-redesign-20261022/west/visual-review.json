@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "method": "current Godot viewport via capture_campaign.sh background_guard; closed objects and full map scenery",
+  "render_errors": [],
+  "revision": "0.10.7-ch3",
+  "maps": [
+    {
+      "code": "M31",
+      "map_sha256": "07113aea71b95c08e7647b6bfa8fa59c30300722bd1bb8215ee41b6bd7e73868",
+      "screenshot": "actual/reports/chapter3-redesign-20261022/west/images/M31.png",
+      "pixels": [
+        544,
+        448
+      ],
+      "bytes": 47907,
+      "findings": [
+        "西门横街、南街与建筑前巷连续，门口未被铺装或完整屋图覆盖。",
+        "拘押院两侧中段与角柱连续，唯一南门可识别。",
+        "大矩形石坪已收为门前小院，出口改到门内[2,7]并交由真实按键复测。"
+      ]
+    },
+    {
+      "code": "M32",
+      "map_sha256": "91c97784be57e70e3e33a174fee1c9ba1bb2a61783ae8bf28e607bd05f02f131",
+      "screenshot": "actual/reports/chapter3-redesign-20261022/west/images/M32.png",
+      "pixels": [
+        544,
+        448
+      ],
+      "bytes": 65165,
+      "findings": [
+        "运输大道两格连续，完整车体路径不穿屋顶/树林。",
+        "双运输站、仓房门口与林坡侧路相连，部署至西站仍有及时拦截窗口。"
+      ]
+    },
+    {
+      "code": "M33",
+      "map_sha256": "c30fb8486266fa77bcf85b492f6115f981d11b5d790bbdfff3b3d039e2bbb15a",
+      "screenshot": "actual/reports/chapter3-redesign-20261022/west/images/M33.png",
+      "pixels": [
+        576,
+        512
+      ],
+      "bytes": 74698,
+      "findings": [
+        "连续北、西、东和南墙与海蚀崖围住旧石内庭，围墙与真实阻挡格一致。",
+        "南正门、西侧门及东南港侧门均真实连通；东北联络出口[26,2]位于可达墙内通路。",
+        "医舍旁侧路不穿屋顶，工房、投送码头与格曼四邻接格保持可达。"
+      ]
+    }
+  ],
+  "scope": "视觉与静态连通复核；完整普通按键主流程试玩由主代理另行记录。",
+  "final_perimeter_review": true,
+  "cross_review": {
+    "reviewer": "map_design_critique",
+    "M33": "连续外围墙与东崖清楚围出内庭，南主门/港侧门/西侧门均与外部道路对应，北后门可辨，未见新增视觉断口或屋体截路。"
+  },
+  "final_anchor_probe": "../final-anchor-probe.json",
+  "exit_fix_after_perimeter_review": "M33 exit moved [25,1] -> [26,2] after complete-wall movement check; all eight maps now pass actual reachable and movement steps."
+}

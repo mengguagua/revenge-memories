@@ -1,0 +1,507 @@
+{
+  "code": "S31",
+  "passed": true,
+  "size": [
+    30,
+    26
+  ],
+  "closed_connected": 470,
+  "opened_connected": 484,
+  "all_stats_ai_timing_identity_unchanged": true,
+  "coordinate_changes": {
+    "player_positions": {
+      "before": [
+        [
+          2,
+          15
+        ],
+        [
+          3,
+          15
+        ],
+        [
+          4,
+          15
+        ],
+        [
+          5,
+          15
+        ],
+        [
+          2,
+          16
+        ],
+        [
+          3,
+          16
+        ],
+        [
+          4,
+          16
+        ],
+        [
+          5,
+          16
+        ],
+        [
+          2,
+          17
+        ],
+        [
+          3,
+          17
+        ]
+      ],
+      "after": [
+        [
+          8,
+          22
+        ],
+        [
+          9,
+          22
+        ],
+        [
+          10,
+          22
+        ],
+        [
+          11,
+          22
+        ],
+        [
+          8,
+          23
+        ],
+        [
+          9,
+          23
+        ],
+        [
+          10,
+          23
+        ],
+        [
+          11,
+          23
+        ],
+        [
+          7,
+          23
+        ],
+        [
+          7,
+          24
+        ]
+      ]
+    },
+    "exit": {
+      "before": [
+        18,
+        3
+      ],
+      "after": [
+        21,
+        2
+      ]
+    },
+    "targets": {
+      "before": [
+        [
+          5,
+          6
+        ],
+        [
+          15,
+          6
+        ]
+      ],
+      "after": [
+        [
+          8,
+          8
+        ],
+        [
+          25,
+          8
+        ]
+      ]
+    },
+    "objects": {
+      "before": [
+        {
+          "id": "family_w",
+          "kind": "door",
+          "position": [
+            5,
+            6
+          ],
+          "label": "打开牢门",
+          "adjacent": true,
+          "sprite": "jail_door",
+          "opens": [
+            [
+              5,
+              6
+            ]
+          ],
+          "unlock_units": [
+            "family0"
+          ],
+          "open_tile": 208,
+          "open_art_cells": [
+            {
+              "position": [
+                5,
+                6
+              ],
+              "base_tile": 16
+            }
+          ],
+          "completed_label": "西牢门已打开"
+        },
+        {
+          "id": "family_e",
+          "kind": "door",
+          "position": [
+            15,
+            6
+          ],
+          "label": "打开牢门",
+          "adjacent": true,
+          "sprite": "jail_door",
+          "opens": [
+            [
+              15,
+              6
+            ]
+          ],
+          "unlock_units": [
+            "family1"
+          ],
+          "open_tile": 208,
+          "open_art_cells": [
+            {
+              "position": [
+                15,
+                6
+              ],
+              "base_tile": 16
+            }
+          ],
+          "completed_label": "东牢门已打开"
+        }
+      ],
+      "after": [
+        {
+          "id": "family_w",
+          "kind": "door",
+          "position": [
+            8,
+            8
+          ],
+          "label": "打开牢门",
+          "adjacent": true,
+          "sprite": "jail_door",
+          "opens": [
+            [
+              8,
+              8
+            ]
+          ],
+          "unlock_units": [
+            "family0"
+          ],
+          "open_tile": 208,
+          "open_art_cells": [
+            {
+              "position": [
+                8,
+                8
+              ],
+              "base_tile": 20,
+              "clear_layers": [
+                1,
+                2
+              ]
+            }
+          ],
+          "completed_label": "西牢门已打开"
+        },
+        {
+          "id": "family_e",
+          "kind": "door",
+          "position": [
+            25,
+            8
+          ],
+          "label": "打开牢门",
+          "adjacent": true,
+          "sprite": "jail_door",
+          "opens": [
+            [
+              25,
+              8
+            ]
+          ],
+          "unlock_units": [
+            "family1"
+          ],
+          "open_tile": 208,
+          "open_art_cells": [
+            {
+              "position": [
+                25,
+                8
+              ],
+              "base_tile": 20,
+              "clear_layers": [
+                1,
+                2
+              ]
+            }
+          ],
+          "completed_label": "东牢门已打开"
+        }
+      ]
+    },
+    "enemies": {
+      "before": {
+        "S31_boss": [
+          18,
+          4
+        ],
+        "S31_e1": [
+          15,
+          7
+        ],
+        "S31_e2": [
+          14,
+          7
+        ],
+        "S31_e3": [
+          15,
+          13
+        ],
+        "S31_e4": [
+          8,
+          5
+        ],
+        "S31_e5": [
+          15,
+          5
+        ],
+        "S31_e6": [
+          14,
+          8
+        ],
+        "S31_e7": [
+          15,
+          14
+        ],
+        "S31_e8": [
+          8,
+          6
+        ]
+      },
+      "after": {
+        "S31_boss": [
+          20,
+          8
+        ],
+        "S31_e1": [
+          18,
+          10
+        ],
+        "S31_e2": [
+          22,
+          10
+        ],
+        "S31_e3": [
+          11,
+          14
+        ],
+        "S31_e4": [
+          4,
+          11
+        ],
+        "S31_e5": [
+          25,
+          10
+        ],
+        "S31_e6": [
+          8,
+          11
+        ],
+        "S31_e7": [
+          22,
+          14
+        ],
+        "S31_e8": [
+          11,
+          9
+        ]
+      }
+    },
+    "npc_units": {
+      "before": {
+        "family0": [
+          4,
+          4
+        ],
+        "family1": [
+          14,
+          4
+        ]
+      },
+      "after": {
+        "family0": [
+          7,
+          6
+        ],
+        "family1": [
+          24,
+          6
+        ]
+      }
+    },
+    "reinforcements": {
+      "before": {},
+      "after": {}
+    },
+    "building_sites": {
+      "before": null,
+      "after": null
+    }
+  },
+  "notes": [
+    "村口住屋、井台、医舍和粮仓形成真实聚落；拘押院位于北侧山肩，狱卒哨楼朝向两院之间的勤务道。",
+    "可从西住户巷先救西院，或沿主街转入东山肩；粮仓后巷提供通向东院守军侧面的支路，两院都能由完整道路抵达。",
+    "两组家属各在独立封闭围院内，只有南侧牢门可进出；门的位置、开启地形和解锁名单同步，开门前可先清除门前守军。",
+    "两扇门均须开启且至少一组家属存活，再击败狱卒首领；蕾娜劝降旧部仍为可选手段，不依赖她出阵。"
+  ],
+  "cages": [
+    {
+      "object": "family_w",
+      "bounds": [
+        6,
+        5,
+        10,
+        8
+      ],
+      "door": [
+        8,
+        8
+      ],
+      "front": [
+        8,
+        9
+      ],
+      "npc_positions": {
+        "family0": [
+          7,
+          6
+        ]
+      },
+      "unique_passage": true
+    },
+    {
+      "object": "family_e",
+      "bounds": [
+        23,
+        5,
+        27,
+        8
+      ],
+      "door": [
+        25,
+        8
+      ],
+      "front": [
+        25,
+        9
+      ],
+      "npc_positions": {
+        "family1": [
+          24,
+          6
+        ]
+      },
+      "unique_passage": true
+    }
+  ],
+  "npc_fixed_enemy_safety": [
+    {
+      "npc": "family0",
+      "position": [
+        7,
+        6
+      ],
+      "passed": true,
+      "guards": [
+        {
+          "enemy": "S31_boss",
+          "distance": 15,
+          "outside_three_tile_radius": true
+        },
+        {
+          "enemy": "S31_e5",
+          "distance": 22,
+          "outside_three_tile_radius": true
+        },
+        {
+          "enemy": "S31_e6",
+          "distance": 6,
+          "outside_three_tile_radius": true
+        },
+        {
+          "enemy": "S31_e7",
+          "distance": 23,
+          "outside_three_tile_radius": true
+        },
+        {
+          "enemy": "S31_e8",
+          "distance": 7,
+          "outside_three_tile_radius": true
+        }
+      ]
+    },
+    {
+      "npc": "family1",
+      "position": [
+        24,
+        6
+      ],
+      "passed": true,
+      "guards": [
+        {
+          "enemy": "S31_boss",
+          "distance": 6,
+          "outside_three_tile_radius": true
+        },
+        {
+          "enemy": "S31_e5",
+          "distance": 5,
+          "outside_three_tile_radius": true
+        },
+        {
+          "enemy": "S31_e6",
+          "distance": 21,
+          "outside_three_tile_radius": true
+        },
+        {
+          "enemy": "S31_e7",
+          "distance": 10,
+          "outside_three_tile_radius": true
+        },
+        {
+          "enemy": "S31_e8",
+          "distance": 16,
+          "outside_three_tile_radius": true
+        }
+      ]
+    }
+  ],
+  "source_rule_changes": "None: unit order/identity/attributes/AI/equipment and narrative/goal/timing preserved; only geometry and visual fields change.",
+  "stage_sha256": "5f5b6a6dea089fe9b697be299e02a375f75da4ee5ab8bc65d214f2098d3e992a"
+}

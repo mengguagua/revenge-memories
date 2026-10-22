@@ -1,0 +1,562 @@
+{
+  "passed": true,
+  "code": "F41",
+  "size": [
+    30,
+    28
+  ],
+  "connected_inner_cells": 575,
+  "all_actors_deployments_exit_strictly_inside": true,
+  "unit_identity_order_attributes_equipment_AI_preserved": true,
+  "story_rules_times_counts_preserved": true,
+  "special_terrain_counts": {
+    "+": 1,
+    "h": 0,
+    "t": 0
+  },
+  "interaction_fronts": {
+    "well_n": {
+      "object": [
+        10,
+        9
+      ],
+      "fronts": [
+        [
+          10,
+          9
+        ]
+      ],
+      "shortest_steps": 15
+    },
+    "well_s": {
+      "object": [
+        13,
+        21
+      ],
+      "fronts": [
+        [
+          13,
+          21
+        ]
+      ],
+      "shortest_steps": 2
+    }
+  },
+  "coordinate_changes": {
+    "enemies": [
+      {
+        "id": "F41_boss",
+        "before": [
+          27,
+          4
+        ],
+        "after": [
+          24,
+          7
+        ]
+      },
+      {
+        "id": "F41_e1",
+        "before": [
+          7,
+          5
+        ],
+        "after": [
+          16,
+          8
+        ]
+      },
+      {
+        "id": "F41_e2",
+        "before": [
+          23,
+          17
+        ],
+        "after": [
+          22,
+          18
+        ]
+      },
+      {
+        "id": "F41_e3",
+        "before": [
+          22,
+          7
+        ],
+        "after": [
+          22,
+          11
+        ]
+      },
+      {
+        "id": "F41_e4",
+        "before": [
+          16,
+          5
+        ],
+        "after": [
+          19,
+          13
+        ]
+      },
+      {
+        "id": "F41_e5",
+        "before": [
+          7,
+          6
+        ],
+        "after": [
+          12,
+          6
+        ]
+      },
+      {
+        "id": "F41_e6",
+        "before": [
+          23,
+          18
+        ],
+        "after": [
+          24,
+          19
+        ]
+      },
+      {
+        "id": "F41_e7",
+        "before": [
+          22,
+          8
+        ],
+        "after": [
+          20,
+          9
+        ]
+      },
+      {
+        "id": "F41_e8",
+        "before": [
+          16,
+          6
+        ],
+        "after": [
+          18,
+          9
+        ]
+      },
+      {
+        "id": "F41_e9",
+        "before": [
+          8,
+          5
+        ],
+        "after": [
+          7,
+          11
+        ]
+      },
+      {
+        "id": "F41_e10",
+        "before": [
+          24,
+          17
+        ],
+        "after": [
+          24,
+          17
+        ]
+      },
+      {
+        "id": "F41_e11",
+        "before": [
+          23,
+          7
+        ],
+        "after": [
+          23,
+          8
+        ]
+      },
+      {
+        "id": "F41_e12",
+        "before": [
+          17,
+          5
+        ],
+        "after": [
+          17,
+          12
+        ]
+      }
+    ],
+    "npc_units": [
+      {
+        "id": "sand_resident",
+        "before": [
+          7,
+          18
+        ],
+        "after": [
+          9,
+          23
+        ]
+      },
+      {
+        "id": "sand_guide",
+        "before": [
+          15,
+          15
+        ],
+        "after": [
+          16,
+          23
+        ]
+      }
+    ],
+    "reinforcements": [
+      {
+        "id": "F41_r0",
+        "before": [
+          29,
+          4
+        ],
+        "after": [
+          27,
+          7
+        ]
+      },
+      {
+        "id": "F41_r1",
+        "before": [
+          29,
+          5
+        ],
+        "after": [
+          27,
+          9
+        ]
+      }
+    ],
+    "deployment_before": [
+      [
+        16,
+        21
+      ],
+      [
+        17,
+        21
+      ],
+      [
+        18,
+        21
+      ],
+      [
+        19,
+        21
+      ],
+      [
+        16,
+        22
+      ],
+      [
+        17,
+        22
+      ],
+      [
+        18,
+        22
+      ],
+      [
+        19,
+        22
+      ],
+      [
+        16,
+        23
+      ],
+      [
+        17,
+        23
+      ],
+      [
+        18,
+        23
+      ],
+      [
+        19,
+        23
+      ]
+    ],
+    "deployment_after": [
+      [
+        12,
+        22
+      ],
+      [
+        13,
+        22
+      ],
+      [
+        14,
+        22
+      ],
+      [
+        15,
+        22
+      ],
+      [
+        12,
+        23
+      ],
+      [
+        13,
+        23
+      ],
+      [
+        14,
+        23
+      ],
+      [
+        15,
+        23
+      ],
+      [
+        12,
+        24
+      ],
+      [
+        13,
+        24
+      ],
+      [
+        14,
+        24
+      ],
+      [
+        15,
+        24
+      ]
+    ],
+    "objects_before": [
+      {
+        "id": "well_n",
+        "kind": "control",
+        "position": [
+          5,
+          6
+        ],
+        "label": "守住北井",
+        "adjacent": false,
+        "sprite": "white_flag",
+        "completed_label": "守住北井"
+      },
+      {
+        "id": "well_s",
+        "kind": "control",
+        "position": [
+          19,
+          20
+        ],
+        "label": "守住南井",
+        "adjacent": false,
+        "sprite": "white_flag",
+        "completed_label": "守住南井"
+      }
+    ],
+    "objects_after": [
+      {
+        "id": "well_n",
+        "kind": "control",
+        "position": [
+          10,
+          9
+        ],
+        "label": "守住北井",
+        "adjacent": false,
+        "sprite": "white_flag",
+        "completed_label": "守住北井"
+      },
+      {
+        "id": "well_s",
+        "kind": "control",
+        "position": [
+          13,
+          21
+        ],
+        "label": "守住南井",
+        "adjacent": false,
+        "sprite": "white_flag",
+        "completed_label": "守住南井"
+      }
+    ],
+    "targets": [
+      [
+        10,
+        9
+      ],
+      [
+        13,
+        21
+      ]
+    ],
+    "exit": [
+      28,
+      3
+    ]
+  },
+  "routes": [
+    {
+      "name": "南井生活街—北井主巷",
+      "waypoints": [
+        [
+          13,
+          26
+        ],
+        [
+          13,
+          22
+        ],
+        [
+          13,
+          18
+        ],
+        [
+          14,
+          16
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          11,
+          13
+        ],
+        [
+          11,
+          10
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "width": 2,
+      "surface": ","
+    },
+    {
+      "name": "北井—守军街—城关",
+      "waypoints": [
+        [
+          10,
+          11
+        ],
+        [
+          15,
+          11
+        ],
+        [
+          16,
+          10
+        ],
+        [
+          19,
+          10
+        ],
+        [
+          19,
+          8
+        ],
+        [
+          24,
+          8
+        ],
+        [
+          27,
+          8
+        ],
+        [
+          27,
+          3
+        ],
+        [
+          28,
+          3
+        ]
+      ],
+      "width": 2,
+      "surface": ","
+    },
+    {
+      "name": "东侧后巷与北井侧援线",
+      "waypoints": [
+        [
+          13,
+          22
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          18,
+          20
+        ],
+        [
+          22,
+          19
+        ],
+        [
+          22,
+          15
+        ],
+        [
+          20,
+          15
+        ],
+        [
+          20,
+          10
+        ]
+      ],
+      "width": 1,
+      "surface": ","
+    },
+    {
+      "name": "西住户窄巷",
+      "waypoints": [
+        [
+          10,
+          22
+        ],
+        [
+          6,
+          22
+        ],
+        [
+          6,
+          17
+        ],
+        [
+          4,
+          17
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          9,
+          10
+        ]
+      ],
+      "width": 1,
+      "surface": ","
+    }
+  ],
+  "notes": [
+    "两处井台分别围出北住区与南取水院，屋门、小仓院和取水巷共同构成紧凑沙城；井口是实体，南侧台阶才是守井目标。",
+    "南井就在部署前方，可先留守；通北井的主巷直接但会接触守军，西住户窄巷更长，东后巷能侧援但受到高处弓手与术士威胁。",
+    "南北well_target追井身份保持，北井可暂失后夺回；第3回合援兵从东北城关进入，至少保住一井到第6己方回合并击败队长的规则不变。"
+  ],
+  "map_sha256": "656b1c55ed3a81f78c43477b99f1ca8db459cce7cbd093c6a5610acca67091cf"
+}

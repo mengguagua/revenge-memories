@@ -21,9 +21,12 @@ var chapter2_rooms: Dictionary={}
 var east_data: Dictionary={}
 var east_materials: Dictionary={}
 var east_shore_cache: Dictionary={}
+var chapter1_climate: Dictionary={}
+var climate_layout_cache: Dictionary={}
 
 func _init(owner) -> void:
 	ui=owner
+	chapter1_climate=ui.GameState.read_json("res://data/chapter1_hub_climate.json")
 	var data=ui.GameState.read_json("res://data/chapter2_hubs.json")
 	chapter2_rooms=data.get("rooms",{});east_materials=data.get("materials",{})
 	var third=ui.GameState.read_json("res://data/chapter3_hubs.json")
@@ -299,20 +302,61 @@ func _open_treatment() -> void:
 func cancel() -> void:
 	ui._clear_menu()
 
+func winter_visual(id: String) -> Dictionary:
+	# Drawing-only season; room objects and rules are never mutated.
+	if ui.game.chapter!=1 or ui.game.flags.get("chapter1_complete",false):return {}
+	return chapter1_climate.get("rooms",{}).get(id,{})
+
+func _winter_nature_props(props: Array) -> Array:
+	var result=props.duplicate(true)
+	var keys: Dictionary=chapter1_climate.get("nature_keys",{})
+	for p in result:p.key=keys.get(str(p.key),p.key)
+	return result
+
+func climate_surroundings(id: String,base: Dictionary) -> Dictionary:
+	if winter_visual(id).is_empty():return base
+	if climate_layout_cache.has(id):return climate_layout_cache[id]
+	var layout=base.duplicate(true)
+	layout.biome="snow"
+	layout.props=_winter_nature_props(layout.get("props",[]))
+	for group in layout.get("groves",[]):group.props=_winter_nature_props(group.props)
+	climate_layout_cache[id]=layout
+	return layout
+
+func _draw_winter_grove(name: String,rect: Rect2i) -> bool:
+	if winter_visual(room).is_empty():return false
+	var layout=climate_surroundings(room,ui.nature_layouts.get("hubs",{}).get(room,{}))
+	for group in layout.get("groves",[]):
+		if str(group.source_name)==name and Vector2(group.rect[0],group.rect[1])==Vector2(rect.position)*16:
+			ui._draw_nature_props(group.props,ORIGIN);return true
+	return false
+
+func _draw_winter_floor(visual: Dictionary) -> void:
+	var atlas=ui._tex(str(visual.atlas))
+	for y in range(9):
+		for x in range(14):
+			ui._draw_atlas_cell(atlas,int(visual.tiles[y][x]),ORIGIN+Vector2(x,y)*16)
+
 func draw() -> void:
 	var material="snow" if room=="H01" else "cave" if room=="H08" else "cobble" if room in ["P00","H04","H06"] else "grass"
 	var atlas=ui._tex("res://assets/battle_tiles/battle-tiles.png")
+	var winter=winter_visual(room)
 	if not east_data.is_empty():_draw_east_floor(atlas)
 	else:
-		for y in range(9):
-			for x in range(14):
-				var id=int(ui.battle_pack.base[material][(x*3+y)%4])
-				ui.draw_texture_rect_region(atlas,Rect2(Vector2(x,y)*16+ORIGIN,Vector2(16,16)),Rect2(id%32*16,id/32*16,16,16))
+		if not winter.is_empty():_draw_winter_floor(winter)
+		else:
+			for y in range(9):
+				for x in range(14):
+					var id=int(ui.battle_pack.base[material][(x*3+y)%4])
+					ui.draw_texture_rect_region(atlas,Rect2(Vector2(x,y)*16+ORIGIN,Vector2(16,16)),Rect2(id%32*16,id/32*16,16,16))
 		ui._draw_hub_surroundings(room,ORIGIN)
 	# Paint entire objects; their interaction anchor is the bottom cell.
 	for d in scenery:
+		if _draw_winter_grove(str(d.name),d.rect):continue
 		if ui._draw_natural_grove(room,str(d.name),ORIGIN,d.rect):continue
-		ui.draw_texture(ui._tex(str(d.get("sprite_path","res://assets/battle_tiles/modules/"+str(d.name)+".png"))),ORIGIN+Vector2(d.rect.position)*16,_east_environment_tint())
+		var path=str(d.get("sprite_path","res://assets/battle_tiles/modules/"+str(d.name)+".png"))
+		if not winter.is_empty():path=str(chapter1_climate.get("scenery_paths",{}).get(str(d.name),path))
+		ui.draw_texture(ui._tex(path),ORIGIN+Vector2(d.rect.position)*16,_east_environment_tint())
 	for o in objects:
 		var at=Vector2(o.position[0],o.position[1])*16+ORIGIN
 		if o.sprite=="actor":

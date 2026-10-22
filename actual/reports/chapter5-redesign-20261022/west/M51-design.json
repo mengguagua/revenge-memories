@@ -1,0 +1,666 @@
+{
+  "passed": true,
+  "code": "M51",
+  "size": [
+    32,
+    30
+  ],
+  "closed_connected": 584,
+  "opened_connected": 584,
+  "notes": [
+    "北殿与东西两间完整医舍共同围成王都内廷，两处病房门朝南；南侧照护院与后撤门由中轴相连，形成内廷而非散落村舍。",
+    "伤兵在已打开的病房门槛等待接应，确认后沿南门横廊汇入中轴；横向院墙限制向南抄近路，接应队可守中央缺口与东侧来援巷。",
+    "队伍部署在南院，药车和庭园在道路两旁；先压住东医舍附近守军再放行，更容易保护两组伤兵。两病房都要确认、至少一组撤离及第4回合来援不变。"
+  ],
+  "units_only_positions_changed": true,
+  "story_timing_rules_preserved": true,
+  "coordinate_changes": {
+    "enemies": [
+      {
+        "id": "M51_boss",
+        "before": [
+          23,
+          8
+        ],
+        "after": [
+          16,
+          10
+        ]
+      },
+      {
+        "id": "M51_e1",
+        "before": [
+          16,
+          8
+        ],
+        "after": [
+          13,
+          13
+        ]
+      },
+      {
+        "id": "M51_e2",
+        "before": [
+          17,
+          12
+        ],
+        "after": [
+          20,
+          12
+        ]
+      },
+      {
+        "id": "M51_e3",
+        "before": [
+          25,
+          18
+        ],
+        "after": [
+          27,
+          18
+        ]
+      },
+      {
+        "id": "M51_e4",
+        "before": [
+          11,
+          8
+        ],
+        "after": [
+          4,
+          9
+        ]
+      },
+      {
+        "id": "M51_e5",
+        "before": [
+          16,
+          9
+        ],
+        "after": [
+          14,
+          10
+        ]
+      },
+      {
+        "id": "M51_e6",
+        "before": [
+          17,
+          13
+        ],
+        "after": [
+          20,
+          15
+        ]
+      },
+      {
+        "id": "M51_e7",
+        "before": [
+          25,
+          19
+        ],
+        "after": [
+          28,
+          19
+        ]
+      },
+      {
+        "id": "M51_e8",
+        "before": [
+          12,
+          8
+        ],
+        "after": [
+          11,
+          10
+        ]
+      },
+      {
+        "id": "M51_e9",
+        "before": [
+          17,
+          8
+        ],
+        "after": [
+          18,
+          10
+        ]
+      },
+      {
+        "id": "M51_e10",
+        "before": [
+          18,
+          12
+        ],
+        "after": [
+          21,
+          13
+        ]
+      }
+    ],
+    "npc_units": [
+      {
+        "id": "royal_wounded0",
+        "before": [
+          10,
+          15
+        ],
+        "after": [
+          8,
+          17
+        ]
+      },
+      {
+        "id": "royal_wounded1",
+        "before": [
+          22,
+          17
+        ],
+        "after": [
+          25,
+          17
+        ]
+      }
+    ],
+    "reinforcements": [
+      {
+        "id": "M51_r0",
+        "before": [
+          25,
+          23
+        ],
+        "after": [
+          30,
+          9
+        ]
+      },
+      {
+        "id": "M51_r1",
+        "before": [
+          25,
+          24
+        ],
+        "after": [
+          30,
+          10
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "ward_1",
+        "before": [
+          10,
+          14
+        ],
+        "after": [
+          8,
+          16
+        ]
+      },
+      {
+        "id": "ward_2",
+        "before": [
+          22,
+          16
+        ],
+        "after": [
+          25,
+          16
+        ]
+      }
+    ]
+  },
+  "deployment_before": [
+    [
+      2,
+      21
+    ],
+    [
+      3,
+      21
+    ],
+    [
+      4,
+      21
+    ],
+    [
+      5,
+      21
+    ],
+    [
+      2,
+      22
+    ],
+    [
+      3,
+      22
+    ],
+    [
+      4,
+      22
+    ],
+    [
+      5,
+      22
+    ],
+    [
+      2,
+      23
+    ],
+    [
+      3,
+      23
+    ]
+  ],
+  "deployment_after": [
+    [
+      14,
+      23
+    ],
+    [
+      15,
+      23
+    ],
+    [
+      16,
+      23
+    ],
+    [
+      17,
+      23
+    ],
+    [
+      14,
+      24
+    ],
+    [
+      15,
+      24
+    ],
+    [
+      16,
+      24
+    ],
+    [
+      17,
+      24
+    ],
+    [
+      13,
+      23
+    ],
+    [
+      18,
+      23
+    ]
+  ],
+  "exit": [
+    16,
+    28
+  ],
+  "targets": [
+    [
+      8,
+      16
+    ],
+    [
+      25,
+      16
+    ]
+  ],
+  "interaction_front_distances": {
+    "ward_1": 13,
+    "ward_2": 16
+  },
+  "escort_to_exit_steps": {
+    "royal_wounded0": 19,
+    "royal_wounded1": 20
+  },
+  "medical_crosswall_gaps": [
+    [
+      15,
+      20
+    ],
+    [
+      16,
+      20
+    ],
+    [
+      17,
+      20
+    ]
+  ],
+  "routes": [
+    {
+      "name": "宫前中轴与南侧后撤门",
+      "waypoints": [
+        [
+          16,
+          10
+        ],
+        [
+          16,
+          28
+        ]
+      ],
+      "width": 3,
+      "surface": "="
+    },
+    {
+      "name": "两病房南门救护横廊",
+      "waypoints": [
+        [
+          8,
+          18
+        ],
+        [
+          25,
+          18
+        ]
+      ],
+      "width": 3,
+      "surface": "="
+    },
+    {
+      "name": "西病房南门接应",
+      "waypoints": [
+        [
+          8,
+          17
+        ],
+        [
+          8,
+          18
+        ]
+      ],
+      "width": 1,
+      "surface": "="
+    },
+    {
+      "name": "东病房南门接应",
+      "waypoints": [
+        [
+          25,
+          17
+        ],
+        [
+          25,
+          18
+        ]
+      ],
+      "width": 1,
+      "surface": "="
+    },
+    {
+      "name": "宫前守备与东侧来援通路",
+      "waypoints": [
+        [
+          4,
+          9
+        ],
+        [
+          12,
+          9
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          16,
+          13
+        ],
+        [
+          21,
+          13
+        ],
+        [
+          21,
+          9
+        ],
+        [
+          28,
+          9
+        ],
+        [
+          30,
+          9
+        ],
+        [
+          30,
+          10
+        ]
+      ],
+      "width": 2,
+      "surface": "b"
+    },
+    {
+      "name": "东医舍旁守备通道",
+      "waypoints": [
+        [
+          28,
+          9
+        ],
+        [
+          28,
+          19
+        ],
+        [
+          25,
+          19
+        ]
+      ],
+      "width": 1,
+      "surface": "b"
+    },
+    {
+      "name": "西医舍旁接应廊",
+      "waypoints": [
+        [
+          4,
+          9
+        ],
+        [
+          4,
+          19
+        ],
+        [
+          8,
+          19
+        ]
+      ],
+      "width": 1,
+      "surface": "b"
+    },
+    {
+      "name": "南院照护集结路",
+      "waypoints": [
+        [
+          11,
+          24
+        ],
+        [
+          16,
+          24
+        ],
+        [
+          21,
+          24
+        ]
+      ],
+      "width": 2,
+      "surface": "b"
+    }
+  ],
+  "structures": [
+    {
+      "name": "fort_wall_h",
+      "origin": [
+        2,
+        2
+      ],
+      "footprint": [
+        28,
+        1
+      ]
+    },
+    {
+      "name": "fort_wall_v",
+      "origin": [
+        2,
+        2
+      ],
+      "footprint": [
+        1,
+        25
+      ]
+    },
+    {
+      "name": "fort_wall_v",
+      "origin": [
+        29,
+        2
+      ],
+      "footprint": [
+        1,
+        25
+      ]
+    },
+    {
+      "name": "fort_wall_h",
+      "origin": [
+        2,
+        26
+      ],
+      "footprint": [
+        28,
+        1
+      ]
+    },
+    {
+      "name": "complete_wall_corner",
+      "origin": [
+        2,
+        2
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "complete_wall_corner",
+      "origin": [
+        29,
+        2
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "complete_wall_corner",
+      "origin": [
+        2,
+        26
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "complete_wall_corner",
+      "origin": [
+        29,
+        26
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "fort_wall_h",
+      "origin": [
+        2,
+        20
+      ],
+      "footprint": [
+        28,
+        1
+      ]
+    },
+    {
+      "name": "palace",
+      "origin": [
+        13,
+        2
+      ],
+      "footprint": [
+        7,
+        7
+      ]
+    },
+    {
+      "name": "infirmary",
+      "origin": [
+        5,
+        11
+      ],
+      "footprint": [
+        6,
+        6
+      ]
+    },
+    {
+      "name": "infirmary",
+      "origin": [
+        22,
+        11
+      ],
+      "footprint": [
+        6,
+        6
+      ]
+    },
+    {
+      "name": "medicine_wagon",
+      "origin": [
+        10,
+        23
+      ],
+      "footprint": [
+        2,
+        1
+      ]
+    }
+  ],
+  "interactions": [
+    {
+      "id": "ward_1",
+      "position": [
+        8,
+        16
+      ],
+      "approach": [
+        8,
+        18
+      ]
+    },
+    {
+      "id": "ward_2",
+      "position": [
+        25,
+        16
+      ],
+      "approach": [
+        25,
+        18
+      ]
+    }
+  ],
+  "map_sha256": "43edec3264e86ac499d80cc4e8d54bb2c303d3f0995967f6828b3d8ba66e0a81"
+}

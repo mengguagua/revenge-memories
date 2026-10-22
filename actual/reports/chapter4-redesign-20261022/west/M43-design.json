@@ -1,0 +1,620 @@
+{
+  "passed": true,
+  "code": "M43",
+  "size": [
+    30,
+    28
+  ],
+  "closed_connected": 500,
+  "opened_connected": 500,
+  "notes": [
+    "日塔院墙在北境岩脊间围成完整庭院，主楼和塔身位于北端，控制室位于东南角；院内积雪与石路交错，避免整片铺石。",
+    "三格南门承接宽主路，西侧两格小门接雪林侧路；正面更直接，西侧可绕开门前重装但行进空间较窄。",
+    "病人与工匠留在西南医舍侧后，避开初始守军射程和唯一门口；夺外院、接管控制室及等待东岸步骤的原流程保持。"
+  ],
+  "units_only_positions_changed": true,
+  "story_timing_rules_preserved": true,
+  "coordinate_changes": {
+    "enemies": [
+      {
+        "id": "M43_boss",
+        "before": [
+          21,
+          8
+        ],
+        "after": [
+          22,
+          8
+        ]
+      },
+      {
+        "id": "M43_e1",
+        "before": [
+          21,
+          6
+        ],
+        "after": [
+          21,
+          6
+        ]
+      },
+      {
+        "id": "M43_e2",
+        "before": [
+          17,
+          11
+        ],
+        "after": [
+          16,
+          14
+        ]
+      },
+      {
+        "id": "M43_e3",
+        "before": [
+          21,
+          21
+        ],
+        "after": [
+          22,
+          18
+        ]
+      },
+      {
+        "id": "M43_e4",
+        "before": [
+          11,
+          5
+        ],
+        "after": [
+          12,
+          8
+        ]
+      },
+      {
+        "id": "M43_e5",
+        "before": [
+          21,
+          7
+        ],
+        "after": [
+          20,
+          7
+        ]
+      },
+      {
+        "id": "M43_e6",
+        "before": [
+          17,
+          12
+        ],
+        "after": [
+          16,
+          17
+        ]
+      },
+      {
+        "id": "M43_e7",
+        "before": [
+          21,
+          22
+        ],
+        "after": [
+          23,
+          17
+        ]
+      },
+      {
+        "id": "M43_e8",
+        "before": [
+          11,
+          6
+        ],
+        "after": [
+          13,
+          10
+        ]
+      },
+      {
+        "id": "M43_e9",
+        "before": [
+          20,
+          6
+        ],
+        "after": [
+          21,
+          10
+        ]
+      },
+      {
+        "id": "M43_e10",
+        "before": [
+          18,
+          11
+        ],
+        "after": [
+          18,
+          14
+        ]
+      },
+      {
+        "id": "M43_e11",
+        "before": [
+          22,
+          21
+        ],
+        "after": [
+          24,
+          15
+        ]
+      },
+      {
+        "id": "M43_e12",
+        "before": [
+          12,
+          5
+        ],
+        "after": [
+          13,
+          7
+        ]
+      },
+      {
+        "id": "M43_e13",
+        "before": [
+          21,
+          5
+        ],
+        "after": [
+          25,
+          9
+        ]
+      }
+    ],
+    "npc_units": [
+      {
+        "id": "tower_worker",
+        "before": [
+          9,
+          20
+        ],
+        "after": [
+          5,
+          21
+        ]
+      },
+      {
+        "id": "tower_patients",
+        "before": [
+          13,
+          16
+        ],
+        "after": [
+          8,
+          20
+        ]
+      }
+    ],
+    "reinforcements": [],
+    "objects": [
+      {
+        "id": "outer_court",
+        "before": [
+          14,
+          14
+        ],
+        "after": [
+          15,
+          19
+        ]
+      },
+      {
+        "id": "tower_control",
+        "before": [
+          21,
+          18
+        ],
+        "after": [
+          20,
+          16
+        ]
+      }
+    ]
+  },
+  "deployment_before": [
+    [
+      2,
+      23
+    ],
+    [
+      3,
+      23
+    ],
+    [
+      4,
+      23
+    ],
+    [
+      5,
+      23
+    ],
+    [
+      2,
+      24
+    ],
+    [
+      3,
+      24
+    ],
+    [
+      4,
+      24
+    ],
+    [
+      5,
+      24
+    ],
+    [
+      2,
+      25
+    ],
+    [
+      3,
+      25
+    ]
+  ],
+  "deployment_after": [
+    [
+      7,
+      23
+    ],
+    [
+      8,
+      23
+    ],
+    [
+      7,
+      24
+    ],
+    [
+      8,
+      24
+    ],
+    [
+      6,
+      23
+    ],
+    [
+      9,
+      23
+    ],
+    [
+      6,
+      24
+    ],
+    [
+      9,
+      24
+    ],
+    [
+      7,
+      25
+    ],
+    [
+      8,
+      25
+    ]
+  ],
+  "exit": [
+    24,
+    10
+  ],
+  "targets": [
+    [
+      15,
+      19
+    ],
+    [
+      20,
+      16
+    ]
+  ],
+  "interaction_front_distances": {
+    "outer_court": 12,
+    "tower_control": 19
+  },
+  "map_sha256": "a67b0865decbb631bd9e97a70729804ebe167c18eb2ec7d89218b3788869f920",
+  "routes": [
+    {
+      "name": "南门外院至日塔主路",
+      "waypoints": [
+        [
+          7,
+          25
+        ],
+        [
+          15,
+          25
+        ],
+        [
+          15,
+          20
+        ],
+        [
+          15,
+          12
+        ],
+        [
+          22,
+          12
+        ],
+        [
+          22,
+          6
+        ]
+      ],
+      "width": 2,
+      "surface": "="
+    },
+    {
+      "name": "雪林西门侧攻路",
+      "waypoints": [
+        [
+          6,
+          24
+        ],
+        [
+          6,
+          12
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          13,
+          12
+        ],
+        [
+          13,
+          8
+        ],
+        [
+          21,
+          8
+        ]
+      ],
+      "width": 1,
+      "surface": "p"
+    },
+    {
+      "name": "控制室南面接管通路",
+      "waypoints": [
+        [
+          15,
+          18
+        ],
+        [
+          20,
+          18
+        ],
+        [
+          20,
+          17
+        ]
+      ],
+      "width": 2,
+      "surface": "="
+    },
+    {
+      "name": "塔后联络口",
+      "waypoints": [
+        [
+          22,
+          10
+        ],
+        [
+          24,
+          10
+        ]
+      ],
+      "width": 1,
+      "surface": "="
+    },
+    {
+      "name": "医舍至主门接应路",
+      "waypoints": [
+        [
+          7,
+          19
+        ],
+        [
+          7,
+          22
+        ],
+        [
+          15,
+          22
+        ]
+      ],
+      "width": 1,
+      "surface": "p"
+    }
+  ],
+  "structures": [
+    {
+      "name": "fort_wall_h",
+      "origin": [
+        10,
+        5
+      ],
+      "footprint": [
+        17,
+        1
+      ]
+    },
+    {
+      "name": "fort_wall_h",
+      "origin": [
+        10,
+        20
+      ],
+      "footprint": [
+        17,
+        1
+      ]
+    },
+    {
+      "name": "fort_wall_v",
+      "origin": [
+        10,
+        5
+      ],
+      "footprint": [
+        1,
+        16
+      ]
+    },
+    {
+      "name": "fort_wall_v",
+      "origin": [
+        26,
+        5
+      ],
+      "footprint": [
+        1,
+        16
+      ]
+    },
+    {
+      "name": "complete_wall_corner",
+      "origin": [
+        10,
+        5
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "complete_wall_corner",
+      "origin": [
+        26,
+        5
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "complete_wall_corner",
+      "origin": [
+        10,
+        20
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "complete_wall_corner",
+      "origin": [
+        26,
+        20
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "coastal_keep",
+      "origin": [
+        20,
+        2
+      ],
+      "footprint": [
+        4,
+        4
+      ]
+    },
+    {
+      "name": "tower_entry",
+      "origin": [
+        23,
+        6
+      ],
+      "footprint": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "quay_warehouse",
+      "origin": [
+        19,
+        15
+      ],
+      "footprint": [
+        3,
+        2
+      ]
+    },
+    {
+      "name": "village_clinic",
+      "origin": [
+        6,
+        17
+      ],
+      "footprint": [
+        3,
+        2
+      ]
+    },
+    {
+      "name": "snow_cottage",
+      "origin": [
+        11,
+        22
+      ],
+      "footprint": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "ritual_lamp",
+      "origin": [
+        17,
+        6
+      ],
+      "footprint": [
+        1,
+        2
+      ]
+    }
+  ],
+  "interactions": [
+    {
+      "id": "outer_court",
+      "position": [
+        15,
+        19
+      ]
+    },
+    {
+      "id": "tower_control",
+      "position": [
+        20,
+        16
+      ],
+      "approach": [
+        20,
+        17
+      ]
+    }
+  ]
+}

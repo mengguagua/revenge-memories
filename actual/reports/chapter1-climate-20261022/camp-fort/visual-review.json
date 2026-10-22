@@ -1,0 +1,98 @@
+{
+  "passed": true,
+  "maps": [
+    {
+      "code": "M14",
+      "map_sha256": "72184b11601e5bd1577fbf5a9f09d1b23fa6e66b32a7fffdf9cb90c59cefb49a",
+      "render_png": "actual/reports/chapter1-climate-20261022/camp-fort/images/M14.png",
+      "image_size": [
+        576,
+        480
+      ],
+      "image_bytes": 81421,
+      "rgba_sha256": "d1c9f04072d9d142e873b56b60ae911ac1d24e054f9450807955c885614f7d01",
+      "visual_result": "通过：雪林与冬岩无夏绿裙边，泥道和建筑脚下保持清楚，柱墙及路口未被覆盖。",
+      "native_dimensions_all_preserved": true,
+      "all_non_art_geometry_rules_story_identical": true,
+      "overlay_art_layers_unchanged": true
+    },
+    {
+      "code": "M15",
+      "map_sha256": "d637e2179c3c5409ea316a984b4cdb7bad7ea21026f8c9ca916da430dbb5b8e8",
+      "render_png": "actual/reports/chapter1-climate-20261022/camp-fort/images/M15.png",
+      "image_size": [
+        640,
+        512
+      ],
+      "image_bytes": 120928,
+      "rgba_sha256": "e829b23954844b113c4c9da2eb32e922396b4c9b18477ba68490c335401b411f",
+      "visual_result": "通过：临海薄雪、风蚀裸土、石坪和木栈材质可分辨；两牢室室内无雪，冬屋和海崖无绿色草帽。",
+      "native_dimensions_all_preserved": true,
+      "all_non_art_geometry_rules_story_identical": true,
+      "overlay_art_layers_unchanged": true
+    }
+  ],
+  "capture": "Native Godot map_catalog_canvas.gd via background_guard.m, no foreground activation",
+  "review": "Final native direct visual review after all six building/cliff winter assets and shared four winter rock keys. M14 remains a working winter camp with cleared muddy yard; M15 is the pre-day-return coast with clear stone courts, timber pier, bare soil and snow on unworked ground. No additional decoration or layout was introduced.",
+  "asset_sizes": [
+    {
+      "path": "actual/assets/chapter1-climate-20261022/camp-fort/command_pavilion-winter.png",
+      "size": [
+        32,
+        32
+      ],
+      "bytes": 1294
+    },
+    {
+      "path": "actual/assets/chapter1-climate-20261022/camp-fort/barracks-winter.png",
+      "size": [
+        48,
+        32
+      ],
+      "bytes": 4100
+    },
+    {
+      "path": "actual/assets/chapter1-climate-20261022/camp-fort/sea_cliff-winter.png",
+      "size": [
+        64,
+        64
+      ],
+      "bytes": 8938
+    },
+    {
+      "path": "actual/assets/chapter1-climate-20261022/camp-fort/terrain.png",
+      "size": [
+        512,
+        2800
+      ],
+      "bytes": 242014,
+      "size_exception": "Shared native tile atlas preserves original tile IDs and pixel colors; 200KB is a soft optimization reference and no quantization applied."
+    },
+    {
+      "path": "actual/assets/chapter1-climate-20261022/camp-fort/grain_store-winter.png",
+      "size": [
+        48,
+        32
+      ],
+      "bytes": 3701
+    },
+    {
+      "path": "actual/assets/chapter1-climate-20261022/camp-fort/coastal_keep-winter.png",
+      "size": [
+        64,
+        64
+      ],
+      "bytes": 9184
+    },
+    {
+      "path": "actual/assets/chapter1-climate-20261022/camp-fort/quay_warehouse-winter.png",
+      "size": [
+        48,
+        32
+      ],
+      "bytes": 2885
+    }
+  ],
+  "no_animation_or_gameplay_changes": true,
+  "lossless_compression": "oxipng -o 3 --strip safe; decoded RGBA hashes unchanged"
+}

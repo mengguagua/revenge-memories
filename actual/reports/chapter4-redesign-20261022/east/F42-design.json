@@ -1,0 +1,575 @@
+{
+  "passed": true,
+  "code": "F42",
+  "size": [
+    32,
+    28
+  ],
+  "connected_inner_cells": 564,
+  "all_actors_deployments_exit_strictly_inside": true,
+  "unit_identity_order_attributes_equipment_AI_preserved": true,
+  "story_rules_times_counts_preserved": true,
+  "special_terrain_counts": {
+    "+": 1,
+    "h": 0,
+    "t": 0
+  },
+  "interaction_fronts": {
+    "observatory_record": {
+      "object": [
+        23,
+        14
+      ],
+      "fronts": [
+        [
+          23,
+          15
+        ]
+      ],
+      "shortest_steps": 20
+    },
+    "observation_device": {
+      "object": [
+        15,
+        15
+      ],
+      "fronts": [
+        [
+          15,
+          16
+        ]
+      ],
+      "shortest_steps": 11
+    }
+  },
+  "coordinate_changes": {
+    "enemies": [
+      {
+        "id": "F42_boss",
+        "before": [
+          16,
+          10
+        ],
+        "after": [
+          17,
+          9
+        ]
+      },
+      {
+        "id": "F42_e1",
+        "before": [
+          20,
+          7
+        ],
+        "after": [
+          24,
+          6
+        ]
+      },
+      {
+        "id": "F42_e2",
+        "before": [
+          17,
+          11
+        ],
+        "after": [
+          18,
+          11
+        ]
+      },
+      {
+        "id": "F42_e3",
+        "before": [
+          21,
+          21
+        ],
+        "after": [
+          26,
+          18
+        ]
+      },
+      {
+        "id": "F42_e4",
+        "before": [
+          11,
+          5
+        ],
+        "after": [
+          10,
+          7
+        ]
+      },
+      {
+        "id": "F42_e5",
+        "before": [
+          21,
+          7
+        ],
+        "after": [
+          23,
+          10
+        ]
+      },
+      {
+        "id": "F42_e6",
+        "before": [
+          17,
+          12
+        ],
+        "after": [
+          20,
+          12
+        ]
+      },
+      {
+        "id": "F42_e7",
+        "before": [
+          21,
+          22
+        ],
+        "after": [
+          27,
+          19
+        ]
+      },
+      {
+        "id": "F42_e8",
+        "before": [
+          11,
+          6
+        ],
+        "after": [
+          9,
+          10
+        ]
+      },
+      {
+        "id": "F42_e9",
+        "before": [
+          22,
+          6
+        ],
+        "after": [
+          25,
+          9
+        ]
+      },
+      {
+        "id": "F42_e10",
+        "before": [
+          18,
+          11
+        ],
+        "after": [
+          17,
+          12
+        ]
+      },
+      {
+        "id": "F42_e11",
+        "before": [
+          22,
+          21
+        ],
+        "after": [
+          25,
+          20
+        ]
+      },
+      {
+        "id": "F42_e12",
+        "before": [
+          12,
+          5
+        ],
+        "after": [
+          12,
+          8
+        ]
+      },
+      {
+        "id": "F42_e13",
+        "before": [
+          20,
+          6
+        ],
+        "after": [
+          23,
+          7
+        ]
+      }
+    ],
+    "npc_units": [
+      {
+        "id": "copyist",
+        "before": [
+          7,
+          20
+        ],
+        "after": [
+          8,
+          22
+        ]
+      },
+      {
+        "id": "local_mage",
+        "before": [
+          13,
+          16
+        ],
+        "after": [
+          12,
+          18
+        ]
+      }
+    ],
+    "reinforcements": [],
+    "deployment_before": [
+      [
+        2,
+        23
+      ],
+      [
+        3,
+        23
+      ],
+      [
+        4,
+        23
+      ],
+      [
+        5,
+        23
+      ],
+      [
+        2,
+        24
+      ],
+      [
+        3,
+        24
+      ],
+      [
+        4,
+        24
+      ],
+      [
+        5,
+        24
+      ],
+      [
+        2,
+        25
+      ],
+      [
+        3,
+        25
+      ]
+    ],
+    "deployment_after": [
+      [
+        10,
+        22
+      ],
+      [
+        11,
+        22
+      ],
+      [
+        12,
+        22
+      ],
+      [
+        13,
+        22
+      ],
+      [
+        10,
+        24
+      ],
+      [
+        11,
+        24
+      ],
+      [
+        12,
+        24
+      ],
+      [
+        13,
+        24
+      ],
+      [
+        11,
+        23
+      ],
+      [
+        12,
+        23
+      ]
+    ],
+    "objects_before": [
+      {
+        "id": "observatory_record",
+        "kind": "record",
+        "position": [
+          22,
+          10
+        ],
+        "label": "保护东楼记录",
+        "adjacent": true,
+        "sprite": "orders_case",
+        "approach": [
+          22,
+          11
+        ],
+        "completed_label": "已保护东楼记录"
+      },
+      {
+        "id": "observation_device",
+        "kind": "record",
+        "position": [
+          15,
+          14
+        ],
+        "label": "复制观测设备",
+        "adjacent": true,
+        "sprite": "orders_case",
+        "approach": [
+          15,
+          15
+        ],
+        "completed_label": "已复制观测设备"
+      }
+    ],
+    "objects_after": [
+      {
+        "id": "observatory_record",
+        "kind": "record",
+        "position": [
+          23,
+          14
+        ],
+        "label": "保护东楼记录",
+        "adjacent": true,
+        "sprite": "orders_case",
+        "approach": [
+          23,
+          15
+        ],
+        "completed_label": "已保护东楼记录"
+      },
+      {
+        "id": "observation_device",
+        "kind": "record",
+        "position": [
+          15,
+          15
+        ],
+        "label": "复制观测设备",
+        "adjacent": true,
+        "sprite": "orders_case",
+        "approach": [
+          15,
+          16
+        ],
+        "completed_label": "已复制观测设备"
+      }
+    ],
+    "targets": [
+      [
+        23,
+        14
+      ],
+      [
+        15,
+        15
+      ]
+    ],
+    "exit": [
+      27,
+      3
+    ]
+  },
+  "routes": [
+    {
+      "name": "南入口—观测设备—北值守台",
+      "waypoints": [
+        [
+          11,
+          26
+        ],
+        [
+          11,
+          22
+        ],
+        [
+          11,
+          19
+        ],
+        [
+          13,
+          18
+        ],
+        [
+          13,
+          16
+        ],
+        [
+          17,
+          16
+        ],
+        [
+          17,
+          10
+        ],
+        [
+          18,
+          8
+        ],
+        [
+          18,
+          6
+        ]
+      ],
+      "width": 2,
+      "surface": ","
+    },
+    {
+      "name": "抄录工住区—东楼抢救线",
+      "waypoints": [
+        [
+          12,
+          22
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          23,
+          20
+        ],
+        [
+          23,
+          15
+        ]
+      ],
+      "width": 2,
+      "surface": ","
+    },
+    {
+      "name": "设备与东楼联络道",
+      "waypoints": [
+        [
+          17,
+          17
+        ],
+        [
+          20,
+          17
+        ],
+        [
+          23,
+          17
+        ]
+      ],
+      "width": 1,
+      "surface": ","
+    },
+    {
+      "name": "西岩脊旧维护路",
+      "waypoints": [
+        [
+          11,
+          22
+        ],
+        [
+          7,
+          22
+        ],
+        [
+          7,
+          16
+        ],
+        [
+          6,
+          15
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          9,
+          6
+        ],
+        [
+          15,
+          6
+        ],
+        [
+          17,
+          8
+        ]
+      ],
+      "width": 1,
+      "surface": ","
+    },
+    {
+      "name": "东楼外侧防火巡查道",
+      "waypoints": [
+        [
+          23,
+          15
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          26,
+          12
+        ],
+        [
+          26,
+          6
+        ],
+        [
+          24,
+          6
+        ],
+        [
+          24,
+          3
+        ],
+        [
+          27,
+          3
+        ]
+      ],
+      "width": 1,
+      "surface": ","
+    }
+  ],
+  "notes": [
+    "盐原观测院分为南抄录住区、中央设备台、东楼记录室和北值守楼，露盐地与小块铺石台面交错，岩脊与旧塔刻出院落边界。",
+    "东侧抢救线从部署区直抵记录楼南门；中央主道较短但会接触萨弥前的守军，西岩脊维护路较窄且更长，可从侧面接近北庭。",
+    "东楼对象与唯一南门操作格、burn_target完整对应；仍须先保护记录，再在观测设备南面复制。第5回合预告、第6回合出发及连续两次点火焚毁的规则保持。"
+  ],
+  "burn_start": 6,
+  "burn_target": [
+    23,
+    15
+  ],
+  "burner_steps_to_door": 12,
+  "map_sha256": "19a467007beb367b0a9898c3febe40051f2dc70d54944306f8fb29dee42a9234"
+}

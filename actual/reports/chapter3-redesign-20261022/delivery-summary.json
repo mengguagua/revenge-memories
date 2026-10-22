@@ -1,0 +1,4710 @@
+{
+  "passed": true,
+  "revision": "0.10.7-ch3",
+  "maps": {
+    "M31": "07113aea71b95c08e7647b6bfa8fa59c30300722bd1bb8215ee41b6bd7e73868",
+    "M32": "91c97784be57e70e3e33a174fee1c9ba1bb2a61783ae8bf28e607bd05f02f131",
+    "M33": "c30fb8486266fa77bcf85b492f6115f981d11b5d790bbdfff3b3d039e2bbb15a",
+    "F31": "9ffc062c4f812f477a807fdf274161f4852fee8e1820e5b76392b110acb08c99",
+    "F32": "4a5b0310087eebe20a79cf1c3ced871f3704cd81c72f6980fe47130ed47c223e",
+    "F33": "b9872eb06ead4cefc881ca17ab9dfe41a1a884dfbad595a91a42137cd64d4a03",
+    "S31": "5f5b6a6dea089fe9b697be299e02a375f75da4ee5ab8bc65d214f2098d3e992a",
+    "S32": "0c172a6747f75bb1faf118372363baab7320bb67fb478d153a4fc93a837f61fa"
+  },
+  "unchanged_maps": {
+    "S12": "83fec7706bf734ef164f834dfc23ff821f3bd987578fd505e2a7271d4c48e64b",
+    "M14": "ccfbff46bd6e607add0cff0d31264c3935012af4cc92631ae303dac2f02e6bf9",
+    "M43": "b16c7408d08f64718d9becbd01ae362a0c0a99da3917c384ec43161dd7bbab24",
+    "F41": "00f6e5e73f45ba92870b0074765b080bc8b86c3b549ccf1f3f7191b09fdf384c",
+    "M42": "cfddbfd07905f01f601d02e4ffc8b75b4d7898f02c4f1616ab273e875945dffb",
+    "M15": "10f940b168b9a124b65412c00b439ea10406c689811de5af19dd269084fde414",
+    "F21": "ff015967c7bb2ed00a24684cf15b598925e76b7a624e5e9ad63b91476b2c3109",
+    "M12": "1b3f4dd3233ab5c083dc7356c34a44cdcefff2938d52121e4b67b8fd51cb82a5",
+    "F51": "6f2664c10b83ef6ca3ae69838a5b288de0c76903ae2f73adb03364e9a33de0c4",
+    "F26": "c3f52143fbbacb987040ff07928c5bc2a1d5a89fc05ba18f7a0eb2875b6551ad",
+    "S22": "a477b2e6500e9de2d3c4efc5c95c7d18c5fc956057dc4b4afaa68e6f14dbb035",
+    "M44": "75b4d8390a2cfb0df28a16dad2bce9dcbd28ac3e17ef4d08b3336bc9da21cfec",
+    "M13": "a3de181d8632bf8b5db745cd5b0d5c677025f6592c5ce54990b76a51390c0b11",
+    "M52": "7e674d4d6f4fc88a45add4d0ed50731c8c646d8e4d8f3237b25b59b5936f18bf",
+    "S42": "a162f1b7536731a66b37c4705be9fd5a09cb0ae7b98f3b256d389dce6ddcd0d2",
+    "J53": "48d459575ff967d2c0d133264a54c32c3043480b29ebedce45d7ebae7738156f",
+    "M51": "09d5cff62952b46c78469ce6e4fce0bd3c26d79fa9e16a07ffefedf19d07308f",
+    "S41": "78c377ee4c06dfa4b2a409e853dd471f7b1e674df238c724a07ee8f7ce51f786",
+    "F24": "e7526eda3e7c452c79fa78e743de1c2e606fd4b9b0e62025dfa6f4cf67230fe8",
+    "F25": "b62aafff7f4310eded79aff6392788380f4ebdacb97f2af99f0308b22e6b72f5",
+    "S21": "c195bfa305017dcbca0fa5fa2a33b73fa05cec5a2f50a40831973192a2feb02c",
+    "M11": "4170c977adebe2688d181316b149c173edae39ba97cc317811f0fdc99c367a9a",
+    "F52": "8af039c4a42be4932931ea463e2fc5137786a163f4287d41c37f9662fa4f7a52",
+    "F44": "39175355bba3cfc568f0c3b4422808e18f1474085ac511a7845307ae12aac175",
+    "F22": "9a8ec3ef017183aebc1aedde2747d784137c6c86bbb0502003a16d76a46834b9",
+    "F43": "2fff36804e683fd47eef182712963fbf5f817f5578c7e8de6bb3fed8fc536064",
+    "S51": "5f707535ed25c93115477d98f7489748556b8660e8b6605f785e0fe09c1f09c9",
+    "M41": "d95ae830163e3ce06f0469029b6b0ae8ef0e32067aff6e41a4f955cef80e1aba",
+    "S11": "33937d30c221b93d96c63a0dfa7055ebbca2da729b420c574ecdd420efe23a8c",
+    "J54": "50c847e72fce641fdb1ab052ec2cfd22693c4e3650720b4c344336a7db8e90fd",
+    "F42": "fd9902a4fac2f4f3e93ed2f5239e754d9c7c2b9fc943160f69bbb6983814db44",
+    "F23": "af6f7e997d49cef3b92debbdcf00624c5fcab045f9b2e4e7f6040f337da89deb"
+  },
+  "plays": {
+    "M31": [
+      {
+        "label": "round1-west",
+        "turns": 18,
+        "inputs": 1113,
+        "source": "play/round1-west/round1-west-play.json",
+        "formal_count": 6,
+        "formal_alive": 5,
+        "formal_dying": [
+          "贝克"
+        ],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [
+            "street_resident",
+            "detained0",
+            "detained1"
+          ],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {
+            "court": true
+          },
+          "reinforced": true,
+          "transport_index": 0,
+          "transport_stopped": false
+        },
+        "npc": [
+          {
+            "id": "detained0",
+            "hp": 28,
+            "side": "evacuated"
+          },
+          {
+            "id": "detained1",
+            "hp": 28,
+            "side": "evacuated"
+          },
+          {
+            "id": "street_resident",
+            "hp": 28,
+            "side": "evacuated"
+          }
+        ]
+      },
+      {
+        "label": "round2",
+        "turns": 23,
+        "inputs": 1449,
+        "source": "play/round2/round2-play.json",
+        "formal_count": 6,
+        "formal_alive": 5,
+        "formal_dying": [
+          "贝克"
+        ],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [
+            "street_resident",
+            "detained0",
+            "detained1"
+          ],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {
+            "court": true
+          },
+          "reinforced": true,
+          "transport_index": 0,
+          "transport_stopped": false
+        },
+        "npc": [
+          {
+            "id": "detained0",
+            "hp": 28,
+            "side": "evacuated"
+          },
+          {
+            "id": "detained1",
+            "hp": 28,
+            "side": "evacuated"
+          },
+          {
+            "id": "street_resident",
+            "hp": 23,
+            "side": "evacuated"
+          }
+        ]
+      }
+    ],
+    "M32": [
+      {
+        "label": "round1-M32",
+        "turns": 10,
+        "inputs": 714,
+        "source": "play/round1-M32/round1-M32-play.json",
+        "formal_count": 6,
+        "formal_alive": 6,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {
+            "cart_release": true,
+            "station_n": true,
+            "station_w": true
+          },
+          "reinforced": false,
+          "transport_index": 0,
+          "transport_stopped": true
+        },
+        "npc": [
+          {
+            "id": "transport_cart",
+            "hp": 28,
+            "side": "player"
+          },
+          {
+            "id": "road_worker",
+            "hp": 28,
+            "side": "player"
+          }
+        ]
+      },
+      {
+        "label": "round2",
+        "turns": 10,
+        "inputs": 772,
+        "source": "play/round2/round2-play.json",
+        "formal_count": 6,
+        "formal_alive": 6,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {
+            "cart_release": true,
+            "station_n": true,
+            "station_w": true
+          },
+          "reinforced": false,
+          "transport_index": 1,
+          "transport_stopped": true
+        },
+        "npc": [
+          {
+            "id": "transport_cart",
+            "hp": 28,
+            "side": "player"
+          },
+          {
+            "id": "road_worker",
+            "hp": 28,
+            "side": "player"
+          }
+        ]
+      }
+    ],
+    "M33": [
+      {
+        "label": "final-M33-one",
+        "turns": 13,
+        "inputs": 1038,
+        "source": "play/final-M33-one/final-M33-one-play.json",
+        "formal_count": 6,
+        "formal_alive": 6,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "german_decision": "accepted",
+          "mid_done": false,
+          "objects": {
+            "dock_control": true,
+            "workshop": true
+          },
+          "reinforced": false,
+          "transport_index": 0,
+          "transport_stopped": false
+        },
+        "npc": [
+          {
+            "id": "fort_workers",
+            "hp": 28,
+            "side": "player"
+          }
+        ]
+      },
+      {
+        "label": "final-M33-two",
+        "turns": 12,
+        "inputs": 943,
+        "source": "play/final-M33-two/final-M33-two-play.json",
+        "formal_count": 6,
+        "formal_alive": 6,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "german_decision": "accepted",
+          "mid_done": false,
+          "objects": {
+            "dock_control": true,
+            "workshop": true
+          },
+          "reinforced": false,
+          "transport_index": 0,
+          "transport_stopped": false
+        },
+        "npc": [
+          {
+            "id": "fort_workers",
+            "hp": 28,
+            "side": "player"
+          }
+        ]
+      }
+    ],
+    "F31": [
+      {
+        "label": "round1-other",
+        "turns": 18,
+        "inputs": 1069,
+        "source": "play/round1-other/round1-other-play.json",
+        "formal_count": 5,
+        "formal_alive": 5,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [
+            "dock_patients0",
+            "dock_patients1"
+          ],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {
+            "mooring": true,
+            "ship_lock": true
+          },
+          "reinforced": true,
+          "transport_index": 0,
+          "transport_stopped": false
+        },
+        "npc": [
+          {
+            "id": "dock_patients0",
+            "hp": 28,
+            "side": "evacuated"
+          },
+          {
+            "id": "dock_patients1",
+            "hp": 28,
+            "side": "evacuated"
+          }
+        ]
+      },
+      {
+        "label": "round2",
+        "turns": 18,
+        "inputs": 1058,
+        "source": "play/round2/round2-play.json",
+        "formal_count": 5,
+        "formal_alive": 5,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [
+            "dock_patients0",
+            "dock_patients1"
+          ],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {
+            "mooring": true,
+            "ship_lock": true
+          },
+          "reinforced": true,
+          "transport_index": 0,
+          "transport_stopped": false
+        },
+        "npc": [
+          {
+            "id": "dock_patients0",
+            "hp": 28,
+            "side": "evacuated"
+          },
+          {
+            "id": "dock_patients1",
+            "hp": 28,
+            "side": "evacuated"
+          }
+        ]
+      }
+    ],
+    "F32": [
+      {
+        "label": "round1-other",
+        "turns": 21,
+        "inputs": 1114,
+        "source": "play/round1-other/round1-other-play.json",
+        "formal_count": 5,
+        "formal_alive": 5,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [
+            "salt_guide"
+          ],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {},
+          "reinforced": false,
+          "transport_index": 0,
+          "transport_stopped": false
+        },
+        "npc": [
+          {
+            "id": "salt_guide",
+            "hp": 28,
+            "side": "evacuated"
+          }
+        ]
+      },
+      {
+        "label": "round2",
+        "turns": 21,
+        "inputs": 1125,
+        "source": "play/round2/round2-play.json",
+        "formal_count": 5,
+        "formal_alive": 5,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [
+            "salt_guide"
+          ],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {},
+          "reinforced": false,
+          "transport_index": 0,
+          "transport_stopped": false
+        },
+        "npc": [
+          {
+            "id": "salt_guide",
+            "hp": 28,
+            "side": "evacuated"
+          }
+        ]
+      }
+    ],
+    "F33": [
+      {
+        "label": "final-round1",
+        "turns": 18,
+        "inputs": 1352,
+        "source": "play/final-round1/final-round1-play.json",
+        "formal_count": 6,
+        "formal_alive": 6,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {
+            "control_array": true,
+            "regulation_record": true,
+            "workers_gate": true
+          },
+          "reinforced": false,
+          "transport_index": 0,
+          "transport_stopped": false
+        },
+        "npc": [
+          {
+            "id": "ritual_worker0",
+            "hp": 28,
+            "side": "player"
+          },
+          {
+            "id": "ritual_worker1",
+            "hp": 28,
+            "side": "player"
+          }
+        ]
+      },
+      {
+        "label": "final-round2",
+        "turns": 9,
+        "inputs": 777,
+        "source": "play/final-round2/final-round2-play.json",
+        "formal_count": 6,
+        "formal_alive": 6,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {
+            "control_array": true,
+            "regulation_record": true,
+            "workers_gate": true
+          },
+          "reinforced": false,
+          "transport_index": 0,
+          "transport_stopped": false
+        },
+        "npc": [
+          {
+            "id": "ritual_worker0",
+            "hp": 28,
+            "side": "player"
+          },
+          {
+            "id": "ritual_worker1",
+            "hp": 28,
+            "side": "player"
+          }
+        ]
+      }
+    ],
+    "S31": [
+      {
+        "label": "round1-other",
+        "turns": 8,
+        "inputs": 633,
+        "source": "play/round1-other/round1-other-play.json",
+        "formal_count": 6,
+        "formal_alive": 6,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {
+            "family_e": true,
+            "family_w": true
+          },
+          "reinforced": false,
+          "transport_index": 0,
+          "transport_stopped": false
+        },
+        "npc": [
+          {
+            "id": "family0",
+            "hp": 28,
+            "side": "player"
+          },
+          {
+            "id": "family1",
+            "hp": 28,
+            "side": "player"
+          }
+        ]
+      },
+      {
+        "label": "round2",
+        "turns": 8,
+        "inputs": 635,
+        "source": "play/round2/round2-play.json",
+        "formal_count": 6,
+        "formal_alive": 6,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {
+            "family_e": true,
+            "family_w": true
+          },
+          "reinforced": false,
+          "transport_index": 0,
+          "transport_stopped": false
+        },
+        "npc": [
+          {
+            "id": "family0",
+            "hp": 28,
+            "side": "player"
+          },
+          {
+            "id": "family1",
+            "hp": 28,
+            "side": "player"
+          }
+        ]
+      }
+    ],
+    "S32": [
+      {
+        "label": "round1-other",
+        "turns": 11,
+        "inputs": 766,
+        "source": "play/round1-other/round1-other-play.json",
+        "formal_count": 5,
+        "formal_alive": 5,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {
+            "civilian_barrack": true,
+            "mage_barrack": true
+          },
+          "reinforced": false,
+          "transport_index": 0,
+          "transport_stopped": false
+        },
+        "npc": [
+          {
+            "id": "noya",
+            "hp": 26,
+            "side": "player"
+          },
+          {
+            "id": "noya_brother",
+            "hp": 28,
+            "side": "player"
+          },
+          {
+            "id": "salt_residents",
+            "hp": 28,
+            "side": "player"
+          }
+        ]
+      },
+      {
+        "label": "round2",
+        "turns": 8,
+        "inputs": 604,
+        "source": "play/round2/round2-play.json",
+        "formal_count": 5,
+        "formal_alive": 5,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {
+            "civilian_barrack": true,
+            "mage_barrack": true
+          },
+          "reinforced": false,
+          "transport_index": 0,
+          "transport_stopped": false
+        },
+        "npc": [
+          {
+            "id": "noya",
+            "hp": 26,
+            "side": "player"
+          },
+          {
+            "id": "noya_brother",
+            "hp": 28,
+            "side": "player"
+          },
+          {
+            "id": "salt_residents",
+            "hp": 28,
+            "side": "player"
+          }
+        ]
+      }
+    ]
+  },
+  "attempts": [
+    {
+      "file": "play/continuous-delivery/continuous-delivery-play.json",
+      "passed": false,
+      "battles": [
+        {
+          "code": "M31",
+          "outcome": "victory",
+          "turn": 19,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F31",
+          "outcome": "victory",
+          "turn": 20,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F32",
+          "outcome": "defeat",
+          "turn": 9,
+          "failures": [
+            "Natural battle failed: F32 { \"objects\": {  }, \"evacuated\": [], \"freed\": [], \"burn_streak\": 0, \"reinforced\": false, \"mid_done\": false, &\"beacon_since\": -1, &\"beacon_contested\": false, &\"boats\": [], &\"transport_index\": 0, &\"transport_stopped\": false, &\"german_decision\": \"\", &\"failed_reason\": \"艾琳濒死，无法继续作战\" }"
+          ],
+          "current_map": true
+        }
+      ]
+    },
+    {
+      "file": "play/continuous-final/continuous-final-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M31",
+          "outcome": "victory",
+          "turn": 19,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F31",
+          "outcome": "victory",
+          "turn": 21,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F32",
+          "outcome": "victory",
+          "turn": 21,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "S32",
+          "outcome": "victory",
+          "turn": 9,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F33",
+          "outcome": "victory",
+          "turn": 9,
+          "failures": [],
+          "current_map": false
+        },
+        {
+          "code": "M32",
+          "outcome": "victory",
+          "turn": 10,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "S31",
+          "outcome": "victory",
+          "turn": 9,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "M33",
+          "outcome": "victory",
+          "turn": 26,
+          "failures": [],
+          "current_map": false
+        }
+      ]
+    },
+    {
+      "file": "play/continuous-retry/continuous-retry-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "F32",
+          "outcome": "victory",
+          "turn": 21,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "S32",
+          "outcome": "victory",
+          "turn": 10,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F33",
+          "outcome": "victory",
+          "turn": 11,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "M32",
+          "outcome": "victory",
+          "turn": 11,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "S31",
+          "outcome": "victory",
+          "turn": 9,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "M33",
+          "outcome": "victory",
+          "turn": 19,
+          "failures": [],
+          "current_map": true
+        }
+      ]
+    },
+    {
+      "file": "play/continuous-verified/continuous-verified-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M31",
+          "outcome": "victory",
+          "turn": 21,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F31",
+          "outcome": "victory",
+          "turn": 23,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F32",
+          "outcome": "victory",
+          "turn": 21,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "S32",
+          "outcome": "victory",
+          "turn": 12,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F33",
+          "outcome": "victory",
+          "turn": 19,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "M32",
+          "outcome": "victory",
+          "turn": 13,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "S31",
+          "outcome": "victory",
+          "turn": 9,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "M33",
+          "outcome": "victory",
+          "turn": 24,
+          "failures": [],
+          "current_map": false
+        }
+      ]
+    },
+    {
+      "file": "play/final-M33-one/final-M33-one-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M33",
+          "outcome": "victory",
+          "turn": 13,
+          "failures": [],
+          "current_map": true
+        }
+      ]
+    },
+    {
+      "file": "play/final-M33-two/final-M33-two-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M33",
+          "outcome": "victory",
+          "turn": 12,
+          "failures": [],
+          "current_map": true
+        }
+      ]
+    },
+    {
+      "file": "play/final-round1/final-round1-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M33",
+          "outcome": "victory",
+          "turn": 13,
+          "failures": [],
+          "current_map": false
+        },
+        {
+          "code": "F33",
+          "outcome": "victory",
+          "turn": 18,
+          "failures": [],
+          "current_map": true
+        }
+      ]
+    },
+    {
+      "file": "play/final-round2/final-round2-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M33",
+          "outcome": "victory",
+          "turn": 12,
+          "failures": [],
+          "current_map": false
+        },
+        {
+          "code": "F33",
+          "outcome": "victory",
+          "turn": 9,
+          "failures": [],
+          "current_map": true
+        }
+      ]
+    },
+    {
+      "file": "play/first-east/first-east-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "F31",
+          "outcome": "victory",
+          "turn": 17,
+          "failures": [],
+          "current_map": false
+        },
+        {
+          "code": "F32",
+          "outcome": "victory",
+          "turn": 21,
+          "failures": [],
+          "current_map": false
+        },
+        {
+          "code": "F33",
+          "outcome": "victory",
+          "turn": 17,
+          "failures": [],
+          "current_map": false
+        }
+      ]
+    },
+    {
+      "file": "play/first-west/first-west-play.json",
+      "passed": false,
+      "battles": [
+        {
+          "code": "M31",
+          "outcome": "",
+          "turn": 91,
+          "failures": [
+            "Natural battle failed: M31 { \"objects\": { \"court\": true }, \"evacuated\": [], \"freed\": [], \"burn_streak\": 0, \"reinforced\": true, \"mid_done\": false, &\"beacon_since\": -1, &\"beacon_contested\": false, &\"boats\": [], &\"transport_index\": 0, &\"transport_stopped\": false, &\"german_decision\": \"\" }"
+          ],
+          "current_map": false
+        },
+        {
+          "code": "M32",
+          "outcome": "entry_only",
+          "turn": 1,
+          "failures": [
+            "Genuine checkpoint failed: M32"
+          ],
+          "current_map": false
+        },
+        {
+          "code": "M33",
+          "outcome": "victory",
+          "turn": 13,
+          "failures": [],
+          "current_map": false
+        }
+      ]
+    },
+    {
+      "file": "play/round1-M32/round1-M32-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M32",
+          "outcome": "victory",
+          "turn": 10,
+          "failures": [],
+          "current_map": true
+        }
+      ]
+    },
+    {
+      "file": "play/round1-other/round1-other-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "F31",
+          "outcome": "victory",
+          "turn": 18,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F32",
+          "outcome": "victory",
+          "turn": 21,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F33",
+          "outcome": "victory",
+          "turn": 18,
+          "failures": [],
+          "current_map": false
+        },
+        {
+          "code": "S31",
+          "outcome": "victory",
+          "turn": 8,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "S32",
+          "outcome": "victory",
+          "turn": 11,
+          "failures": [],
+          "current_map": true
+        }
+      ]
+    },
+    {
+      "file": "play/round1-west/round1-west-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M31",
+          "outcome": "victory",
+          "turn": 18,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "M33",
+          "outcome": "victory",
+          "turn": 14,
+          "failures": [],
+          "current_map": false
+        }
+      ]
+    },
+    {
+      "file": "play/round2/round2-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M31",
+          "outcome": "victory",
+          "turn": 23,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "M32",
+          "outcome": "victory",
+          "turn": 10,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "M33",
+          "outcome": "victory",
+          "turn": 13,
+          "failures": [],
+          "current_map": false
+        },
+        {
+          "code": "F31",
+          "outcome": "victory",
+          "turn": 18,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F32",
+          "outcome": "victory",
+          "turn": 21,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F33",
+          "outcome": "victory",
+          "turn": 17,
+          "failures": [],
+          "current_map": false
+        },
+        {
+          "code": "S31",
+          "outcome": "victory",
+          "turn": 8,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "S32",
+          "outcome": "victory",
+          "turn": 8,
+          "failures": [],
+          "current_map": true
+        }
+      ]
+    }
+  ],
+  "images": [
+    {
+      "path": "before/F32.png",
+      "size": [
+        512,
+        448
+      ],
+      "bytes": 41037,
+      "sha256": "f6ab483a6352c863dd2fe2b18e7221197fbc98a5914686b06cbb711bd5b26511"
+    },
+    {
+      "path": "before/F33.png",
+      "size": [
+        512,
+        448
+      ],
+      "bytes": 53792,
+      "sha256": "50b33499f52b8cf817244f426d6dfa0348bd387781ff702414637428608e9601"
+    },
+    {
+      "path": "before/F31.png",
+      "size": [
+        512,
+        416
+      ],
+      "bytes": 42668,
+      "sha256": "6142b62ae5625f03da514f4392f5191d11cf2b1eb6877873ca1b5e5c8e677424"
+    },
+    {
+      "path": "before/S32.png",
+      "size": [
+        512,
+        416
+      ],
+      "bytes": 44198,
+      "sha256": "95417c4b71402eb7ea3e64e2434f5d77a8725c42b6c4b27f1e5b48fb88f65623"
+    },
+    {
+      "path": "before/S31.png",
+      "size": [
+        416,
+        384
+      ],
+      "bytes": 47847,
+      "sha256": "7871ec62053f169383859c58e1f7e8251b643c5edb283f65cb786ddc42a6f243"
+    },
+    {
+      "path": "before/M33.png",
+      "size": [
+        512,
+        480
+      ],
+      "bytes": 73460,
+      "sha256": "9f6f026db8eddfda9453537b4e2ba6ef5f1a2c622832ab1283fa057763cfe8f1"
+    },
+    {
+      "path": "before/M32.png",
+      "size": [
+        576,
+        448
+      ],
+      "bytes": 65542,
+      "sha256": "63052f965a969c1c598f7d74b7acc1a15e1d1693658a9b0a2596e343838f69dd"
+    },
+    {
+      "path": "before/M31.png",
+      "size": [
+        512,
+        448
+      ],
+      "bytes": 41685,
+      "sha256": "46f052c387fdfcc8702a95c373e1110143268b2ff03a77487f42f13a4ddf1634"
+    },
+    {
+      "path": "images/F32.png",
+      "size": [
+        544,
+        480
+      ],
+      "bytes": 58870,
+      "sha256": "1ce1027e0c35884321ba3b77c49303489a20419018251662db778a6d5b8bb371"
+    },
+    {
+      "path": "images/F33.png",
+      "size": [
+        544,
+        480
+      ],
+      "bytes": 77711,
+      "sha256": "f706a4f98b6fbc03c91f89fb85dd4b7e90d1770913f6356963e34a26ef4f0686"
+    },
+    {
+      "path": "images/F31.png",
+      "size": [
+        576,
+        480
+      ],
+      "bytes": 56193,
+      "sha256": "25a50ed94b9c5d08cf3262775f0671be58b924a22cbfba938910ac07b23a9482"
+    },
+    {
+      "path": "images/S32.png",
+      "size": [
+        576,
+        480
+      ],
+      "bytes": 68804,
+      "sha256": "c0908d9286e9e5e15792a42a9989d4ef68a9e70d63636e9a4de727cee8332052"
+    },
+    {
+      "path": "images/S31.png",
+      "size": [
+        544,
+        480
+      ],
+      "bytes": 70675,
+      "sha256": "be3c51f43d0e469a7c5b996243cf9e0258be0da37a2e06ab57ef438fb08e57ab"
+    },
+    {
+      "path": "images/M33.png",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 74698,
+      "sha256": "f85273018202effe110bb1bc4ec219f730230f4a804559c4249bd3efecbbfaf7"
+    },
+    {
+      "path": "images/M32.png",
+      "size": [
+        544,
+        448
+      ],
+      "bytes": 65165,
+      "sha256": "98406c30d20cb4cca41cf4548a064f1111cacd3f01b33c0064b152036f8c6d96"
+    },
+    {
+      "path": "images/M31.png",
+      "size": [
+        544,
+        448
+      ],
+      "bytes": 47907,
+      "sha256": "e535ec02dfd61b7f3ea4ba4aff2d16ac5c88f13f5a54e3f1c572fcf4048bd28d"
+    },
+    {
+      "path": "screenshots/M31-object-court.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 42518,
+      "sha256": "f21a84d79527062d6d7d2f152610e177b423589a39386616f175a97722c05748"
+    },
+    {
+      "path": "screenshots/M33-victory.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 59928,
+      "sha256": "619d3c0857813d52947a5a800bd965489d4e0d17667638b61eb6b527ed8b151a"
+    },
+    {
+      "path": "screenshots/F33-entry.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 60061,
+      "sha256": "943507f4b18c49c72cacf1b32cc8581bda5000b4b0f6340bf858f3e4360537ba"
+    },
+    {
+      "path": "screenshots/S32-victory.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 51976,
+      "sha256": "1374d42b829efbb924ffc21b20a501f4868fe023bb8093a0cab417a7190b988a"
+    },
+    {
+      "path": "screenshots/F32-victory.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 45230,
+      "sha256": "6f3e0ab7d81c48e5fa14442473a8dc36c97c63361a88ad425ed9663064418307"
+    },
+    {
+      "path": "screenshots/S32-entry.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 53063,
+      "sha256": "5adec97793bfeb7d3f80e0b5ae8a73cb730a33c1a901e0d3dcc9dd3c3921375e"
+    },
+    {
+      "path": "screenshots/M33-turn-8.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 60186,
+      "sha256": "70db58521d826b4d6bb727f0ab87e8e057886b5fcb56fb0ae583327e4a344bdd"
+    },
+    {
+      "path": "screenshots/M31-entry.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 43396,
+      "sha256": "b8bdb4d9712339e9b69899e2e0345f4334dcbaebabb32a1694d8f4d8d2a0c1e1"
+    },
+    {
+      "path": "screenshots/F31-victory.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 44741,
+      "sha256": "37894a93930893f3f3f172947e89796be9e2f85f38f5938730ae30a61c18bb1a"
+    },
+    {
+      "path": "screenshots/S31-victory.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 31134,
+      "sha256": "6e0b085a5a5ed13768d09b4b93d9bd848b862a7210a6fb1a061f5dbdb8d54500"
+    },
+    {
+      "path": "screenshots/F32-entry.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 43693,
+      "sha256": "9905e2537ea66c109994e1a07148afb9d1c07c526462036ac2ec12bcb1b2bb73"
+    },
+    {
+      "path": "screenshots/F31-object-ship_lock.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 46204,
+      "sha256": "5e0a718d00d726baee9c573eb6dc51ea2a137308966efc6bc70dd8e33931c8e4"
+    },
+    {
+      "path": "screenshots/S32-object-mage_barrack.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 52682,
+      "sha256": "40e52177b3388d106b7afa66dc953597468c7cb87e8c07973f4fbc1b0ee8437a"
+    },
+    {
+      "path": "screenshots/M32-turn-6.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 53945,
+      "sha256": "c290fa6b69ef9e41a83a573842bd007598c01b2dc12c477fd6420f119473d55a"
+    },
+    {
+      "path": "screenshots/F33-victory.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 39109,
+      "sha256": "cdbd59cf6e712ca236df7f72e61836c76901475ed6fb776de66fa6364260c321"
+    },
+    {
+      "path": "screenshots/M32-entry.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 53031,
+      "sha256": "5f8f4a7064e93ac549bed41168fba4d3c9c25505d0f16cb0171f63bf94090db1"
+    },
+    {
+      "path": "screenshots/F31-entry.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 50540,
+      "sha256": "a2a575e22bbc831c6ddef159ba0f576a6f84a58cc1a2baf5f1afc25a9fdb56cd"
+    },
+    {
+      "path": "screenshots/S31-object-family_w.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 56352,
+      "sha256": "633f32b25824a994033cb86766962f8e7637b9234d236efe85e08e9476c4e567"
+    },
+    {
+      "path": "screenshots/M32-victory.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 53337,
+      "sha256": "fac7ea58e2a0cece24e77c6b4534f8446ff631bc3d96d0435a7a05cd7985f0c5"
+    },
+    {
+      "path": "screenshots/F33-object-control_array.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 66833,
+      "sha256": "c19ef170a584d338f2c0d291f64f308142a22a2330a769dca03863141741636f"
+    },
+    {
+      "path": "screenshots/M33-entry.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 52613,
+      "sha256": "3c266866d069a0816d85bac056da70001f9c576e3c3fbc6086eaa847a4c60539"
+    },
+    {
+      "path": "screenshots/F32-turn-8.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 45848,
+      "sha256": "8b20235141139d57f5de23dff0115bad6d744e289161acfa5209b534d277547c"
+    },
+    {
+      "path": "screenshots/M31-victory.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 38719,
+      "sha256": "1c0eb0e4f8c1d03c21741927f7f048c0ef1c18c1d74804a7a71f764ad3692d0e"
+    },
+    {
+      "path": "screenshots/S31-entry.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 54393,
+      "sha256": "3e7b80bb348f7b9d075cf4362b7a44c5ddce4891d0a169bd8273aa714bfcfc60"
+    }
+  ],
+  "rules_checks": 3172,
+  "package": {
+    "atlases": {
+      "res://assets/battlefield-0.3.0/terrain.png": [
+        512,
+        2528
+      ],
+      "res://assets/chapter1-redesign-20261022/camp-fort/terrain.png": [
+        512,
+        2656
+      ],
+      "res://assets/chapter1-redesign-20261022/grain-prison/terrain.png": [
+        512,
+        2624
+      ],
+      "res://assets/chapter1-redesign-20261022/side/terrain.png": [
+        512,
+        2672
+      ],
+      "res://assets/chapter2-redesign-20261022/harbor-channel/terrain.png": [
+        512,
+        2688
+      ],
+      "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png": [
+        512,
+        2816
+      ],
+      "res://assets/chapter2-redesign-20261022/ships/terrain.png": [
+        512,
+        2576
+      ],
+      "res://assets/chapter3-redesign-20261022/east/terrain.png": [
+        512,
+        2912
+      ],
+      "res://assets/chapter3-redesign-20261022/sides/terrain.png": [
+        512,
+        2752
+      ],
+      "res://assets/chapter3-redesign-20261022/west/terrain.png": [
+        512,
+        2672
+      ],
+      "res://assets/m41-valley-20261022/terrain.png": [
+        512,
+        2656
+      ],
+      "res://assets/map-polish-late-20261022/chapter4/terrain.png": [
+        512,
+        3072
+      ],
+      "res://assets/map-polish-late-20261022/temple-shores.png": [
+        512,
+        832
+      ]
+    },
+    "checks": 830,
+    "command_line": [
+      "--script",
+      "/Users/gcc/gaocc/project/revenge-memories/actual/tools/package_ch3_redesign_probe.gd"
+    ],
+    "errors": [],
+    "existing_compatibility_count": 44,
+    "existing_compatibility_paths": [
+      "res://data/compat/0.2.0/F25.json",
+      "res://data/compat/0.2.0/M12.json",
+      "res://data/compat/0.2.0/M13.json",
+      "res://data/compat/0.2.0/M14.json",
+      "res://data/compat/0.2.0/M15.json",
+      "res://data/compat/0.2.0/S22.json",
+      "res://data/compat/0.2.1/F21.json",
+      "res://data/compat/0.2.1/F22.json",
+      "res://data/compat/0.2.1/F23.json",
+      "res://data/compat/0.2.1/F24.json",
+      "res://data/compat/0.2.1/F25.json",
+      "res://data/compat/0.2.1/F26.json",
+      "res://data/compat/0.2.1/M11.json",
+      "res://data/compat/0.2.1/M12.json",
+      "res://data/compat/0.2.1/M13.json",
+      "res://data/compat/0.2.1/M14.json",
+      "res://data/compat/0.2.1/M15.json",
+      "res://data/compat/0.2.1/S11.json",
+      "res://data/compat/0.2.1/S12.json",
+      "res://data/compat/0.2.1/S21.json",
+      "res://data/compat/0.2.1/S22.json",
+      "res://data/compat/0.3.0/F21.json",
+      "res://data/compat/0.3.0/F22.json",
+      "res://data/compat/0.3.0/F23.json",
+      "res://data/compat/0.3.0/F24.json",
+      "res://data/compat/0.3.0/F25.json",
+      "res://data/compat/0.3.0/F26.json",
+      "res://data/compat/0.3.0/M11.json",
+      "res://data/compat/0.3.0/M12.json",
+      "res://data/compat/0.3.0/M13.json",
+      "res://data/compat/0.3.0/M14.json",
+      "res://data/compat/0.3.0/M15.json",
+      "res://data/compat/0.3.0/S11.json",
+      "res://data/compat/0.3.0/S12.json",
+      "res://data/compat/0.3.0/S21.json",
+      "res://data/compat/0.3.0/S22.json",
+      "res://data/compat/0.3.1/M11.json",
+      "res://data/compat/0.3.4/F25.json",
+      "res://data/compat/0.3.4/M12.json",
+      "res://data/compat/0.3.4/M13.json",
+      "res://data/compat/0.3.4/M14.json",
+      "res://data/compat/0.3.4/M15.json",
+      "res://data/compat/0.3.4/S12.json",
+      "res://data/compat/0.3.5/M14.json"
+    ],
+    "map_revision": "0.10.7-ch3",
+    "maps": {
+      "F21": {
+        "atlas": "res://assets/chapter2-redesign-20261022/ships/terrain.png",
+        "revision": "0.10.6-ch2",
+        "sha256": "ff015967c7bb2ed00a24684cf15b598925e76b7a624e5e9ad63b91476b2c3109"
+      },
+      "F22": {
+        "atlas": "res://assets/chapter2-redesign-20261022/ships/terrain.png",
+        "revision": "0.10.6-ch2",
+        "sha256": "9a8ec3ef017183aebc1aedde2747d784137c6c86bbb0502003a16d76a46834b9"
+      },
+      "F23": {
+        "atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png",
+        "revision": "0.10.6-ch2",
+        "sha256": "af6f7e997d49cef3b92debbdcf00624c5fcab045f9b2e4e7f6040f337da89deb"
+      },
+      "F24": {
+        "atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png",
+        "revision": "0.10.6-ch2",
+        "sha256": "e7526eda3e7c452c79fa78e743de1c2e606fd4b9b0e62025dfa6f4cf67230fe8"
+      },
+      "F25": {
+        "atlas": "res://assets/chapter2-redesign-20261022/harbor-channel/terrain.png",
+        "revision": "0.10.6-ch2",
+        "sha256": "b62aafff7f4310eded79aff6392788380f4ebdacb97f2af99f0308b22e6b72f5"
+      },
+      "F26": {
+        "atlas": "res://assets/chapter2-redesign-20261022/harbor-channel/terrain.png",
+        "revision": "0.10.6-ch2",
+        "sha256": "c3f52143fbbacb987040ff07928c5bc2a1d5a89fc05ba18f7a0eb2875b6551ad"
+      },
+      "F31": {
+        "atlas": "res://assets/chapter3-redesign-20261022/east/terrain.png",
+        "revision": "0.10.7-ch3",
+        "sha256": "9ffc062c4f812f477a807fdf274161f4852fee8e1820e5b76392b110acb08c99"
+      },
+      "F32": {
+        "atlas": "res://assets/chapter3-redesign-20261022/east/terrain.png",
+        "revision": "0.10.7-ch3",
+        "sha256": "4a5b0310087eebe20a79cf1c3ced871f3704cd81c72f6980fe47130ed47c223e"
+      },
+      "F33": {
+        "atlas": "res://assets/chapter3-redesign-20261022/east/terrain.png",
+        "revision": "0.10.7-ch3",
+        "sha256": "b9872eb06ead4cefc881ca17ab9dfe41a1a884dfbad595a91a42137cd64d4a03"
+      },
+      "F41": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter4/terrain.png",
+        "revision": "0.10.3",
+        "sha256": "00f6e5e73f45ba92870b0074765b080bc8b86c3b549ccf1f3f7191b09fdf384c"
+      },
+      "F42": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter4/terrain.png",
+        "revision": "0.10.3",
+        "sha256": "fd9902a4fac2f4f3e93ed2f5239e754d9c7c2b9fc943160f69bbb6983814db44"
+      },
+      "F43": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter4/terrain.png",
+        "revision": "0.10.3",
+        "sha256": "2fff36804e683fd47eef182712963fbf5f817f5578c7e8de6bb3fed8fc536064"
+      },
+      "F44": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter4/terrain.png",
+        "revision": "0.10.3",
+        "sha256": "39175355bba3cfc568f0c3b4422808e18f1474085ac511a7845307ae12aac175"
+      },
+      "F51": {
+        "atlas": "res://assets/map-polish-late-20261022/temple-shores.png",
+        "revision": "0.10.3",
+        "sha256": "6f2664c10b83ef6ca3ae69838a5b288de0c76903ae2f73adb03364e9a33de0c4"
+      },
+      "F52": {
+        "atlas": "res://assets/map-polish-late-20261022/temple-shores.png",
+        "revision": "0.10.3",
+        "sha256": "8af039c4a42be4932931ea463e2fc5137786a163f4287d41c37f9662fa4f7a52"
+      },
+      "J53": {
+        "atlas": "res://assets/map-polish-late-20261022/temple-shores.png",
+        "revision": "0.10.3",
+        "sha256": "48d459575ff967d2c0d133264a54c32c3043480b29ebedce45d7ebae7738156f"
+      },
+      "J54": {
+        "atlas": "res://assets/map-polish-late-20261022/temple-shores.png",
+        "revision": "0.10.3",
+        "sha256": "50c847e72fce641fdb1ab052ec2cfd22693c4e3650720b4c344336a7db8e90fd"
+      },
+      "M11": {
+        "atlas": "res://assets/battlefield-0.3.0/terrain.png",
+        "revision": "0.5.0",
+        "sha256": "4170c977adebe2688d181316b149c173edae39ba97cc317811f0fdc99c367a9a"
+      },
+      "M12": {
+        "atlas": "res://assets/chapter1-redesign-20261022/grain-prison/terrain.png",
+        "revision": "0.10.5-ch1",
+        "sha256": "1b3f4dd3233ab5c083dc7356c34a44cdcefff2938d52121e4b67b8fd51cb82a5"
+      },
+      "M13": {
+        "atlas": "res://assets/chapter1-redesign-20261022/grain-prison/terrain.png",
+        "revision": "0.10.5-ch1",
+        "sha256": "a3de181d8632bf8b5db745cd5b0d5c677025f6592c5ce54990b76a51390c0b11"
+      },
+      "M14": {
+        "atlas": "res://assets/chapter1-redesign-20261022/camp-fort/terrain.png",
+        "revision": "0.10.5-ch1",
+        "sha256": "ccfbff46bd6e607add0cff0d31264c3935012af4cc92631ae303dac2f02e6bf9"
+      },
+      "M15": {
+        "atlas": "res://assets/chapter1-redesign-20261022/camp-fort/terrain.png",
+        "revision": "0.10.5-ch1",
+        "sha256": "10f940b168b9a124b65412c00b439ea10406c689811de5af19dd269084fde414"
+      },
+      "M31": {
+        "atlas": "res://assets/chapter3-redesign-20261022/west/terrain.png",
+        "revision": "0.10.7-ch3",
+        "sha256": "07113aea71b95c08e7647b6bfa8fa59c30300722bd1bb8215ee41b6bd7e73868"
+      },
+      "M32": {
+        "atlas": "res://assets/chapter3-redesign-20261022/west/terrain.png",
+        "revision": "0.10.7-ch3",
+        "sha256": "91c97784be57e70e3e33a174fee1c9ba1bb2a61783ae8bf28e607bd05f02f131"
+      },
+      "M33": {
+        "atlas": "res://assets/chapter3-redesign-20261022/west/terrain.png",
+        "revision": "0.10.7-ch3",
+        "sha256": "c30fb8486266fa77bcf85b492f6115f981d11b5d790bbdfff3b3d039e2bbb15a"
+      },
+      "M41": {
+        "atlas": "res://assets/m41-valley-20261022/terrain.png",
+        "revision": "0.10.4-m41",
+        "sha256": "d95ae830163e3ce06f0469029b6b0ae8ef0e32067aff6e41a4f955cef80e1aba"
+      },
+      "M42": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter4/terrain.png",
+        "revision": "0.10.3",
+        "sha256": "cfddbfd07905f01f601d02e4ffc8b75b4d7898f02c4f1616ab273e875945dffb"
+      },
+      "M43": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter4/terrain.png",
+        "revision": "0.10.3",
+        "sha256": "b16c7408d08f64718d9becbd01ae362a0c0a99da3917c384ec43161dd7bbab24"
+      },
+      "M44": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter4/terrain.png",
+        "revision": "0.10.3",
+        "sha256": "75b4d8390a2cfb0df28a16dad2bce9dcbd28ac3e17ef4d08b3336bc9da21cfec"
+      },
+      "M51": {
+        "atlas": "res://assets/map-polish-late-20261022/temple-shores.png",
+        "revision": "0.10.3",
+        "sha256": "09d5cff62952b46c78469ce6e4fce0bd3c26d79fa9e16a07ffefedf19d07308f"
+      },
+      "M52": {
+        "atlas": "res://assets/map-polish-late-20261022/temple-shores.png",
+        "revision": "0.10.3",
+        "sha256": "7e674d4d6f4fc88a45add4d0ed50731c8c646d8e4d8f3237b25b59b5936f18bf"
+      },
+      "S11": {
+        "atlas": "res://assets/chapter1-redesign-20261022/side/terrain.png",
+        "revision": "0.10.5-ch1",
+        "sha256": "33937d30c221b93d96c63a0dfa7055ebbca2da729b420c574ecdd420efe23a8c"
+      },
+      "S12": {
+        "atlas": "res://assets/chapter1-redesign-20261022/side/terrain.png",
+        "revision": "0.10.5-ch1",
+        "sha256": "83fec7706bf734ef164f834dfc23ff821f3bd987578fd505e2a7271d4c48e64b"
+      },
+      "S21": {
+        "atlas": "res://assets/chapter2-redesign-20261022/ships/terrain.png",
+        "revision": "0.10.6-ch2",
+        "sha256": "c195bfa305017dcbca0fa5fa2a33b73fa05cec5a2f50a40831973192a2feb02c"
+      },
+      "S22": {
+        "atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png",
+        "revision": "0.10.6-ch2",
+        "sha256": "a477b2e6500e9de2d3c4efc5c95c7d18c5fc956057dc4b4afaa68e6f14dbb035"
+      },
+      "S31": {
+        "atlas": "res://assets/chapter3-redesign-20261022/sides/terrain.png",
+        "revision": "0.10.7-ch3",
+        "sha256": "5f5b6a6dea089fe9b697be299e02a375f75da4ee5ab8bc65d214f2098d3e992a"
+      },
+      "S32": {
+        "atlas": "res://assets/chapter3-redesign-20261022/sides/terrain.png",
+        "revision": "0.10.7-ch3",
+        "sha256": "0c172a6747f75bb1faf118372363baab7320bb67fb478d153a4fc93a837f61fa"
+      },
+      "S41": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter4/terrain.png",
+        "revision": "0.10.3",
+        "sha256": "78c377ee4c06dfa4b2a409e853dd471f7b1e674df238c724a07ee8f7ce51f786"
+      },
+      "S42": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter4/terrain.png",
+        "revision": "0.10.3",
+        "sha256": "a162f1b7536731a66b37c4705be9fd5a09cb0ae7b98f3b256d389dce6ddcd0d2"
+      },
+      "S51": {
+        "atlas": "res://assets/map-polish-late-20261022/temple-shores.png",
+        "revision": "0.10.3",
+        "sha256": "5f707535ed25c93115477d98f7489748556b8660e8b6605f785e0fe09c1f09c9"
+      }
+    },
+    "new_compatibility_copies": 0,
+    "passed": true,
+    "resource_root": "",
+    "scope": "Independent exported app probe from isolated /private/tmp using --main-pack. Exact forty-map hashes and revision, actual terrain/prop load, object assets, report/test/source exclusions. Existing historical compatibility is recorded; this task does not clean it up or add any new compatibility copies.",
+    "software_version": "0.10.3",
+    "stage_count": 40,
+    "version": "0.10.3",
+    "app_path": "/Users/gcc/gaocc/project/revenge-memories/actual/dist/RevengeMemories-Chapter3-Redesign-20261022.app",
+    "display_name": "复仇与回忆 · 第三章地图重设计",
+    "pck_bytes": 182906376,
+    "pck_sha256": "eb014d44c6aceb90e29e4b026c7806dad9229305badf7d37eafb453d26b6a444",
+    "ad_hoc_signature_verified": true,
+    "signature_verification": "codesign --verify --deep --strict (exit 0)",
+    "headless_only": true,
+    "expected_current_maps_match_after_signing": true,
+    "isolated_probe_path": "/private/tmp/ch3-package-probe.07khpg"
+  },
+  "flow_continuation": {
+    "passed": true,
+    "description": "另从第二章真实完成记录接续，保留成长、伤情与招募，通过第三章全部八图、D33会谈并进入第四章。船医在码头战濒死后，盐路一度因艾琳前压而败北；从原败北记录经游戏正常重试一次，调整前后排行动顺序后完成余下六图。没有改写属性、随机结果或胜负条件。",
+    "chain": "play/continuous-retry/continuous-chain.json",
+    "chapter4_entry": "play/continuous-retry/continuous-retry-chapter4-start.json",
+    "source": "res://reports/chapter3-redesign-20261022/play/continuous-delivery/working-journey.json",
+    "source_sha256": "de35d216cfabded2facce83b314575cd09ecf987cefba49cf673b70da662e1c3",
+    "source_unchanged": true,
+    "ordinary_inputs_only": true,
+    "stat_edits": false,
+    "forced_victories": false,
+    "retry_count": 1,
+    "total_inputs": 7282,
+    "battles": [
+      {
+        "code": "M31",
+        "outcome": "victory",
+        "final_turn": 19.0,
+        "entry_map_sha256": "07113aea71b95c08e7647b6bfa8fa59c30300722bd1bb8215ee41b6bd7e73868",
+        "map_sha256": "07113aea71b95c08e7647b6bfa8fa59c30300722bd1bb8215ee41b6bd7e73868",
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1.0,
+          "boats": [],
+          "burn_streak": 0.0,
+          "evacuated": [
+            "detained0",
+            "detained1"
+          ],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {
+            "court": true
+          },
+          "reinforced": true,
+          "transport_index": 0.0,
+          "transport_stopped": false
+        },
+        "key_inputs": 838.0
+      },
+      {
+        "code": "F31",
+        "outcome": "victory",
+        "final_turn": 20.0,
+        "entry_map_sha256": "9ffc062c4f812f477a807fdf274161f4852fee8e1820e5b76392b110acb08c99",
+        "map_sha256": "9ffc062c4f812f477a807fdf274161f4852fee8e1820e5b76392b110acb08c99",
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1.0,
+          "boats": [],
+          "burn_streak": 0.0,
+          "evacuated": [
+            "dock_patients0",
+            "dock_patients1"
+          ],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {
+            "mooring": true,
+            "ship_lock": true
+          },
+          "reinforced": true,
+          "transport_index": 0.0,
+          "transport_stopped": false
+        },
+        "key_inputs": 1224.0
+      },
+      {
+        "code": "F32",
+        "outcome": "victory",
+        "final_turn": 21,
+        "entry_map_sha256": "4a5b0310087eebe20a79cf1c3ced871f3704cd81c72f6980fe47130ed47c223e",
+        "map_sha256": "4a5b0310087eebe20a79cf1c3ced871f3704cd81c72f6980fe47130ed47c223e",
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1.0,
+          "boats": [],
+          "burn_streak": 0.0,
+          "evacuated": [
+            "salt_guide"
+          ],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {},
+          "reinforced": false,
+          "transport_index": 0.0,
+          "transport_stopped": false
+        },
+        "key_inputs": 1143
+      },
+      {
+        "code": "S32",
+        "outcome": "victory",
+        "final_turn": 10,
+        "entry_map_sha256": "0c172a6747f75bb1faf118372363baab7320bb67fb478d153a4fc93a837f61fa",
+        "map_sha256": "0c172a6747f75bb1faf118372363baab7320bb67fb478d153a4fc93a837f61fa",
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {
+            "civilian_barrack": true,
+            "mage_barrack": true
+          },
+          "reinforced": false,
+          "transport_index": 0,
+          "transport_stopped": false
+        },
+        "key_inputs": 696
+      },
+      {
+        "code": "F33",
+        "outcome": "victory",
+        "final_turn": 11,
+        "entry_map_sha256": "b9872eb06ead4cefc881ca17ab9dfe41a1a884dfbad595a91a42137cd64d4a03",
+        "map_sha256": "b9872eb06ead4cefc881ca17ab9dfe41a1a884dfbad595a91a42137cd64d4a03",
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {
+            "control_array": true,
+            "regulation_record": true,
+            "workers_gate": true
+          },
+          "reinforced": false,
+          "transport_index": 0,
+          "transport_stopped": false
+        },
+        "key_inputs": 826
+      },
+      {
+        "code": "M32",
+        "outcome": "victory",
+        "final_turn": 11,
+        "entry_map_sha256": "91c97784be57e70e3e33a174fee1c9ba1bb2a61783ae8bf28e607bd05f02f131",
+        "map_sha256": "91c97784be57e70e3e33a174fee1c9ba1bb2a61783ae8bf28e607bd05f02f131",
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {
+            "cart_release": true,
+            "station_n": true,
+            "station_w": true
+          },
+          "reinforced": false,
+          "transport_index": 0,
+          "transport_stopped": true
+        },
+        "key_inputs": 569
+      },
+      {
+        "code": "S31",
+        "outcome": "victory",
+        "final_turn": 9,
+        "entry_map_sha256": "5f5b6a6dea089fe9b697be299e02a375f75da4ee5ab8bc65d214f2098d3e992a",
+        "map_sha256": "5f5b6a6dea089fe9b697be299e02a375f75da4ee5ab8bc65d214f2098d3e992a",
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {
+            "family_e": true,
+            "family_w": true
+          },
+          "reinforced": false,
+          "transport_index": 0,
+          "transport_stopped": false
+        },
+        "key_inputs": 464
+      },
+      {
+        "code": "M33",
+        "outcome": "victory",
+        "final_turn": 19,
+        "entry_map_sha256": "c30fb8486266fa77bcf85b492f6115f981d11b5d790bbdfff3b3d039e2bbb15a",
+        "map_sha256": "c30fb8486266fa77bcf85b492f6115f981d11b5d790bbdfff3b3d039e2bbb15a",
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "german_decision": "accepted",
+          "mid_done": false,
+          "objects": {
+            "dock_control": true,
+            "workshop": true
+          },
+          "reinforced": false,
+          "transport_index": 0,
+          "transport_stopped": false
+        },
+        "key_inputs": 803
+      }
+    ],
+    "retained_failed_attempt": [
+      {
+        "code": "F32",
+        "entry_map_sha256": "4a5b0310087eebe20a79cf1c3ced871f3704cd81c72f6980fe47130ed47c223e",
+        "failures": [
+          "Natural battle failed: F32 { \"objects\": {  }, \"evacuated\": [], \"freed\": [], \"burn_streak\": 0, \"reinforced\": false, \"mid_done\": false, &\"beacon_since\": -1, &\"beacon_contested\": false, &\"boats\": [], &\"transport_index\": 0, &\"transport_stopped\": false, &\"german_decision\": \"\", &\"failed_reason\": \"艾琳濒死，无法继续作战\" }"
+        ],
+        "final_roster": {
+          "carlo": {
+            "acted": false,
+            "character_id": 27.0,
+            "class": "mercenary",
+            "class_id": 8.0,
+            "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+            "dead": false,
+            "defence": 7.0,
+            "dying": false,
+            "ever_dying": false,
+            "exp": 36.0,
+            "growths": {
+              "defence": 40.0,
+              "hp": 50.0,
+              "luck": 10.0,
+              "skill": 15.0,
+              "speed": 15.0,
+              "strength": 20.0
+            },
+            "hp": 26.0,
+            "id": "carlo",
+            "item_id": 59.0,
+            "key": "carlo",
+            "level": 7.0,
+            "luck": 7.0,
+            "magic_flags": 0.0,
+            "magic_level": 6.0,
+            "max_hp": 26.0,
+            "move": 4.0,
+            "name_ja": "セーバー",
+            "name_zh": "卡洛",
+            "player_slot": 2.0,
+            "position": [
+              29.0,
+              17.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L08921A",
+                "line": 1621.0
+              },
+              {
+                "file": "src/bank009.asm",
+                "label": "L098EC9",
+                "line": 2002.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FEE00",
+                "line": 7486.0
+              },
+              {
+                "file": "src/bank006.asm",
+                "label": "L068C0C",
+                "line": 1080.0
+              }
+            ],
+            "raw": [
+              27.0,
+              8.0,
+              1.0,
+              22.0,
+              0.0,
+              9.0,
+              9.0,
+              10.0,
+              6.0,
+              4.0,
+              0.0,
+              0.0
+            ],
+            "resistance": 6.0,
+            "route": "celica",
+            "side": "player",
+            "skill": 9.0,
+            "slot_id": 27.0,
+            "source_character": "saber",
+            "speed": 11.0,
+            "strength": 11.0,
+            "treatment_count": 0.0
+          },
+          "daan": {
+            "acted": false,
+            "character_id": 21.0,
+            "class": "archer",
+            "class_id": 12.0,
+            "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+            "dead": false,
+            "defence": 8.0,
+            "dying": false,
+            "ever_dying": false,
+            "exp": 89.0,
+            "growths": {
+              "defence": 30.0,
+              "hp": 50.0,
+              "luck": 10.0,
+              "skill": 20.0,
+              "speed": 10.0,
+              "strength": 20.0
+            },
+            "hp": 27.0,
+            "id": "daan",
+            "item_id": 63.0,
+            "key": "daan",
+            "level": 8.0,
+            "luck": 6.0,
+            "magic_flags": 0.0,
+            "magic_level": 0.0,
+            "max_hp": 27.0,
+            "move": 4.0,
+            "name_ja": "レオ",
+            "name_zh": "达恩",
+            "player_slot": 1.0,
+            "position": [
+              6.0,
+              8.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L0891D2",
+                "line": 1597.0
+              },
+              {
+                "file": "src/bank009.asm",
+                "label": "L098EA5",
+                "line": 1984.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FEE00",
+                "line": 7486.0
+              },
+              {
+                "file": "src/bank006.asm",
+                "label": "L068C0C",
+                "line": 1080.0
+              }
+            ],
+            "raw": [
+              21.0,
+              12.0,
+              4.0,
+              23.0,
+              0.0,
+              11.0,
+              6.0,
+              4.0,
+              6.0,
+              4.0,
+              0.0,
+              0.0
+            ],
+            "resistance": 1.0,
+            "route": "alm",
+            "side": "player",
+            "skill": 7.0,
+            "slot_id": 21.0,
+            "source_character": "leo",
+            "speed": 4.0,
+            "strength": 15.0,
+            "treatment_count": 0.0
+          },
+          "eileen": {
+            "acted": false,
+            "character_id": 2.0,
+            "class": "priestess",
+            "class_id": 11.0,
+            "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+            "dead": false,
+            "defence": 7.0,
+            "dying": true,
+            "ever_dying": true,
+            "exp": 94.0,
+            "growths": {
+              "defence": 20.0,
+              "hp": 30.0,
+              "luck": 40.0,
+              "skill": 40.0,
+              "speed": 30.0,
+              "strength": 25.0
+            },
+            "hp": 0.0,
+            "id": "eileen",
+            "injury_place": "盐路",
+            "item_id": 0.0,
+            "key": "eileen",
+            "level": 7.0,
+            "luck": 12.0,
+            "magic_flags": 9.0,
+            "magic_level": 6.0,
+            "max_hp": 22.0,
+            "move": 4.0,
+            "name_ja": "セリカ",
+            "name_zh": "艾琳",
+            "personal_resistance": 8.0,
+            "player_slot": 0.0,
+            "position": [
+              24.0,
+              4.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L0890EE",
+                "line": 1521.0
+              },
+              {
+                "file": "src/bank009.asm",
+                "label": "L098E33",
+                "line": 1927.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FEE00",
+                "line": 7486.0
+              },
+              {
+                "file": "src/bank006.asm",
+                "label": "L068C0C",
+                "line": 1080.0
+              }
+            ],
+            "raw": [
+              2.0,
+              11.0,
+              1.0,
+              20.0,
+              0.0,
+              8.0,
+              6.0,
+              6.0,
+              8.0,
+              4.0,
+              1.0,
+              0.0
+            ],
+            "resistance": 8.0,
+            "route": "celica",
+            "side": "player",
+            "skill": 6.0,
+            "slot_id": 2.0,
+            "source_character": "celica",
+            "speed": 7.0,
+            "strength": 10.0,
+            "treatment_count": 0.0
+          },
+          "fula": {
+            "acted": false,
+            "character_id": 14.0,
+            "class": "cleric",
+            "class_id": 18.0,
+            "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+            "controllable": true,
+            "dead": false,
+            "defence": 1.0,
+            "dying": true,
+            "ever_dying": true,
+            "exp": 16.0,
+            "growths": {
+              "defence": 10.0,
+              "hp": 20.0,
+              "luck": 30.0,
+              "skill": 30.0,
+              "speed": 30.0,
+              "strength": 30.0
+            },
+            "hp": 0.0,
+            "id": "fula",
+            "injury_place": "南岗押送所",
+            "item_id": 0.0,
+            "key": "fula",
+            "level": 1.0,
+            "luck": 4.0,
+            "magic_flags": 5.0,
+            "magic_level": 0.0,
+            "max_hp": 18.0,
+            "move": 4.0,
+            "name_ja": "シルク",
+            "name_zh": "芙拉",
+            "neutral": false,
+            "no_experience": false,
+            "player_slot": 3.0,
+            "position": [
+              7.0,
+              13.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L08917E",
+                "line": 1569.0
+              },
+              {
+                "file": "src/bank009.asm",
+                "label": "L098E7B",
+                "line": 1963.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FEE00",
+                "line": 7486.0
+              },
+              {
+                "file": "src/bank006.asm",
+                "label": "L068C0C",
+                "line": 1080.0
+              }
+            ],
+            "raw": [
+              14.0,
+              18.0,
+              1.0,
+              18.0,
+              0.0,
+              8.0,
+              3.0,
+              4.0,
+              4.0,
+              1.0,
+              5.0,
+              0.0
+            ],
+            "resistance": 11.0,
+            "route": "alm",
+            "side": "player",
+            "skill": 3.0,
+            "slot_id": 14.0,
+            "source_character": "silque",
+            "speed": 4.0,
+            "strength": 8.0,
+            "treatment_count": 0.0
+          },
+          "hunapu": {
+            "acted": false,
+            "character_id": 1.0,
+            "class": "fighter",
+            "class_id": 21.0,
+            "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+            "dead": false,
+            "defence": 6.0,
+            "dying": false,
+            "ever_dying": false,
+            "exp": 59.0,
+            "growths": {
+              "defence": 30.0,
+              "hp": 50.0,
+              "luck": 20.0,
+              "skill": 40.0,
+              "speed": 30.0,
+              "strength": 35.0
+            },
+            "hp": 31.0,
+            "id": "hunapu",
+            "item_id": 11.0,
+            "key": "hunapu",
+            "level": 4.0,
+            "luck": 7.0,
+            "magic_flags": 0.0,
+            "magic_level": 0.0,
+            "max_hp": 31.0,
+            "move": 5.0,
+            "name_ja": "アルム",
+            "name_zh": "胡纳普",
+            "player_slot": 0.0,
+            "position": [
+              5.0,
+              7.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L0890E2",
+                "line": 1517.0
+              },
+              {
+                "file": "src/bank009.asm",
+                "label": "L098E2D",
+                "line": 1924.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FEE00",
+                "line": 7486.0
+              },
+              {
+                "file": "src/bank006.asm",
+                "label": "L068C0C",
+                "line": 1080.0
+              }
+            ],
+            "raw": [
+              1.0,
+              21.0,
+              1.0,
+              28.0,
+              0.0,
+              10.0,
+              7.0,
+              6.0,
+              7.0,
+              6.0,
+              0.0,
+              0.0
+            ],
+            "resistance": 4.0,
+            "route": "alm",
+            "side": "player",
+            "skill": 9.0,
+            "slot_id": 1.0,
+            "source_character": "alm",
+            "speed": 8.0,
+            "strength": 10.0,
+            "treatment_count": 0.0
+          },
+          "lance": {
+            "acted": false,
+            "character_id": 10.0,
+            "class": "cavalier",
+            "class_id": 1.0,
+            "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+            "controllable": true,
+            "dead": false,
+            "defence": 7.0,
+            "dying": false,
+            "ever_dying": false,
+            "exp": 21.0,
+            "growths": {
+              "defence": 20.0,
+              "hp": 40.0,
+              "luck": 20.0,
+              "skill": 20.0,
+              "speed": 20.0,
+              "strength": 20.0
+            },
+            "hp": 29.0,
+            "id": "lance",
+            "item_id": 2.0,
+            "key": "lance",
+            "level": 6.0,
+            "luck": 6.0,
+            "magic_flags": 0.0,
+            "magic_level": 0.0,
+            "max_hp": 29.0,
+            "move": 7.0,
+            "name_ja": "クレーベ",
+            "name_zh": "兰斯",
+            "neutral": false,
+            "no_experience": false,
+            "player_slot": 3.0,
+            "position": [
+              5.0,
+              8.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L08914E",
+                "line": 1553.0
+              },
+              {
+                "file": "src/bank009.asm",
+                "label": "L098E63",
+                "line": 1951.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FEE00",
+                "line": 7486.0
+              },
+              {
+                "file": "src/bank006.asm",
+                "label": "L068C0C",
+                "line": 1080.0
+              }
+            ],
+            "raw": [
+              10.0,
+              1.0,
+              6.0,
+              26.0,
+              0.0,
+              12.0,
+              7.0,
+              7.0,
+              6.0,
+              7.0,
+              0.0,
+              2.0
+            ],
+            "resistance": 1.0,
+            "route": "alm",
+            "side": "player",
+            "skill": 9.0,
+            "slot_id": 10.0,
+            "source_character": "clive",
+            "speed": 7.0,
+            "strength": 12.0,
+            "treatment_count": 0.0
+          },
+          "lena": {
+            "acted": false,
+            "character_id": 9.0,
+            "class": "pegasus_knight",
+            "class_id": 3.0,
+            "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+            "controllable": true,
+            "dead": false,
+            "defence": 4.0,
+            "dying": true,
+            "ever_dying": true,
+            "exp": 6.0,
+            "growths": {
+              "defence": 10.0,
+              "hp": 20.0,
+              "luck": 50.0,
+              "skill": 50.0,
+              "speed": 40.0,
+              "strength": 30.0
+            },
+            "hp": 0.0,
+            "id": "lena",
+            "injury_place": "海峡城",
+            "item_id": 0.0,
+            "key": "lena",
+            "level": 3.0,
+            "luck": 12.0,
+            "magic_flags": 0.0,
+            "magic_level": 0.0,
+            "max_hp": 21.0,
+            "move": 7.0,
+            "name_ja": "クレア",
+            "name_zh": "蕾娜",
+            "neutral": false,
+            "no_experience": false,
+            "player_slot": 3.0,
+            "position": [
+              21.0,
+              10.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L089142",
+                "line": 1549.0
+              },
+              {
+                "file": "src/bank009.asm",
+                "label": "L098E5D",
+                "line": 1948.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FEE00",
+                "line": 7486.0
+              },
+              {
+                "file": "src/bank006.asm",
+                "label": "L068C0C",
+                "line": 1080.0
+              }
+            ],
+            "raw": [
+              9.0,
+              3.0,
+              1.0,
+              20.0,
+              0.0,
+              8.0,
+              4.0,
+              7.0,
+              11.0,
+              4.0,
+              0.0,
+              0.0
+            ],
+            "resistance": 8.0,
+            "route": "alm",
+            "side": "player",
+            "skill": 5.0,
+            "slot_id": 9.0,
+            "source_character": "clair",
+            "speed": 8.0,
+            "strength": 9.0,
+            "treatment_count": 0.0
+          },
+          "lisa": {
+            "acted": false,
+            "character_id": 13.0,
+            "class": "mage_f",
+            "class_id": 16.0,
+            "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+            "dead": false,
+            "defence": 3.0,
+            "dying": true,
+            "ever_dying": true,
+            "exp": 65.0,
+            "growths": {
+              "defence": 20.0,
+              "hp": 20.0,
+              "luck": 10.0,
+              "skill": 20.0,
+              "speed": 10.0,
+              "strength": 40.0
+            },
+            "hp": 0.0,
+            "id": "lisa",
+            "injury_place": "礁岛",
+            "item_id": 0.0,
+            "key": "lisa",
+            "level": 3.0,
+            "luck": 5.0,
+            "magic_flags": 3.0,
+            "magic_level": 2.0,
+            "max_hp": 21.0,
+            "move": 4.0,
+            "name_ja": "メイ",
+            "name_zh": "莉莎",
+            "player_slot": 2.0,
+            "position": [
+              14.0,
+              19.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L089172",
+                "line": 1565.0
+              },
+              {
+                "file": "src/bank009.asm",
+                "label": "L098E75",
+                "line": 1960.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FEE00",
+                "line": 7486.0
+              },
+              {
+                "file": "src/bank006.asm",
+                "label": "L068C0C",
+                "line": 1080.0
+              }
+            ],
+            "raw": [
+              13.0,
+              16.0,
+              1.0,
+              20.0,
+              0.0,
+              9.0,
+              1.0,
+              7.0,
+              5.0,
+              2.0,
+              3.0,
+              0.0
+            ],
+            "resistance": 10.0,
+            "route": "celica",
+            "side": "player",
+            "skill": 1.0,
+            "slot_id": 13.0,
+            "source_character": "mae",
+            "speed": 7.0,
+            "strength": 10.0,
+            "treatment_count": 0.0
+          },
+          "lord": {
+            "acted": false,
+            "character_id": 18.0,
+            "class": "knight",
+            "class_id": 2.0,
+            "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+            "controllable": true,
+            "dead": false,
+            "defence": 12.0,
+            "dying": false,
+            "ever_dying": false,
+            "exp": 73.0,
+            "growths": {
+              "defence": 20.0,
+              "hp": 40.0,
+              "luck": 10.0,
+              "skill": 35.0,
+              "speed": 25.0,
+              "strength": 20.0
+            },
+            "hp": 32.0,
+            "id": "lord",
+            "item_id": 62.0,
+            "key": "lord",
+            "level": 4.0,
+            "luck": 2.0,
+            "magic_flags": 0.0,
+            "magic_level": 0.0,
+            "max_hp": 32.0,
+            "move": 4.0,
+            "name_ja": "バルボ",
+            "name_zh": "洛德",
+            "neutral": false,
+            "no_experience": false,
+            "player_slot": 3.0,
+            "position": [
+              29.0,
+              19.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L0891AE",
+                "line": 1585.0
+              },
+              {
+                "file": "src/bank009.asm",
+                "label": "L098E93",
+                "line": 1975.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FEE00",
+                "line": 7486.0
+              },
+              {
+                "file": "src/bank006.asm",
+                "label": "L068C0C",
+                "line": 1080.0
+              }
+            ],
+            "raw": [
+              18.0,
+              2.0,
+              1.0,
+              30.0,
+              0.0,
+              14.0,
+              5.0,
+              2.0,
+              1.0,
+              12.0,
+              0.0,
+              0.0
+            ],
+            "resistance": 0.0,
+            "route": "celica",
+            "side": "player",
+            "skill": 6.0,
+            "slot_id": 18.0,
+            "source_character": "valbar",
+            "speed": 2.0,
+            "strength": 14.0,
+            "treatment_count": 0.0
+          },
+          "mireille": {
+            "acted": false,
+            "character_id": 15.0,
+            "class": "cleric",
+            "class_id": 18.0,
+            "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+            "dead": false,
+            "defence": 2.0,
+            "dying": true,
+            "ever_dying": true,
+            "exp": 67.0,
+            "growths": {
+              "defence": 20.0,
+              "hp": 20.0,
+              "luck": 20.0,
+              "skill": 40.0,
+              "speed": 15.0,
+              "strength": 40.0
+            },
+            "hp": 0.0,
+            "id": "mireille",
+            "injury_place": "海峡城",
+            "item_id": 0.0,
+            "key": "mireille",
+            "level": 3.0,
+            "luck": 7.0,
+            "magic_flags": 5.0,
+            "magic_level": 2.0,
+            "max_hp": 18.0,
+            "move": 4.0,
+            "name_ja": "ジェニー",
+            "name_zh": "米蕾",
+            "player_slot": 1.0,
+            "position": [
+              15.0,
+              12.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L08918A",
+                "line": 1573.0
+              },
+              {
+                "file": "src/bank009.asm",
+                "label": "L098E81",
+                "line": 1966.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FEE00",
+                "line": 7486.0
+              },
+              {
+                "file": "src/bank006.asm",
+                "label": "L068C0C",
+                "line": 1080.0
+              }
+            ],
+            "raw": [
+              15.0,
+              18.0,
+              1.0,
+              18.0,
+              0.0,
+              7.0,
+              2.0,
+              5.0,
+              7.0,
+              1.0,
+              5.0,
+              0.0
+            ],
+            "resistance": 13.0,
+            "route": "celica",
+            "side": "player",
+            "skill": 3.0,
+            "slot_id": 15.0,
+            "source_character": "genny",
+            "speed": 5.0,
+            "strength": 7.0,
+            "treatment_count": 0.0
+          },
+          "otto": {
+            "acted": false,
+            "character_id": 5.0,
+            "class": "soldier",
+            "class_id": 6.0,
+            "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+            "dead": false,
+            "defence": 9.0,
+            "dying": false,
+            "ever_dying": false,
+            "exp": 86.0,
+            "growths": {
+              "defence": 20.0,
+              "hp": 40.0,
+              "luck": 20.0,
+              "skill": 35.0,
+              "speed": 15.0,
+              "strength": 15.0
+            },
+            "hp": 23.0,
+            "id": "otto",
+            "item_id": 61.0,
+            "key": "otto",
+            "level": 8.0,
+            "luck": 3.0,
+            "magic_flags": 0.0,
+            "magic_level": 0.0,
+            "max_hp": 23.0,
+            "move": 4.0,
+            "name_ja": "ルカ",
+            "name_zh": "奥托",
+            "player_slot": 2.0,
+            "position": [
+              4.0,
+              6.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L089112",
+                "line": 1533.0
+              },
+              {
+                "file": "src/bank009.asm",
+                "label": "L098E45",
+                "line": 1936.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FEE00",
+                "line": 7486.0
+              },
+              {
+                "file": "src/bank006.asm",
+                "label": "L068C0C",
+                "line": 1080.0
+              }
+            ],
+            "raw": [
+              5.0,
+              6.0,
+              2.0,
+              22.0,
+              0.0,
+              10.0,
+              4.0,
+              4.0,
+              2.0,
+              6.0,
+              0.0,
+              0.0
+            ],
+            "resistance": 2.0,
+            "route": "alm",
+            "side": "player",
+            "skill": 4.0,
+            "slot_id": 5.0,
+            "source_character": "lukas",
+            "speed": 5.0,
+            "strength": 13.0,
+            "treatment_count": 0.0
+          },
+          "roan": {
+            "acted": false,
+            "adaptation": "Atlas portrait/village identity; Archer class and weapon animation per approved Roan role.",
+            "character_id": 22.0,
+            "class": "archer",
+            "class_id": 12.0,
+            "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+            "controllable": true,
+            "dead": false,
+            "defence": 5.0,
+            "dying": false,
+            "ever_dying": false,
+            "exp": 32.0,
+            "growths": {
+              "defence": 20.0,
+              "hp": 30.0,
+              "luck": 15.0,
+              "skill": 20.0,
+              "speed": 10.0,
+              "strength": 30.0
+            },
+            "hp": 27.0,
+            "id": "roan",
+            "item_id": 21.0,
+            "key": "roan",
+            "level": 8.0,
+            "luck": 6.0,
+            "magic_flags": 0.0,
+            "magic_level": 5.0,
+            "max_hp": 27.0,
+            "move": 4.0,
+            "name_ja": "アトラス",
+            "name_zh": "罗恩",
+            "neutral": false,
+            "no_experience": false,
+            "player_slot": 4.0,
+            "position": [
+              30.0,
+              14.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L0891DE",
+                "line": 1601.0
+              },
+              {
+                "file": "src/bank009.asm",
+                "label": "L098EAB",
+                "line": 1987.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FEE00",
+                "line": 7486.0
+              },
+              {
+                "file": "src/bank006.asm",
+                "label": "L068C0C",
+                "line": 1080.0
+              }
+            ],
+            "raw": [
+              22.0,
+              14.0,
+              10.0,
+              30.0,
+              0.0,
+              14.0,
+              3.0,
+              3.0,
+              4.0,
+              5.0,
+              0.0,
+              0.0
+            ],
+            "resistance": 4.0,
+            "route": "celica",
+            "side": "player",
+            "skill": 6.0,
+            "slot_id": 22.0,
+            "source_character": "atlas",
+            "speed": 4.0,
+            "strength": 14.0,
+            "treatment_count": 0.0
+          },
+          "shia": {
+            "acted": false,
+            "character_id": 31.0,
+            "class": "pegasus_knight",
+            "class_id": 3.0,
+            "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+            "controllable": true,
+            "dead": false,
+            "defence": 6.0,
+            "dying": true,
+            "ever_dying": true,
+            "exp": 68.0,
+            "growths": {
+              "defence": 20.0,
+              "hp": 30.0,
+              "luck": 20.0,
+              "skill": 30.0,
+              "speed": 40.0,
+              "strength": 30.0
+            },
+            "hp": 0.0,
+            "id": "shia",
+            "injury_place": "盐路",
+            "item_id": 0.0,
+            "key": "shia",
+            "level": 7.0,
+            "luck": 13.0,
+            "magic_flags": 0.0,
+            "magic_level": 0.0,
+            "max_hp": 24.0,
+            "move": 7.0,
+            "name_ja": "カチュア",
+            "name_zh": "希雅",
+            "neutral": false,
+            "no_experience": false,
+            "player_slot": 4.0,
+            "position": [
+              18.0,
+              15.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L08924A",
+                "line": 1637.0
+              },
+              {
+                "file": "src/bank009.asm",
+                "label": "L098EE1",
+                "line": 2014.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FEE00",
+                "line": 7486.0
+              },
+              {
+                "file": "src/bank006.asm",
+                "label": "L068C0C",
+                "line": 1080.0
+              }
+            ],
+            "raw": [
+              31.0,
+              3.0,
+              5.0,
+              24.0,
+              0.0,
+              11.0,
+              12.0,
+              12.0,
+              12.0,
+              5.0,
+              0.0,
+              55.0
+            ],
+            "resistance": 9.0,
+            "route": "celica",
+            "side": "player",
+            "skill": 12.0,
+            "slot_id": 31.0,
+            "source_character": "catria",
+            "speed": 13.0,
+            "strength": 11.0,
+            "treatment_count": 0.0
+          }
+        },
+        "final_turn": 9.0,
+        "initial_enemies": [
+          {
+            "acted": false,
+            "ai_flags": 0.0,
+            "behavior": "guard",
+            "character_id": 191.0,
+            "class": "arcanist",
+            "class_id": 15.0,
+            "class_name_zh": "妖术师",
+            "confidence": "source_count_bounded_template_constructor",
+            "defence": 7.0,
+            "enemy_slot": 0.0,
+            "exp": 0.0,
+            "exp_value": 55.0,
+            "group_id": 0.0,
+            "hp": 32.0,
+            "id": "F32_boss",
+            "item_id": 0.0,
+            "level": 6.0,
+            "luck": 0.0,
+            "magic_flags": 1.0,
+            "max_hp": 32.0,
+            "move": 4.0,
+            "name_id": 191.0,
+            "name_ja": "ようじゅつし",
+            "name_zh": "封路神官",
+            "objective_boss": true,
+            "position": [
+              26.0,
+              4.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L0895AA",
+                "line": 2025.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L089BCE",
+                "line": 2638.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FED94",
+                "line": 7408.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L08A31B",
+                "line": 3626.0
+              }
+            ],
+            "raw_ai_flags": 0.0,
+            "raw_magic_flags": 1.0,
+            "raw_template": [
+              191.0,
+              15.0,
+              1.0,
+              0.0,
+              128.0,
+              17.0
+            ],
+            "record_index": 1.0,
+            "resistance": 8.0,
+            "side": "enemy",
+            "skill": 6.0,
+            "speed": 4.0,
+            "strength": 12.0
+          },
+          {
+            "acted": false,
+            "ai_flags": 0.0,
+            "character_id": 184.0,
+            "class": "mercenary",
+            "class_id": 8.0,
+            "class_name_zh": "佣兵",
+            "confidence": "source_count_bounded_template_constructor",
+            "defence": 4.0,
+            "enemy_slot": 1.0,
+            "exp": 0.0,
+            "exp_value": 36.0,
+            "group_id": 0.0,
+            "hp": 23.0,
+            "id": "F32_e1",
+            "item_id": 0.0,
+            "level": 4.0,
+            "luck": 0.0,
+            "magic_flags": 0.0,
+            "max_hp": 23.0,
+            "move": 4.0,
+            "name_id": 184.0,
+            "name_ja": "ようへい",
+            "name_zh": "佣兵",
+            "position": [
+              21.0,
+              7.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L089540",
+                "line": 1992.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L089BA4",
+                "line": 2617.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FED63",
+                "line": 7387.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L08A31B",
+                "line": 3626.0
+              }
+            ],
+            "raw_ai_flags": 0.0,
+            "raw_magic_flags": 0.0,
+            "raw_template": [
+              184.0,
+              8.0,
+              1.0,
+              0.0,
+              128.0,
+              0.0
+            ],
+            "record_index": 10.0,
+            "resistance": 1.0,
+            "side": "enemy",
+            "skill": 6.0,
+            "speed": 5.0,
+            "strength": 10.0
+          },
+          {
+            "acted": false,
+            "ai_flags": 0.0,
+            "character_id": 184.0,
+            "class": "mercenary",
+            "class_id": 8.0,
+            "class_name_zh": "佣兵",
+            "confidence": "source_count_bounded_template_constructor",
+            "defence": 4.0,
+            "enemy_slot": 2.0,
+            "exp": 0.0,
+            "exp_value": 36.0,
+            "group_id": 0.0,
+            "hp": 23.0,
+            "id": "F32_e2",
+            "item_id": 0.0,
+            "level": 4.0,
+            "luck": 0.0,
+            "magic_flags": 0.0,
+            "max_hp": 23.0,
+            "move": 4.0,
+            "name_id": 184.0,
+            "name_ja": "ようへい",
+            "name_zh": "佣兵",
+            "position": [
+              15.0,
+              7.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L089540",
+                "line": 1992.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L089BA4",
+                "line": 2617.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FED63",
+                "line": 7387.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L08A31B",
+                "line": 3626.0
+              }
+            ],
+            "raw_ai_flags": 0.0,
+            "raw_magic_flags": 0.0,
+            "raw_template": [
+              184.0,
+              8.0,
+              1.0,
+              0.0,
+              128.0,
+              0.0
+            ],
+            "record_index": 10.0,
+            "resistance": 1.0,
+            "side": "enemy",
+            "skill": 6.0,
+            "speed": 5.0,
+            "strength": 10.0
+          },
+          {
+            "acted": false,
+            "ai_flags": 0.0,
+            "character_id": 184.0,
+            "class": "mercenary",
+            "class_id": 8.0,
+            "class_name_zh": "佣兵",
+            "confidence": "source_count_bounded_template_constructor",
+            "defence": 4.0,
+            "enemy_slot": 3.0,
+            "exp": 0.0,
+            "exp_value": 36.0,
+            "group_id": 0.0,
+            "hp": 23.0,
+            "id": "F32_e3",
+            "item_id": 0.0,
+            "level": 4.0,
+            "luck": 0.0,
+            "magic_flags": 0.0,
+            "max_hp": 23.0,
+            "move": 4.0,
+            "name_id": 184.0,
+            "name_ja": "ようへい",
+            "name_zh": "佣兵",
+            "position": [
+              22.0,
+              19.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L089540",
+                "line": 1992.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L089BA4",
+                "line": 2617.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FED63",
+                "line": 7387.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L08A31B",
+                "line": 3626.0
+              }
+            ],
+            "raw_ai_flags": 0.0,
+            "raw_magic_flags": 0.0,
+            "raw_template": [
+              184.0,
+              8.0,
+              1.0,
+              0.0,
+              128.0,
+              0.0
+            ],
+            "record_index": 10.0,
+            "resistance": 1.0,
+            "side": "enemy",
+            "skill": 6.0,
+            "speed": 5.0,
+            "strength": 10.0
+          },
+          {
+            "acted": false,
+            "ai_flags": 0.0,
+            "character_id": 184.0,
+            "class": "mercenary",
+            "class_id": 8.0,
+            "class_name_zh": "佣兵",
+            "confidence": "source_count_bounded_template_constructor",
+            "defence": 4.0,
+            "enemy_slot": 4.0,
+            "exp": 0.0,
+            "exp_value": 36.0,
+            "group_id": 0.0,
+            "hp": 23.0,
+            "id": "F32_e4",
+            "item_id": 0.0,
+            "level": 4.0,
+            "luck": 0.0,
+            "magic_flags": 0.0,
+            "max_hp": 23.0,
+            "move": 4.0,
+            "name_id": 184.0,
+            "name_ja": "ようへい",
+            "name_zh": "佣兵",
+            "position": [
+              11.0,
+              5.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L089540",
+                "line": 1992.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L089BA4",
+                "line": 2617.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FED63",
+                "line": 7387.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L08A31B",
+                "line": 3626.0
+              }
+            ],
+            "raw_ai_flags": 0.0,
+            "raw_magic_flags": 0.0,
+            "raw_template": [
+              184.0,
+              8.0,
+              1.0,
+              0.0,
+              128.0,
+              0.0
+            ],
+            "record_index": 10.0,
+            "resistance": 1.0,
+            "side": "enemy",
+            "skill": 6.0,
+            "speed": 5.0,
+            "strength": 10.0
+          },
+          {
+            "acted": false,
+            "ai_flags": 0.0,
+            "behavior": "guard",
+            "character_id": 188.0,
+            "class": "archer",
+            "class_id": 12.0,
+            "class_name_zh": "弓箭手",
+            "confidence": "source_count_bounded_template_constructor",
+            "defence": 4.0,
+            "enemy_slot": 5.0,
+            "exp": 0.0,
+            "exp_value": 36.0,
+            "group_id": 0.0,
+            "hp": 23.0,
+            "id": "F32_e5",
+            "item_id": 20.0,
+            "level": 4.0,
+            "luck": 0.0,
+            "magic_flags": 0.0,
+            "max_hp": 23.0,
+            "move": 4.0,
+            "name_id": 188.0,
+            "name_ja": "アーチャー",
+            "name_zh": "弓手",
+            "position": [
+              23.0,
+              5.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L089482",
+                "line": 1919.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L089B44",
+                "line": 2569.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FED7F",
+                "line": 7399.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L08A31B",
+                "line": 3626.0
+              }
+            ],
+            "raw_ai_flags": 0.0,
+            "raw_magic_flags": 0.0,
+            "raw_template": [
+              188.0,
+              12.0,
+              1.0,
+              0.0,
+              192.0,
+              0.0
+            ],
+            "record_index": 2.0,
+            "resistance": 0.0,
+            "side": "enemy",
+            "skill": 6.0,
+            "speed": 4.0,
+            "strength": 10.0
+          },
+          {
+            "acted": false,
+            "ai_flags": 0.0,
+            "behavior": "guard",
+            "character_id": 188.0,
+            "class": "archer",
+            "class_id": 12.0,
+            "class_name_zh": "弓箭手",
+            "confidence": "source_count_bounded_template_constructor",
+            "defence": 4.0,
+            "enemy_slot": 6.0,
+            "exp": 0.0,
+            "exp_value": 36.0,
+            "group_id": 0.0,
+            "hp": 23.0,
+            "id": "F32_e6",
+            "item_id": 0.0,
+            "level": 4.0,
+            "luck": 0.0,
+            "magic_flags": 0.0,
+            "max_hp": 23.0,
+            "move": 4.0,
+            "name_id": 188.0,
+            "name_ja": "アーチャー",
+            "name_zh": "弓手",
+            "position": [
+              20.0,
+              16.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L089482",
+                "line": 1919.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L089B44",
+                "line": 2569.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FED7F",
+                "line": 7399.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L08A31B",
+                "line": 3626.0
+              }
+            ],
+            "raw_ai_flags": 0.0,
+            "raw_magic_flags": 0.0,
+            "raw_template": [
+              188.0,
+              12.0,
+              1.0,
+              0.0,
+              192.0,
+              0.0
+            ],
+            "record_index": 2.0,
+            "resistance": 0.0,
+            "side": "enemy",
+            "skill": 6.0,
+            "speed": 4.0,
+            "strength": 10.0
+          },
+          {
+            "acted": false,
+            "ai_flags": 0.0,
+            "behavior": "guard",
+            "character_id": 188.0,
+            "class": "archer",
+            "class_id": 12.0,
+            "class_name_zh": "弓箭手",
+            "confidence": "source_count_bounded_template_constructor",
+            "defence": 4.0,
+            "enemy_slot": 7.0,
+            "exp": 0.0,
+            "exp_value": 36.0,
+            "group_id": 0.0,
+            "hp": 23.0,
+            "id": "F32_e7",
+            "item_id": 0.0,
+            "level": 4.0,
+            "luck": 0.0,
+            "magic_flags": 0.0,
+            "max_hp": 23.0,
+            "move": 4.0,
+            "name_id": 188.0,
+            "name_ja": "アーチャー",
+            "name_zh": "弓手",
+            "position": [
+              25.0,
+              16.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L089482",
+                "line": 1919.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L089B44",
+                "line": 2569.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FED7F",
+                "line": 7399.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L08A31B",
+                "line": 3626.0
+              }
+            ],
+            "raw_ai_flags": 0.0,
+            "raw_magic_flags": 0.0,
+            "raw_template": [
+              188.0,
+              12.0,
+              1.0,
+              0.0,
+              192.0,
+              0.0
+            ],
+            "record_index": 2.0,
+            "resistance": 0.0,
+            "side": "enemy",
+            "skill": 6.0,
+            "speed": 4.0,
+            "strength": 10.0
+          },
+          {
+            "acted": false,
+            "ai_flags": 0.0,
+            "behavior": "guard",
+            "character_id": 191.0,
+            "class": "arcanist",
+            "class_id": 15.0,
+            "class_name_zh": "妖术师",
+            "confidence": "source_count_bounded_template_constructor",
+            "defence": 4.0,
+            "enemy_slot": 8.0,
+            "exp": 0.0,
+            "exp_value": 36.0,
+            "group_id": 0.0,
+            "hp": 23.0,
+            "id": "F32_e8",
+            "item_id": 0.0,
+            "level": 4.0,
+            "luck": 0.0,
+            "magic_flags": 1.0,
+            "max_hp": 23.0,
+            "move": 4.0,
+            "name_id": 191.0,
+            "name_ja": "ようじゅつし",
+            "name_zh": "术士",
+            "position": [
+              25.0,
+              11.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L0895AA",
+                "line": 2025.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L089BCE",
+                "line": 2638.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FED94",
+                "line": 7408.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L08A31B",
+                "line": 3626.0
+              }
+            ],
+            "raw_ai_flags": 0.0,
+            "raw_magic_flags": 1.0,
+            "raw_template": [
+              191.0,
+              15.0,
+              1.0,
+              0.0,
+              128.0,
+              17.0
+            ],
+            "record_index": 1.0,
+            "resistance": 8.0,
+            "side": "enemy",
+            "skill": 6.0,
+            "speed": 4.0,
+            "strength": 10.0
+          },
+          {
+            "acted": false,
+            "ai_flags": 0.0,
+            "behavior": "guard",
+            "character_id": 191.0,
+            "class": "arcanist",
+            "class_id": 15.0,
+            "class_name_zh": "妖术师",
+            "confidence": "source_count_bounded_template_constructor",
+            "defence": 4.0,
+            "enemy_slot": 9.0,
+            "exp": 0.0,
+            "exp_value": 36.0,
+            "group_id": 0.0,
+            "hp": 23.0,
+            "id": "F32_e9",
+            "item_id": 0.0,
+            "level": 4.0,
+            "luck": 0.0,
+            "magic_flags": 1.0,
+            "max_hp": 23.0,
+            "move": 4.0,
+            "name_id": 191.0,
+            "name_ja": "ようじゅつし",
+            "name_zh": "术士",
+            "position": [
+              25.0,
+              7.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L0895AA",
+                "line": 2025.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L089BCE",
+                "line": 2638.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FED94",
+                "line": 7408.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L08A31B",
+                "line": 3626.0
+              }
+            ],
+            "raw_ai_flags": 0.0,
+            "raw_magic_flags": 1.0,
+            "raw_template": [
+              191.0,
+              15.0,
+              1.0,
+              0.0,
+              128.0,
+              17.0
+            ],
+            "record_index": 1.0,
+            "resistance": 8.0,
+            "side": "enemy",
+            "skill": 6.0,
+            "speed": 4.0,
+            "strength": 10.0
+          },
+          {
+            "acted": false,
+            "ai_flags": 0.0,
+            "behavior": "guard",
+            "character_id": 179.0,
+            "class": "gargoyle",
+            "class_id": 3.0,
+            "class_name_zh": "石像鬼",
+            "confidence": "source_count_bounded_template_constructor",
+            "defence": 4.0,
+            "enemy_slot": 10.0,
+            "exp": 0.0,
+            "exp_value": 36.0,
+            "group_id": 0.0,
+            "hp": 23.0,
+            "id": "F32_e10",
+            "item_id": 0.0,
+            "level": 4.0,
+            "luck": 0.0,
+            "magic_flags": 0.0,
+            "max_hp": 23.0,
+            "move": 7.0,
+            "name_id": 179.0,
+            "name_ja": "ガーゴイル",
+            "name_zh": "飞行守军",
+            "position": [
+              18.0,
+              5.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L0897D6",
+                "line": 2186.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L089B0E",
+                "line": 2542.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FED40",
+                "line": 7372.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L08A31B",
+                "line": 3626.0
+              }
+            ],
+            "raw_ai_flags": 0.0,
+            "raw_magic_flags": 0.0,
+            "raw_template": [
+              179.0,
+              3.0,
+              1.0,
+              0.0,
+              64.0,
+              0.0
+            ],
+            "record_index": 2.0,
+            "resistance": 7.0,
+            "side": "enemy",
+            "skill": 6.0,
+            "speed": 5.0,
+            "strength": 10.0
+          },
+          {
+            "acted": false,
+            "ai_flags": 0.0,
+            "behavior": "guard",
+            "character_id": 179.0,
+            "class": "gargoyle",
+            "class_id": 3.0,
+            "class_name_zh": "石像鬼",
+            "confidence": "source_count_bounded_template_constructor",
+            "defence": 4.0,
+            "enemy_slot": 11.0,
+            "exp": 0.0,
+            "exp_value": 36.0,
+            "group_id": 0.0,
+            "hp": 23.0,
+            "id": "F32_e11",
+            "item_id": 0.0,
+            "level": 4.0,
+            "luck": 0.0,
+            "magic_flags": 0.0,
+            "max_hp": 23.0,
+            "move": 7.0,
+            "name_id": 179.0,
+            "name_ja": "ガーゴイル",
+            "name_zh": "飞行守军",
+            "position": [
+              26.0,
+              17.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L0897D6",
+                "line": 2186.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L089B0E",
+                "line": 2542.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FED40",
+                "line": 7372.0
+              },
+              {
+                "file": "src/bank008.asm",
+                "label": "L08A31B",
+                "line": 3626.0
+              }
+            ],
+            "raw_ai_flags": 0.0,
+            "raw_magic_flags": 0.0,
+            "raw_template": [
+              179.0,
+              3.0,
+              1.0,
+              0.0,
+              64.0,
+              0.0
+            ],
+            "record_index": 2.0,
+            "resistance": 7.0,
+            "side": "enemy",
+            "skill": 6.0,
+            "speed": 5.0,
+            "strength": 10.0
+          }
+        ],
+        "initial_party": [
+          "eileen",
+          "mireille",
+          "lisa",
+          "carlo",
+          "lord",
+          "roan",
+          "shia"
+        ],
+        "initial_players": [
+          {
+            "acted": false,
+            "character_id": 2.0,
+            "class": "priestess",
+            "class_id": 11.0,
+            "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+            "dead": false,
+            "defence": 7.0,
+            "dying": false,
+            "ever_dying": false,
+            "exp": 91.0,
+            "growths": {
+              "defence": 20.0,
+              "hp": 30.0,
+              "luck": 40.0,
+              "skill": 40.0,
+              "speed": 30.0,
+              "strength": 25.0
+            },
+            "hp": 22.0,
+            "id": "eileen",
+            "item_id": 16.0,
+            "key": "eileen",
+            "level": 7.0,
+            "luck": 12.0,
+            "magic_flags": 9.0,
+            "magic_level": 6.0,
+            "max_hp": 22.0,
+            "move": 4.0,
+            "name_ja": "セリカ",
+            "name_zh": "艾琳",
+            "personal_resistance": 8.0,
+            "player_slot": 0.0,
+            "position": [
+              7.0,
+              20.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L0890EE",
+                "line": 1521.0
+              },
+              {
+                "file": "src/bank009.asm",
+                "label": "L098E33",
+                "line": 1927.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FEE00",
+                "line": 7486.0
+              },
+              {
+                "file": "src/bank006.asm",
+                "label": "L068C0C",
+                "line": 1080.0
+              }
+            ],
+            "raw": [
+              2.0,
+              11.0,
+              1.0,
+              20.0,
+              0.0,
+              8.0,
+              6.0,
+              6.0,
+              8.0,
+              4.0,
+              1.0,
+              0.0
+            ],
+            "resistance": 8.0,
+            "route": "celica",
+            "side": "player",
+            "skill": 6.0,
+            "slot_id": 2.0,
+            "source_character": "celica",
+            "speed": 7.0,
+            "strength": 10.0,
+            "treatment_count": 0.0
+          },
+          {
+            "acted": false,
+            "character_id": 27.0,
+            "class": "mercenary",
+            "class_id": 8.0,
+            "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+            "dead": false,
+            "defence": 7.0,
+            "dying": false,
+            "ever_dying": false,
+            "exp": 36.0,
+            "growths": {
+              "defence": 40.0,
+              "hp": 50.0,
+              "luck": 10.0,
+              "skill": 15.0,
+              "speed": 15.0,
+              "strength": 20.0
+            },
+            "hp": 26.0,
+            "id": "carlo",
+            "item_id": 59.0,
+            "key": "carlo",
+            "level": 7.0,
+            "luck": 7.0,
+            "magic_flags": 0.0,
+            "magic_level": 6.0,
+            "max_hp": 26.0,
+            "move": 4.0,
+            "name_ja": "セーバー",
+            "name_zh": "卡洛",
+            "player_slot": 1.0,
+            "position": [
+              8.0,
+              20.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L08921A",
+                "line": 1621.0
+              },
+              {
+                "file": "src/bank009.asm",
+                "label": "L098EC9",
+                "line": 2002.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FEE00",
+                "line": 7486.0
+              },
+              {
+                "file": "src/bank006.asm",
+                "label": "L068C0C",
+                "line": 1080.0
+              }
+            ],
+            "raw": [
+              27.0,
+              8.0,
+              1.0,
+              22.0,
+              0.0,
+              9.0,
+              9.0,
+              10.0,
+              6.0,
+              4.0,
+              0.0,
+              0.0
+            ],
+            "resistance": 6.0,
+            "route": "celica",
+            "side": "player",
+            "skill": 9.0,
+            "slot_id": 27.0,
+            "source_character": "saber",
+            "speed": 11.0,
+            "strength": 11.0,
+            "treatment_count": 0.0
+          },
+          {
+            "acted": false,
+            "character_id": 18.0,
+            "class": "knight",
+            "class_id": 2.0,
+            "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+            "controllable": true,
+            "dead": false,
+            "defence": 12.0,
+            "dying": false,
+            "ever_dying": false,
+            "exp": 73.0,
+            "growths": {
+              "defence": 20.0,
+              "hp": 40.0,
+              "luck": 10.0,
+              "skill": 35.0,
+              "speed": 25.0,
+              "strength": 20.0
+            },
+            "hp": 32.0,
+            "id": "lord",
+            "item_id": 62.0,
+            "key": "lord",
+            "level": 4.0,
+            "luck": 2.0,
+            "magic_flags": 0.0,
+            "magic_level": 0.0,
+            "max_hp": 32.0,
+            "move": 4.0,
+            "name_ja": "バルボ",
+            "name_zh": "洛德",
+            "neutral": false,
+            "no_experience": false,
+            "player_slot": 2.0,
+            "position": [
+              9.0,
+              20.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L0891AE",
+                "line": 1585.0
+              },
+              {
+                "file": "src/bank009.asm",
+                "label": "L098E93",
+                "line": 1975.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FEE00",
+                "line": 7486.0
+              },
+              {
+                "file": "src/bank006.asm",
+                "label": "L068C0C",
+                "line": 1080.0
+              }
+            ],
+            "raw": [
+              18.0,
+              2.0,
+              1.0,
+              30.0,
+              0.0,
+              14.0,
+              5.0,
+              2.0,
+              1.0,
+              12.0,
+              0.0,
+              0.0
+            ],
+            "resistance": 0.0,
+            "route": "celica",
+            "side": "player",
+            "skill": 6.0,
+            "slot_id": 18.0,
+            "source_character": "valbar",
+            "speed": 2.0,
+            "strength": 14.0,
+            "treatment_count": 0.0
+          },
+          {
+            "acted": false,
+            "adaptation": "Atlas portrait/village identity; Archer class and weapon animation per approved Roan role.",
+            "character_id": 22.0,
+            "class": "archer",
+            "class_id": 12.0,
+            "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+            "controllable": true,
+            "dead": false,
+            "defence": 5.0,
+            "dying": false,
+            "ever_dying": false,
+            "exp": 32.0,
+            "growths": {
+              "defence": 20.0,
+              "hp": 30.0,
+              "luck": 15.0,
+              "skill": 20.0,
+              "speed": 10.0,
+              "strength": 30.0
+            },
+            "hp": 27.0,
+            "id": "roan",
+            "item_id": 21.0,
+            "key": "roan",
+            "level": 8.0,
+            "luck": 6.0,
+            "magic_flags": 0.0,
+            "magic_level": 5.0,
+            "max_hp": 27.0,
+            "move": 4.0,
+            "name_ja": "アトラス",
+            "name_zh": "罗恩",
+            "neutral": false,
+            "no_experience": false,
+            "player_slot": 3.0,
+            "position": [
+              10.0,
+              20.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L0891DE",
+                "line": 1601.0
+              },
+              {
+                "file": "src/bank009.asm",
+                "label": "L098EAB",
+                "line": 1987.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FEE00",
+                "line": 7486.0
+              },
+              {
+                "file": "src/bank006.asm",
+                "label": "L068C0C",
+                "line": 1080.0
+              }
+            ],
+            "raw": [
+              22.0,
+              14.0,
+              10.0,
+              30.0,
+              0.0,
+              14.0,
+              3.0,
+              3.0,
+              4.0,
+              5.0,
+              0.0,
+              0.0
+            ],
+            "resistance": 4.0,
+            "route": "celica",
+            "side": "player",
+            "skill": 6.0,
+            "slot_id": 22.0,
+            "source_character": "atlas",
+            "speed": 4.0,
+            "strength": 14.0,
+            "treatment_count": 0.0
+          },
+          {
+            "acted": false,
+            "character_id": 31.0,
+            "class": "pegasus_knight",
+            "class_id": 3.0,
+            "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+            "controllable": true,
+            "dead": false,
+            "defence": 6.0,
+            "dying": false,
+            "ever_dying": false,
+            "exp": 45.0,
+            "growths": {
+              "defence": 20.0,
+              "hp": 30.0,
+              "luck": 20.0,
+              "skill": 30.0,
+              "speed": 40.0,
+              "strength": 30.0
+            },
+            "hp": 24.0,
+            "id": "shia",
+            "item_id": 62.0,
+            "key": "shia",
+            "level": 7.0,
+            "luck": 13.0,
+            "magic_flags": 0.0,
+            "magic_level": 0.0,
+            "max_hp": 24.0,
+            "move": 7.0,
+            "name_ja": "カチュア",
+            "name_zh": "希雅",
+            "neutral": false,
+            "no_experience": false,
+            "player_slot": 4.0,
+            "position": [
+              7.0,
+              21.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L08924A",
+                "line": 1637.0
+              },
+              {
+                "file": "src/bank009.asm",
+                "label": "L098EE1",
+                "line": 2014.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FEE00",
+                "line": 7486.0
+              },
+              {
+                "file": "src/bank006.asm",
+                "label": "L068C0C",
+                "line": 1080.0
+              }
+            ],
+            "raw": [
+              31.0,
+              3.0,
+              5.0,
+              24.0,
+              0.0,
+              11.0,
+              12.0,
+              12.0,
+              12.0,
+              5.0,
+              0.0,
+              55.0
+            ],
+            "resistance": 9.0,
+            "route": "celica",
+            "side": "player",
+            "skill": 12.0,
+            "slot_id": 31.0,
+            "source_character": "catria",
+            "speed": 13.0,
+            "strength": 11.0,
+            "treatment_count": 0.0
+          },
+          {
+            "acted": false,
+            "character_id": 21.0,
+            "class": "soldier",
+            "class_id": 6.0,
+            "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
+            "controllable": false,
+            "dead": false,
+            "defence": 5.0,
+            "exp": 0.0,
+            "growths": {
+              "defence": 30.0,
+              "hp": 50.0,
+              "luck": 10.0,
+              "skill": 20.0,
+              "speed": 10.0,
+              "strength": 20.0
+            },
+            "hp": 28.0,
+            "id": "salt_guide",
+            "item_id": 0.0,
+            "key": "daan",
+            "level": 1.0,
+            "locked": false,
+            "luck": 6.0,
+            "magic_flags": 0.0,
+            "magic_level": 0.0,
+            "max_hp": 28.0,
+            "move": 2.0,
+            "name_ja": "レオ",
+            "name_zh": "盐路向导",
+            "neutral": true,
+            "no_counter": true,
+            "no_experience": true,
+            "player_slot": 5.0,
+            "position": [
+              7.0,
+              24.0
+            ],
+            "provenance": [
+              {
+                "file": "src/bank008.asm",
+                "label": "L0891D2",
+                "line": 1597.0
+              },
+              {
+                "file": "src/bank009.asm",
+                "label": "L098EA5",
+                "line": 1984.0
+              },
+              {
+                "file": "src/bank015.asm",
+                "label": "L0FEE00",
+                "line": 7486.0
+              },
+              {
+                "file": "src/bank006.asm",
+                "label": "L068C0C",
+                "line": 1080.0
+              }
+            ],
+            "quest_kind": "guide",
+            "raw": [
+              21.0,
+              12.0,
+              4.0,
+              23.0,
+              0.0,
+              11.0,
+              6.0,
+              4.0,
+              6.0,
+              4.0,
+              0.0,
+              0.0
+            ],
+            "resistance": 5.0,
+            "route": "celica",
+            "side": "player",
+            "skill": 6.0,
+            "slot_id": 21.0,
+            "source_character": "leo",
+            "speed": 4.0,
+            "strength": 11.0,
+            "temporary": true
+          }
+        ],
+        "key_inputs": 509.0,
+        "map_sha256": "4a5b0310087eebe20a79cf1c3ced871f3704cd81c72f6980fe47130ed47c223e",
+        "outcome": "defeat",
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1.0,
+          "boats": [],
+          "burn_streak": 0.0,
+          "evacuated": [],
+          "failed_reason": "艾琳濒死，无法继续作战",
+          "freed": [],
+          "german_decision": "",
+          "mid_done": false,
+          "objects": {},
+          "reinforced": false,
+          "transport_index": 0.0,
+          "transport_stopped": false
+        },
+        "return_view": "defeat",
+        "route": "celica",
+        "scope": "Continuous from genuine chapter-two completion, normal route switching, recruitment and equipment, all growth and casualties carried forward",
+        "source": "res://reports/chapter2-redesign-20261022/play/continuous-resumed-entry/continuous-resumed-entry-chapter3-start.json",
+        "source_sha256": "0f2e021c770abb974e13ba88352db0c1685f9f3290534e3ea221d0cf989283c7",
+        "stage": 305.0,
+        "turns": [
+          {
+            "enemies": 12.0,
+            "players": 6.0,
+            "quest": {
+              "beacon_contested": false,
+              "beacon_since": -1.0,
+              "boats": [],
+              "burn_streak": 0.0,
+              "evacuated": [],
+              "freed": [],
+              "german_decision": "",
+              "mid_done": false,
+              "objects": {},
+              "reinforced": false,
+              "transport_index": 0.0,
+              "transport_stopped": false
+            },
+            "turn": 2.0
+          },
+          {
+            "enemies": 11.0,
+            "players": 6.0,
+            "quest": {
+              "beacon_contested": false,
+              "beacon_since": -1.0,
+              "boats": [],
+              "burn_streak": 0.0,
+              "evacuated": [],
+              "freed": [],
+              "german_decision": "",
+              "mid_done": false,
+              "objects": {},
+              "reinforced": false,
+              "transport_index": 0.0,
+              "transport_stopped": false
+            },
+            "turn": 3.0
+          },
+          {
+            "enemies": 8.0,
+            "players": 6.0,
+            "quest": {
+              "beacon_contested": false,
+              "beacon_since": -1.0,
+              "boats": [],
+              "burn_streak": 0.0,
+              "evacuated": [],
+              "freed": [],
+              "german_decision": "",
+              "mid_done": false,
+              "objects": {},
+              "reinforced": false,
+              "transport_index": 0.0,
+              "transport_stopped": false
+            },
+            "turn": 4.0
+          },
+          {
+            "enemies": 6.0,
+            "players": 5.0,
+            "quest": {
+              "beacon_contested": false,
+              "beacon_since": -1.0,
+              "boats": [],
+              "burn_streak": 0.0,
+              "evacuated": [],
+              "freed": [],
+              "german_decision": "",
+              "mid_done": false,
+              "objects": {},
+              "reinforced": false,
+              "transport_index": 0.0,
+              "transport_stopped": false
+            },
+            "turn": 5.0
+          },
+          {
+            "enemies": 5.0,
+            "players": 5.0,
+            "quest": {
+              "beacon_contested": false,
+              "beacon_since": -1.0,
+              "boats": [],
+              "burn_streak": 0.0,
+              "evacuated": [],
+              "freed": [],
+              "german_decision": "",
+              "mid_done": false,
+              "objects": {},
+              "reinforced": false,
+              "transport_index": 0.0,
+              "transport_stopped": false
+            },
+            "turn": 6.0
+          },
+          {
+            "enemies": 5.0,
+            "players": 5.0,
+            "quest": {
+              "beacon_contested": false,
+              "beacon_since": -1.0,
+              "boats": [],
+              "burn_streak": 0.0,
+              "evacuated": [],
+              "freed": [],
+              "german_decision": "",
+              "mid_done": false,
+              "objects": {},
+              "reinforced": false,
+              "transport_index": 0.0,
+              "transport_stopped": false
+            },
+            "turn": 7.0
+          },
+          {
+            "enemies": 4.0,
+            "players": 5.0,
+            "quest": {
+              "beacon_contested": false,
+              "beacon_since": -1.0,
+              "boats": [],
+              "burn_streak": 0.0,
+              "evacuated": [],
+              "freed": [],
+              "german_decision": "",
+              "mid_done": false,
+              "objects": {},
+              "reinforced": false,
+              "transport_index": 0.0,
+              "transport_stopped": false
+            },
+            "turn": 8.0
+          },
+          {
+            "enemies": 4.0,
+            "players": 5.0,
+            "quest": {
+              "beacon_contested": false,
+              "beacon_since": -1.0,
+              "boats": [],
+              "burn_streak": 0.0,
+              "evacuated": [],
+              "freed": [],
+              "german_decision": "",
+              "mid_done": false,
+              "objects": {},
+              "reinforced": false,
+              "transport_index": 0.0,
+              "transport_stopped": false
+            },
+            "turn": 9.0
+          },
+          {
+            "enemies": 4.0,
+            "players": 4.0,
+            "quest": {
+              "beacon_contested": false,
+              "beacon_since": -1.0,
+              "boats": [],
+              "burn_streak": 0.0,
+              "evacuated": [],
+              "failed_reason": "艾琳濒死，无法继续作战",
+              "freed": [],
+              "german_decision": "",
+              "mid_done": false,
+              "objects": {},
+              "reinforced": false,
+              "transport_index": 0.0,
+              "transport_stopped": false
+            },
+            "turn": 9.0
+          }
+        ]
+      }
+    ],
+    "scope": "One actual campaign chain from genuine chapter-two completion into chapter four, with one normal F32 result-menu retry. All final map hashes verified; no live user save used."
+  },
+  "layout_errors": [],
+  "limitations": [
+    "Actual input uses isolated genuine development records, not live user saves. No unit attributes, random results or victories are forced.",
+    "Two per-map rounds do not mean two new-game playthroughs; continuous flow scope is recorded separately.",
+    "No iPhone installation. HTML link/script tests do not claim browser layout-engine verification."
+  ]
+}

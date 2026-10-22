@@ -1,0 +1,454 @@
+{
+  "passed": true,
+  "code": "S41",
+  "size": [
+    26,
+    24
+  ],
+  "closed_connected": 423,
+  "opened_connected": 423,
+  "notes": [
+    "雪山村落沿钟楼主街展开，东侧名册屋门朝南，西南医舍与避难院在队伍后方；雪林和连片岩坡界定村缘。",
+    "主街尽快接近名册屋，东坡小路是焚毁兵实际来路，南侧住屋旁有回村支线；屋门操作格与焚毁目标完全重合。",
+    "焚毁兵第5回合出发、前一回合预告、连续两次点火才毁册不变；从东坡到南门有实际路程供拦截，名册损失仍不阻断主线。"
+  ],
+  "units_only_positions_changed": true,
+  "story_timing_rules_preserved": true,
+  "coordinate_changes": {
+    "enemies": [
+      {
+        "id": "S41_boss",
+        "before": [
+          19,
+          6
+        ],
+        "after": [
+          22,
+          5
+        ]
+      },
+      {
+        "id": "S41_e1",
+        "before": [
+          17,
+          6
+        ],
+        "after": [
+          15,
+          8
+        ]
+      },
+      {
+        "id": "S41_e2",
+        "before": [
+          15,
+          7
+        ],
+        "after": [
+          14,
+          11
+        ]
+      },
+      {
+        "id": "S41_e3",
+        "before": [
+          17,
+          15
+        ],
+        "after": [
+          18,
+          17
+        ]
+      },
+      {
+        "id": "S41_e4",
+        "before": [
+          9,
+          5
+        ],
+        "after": [
+          10,
+          10
+        ]
+      },
+      {
+        "id": "S41_e5",
+        "before": [
+          17,
+          7
+        ],
+        "after": [
+          18,
+          9
+        ]
+      },
+      {
+        "id": "S41_e6",
+        "before": [
+          17,
+          8
+        ],
+        "after": [
+          22,
+          12
+        ]
+      },
+      {
+        "id": "S41_e7",
+        "before": [
+          17,
+          16
+        ],
+        "after": [
+          20,
+          17
+        ]
+      },
+      {
+        "id": "S41_e8",
+        "before": [
+          9,
+          6
+        ],
+        "after": [
+          11,
+          7
+        ]
+      }
+    ],
+    "npc_units": [
+      {
+        "id": "village_witness",
+        "before": [
+          8,
+          16
+        ],
+        "after": [
+          5,
+          19
+        ]
+      },
+      {
+        "id": "otto_comrade",
+        "before": [
+          11,
+          13
+        ],
+        "after": [
+          6,
+          20
+        ]
+      }
+    ],
+    "reinforcements": [],
+    "objects": [
+      {
+        "id": "black_register",
+        "before": [
+          15,
+          9
+        ],
+        "after": [
+          18,
+          12
+        ]
+      },
+      {
+        "id": "refuge_court",
+        "before": [
+          7,
+          14
+        ],
+        "after": [
+          6,
+          17
+        ]
+      }
+    ]
+  },
+  "deployment_before": [
+    [
+      2,
+      17
+    ],
+    [
+      3,
+      17
+    ],
+    [
+      4,
+      17
+    ],
+    [
+      5,
+      17
+    ],
+    [
+      2,
+      18
+    ],
+    [
+      3,
+      18
+    ],
+    [
+      4,
+      18
+    ],
+    [
+      5,
+      18
+    ],
+    [
+      2,
+      19
+    ],
+    [
+      3,
+      19
+    ]
+  ],
+  "deployment_after": [
+    [
+      9,
+      19
+    ],
+    [
+      10,
+      19
+    ],
+    [
+      9,
+      20
+    ],
+    [
+      10,
+      20
+    ],
+    [
+      8,
+      19
+    ],
+    [
+      11,
+      19
+    ],
+    [
+      8,
+      20
+    ],
+    [
+      11,
+      20
+    ],
+    [
+      9,
+      21
+    ],
+    [
+      10,
+      21
+    ]
+  ],
+  "exit": [
+    18,
+    5
+  ],
+  "targets": [
+    [
+      18,
+      12
+    ],
+    [
+      6,
+      17
+    ]
+  ],
+  "interaction_front_distances": {
+    "black_register": 15,
+    "refuge_court": 5
+  },
+  "burner_steps_to_south_door": 12,
+  "earliest_unopposed_first_fire_turn": 7,
+  "two_consecutive_fires_required": true,
+  "map_sha256": "ed7f4d5f11479138a0fbb5d5afd1589775239287f8185f96697a8de4df107e50",
+  "routes": [
+    {
+      "name": "山村主街至钟楼",
+      "waypoints": [
+        [
+          9,
+          22
+        ],
+        [
+          9,
+          15
+        ],
+        [
+          12,
+          15
+        ],
+        [
+          12,
+          8
+        ],
+        [
+          17,
+          8
+        ],
+        [
+          17,
+          5
+        ]
+      ],
+      "width": 2,
+      "surface": "p"
+    },
+    {
+      "name": "东侧名册屋南门支路",
+      "waypoints": [
+        [
+          12,
+          15
+        ],
+        [
+          18,
+          15
+        ],
+        [
+          18,
+          13
+        ]
+      ],
+      "width": 1,
+      "surface": "p"
+    },
+    {
+      "name": "焚毁兵东坡进村路",
+      "waypoints": [
+        [
+          17,
+          8
+        ],
+        [
+          22,
+          8
+        ],
+        [
+          22,
+          13
+        ],
+        [
+          18,
+          13
+        ]
+      ],
+      "width": 1,
+      "surface": "p"
+    },
+    {
+      "name": "医舍避难院接应路",
+      "waypoints": [
+        [
+          9,
+          18
+        ],
+        [
+          6,
+          18
+        ],
+        [
+          6,
+          16
+        ],
+        [
+          5,
+          16
+        ]
+      ],
+      "width": 1,
+      "surface": "p"
+    }
+  ],
+  "structures": [
+    {
+      "name": "quay_warehouse",
+      "origin": [
+        17,
+        11
+      ],
+      "footprint": [
+        3,
+        2
+      ]
+    },
+    {
+      "name": "village_clinic",
+      "origin": [
+        4,
+        14
+      ],
+      "footprint": [
+        3,
+        2
+      ]
+    },
+    {
+      "name": "snow_cottage",
+      "origin": [
+        9,
+        4
+      ],
+      "footprint": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "snow_cottage",
+      "origin": [
+        16,
+        19
+      ],
+      "footprint": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "tower_entry",
+      "origin": [
+        16,
+        2
+      ],
+      "footprint": [
+        2,
+        3
+      ]
+    }
+  ],
+  "interactions": [
+    {
+      "id": "black_register",
+      "position": [
+        18,
+        12
+      ],
+      "approach": [
+        18,
+        13
+      ],
+      "sprite_offset": [
+        0,
+        8
+      ]
+    },
+    {
+      "id": "refuge_court",
+      "position": [
+        6,
+        17
+      ]
+    }
+  ]
+}

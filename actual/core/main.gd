@@ -8,6 +8,7 @@ const JourneyScreen = preload("res://core/journey_screen.gd")
 const EquipmentScreen = preload("res://core/equipment_screen.gd")
 const HubCaption = preload("res://core/hub_caption_layout.gd")
 const OVERVIEW_IMAGE = preload("res://assets/world_tiles/formal-world-overview.png")
+var chapter_one_world_climate: Dictionary = {}
 var overview_zoom := 1
 var overview_center := Vector2(0.5,0.5)
 var overview_mouse_drag := false
@@ -593,7 +594,8 @@ func _draw_surroundings(origin: Vector2,footprint: Vector2i,layout: Dictionary) 
 func _draw_hub_surroundings(room: String,origin: Vector2) -> void:
 	if game.chapter>=4 and hub_controller.chapter2_rooms.has(room):
 		_draw_surroundings(origin,Vector2i(14,9),{"biome":hub_controller.chapter2_rooms[room].get("biome_override","grass")});return
-	_draw_surroundings(origin,Vector2i(14,9),nature_layouts.get("hubs",{}).get(room,{}))
+	var layout=hub_controller.climate_surroundings(room,nature_layouts.get("hubs",{}).get(room,{}))
+	_draw_surroundings(origin,Vector2i(14,9),layout)
 
 func _draw_natural_grove(room: String,name: String,origin: Vector2,rect: Rect2i) -> bool:
 	for group in nature_layouts.get("hubs",{}).get(room,{}).get("groves",[]):
@@ -694,6 +696,19 @@ func _draw_camp_control_flag(at: Vector2,controlled: bool,marker_colour: Color=C
 	var colour=marker_colour if marker_colour.a>0 else Color(.35,.65,1.0) if controlled else Color(1.0,.32,.25)
 	draw_texture_rect_region(texture,Rect2(at+cloth.position,cloth.size),cloth,colour)
 
+func _first_chapter_winter() -> bool:
+	return game.chapter==1 and not game.flags.get("chapter1_complete",false)
+
+func _world_visual_data() -> Dictionary:
+	if not _first_chapter_winter():return world
+	if chapter_one_world_climate.is_empty():
+		chapter_one_world_climate=GameState.read_json("res://data/chapter1_world_climate.json")
+	return chapter_one_world_climate
+
+func _world_overview_texture() -> Texture2D:
+	if _first_chapter_winter():return _tex(str(_world_visual_data().overview))
+	return OVERVIEW_IMAGE
+
 func _draw_world() -> void:
 	if camp_context=="hub" and view=="camp_status":hub_controller.draw();return
 	var camera=world_actor-Vector2(120,96)
@@ -707,9 +722,10 @@ func _draw_world() -> void:
 		var actor_cell=Vector2i((world_actor/16).round())
 		for node in world.nodes.values():
 			if node.get("symbol","")=="camp" and actor_cell==Vector2i(node.position[0],node.position[1]):occupied_camps[actor_cell]=true
-	_draw_layers(world.layers.slice(0,world.layers.size()-1),32,_tex(world.atlas),origin)
-	_draw_layers([world.layers.back()],32,_tex(world.atlas),origin,Color.WHITE,occupied_camps)
-	_draw_nature_props(world.get("natural_props",[]),origin)
+	var visual=_world_visual_data()
+	_draw_layers(visual.layers.slice(0,visual.layers.size()-1),32,_tex(visual.atlas),origin)
+	_draw_layers([visual.layers.back()],32,_tex(visual.atlas),origin,Color.WHITE,occupied_camps)
+	_draw_nature_props(visual.get("natural_props",[]),origin)
 	var sp: Dictionary=graphics.map_units.class_11_ally if game.route=="celica" else graphics.map_units.class_21_ally
 	var class_actor=PartySprites.sprite("world",game.roster.get(game.leader_id(),{}),game.chapter)
 	if class_actor.is_empty():class_actor=PartySprites.sprite("map",game.roster.get(game.leader_id(),{}),game.chapter)
@@ -867,9 +883,13 @@ func _draw_preview_health(hp: int,maximum: int,at: Vector2,side: String,largest_
 	health_checks.append({"hp":filled,"maximum":count,"cells":count,"filled_cells":filled,"bounds":bounds,"cell_size":cell_size,"columns":columns,"forecast":true})
 
 func _draw_preview() -> void:
-	if target_ids.is_empty():return
-	var attacker=game.find_unit(game.selected_id).duplicate(true)
+	battle_preview_audit={}
+	if target_index<0 or target_index>=target_ids.size():return
+	var attacker=game.find_unit(game.selected_id)
 	var defender=game.find_unit(str(target_ids[target_index]))
+	# Combat completion can clear either selection before target mode redraws.
+	if attacker.is_empty() or defender.is_empty():return
+	attacker=attacker.duplicate(true)
 	var distance=absi(game.pos(attacker).x-game.pos(defender).x)+absi(game.pos(attacker).y-game.pos(defender).y)
 	var reply=Rules.default_counter(defender,distance)
 	var placement=_attack_preview_placement();battle_preview_audit=placement
@@ -1045,7 +1065,7 @@ func _overview_area() -> Rect2:
 	return Rect2(bounds.position+Vector2(8,8),Vector2(bounds.size.x-16,196))
 
 func _overview_geometry() -> Dictionary:
-	var area=_overview_area();var texture_size=OVERVIEW_IMAGE.get_size()
+	var area=_overview_area();var texture_size=_world_overview_texture().get_size()
 	var scale=minf(area.size.x/texture_size.x,area.size.y/texture_size.y)*overview_zoom
 	var shown=Vector2(minf(area.size.x,texture_size.x*scale),minf(area.size.y,texture_size.y*scale))
 	var source_size=shown/scale
@@ -1059,13 +1079,13 @@ func _overview_change_zoom(step:int) -> void:
 
 func _overview_pan_pixels(delta:Vector2) -> void:
 	var geometry=_overview_geometry()
-	overview_center-=delta/(OVERVIEW_IMAGE.get_size()*float(geometry.scale))
+	overview_center-=delta/(_world_overview_texture().get_size()*float(geometry.scale))
 	_overview_geometry();queue_redraw()
 
 func _draw_overview() -> void:
 	draw_rect(_visible_native_rect(),Color(.08,.12,.15))
 	overview_audit=_overview_geometry()
-	draw_texture_rect_region(OVERVIEW_IMAGE,overview_audit.dest,overview_audit.source)
+	draw_texture_rect_region(_world_overview_texture(),overview_audit.dest,overview_audit.source)
 	var bounds=_visible_native_rect()
 	var heading="世界全图 · %d倍" % overview_zoom
 	_preview_text(heading,Vector2(roundf(bounds.get_center().x-_preview_text_width(heading)/2),210),Color(.94,.88,.67))

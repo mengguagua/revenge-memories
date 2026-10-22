@@ -1,0 +1,79 @@
+{
+  "passed": true,
+  "revision": "0.10.8-ch4",
+  "method": "Godot current scenery, background_guard capture, whole-map inspection",
+  "render_errors": [],
+  "maps": [
+    {
+      "code": "M42",
+      "map_sha256": "fc1893fe5f3fa9b2ecabe7e7dab6cba59ac6f434ef495110f53743c75ad9bc83",
+      "screenshot": "actual/reports/chapter4-redesign-20261022/west/images/M42.png",
+      "pixels": [
+        576,
+        512
+      ],
+      "bytes": 75668,
+      "findings": [
+        "西北岩坡与中央密林夹出骑兵军道，东侧投送营以完整木栅围合，南北主门连大道，西门接林缘旧营。",
+        "兰斯的旧同袍退至西营后方住舍旁，部署当轮可到邻格交涉，再沿西路从营侧进入；主道利于骑兵展开，林路更窄且需绕开树丛。",
+        "投送装置、库房和东骑兵营各有装卸/巡行通路，第5回合东南来援保持；旧同袍转中立与切断投送规则不变。"
+      ]
+    },
+    {
+      "code": "M43",
+      "map_sha256": "a67b0865decbb631bd9e97a70729804ebe167c18eb2ec7d89218b3788869f920",
+      "screenshot": "actual/reports/chapter4-redesign-20261022/west/images/M43.png",
+      "pixels": [
+        544,
+        512
+      ],
+      "bytes": 81572,
+      "findings": [
+        "日塔院墙在北境岩脊间围成完整庭院，主楼和塔身位于北端，控制室位于东南角；院内积雪与石路交错，避免整片铺石。",
+        "三格南门承接宽主路，西侧两格小门接雪林侧路；正面更直接，西侧可绕开门前重装但行进空间较窄。",
+        "病人与工匠留在西南医舍侧后，避开初始守军射程和唯一门口；夺外院、接管控制室及等待东岸步骤的原流程保持。"
+      ]
+    },
+    {
+      "code": "M44",
+      "map_sha256": "f7ab4a86b924b6ffec8938fa465105cd81079286a7f9a1e6ca22b545abed1538",
+      "screenshot": "actual/reports/chapter4-redesign-20261022/west/images/M44.png",
+      "pixels": [
+        576,
+        512
+      ],
+      "bytes": 72887,
+      "findings": [
+        "横贯战场的王都城墙以双塔夹出四格正门，城内指挥堡与医舍街、城外住区与军需库形成清楚前后层次。",
+        "主街直攻门楼；西侧窄巷经过两格伤兵后撤门，直接接到墙内医舍，提供较慢但可绕过正门重装的侧通道。",
+        "两名伤兵退到完整医舍护院内，院墙只留两格南门；部署靠近后撤门，两人可守住护院入口，其余队员沿墙后通道或正面推进。第4回合东南来援、赫兰半血对白与解除武装分支保持。"
+      ]
+    },
+    {
+      "code": "S41",
+      "map_sha256": "ed7f4d5f11479138a0fbb5d5afd1589775239287f8185f96697a8de4df107e50",
+      "screenshot": "actual/reports/chapter4-redesign-20261022/west/images/S41.png",
+      "pixels": [
+        480,
+        448
+      ],
+      "bytes": 54043,
+      "findings": [
+        "雪山村落沿钟楼主街展开，东侧名册屋门朝南，西南医舍与避难院在队伍后方；雪林和连片岩坡界定村缘。",
+        "主街尽快接近名册屋，东坡小路是焚毁兵实际来路，南侧住屋旁有回村支线；屋门操作格与焚毁目标完全重合。",
+        "焚毁兵第5回合出发、前一回合预告、连续两次点火才毁册不变；从东坡到南门有实际路程供拦截，名册损失仍不阻断主线。"
+      ]
+    }
+  ],
+  "actual_movement_anchor_checks": 150,
+  "early_ai_route_and_target_checks": 185,
+  "early_ai_report": "early-ai-probe.json",
+  "important_scope": "Early AI is a three-phase no-damage movement/target fixture, not a combat playthrough. Full ordinary-input two-round play is performed by root.",
+  "M42_risk": "Idle/no-parley fixture still permits a turn-three attack on old_comrade. Genuine first-turn Lance parley succeeds and the defended fixture has no NPC attack in first three phases.",
+  "M44_defence": "Lance to [5,9] and Daan to [6,11] on turn 1, then [5,8]/[6,8] on turn 2; medical ward only opens at those two southern tiles. NPCs [2,3]/[3,5] remain outside exterior ranged firing reach. Main gate remains available to other units.",
+  "visual_fixes": [
+    "Shared adjacency for dirt/stone/cobble road transitions removes grass/snow seams while retaining actual 208 defensive ground.",
+    "S41 decorative distant box removed; true record sprite lowered 8 pixels to its building threshold without changing approach or burn_target.",
+    "M43 lamp moved north off the west side route; that route joins the inner main stone path."
+  ]
+}

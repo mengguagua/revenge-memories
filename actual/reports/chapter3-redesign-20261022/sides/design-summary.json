@@ -1,0 +1,1068 @@
+{
+  "passed": true,
+  "maps": [
+    {
+      "code": "S31",
+      "passed": true,
+      "size": [
+        30,
+        26
+      ],
+      "closed_connected": 470,
+      "opened_connected": 484,
+      "all_stats_ai_timing_identity_unchanged": true,
+      "coordinate_changes": {
+        "player_positions": {
+          "before": [
+            [
+              2,
+              15
+            ],
+            [
+              3,
+              15
+            ],
+            [
+              4,
+              15
+            ],
+            [
+              5,
+              15
+            ],
+            [
+              2,
+              16
+            ],
+            [
+              3,
+              16
+            ],
+            [
+              4,
+              16
+            ],
+            [
+              5,
+              16
+            ],
+            [
+              2,
+              17
+            ],
+            [
+              3,
+              17
+            ]
+          ],
+          "after": [
+            [
+              8,
+              22
+            ],
+            [
+              9,
+              22
+            ],
+            [
+              10,
+              22
+            ],
+            [
+              11,
+              22
+            ],
+            [
+              8,
+              23
+            ],
+            [
+              9,
+              23
+            ],
+            [
+              10,
+              23
+            ],
+            [
+              11,
+              23
+            ],
+            [
+              7,
+              23
+            ],
+            [
+              7,
+              24
+            ]
+          ]
+        },
+        "exit": {
+          "before": [
+            18,
+            3
+          ],
+          "after": [
+            21,
+            2
+          ]
+        },
+        "targets": {
+          "before": [
+            [
+              5,
+              6
+            ],
+            [
+              15,
+              6
+            ]
+          ],
+          "after": [
+            [
+              8,
+              8
+            ],
+            [
+              25,
+              8
+            ]
+          ]
+        },
+        "objects": {
+          "before": [
+            {
+              "id": "family_w",
+              "kind": "door",
+              "position": [
+                5,
+                6
+              ],
+              "label": "打开牢门",
+              "adjacent": true,
+              "sprite": "jail_door",
+              "opens": [
+                [
+                  5,
+                  6
+                ]
+              ],
+              "unlock_units": [
+                "family0"
+              ],
+              "open_tile": 208,
+              "open_art_cells": [
+                {
+                  "position": [
+                    5,
+                    6
+                  ],
+                  "base_tile": 16
+                }
+              ],
+              "completed_label": "西牢门已打开"
+            },
+            {
+              "id": "family_e",
+              "kind": "door",
+              "position": [
+                15,
+                6
+              ],
+              "label": "打开牢门",
+              "adjacent": true,
+              "sprite": "jail_door",
+              "opens": [
+                [
+                  15,
+                  6
+                ]
+              ],
+              "unlock_units": [
+                "family1"
+              ],
+              "open_tile": 208,
+              "open_art_cells": [
+                {
+                  "position": [
+                    15,
+                    6
+                  ],
+                  "base_tile": 16
+                }
+              ],
+              "completed_label": "东牢门已打开"
+            }
+          ],
+          "after": [
+            {
+              "id": "family_w",
+              "kind": "door",
+              "position": [
+                8,
+                8
+              ],
+              "label": "打开牢门",
+              "adjacent": true,
+              "sprite": "jail_door",
+              "opens": [
+                [
+                  8,
+                  8
+                ]
+              ],
+              "unlock_units": [
+                "family0"
+              ],
+              "open_tile": 208,
+              "open_art_cells": [
+                {
+                  "position": [
+                    8,
+                    8
+                  ],
+                  "base_tile": 20,
+                  "clear_layers": [
+                    1,
+                    2
+                  ]
+                }
+              ],
+              "completed_label": "西牢门已打开"
+            },
+            {
+              "id": "family_e",
+              "kind": "door",
+              "position": [
+                25,
+                8
+              ],
+              "label": "打开牢门",
+              "adjacent": true,
+              "sprite": "jail_door",
+              "opens": [
+                [
+                  25,
+                  8
+                ]
+              ],
+              "unlock_units": [
+                "family1"
+              ],
+              "open_tile": 208,
+              "open_art_cells": [
+                {
+                  "position": [
+                    25,
+                    8
+                  ],
+                  "base_tile": 20,
+                  "clear_layers": [
+                    1,
+                    2
+                  ]
+                }
+              ],
+              "completed_label": "东牢门已打开"
+            }
+          ]
+        },
+        "enemies": {
+          "before": {
+            "S31_boss": [
+              18,
+              4
+            ],
+            "S31_e1": [
+              15,
+              7
+            ],
+            "S31_e2": [
+              14,
+              7
+            ],
+            "S31_e3": [
+              15,
+              13
+            ],
+            "S31_e4": [
+              8,
+              5
+            ],
+            "S31_e5": [
+              15,
+              5
+            ],
+            "S31_e6": [
+              14,
+              8
+            ],
+            "S31_e7": [
+              15,
+              14
+            ],
+            "S31_e8": [
+              8,
+              6
+            ]
+          },
+          "after": {
+            "S31_boss": [
+              20,
+              8
+            ],
+            "S31_e1": [
+              18,
+              10
+            ],
+            "S31_e2": [
+              22,
+              10
+            ],
+            "S31_e3": [
+              11,
+              14
+            ],
+            "S31_e4": [
+              4,
+              11
+            ],
+            "S31_e5": [
+              25,
+              10
+            ],
+            "S31_e6": [
+              8,
+              11
+            ],
+            "S31_e7": [
+              22,
+              14
+            ],
+            "S31_e8": [
+              11,
+              9
+            ]
+          }
+        },
+        "npc_units": {
+          "before": {
+            "family0": [
+              4,
+              4
+            ],
+            "family1": [
+              14,
+              4
+            ]
+          },
+          "after": {
+            "family0": [
+              7,
+              6
+            ],
+            "family1": [
+              24,
+              6
+            ]
+          }
+        },
+        "reinforcements": {
+          "before": {},
+          "after": {}
+        },
+        "building_sites": {
+          "before": null,
+          "after": null
+        }
+      },
+      "notes": [
+        "村口住屋、井台、医舍和粮仓形成真实聚落；拘押院位于北侧山肩，狱卒哨楼朝向两院之间的勤务道。",
+        "可从西住户巷先救西院，或沿主街转入东山肩；粮仓后巷提供通向东院守军侧面的支路，两院都能由完整道路抵达。",
+        "两组家属各在独立封闭围院内，只有南侧牢门可进出；门的位置、开启地形和解锁名单同步，开门前可先清除门前守军。",
+        "两扇门均须开启且至少一组家属存活，再击败狱卒首领；蕾娜劝降旧部仍为可选手段，不依赖她出阵。"
+      ],
+      "cages": [
+        {
+          "object": "family_w",
+          "bounds": [
+            6,
+            5,
+            10,
+            8
+          ],
+          "door": [
+            8,
+            8
+          ],
+          "front": [
+            8,
+            9
+          ],
+          "npc_positions": {
+            "family0": [
+              7,
+              6
+            ]
+          },
+          "unique_passage": true
+        },
+        {
+          "object": "family_e",
+          "bounds": [
+            23,
+            5,
+            27,
+            8
+          ],
+          "door": [
+            25,
+            8
+          ],
+          "front": [
+            25,
+            9
+          ],
+          "npc_positions": {
+            "family1": [
+              24,
+              6
+            ]
+          },
+          "unique_passage": true
+        }
+      ],
+      "npc_fixed_enemy_safety": [
+        {
+          "npc": "family0",
+          "position": [
+            7,
+            6
+          ],
+          "passed": true,
+          "guards": [
+            {
+              "enemy": "S31_boss",
+              "distance": 15,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S31_e5",
+              "distance": 22,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S31_e6",
+              "distance": 6,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S31_e7",
+              "distance": 23,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S31_e8",
+              "distance": 7,
+              "outside_three_tile_radius": true
+            }
+          ]
+        },
+        {
+          "npc": "family1",
+          "position": [
+            24,
+            6
+          ],
+          "passed": true,
+          "guards": [
+            {
+              "enemy": "S31_boss",
+              "distance": 6,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S31_e5",
+              "distance": 5,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S31_e6",
+              "distance": 21,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S31_e7",
+              "distance": 10,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S31_e8",
+              "distance": 16,
+              "outside_three_tile_radius": true
+            }
+          ]
+        }
+      ],
+      "source_rule_changes": "None: unit order/identity/attributes/AI/equipment and narrative/goal/timing preserved; only geometry and visual fields change.",
+      "stage_sha256": "5f5b6a6dea089fe9b697be299e02a375f75da4ee5ab8bc65d214f2098d3e992a"
+    },
+    {
+      "code": "S32",
+      "passed": true,
+      "size": [
+        32,
+        26
+      ],
+      "closed_connected": 514,
+      "opened_connected": 528,
+      "all_stats_ai_timing_identity_unchanged": true,
+      "coordinate_changes": {
+        "player_positions": {
+          "before": [
+            [
+              2,
+              17
+            ],
+            [
+              3,
+              17
+            ],
+            [
+              4,
+              17
+            ],
+            [
+              5,
+              17
+            ],
+            [
+              2,
+              18
+            ],
+            [
+              3,
+              18
+            ],
+            [
+              4,
+              18
+            ],
+            [
+              5,
+              18
+            ],
+            [
+              2,
+              19
+            ],
+            [
+              3,
+              19
+            ]
+          ],
+          "after": [
+            [
+              6,
+              22
+            ],
+            [
+              7,
+              22
+            ],
+            [
+              8,
+              22
+            ],
+            [
+              9,
+              22
+            ],
+            [
+              6,
+              23
+            ],
+            [
+              7,
+              23
+            ],
+            [
+              8,
+              23
+            ],
+            [
+              9,
+              23
+            ],
+            [
+              5,
+              23
+            ],
+            [
+              5,
+              24
+            ]
+          ]
+        },
+        "exit": {
+          "before": [
+            24,
+            3
+          ],
+          "after": [
+            25,
+            2
+          ]
+        },
+        "targets": {
+          "before": [
+            [
+              13,
+              11
+            ],
+            [
+              20,
+              15
+            ]
+          ],
+          "after": [
+            [
+              7,
+              10
+            ],
+            [
+              22,
+              16
+            ]
+          ]
+        },
+        "objects": {
+          "before": [
+            {
+              "id": "mage_barrack",
+              "kind": "door",
+              "position": [
+                13,
+                11
+              ],
+              "label": "打开术士营房",
+              "adjacent": true,
+              "sprite": "jail_door",
+              "opens": [
+                [
+                  13,
+                  11
+                ]
+              ],
+              "unlock_units": [
+                "noya"
+              ],
+              "open_tile": 208,
+              "open_art_cells": [
+                {
+                  "position": [
+                    13,
+                    11
+                  ],
+                  "base_tile": 16
+                }
+              ],
+              "completed_label": "术士营房已打开"
+            },
+            {
+              "id": "civilian_barrack",
+              "kind": "door",
+              "position": [
+                20,
+                15
+              ],
+              "label": "打开居民营房",
+              "adjacent": true,
+              "sprite": "jail_door",
+              "opens": [
+                [
+                  20,
+                  15
+                ]
+              ],
+              "unlock_units": [
+                "noya_brother",
+                "salt_residents"
+              ],
+              "open_tile": 208,
+              "open_art_cells": [
+                {
+                  "position": [
+                    20,
+                    15
+                  ],
+                  "base_tile": 16
+                }
+              ],
+              "completed_label": "居民营房已打开"
+            }
+          ],
+          "after": [
+            {
+              "id": "mage_barrack",
+              "kind": "door",
+              "position": [
+                7,
+                10
+              ],
+              "label": "打开术士营房",
+              "adjacent": true,
+              "sprite": "jail_door",
+              "opens": [
+                [
+                  7,
+                  10
+                ]
+              ],
+              "unlock_units": [
+                "noya"
+              ],
+              "open_tile": 208,
+              "open_art_cells": [
+                {
+                  "position": [
+                    7,
+                    10
+                  ],
+                  "base_tile": 20,
+                  "clear_layers": [
+                    1,
+                    2
+                  ]
+                }
+              ],
+              "completed_label": "术士营房已打开"
+            },
+            {
+              "id": "civilian_barrack",
+              "kind": "door",
+              "position": [
+                22,
+                16
+              ],
+              "label": "打开居民营房",
+              "adjacent": true,
+              "sprite": "jail_door",
+              "opens": [
+                [
+                  22,
+                  16
+                ]
+              ],
+              "unlock_units": [
+                "noya_brother",
+                "salt_residents"
+              ],
+              "open_tile": 208,
+              "open_art_cells": [
+                {
+                  "position": [
+                    22,
+                    16
+                  ],
+                  "base_tile": 20,
+                  "clear_layers": [
+                    1,
+                    2
+                  ]
+                }
+              ],
+              "completed_label": "居民营房已打开"
+            }
+          ]
+        },
+        "enemies": {
+          "before": {
+            "S32_boss": [
+              23,
+              4
+            ],
+            "S32_e1": [
+              21,
+              6
+            ],
+            "S32_e2": [
+              17,
+              8
+            ],
+            "S32_e3": [
+              21,
+              16
+            ],
+            "S32_e4": [
+              11,
+              5
+            ],
+            "S32_e5": [
+              21,
+              7
+            ],
+            "S32_e6": [
+              17,
+              9
+            ],
+            "S32_e7": [
+              21,
+              14
+            ],
+            "S32_e8": [
+              11,
+              6
+            ]
+          },
+          "after": {
+            "S32_boss": [
+              25,
+              6
+            ],
+            "S32_e1": [
+              22,
+              9
+            ],
+            "S32_e2": [
+              15,
+              12
+            ],
+            "S32_e3": [
+              26,
+              19
+            ],
+            "S32_e4": [
+              10,
+              14
+            ],
+            "S32_e5": [
+              24,
+              10
+            ],
+            "S32_e6": [
+              16,
+              15
+            ],
+            "S32_e7": [
+              18,
+              18
+            ],
+            "S32_e8": [
+              11,
+              11
+            ]
+          }
+        },
+        "npc_units": {
+          "before": {
+            "noya": [
+              12,
+              9
+            ],
+            "noya_brother": [
+              19,
+              13
+            ],
+            "salt_residents": [
+              21,
+              13
+            ]
+          },
+          "after": {
+            "noya": [
+              6,
+              8
+            ],
+            "noya_brother": [
+              21,
+              14
+            ],
+            "salt_residents": [
+              23,
+              14
+            ]
+          }
+        },
+        "reinforcements": {
+          "before": {},
+          "after": {}
+        },
+        "building_sites": {
+          "before": null,
+          "after": null
+        }
+      },
+      "notes": [
+        "西侧术士营房、东侧居民营房与北侧指挥帐分区明确，后屋与封闭前院相连；井台、粮仓和短木障形成营地生活与勤务关系。",
+        "正面经井台与中央驻军推进，也能由东西外侧巡查路分兵抵达两扇牢门；东后勤路继续通向指挥院侧面，不是只能原路折返的支路。",
+        "诺娅和居民均在独立围院中，唯一南门、打开地形和解锁名单完整对应；固定弓手与术士不覆盖被囚者初始位置，可先清门前威胁再开门。",
+        "两间营房都须打开、营长必须败北；诺娅、弟弟与居民分别保留真实生死记录，原问责、接纳与后续剧情不变。"
+      ],
+      "cages": [
+        {
+          "object": "mage_barrack",
+          "bounds": [
+            5,
+            7,
+            9,
+            10
+          ],
+          "door": [
+            7,
+            10
+          ],
+          "front": [
+            7,
+            11
+          ],
+          "npc_positions": {
+            "noya": [
+              6,
+              8
+            ]
+          },
+          "unique_passage": true
+        },
+        {
+          "object": "civilian_barrack",
+          "bounds": [
+            20,
+            13,
+            24,
+            16
+          ],
+          "door": [
+            22,
+            16
+          ],
+          "front": [
+            22,
+            17
+          ],
+          "npc_positions": {
+            "noya_brother": [
+              21,
+              14
+            ],
+            "salt_residents": [
+              23,
+              14
+            ]
+          },
+          "unique_passage": true
+        }
+      ],
+      "npc_fixed_enemy_safety": [
+        {
+          "npc": "noya",
+          "position": [
+            6,
+            8
+          ],
+          "passed": true,
+          "guards": [
+            {
+              "enemy": "S32_boss",
+              "distance": 21,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S32_e5",
+              "distance": 20,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S32_e6",
+              "distance": 17,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S32_e7",
+              "distance": 22,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S32_e8",
+              "distance": 8,
+              "outside_three_tile_radius": true
+            }
+          ]
+        },
+        {
+          "npc": "noya_brother",
+          "position": [
+            21,
+            14
+          ],
+          "passed": true,
+          "guards": [
+            {
+              "enemy": "S32_boss",
+              "distance": 12,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S32_e5",
+              "distance": 7,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S32_e6",
+              "distance": 6,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S32_e7",
+              "distance": 7,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S32_e8",
+              "distance": 13,
+              "outside_three_tile_radius": true
+            }
+          ]
+        },
+        {
+          "npc": "salt_residents",
+          "position": [
+            23,
+            14
+          ],
+          "passed": true,
+          "guards": [
+            {
+              "enemy": "S32_boss",
+              "distance": 10,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S32_e5",
+              "distance": 5,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S32_e6",
+              "distance": 8,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S32_e7",
+              "distance": 9,
+              "outside_three_tile_radius": true
+            },
+            {
+              "enemy": "S32_e8",
+              "distance": 15,
+              "outside_three_tile_radius": true
+            }
+          ]
+        }
+      ],
+      "source_rule_changes": "None: unit order/identity/attributes/AI/equipment and narrative/goal/timing preserved; only geometry and visual fields change.",
+      "stage_sha256": "0c172a6747f75bb1faf118372363baab7320bb67fb478d153a4fc93a837f61fa"
+    }
+  ]
+}

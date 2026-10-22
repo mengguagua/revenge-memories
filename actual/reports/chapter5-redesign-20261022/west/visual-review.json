@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "revision": "0.10.9-ch5",
+  "maps": [
+    {
+      "code": "M51",
+      "map_sha256": "43edec3264e86ac499d80cc4e8d54bb2c303d3f0995967f6828b3d8ba66e0a81",
+      "screenshot": "actual/reports/chapter5-redesign-20261022/west/images/M51.png",
+      "pixels": [
+        576,
+        544
+      ],
+      "bytes": 105079,
+      "notes": [
+        "北殿与东西两间完整医舍共同围成王都内廷，两处病房门朝南；南侧照护院与后撤门由中轴相连，形成内廷而非散落村舍。",
+        "伤兵在已打开的病房门槛等待接应，确认后沿南门横廊汇入中轴；横向院墙限制向南抄近路，接应队可守中央缺口与东侧来援巷。",
+        "队伍部署在南院，药车和庭园在道路两旁；先压住东医舍附近守军再放行，更容易保护两组伤兵。两病房都要确认、至少一组撤离及第4回合来援不变。"
+      ]
+    },
+    {
+      "code": "M52",
+      "map_sha256": "ed2075fa3700b820e24de30a9935ce412c3ebd445ac518a51a036dfce644f346",
+      "screenshot": "actual/reports/chapter5-redesign-20261022/west/images/M52.png",
+      "pixels": [
+        672,
+        480
+      ],
+      "bytes": 49809,
+      "notes": [
+        "登天桥由三段真正跨水的石桥、两处承台与东西岸桥头组成；每段保持三格净通行宽度，护栏在通行带外，桥两端都落在完整石台上。",
+        "三个桥锁从西到东依次位于落脚承台，使用可通行的控制标记，不用封闭门图阻断已连通的桥面；原先后确认规则保持。",
+        "承台南侧留出待机与整队支台，可避免全队挤入桥口；飞行者可越水绕侧，但仍需正式确认三段桥锁，东岸和西岸来援通道均有实际落脚地。"
+      ]
+    }
+  ],
+  "render_method": "current Godot renderer via capture_campaign.sh background_guard",
+  "render_errors": [],
+  "anchor_checks": 71,
+  "escort_and_early_ai_checks": 195,
+  "cross_review": "map_design_critique inspected both whole maps; no blocking entry/bridge landing defects. Sea-edge grass seam was subsequently removed and rechecked.",
+  "M51": "Both south-facing ward approaches match their building fronts. Ward confirmation unlocks waiting NPCs; it does not mutate collision. Southern crosswall and three-cell gaps constrain actual escort AI to paved medical corridors and south exit. Both ordinary move-2 escorts reached the exit in isolated actual movement fixtures.",
+  "M52": "All three spans have three clear walking rows, blocked rail cells outside those rows, complete landings at both ends, support piers with waiting space, and strictly increasing west-to-east bridge-lock X positions. Flags denote passable controls, with no false closed gate.",
+  "scope": "Static geometry, actual movement/early-AI navigation fixture and background visual review. Complete ordinary-input campaign play is documented separately by root."
+}

@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "native_tile_size": 16,
+  "architecture": "Existing chapter5 muted-v2 whole bitmaps; no recoloring, rescaling, animation changes or new light mechanisms.",
+  "checks": [
+    "已目检原始宫殿、柱、神座和阶梯位图及地砖联系表。",
+    "相邻ivory/sandstone道路共用同一邻接mask，无草色裂缝或亮线细框。",
+    "透明建筑上部沿用真实草/石基底，去除与建筑无关的整块白色矩形。",
+    "J53内池与上庭小园分隔中阶和两翼；左右20部署候选都避开门前和阶梯。",
+    "J54三阶口中央踏步可走、两侧栏柱阻挡，神座底座连续接上层攻击平台。",
+    "J54固定16,10实际生成3援军，所有落点合法无重叠，191项独立几何/规则探针通过。"
+  ],
+  "images": [
+    {
+      "path": "actual/assets/chapter5-redesign-20261022/finale/terrain.png",
+      "dimensions": [
+        512,
+        768
+      ],
+      "bytes": 106449,
+      "optimization": "oxipng lossless, native pixels retained"
+    },
+    {
+      "path": "actual/reports/chapter5-redesign-20261022/finale/images/J53.png",
+      "dimensions": [
+        672,
+        576
+      ],
+      "bytes": 101003,
+      "optimization": "oxipng lossless, native pixels retained"
+    },
+    {
+      "path": "actual/reports/chapter5-redesign-20261022/finale/images/J54.png",
+      "dimensions": [
+        608,
+        576
+      ],
+      "bytes": 82638,
+      "optimization": "oxipng lossless, native pixels retained"
+    },
+    {
+      "path": "actual/reports/chapter5-redesign-20261022/finale/materials-contact.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "bytes": 11508,
+      "optimization": "oxipng lossless, native pixels retained"
+    }
+  ]
+}

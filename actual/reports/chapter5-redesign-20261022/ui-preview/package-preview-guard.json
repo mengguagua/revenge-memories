@@ -1,0 +1,57 @@
+{
+  "cases": [
+    {
+      "ids": [
+        "target"
+      ],
+      "index": 0,
+      "name": "empty-selected",
+      "selected": ""
+    },
+    {
+      "ids": [
+        "target"
+      ],
+      "index": 0,
+      "name": "removed-actor",
+      "selected": "__removed__"
+    },
+    {
+      "ids": [
+        "__removed__"
+      ],
+      "index": 0,
+      "name": "removed-target",
+      "selected": "actor"
+    },
+    {
+      "ids": [
+        "target"
+      ],
+      "index": 1,
+      "name": "past-end",
+      "selected": "actor"
+    },
+    {
+      "ids": [
+        "target"
+      ],
+      "index": -1,
+      "name": "negative-index",
+      "selected": "actor"
+    },
+    {
+      "ids": [],
+      "index": 0,
+      "name": "empty-target-list",
+      "selected": "actor"
+    }
+  ],
+  "checks": 7,
+  "core": "res://core/main.gd",
+  "errors": [],
+  "passed": true,
+  "resource_root": "",
+  "scene": "res://scenes/main.tscn",
+  "scope": "Runtime invalid-preview calls on scene loaded only from exported PCK, using intentionally geometry-free actors so old core cannot pass. Genuine valid menu preview tested separately in source."
+}

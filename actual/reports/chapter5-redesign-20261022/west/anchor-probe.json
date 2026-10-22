@@ -1,0 +1,74 @@
+{
+  "checks": 71,
+  "errors": [],
+  "maps": {
+    "M51": {
+      "closed_reachable": 584,
+      "exit": [
+        16.0,
+        28.0
+      ],
+      "exit_step_trace": [
+        [
+          14.0,
+          23.0
+        ],
+        [
+          16,
+          26
+        ],
+        [
+          16,
+          28
+        ]
+      ],
+      "opened_reachable": 584,
+      "sha256": "43edec3264e86ac499d80cc4e8d54bb2c303d3f0995967f6828b3d8ba66e0a81"
+    },
+    "M52": {
+      "closed_reachable": 370,
+      "exit": [
+        35.0,
+        14.0
+      ],
+      "exit_step_trace": [
+        [
+          3.0,
+          13.0
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          17,
+          12
+        ],
+        [
+          22,
+          12
+        ],
+        [
+          26,
+          13
+        ],
+        [
+          31,
+          13
+        ],
+        [
+          35,
+          14
+        ]
+      ],
+      "opened_reachable": 370,
+      "sha256": "ed2075fa3700b820e24de30a9935ce412c3ebd445ac518a51a036dfce644f346"
+    }
+  },
+  "passed": true,
+  "scope": "In-memory fixture uses actual reachable and move_selected methods, with ordinary 5-move infantry and no occupants; logical door opening applied only in memory. Checks two west maps' deployment, ground enemies, object fronts, released NPCs and exit, then genuinely steps to each exit. No save or source map is mutated; not a combat playthrough."
+}

@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "observed": "正常预览及恢复后的预览一致；文字、HP格均在面板内容安全区内。空selected时不再绘制陈旧预览，战场画面正常。",
+  "images": [
+    {
+      "file": "empty-selected.png",
+      "size": [
+        1704,
+        960
+      ],
+      "bytes": 175205,
+      "purpose": "后台真实战斗菜单与失效预览回归画面",
+      "compression": "oxipng lossless -o 3",
+      "quality_reason": "保留1704×960运行截图的原始像素文字和素材细节；不为200KB参考值损害可见质量"
+    },
+    {
+      "file": "normal-menu-preview.png",
+      "size": [
+        1704,
+        960
+      ],
+      "bytes": 142677,
+      "purpose": "后台真实战斗菜单与失效预览回归画面",
+      "compression": "oxipng lossless -o 3",
+      "quality_reason": "保留1704×960运行截图的原始像素文字和素材细节；不为200KB参考值损害可见质量"
+    },
+    {
+      "file": "restored-menu-preview.png",
+      "size": [
+        1704,
+        960
+      ],
+      "bytes": 142677,
+      "purpose": "后台真实战斗菜单与失效预览回归画面",
+      "compression": "oxipng lossless -o 3",
+      "quality_reason": "保留1704×960运行截图的原始像素文字和素材细节；不为200KB参考值损害可见质量"
+    }
+  ]
+}

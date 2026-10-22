@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "assets": [
+    {
+      "path": "actual/assets/chapter5-spatial-20261022/library/terrain.png",
+      "purpose": "独立室内地板与墙体atlas",
+      "size": [
+        512,
+        32
+      ],
+      "bytes": 17354,
+      "sha256": "06283c1231ffc42e47dc3191a440c1945777c9c04a7fa192ab0f20f36455a8fd"
+    },
+    {
+      "path": "actual/assets/chapter5-spatial-20261022/library/interior-parquet.png",
+      "purpose": "室内短板人字拼木地板",
+      "size": [
+        64,
+        64
+      ],
+      "bytes": 6410,
+      "sha256": "2eaf21803aa9b47114ed3d9d1d04ef9d9585469ced1cc852cbfe2deb095e9674"
+    },
+    {
+      "path": "actual/assets/chapter5-spatial-20261022/library/interior-stone.png",
+      "purpose": "室内磨损石灰岩地板",
+      "size": [
+        64,
+        64
+      ],
+      "bytes": 5969,
+      "sha256": "e91b3e1ef5c78af9870b987eea0dc19952af98e5ff84194e5514b7035af02c9b"
+    },
+    {
+      "path": "actual/assets/chapter5-spatial-20261022/library/archive-bay.png",
+      "purpose": "完整书架、阅览桌家具模块",
+      "size": [
+        48,
+        48
+      ],
+      "bytes": 5301,
+      "sha256": "03e74249030c31254208c0f205f8484a793000b035469921af9c82e9c24c7fab"
+    },
+    {
+      "path": "actual/reports/chapter5-spatial-20261022/library/S51.png",
+      "purpose": "Godot后台原生室内全景",
+      "size": [
+        544,
+        512
+      ],
+      "bytes": 147010,
+      "sha256": "0dce16814c211bf0bf39ac799c0fbcf6f556790002dd0eb184bdfdad93a075f9"
+    }
+  ],
+  "new_image_generation": true,
+  "method": "Built-in image_gen, separate generation for each floor. Original source images retained and excluded by .gdignore. ImageMagick box resampling to64x64 runtime patch; no stretching, atlas16px cuts use global XY phase.",
+  "source_reference": "actual/source/chapter5-spatial-20261022/library-floors",
+  "compression": "oxipng lossless; screenshot pixel identity verified.",
+  "native_furniture_and_wall_pixels_unchanged": true
+}

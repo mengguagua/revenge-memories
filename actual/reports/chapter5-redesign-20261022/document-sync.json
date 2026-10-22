@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "document": "docs2/完整游戏流程.md",
+  "version": "1.14",
+  "revision": "0.10.9-ch5",
+  "design_only_no_new_play_claims": true,
+  "maps": [
+    {
+      "code": "M51",
+      "map_sha256": "43edec3264e86ac499d80cc4e8d54bb2c303d3f0995967f6828b3d8ba66e0a81",
+      "size": [
+        32,
+        30
+      ]
+    },
+    {
+      "code": "F51",
+      "map_sha256": "723469f507612e0c6f8ebea33c50cbb3d360d9e7b88a74a851808a3eaaba7c32",
+      "size": [
+        34,
+        30
+      ]
+    },
+    {
+      "code": "M52",
+      "map_sha256": "ed2075fa3700b820e24de30a9935ce412c3ebd445ac518a51a036dfce644f346",
+      "size": [
+        38,
+        26
+      ]
+    },
+    {
+      "code": "F52",
+      "map_sha256": "350148386c6b161071bfa1ec68cce80b5717450b878e181af5350ba9815d4a48",
+      "size": [
+        36,
+        30
+      ]
+    },
+    {
+      "code": "J53",
+      "map_sha256": "aefcacc60d490ab099c642a7669c147d55c9e307f3ff69c4cbcb636a5a4bd9d6",
+      "size": [
+        38,
+        32
+      ]
+    },
+    {
+      "code": "J54",
+      "map_sha256": "769a420b9d33a2a64ee62989f611f13c26846e8295bfe669c6d3eb6c59d93b4a",
+      "size": [
+        34,
+        32
+      ]
+    },
+    {
+      "code": "S51",
+      "map_sha256": "3946bb46903b655e88ab23c437a2228552e392d70e8e5b28b1297b9e79ace08f",
+      "size": [
+        30,
+        28
+      ]
+    }
+  ],
+  "checks": [
+    "Seven final map hashes match their agent design reports.",
+    "All deployments, route-specific joint deployments, bosses, NPCs, fixed reinforcements, object/approach coordinates, targets and exits synchronized.",
+    "M51 ward confirmation only unlocks NPCs; no invented wall opens. M52 three-cell bridge lanes and sequence recorded.",
+    "F51 separate per-crew next-player-turn handoff, F52 south-facing operations, S51 north record/south handoff and closed annexes clarified.",
+    "J54 fixed(16,10) one-wave summon remains existing behavior, not a new control objective.",
+    "Chapter1-4 text and section7 onward retained exactly."
+  ],
+  "document_sha256": "2348f7996ade07c792292af2fc7dc5955f63a8ab7bd6a8ac4100be9f14344635"
+}

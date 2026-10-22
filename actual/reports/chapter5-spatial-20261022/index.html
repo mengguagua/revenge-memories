@@ -1,0 +1,447 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>室内外空间修正 · 40图材质复查</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#10191f;color:#e9f0f2;font:15px/1.8 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}main{max-width:1380px;margin:auto;padding:42px 30px 70px}h1{font-size:37px;line-height:1.3}h2{font-size:24px;margin:0 0 12px}h3{font-size:17px;margin:0 0 8px}p{color:#b8c9d1;margin:10px 0}.eyebrow{font-size:12px;letter-spacing:.14em;color:#a3cbbd}.tag{display:inline-block;padding:7px 13px;background:#354841;border-radius:8px;color:#d9ece3;font-size:13px}.links,.controls{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}a{color:#b4ddcc;text-underline-offset:4px}.links a,button{display:inline-flex;justify-content:center;align-items:center;min-height:44px;padding:11px 17px;border:0;border-radius:9px;background:#293b44;color:#dce9ed;font:inherit;font-size:14px;text-decoration:none;cursor:pointer}button[aria-pressed=true]{background:#36514e;box-shadow:inset 0 0 18px #9cd9be16,0 4px 18px #0004}a:focus-visible,button:focus-visible{outline:none;box-shadow:0 0 0 5px #a4d6c32c,0 0 24px #a4d6c32c}.panel{padding:24px;background:#1a2932;border-radius:16px;box-shadow:0 14px 38px #0002;margin-top:30px}.pair,.cards,.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.cards{margin:20px 0}.cards article{padding:17px 20px;border-radius:10px;background:#22353e}figure{margin:0;min-width:0}figcaption{font-size:14px;padding:8px 2px 12px}.image{display:block;background:#22333d;border-radius:8px;overflow:hidden}.image img{width:100%;height:auto;display:block;image-rendering:pixelated}.small{font-size:12px;color:#9bb1bc}.board{position:relative;max-width:900px;margin:auto}.board img{display:block;width:100%;image-rendering:pixelated}.board svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.overlay{display:none}.overlay.active{display:block}.legend{min-height:28px;font-size:13px}.shots{margin-top:20px}.note,details{padding:16px 19px;border-radius:10px;background:#24363f;margin:20px 0}summary{cursor:pointer}.stats{font-size:22px;color:#d5e9e0}table{border-collapse:collapse;width:100%;font-size:14px}td,th{text-align:left;padding:9px 12px;border-bottom:1px solid #ffffff0b}footer{font-size:12px;color:#8ca4b0;margin-top:28px}@media(max-width:800px){main{padding:24px 14px}.panel{padding:16px}.pair,.cards,.shots{grid-template-columns:1fr}h1{font-size:28px}}</style></head><body><main>
+<div class="eyebrow">REVENGE MEMORIES / CHAPTER FIVE</div><h1>室内外空间修正 · 40图材质复查</h1><span class="tag">旧书库室内重做 · 第五章逐图复查</span><p>旧书库按原剧情重做为统一去顶室内，取消屋顶建筑。其余六图逐一从原剧情核对空间用途，修正病房门口、桥头衔接、下层宫室和阶台高差；保留剧情、数值规则和现有动画。</p><nav class="links">
+<a href="#M51">M51 · 王都内廷</a>
+<a href="#M52">M52 · 登天桥</a>
+<a href="#F51">F51 · 祭所底层</a>
+<a href="#F52">F52 · 日宫下层</a>
+<a href="#S51">S51 · 神宫旧书库</a>
+<a href="#J53">J53 · 神宫前庭</a>
+<a href="#J54">J54 · 太阳神乌库布·卡基</a>
+<a href="#other-materials">其他章节材质对照</a><a href="#materials">40图材质检查</a><a href="#verification">试玩与复查</a><a href="../../../art-review/battle-maps-20261021/index.html?map=M51#map-viewer">全部地图目录</a><a href="../../dist/RevengeMemories-Chapter5-Spatial-20261022.app">独立桌面包</a></nav>
+<p class="small">前后地图均来自游戏原生渲染器；各图按任务重组空间，左右按各自完整边界展示，并非同像素比例的面积对比。点击原图可放大检查。</p>
+<section class="panel" id="M51"><div class="eyebrow">M51 / 32×30 → 32×30</div><h2>王都内廷 · 室外宫院与可进入病房</h2><p>王都内廷保留室外院落与北殿；两病房采用去顶剖面呈现床位、内墙和真实南门，伤兵从门内候位走到救护横廊。</p><div class="pair">
+<figure><figcaption>修改前 · 上轮已展示版本</figcaption><a class="image" href="before/M51.png" target="_blank"><img src="before/M51.png" loading="lazy" alt="M51 修改前 · 上轮已展示版本"></a></figure>
+<figure><figcaption>修正后 · 当前Godot场景</figcaption><a class="image" href="images/M51.png" target="_blank"><img src="images/M51.png" loading="lazy" alt="M51 修正后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>从南侧照护院向北进入横廊，在病房门前确认接应，护送伤兵经实际门洞走向南侧后撤口。</p></article><article><h3>侧路与取舍</h3><p>两病房外侧廊与宫前横廊可换线，室内床位和墙体不作为穿行捷径。</p><p>确认病房只解除伤兵锁定；真实门洞本来可通行。两病房都须确认，至少一组撤离并击败首领，规则保持。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="M51" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="M51" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="M51" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/M51.png" alt="M51地形说明"><svg viewBox="0 0 576 544" aria-hidden="true"><g class="overlay" data-map="M51" data-overlay="routes">
+<polyline points="296,200 296,488" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="296,200 296,488" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="168,328 440,328" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="168,328 440,328" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="168,312 168,328" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="168,312 168,328" fill="none" stroke="#a6b887" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="440,312 440,328" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="440,312 440,328" fill="none" stroke="#ad91c7" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="M51" data-overlay="actors">
+<circle cx="264" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="280" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="296" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="312" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="264" cy="424" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="280" cy="424" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="296" cy="424" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="312" cy="424" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="328" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="296" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="248" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="232" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="472" cy="328" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="104" cy="184" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="264" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="280" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="344" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="216" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="328" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="376" cy="248" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="280" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="280" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="296" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="296" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="296" cy="488" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面。实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第17回合完成</div><p>结算时正式队员 6/6 存活；无人濒死。</p><p class="small">1,357次按键，含出入场与战后操作。<a href="play/west-one/west-one-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第13回合完成</div><p>结算时正式队员 6/6 存活；无人濒死。</p><p class="small">1,123次按键，含出入场与战后操作。<a href="play/west-two/west-two-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/M51-entry.png" target="_blank"><img src="screenshots/M51-entry.png" loading="lazy" alt="M51 · 出阵与空间关系"></a><figcaption>M51 · 出阵与空间关系 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/M51-turn-8.png" target="_blank"><img src="screenshots/M51-turn-8.png" loading="lazy" alt="M51 · 室内病床、实际门洞与救护横廊"></a><figcaption>M51 · 室内病床、实际门洞与救护横廊 · 第8回合</figcaption></figure>
+<figure><a class="image" href="screenshots/M51-victory.png" target="_blank"><img src="screenshots/M51-victory.png" loading="lazy" alt="M51 · 正常胜利结算"></a><figcaption>M51 · 正常胜利结算 · 第17回合</figcaption></figure>
+</div></section>
+<section class="panel" id="M52"><div class="eyebrow">M52 / 38×26 → 46×26</div><h2>登天桥 · 两端接岸的三段桥</h2><p>三段桥与中间承台维持连续，补清两端岸侧衔接及桥体支撑，使桥面跨越水域、承台承接通行的关系可见。</p><div class="pair">
+<figure><figcaption>修改前 · 上轮已展示版本</figcaption><a class="image" href="before/M52.png" target="_blank"><img src="before/M52.png" loading="lazy" alt="M52 修改前 · 上轮已展示版本"></a></figure>
+<figure><figcaption>修正后 · 当前Godot场景</figcaption><a class="image" href="images/M52.png" target="_blank"><img src="images/M52.png" loading="lazy" alt="M52 修正后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>从西端接岸处向东依次确认三个桥锁，在中间承台换队后继续抵达神宫入口。</p></article><article><h3>侧路与取舍</h3><p>中间承台用于展开和接应，飞行支援仍不能替代桥锁顺序。</p><p>桥口便于集中防守，也会限制大队展开；可在承台换队和等待后卫，避免所有人挤进同一狭口。第4回合援军由西岸落脚平台进入。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="M52" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="M52" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="M52" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/M52.png" alt="M52地形说明"><svg viewBox="0 0 800 480" aria-hidden="true"><g class="overlay" data-map="M52" data-overlay="routes">
+<polyline points="168,248 328,248 328,216 488,216 488,264 664,264" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="168,248 328,248 328,216 488,216 488,264 664,264" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="184,152 184,248" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="184,152 184,248" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="648,200 648,328" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="648,200 648,328" fill="none" stroke="#a6b887" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="328,248 328,312" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="328,248 328,312" fill="none" stroke="#ad91c7" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="M52" data-overlay="actors">
+<circle cx="152" cy="248" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="248" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="264" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="264" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="248" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="248" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="264" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="264" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="280" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="280" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="648" cy="264" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="280" cy="248" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="392" cy="216" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="552" cy="264" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="648" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="312" cy="232" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="472" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="600" cy="264" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="648" cy="216" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="328" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="184" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="232" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="632" cy="232" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="328" cy="264" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="296" cy="248" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="456" cy="216" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="616" cy="264" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="664" cy="264" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面。实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第15回合完成</div><p>结算时正式队员 6/6 存活；无人濒死。</p><p class="small">1,088次按键，含出入场与战后操作。<a href="play/west-one/west-one-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第14回合完成</div><p>结算时正式队员 5/6 存活；濒死：赫维。</p><p class="small">1,060次按键，含出入场与战后操作。<a href="play/west-two/west-two-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/M52-entry.png" target="_blank"><img src="screenshots/M52-entry.png" loading="lazy" alt="M52 · 出阵与空间关系"></a><figcaption>M52 · 出阵与空间关系 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/M52-turn-8.png" target="_blank"><img src="screenshots/M52-turn-8.png" loading="lazy" alt="M52 · 岩岸接桥与中段承台"></a><figcaption>M52 · 岩岸接桥与中段承台 · 第8回合</figcaption></figure>
+<figure><a class="image" href="screenshots/M52-victory.png" target="_blank"><img src="screenshots/M52-victory.png" loading="lazy" alt="M52 · 正常胜利结算"></a><figcaption>M52 · 正常胜利结算 · 第15回合</figcaption></figure>
+</div></section>
+<section class="panel" id="F51"><div class="eyebrow">F51 / 34×30 → 34×30</div><h2>祭所底层 · 地下水工与层间阶梯</h2><p>地下水渠和两处修复区保留，补清北侧上行阶梯的可走踏步与落脚处，以及南侧返回入口，使水工维修层和神宫通道有实际联系。</p><div class="pair">
+<figure><figcaption>修改前 · 上轮已展示版本</figcaption><a class="image" href="before/F51.png" target="_blank"><img src="before/F51.png" loading="lazy" alt="F51 修改前 · 上轮已展示版本"></a></figure>
+<figure><figcaption>修正后 · 当前Godot场景</figcaption><a class="image" href="images/F51.png" target="_blank"><img src="images/F51.png" loading="lazy" alt="F51 修正后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>由南侧进入维修层，交接第一工班后跨检修桥前往第二工班，完成保护并击败守卫。</p></article><article><h3>侧路与取舍</h3><p>南维护桥与主桥形成两条跨渠路线；上行阶梯与设备操作面保持独立，不能踩设备代替走阶梯。</p><p>每处交接分别计算等待回合，确认当回合还不能离开防护责任；两工班都必须存活。南桥绕行与主桥集中推进各有代价，第3回合东南援军保持。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="F51" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="F51" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="F51" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/F51.png" alt="F51地形说明"><svg viewBox="0 0 608 544" aria-hidden="true"><g class="overlay" data-map="F51" data-overlay="routes">
+<polyline points="136,472 184,472 184,328 248,328 248,248 376,248" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="136,472 184,472 184,328 248,328 248,248 376,248" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="360,248 360,408 456,408 456,376" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="360,248 360,408 456,408 456,376" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="184,440 408,440 504,440 504,408" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="184,440 408,440 504,440 504,408" fill="none" stroke="#a6b887" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="248,248 248,104 200,104" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="248,248 248,104 200,104" fill="none" stroke="#ad91c7" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="F51" data-overlay="actors">
+<circle cx="120" cy="440" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="440" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="440" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="440" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="104" cy="440" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="104" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="120" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="216" cy="88" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="504" cy="136" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="328" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="216" cy="328" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="200" cy="88" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="520" cy="152" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="504" cy="408" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="104" cy="328" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="152" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="392" cy="152" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="216" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="280" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="184" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="456" cy="248" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="472" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面。实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第28回合完成</div><p>结算时正式队员 7/7 存活；无人濒死。</p><p class="small">2,419次按键，含出入场与战后操作。<a href="play/east-one/east-one-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第26回合完成</div><p>结算时正式队员 7/7 存活；无人濒死。</p><p class="small">2,594次按键，含出入场与战后操作。<a href="play/east-two/east-two-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/F51-entry.png" target="_blank"><img src="screenshots/F51-entry.png" loading="lazy" alt="F51 · 出阵与空间关系"></a><figcaption>F51 · 出阵与空间关系 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/F51-turn-12.png" target="_blank"><img src="screenshots/F51-turn-12.png" loading="lazy" alt="F51 · 地下修复院与检修桥"></a><figcaption>F51 · 地下修复院与检修桥 · 第12回合</figcaption></figure>
+<figure><a class="image" href="screenshots/F51-victory.png" target="_blank"><img src="screenshots/F51-victory.png" loading="lazy" alt="F51 · 正常胜利结算"></a><figcaption>F51 · 正常胜利结算 · 第28回合</figcaption></figure>
+</div></section>
+<section class="panel" id="F52"><div class="eyebrow">F52 / 36×30 → 36×30</div><h2>日宫下层 · 室内控制厅与双阵</h2><p>取消下层地坪中的整栋屋顶宫殿，改为去顶门厅与通廊；连续室内铺地、墙体、两翼阵台和人工水池共同表达神宫下层。</p><div class="pair">
+<figure><figcaption>修改前 · 上轮已展示版本</figcaption><a class="image" href="before/F52.png" target="_blank"><img src="before/F52.png" loading="lazy" alt="F52 修改前 · 上轮已展示版本"></a></figure>
+<figure><figcaption>修正后 · 当前Godot场景</figcaption><a class="image" href="images/F52.png" target="_blank"><img src="images/F52.png" loading="lazy" alt="F52 修正后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>从南侧入口进入下层控制厅，分别到两座阵台南面确认，再向北侧神官与门厅推进。</p></article><article><h3>侧路与取舍</h3><p>中央池上通道较直接，两翼侧廊可换线；不同门洞与阵台纵深保留战术选择。</p><p>门阵必须在各装置南面分别确认，走过不会自动完成；两处确认都不能由击败神官替代。中央石桥直接，但两侧水庭限制横向展开。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="F52" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="F52" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="F52" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/F52.png" alt="F52地形说明"><svg viewBox="0 0 640 544" aria-hidden="true"><g class="overlay" data-map="F52" data-overlay="routes">
+<polyline points="168,488 168,408 168,248" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="168,488 168,408 168,248" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="168,408 312,408 472,408 472,328 488,328 488,296" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="168,408 312,408 472,408 472,328 488,328 488,296" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="312,472 312,376 312,184" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="312,472 312,376 312,184" fill="none" stroke="#a6b887" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="168,248 216,248 216,184 312,184 392,184 392,312 488,312" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="168,248 216,248 216,184 312,184 392,184 392,312 488,312" fill="none" stroke="#ad91c7" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="F52" data-overlay="actors">
+<circle cx="152" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="200" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="472" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="472" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="472" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="200" cy="472" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="488" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="488" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="312" cy="184" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="296" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="328" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="392" cy="184" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="232" cy="184" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="200" cy="280" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="328" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="408" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="216" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="264" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="520" cy="312" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="232" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="280" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="312" cy="472" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面。实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第14回合完成</div><p>结算时正式队员 7/7 存活；无人濒死。</p><p class="small">1,219次按键，含出入场与战后操作。<a href="play/east-one/east-one-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第18回合完成</div><p>结算时正式队员 7/7 存活；无人濒死。</p><p class="small">1,578次按键，含出入场与战后操作。<a href="play/east-two/east-two-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/F52-entry.png" target="_blank"><img src="screenshots/F52-entry.png" loading="lazy" alt="F52 · 出阵与空间关系"></a><figcaption>F52 · 出阵与空间关系 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/F52-turn-8.png" target="_blank"><img src="screenshots/F52-turn-8.png" loading="lazy" alt="F52 · 室内大理石厅与双阵"></a><figcaption>F52 · 室内大理石厅与双阵 · 第8回合</figcaption></figure>
+<figure><a class="image" href="screenshots/F52-victory.png" target="_blank"><img src="screenshots/F52-victory.png" loading="lazy" alt="F52 · 正常胜利结算"></a><figcaption>F52 · 正常胜利结算 · 第14回合</figcaption></figure>
+</div></section>
+<section class="panel" id="S51"><div class="eyebrow">S51 / 30×28 → 30×28</div><h2>神宫旧书库 · 北档案室与南楼梯间</h2><p>统一去顶室内：连续木地板与石质中厅由实体厚墙分隔，北档案室、错位阅览翼和南楼梯间均在同一建筑内部。原件由档案家具呈现，完整屋顶建筑已移除。</p><div class="pair">
+<figure><figcaption>修改前 · 上轮已展示版本</figcaption><a class="image" href="before/S51.png" target="_blank"><img src="before/S51.png" loading="lazy" alt="S51 修改前 · 上轮已展示版本"></a></figure>
+<figure><figcaption>修正后 · 当前Godot场景</figcaption><a class="image" href="images/S51.png" target="_blank"><img src="images/S51.png" loading="lazy" alt="S51 修正后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>从南楼梯平台进入中厅，到北档案台南面取回原件；击败守卫后回到南端下行楼梯交接，表达撤回下层。</p></article><article><h3>侧路与取舍</h3><p>西阅览翼可从南门或东侧门进入，东翼的错位门洞提供另一侧路线；封存侧室不放任务目标。</p><p>北侧取档和南楼梯交接必须分别完成；书架与厚墙真实阻挡，封存侧室没有额外任务或奖励。合军后支线关闭，规则保持。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="S51" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="S51" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="S51" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/S51.png" alt="S51地形说明"><svg viewBox="0 0 544 512" aria-hidden="true"><g class="overlay" data-map="S51" data-overlay="routes">
+<polyline points="280,440 280,360 280,200 280,136" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="280,440 280,360 280,200 280,136" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="280,408 152,408 152,360 152,264 232,264 280,264" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="280,408 152,408 152,360 152,264 232,264 280,264" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="280,424 408,424 408,360 408,312 328,312 280,312" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="280,424 408,424 408,360 408,312 328,312 280,312" fill="none" stroke="#a6b887" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="S51" data-overlay="actors">
+<circle cx="232" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="264" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="296" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="312" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="328" cy="424" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="232" cy="424" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="424" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="296" cy="424" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="312" cy="424" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="280" cy="152" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="248" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="408" cy="312" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="312" cy="328" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="328" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="280" cy="232" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="376" cy="360" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="280" cy="120" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="280" cy="440" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="280" cy="440" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面。实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第8回合完成</div><p>结算时正式队员 7/7 存活；无人濒死。</p><p class="small">832次按键，含出入场与战后操作。<a href="play/east-one/east-one-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第7回合完成</div><p>结算时正式队员 7/7 存活；无人濒死。</p><p class="small">779次按键，含出入场与战后操作。<a href="play/east-two/east-two-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/S51-entry.png" target="_blank"><img src="screenshots/S51-entry.png" loading="lazy" alt="S51 · 出阵与空间关系"></a><figcaption>S51 · 出阵与空间关系 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/S51-turn-4.png" target="_blank"><img src="screenshots/S51-turn-4.png" loading="lazy" alt="S51 · 室内拼木、石地与阅览翼"></a><figcaption>S51 · 室内拼木、石地与阅览翼 · 第4回合</figcaption></figure>
+<figure><a class="image" href="screenshots/S51-victory.png" target="_blank"><img src="screenshots/S51-victory.png" loading="lazy" alt="S51 · 正常胜利结算"></a><figcaption>S51 · 正常胜利结算 · 第8回合</figcaption></figure>
+</div></section>
+<section class="panel" id="J53"><div class="eyebrow">J53 / 38×32 → 38×32</div><h2>神宫前庭 · 室外两翼与同层石桥</h2><p>前庭保留室外宫殿、两翼庭路和人工内池；中央跨池连接改用同层石桥，使通路与水庭关系一致，不再用单向楼梯暗示无依据的高差。</p><div class="pair">
+<figure><figcaption>修改前 · 上轮已展示版本</figcaption><a class="image" href="before/J53.png" target="_blank"><img src="before/J53.png" loading="lazy" alt="J53 修改前 · 上轮已展示版本"></a></figure>
+<figure><figcaption>修正后 · 当前Godot场景</figcaption><a class="image" href="images/J53.png" target="_blank"><img src="images/J53.png" loading="lazy" alt="J53 修正后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>两军分别由南侧两翼推进，完成阵台确认后经横廊和中央石桥共同接近统领。</p></article><article><h3>侧路与取舍</h3><p>两条横向联络路线支持跨翼接应；屋顶宫殿在室外前庭北缘，作为建筑外观成立。</p><p>两翼各有守军，分头推进较快但需要照顾弱领队；确认后不用永久站点。双主角必须存活，双方原队归属与各最多十人部署保持。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="J53" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="J53" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="J53" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/J53.png" alt="J53地形说明"><svg viewBox="0 0 672 576" aria-hidden="true"><g class="overlay" data-map="J53" data-overlay="routes">
+<polyline points="136,504 136,392 184,392 184,280" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="136,504 136,392 184,392 184,280" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="536,504 536,392 504,392 504,280" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="536,504 536,392 504,392 504,280" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="152,488 520,488" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="152,488 520,488" fill="none" stroke="#a6b887" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="328,504 328,328" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="328,504 328,328" fill="none" stroke="#ad91c7" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="J53" data-overlay="actors">
+<circle cx="120" cy="440" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="440" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="440" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="440" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="472" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="472" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="504" cy="440" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="520" cy="440" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="536" cy="440" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="552" cy="440" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="504" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="520" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="536" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="552" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="536" cy="472" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="552" cy="472" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="344" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="344" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="504" cy="344" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="232" cy="232" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="232" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="328" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="520" cy="328" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="424" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="200" cy="328" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="472" cy="328" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="280" cy="216" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="392" cy="216" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="312" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="536" cy="312" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="232" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="248" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="504" cy="248" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="328" cy="504" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面。实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第8回合完成</div><p>结算时正式队员 14/14 存活；无人濒死。</p><p class="small">2,224次按键，含出入场与战后操作。<a href="play/finale-one/finale-one-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第9回合完成</div><p>结算时正式队员 14/14 存活；无人濒死。</p><p class="small">2,699次按键，含出入场与战后操作。<a href="play/finale-two/finale-two-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/J53-entry.png" target="_blank"><img src="screenshots/J53-entry.png" loading="lazy" alt="J53 · 出阵与空间关系"></a><figcaption>J53 · 出阵与空间关系 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/J53-turn-4.png" target="_blank"><img src="screenshots/J53-turn-4.png" loading="lazy" alt="J53 · 室外铺石前庭与同层石桥"></a><figcaption>J53 · 室外铺石前庭与同层石桥 · 第4回合</figcaption></figure>
+<figure><a class="image" href="screenshots/J53-victory.png" target="_blank"><img src="screenshots/J53-victory.png" loading="lazy" alt="J53 · 正常胜利结算"></a><figcaption>J53 · 正常胜利结算 · 第8回合</figcaption></figure>
+</div></section>
+<section class="panel" id="J54"><div class="eyebrow">J54 / 34×32 → 34×32</div><h2>神座终战 · 三阶口与连续高台边界</h2><p>神座保留露天祭坛构图，三座阶口之间补连续台基挡墙，人工池岸与高台边界一致；地面单位须经实际踏步上台。</p><div class="pair">
+<figure><figcaption>修改前 · 上轮已展示版本</figcaption><a class="image" href="before/J54.png" target="_blank"><img src="before/J54.png" loading="lazy" alt="J54 修改前 · 上轮已展示版本"></a></figure>
+<figure><figcaption>修正后 · 当前Godot场景</figcaption><a class="image" href="images/J54.png" target="_blank"><img src="images/J54.png" loading="lazy" alt="J54 修正后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>两军在南侧展开，处理侧翼敌军后由中央或两侧阶口进入上层攻击平台。</p></article><article><h3>侧路与取舍</h3><p>后方横廊用于换翼与后撤，侧阶提供分进选择；普通地面单位不能从草地直接穿过高台立面。</p><p>阶梯只有踏步可走，栏柱真实阻挡；首领周围留出近战、法术和半血援军空间。普通武器与法术始终有效，半血仅一次强化与召唤，不回血。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="J54" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="J54" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="J54" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/J54.png" alt="J54地形说明"><svg viewBox="0 0 608 576" aria-hidden="true"><g class="overlay" data-map="J54" data-overlay="routes">
+<polyline points="136,504 488,504" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="136,504 488,504" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="296,504 296,360" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="296,504 296,360" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="152,472 184,472 184,392" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="152,472 184,472 184,392" fill="none" stroke="#a6b887" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="472,472 424,472 424,392" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="472,472 424,472 424,392" fill="none" stroke="#ad91c7" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="J54" data-overlay="actors">
+<circle cx="104" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="104" cy="472" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="472" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="472" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="472" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="488" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="488" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="456" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="472" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="504" cy="456" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="456" cy="472" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="472" cy="472" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="472" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="504" cy="472" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="472" cy="488" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="488" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="296" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="296" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="424" cy="296" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="232" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="376" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="280" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="280" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="232" cy="216" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="376" cy="216" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="232" cy="264" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="296" cy="504" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面。实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第14回合完成</div><p>结算时正式队员 14/14 存活；无人濒死。</p><p class="small">3,110次按键，含出入场与战后操作。<a href="play/finale-one/finale-one-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第11回合完成</div><p>结算时正式队员 14/14 存活；无人濒死。</p><p class="small">2,718次按键，含出入场与战后操作。<a href="play/finale-two/finale-two-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/J54-entry.png" target="_blank"><img src="screenshots/J54-entry.png" loading="lazy" alt="J54 · 出阵与空间关系"></a><figcaption>J54 · 出阵与空间关系 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/J54-turn-6.png" target="_blank"><img src="screenshots/J54-turn-6.png" loading="lazy" alt="J54 · 大理石神座与高台阶口"></a><figcaption>J54 · 大理石神座与高台阶口 · 第6回合</figcaption></figure>
+<figure><a class="image" href="screenshots/J54-victory.png" target="_blank"><img src="screenshots/J54-victory.png" loading="lazy" alt="J54 · 胜利进入结局"></a><figcaption>J54 · 胜利进入结局 · 第14回合</figcaption></figure>
+<figure><a class="image" href="screenshots/J54-half-health.png" target="_blank"><img src="screenshots/J54-half-health.png" loading="lazy" alt="J54 · 半血阶段与实际援军"></a><figcaption>J54 · 半血阶段与实际援军 · 第11回合</figcaption></figure>
+<figure><a class="image" href="screenshots/ending-complete.png" target="_blank"><img src="screenshots/ending-complete.png" loading="lazy" alt="J54 · 完整后日谈末页"></a><figcaption>J54 · 完整后日谈末页 · 第14回合</figcaption></figure>
+</div></section>
+<section class="panel" id="other-materials"><h2>其他章节 · 材质修正前后</h2><p>以下关卡仅修改材质及必要的开门后贴图，布局、单位、动作和任务规则保持原样。</p>
+<h3>M13 · 南岗押送所</h3><p>修正：两间牢室及开门后的门槛改为石地，院外保留土路。</p><div class="pair">
+<figure><figcaption>修正前</figcaption><a class="image" href="before/M13.png"><img src="before/M13.png" loading="lazy" alt="M13修正前"></a></figure>
+<figure><figcaption>修正后</figcaption><a class="image" href="images/M13.png"><img src="images/M13.png" loading="lazy" alt="M13修正后"></a></figure>
+</div>
+<h3>S11 · 旧矿道救援</h3><p>修正：矿道大厅的沼泽底纹改为洞穴碎石与压实矿道。</p><div class="pair">
+<figure><figcaption>修正前</figcaption><a class="image" href="before/S11.png"><img src="before/S11.png" loading="lazy" alt="S11修正前"></a></figure>
+<figure><figcaption>修正后</figcaption><a class="image" href="images/S11.png"><img src="images/S11.png" loading="lazy" alt="S11修正后"></a></figure>
+</div>
+<h3>F25 · 潮狩军港</h3><p>修正：码头木栈改为风化灰木板，船体甲板保持。</p><div class="pair">
+<figure><figcaption>修正前</figcaption><a class="image" href="before/F25.png"><img src="before/F25.png" loading="lazy" alt="F25修正前"></a></figure>
+<figure><figcaption>修正后</figcaption><a class="image" href="images/F25.png"><img src="images/F25.png" loading="lazy" alt="F25修正后"></a></figure>
+</div>
+<h3>F31 · 码头脱围</h3><p>修正：岸侧木栈和跳板使用风化木材，船体甲板保持。</p><div class="pair">
+<figure><figcaption>修正前</figcaption><a class="image" href="before/F31.png"><img src="before/F31.png" loading="lazy" alt="F31修正前"></a></figure>
+<figure><figcaption>修正后</figcaption><a class="image" href="images/F31.png"><img src="images/F31.png" loading="lazy" alt="F31修正后"></a></figure>
+</div>
+<h3>F33 · 提炼院后庭</h3><p>修正：室外检修木桥使用风化木材，与船板区分。</p><div class="pair">
+<figure><figcaption>修正前</figcaption><a class="image" href="before/F33.png"><img src="before/F33.png" loading="lazy" alt="F33修正前"></a></figure>
+<figure><figcaption>修正后</figcaption><a class="image" href="images/F33.png"><img src="images/F33.png" loading="lazy" alt="F33修正后"></a></figure>
+</div>
+<h3>S31 · 山村地牢</h3><p>修正：剖面牢室内使用室内磨损石地，山村接近区的草地、土路保持。</p><div class="pair">
+<figure><figcaption>修正前</figcaption><a class="image" href="before/S31.png"><img src="before/S31.png" loading="lazy" alt="S31修正前"></a></figure>
+<figure><figcaption>修正后</figcaption><a class="image" href="images/S31.png"><img src="images/S31.png" loading="lazy" alt="S31修正后"></a></figure>
+</div>
+<h3>S32 · 盐原营地</h3><p>修正：剖面牢室内使用室内磨损石地，营地外盐土与道路保持。</p><div class="pair">
+<figure><figcaption>修正前</figcaption><a class="image" href="before/S32.png"><img src="before/S32.png" loading="lazy" alt="S32修正前"></a></figure>
+<figure><figcaption>修正后</figcaption><a class="image" href="images/S32.png"><img src="images/S32.png" loading="lazy" alt="S32修正后"></a></figure>
+</div>
+<h3>F41 · 沙城守井战</h3><p>修正：岩石脚下移除洞窟底纹，改为对应沙地过渡。</p><div class="pair">
+<figure><figcaption>修正前</figcaption><a class="image" href="before/F41.png"><img src="before/F41.png" loading="lazy" alt="F41修正前"></a></figure>
+<figure><figcaption>修正后</figcaption><a class="image" href="images/F41.png"><img src="images/F41.png" loading="lazy" alt="F41修正后"></a></figure>
+</div>
+<h3>F42 · 盐原观测台</h3><p>修正：岩石脚下移除洞窟底纹，改为对应盐原表面。</p><div class="pair">
+<figure><figcaption>修正前</figcaption><a class="image" href="before/F42.png"><img src="before/F42.png" loading="lazy" alt="F42修正前"></a></figure>
+<figure><figcaption>修正后</figcaption><a class="image" href="images/F42.png"><img src="images/F42.png" loading="lazy" alt="F42修正后"></a></figure>
+</div>
+</section>
+<section class="panel" id="materials"><h2>全40图地面材质复查</h2><p>逐图核对原生画面、贴图来源和场景用途。此前章节只修正材质引用，保持布局、单位、交互和剧情规则。点击图号查看当前完整场景。</p><table><thead><tr><th>地图</th><th>场景与地面</th><th>检查结论</th></tr></thead><tbody>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=M11#map-viewer">M11 流民林路</a></td><td>雪原室外林路、渡溪木桥与安全村舍</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=M12#map-viewer">M12 丘堡粮站</a></td><td>室外丘坡粮站、粮仓门前作业院</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=M13#map-viewer">M13 南岗押送所</a></td><td>河岸押送所外院、两间囚室和木桥</td><td>修正：两间牢室及开门后的门槛改为石地，院外保留土路。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=M14#map-viewer">M14 旧塔外营</a></td><td>室外军营、营帐与营路</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=M15#map-viewer">M15 海峡旧塔堡</a></td><td>海峡旧堡的露天内院、外营与码头栈道</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=S11#map-viewer">S11 旧矿道救援</a></td><td>地下旧矿道大厅、采掘岩体与压实矿路</td><td>修正：矿道大厅的沼泽底纹改为洞穴碎石与压实矿道。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=S12#map-viewer">S12 林村诊所道路</a></td><td>室外林村诊所道路、装车院与双木桥</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=F21#map-viewer">F21 海上拦截</a></td><td>室外海面上的运输船与搜捕舰甲板、登船跳板</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=F22#map-viewer">F22 押送舰救援</a></td><td>室外押送舰/接应船甲板与铁栅囚舱</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=F23#map-viewer">F23 礁岛登岸</a></td><td>海岛沙滩、林地草坡与村庄土路</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=F24#map-viewer">F24 海灯岛防卫</a></td><td>黑昼海岛、灯庭露天石台、岸滩与村道</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=F25#map-viewer">F25 潮狩军港</a></td><td>室外军港、岸上土路/石台与露天木码头</td><td>修正：码头木栈改为风化灰木板，船体甲板保持。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=F26#map-viewer">F26 断航古道</a></td><td>室外海岸水道、砌石海堤与堤后土路</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=S21#map-viewer">S21 漂泊渔船</a></td><td>漂泊渔船甲板、登船跳板与沙岸停泊口</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=S22#map-viewer">S22 碎石海洞</a></td><td>潮湿海洞：岩壁、浅滩湿地与较干的通行土脊</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=M31#map-viewer">M31 西街撤离</a></td><td>西街室外街坊、民宅门坪与拘押院</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=M32#map-viewer">M32 军需大道截运</a></td><td>室外军需大道、两座运输站装卸坪</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=M33#map-viewer">M33 沿海石堡</a></td><td>沿海石堡露天守备院、工房外巷与投送木码头</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=F31#map-viewer">F31 码头脱围</a></td><td>室外码头街区、岸侧木栈与接应船甲板</td><td>修正：岸侧木栈和跳板使用风化木材，船体甲板保持。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=F32#map-viewer">F32 盐路解围</a></td><td>露天旧海床盐原、盐池、土质干道与岩脊</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=F33#map-viewer">F33 提炼院后庭</a></td><td>室外提炼院后庭、砌石环廊、水庭与木检修桥</td><td>修正：室外检修木桥使用风化木材，与船板区分。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=S31#map-viewer">S31 山村地牢</a></td><td>户外山村接近区与两处剖面牢室</td><td>修正：剖面牢室内使用室内磨损石地，山村接近区的草地、土路保持。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=S32#map-viewer">S32 盐原营地</a></td><td>露天盐原营地、土路/沙区与两处剖面拘押营房</td><td>修正：剖面牢室内使用室内磨损石地，营地外盐土与道路保持。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=M41#map-viewer">M41 雪峡撤离战</a></td><td>室外雪峡村落、两处河桥和撤离古道</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=M42#map-viewer">M42 铁骑封锁线</a></td><td>室外骑兵关口、木围营院及林缘侧路</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=M43#map-viewer">M43 北境日塔</a></td><td>露天雪地塔院，土路接铺石检修道</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=M44#map-viewer">M44 王都城门</a></td><td>王都城门外的草地、医舍院与石砌主街</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=F41#map-viewer">F41 沙城守井战</a></td><td>沙地城镇、两处井台及山石边缘</td><td>修正：岩石脚下移除洞窟底纹，改为对应沙地过渡。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=F42#map-viewer">F42 盐原观测台</a></td><td>盐原观测设施、设备石台与海岸</td><td>修正：岩石脚下移除洞窟底纹，改为对应盐原表面。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=F43#map-viewer">F43 亡潮沼泽</a></td><td>潮沼中的干岛、危险湿地和木栈道</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=F44#map-viewer">F44 沉没祭所</a></td><td>露天沉没祭所，多块石台由木维修桥相连</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=S41#map-viewer">S41 黑钟村名册</a></td><td>雪地村落道路与钟塔、档案屋</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=S42#map-viewer">S42 沼泽孤岛</a></td><td>沼泽孤岛诊所、干岛、湿地与接船木台</td><td>保留：实际纹理、材质来源与场景用途相符。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=M51#map-viewer">M51 王都内廷</a></td><td>室外王都内廷与剖面病房</td><td>修正：病房呈现床位与室内方石，伤兵真实经过南门；院外草地与石路保留。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=M52#map-viewer">M52 登天桥</a></td><td>室外跨水石桥与连续岩岸</td><td>修正：风化石桥、承台与厚岩岸相接；原三段桥跨度和敌我相对距离保持。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=F51#map-viewer">F51 祭所底层</a></td><td>地下水工维修层，剖顶石构工作间和连续主渠</td><td>地下粗石维修地保留；修正可走层间阶梯与人工渠沿。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=F52#map-viewer">F52 日宫下层</a></td><td>室内神宫下层门厅，连接祭所通道、旧书库与前庭方向</td><td>修正：去顶室内控制厅使用神宫大理石，取消厅内屋顶宫殿。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=S51#map-viewer">S51 神宫旧书库</a></td><td>室内书库：独立拼木地、磨损石中厅与南楼梯间</td><td>修正：船板/大理石复用改为室内拼木与暖灰磨损石地，北档案室不再摆屋顶建筑。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=J53#map-viewer">J53 神宫前庭</a></td><td>室外神宫前庭，门阵、正殿外立面与水庭</td><td>修正：前庭为室外铺石，跨人工内池使用同层石桥。</td></tr>
+<tr><td><a href="../../../art-review/battle-maps-20261021/index.html?map=J54#map-viewer">J54 太阳神乌库布·卡基</a></td><td>露天神座台地，上庭/下庭经三处阶梯连接</td><td>修正：上层大理石神座与下层露天石坪区分，三阶口之间补真实高台边界。</td></tr>
+</tbody></table><p><a href="material-summary.json">40图逐项证据</a></p></section>
+<section class="panel" id="verification"><h2>试玩与复查</h2><p>七图完成两轮逐关实际输入复测，检查战后据点、救援、工班修复、门阵控制和主线接续。从第四章真实完成记录重新开始第五章，连续完成七图及23页完整结局，没有重试或跳关。M51/M52/F51/F52/S51/J53/J54分别在12/12/51/18/10/9/12回合胜利。F51中诺娅按普通战斗结果濒死并保留后续伤情；H55正常使用剩余救治份额救回希雅，终局10名正式出战成员全部存活。</p><div class="note"><strong>复查后的修正</strong><p>从原剧情重新判断室内外：旧书库改为统一室内档案室、阅览翼与楼梯间；日宫下层移除厅内屋顶宫殿。王都伤兵从真实病房门内撤出，登天桥补连续厚岩岸，祭所与神座阶梯形成可读高差。全部40图逐张核对材质来源，修正矿道沼泽底、沙盐地上的洞窟底色、牢室地坪及户外木栈，并区分室内拼木、室内石地和神宫大理石。</p></div>
+<p>2597项独立规则、连通与保存检查通过；23张实机视口文字安全区检查无错误。前四章33张地图的布局、单位、剧情和规则保持；本轮按逐图复核结果修正错误材质，本轮全部程序、战斗规则与人物动画代码保持原样。</p>
+<details><summary>原始尝试、失败记录与验证范围</summary><p>两轮逐关检查使用真实开发记录的隔离副本；测试程序通过普通按键驱动实际游戏，完成移动、战斗、交互和结算，没有修改属性、随机结果或强制胜利。表内回合数受路线、命中和伤情影响，不代表固定难度。</p><p>先完成S51室内几何两轮，再按追加要求更换其室内材质；旧成功记录仍保留，最终选用的是新材质版两轮。全章连续流程重新从第四章真实完成记录开始，一次走到完整后日谈；没有重试、属性编辑或强制胜利。</p><p>未重新安装手机包；HTML资源与脚本检查不等同浏览器布局验收。</p><ul>
+<li><a href="play/S51-one/S51-one-play.json">S51-one-play.json</a>：S51 通过</li>
+<li><a href="play/S51-two/S51-two-play.json">S51-two-play.json</a>：S51 通过</li>
+<li><a href="play/continuous-final/continuous-final-play.json">continuous-final-play.json</a>：M51 通过、M52 通过、F51 通过、F52 通过、S51 通过、J53 通过、J54 通过</li>
+<li><a href="play/east-one/east-one-play.json">east-one-play.json</a>：F51 通过、F52 通过、S51 通过</li>
+<li><a href="play/east-two/east-two-play.json">east-two-play.json</a>：F51 通过、F52 通过、S51 通过</li>
+<li><a href="play/finale-one/finale-one-play.json">finale-one-play.json</a>：J53 通过、J54 通过</li>
+<li><a href="play/finale-two/finale-two-play.json">finale-two-play.json</a>：J53 通过、J54 通过</li>
+<li><a href="play/west-one/west-one-play.json">west-one-play.json</a>：M51 通过、M52 通过</li>
+<li><a href="play/west-two/west-two-play.json">west-two-play.json</a>：M51 通过、M52 通过</li>
+</ul></details><nav class="links"><a href="delivery-summary.json">完整交付记录</a><a href="rules-probe.json">独立规则检查</a><a href="flow-continuation.json">主线接续记录</a><a href="document-sync.json">流程文档同步</a><a href="runtime-log-review.json">运行日志复核</a><a href="visual-play-review.json">实机画面目检</a><a href="invariants-audit.json">剧情与其他地图不变量</a></nav></section><footer>第五章地图专项 · 2026-10-22 · 原生像素材质、专用书库陈设与现有动画。<a href="../m41-redesign-20261022/index.html">已确认的M41样板</a></footer>
+<script>function selectLayer(code,mode){document.querySelectorAll('button[data-map="'+code+'"]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.layer===mode)));document.querySelectorAll('.overlay[data-map="'+code+'"]').forEach(g=>g.classList.toggle('active',g.dataset.overlay===mode));}document.querySelectorAll('button[data-layer]').forEach(b=>b.addEventListener('click',()=>selectLayer(b.dataset.map,b.dataset.layer)));</script></main></body></html>

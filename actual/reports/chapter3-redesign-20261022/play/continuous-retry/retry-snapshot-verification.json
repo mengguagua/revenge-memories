@@ -1,0 +1,124 @@
+{
+  "passed": true,
+  "source_sha256": "de35d216cfabded2facce83b314575cd09ecf987cefba49cf673b70da662e1c3",
+  "source_turn": 9,
+  "source_outcome": "defeat",
+  "retry_turn": 1,
+  "retry_outcome": "",
+  "retry_action": "actual UI result menu retry",
+  "fields": [
+    "class_id",
+    "level",
+    "hp",
+    "max_hp",
+    "strength",
+    "skill",
+    "speed",
+    "luck",
+    "defence",
+    "resistance",
+    "move",
+    "item_id",
+    "magic_flags",
+    "magic_level",
+    "position"
+  ],
+  "prebattle_snapshot_to_retry": [
+    {
+      "id": "eileen",
+      "matching": true,
+      "differences": []
+    },
+    {
+      "id": "carlo",
+      "matching": true,
+      "differences": []
+    },
+    {
+      "id": "lord",
+      "matching": true,
+      "differences": []
+    },
+    {
+      "id": "roan",
+      "matching": true,
+      "differences": []
+    },
+    {
+      "id": "shia",
+      "matching": true,
+      "differences": []
+    },
+    {
+      "id": "F32_boss",
+      "matching": true,
+      "differences": []
+    },
+    {
+      "id": "F32_e1",
+      "matching": true,
+      "differences": []
+    },
+    {
+      "id": "F32_e2",
+      "matching": true,
+      "differences": []
+    },
+    {
+      "id": "F32_e3",
+      "matching": true,
+      "differences": []
+    },
+    {
+      "id": "F32_e4",
+      "matching": true,
+      "differences": []
+    },
+    {
+      "id": "F32_e5",
+      "matching": true,
+      "differences": []
+    },
+    {
+      "id": "F32_e6",
+      "matching": true,
+      "differences": []
+    },
+    {
+      "id": "F32_e7",
+      "matching": true,
+      "differences": []
+    },
+    {
+      "id": "F32_e8",
+      "matching": true,
+      "differences": []
+    },
+    {
+      "id": "F32_e9",
+      "matching": true,
+      "differences": []
+    },
+    {
+      "id": "F32_e10",
+      "matching": true,
+      "differences": []
+    },
+    {
+      "id": "F32_e11",
+      "matching": true,
+      "differences": []
+    },
+    {
+      "id": "salt_guide",
+      "matching": true,
+      "differences": []
+    }
+  ],
+  "rng_before_snapshot": 103,
+  "rng_at_retry": 158,
+  "explanation": "Normal result-menu retry restores the saved pre-battle snapshot. All18 original unit records match the listed stats/equipment/position fields. The driver never assigns live HP, stats, position, RNG, or outcome; candidate dictionaries are deep copies used only to score possible ordinary input actions.",
+  "rng_note": "The native tick() increments RNG by55 and frame_counter by1; post-menu values follow ordinary UI ticking. No driver assignment or reroll of live RNG.",
+  "frame_counter_snapshot": 18,
+  "frame_counter_retry": 19
+}

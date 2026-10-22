@@ -1,0 +1,332 @@
+{
+  "passed": true,
+  "review_method": "Direct view_image inspection of11 individual final actual Godot screenshots; no composites, image edits, stage edits or core edits.",
+  "reviewed_mid_battle_count": 7,
+  "reviewed_narrow_settlement_count": 2,
+  "reviewed_half_health_count": 1,
+  "reviewed_ending_count": 1,
+  "current_capture_count": 23,
+  "capture_backend_layout_errors": [],
+  "capture_backend_failures": [],
+  "checks": [
+    {
+      "name": "M51-turn-8",
+      "stage": "M51",
+      "purpose": "mid-battle",
+      "image": "actual/reports/chapter5-redesign-20261022/screenshots/M51-turn-8.png",
+      "size": [
+        562,
+        320
+      ],
+      "pixel_sha256": "4a73a6accfa560f1fdb0be6b6b3603a99b108fb38ae0fc41e5aec12d67954c26",
+      "source": "res://reports/chapter5-redesign-20261022/play/round1-west/round1-west-M51-turn-8.json",
+      "source_sha256": "ee914b00055c254383d75523e15ef57abf89c7a42e8e4ed2d7f6e841a5dba28b",
+      "map_sha256_at_review": "43edec3264e86ac499d80cc4e8d54bb2c303d3f0995967f6828b3d8ba66e0a81",
+      "turn": 8,
+      "outcome": "",
+      "findings": [
+        "Both ward facades face the medical cross-street. The central opening through the transverse wall is visible and connects to the southern evacuation axis.",
+        "Visible units stand on the palace forecourt, ward cross-street and central road; the medicine prop sits off the evacuation axis.",
+        "Terrain title, evasion and movement-cost lines remain centered inside the black panel; the top-left south-exit direction label has clear padding."
+      ],
+      "text_safe_area": "No visible text clipping, missing glyph or text-to-border collision in inspected active panels.",
+      "layout_errors": [],
+      "limitation": "The panel covers part of the west ward. This frame does not prove the final number of evacuated wounded."
+    },
+    {
+      "name": "M52-turn-8",
+      "stage": "M52",
+      "purpose": "mid-battle",
+      "image": "actual/reports/chapter5-redesign-20261022/screenshots/M52-turn-8.png",
+      "size": [
+        562,
+        320
+      ],
+      "pixel_sha256": "74ead55f67adae985d3ceafca9f4ffb90f9d444435125783c8bc986acfc544c4",
+      "source": "res://reports/chapter5-redesign-20261022/play/round1-west/round1-west-M52-turn-8.json",
+      "source_sha256": "f5589b15ff7b770a45230eb8507ef687ec9959e3a4e2a45054dc2033b4492740",
+      "map_sha256_at_review": "ed2075fa3700b820e24de30a9935ce412c3ebd445ac518a51a036dfce644f346",
+      "turn": 8,
+      "outcome": "",
+      "findings": [
+        "All three stone bridge segments cross water and land on intact supporting platforms. Railings remain outside the three-cell walking bands.",
+        "Units occupy the bridge lanes and intermediate platforms. The selected railing reports an impassable building obstacle, matching its visible collision role.",
+        "All three terrain-description lines fit within the popup, with adequate vertical spacing and no border collision."
+      ],
+      "text_safe_area": "No visible text clipping, missing glyph or text-to-border collision in inspected active panels.",
+      "layout_errors": [],
+      "limitation": "The westmost platform is partially outside the camera; lock order is verified by input traces, not this still."
+    },
+    {
+      "name": "F51-turn-12",
+      "stage": "F51",
+      "purpose": "mid-battle",
+      "image": "actual/reports/chapter5-redesign-20261022/screenshots/F51-turn-12.png",
+      "size": [
+        562,
+        320
+      ],
+      "pixel_sha256": "7f8705a45e53debb41e6d8ad9503ac6067bcddd5277d3023e5dd258150ac7d84",
+      "source": "res://reports/chapter5-redesign-20261022/play/final-F51-one/final-F51-one-F51-turn-12.json",
+      "source_sha256": "c273e015c96b9aee39e6116fcef1816d61297f272d82d5e46af205a5420f3837",
+      "map_sha256_at_review": "723469f507612e0c6f8ebea33c50cbb3d360d9e7b88a74a851808a3eaaba7c32",
+      "turn": 12,
+      "outcome": "",
+      "findings": [
+        "The two work yards have continuous wall edges and actual south openings; crew sprites remain visible on their device-side work pads.",
+        "Stone bridge landings visibly turn into the corridor beside the east yard, while the wooden surface only spans the canal. Units line the corridor without being hidden by the wall.",
+        "The stone-surface/evasion/movement popup has safe margins on all four sides."
+      ],
+      "text_safe_area": "No visible text clipping, missing glyph or text-to-border collision in inspected active panels.",
+      "layout_errors": [],
+      "limitation": "The upper stair area is clipped by the camera and the popup covers part of the east approach; per-crew waiting completion is not inferred from the image."
+    },
+    {
+      "name": "F52-turn-8",
+      "stage": "F52",
+      "purpose": "mid-battle",
+      "image": "actual/reports/chapter5-redesign-20261022/screenshots/F52-turn-8.png",
+      "size": [
+        562,
+        320
+      ],
+      "pixel_sha256": "70723b0347db29f83060edd9c9291ee8d354a6baef667bdaf13159cb986a9630",
+      "source": "res://reports/chapter5-redesign-20261022/play/round1-east/round1-east-F52-turn-8.json",
+      "source_sha256": "3241b0e0dc633bb6a9666a294acde4dfc9798711ae34ebe76a6377611c397fa8",
+      "map_sha256_at_review": "350148386c6b161071bfa1ec68cce80b5717450b878e181af5350ba9815d4a48",
+      "turn": 8,
+      "outcome": "",
+      "findings": [
+        "West and east devices occupy different depths, and both south-facing operation aprons connect to their wing approaches.",
+        "The central stone bridge is visibly bounded by water; columns and wing walls remain distinct from walkable corridors. Units on the west approach match the actual paved route.",
+        "Terrain title and two description rows remain within the centered popup."
+      ],
+      "text_safe_area": "No visible text clipping, missing glyph or text-to-border collision in inspected active panels.",
+      "layout_errors": [],
+      "limitation": "The view shows a local tactical state; confirming both device objectives requires the independent play record."
+    },
+    {
+      "name": "S51-turn-4",
+      "stage": "S51",
+      "purpose": "mid-battle",
+      "image": "actual/reports/chapter5-redesign-20261022/screenshots/S51-turn-4.png",
+      "size": [
+        562,
+        320
+      ],
+      "pixel_sha256": "01f48248352e94ba8af5939d8d3236f9d9c273ceae26a34c1955d664668d6cfc",
+      "source": "res://reports/chapter5-redesign-20261022/play/round1-east/round1-east-S51-turn-4.json",
+      "source_sha256": "faf73375d2a7550f244e8c106afc2fec2d5cd5df4d5437d44adb5b41a3bcced6",
+      "map_sha256_at_review": "3946bb46903b655e88ab23c437a2228552e392d70e8e5b28b1297b9e79ace08f",
+      "turn": 4,
+      "outcome": "",
+      "findings": [
+        "Bookcase/desk modules read as intact library furniture at game size, without white fringe or leftover background. Wooden aisles separate the furniture from the stone courtyard.",
+        "Both reading wings have visible south and side openings. Units occupy the main corridor and reading-room aisles, not shelf footprints.",
+        "The south-handoff direction label and all three terrain popup lines have visible safe padding."
+      ],
+      "text_safe_area": "No visible text clipping, missing glyph or text-to-border collision in inspected active panels.",
+      "layout_errors": [],
+      "limitation": "The terrain popup obscures part of the lower room junction. Sealed northern annexes contain no task anchors and are not treated as required exploration."
+    },
+    {
+      "name": "J53-turn-4",
+      "stage": "J53",
+      "purpose": "mid-battle",
+      "image": "actual/reports/chapter5-redesign-20261022/screenshots/J53-turn-4.png",
+      "size": [
+        562,
+        320
+      ],
+      "pixel_sha256": "b8ef09dd67246d8d14b8d8d31ac9db68ca505ef94cfc208f46bbd27a65820e31",
+      "source": "res://reports/chapter5-redesign-20261022/play/round1-finale/round1-finale-J53-turn-4.json",
+      "source_sha256": "f5adb73e9387af33ba67d33b4767d562e01d7eb0eff4d724be89e2bad9fecb6a",
+      "map_sha256_at_review": "aefcacc60d490ab099c642a7669c147d55c9e307f3ff69c4cbcb636a5a4bd9d6",
+      "turn": 4,
+      "outcome": "",
+      "findings": [
+        "The two player groups occupy separate left/right entry platforms, with an open transverse corridor for support. Their own wing devices remain visible ahead.",
+        "The two pools flank the central stair approach. The stair tread, side columns and upper landing are visually distinguishable; no missing stair art is visible.",
+        "The centered terrain panel retains padding around its title, evasion and movement-cost rows."
+      ],
+      "text_safe_area": "No visible text clipping, missing glyph or text-to-border collision in inspected active panels.",
+      "layout_errors": [],
+      "limitation": "The popup covers the bottom of the central stair; this still does not validate all20 deployment positions or both gate interactions."
+    },
+    {
+      "name": "J54-turn-6",
+      "stage": "J54",
+      "purpose": "mid-battle",
+      "image": "actual/reports/chapter5-redesign-20261022/screenshots/J54-turn-6.png",
+      "size": [
+        562,
+        320
+      ],
+      "pixel_sha256": "818f2fae149ba80af58aa33ab794c8cc5ed5279ed7bb2ddb219de71195d4a198",
+      "source": "res://reports/chapter5-redesign-20261022/play/round1-finale/round1-finale-J54-turn-6.json",
+      "source_sha256": "3f4310d687da96971cdcb5f0461bd506e80d36fd2c958fb1d89c2c7962e526e2",
+      "map_sha256_at_review": "769a420b9d33a2a64ee62989f611f13c26846e8295bfe669c6d3eb6c59d93b4a",
+      "turn": 6,
+      "outcome": "",
+      "findings": [
+        "The north throne and three ascending approaches are visible. Units use the side stairs and upper attack platform; water is visually separate from the lower walkways.",
+        "The side columns do not cover the currently visible units. Rear support units have space on the lower approach.",
+        "Terrain popup rows remain fully inside the panel."
+      ],
+      "text_safe_area": "No visible text clipping, missing glyph or text-to-border collision in inspected active panels.",
+      "layout_errors": [],
+      "limitation": "The central popup covers some stair cells, so exact movement legality relies on the geometry probes and normal-input test."
+    },
+    {
+      "name": "J54-half-health",
+      "stage": "J54",
+      "purpose": "half-health",
+      "image": "actual/reports/chapter5-redesign-20261022/screenshots/J54-half-health.png",
+      "size": [
+        562,
+        320
+      ],
+      "pixel_sha256": "f57585f61eb5c68d10629829e49de98d9b440618296ce38d6bfe1d1eeb48be47",
+      "source": "res://reports/chapter5-redesign-20261022/play/round1-finale/round1-finale-J54-half-health.json",
+      "source_sha256": "c02cb3011a09d6b8cba5d7c6409863e7f2bad1fea0ed59286af37dfbbee5ce83",
+      "map_sha256_at_review": "769a420b9d33a2a64ee62989f611f13c26846e8295bfe669c6d3eb6c59d93b4a",
+      "turn": 9,
+      "outcome": "",
+      "findings": [
+        "The enemy-range tint leaves throne, stone tiles and units readable. Three newly present reinforcement sprites are visible around the upper attack platform.",
+        "The selected reinforcement name and27/27HP bar remain inside its panel, with sufficient left/right and bottom padding.",
+        "Player units surround the upper platform without visible overlap into the throne or column footprints."
+      ],
+      "text_safe_area": "No visible text clipping, missing glyph or text-to-border collision in inspected active panels.",
+      "layout_errors": [],
+      "limitation": "The frame confirms presentation of the captured half-health state; one-wave spawning, strength increase and unchangedHP behavior require source-state and play checks."
+    },
+    {
+      "name": "M52-victory",
+      "stage": "M52",
+      "purpose": "narrow-settlement",
+      "image": "actual/reports/chapter5-redesign-20261022/screenshots/M52-victory.png",
+      "size": [
+        426,
+        240
+      ],
+      "pixel_sha256": "7ed1207f1e39800d1515ff85153d720cbf5aea4ac33740902515251d2404d548",
+      "source": "res://reports/chapter5-redesign-20261022/play/round1-west/round1-west-M52-victory.json",
+      "source_sha256": "7fe66a5faab4d2ff65abcc8f3c1a0622afb23b3b972ca8e152e061a5fe028095",
+      "map_sha256_at_review": "ed2075fa3700b820e24de30a9935ce412c3ebd445ac518a51a036dfce644f346",
+      "turn": 14,
+      "outcome": "victory",
+      "findings": [
+        "At426x240 the complete victory panel fits on screen, including title, map name and two result lines.",
+        "The confirmation-button text is centered and clear of all border edges; the button does not touch the upper panel.",
+        "Bridge, water and units remain rendered in the background without missing textures."
+      ],
+      "text_safe_area": "No visible text clipping, missing glyph or text-to-border collision in inspected active panels.",
+      "layout_errors": [],
+      "limitation": "This is the rendering of a recorded victory state, not independent evidence of command execution or reward correctness."
+    },
+    {
+      "name": "S51-victory",
+      "stage": "S51",
+      "purpose": "narrow-settlement",
+      "image": "actual/reports/chapter5-redesign-20261022/screenshots/S51-victory.png",
+      "size": [
+        426,
+        240
+      ],
+      "pixel_sha256": "bb2f5d1204d455e9e0f0bd0eaaa166d0c092d19bed9db7fe0b7322fd49f644ae",
+      "source": "res://reports/chapter5-redesign-20261022/play/round1-east/round1-east-S51-victory.json",
+      "source_sha256": "998adf22e867b57f55ba4fc983a497abc28fc7e01d08b631638372785bf29ec4",
+      "map_sha256_at_review": "3946bb46903b655e88ab23c437a2228552e392d70e8e5b28b1297b9e79ace08f",
+      "turn": 7,
+      "outcome": "victory",
+      "findings": [
+        "At426x240 the victory title, archive map name and two result lines fit with clear panel padding. Confirmation text remains centered and unclipped.",
+        "A small trailing portion of the underlying south-handoff marker frame is visible to the right of the confirmation button, aroundx284-300/y182-207. It exposes no readable clipped text and does not block operation, but is a minor presentation remnant."
+      ],
+      "text_safe_area": "No visible text clipping, missing glyph or text-to-border collision in inspected active panels.",
+      "layout_errors": [],
+      "limitation": "Static settlement review only. Minor background-HUD frame remnant is reported to root; no image or core edit was made."
+    },
+    {
+      "name": "ending-complete",
+      "stage": "J54",
+      "purpose": "ending-complete",
+      "image": "actual/reports/chapter5-redesign-20261022/screenshots/ending-complete.png",
+      "size": [
+        426,
+        240
+      ],
+      "pixel_sha256": "4ca758011cfc38f16d8c72330bc8c2077204696cfaf90b7307e42b5b2c5935a8",
+      "source": "res://reports/chapter5-redesign-20261022/play/round1-finale/round1-finale-ending-complete.json",
+      "source_sha256": "1f2de46ba726187a7d3c05ff1cf3b1b38273729e1dd95f2c468c15f1fb5c2570",
+      "map_sha256_at_review": "769a420b9d33a2a64ee62989f611f13c26846e8295bfe669c6d3eb6c59d93b4a",
+      "turn": 10,
+      "outcome": "victory",
+      "findings": [
+        "At426x240 the ending-complete title, full saved-progress paragraph and continue23/23 line remain within the panel. No missing Chinese glyphs or text-border collision is visible.",
+        "The final paragraph wraps across three body lines with clear spacing; the bottom prompt retains padding. The sunset background is intact above the panel."
+      ],
+      "text_safe_area": "No visible text clipping, missing glyph or text-to-border collision in inspected active panels.",
+      "layout_errors": [],
+      "limitation": "This reviews the final ending page only; earlier epilogue pages, persistence and reward idempotence are covered by separate input/state evidence."
+    }
+  ],
+  "blocking_visual_findings": [],
+  "minor_findings": [
+    {
+      "image": "S51-victory",
+      "severity": "minor",
+      "issue": "Underlying south-handoff marker frame peeks out beside the modal confirmation button.",
+      "approximate_rect": [
+        284,
+        182,
+        16,
+        25
+      ],
+      "text_clipping_visible": false,
+      "reported_to_root": true,
+      "map_or_core_modified": false
+    }
+  ],
+  "limitations": [
+    "Static images verify presentation only; they do not establish normal-input victory, objective timing, NPC survival, reward correctness or campaign continuity.",
+    "Each battle frame covers a local viewport and several HUD panels obscure terrain. Full-map reviews and geometry probes are separate.",
+    "Animation quality was excluded and existing animation code remains untouched.",
+    "Only the final ending page was visually inspected in this task. Prior epilogue pages and their persistence are outside this visual check."
+  ],
+  "half_health_source_spot_check": {
+    "source": "res://reports/chapter5-redesign-20261022/play/round1-finale/round1-finale-J54-half-health.json",
+    "visible_reinforcement_units": [
+      {
+        "id": "J54_summon0",
+        "position": [
+          16,
+          10
+        ],
+        "hp": 27.0,
+        "side": "enemy"
+      },
+      {
+        "id": "J54_summon1",
+        "position": [
+          15,
+          10
+        ],
+        "hp": 27.0,
+        "side": "enemy"
+      },
+      {
+        "id": "J54_summon2",
+        "position": [
+          17,
+          10
+        ],
+        "hp": 27.0,
+        "side": "enemy"
+      }
+    ],
+    "quest_final_phase": true,
+    "does_not_replace_full_play_verification": true
+  }
+}

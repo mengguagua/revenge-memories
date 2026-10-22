@@ -1,0 +1,263 @@
+{
+  "passed": true,
+  "review_method": "Direct view_image inspection of individual actual Godot screenshots. No contact sheet, image edits, map edits or core edits.",
+  "reviewed_mid_battle_count": 8,
+  "reviewed_narrow_settlement_count": 2,
+  "current_capture_count": 24,
+  "capture_backend_layout_errors": [],
+  "capture_backend_failures": [],
+  "checks": [
+    {
+      "name": "M31-object-court",
+      "stage": "M31",
+      "purpose": "mid-battle",
+      "image": "actual/reports/chapter3-redesign-20261022/screenshots/M31-object-court.png",
+      "size": [
+        562,
+        320
+      ],
+      "pixel_sha256": "ab7a83cfeab19842dba85feb7fb7b489667b0af177149f31960d73d3ee3d499c",
+      "source": "res://reports/chapter3-redesign-20261022/play/round1-west/round1-west-M31-object-court.json",
+      "source_sha256": "179337a780fdca3f53382ad809545b7afe99de0bbb31831b197ad64c46e9ddc8",
+      "map_sha256_at_review": "07113aea71b95c08e7647b6bfa8fa59c30300722bd1bb8215ee41b6bd7e73868",
+      "turn": 12,
+      "outcome": "",
+      "findings": [
+        "拘押院南门显示打开状态，院内居民与门前护卫都落在可走的内院/街道上，门前道路接南街。",
+        "西门方向标识可读；开门、回避和移动消耗三行说明均在黑底提示框内留有间距。"
+      ],
+      "text_safe_area": "No visible clipping, border collision or overlap between the inspected text rows.",
+      "layout_errors": [],
+      "limitation": "提示框遮住部分拘押院上缘；本张不覆盖居民最终到达西门，撤离结果需查普通输入记录。"
+    },
+    {
+      "name": "M32-turn-6",
+      "stage": "M32",
+      "purpose": "mid-battle",
+      "image": "actual/reports/chapter3-redesign-20261022/screenshots/M32-turn-6.png",
+      "size": [
+        562,
+        320
+      ],
+      "pixel_sha256": "e10752f9399e4f8d1bf2e174e24cec5f69b1b8e9a428b298af20ef55ba9d8705",
+      "source": "res://reports/chapter3-redesign-20261022/play/round1-M32/round1-M32-M32-turn-6.json",
+      "source_sha256": "dac8078f3f7c7ff334ccdb079b9ea79a442bb9bb16169a3e75149df6e1e6d446",
+      "map_sha256_at_review": "91c97784be57e70e3e33a174fee1c9ba1bb2a61783ae8bf28e607bd05f02f131",
+      "turn": 6,
+      "outcome": "",
+      "findings": [
+        "完整运输车车体落在两格大道与装卸坪相接处，未骑跨树林、岩壁或站房；西运输站与前方队伍的位置可同时辨认。",
+        "运输车名称、耐久28/28、血条和车锁操作说明全部位于信息框内部；北口方向提示在屏幕左上保持完整。"
+      ],
+      "text_safe_area": "No visible clipping, border collision or overlap between the inspected text rows.",
+      "layout_errors": [],
+      "limitation": "本张证明第6回合车体/道路/界面呈现，不单独证明后续停车时机或全部车道路径。"
+    },
+    {
+      "name": "M33-turn-8",
+      "stage": "M33",
+      "purpose": "mid-battle",
+      "image": "actual/reports/chapter3-redesign-20261022/screenshots/M33-turn-8.png",
+      "size": [
+        562,
+        320
+      ],
+      "pixel_sha256": "39d19e03206f8d60bd364729e2945bd283607ee0bf1754a40b503f1539afc8d0",
+      "source": "res://reports/chapter3-redesign-20261022/play/final-M33-one/final-M33-one-M33-turn-8.json",
+      "source_sha256": "54c24a60042ecd0e2a95267e64daf92fdec737510c33080ba7724a9a70330d55",
+      "map_sha256_at_review": "c30fb8486266fa77bcf85b492f6115f981d11b5d790bbdfff3b3d039e2bbb15a",
+      "turn": 8,
+      "outcome": "",
+      "findings": [
+        "连续围墙包围石内庭，南侧主门、靠港侧门和西侧入口与外部道路对应；蓝方与红方单位均位于内庭/道路上。",
+        "工房—栈桥的侧路可见，地形提示三行文字有清楚内边距。"
+      ],
+      "text_safe_area": "No visible clipping, border collision or overlap between the inspected text rows.",
+      "layout_errors": [],
+      "limitation": "东北出口不在本镜头核心区域；出口可达性由最终锚点夹具和地图全景另证。"
+    },
+    {
+      "name": "F31-object-ship_lock",
+      "stage": "F31",
+      "purpose": "mid-battle",
+      "image": "actual/reports/chapter3-redesign-20261022/screenshots/F31-object-ship_lock.png",
+      "size": [
+        562,
+        320
+      ],
+      "pixel_sha256": "d4644ba449a8342734493c0377bd8f4cc81bc371612d5faedfbca5b9c3620054",
+      "source": "res://reports/chapter3-redesign-20261022/play/round1-other/round1-other-F31-object-ship_lock.json",
+      "source_sha256": "20e2a8aa6e14d96b9a675b1ed6ac5c4a27435c0b9183080c3cec134e17e5c91f",
+      "map_sha256_at_review": "9ffc062c4f812f477a807fdf274161f4852fee8e1820e5b76392b110acb08c99",
+      "turn": 9,
+      "outcome": "",
+      "findings": [
+        "北院门已打开且院内伤者仍有可见落脚空间；南院栏杆保持封闭，两个院落与仓街的关系明确。",
+        "开锁提示、回避和艾琳移动消耗未压框；左上己方船口方向提示完整。"
+      ],
+      "text_safe_area": "No visible clipping, border collision or overlap between the inspected text rows.",
+      "layout_errors": [],
+      "limitation": "西南跳板不在本中局镜头完整范围，已补看F31-entry确认实际接岸。"
+    },
+    {
+      "name": "F32-turn-8",
+      "stage": "F32",
+      "purpose": "mid-battle",
+      "image": "actual/reports/chapter3-redesign-20261022/screenshots/F32-turn-8.png",
+      "size": [
+        562,
+        320
+      ],
+      "pixel_sha256": "deb5a77d8a60e43193cf527f0284ddbce161b480c44eb094d560b5c8bb99d0e4",
+      "source": "res://reports/chapter3-redesign-20261022/play/round1-other/round1-other-F32-turn-8.json",
+      "source_sha256": "df1478fdfe05ae32164e28e12fdf24a03208ece126aab8fc858862a88192dd38",
+      "map_sha256_at_review": "4a5b0310087eebe20a79cf1c3ced871f3704cd81c72f6980fe47130ed47c223e",
+      "turn": 8,
+      "outcome": "",
+      "findings": [
+        "主队沿中央盐池西北侧干道接敌，东侧敌军与支路隔着真实水洼；旧井、恢复格和干道互相对应。",
+        "提示框内的地形、回避和移动消耗行未与边线或相邻行相撞，北关方向标签可读。"
+      ],
+      "text_safe_area": "No visible clipping, border collision or overlap between the inspected text rows.",
+      "layout_errors": [],
+      "limitation": "单帧不能证明向导最终撤离或死亡后的路线册分支。"
+    },
+    {
+      "name": "F33-object-control_array",
+      "stage": "F33",
+      "purpose": "mid-battle",
+      "image": "actual/reports/chapter3-redesign-20261022/screenshots/F33-object-control_array.png",
+      "size": [
+        562,
+        320
+      ],
+      "pixel_sha256": "0ba4135d31119b50a38a3da011ab76d08d882b53ddc3717f0b80cd79f9b16983",
+      "source": "res://reports/chapter3-redesign-20261022/play/final-round1/final-round1-F33-object-control_array.json",
+      "source_sha256": "23ddcc9cc4807076449dd19f6b34eae1b548aeba0b9fc333f5ff1874840763d5",
+      "map_sha256_at_review": "b9872eb06ead4cefc881ca17ab9dfe41a1a884dfbad595a91a42137cd64d4a03",
+      "turn": 5,
+      "outcome": "",
+      "findings": [
+        "阵台旗位与站在石岛上的希雅一致，东西木桥都跨过水面接岸；西桥前护卫没有落入水格。",
+        "工房已打开，两名术士仍在室内；人物面板的姓名、等级经验、生命数字、血条及阵台已稳定状态均留在框内。"
+      ],
+      "text_safe_area": "No visible clipping, border collision or overlap between the inspected text rows.",
+      "layout_errors": [],
+      "limitation": "人物面板覆盖北庭局部，未从此帧判断全图敌方射程；只核对可见桥面、阵台、门状态及文字。"
+    },
+    {
+      "name": "S31-object-family_w",
+      "stage": "S31",
+      "purpose": "mid-battle",
+      "image": "actual/reports/chapter3-redesign-20261022/screenshots/S31-object-family_w.png",
+      "size": [
+        562,
+        320
+      ],
+      "pixel_sha256": "9b2c20d162473d043dc3cfce7df4c3ae7e543e73d178290d2368246f8d5c17ac",
+      "source": "res://reports/chapter3-redesign-20261022/play/round1-other/round1-other-S31-object-family_w.json",
+      "source_sha256": "1f45b89c2546d829b22728232b71c2a806cf5043d7700884901dfc9740680d3b",
+      "map_sha256_at_review": "5f5b6a6dea089fe9b697be299e02a375f75da4ee5ab8bc65d214f2098d3e992a",
+      "turn": 6,
+      "outcome": "",
+      "findings": [
+        "西院打开、东院仍闭合的两种门状态可同时辨认；西院居民与门前护卫站在院内或门前路上。",
+        "西牢门已打开、回避和移动消耗三行提示未贴边；住户巷、井台与北侧通路可读。"
+      ],
+      "text_safe_area": "No visible clipping, border collision or overlap between the inspected text rows.",
+      "layout_errors": [],
+      "limitation": "本图仅覆盖先开西院的状态；两门都打开和胜利条件另由实玩记录确认。"
+    },
+    {
+      "name": "S32-object-mage_barrack",
+      "stage": "S32",
+      "purpose": "mid-battle",
+      "image": "actual/reports/chapter3-redesign-20261022/screenshots/S32-object-mage_barrack.png",
+      "size": [
+        562,
+        320
+      ],
+      "pixel_sha256": "37e73550161d93eac3311e001ec99072d462ac46a6bf02ddc62ab5d68962c38e",
+      "source": "res://reports/chapter3-redesign-20261022/play/round1-other/round1-other-S32-object-mage_barrack.json",
+      "source_sha256": "8a6cf99cdc3d1221cbc784308a4deff39d56913389b335ecae287ced11177775",
+      "map_sha256_at_review": "0c172a6747f75bb1faf118372363baab7320bb67fb478d153a4fc93a837f61fa",
+      "turn": 4,
+      "outcome": "",
+      "findings": [
+        "西术士营房已开，东居民院仍能辨认完整栏杆与南门；营房中的NPC与院外护卫没有站进屋体。",
+        "开门状态、回避和艾琳移动消耗均完整显示，东西营房之间的勤务道路保留视觉连通。"
+      ],
+      "text_safe_area": "No visible clipping, border collision or overlap between the inspected text rows.",
+      "layout_errors": [],
+      "limitation": "本图不证明诺娅和弟弟后续全部剧情分支，也不涵盖所有战斗镜头。"
+    },
+    {
+      "name": "F33-victory",
+      "stage": "F33",
+      "purpose": "narrow-settlement",
+      "image": "actual/reports/chapter3-redesign-20261022/screenshots/F33-victory.png",
+      "size": [
+        426,
+        240
+      ],
+      "pixel_sha256": "0fc102b77b06a8a09512f06027f4f9a8146f872a9a5a5ecb2b8b62e51b508998",
+      "source": "res://reports/chapter3-redesign-20261022/play/final-round1/final-round1-F33-victory.json",
+      "source_sha256": "b033f237182badcc3f220201e83f267606512362ff9cd3c82ec5310a9b9dc9fa",
+      "map_sha256_at_review": "b9872eb06ead4cefc881ca17ab9dfe41a1a884dfbad595a91a42137cd64d4a03",
+      "turn": 18,
+      "outcome": "victory",
+      "findings": [
+        "426×240视口内，战斗胜利、提炼院后庭、目标完成和保存说明四组文字均完整；最长保存说明距左右框线仍约40像素。",
+        "确认继续前进按钮居中，文字上下约16像素余量；按钮与结算主框之间有分隔，没有被屏幕底缘裁切。"
+      ],
+      "text_safe_area": "No visible clipping, border collision or overlap between the inspected text rows.",
+      "layout_errors": [],
+      "limitation": "这是已结算静态视口检查，不能代表所有设备、分辨率或按钮交互状态。"
+    },
+    {
+      "name": "S31-victory",
+      "stage": "S31",
+      "purpose": "narrow-settlement",
+      "image": "actual/reports/chapter3-redesign-20261022/screenshots/S31-victory.png",
+      "size": [
+        426,
+        240
+      ],
+      "pixel_sha256": "39e69e4d9668a313b3f1e44eb3f1cca095d2b10ee47e5bb0f30581603dfc66b9",
+      "source": "res://reports/chapter3-redesign-20261022/play/round1-other/round1-other-S31-victory.json",
+      "source_sha256": "52ee90d6d1070c7a07412872e6c051fd818bec6dd8fd2834483ca444578c3d77",
+      "map_sha256_at_review": "5f5b6a6dea089fe9b697be299e02a375f75da4ee5ab8bc65d214f2098d3e992a",
+      "turn": 8,
+      "outcome": "victory",
+      "findings": [
+        "426×240视口内，战斗胜利、山村地牢、目标完成和保存说明完整且相互分行；标题未与边角碰撞。",
+        "确认继续前进按钮文案和背景边缘保持清楚内边距；主框与按钮均完整处于画面内。"
+      ],
+      "text_safe_area": "No visible clipping, border collision or overlap between the inspected text rows.",
+      "layout_errors": [],
+      "limitation": "这是已结算静态视口检查，不覆盖动态数字变化、全部菜单或所有字体缩放。"
+    }
+  ],
+  "supplementary_checks": [
+    {
+      "name": "F31-entry",
+      "image": "actual/reports/chapter3-redesign-20261022/screenshots/F31-entry.png",
+      "pixel_sha256": "4cccc1cff6aabc671a62976733ceb62a49f5aa4dfd8dadf7b0dcfcdcf90bf938",
+      "findings": [
+        "西南己船船体、两格跳板、岸侧护卫部署和仓街在同一镜头可见；跳板跨实际水面且两端落在甲板/码头。",
+        "己方船口标签和希雅人物面板均留在画面内，标签未与船体遮挡混淆。"
+      ]
+    }
+  ],
+  "issues": [],
+  "resolved_capture_issue": {
+    "original": "M32-object-cart_release captured the already completed battle and was obscured by its victory panel.",
+    "resolution": "Replaced by ordinary-input turn-6 checkpoint focused on the real transport-cart position; inspected M32-turn-6 instead. The current gallery remains 24 images."
+  },
+  "limits": [
+    "This review covers selected static mid-battle and settlement views, not every camera position, target tooltip or menu state.",
+    "Combat animation, movement animation and idle performance were outside scope.",
+    "Walkability, AI timing, evacuation outcomes and story branching rely on the independent gameplay and rule checks; a screenshot alone does not prove them.",
+    "Pixel hashes are used so later lossless PNG compression does not invalidate the inspected pixels."
+  ]
+}

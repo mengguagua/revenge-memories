@@ -1,0 +1,529 @@
+{
+  "passed": true,
+  "size": [
+    30,
+    26
+  ],
+  "closed_reachable_cells": 456,
+  "opened_reachable_cells": 476,
+  "escorts": [
+    {
+      "id": "ritual_worker0",
+      "position": [
+        6,
+        16
+      ],
+      "opened_exit_steps": 34,
+      "initially_enclosed": true
+    },
+    {
+      "id": "ritual_worker1",
+      "position": [
+        10,
+        16
+      ],
+      "opened_exit_steps": 34,
+      "initially_enclosed": true
+    }
+  ],
+  "rooms": [
+    {
+      "bounds": [
+        5,
+        12,
+        11,
+        18
+      ],
+      "door": [
+        8,
+        18
+      ]
+    }
+  ],
+  "bridges": [
+    {
+      "position": [
+        12,
+        12
+      ],
+      "axis": "h"
+    },
+    {
+      "position": [
+        13,
+        12
+      ],
+      "axis": "h"
+    },
+    {
+      "position": [
+        14,
+        12
+      ],
+      "axis": "h"
+    },
+    {
+      "position": [
+        15,
+        12
+      ],
+      "axis": "h"
+    },
+    {
+      "position": [
+        18,
+        12
+      ],
+      "axis": "h"
+    },
+    {
+      "position": [
+        19,
+        12
+      ],
+      "axis": "h"
+    },
+    {
+      "position": [
+        20,
+        12
+      ],
+      "axis": "h"
+    },
+    {
+      "position": [
+        21,
+        12
+      ],
+      "axis": "h"
+    }
+  ],
+  "coordinate_changes": {
+    "enemies": [
+      {
+        "id": "F33_boss",
+        "before": [
+          23,
+          4
+        ],
+        "after": [
+          23,
+          8
+        ]
+      },
+      {
+        "id": "F33_e1",
+        "before": [
+          21,
+          6
+        ],
+        "after": [
+          21,
+          10
+        ]
+      },
+      {
+        "id": "F33_e2",
+        "before": [
+          17,
+          9
+        ],
+        "after": [
+          14,
+          7
+        ]
+      },
+      {
+        "id": "F33_e3",
+        "before": [
+          21,
+          17
+        ],
+        "after": [
+          17,
+          20
+        ]
+      },
+      {
+        "id": "F33_e4",
+        "before": [
+          11,
+          5
+        ],
+        "after": [
+          16,
+          6
+        ]
+      },
+      {
+        "id": "F33_e5",
+        "before": [
+          21,
+          7
+        ],
+        "after": [
+          25,
+          11
+        ]
+      },
+      {
+        "id": "F33_e6",
+        "before": [
+          17,
+          10
+        ],
+        "after": [
+          22,
+          15
+        ]
+      },
+      {
+        "id": "F33_e7",
+        "before": [
+          21,
+          18
+        ],
+        "after": [
+          25,
+          20
+        ]
+      },
+      {
+        "id": "F33_e8",
+        "before": [
+          11,
+          6
+        ],
+        "after": [
+          10,
+          7
+        ]
+      },
+      {
+        "id": "F33_e9",
+        "before": [
+          22,
+          6
+        ],
+        "after": [
+          26,
+          8
+        ]
+      },
+      {
+        "id": "F33_e10",
+        "before": [
+          18,
+          9
+        ],
+        "after": [
+          17,
+          8
+        ]
+      },
+      {
+        "id": "F33_e11",
+        "before": [
+          22,
+          17
+        ],
+        "after": [
+          22,
+          18
+        ]
+      }
+    ],
+    "npc_units": [
+      {
+        "id": "ritual_worker0",
+        "before": [
+          13,
+          10
+        ],
+        "after": [
+          6,
+          16
+        ]
+      },
+      {
+        "id": "ritual_worker1",
+        "before": [
+          15,
+          10
+        ],
+        "after": [
+          10,
+          16
+        ]
+      }
+    ],
+    "reinforcements": [],
+    "deploy_before": [
+      [
+        2,
+        19
+      ],
+      [
+        3,
+        19
+      ],
+      [
+        4,
+        19
+      ],
+      [
+        5,
+        19
+      ],
+      [
+        2,
+        20
+      ],
+      [
+        3,
+        20
+      ],
+      [
+        4,
+        20
+      ],
+      [
+        5,
+        20
+      ],
+      [
+        2,
+        21
+      ],
+      [
+        3,
+        21
+      ]
+    ],
+    "deploy_after": [
+      [
+        7,
+        23
+      ],
+      [
+        8,
+        23
+      ],
+      [
+        9,
+        23
+      ],
+      [
+        10,
+        23
+      ],
+      [
+        7,
+        24
+      ],
+      [
+        8,
+        24
+      ],
+      [
+        9,
+        24
+      ],
+      [
+        10,
+        24
+      ],
+      [
+        11,
+        23
+      ],
+      [
+        11,
+        24
+      ]
+    ],
+    "objects_before": [
+      {
+        "id": "workers_gate",
+        "kind": "door",
+        "position": [
+          14,
+          12
+        ],
+        "label": "打开术士工房",
+        "adjacent": true,
+        "sprite": "jail_door",
+        "opens": [
+          [
+            14,
+            12
+          ]
+        ],
+        "unlock_units": [
+          "ritual_worker0",
+          "ritual_worker1"
+        ],
+        "open_tile": 208,
+        "open_art_cells": [
+          {
+            "position": [
+              14,
+              12
+            ],
+            "base_tile": 16
+          }
+        ],
+        "completed_label": "术士工房已打开"
+      },
+      {
+        "id": "regulation_record",
+        "kind": "record",
+        "position": [
+          16,
+          6
+        ],
+        "label": "复制调节记录",
+        "adjacent": true,
+        "sprite": "orders_case",
+        "approach": [
+          16,
+          7
+        ],
+        "completed_label": "调节记录已复制"
+      },
+      {
+        "id": "control_array",
+        "kind": "control",
+        "position": [
+          21,
+          14
+        ],
+        "label": "稳定控制阵台",
+        "adjacent": false,
+        "sprite": "white_flag",
+        "completed_label": "控制阵台已稳定",
+        "name_zh": "稳定控制阵台"
+      }
+    ],
+    "objects_after": [
+      {
+        "id": "workers_gate",
+        "kind": "door",
+        "position": [
+          8,
+          18
+        ],
+        "label": "打开术士工房",
+        "adjacent": true,
+        "sprite": "jail_door",
+        "opens": [
+          [
+            8,
+            18
+          ]
+        ],
+        "unlock_units": [
+          "ritual_worker0",
+          "ritual_worker1"
+        ],
+        "open_tile": 208,
+        "open_art_cells": [
+          {
+            "position": [
+              8,
+              17
+            ],
+            "base_tile": 20,
+            "clear_layers": [
+              1,
+              2
+            ]
+          },
+          {
+            "position": [
+              8,
+              18
+            ],
+            "base_tile": 20,
+            "clear_layers": [
+              1,
+              2
+            ]
+          }
+        ],
+        "completed_label": "术士工房已打开"
+      },
+      {
+        "id": "regulation_record",
+        "kind": "record",
+        "position": [
+          7,
+          6
+        ],
+        "label": "复制调节记录",
+        "adjacent": true,
+        "sprite": "orders_case",
+        "approach": [
+          7,
+          7
+        ],
+        "completed_label": "调节记录已复制"
+      },
+      {
+        "id": "control_array",
+        "kind": "control",
+        "position": [
+          16,
+          12
+        ],
+        "label": "稳定控制阵台",
+        "adjacent": false,
+        "sprite": "white_flag",
+        "completed_label": "控制阵台已稳定",
+        "name_zh": "稳定控制阵台"
+      }
+    ],
+    "exit_before": [
+      24,
+      3
+    ],
+    "exit_after": [
+      25,
+      7
+    ],
+    "targets_before": [
+      [
+        14,
+        12
+      ],
+      [
+        16,
+        6
+      ],
+      [
+        21,
+        14
+      ]
+    ],
+    "targets_after": [
+      [
+        8,
+        18
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        16,
+        12
+      ]
+    ]
+  },
+  "notes": [
+    "后门进入工房前庭，西侧工房与档案屋、北侧控制楼和中央调节水院组成围合设施；石廊、裸盐地、种植槽与水面区分用途，避免整图同质铺砖。",
+    "中央阵台为水院中的真实石岛，西东两座维修桥都跨越水格、落在可走岸上；外围环廊连接设备、记录与主楼，角色可选择两侧接近守军。",
+    "两名设施术士置于南侧完整工房墙内；唯一南门从部署前庭接近，开门后仍留在受护卫控制的后方。门、档案和阵台保持原交互与两人必须存活判定。"
+  ],
+  "all_ten_deployments_inside_movement_ring": true
+}

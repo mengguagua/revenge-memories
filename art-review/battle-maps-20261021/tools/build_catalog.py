@@ -19,6 +19,16 @@ for i,m in enumerate(heads):
 runtime=load(OUT/'runtime-info.json');assert runtime['passed'] and len(runtime['maps'])==40
 runtime={m['code']:m for m in runtime['maps']};campaign=load(ACTUAL/'data/campaign.json');world=load(ACTUAL/'data/formal_world.json');items=load(ACTUAL/'data/legacy/rules_full.json')['items']+load(ACTUAL/'data/equipment_progression.json')['items'];supply=load(ACTUAL/'data/equipment_progression.json')['clear_rewards']
 (OUT/'thumbnails').mkdir(exist_ok=True);(OUT/'sources').mkdir(exist_ok=True)
+material_review={m['code']:m for m in load(ACTUAL/'reports/chapter5-spatial-20261022/material-summary.json')['maps']}
+# Current first-chapter seasonal review supersedes only these five outdoor maps.
+climate_review={
+ 'M12':'日返前的雪原粮道：积雪、雪松、冬岩与雪顶建筑统一；主运粮道与卸粮坪为清扫裸土，建筑内石地保留。',
+ 'M13':'寒地押送营：雪地与连贯裸土车场分开，冬季屋顶、围墙和植被一致；牢房内石地、开门后门槛、木桥与开放流水保持各自材质。',
+ 'M14':'旧塔外营覆盖积雪，勤务路、营帐前场与粮仓院为压实裸土；寝帐、冬季营房和雪松映衬，控制口与部署不变。',
+ 'M15':'冬季海崖旧堡：积雪、冬岩、雪顶建筑与远景一致；工棚和石地牢房不铺雪，栈桥保留木材，海面保持水面。',
+ 'S12':'雪林诊所与村道统一寒地气候：松冠、岩脚、屋顶积雪，药车道为清扫土路；两座木桥和开放流水清楚区分。'}
+for code,conclusion in climate_review.items():material_review[code]=dict(material_review[code],conclusion=conclusion)
+
 records=[];images=[];errors=[]
 for sid,meta in sorted(campaign['stages'].items(),key=lambda p:int(p[0])):
  source=ACTUAL/meta['path'].removeprefix('res://');d=load(source);code=d['code'];rt=runtime[code];fields=sections[code]
@@ -39,16 +49,20 @@ for sid,meta in sorted(campaign['stages'].items(),key=lambda p:int(p[0])):
  def unit(u):return {k:u[k] for k in ['id','name_zh','class_id','level','hp','max_hp','position','quest_kind','locked','event_object','temporary','controllable','behavior','advance_after'] if k in u}
  grouped=Counter(rt['classes'][str(int(u['class_id']))] for u in d['enemies'])
  notes=[plain(x)for x in d.get('tactical_notes',d.get('visual_notes',[]))]
+ for note in d.get('climate_notes',[]):
+  if plain(note) not in notes:notes.append(plain(note))
+ notes.append('地面材质复查：'+material_review[code]['conclusion'])
  for text in [field('地图调整'),field('AI与时机')]:
   if text and text not in notes and text!=' '.join(notes):notes.append(text)
  rec=dict(id=int(sid),code=code,name=d['name_zh'],chapter=int(d['chapter']),route=d['route'],optional=bool(d.get('optional',code.startswith('S'))),size=[int(d['map']['width']),int(d['map']['height'])],canvas=[rt['width'],rt['height']],padding=rt['padding'],image=f'images/{code}.png',thumbnail=f'thumbnails/{code}.webp',source=f'sources/{code}.json',source_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),node=world['nodes'][str(int(d['node']))]['name_zh'],goal=d['goal'],conditions=field('目标／失败','目标与判定','目标与失败')or d['goal'],story=field('剧情推动','剧情与地图','剧情与缺席分支'),next=field('招募与下一步','战后与下一步','战后／下一步'),reward=field('奖励与返回'),fixed_rewards=[items[int(v)]['name_zh']for v in supply.get(sid,[])],notes=notes,initial_objectives=rt['objective_status'],deploy=d['player_positions'],deploy_by_route=d.get('player_positions_by_route',{}),boss_id=d['boss_id'],enemies=[unit(u)for u in d['enemies']],enemy_summary=dict(grouped),reinforcements=[unit(u)for u in d['reinforcements']],reinforcement_turn=int(d['reinforcement_turn']),npcs=[unit(u)for u in d['npc_units']],boats=d.get('event_boats',[]),transport_path=d.get('transport_path',[]),objects=objects,exit_marker=rt['exit_marker'],classes=rt['classes'],terrain=table,terrain_indices=indices,version=d.get('tactical_review_version',d.get('art_style_version','')),location_theme=d.get('location_theme',''))
+ rec['material_revision']=d.get('material_review_version',d.get('tactical_review_version',''));rec['material_review']=material_review[code]['conclusion']
  assert len(indices)==rec['size'][0]*rec['size'][1]
  records.append(rec);images.append({'code':code,'file':str(png.relative_to(OUT)),'size':list(im.size),'bytes':png.stat().st_size,'thumbnail_bytes':(OUT/f'thumbnails/{code}.webp').stat().st_size,'sha256':hashlib.sha256(png.read_bytes()).hexdigest()})
 assert len(records)==40 and sum(not x['optional']for x in records)==31 and sum(x['optional']for x in records)==9
-payload={'title':'全部战斗地图 · 场景与行动说明','date':'2026-10-22','version':re.search(r'config/version="([^"]+)"',(ACTUAL/'project.godot').read_text()).group(1),'map_revision':'0.10.6-ch2','maps':records,'chapters':[{'id':i,'count':sum(x['chapter']==i for x in records)}for i in range(1,6)],'notes':'当前关卡初始地形与配置；2026-10-22分两轮优化M11之后全部39图，M11保留；第3至5章25图已调整，M41重设计样板已确认；第一章M12—M15与S11/S12现按该方法重新组织地形、建筑、部署和任务点，M11保持；第二章F21—F26与S21/S22现也完成舰船、海岸、灯庭、军港和水道重设计。场景由Godot后台绘制，人物以可切换标注展示。正式出阵成员随存档名册和伤情变化。'}
+payload={'title':'全部战斗地图 · 场景与行动说明','date':'2026-10-23','version':re.search(r'config/version="([^"]+)"',(ACTUAL/'project.godot').read_text()).group(1),'map_revision':'0.10.11-climate','maps':records,'chapters':[{'id':i,'count':sum(x['chapter']==i for x in records)}for i in range(1,6)],'notes':'当前关卡初始地形与配置；2026-10-22分两轮优化M11之后全部39图，M11保留；第3至5章25图已调整，M41重设计样板已确认；第一章M12—M15与S11/S12现按该方法重新组织地形、建筑、部署和任务点，M11保持；第二章F21—F26与S21/S22现也完成舰船、海岸、灯庭、军港和水道重设计；第三章M31—M33、F31—F33及S31/S32现完成街区救援、军需截运、沿海石堡、码头盐路、提炼水庭与双院支线重设计。第四章现保留M41样板，并完成其余九图的铁骑营地、日塔、王都护院、沙城、观测台、沼泽与祭所重设计。第五章七图现完成内廷双病房、三段长桥、地下修复院、日宫水庭、旧书库、两军前庭和神座重设计。2026-10-22追加空间与材质复查：旧书库与日宫下层统一室内表达，病房、桥头和阶台修正；全部40图逐张核对贴图用途，另修正前四章9图的地面材质，布局与规则保持。2026-10-23第一章寒地一致性修订：M12—M15与S12改为雪地、冬季屋顶和雪松，清扫土路、室内石地、木桥与开放水面保持各自材质；M11原图和S11地下矿道保持。世界与室外据点只在第一章日返前使用冬景。场景由Godot后台绘制，人物以可切换标注展示。正式出阵成员随存档名册和伤情变化。'}
 (OUT/'maps-data.js').write_text('window.MAP_CATALOG='+json.dumps(payload,ensure_ascii=False,separators=(',',':'))+';\n')
-(OUT/'manifest.json').write_text(json.dumps({'passed':True,'count':40,'main':31,'side':9,'chapters':payload['chapters'],'images':images,'map_hashes':{m['code']:m['source_sha256']for m in records},'render':'Godot native tile and architecture renderer; no UI or character sprites','reference':'../character-expansion-20261018/index.html','palette':'chapter5 muted-v2','source_date':'2026-10-22','landscape_review':'../../actual/reports/map-polish-late-20261022/index.html'},ensure_ascii=False,indent=2)+'\n')
-lines=['# 全部战斗地图 · 逐关说明','', '2026-10-22，当前40张运行地图。说明摘自 docs2/完整游戏流程.md，对照同版关卡配置与引擎地形规则；本页包含剧情及奖励信息。','']
+(OUT/'manifest.json').write_text(json.dumps({'passed':True,'count':40,'main':31,'side':9,'chapters':payload['chapters'],'images':images,'map_hashes':{m['code']:m['source_sha256']for m in records},'render':'Godot native tile and architecture renderer; no UI or character sprites','reference':'../character-expansion-20261018/index.html','palette':'chapter5 muted-v2','source_date':'2026-10-23','landscape_review':'../../actual/reports/map-polish-late-20261022/index.html','climate_review':'../../actual/reports/chapter1-climate-20261022/index.html','map_revision':payload['map_revision']},ensure_ascii=False,indent=2)+'\n')
+lines=['# 全部战斗地图 · 逐关说明','', '2026-10-23，当前40张运行地图；本次第一章气候修订0.10.11。说明摘自 docs2/完整游戏流程.md，对照同版关卡配置与引擎地形规则；本页包含剧情及奖励信息。','']
 for m in records:
  lines += [f"## {m['code']} · {m['name']}",'',f"第{m['chapter']}章 · {'支线' if m['optional'] else '主线'} · {m['size'][0]}×{m['size'][1]}格",'',f"场景：../{m['image']}",'',f"**目标与失败：**{m['conditions']}",'',f"**剧情：**{m['story']}",'',f"**战后与下一步：**{m['next']}",'']
  for note in m['notes']:lines += ['- '+note]

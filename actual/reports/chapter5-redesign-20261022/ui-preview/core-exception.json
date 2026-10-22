@@ -1,0 +1,26 @@
+{
+  "authorized_by": "root, reproducible F52/S51 continuous-play render error",
+  "path": "core/main.gd",
+  "before_sha256": "a936129b112e099c5103c138396c1247297e95e83c1a6db2d314cd6f73666a92",
+  "after_sha256": "50a36fa52a31841567ddb48ed92aba2448b4f3b0953abe43204cc2f8578415a3",
+  "scope": "Only _draw_preview: clear stale audit, validate target index and skip empty attacker/defender before geometry/stat access. Animation, combat resolution, game state, maps and other core files untouched.",
+  "diff": "main-preview.diff",
+  "baseline_snapshot": "baseline/main.gd",
+  "baseline_sha256": "a936129b112e099c5103c138396c1247297e95e83c1a6db2d314cd6f73666a92",
+  "baseline_exact": true,
+  "all_other_core_unchanged": true,
+  "core_changes": [
+    {
+      "file": "main.gd",
+      "before": "a936129b112e099c5103c138396c1247297e95e83c1a6db2d314cd6f73666a92",
+      "after": "50a36fa52a31841567ddb48ed92aba2448b4f3b0953abe43204cc2f8578415a3"
+    }
+  ],
+  "all_40_maps_unchanged": true,
+  "regression": "ui-preview/preview-guard-regression.json",
+  "regression_checks": 64,
+  "package_rebuilt": true,
+  "package_report": "package-checks.json",
+  "packed_guard_report": "ui-preview/package-preview-guard.json",
+  "packed_guard_checks": 7
+}

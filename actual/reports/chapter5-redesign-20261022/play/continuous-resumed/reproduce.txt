@@ -1,0 +1,4 @@
+Run from project root:
+/Applications/Godot.app/Contents/MacOS/Godot --headless --audio-driver Dummy --path actual --log-file /private/tmp/ch5-continuous-resumed.log --script res://tests/ch5_redesign_continue.gd
+
+The script copies the preserved S51 T91 source into a separate report checkpoint and validates every persisted gameplay field before issuing the first input. It does not restart any battle or edit attributes, RNG, positions, objectives or results.
