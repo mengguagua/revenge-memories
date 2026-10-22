@@ -1,0 +1,64 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M41 · 雪峡撤离线 · 单图样板</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#10191f;color:#e9f0f2;font:15px/1.8 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}main{max-width:1380px;margin:auto;padding:42px 30px 72px}h1{font-size:38px;line-height:1.3;margin:10px 0 20px}h2{font-size:23px;margin:0 0 12px}h3{font-size:17px;margin:0 0 8px}p{color:#b8c9d1;max-width:1000px}.eyebrow{font-size:12px;letter-spacing:.14em;color:#a3cbbd}.tag{display:inline-block;padding:6px 13px;border-radius:7px;background:#3b3527;color:#dfcfaa;font-size:12px}.links,.controls{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}a{color:#a8d9c8;text-underline-offset:4px}.links a,button{display:inline-flex;justify-content:center;align-items:center;min-height:44px;padding:11px 17px;border:0;border-radius:9px;background:#293b44;color:#dce9ed;font:inherit;font-size:14px;text-decoration:none;cursor:pointer}button[aria-pressed=true]{background:#36514e;color:#e5fff5;box-shadow:inset 0 0 18px #9cd9be16,0 4px 18px #0004}a:focus-visible,button:focus-visible{outline:none;box-shadow:0 0 0 5px #a4d6c32c,0 0 24px #a4d6c32c}.panel{padding:24px;background:#1a2932;border-radius:16px;box-shadow:0 14px 38px #0002;margin-top:26px}.pair,.cards,.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}figure{margin:0;min-width:0}figcaption{padding:0 3px 12px;font-size:14px;color:#d6e4e7}.image{display:block;background:#22333d;border-radius:9px;overflow:hidden}.image img{width:100%;height:auto;display:block;image-rendering:pixelated}.cards article{padding:18px 21px;border-radius:11px;background:#22353e}.cards p{font-size:14px;margin:5px 0}.small{font-size:12px;color:#95aeb9}.stat{font-size:24px;color:#dbeee7;font-weight:600}.board{position:relative;max-width:960px;margin:0 auto}.board img{width:100%;height:auto;display:block;image-rendering:pixelated}.board svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.overlay{display:none}.overlay.active{display:block}.legend{color:#adbec7;min-height:28px;margin:12px 0 0}.shots figcaption{padding-top:12px}.shots{margin-top:20px}.details{margin-top:20px;padding:15px 18px;border-radius:9px;background:#243943}.details summary{cursor:pointer}.details p{font-size:13px}.note{padding:14px 18px;background:#bdcdcd0b;border-radius:9px;font-size:13px}.count{color:#c8e5d9}footer{margin-top:28px;color:#91a8b3;font-size:12px}@media(max-width:800px){main{padding:26px 14px 44px}.pair,.cards,.shots{grid-template-columns:1fr}.panel{padding:16px}h1{font-size:29px}.cards{gap:12px}}</style></head><body><main>
+<div class="eyebrow">REVENGE MEMORIES / ONE MAP STUDY</div><h1>M41 · 雪峡撤离线</h1><span class="tag">单图样板 · 已确认</span><p>西北村落出发，经中央谷桥到东岸医舍，再突破东南峡口。河谷决定两岸关系，建筑围出村街；主桥集中推进，林桥分兵绕行，北口追兵要求留下后卫。地图仍为32×26格。</p><nav class="links"><a href="#compare">前后对照</a><a href="#layout">查看路线与部署</a><a href="#play">实机与两种走法</a><a href="delivery-summary.json">完整复查记录</a><a href="../../dist/RevengeMemories-M41-Sample-20261022.app">独立桌面样板</a></nav>
+<section class="panel" id="compare"><h2>同尺寸前后对照</h2><div class="pair">
+<figure><figcaption>修改前 · 前一轮已优化版本</figcaption><a class="image" href="before.png" target="_blank"><img src="before.png" alt="修改前 · 前一轮已优化版本"></a></figure>
+<figure><figcaption>重设计后 · 当前Godot场景</figcaption><a class="image" href="images/M41.png" target="_blank"><img src="images/M41.png" alt="重设计后 · 当前Godot场景"></a></figure>
+</div><p class="small">两张均由游戏原生渲染器导出，32×26格，画面576×480像素；没有人物或路线覆盖。点击可看原图。</p></section>
+<section class="panel"><h2>这次改变了什么</h2><div class="cards">
+<article><h3>斜谷成为整体结构</h3><p>河流从东北斜向西南，把村落与南口分成两岸。山肩、林冠和留白先形成大块轮廓，桥与道路随后接入。</p></article>
+<article><h3>村街由建筑围出来</h3><p>四座雪屋与水井形成紧凑村落，门前小径与主街连通。普通街巷收窄，桥头和医舍前才留出展开空间。</p></article>
+<article><h3>两座桥承担不同战术</h3><p>两格宽主桥允许集中突破；东北一格木桥通过较长林路抵达侧后。两线在医舍附近会合，保留林缘站位和雪地展开空间。</p></article>
+<article><h3>撤离线有前后压力</h3><p>初始守军分为桥头、林路和南口三组；第4敌方回合的两名骑兵仍从北村方向追来。部署与居民站位随新构图调整。</p></article>
+</div></section>
+<section class="panel" id="layout"><h2>场景与战术位置</h2><div class="controls"><button type="button" data-layer="plain" aria-pressed="true">纯场景</button><button type="button" data-layer="routes" aria-pressed="false">两条进路</button><button type="button" data-layer="actors" aria-pressed="false">部署与任务</button></div><div class="board"><img src="images/M41.png" alt="M41当前地图"><svg viewBox="0 0 576 480" aria-hidden="true"><g id="routes" class="overlay">
+<polyline points="168,56 168,168 200,168 200,200 248,200 248,232 360,232 360,264 392,264 392,328 376,328 376,376 392,376 392,424" fill="none" stroke="#fff9" stroke-width="7" stroke-linejoin="round"/><polyline points="168,56 168,168 200,168 200,200 248,200 248,232 360,232 360,264 392,264 392,328 376,328 376,376 392,376 392,424" fill="none" stroke="#c48127" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="216,120 216,136 312,136 312,120 376,120 376,136 472,136 472,184 456,184 456,232 440,232 440,312" fill="none" stroke="#fff9" stroke-width="7" stroke-linejoin="round"/><polyline points="216,120 216,136 312,136 312,120 376,120 376,136 472,136 472,184 456,184 456,232 440,232 440,312" fill="none" stroke="#247b96" stroke-width="4" stroke-linejoin="round"/>
+</g><g id="actors" class="overlay">
+<circle cx="168" cy="184" r="7" fill="#316cc7" stroke="#fff" stroke-width="1.5"/>
+<circle cx="184" cy="184" r="7" fill="#316cc7" stroke="#fff" stroke-width="1.5"/>
+<circle cx="200" cy="184" r="7" fill="#316cc7" stroke="#fff" stroke-width="1.5"/>
+<circle cx="216" cy="184" r="7" fill="#316cc7" stroke="#fff" stroke-width="1.5"/>
+<circle cx="168" cy="200" r="7" fill="#316cc7" stroke="#fff" stroke-width="1.5"/>
+<circle cx="184" cy="200" r="7" fill="#316cc7" stroke="#fff" stroke-width="1.5"/>
+<circle cx="200" cy="200" r="7" fill="#316cc7" stroke="#fff" stroke-width="1.5"/>
+<circle cx="216" cy="200" r="7" fill="#316cc7" stroke="#fff" stroke-width="1.5"/>
+<circle cx="392" cy="408" r="7" fill="#ae3b4a" stroke="#fff" stroke-width="1.5"/>
+<circle cx="360" cy="232" r="7" fill="#ae3b4a" stroke="#fff" stroke-width="1.5"/>
+<circle cx="344" cy="280" r="7" fill="#ae3b4a" stroke="#fff" stroke-width="1.5"/>
+<circle cx="456" cy="200" r="7" fill="#ae3b4a" stroke="#fff" stroke-width="1.5"/>
+<circle cx="424" cy="328" r="7" fill="#ae3b4a" stroke="#fff" stroke-width="1.5"/>
+<circle cx="408" cy="392" r="7" fill="#ae3b4a" stroke="#fff" stroke-width="1.5"/>
+<circle cx="376" cy="248" r="7" fill="#ae3b4a" stroke="#fff" stroke-width="1.5"/>
+<circle cx="472" cy="232" r="7" fill="#ae3b4a" stroke="#fff" stroke-width="1.5"/>
+<circle cx="408" cy="232" r="7" fill="#ae3b4a" stroke="#fff" stroke-width="1.5"/>
+<circle cx="440" cy="376" r="7" fill="#ae3b4a" stroke="#fff" stroke-width="1.5"/>
+<circle cx="504" cy="216" r="7" fill="#ae3b4a" stroke="#fff" stroke-width="1.5"/>
+<circle cx="424" cy="360" r="7" fill="#ae3b4a" stroke="#fff" stroke-width="1.5"/>
+<circle cx="488" cy="312" r="7" fill="#ae3b4a" stroke="#fff" stroke-width="1.5"/>
+<circle cx="152" cy="152" r="7" fill="#997013" stroke="#fff" stroke-width="1.5"/>
+<text x="152" y="155" text-anchor="middle" fill="white" font-size="8" font-family="sans-serif">民</text>
+<circle cx="232" cy="216" r="7" fill="#997013" stroke="#fff" stroke-width="1.5"/>
+<text x="232" y="219" text-anchor="middle" fill="white" font-size="8" font-family="sans-serif">民</text>
+<circle cx="488" cy="360" r="7" fill="#997013" stroke="#fff" stroke-width="1.5"/>
+<text x="488" y="363" text-anchor="middle" fill="white" font-size="8" font-family="sans-serif">民</text>
+<circle cx="376" cy="392" r="7" fill="#387e59" stroke="#fff" stroke-width="1.5"/>
+<text x="376" y="395" text-anchor="middle" fill="white" font-size="8" font-family="sans-serif">旗</text>
+<circle cx="440" cy="312" r="7" fill="#387e59" stroke="#fff" stroke-width="1.5"/>
+<text x="440" y="315" text-anchor="middle" fill="white" font-size="8" font-family="sans-serif">旗</text>
+<circle cx="392" cy="424" r="7" fill="#385a80" stroke="#fff" stroke-width="1.5"/>
+<text x="392" y="427" text-anchor="middle" fill="white" font-size="8" font-family="sans-serif">出</text>
+</g></svg></div><p id="legend" class="legend">默认纯场景；标注只用于本页说明，不加入游戏画面。</p></section>
+<section class="panel" id="play"><h2>两种走法，实际输入通关</h2><div class="cards">
+<article><h3>主桥推进 + 后卫保护</h3><div class="stat">第14回合完成</div><p>8/8正式队员存活且无人濒死 · 3/3居民存活</p><p class="small">1,688次实际按键；战后进入H41并返回世界地图。<a href="play/final-main/final-main-play.json">查看记录</a></p></article>
+<article><h3>林桥分兵 + 后卫保护</h3><div class="stat">第16回合完成</div><p>8/8正式队员存活且无人濒死 · 3/3居民存活</p><p class="small">1,893次实际按键；战后进入H41并返回世界地图。<a href="play/final-flank/final-flank-play.json">查看记录</a></p></article>
+</div><p class="note">原胜利条件在至少两组居民撤离且其他目标完成后立即结算。以上两次均有三组居民存活，其中两组已经到达出口；不把“存活”写成“三组全部完成撤离”。回合数是这两次记录，不代表固定难度或严格的路线效率对照。</p><div class="shots">
+<figure><a class="image" href="screenshots/01-deployment.png" target="_blank"><img src="screenshots/01-deployment.png" loading="lazy" alt="西北村街部署"></a><figcaption>西北村街部署 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/02-rear-guard.png" target="_blank"><img src="screenshots/02-rear-guard.png" loading="lazy" alt="北口追兵与后卫"></a><figcaption>北口追兵与后卫 · 第5回合</figcaption></figure>
+<figure><a class="image" href="screenshots/03-main-bridge.png" target="_blank"><img src="screenshots/03-main-bridge.png" loading="lazy" alt="中央主桥推进"></a><figcaption>中央主桥推进 · 第7回合</figcaption></figure>
+<figure><a class="image" href="screenshots/04-northern-bridge.png" target="_blank"><img src="screenshots/04-northern-bridge.png" loading="lazy" alt="兰斯经东北小桥绕行"></a><figcaption>兰斯经东北小桥绕行 · 第5回合</figcaption></figure>
+<figure><a class="image" href="screenshots/05-forest-flank.png" target="_blank"><img src="screenshots/05-forest-flank.png" loading="lazy" alt="林路侧后接战"></a><figcaption>林路侧后接战 · 第7回合</figcaption></figure>
+<figure><a class="image" href="screenshots/06-medical-court.png" target="_blank"><img src="screenshots/06-medical-court.png" loading="lazy" alt="医舍与停靠点"></a><figcaption>医舍与停靠点 · 第10回合</figcaption></figure>
+<figure><a class="image" href="screenshots/07-south-pass-victory.png" target="_blank"><img src="screenshots/07-south-pass-victory.png" loading="lazy" alt="南口胜利结算"></a><figcaption>南口胜利结算 · 第14回合</figcaption></figure>
+<figure><a class="image" href="screenshots/08-objective.png" target="_blank"><img src="screenshots/08-objective.png" loading="lazy" alt="保留原剧情目标"></a><figcaption>保留原剧情目标 · 第1回合</figcaption></figure>
+</div><details class="details"><summary>复查中修正的问题与验证范围</summary><p>首版南村居民处于固定弓手开局射程内，已移到村屋侧面安全格；独立检查逐对验证三组居民与13名守军的开局射程。原失败记录保留。后卫配置从低速近战改为主角与弓手协同，最终两种策略均无正式队员濒死。</p><p>补齐村街与林路的T形接缝，加入克制的河岸雪檐；树林采用同一套原生树木形成连续林冠，未更改人物动画。214项规则、通行与保存检查通过，8张实机视口文字安全区检查无错误。</p><p>只改M41，其他39张地图逐文件核对保持一致。试玩使用真实开发记录正常返回整备后重新入场，所有移动、战斗和交互使用普通输入，没有改属性、随机结果或强制胜利。未重新安装手机包。</p></details></section><footer>此页保留M41样板阶段的前后对照与验证记录。用户已确认方向，后续已推广至<a href="../chapter1-redesign-20261022/index.html">第一章六图</a>；该阶段仅修改M41。<a href="../../../art-review/battle-maps-20261021/index.html?map=M41#map-viewer">全部地图目录中的M41</a> · <a href="changes.json">坐标变更</a> · <a href="rules-probe.json">独立规则检查</a></footer>
+<script>const descriptions={plain:'默认纯场景；标注只用于本页说明，不加入游戏画面。',routes:'赭色：主桥与撤离主线。蓝色：东北林桥绕行线。两线在医舍附近会合。',actors:'蓝：本次8名实际出阵者的部署。红：13名初始守军。金：居民。绿：两处交互。出：南侧出口。'};function selectLayer(mode){document.querySelectorAll('[data-layer]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.layer===mode)));document.querySelectorAll('.overlay').forEach(g=>g.classList.toggle('active',g.id===mode));document.getElementById('legend').textContent=descriptions[mode];}document.querySelectorAll('[data-layer]').forEach(b=>b.addEventListener('click',()=>selectLayer(b.dataset.layer)));</script></main></body></html>

@@ -1,0 +1,498 @@
+{
+  "code": "F25",
+  "passed": true,
+  "size": [
+    34,
+    28
+  ],
+  "closed_connected": 581,
+  "opened_connected": 588,
+  "notes": [
+    "军港按南仓入口、仓街、驻军院和北侧主楼逐层展开，主楼前神教箱与仓房账房都有明确的道路与门前空间。",
+    "陆路可以沿仓街推进；东侧连续木码头绕过湾内驻军院，连接引航者牢门外侧与北哨，形成独立的侧进路线。",
+    "两名引航者完整关在东牢围栏后，唯一南门、开门格与解锁名单同步；取箱、开门与击败裴萨的原胜利条件不变。"
+  ],
+  "coordinate_changes": {
+    "player_positions": {
+      "before": [
+        [
+          28,
+          28
+        ],
+        [
+          27,
+          28
+        ],
+        [
+          28,
+          29
+        ],
+        [
+          28,
+          27
+        ],
+        [
+          29,
+          28
+        ],
+        [
+          26,
+          28
+        ],
+        [
+          27,
+          29
+        ],
+        [
+          27,
+          27
+        ],
+        [
+          29,
+          29
+        ],
+        [
+          28,
+          30
+        ]
+      ],
+      "after": [
+        [
+          10,
+          23
+        ],
+        [
+          11,
+          23
+        ],
+        [
+          12,
+          23
+        ],
+        [
+          13,
+          23
+        ],
+        [
+          10,
+          24
+        ],
+        [
+          11,
+          24
+        ],
+        [
+          12,
+          24
+        ],
+        [
+          13,
+          24
+        ],
+        [
+          9,
+          24
+        ],
+        [
+          9,
+          25
+        ]
+      ]
+    },
+    "exit": {
+      "before": [
+        39,
+        3
+      ],
+      "after": [
+        27,
+        3
+      ]
+    },
+    "targets": {
+      "before": [
+        [
+          24,
+          17
+        ],
+        [
+          36,
+          21
+        ]
+      ],
+      "after": [
+        [
+          21,
+          7
+        ],
+        [
+          26,
+          21
+        ]
+      ]
+    },
+    "objects": {
+      "before": [
+        {
+          "id": "myth_box",
+          "kind": "story_item",
+          "position": [
+            24,
+            17
+          ],
+          "label": "取回神教箱",
+          "adjacent": true,
+          "sprite": "orders_case"
+        },
+        {
+          "id": "pilot_prison",
+          "kind": "door",
+          "position": [
+            36,
+            21
+          ],
+          "label": "打开引航者牢门",
+          "adjacent": true,
+          "sprite": "jail_door",
+          "unlock_units": [
+            "sailors0",
+            "sailors1"
+          ]
+        },
+        {
+          "id": "F25_visit_0",
+          "kind": "visit",
+          "label": "访问港仓账房",
+          "position": [
+            27,
+            2
+          ],
+          "approach": [
+            27,
+            3
+          ],
+          "approaches": [
+            [
+              27,
+              3
+            ]
+          ],
+          "entrance_cells": [
+            [
+              27,
+              2
+            ]
+          ],
+          "adjacent": true,
+          "door_visual": "native_building_art",
+          "show_indicator": false,
+          "optional": true,
+          "dialogue": "账房：仓库之间是土质车道，沿岸木码头可绕行。牢区外侧另有一条窄路。",
+          "reward_item": 20,
+          "building": "quay_warehouse"
+        }
+      ],
+      "after": [
+        {
+          "id": "myth_box",
+          "kind": "story_item",
+          "position": [
+            21,
+            7
+          ],
+          "label": "取回神教箱",
+          "adjacent": true,
+          "sprite": "orders_case"
+        },
+        {
+          "id": "pilot_prison",
+          "kind": "door",
+          "position": [
+            26,
+            21
+          ],
+          "label": "打开引航者牢门",
+          "adjacent": true,
+          "sprite": "jail_door",
+          "unlock_units": [
+            "sailors0",
+            "sailors1"
+          ],
+          "opens": [
+            [
+              26,
+              21
+            ]
+          ],
+          "open_art_cells": [
+            {
+              "position": [
+                26,
+                21
+              ],
+              "base_tile": 8,
+              "clear_layers": [
+                1,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "id": "F25_visit_0",
+          "kind": "visit",
+          "label": "访问港仓账房",
+          "position": [
+            14,
+            3
+          ],
+          "approach": [
+            14,
+            4
+          ],
+          "approaches": [
+            [
+              14,
+              4
+            ]
+          ],
+          "entrance_cells": [
+            [
+              14,
+              3
+            ]
+          ],
+          "adjacent": true,
+          "door_visual": "native_building_art",
+          "show_indicator": false,
+          "optional": true,
+          "dialogue": "账房：仓库之间是土质车道，沿岸木码头可绕行。牢区外侧另有一条窄路。",
+          "reward_item": 20,
+          "building": "quay_warehouse"
+        }
+      ]
+    },
+    "event_boats": {
+      "before": [],
+      "after": []
+    },
+    "building_sites": {
+      "before": [
+        {
+          "position": [
+            21,
+            10
+          ],
+          "label": "粮仓",
+          "occupiable": true,
+          "avoid": 20,
+          "phase_heal": 0
+        },
+        {
+          "position": [
+            31,
+            13
+          ],
+          "label": "港仓",
+          "occupiable": true,
+          "avoid": 20,
+          "phase_heal": 0
+        },
+        {
+          "position": [
+            36,
+            7
+          ],
+          "label": "军帐",
+          "occupiable": true,
+          "avoid": 20,
+          "phase_heal": 0
+        }
+      ],
+      "after": [
+        {
+          "position": [
+            10,
+            15
+          ],
+          "label": "粮仓",
+          "occupiable": true,
+          "avoid": 20,
+          "phase_heal": 0
+        },
+        {
+          "position": [
+            28,
+            17
+          ],
+          "label": "港仓",
+          "occupiable": true,
+          "avoid": 20,
+          "phase_heal": 0
+        },
+        {
+          "position": [
+            25,
+            5
+          ],
+          "label": "军帐",
+          "occupiable": true,
+          "avoid": 20,
+          "phase_heal": 0
+        }
+      ]
+    },
+    "enemies": {
+      "before": {
+        "F25_boss": [
+          40,
+          6
+        ],
+        "F25_e1": [
+          37,
+          9
+        ],
+        "F25_e2": [
+          28,
+          14
+        ],
+        "F25_e3": [
+          37,
+          27
+        ],
+        "F25_e4": [
+          19,
+          7
+        ],
+        "F25_e5": [
+          38,
+          9
+        ],
+        "F25_e6": [
+          29,
+          14
+        ],
+        "F25_e7": [
+          38,
+          27
+        ],
+        "F25_e8": [
+          21,
+          7
+        ],
+        "F25_e9": [
+          37,
+          10
+        ],
+        "F25_e10": [
+          28,
+          16
+        ],
+        "F25_e11": [
+          37,
+          28
+        ],
+        "F25_e12": [
+          18,
+          7
+        ],
+        "F25_e13": [
+          35,
+          9
+        ],
+        "F25_e14": [
+          26,
+          14
+        ]
+      },
+      "after": {
+        "F25_boss": [
+          22,
+          6
+        ],
+        "F25_e1": [
+          24,
+          8
+        ],
+        "F25_e2": [
+          17,
+          14
+        ],
+        "F25_e3": [
+          23,
+          22
+        ],
+        "F25_e4": [
+          10,
+          6
+        ],
+        "F25_e5": [
+          23,
+          8
+        ],
+        "F25_e6": [
+          20,
+          15
+        ],
+        "F25_e7": [
+          28,
+          22
+        ],
+        "F25_e8": [
+          12,
+          5
+        ],
+        "F25_e9": [
+          27,
+          7
+        ],
+        "F25_e10": [
+          17,
+          13
+        ],
+        "F25_e11": [
+          30,
+          16
+        ],
+        "F25_e12": [
+          8,
+          8
+        ],
+        "F25_e13": [
+          30,
+          11
+        ],
+        "F25_e14": [
+          21,
+          17
+        ]
+      }
+    },
+    "npc_units": {
+      "before": {
+        "sailors0": [
+          35,
+          19
+        ],
+        "sailors1": [
+          37,
+          19
+        ]
+      },
+      "after": {
+        "sailors0": [
+          25,
+          19
+        ],
+        "sailors1": [
+          27,
+          19
+        ]
+      }
+    },
+    "reinforcements": {
+      "before": {},
+      "after": {}
+    }
+  }
+}

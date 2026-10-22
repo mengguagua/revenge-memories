@@ -1,0 +1,338 @@
+{
+  "passed": true,
+  "map": "S11",
+  "size": [
+    26,
+    22
+  ],
+  "connected_cells": 300,
+  "reachable_anchors": 24,
+  "notes": [
+    "连续灰岩围出南侧救援厅、西侧检修廊与东北装卸厅；两条矿巷绕过中央岩柱，空间由整片岩体构成。",
+    "宽主巷串联两名矿工、工具台和北侧矿口；较窄的西部支巷可绕至装卸厅侧面，工具箱只提供原有物品，不作为开路机关。",
+    "部队与矿工位于南侧矿厅，弓手和首领在东北远端；矿工仍按现有安全护送规则停走，两名矿工均须存活并撤离。"
+  ],
+  "escorts": [
+    {
+      "id": "S11_miners0",
+      "start": [
+        4,
+        19
+      ],
+      "target": [
+        23,
+        1
+      ],
+      "path_cells": 37,
+      "nearest_initial_enemy_manhattan": 15
+    },
+    {
+      "id": "S11_miners1",
+      "start": [
+        7,
+        19
+      ],
+      "target": [
+        23,
+        1
+      ],
+      "path_cells": 34,
+      "nearest_initial_enemy_manhattan": 12
+    }
+  ],
+  "units_only_positions_changed": true,
+  "story_and_rules_unchanged": true,
+  "coordinate_changes": {
+    "enemies": [
+      {
+        "id": "S11_boss",
+        "before": [
+          27,
+          6
+        ],
+        "after": [
+          23,
+          5
+        ]
+      },
+      {
+        "id": "S11_e1",
+        "before": [
+          23,
+          10
+        ],
+        "after": [
+          17,
+          8
+        ]
+      },
+      {
+        "id": "S11_e2",
+        "before": [
+          23,
+          8
+        ],
+        "after": [
+          20,
+          10
+        ]
+      },
+      {
+        "id": "S11_e3",
+        "before": [
+          23,
+          16
+        ],
+        "after": [
+          14,
+          13
+        ]
+      },
+      {
+        "id": "S11_e4",
+        "before": [
+          12,
+          8
+        ],
+        "after": [
+          8,
+          8
+        ]
+      },
+      {
+        "id": "S11_e5",
+        "before": [
+          25,
+          10
+        ],
+        "after": [
+          22,
+          10
+        ]
+      },
+      {
+        "id": "S11_e6",
+        "before": [
+          25,
+          8
+        ],
+        "after": [
+          22,
+          5
+        ]
+      }
+    ],
+    "npc_units": [
+      {
+        "id": "S11_miners0",
+        "before": [
+          8,
+          20
+        ],
+        "after": [
+          4,
+          19
+        ]
+      },
+      {
+        "id": "S11_miners1",
+        "before": [
+          14,
+          18
+        ],
+        "after": [
+          7,
+          19
+        ]
+      },
+      {
+        "id": "beck",
+        "before": [
+          10,
+          20
+        ],
+        "after": [
+          3,
+          18
+        ]
+      }
+    ],
+    "reinforcements": [],
+    "objects": [
+      {
+        "id": "S11_tools_0",
+        "before": {
+          "position": [
+            17,
+            14
+          ]
+        },
+        "after": {
+          "position": [
+            20,
+            13
+          ]
+        }
+      },
+      {
+        "id": "S11_visit_0",
+        "before": {
+          "position": [
+            19,
+            2
+          ],
+          "approach": [
+            19,
+            3
+          ],
+          "approaches": [
+            [
+              19,
+              3
+            ]
+          ],
+          "entrance_cells": [
+            [
+              19,
+              2
+            ]
+          ]
+        },
+        "after": {
+          "position": [
+            20,
+            2
+          ],
+          "approach": [
+            20,
+            3
+          ],
+          "approaches": [
+            [
+              20,
+              3
+            ]
+          ],
+          "entrance_cells": [
+            [
+              20,
+              2
+            ]
+          ]
+        }
+      }
+    ],
+    "deploy_before": [
+      [
+        6,
+        11
+      ],
+      [
+        6,
+        12
+      ],
+      [
+        7,
+        11
+      ],
+      [
+        6,
+        13
+      ],
+      [
+        7,
+        12
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        8,
+        11
+      ],
+      [
+        6,
+        14
+      ],
+      [
+        7,
+        13
+      ],
+      [
+        8,
+        12
+      ]
+    ],
+    "deploy_after": [
+      [
+        4,
+        18
+      ],
+      [
+        5,
+        18
+      ],
+      [
+        6,
+        18
+      ],
+      [
+        7,
+        18
+      ],
+      [
+        4,
+        17
+      ],
+      [
+        5,
+        19
+      ],
+      [
+        6,
+        19
+      ],
+      [
+        7,
+        17
+      ],
+      [
+        5,
+        20
+      ],
+      [
+        6,
+        20
+      ]
+    ],
+    "exit_before": [
+      26,
+      3
+    ],
+    "exit_after": [
+      23,
+      1
+    ],
+    "targets_before": [
+      [
+        17,
+        14
+      ],
+      [
+        24,
+        17
+      ]
+    ],
+    "targets_after": [
+      [
+        20,
+        13
+      ],
+      [
+        18,
+        12
+      ]
+    ]
+  }
+}

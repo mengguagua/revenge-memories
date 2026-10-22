@@ -1,0 +1,104 @@
+{
+  "status": "passed",
+  "affected_actions": 4,
+  "native_phase_ticks": 16,
+  "walk_frames": 96,
+  "two_faction_leg_checks": [
+    {
+      "side": "ally",
+      "phase_order": [
+        "left raised, right support",
+        "right raised, left support"
+      ],
+      "boot_center_bounds": [
+        [
+          [
+            56,
+            78,
+            63,
+            81
+          ],
+          [
+            67,
+            78,
+            73,
+            91
+          ]
+        ],
+        [
+          [
+            57,
+            78,
+            63,
+            91
+          ],
+          [
+            67,
+            78,
+            73,
+            81
+          ]
+        ]
+      ],
+      "upper_body_and_equipment_pixel_identical": true,
+      "actual_render_difference_bounds": [
+        119,
+        118,
+        138,
+        139
+      ],
+      "only_difference_is_legs": true
+    },
+    {
+      "side": "enemy",
+      "phase_order": [
+        "left raised, right support",
+        "right raised, left support"
+      ],
+      "boot_center_bounds": [
+        [
+          [
+            56,
+            78,
+            63,
+            81
+          ],
+          [
+            67,
+            78,
+            73,
+            91
+          ]
+        ],
+        [
+          [
+            57,
+            78,
+            63,
+            91
+          ],
+          [
+            67,
+            78,
+            73,
+            81
+          ]
+        ]
+      ],
+      "upper_body_and_equipment_pixel_identical": true,
+      "actual_render_difference_bounds": [
+        119,
+        118,
+        138,
+        139
+      ],
+      "only_difference_is_legs": true
+    }
+  ],
+  "unrelated_action_digests_unchanged": 623,
+  "other_directions_idle_and_battle_unchanged": true,
+  "runtime_integrated": false,
+  "user_visual_acceptance": "confirmed_by_user_2026-10-22",
+  "visual_check": "Inspected both faction phase pairs on light/dark backgrounds and offline frames0/16; opposite boots lift clearly. Actual rendered difference is confined to legs; title/labels centered in measured safe areas. No browser workaround or visible Godot window.",
+  "gallery_navigation_links": 5
+}

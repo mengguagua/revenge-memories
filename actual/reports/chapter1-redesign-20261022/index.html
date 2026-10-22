@@ -1,0 +1,300 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>第一章六图 · 构图与战术重设计</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#10191f;color:#e9f0f2;font:15px/1.8 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}main{max-width:1380px;margin:auto;padding:42px 30px 70px}h1{font-size:37px;line-height:1.3}h2{font-size:24px;margin:0 0 12px}h3{font-size:17px;margin:0 0 8px}p{color:#b8c9d1;margin:10px 0}.eyebrow{font-size:12px;letter-spacing:.14em;color:#a3cbbd}.tag{display:inline-block;padding:7px 13px;background:#354841;border-radius:8px;color:#d9ece3;font-size:13px}.links,.controls{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}a{color:#b4ddcc;text-underline-offset:4px}.links a,button{display:inline-flex;justify-content:center;align-items:center;min-height:44px;padding:11px 17px;border:0;border-radius:9px;background:#293b44;color:#dce9ed;font:inherit;font-size:14px;text-decoration:none;cursor:pointer}button[aria-pressed=true]{background:#36514e;box-shadow:inset 0 0 18px #9cd9be16,0 4px 18px #0004}a:focus-visible,button:focus-visible{outline:none;box-shadow:0 0 0 5px #a4d6c32c,0 0 24px #a4d6c32c}.panel{padding:24px;background:#1a2932;border-radius:16px;box-shadow:0 14px 38px #0002;margin-top:30px}.pair,.cards,.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.cards{margin:20px 0}.cards article{padding:17px 20px;border-radius:10px;background:#22353e}figure{margin:0;min-width:0}figcaption{font-size:14px;padding:8px 2px 12px}.image{display:block;background:#22333d;border-radius:8px;overflow:hidden}.image img{width:100%;height:auto;display:block;image-rendering:pixelated}.small{font-size:12px;color:#9bb1bc}.board{position:relative;max-width:900px;margin:auto}.board img{display:block;width:100%;image-rendering:pixelated}.board svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.overlay{display:none}.overlay.active{display:block}.legend{min-height:28px;font-size:13px}.shots{margin-top:20px}.note,details{padding:16px 19px;border-radius:10px;background:#24363f;margin:20px 0}summary{cursor:pointer}.stats{font-size:22px;color:#d5e9e0}table{border-collapse:collapse;width:100%;font-size:14px}td,th{text-align:left;padding:9px 12px;border-bottom:1px solid #ffffff0b}footer{font-size:12px;color:#8ca4b0;margin-top:28px}@media(max-width:800px){main{padding:24px 14px}.panel{padding:16px}.pair,.cards,.shots{grid-template-columns:1fr}h1{font-size:28px}}</style></head><body><main>
+<div class="eyebrow">REVENGE MEMORIES / CHAPTER ONE</div><h1>第一章六图 · 构图与战术重设计</h1><span class="tag">M41方法推广 · M11原样保留</span><p>粮台、分岸囚院、营帐庭院、海崖塔堡、矿厅与诊所村分别成为六张地图的骨架。先确立地形和建筑关系，再把部署、守军与交互位置接到道路上；保留原有剧情、数值规则和人物动画。</p><nav class="links">
+<a href="#M12">M12 · 丘堡粮站</a>
+<a href="#M13">M13 · 南岗押送所</a>
+<a href="#M14">M14 · 旧塔外营</a>
+<a href="#M15">M15 · 海峡旧塔堡</a>
+<a href="#S11">S11 · 旧矿道救援</a>
+<a href="#S12">S12 · 林村诊所道路</a>
+<a href="#verification">试玩与复查</a><a href="../../../art-review/battle-maps-20261021/index.html?map=M12#map-viewer">全部地图目录</a><a href="../../dist/RevengeMemories-Chapter1-Redesign-20261022.app">独立桌面包</a></nav>
+<p class="small">前后地图均来自游戏原生渲染器；本轮收紧了地图尺寸，左右按各自完整边界展示，并非同像素比例的面积对比。点击原图可放大检查。</p>
+<section class="panel" id="M12"><div class="eyebrow">M12 / 36×28 → 30×24</div><h2>丘堡粮站 · 折坡与粮台</h2><p>南侧入口、中央岩肩和东北粮台形成由低到高的推进方向，医舍安置在西南小院。</p><div class="pair">
+<figure><figcaption>修改前 · 前一轮版本</figcaption><a class="image" href="before/M12.png" target="_blank"><img src="before/M12.png" loading="lazy" alt="M12 修改前 · 前一轮版本"></a></figure>
+<figure><figcaption>重设计后 · 当前Godot场景</figcaption><a class="image" href="images/M12.png" target="_blank"><img src="images/M12.png" loading="lazy" alt="M12 重设计后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>两格粮车道沿岩肩折向粮仓南门，仅在车场和卸货坪展开。</p></article><article><h3>侧路与取舍</h3><p>一格西坡林缘路经过仓吏小屋，接到粮台侧门。</p><p>主路便于集结并拦截东南待命的焚毁兵；西坡较窄，可绕开正面守军。第6回合预告、第7回合出发和连续两次点火规则保持。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="M12" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="M12" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="M12" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/M12.png" alt="M12地形说明"><svg viewBox="0 0 544 448" aria-hidden="true"><g class="overlay" data-map="M12" data-overlay="routes">
+<polyline points="152,408 152,328 248,328 248,280 360,280 360,200 408,200 408,152" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="152,408 152,328 248,328 248,280 360,280 360,200 408,200 408,152" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="152,328 120,328 120,200 200,200 200,152 296,152 296,120 328,120 328,104" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="152,328 120,328 120,200 200,200 200,152 296,152 296,120 328,120 328,104" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="328,120 376,120 376,168 408,168" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="328,120 376,120 376,168 408,168" fill="none" stroke="#a6b887" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="408,168 456,168 456,88 456,56 488,56" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="408,168 456,168 456,88 456,56 488,56" fill="none" stroke="#ad91c7" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="M12" data-overlay="actors">
+<circle cx="152" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="360" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="360" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="360" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="376" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="376" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="360" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="456" cy="152" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="424" cy="296" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="232" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="280" cy="344" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="216" cy="152" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="424" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="392" cy="216" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="456" cy="280" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="232" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="104" cy="312" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="408" cy="152" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="328" cy="88" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="56" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面；实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第8回合完成</div><p>结算时正式队员 5/5 存活；无人濒死。</p><p class="small">575次按键，含出入场与战后操作。<a href="play/round1-final/round1-final-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第8回合完成</div><p>结算时正式队员 5/5 存活；无人濒死。</p><p class="small">574次按键，含出入场与战后操作。<a href="play/round2-final/round2-final-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/M12-01.png" target="_blank"><img src="screenshots/M12-01.png" loading="lazy" alt="粮站南口与西坡分路"></a><figcaption>粮站南口与西坡分路 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/M12-02.png" target="_blank"><img src="screenshots/M12-02.png" loading="lazy" alt="岩肩坡路与粮台前接战"></a><figcaption>岩肩坡路与粮台前接战 · 第6回合</figcaption></figure>
+<figure><a class="image" href="screenshots/M12-03.png" target="_blank"><img src="screenshots/M12-03.png" loading="lazy" alt="粮仓占领与胜利结算"></a><figcaption>粮仓占领与胜利结算 · 第8回合</figcaption></figure>
+</div></section>
+<section class="panel" id="M13"><div class="eyebrow">M13 / 40×30 → 32×26</div><h2>南岗押送所 · 两岸分囚</h2><p>溪流分出西囚院、东囚院和北侧文书内庭，营房与军需仓沿院路布置。</p><div class="pair">
+<figure><figcaption>修改前 · 前一轮版本</figcaption><a class="image" href="before/M13.png" target="_blank"><img src="before/M13.png" loading="lazy" alt="M13 修改前 · 前一轮版本"></a></figure>
+<figure><figcaption>重设计后 · 当前Godot场景</figcaption><a class="image" href="images/M13.png" target="_blank"><img src="images/M13.png" loading="lazy" alt="M13 重设计后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>南侧两格押送道经宽桥抵达东囚院，桥头与门前留出展开地。</p></article><article><h3>侧路与取舍</h3><p>西路先抵西囚院，再经一格北桥进入内庭并接东院。</p><p>可集中推进南桥，也可分兵救两院；两扇门独立开启，门0释放第一队劳工与蕾娜，门1释放第二队劳工。东南侧路承接原第5敌回合援军。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="M13" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="M13" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="M13" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/M13.png" alt="M13地形说明"><svg viewBox="0 0 576 480" aria-hidden="true"><g class="overlay" data-map="M13" data-overlay="routes">
+<polyline points="168,440 168,392 216,392 216,328 408,328 408,280 440,280 440,264" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="168,440 168,392 216,392 216,328 408,328 408,280 440,280 440,264" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="216,328 216,216 136,216" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="216,328 216,216 136,216" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="216,216 216,168 360,168 360,120" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="216,216 216,168 360,168 360,120" fill="none" stroke="#a6b887" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="360,168 424,168 440,168 440,264" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="360,168 424,168 440,168 440,264" fill="none" stroke="#ad91c7" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="M13" data-overlay="actors">
+<circle cx="168" cy="392" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="392" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="376" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="376" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="392" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="200" cy="392" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="376" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="200" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="120" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="424" cy="280" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="312" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="408" cy="376" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="232" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="456" cy="152" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="376" cy="264" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="376" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="200" cy="248" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="472" cy="280" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="168" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="424" cy="216" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="168" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="200" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="248" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="104" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="56" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面；实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第12回合完成</div><p>结算时正式队员 5/6 存活；濒死：芙拉。</p><p class="small">1,020次按键，含出入场与战后操作。<a href="play/round1-final/round1-final-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第12回合完成</div><p>结算时正式队员 5/6 存活；濒死：芙拉。</p><p class="small">1,065次按键，含出入场与战后操作。<a href="play/round2-final/round2-final-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/M13-01.png" target="_blank"><img src="screenshots/M13-01.png" loading="lazy" alt="分岸囚院的南桥入口"></a><figcaption>分岸囚院的南桥入口 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/M13-02.png" target="_blank"><img src="screenshots/M13-02.png" loading="lazy" alt="双桥之间的推进"></a><figcaption>双桥之间的推进 · 第6回合</figcaption></figure>
+<figure><a class="image" href="screenshots/M13-03.png" target="_blank"><img src="screenshots/M13-03.png" loading="lazy" alt="救人与战后结算"></a><figcaption>救人与战后结算 · 第12回合</figcaption></figure>
+</div></section>
+<section class="panel" id="M14"><div class="eyebrow">M14 / 40×32 → 32×26</div><h2>旧塔外营 · 双哨与林缘</h2><p>旧瞭望塔、成片林地和营帐围出勤务道，粮料库与骑兵通道分置东侧。</p><div class="pair">
+<figure><figcaption>修改前 · 前一轮版本</figcaption><a class="image" href="before/M14.png" target="_blank"><img src="before/M14.png" loading="lazy" alt="M14 修改前 · 前一轮版本"></a></figure>
+<figure><figcaption>重设计后 · 当前Godot场景</figcaption><a class="image" href="images/M14.png" target="_blank"><img src="images/M14.png" loading="lazy" alt="M14 重设计后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>南营勤务道穿过南哨，向北接指挥区；东路通往另一处军旗。</p></article><article><h3>侧路与取舍</h3><p>一格西林旧哨堡小路绕向帐区侧后。</p><p>正面便于控制南哨和集中兵力，东路需应对骑兵；西林绕行较窄。两面旗仍须分别站格控制，守将半血投降规则保持。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="M14" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="M14" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="M14" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/M14.png" alt="M14地形说明"><svg viewBox="0 0 576 480" aria-hidden="true"><g class="overlay" data-map="M14" data-overlay="routes">
+<polyline points="200,440 200,376 264,376 264,296 312,296 312,200 392,200 392,120 440,120 440,56" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="200,440 200,376 264,376 264,296 312,296 312,200 392,200 392,120 440,120 440,56" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="248,392 408,392 408,328 456,328 456,216 440,216" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="248,392 408,392 408,328 456,328 456,216 440,216" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="184,376 152,376 152,280 168,280 168,168 248,168 248,120 360,120" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="184,376 152,376 152,280 168,280 168,168 248,168 248,120 360,120" fill="none" stroke="#a6b887" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="264,232 424,232" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="264,232 424,232" fill="none" stroke="#ad91c7" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="M14" data-overlay="actors">
+<circle cx="200" cy="376" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="216" cy="376" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="232" cy="376" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="376" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="200" cy="392" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="216" cy="392" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="232" cy="392" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="392" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="392" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="120" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="456" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="456" cy="280" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="360" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="408" cy="152" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="312" cy="248" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="344" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="280" cy="152" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="392" cy="216" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="296" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="408" cy="296" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="264" cy="312" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="456" cy="328" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="376" cy="152" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="56" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面；实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第5回合完成</div><p>结算时正式队员 7/7 存活；无人濒死。</p><p class="small">519次按键，含出入场与战后操作。<a href="play/round1-final/round1-final-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第5回合完成</div><p>结算时正式队员 7/7 存活；无人濒死。</p><p class="small">512次按键，含出入场与战后操作。<a href="play/round2-final/round2-final-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/M14-01.png" target="_blank"><img src="screenshots/M14-01.png" loading="lazy" alt="军营南侧部署与两处哨卡"></a><figcaption>军营南侧部署与两处哨卡 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/M14-02.png" target="_blank"><img src="screenshots/M14-02.png" loading="lazy" alt="帐院之间的接战"></a><figcaption>帐院之间的接战 · 第4回合</figcaption></figure>
+<figure><a class="image" href="screenshots/M14-03.png" target="_blank"><img src="screenshots/M14-03.png" loading="lazy" alt="两处控制点完成"></a><figcaption>两处控制点完成 · 第5回合</figcaption></figure>
+</div></section>
+<section class="panel" id="M15"><div class="eyebrow">M15 / 44×34 → 36×28</div><h2>海峡旧塔堡 · 攻门与截退</h2><p>海崖形成半岛堡垒，残墙分隔前场与中庭，两处实体囚区分列西侧与港侧。</p><div class="pair">
+<figure><figcaption>修改前 · 前一轮版本</figcaption><a class="image" href="before/M15.png" target="_blank"><img src="before/M15.png" loading="lazy" alt="M15 修改前 · 前一轮版本"></a></figure>
+<figure><figcaption>重设计后 · 当前Godot场景</figcaption><a class="image" href="images/M15.png" target="_blank"><img src="images/M15.png" loading="lazy" alt="M15 重设计后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>正门连接中庭和北门退路，在门道处展开。</p></article><article><h3>侧路与取舍</h3><p>西崖缺口通西牢，东侧连续港栈沿海岸通北门；港侧工棚另有救援支路。</p><p>正面攻堡、分路开牢和提前截住科兰须兼顾。科兰原9移动及第6回合半血／第8回合撤离规则保持，侧栈提供提前封堵退路的选择。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="M15" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="M15" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="M15" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/M15.png" alt="M15地形说明"><svg viewBox="0 0 640 512" aria-hidden="true"><g class="overlay" data-map="M15" data-overlay="routes">
+<polyline points="328,472 328,408 328,328 344,328 344,200 392,200 392,136 488,136 488,72" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="328,472 328,408 328,328 344,328 344,200 392,200 392,136 488,136 488,72" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="328,408 504,408 520,408 520,120 488,120 488,72" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="328,408 504,408 520,408 520,120 488,120 488,72" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="328,392 216,392 216,296 168,296 168,232 184,232 184,200 248,200" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="328,392 216,392 216,296 168,296 168,232 184,232 184,200 248,200" fill="none" stroke="#a6b887" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="408,392 456,392 456,376" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="408,392 456,392 456,376" fill="none" stroke="#ad91c7" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="M15" data-overlay="actors">
+<circle cx="312" cy="392" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="328" cy="392" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="344" cy="392" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="392" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="312" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="328" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="344" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="296" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="296" cy="424" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="136" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="376" cy="264" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="408" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="152" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="152" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="392" cy="264" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="456" cy="408" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="264" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="376" cy="296" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="520" cy="376" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="280" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="504" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="408" cy="248" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="152" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="472" cy="360" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="184" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="472" cy="392" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="328" cy="104" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="72" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面；实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第7回合完成</div><p>结算时正式队员 5/6 存活；濒死：奥托。</p><p class="small">782次按键，含出入场与战后操作。<a href="play/round1-final/round1-final-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第8回合完成</div><p>结算时正式队员 5/6 存活；濒死：奥托。</p><p class="small">815次按键，含出入场与战后操作。<a href="play/round2-final/round2-final-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/M15-01.png" target="_blank"><img src="screenshots/M15-01.png" loading="lazy" alt="海堡正门与东栈分路"></a><figcaption>海堡正门与东栈分路 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/M15-02.png" target="_blank"><img src="screenshots/M15-02.png" loading="lazy" alt="堡内交战、东牢与岸侧栈道"></a><figcaption>堡内交战、东牢与岸侧栈道 · 第6回合</figcaption></figure>
+<figure><a class="image" href="screenshots/M15-03.png" target="_blank"><img src="screenshots/M15-03.png" loading="lazy" alt="截住科兰后的结算"></a><figcaption>截住科兰后的结算 · 第8回合</figcaption></figure>
+</div></section>
+<section class="panel" id="S11"><div class="eyebrow">S11 / 32×26 → 26×22</div><h2>旧矿道救援 · 岩腹双巷</h2><p>整片灰岩刻出南侧救援厅、中央岩柱与东北装卸厅；两组矿工在南厅护卫前排后方，工具台放在侧室。</p><div class="pair">
+<figure><figcaption>修改前 · 前一轮版本</figcaption><a class="image" href="before/S11.png" target="_blank"><img src="before/S11.png" loading="lazy" alt="S11 修改前 · 前一轮版本"></a></figure>
+<figure><figcaption>重设计后 · 当前Godot场景</figcaption><a class="image" href="images/S11.png" target="_blank"><img src="images/S11.png" loading="lazy" alt="S11 重设计后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>两格运矿主巷串联矿工、工具台和北侧矿口。</p></article><article><h3>侧路与取舍</h3><p>一格西部检修廊绕过中央岩柱，在装卸厅附近接回主巷。</p><p>护卫前排先沿两格主巷接敌与开路，后方两组矿工再安全推进；西部支巷可绕到守军侧面。矿工仍按原威胁规则停走，任一矿工死亡仍失败，工具不会充当开路机关。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="S11" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="S11" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="S11" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/S11.png" alt="S11地形说明"><svg viewBox="0 0 480 416" aria-hidden="true"><g class="overlay" data-map="S11" data-overlay="routes">
+<polyline points="120,376 120,296 200,296 264,296 264,232 328,232 328,136 408,136 408,40" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="120,376 120,296 200,296 264,296 264,232 328,232 328,136 408,136 408,40" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="120,296 120,168 184,168 184,152 296,152 328,152" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="120,296 120,168 184,168 184,152 296,152 328,152" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="328,232 360,232 360,248" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="328,232 360,232 360,248" fill="none" stroke="#a6b887" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="360,88 408,88" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="360,88 408,88" fill="none" stroke="#ad91c7" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="S11" data-overlay="actors">
+<circle cx="104" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="104" cy="312" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="312" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="360" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="360" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="408" cy="120" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="312" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="264" cy="248" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="392" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="392" cy="120" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="104" cy="344" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="344" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="88" cy="328" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="248" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="72" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="408" cy="56" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面；实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第11回合完成</div><p>结算时正式队员 3/3 存活；无人濒死。</p><p class="small">478次按键，含出入场与战后操作。<a href="play/round1-mine-recheck/round1-mine-recheck-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第11回合完成</div><p>结算时正式队员 3/3 存活；无人濒死。</p><p class="small">474次按键，含出入场与战后操作。<a href="play/round2-final/round2-final-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/S11-01.png" target="_blank"><img src="screenshots/S11-01.png" loading="lazy" alt="护卫在前、矿工在后"></a><figcaption>护卫在前、矿工在后 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/S11-02.png" target="_blank"><img src="screenshots/S11-02.png" loading="lazy" alt="岩柱两侧分路护送"></a><figcaption>岩柱两侧分路护送 · 第6回合</figcaption></figure>
+<figure><a class="image" href="screenshots/S11-03.png" target="_blank"><img src="screenshots/S11-03.png" loading="lazy" alt="两队矿工抵达出口"></a><figcaption>两队矿工抵达出口 · 第11回合</figcaption></figure>
+</div></section>
+<section class="panel" id="S12"><div class="eyebrow">S12 / 34×26 → 28×24</div><h2>林村诊所 · 双桥药路</h2><p>横溪分开南侧装车村与北岸诊所，成片林冠和村舍围出院落。</p><div class="pair">
+<figure><figcaption>修改前 · 前一轮版本</figcaption><a class="image" href="before/S12.png" target="_blank"><img src="before/S12.png" loading="lazy" alt="S12 修改前 · 前一轮版本"></a></figure>
+<figure><figcaption>重设计后 · 当前Godot场景</figcaption><a class="image" href="images/S12.png" target="_blank"><img src="images/S12.png" loading="lazy" alt="S12 重设计后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>两格药车道经过中央宽桥，直接接入诊所前庭与交付点。</p></article><article><h3>侧路与取舍</h3><p>一格西桥沿林缘到北岸住屋，再绕至诊所西侧。</p><p>中央桥便于集中护送药车，西桥提供分兵侧绕空间；两路在诊所院前会合。药车仍按威胁停走，损毁仍会失败。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="S12" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="S12" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="S12" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/S12.png" alt="S12地形说明"><svg viewBox="0 0 512 448" aria-hidden="true"><g class="overlay" data-map="S12" data-overlay="routes">
+<polyline points="152,408 152,360 216,360 216,328 296,328 296,280 296,200 296,168 360,168 360,152 392,152 392,120" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="152,408 152,360 216,360 216,328 296,328 296,280 296,200 296,168 360,168 360,152 392,152 392,120" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="152,360 120,360 120,296 120,248 120,184 120,152 264,152 264,136 392,136" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="152,360 120,360 120,296 120,248 120,184 120,152 264,152 264,136 392,136" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="S12" data-overlay="actors">
+<circle cx="184" cy="296" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="200" cy="296" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="216" cy="296" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="232" cy="296" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="312" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="200" cy="312" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="216" cy="312" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="232" cy="312" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="296" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="312" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="424" cy="152" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="296" cy="184" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="136" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="152" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="408" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="376" cy="136" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="360" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="360" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="392" cy="104" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="72" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面；实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第10回合完成</div><p>结算时正式队员 4/4 存活；无人濒死。</p><p class="small">466次按键，含出入场与战后操作。<a href="play/round1-final/round1-final-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第10回合完成</div><p>结算时正式队员 4/4 存活；无人濒死。</p><p class="small">466次按键，含出入场与战后操作。<a href="play/round2-final/round2-final-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/S12-01.png" target="_blank"><img src="screenshots/S12-01.png" loading="lazy" alt="南村装车院"></a><figcaption>南村装车院 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/S12-02.png" target="_blank"><img src="screenshots/S12-02.png" loading="lazy" alt="中央桥推进与药车护送"></a><figcaption>中央桥推进与药车护送 · 第6回合</figcaption></figure>
+<figure><a class="image" href="screenshots/S12-03.png" target="_blank"><img src="screenshots/S12-03.png" loading="lazy" alt="药车送到诊所"></a><figcaption>药车送到诊所 · 第10回合</figcaption></figure>
+</div></section>
+<section class="panel" id="verification"><h2>试玩与复查</h2><p>六图完成两轮逐关实际输入复测，并检查战后据点、救人、招募和章末仪式。另从真实M11通关记录出发，以原三人队起步，正常招募并连续完成M12—M15；首轮章末确认菜单补齐后，从该次胜利快照继续完成仪式，正常进入第二章。</p><div class="note"><strong>矿道修正</strong><p>初版矿工站在护卫前方，自动前进时先进入北巷首领射程，三次试走均出现矿工死亡。定稿将矿工放到南厅护卫后方，保留原移动与交战规则，让护卫先开路、矿工跟随。最终复测结果见上方记录。</p></div><p>复查还修正了囚院栏杆拼接、军营过大地坪、海堡东牢墙重叠、溪流被道路截断，以及矿壁平面感。建筑入口、两座桥、牢门开口与地形阻挡逐项对齐。</p>
+<p>1159项独立规则与连通检查通过；18张实机视口的文字安全区检查无错误。M11和其余33张地图逐文件核对未变，M41仍为已确认版本。程序与人物动画代码沿用。</p>
+<details><summary>原始尝试、失败记录与验证范围</summary><p>两轮逐关检查使用真实开发记录的隔离副本；普通按键完成移动、战斗、交互和结算，没有修改属性、随机结果或强制胜利。实际行动结果含随机命中和伤情，表内回合数不代表固定难度。</p><p>保留所有早期失败：矿道护送失败、后一次少人连续重跑在塔堡未能截住科兰，以及试玩脚本遗漏的章末菜单步骤。连续通关的修复只补普通菜单确认，未重写战斗结果。一次矿道检查在新岩石素材导入完成前启动，产生纹理加载错误；该次不计入最终两轮，导入完成后已完整重跑且日志无资源错误。未重新安装手机包；HTML资源与脚本检查不等同浏览器布局验收。</p><ul>
+<li><a href="play/continuous-main/continuous-main-play.json">continuous-main-play.json</a>：M12 通过、M13 通过、M14 通过、M15 未完成／失败</li>
+<li><a href="play/continuous-main-final/continuous-main-final-play.json">continuous-main-final-play.json</a>：M12 通过、M13 通过、M14 通过、M15 未完成／失败</li>
+<li><a href="play/first-camp-fort/first-camp-fort-play.json">first-camp-fort-play.json</a>：M14 通过、M15 通过</li>
+<li><a href="play/first-grain-prison/first-grain-prison-play.json">first-grain-prison-play.json</a>：M12 通过、M13 通过</li>
+<li><a href="play/mine-formation-first/mine-formation-first-play.json">mine-formation-first-play.json</a>：S11 未完成／失败</li>
+<li><a href="play/mine-formation-second/mine-formation-second-play.json">mine-formation-second-play.json</a>：S11 未完成／失败</li>
+<li><a href="play/round1-final/round1-final-play.json">round1-final-play.json</a>：M12 通过、M13 通过、M14 通过、M15 通过、S11 未完成／失败、S12 通过</li>
+<li><a href="play/round1-mine-final/round1-mine-final-play.json">round1-mine-final-play.json</a>：S11 通过</li>
+<li><a href="play/round1-mine-recheck/round1-mine-recheck-play.json">round1-mine-recheck-play.json</a>：S11 通过</li>
+<li><a href="play/round2-final/round2-final-play.json">round2-final-play.json</a>：M12 通过、M13 通过、M14 通过、M15 通过、S11 通过、S12 通过</li>
+</ul></details><nav class="links"><a href="delivery-summary.json">完整交付记录</a><a href="rules-probe.json">独立规则检查</a><a href="play/continuous-main-completion-final/result.json">连续主线章末接续</a><a href="document-sync.json">流程文档同步</a><a href="runtime-log-review.json">运行日志复核</a></nav></section><footer>第一章地图专项 · 2026-10-22 · 原生像素材质与现有动画。<a href="../m41-redesign-20261022/index.html">已确认的M41样板</a></footer>
+<script>function selectLayer(code,mode){document.querySelectorAll('button[data-map="'+code+'"]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.layer===mode)));document.querySelectorAll('.overlay[data-map="'+code+'"]').forEach(g=>g.classList.toggle('active',g.dataset.overlay===mode));}document.querySelectorAll('button[data-layer]').forEach(b=>b.addEventListener('click',()=>selectLayer(b.dataset.map,b.dataset.layer)));</script></main></body></html>

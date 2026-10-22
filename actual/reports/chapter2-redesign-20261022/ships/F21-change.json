@@ -1,0 +1,381 @@
+{
+  "code": "F21",
+  "map_sha256": "ff015967c7bb2ed00a24684cf15b598925e76b7a624e5e9ad63b91476b2c3109",
+  "notes": [
+    "两艘错位舰船形成清楚船艏、作业甲板和船尾，甲板长度收紧；上下两条两格跳板横跨真实海面，分别接入敌舰前后战区。",
+    "己方休息舱、医药区与船体旗位位于后甲板，前方桅杆和舷边货物围出通道；守船与登舰可分开部署。",
+    "原敌人身份、属性和AI保持，己方船体必须存活；原两格普通恢复地形和一处舵楼哨位均保留。"
+  ],
+  "coordinates": {
+    "enemies": [
+      {
+        "id": "F21_boss",
+        "before": [
+          29,
+          13
+        ],
+        "after": [
+          24,
+          11
+        ]
+      },
+      {
+        "id": "F21_e1",
+        "before": [
+          36,
+          9
+        ],
+        "after": [
+          24,
+          8
+        ]
+      },
+      {
+        "id": "F21_e2",
+        "before": [
+          28,
+          12
+        ],
+        "after": [
+          18,
+          10
+        ]
+      },
+      {
+        "id": "F21_e3",
+        "before": [
+          36,
+          22
+        ],
+        "after": [
+          22,
+          18
+        ]
+      },
+      {
+        "id": "F21_e4",
+        "before": [
+          19,
+          9
+        ],
+        "after": [
+          10,
+          10
+        ]
+      },
+      {
+        "id": "F21_e5",
+        "before": [
+          38,
+          9
+        ],
+        "after": [
+          26,
+          8
+        ]
+      },
+      {
+        "id": "F21_e6",
+        "before": [
+          31,
+          12
+        ],
+        "after": [
+          25,
+          13
+        ]
+      },
+      {
+        "id": "F21_e7",
+        "before": [
+          38,
+          22
+        ],
+        "after": [
+          26,
+          18
+        ]
+      },
+      {
+        "id": "F21_e8",
+        "before": [
+          17,
+          8
+        ],
+        "after": [
+          10,
+          7
+        ]
+      }
+    ],
+    "npc_units": [
+      {
+        "id": "friendly_ship",
+        "before": [
+          8,
+          26
+        ],
+        "after": [
+          5,
+          22
+        ]
+      },
+      {
+        "id": "injured_passengers",
+        "before": [
+          17,
+          22
+        ],
+        "after": [
+          8,
+          21
+        ]
+      }
+    ],
+    "reinforcements": [],
+    "deploy_before": [
+      [
+        9,
+        9
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        9,
+        11
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        8,
+        8
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        11,
+        9
+      ]
+    ],
+    "deploy_after": [
+      [
+        5,
+        18
+      ],
+      [
+        6,
+        18
+      ],
+      [
+        7,
+        18
+      ],
+      [
+        8,
+        18
+      ],
+      [
+        5,
+        19
+      ],
+      [
+        6,
+        19
+      ],
+      [
+        7,
+        19
+      ],
+      [
+        8,
+        19
+      ],
+      [
+        9,
+        18
+      ],
+      [
+        9,
+        19
+      ]
+    ],
+    "objects_before": [
+      {
+        "id": "plank_1",
+        "kind": "inspect",
+        "position": [
+          21,
+          11
+        ],
+        "label": "检查第一跳板",
+        "adjacent": true,
+        "sprite": "open_gate",
+        "sprite_path": "res://assets/chapter2/modules/gangplank.png",
+        "sprite_offset": [
+          -16,
+          0
+        ]
+      },
+      {
+        "id": "plank_2",
+        "kind": "inspect",
+        "position": [
+          21,
+          20
+        ],
+        "label": "检查第二跳板",
+        "adjacent": true,
+        "sprite": "open_gate",
+        "sprite_path": "res://assets/chapter2/modules/gangplank.png",
+        "sprite_offset": [
+          -16,
+          0
+        ]
+      },
+      {
+        "id": "F21_visit_0",
+        "kind": "visit",
+        "label": "访问船员休息舱",
+        "position": [
+          6,
+          23
+        ],
+        "approach": [
+          6,
+          24
+        ],
+        "approaches": [
+          [
+            6,
+            24
+          ]
+        ],
+        "entrance_cells": [
+          [
+            6,
+            23
+          ]
+        ],
+        "adjacent": true,
+        "door_visual": "native_building_art",
+        "show_indicator": false,
+        "optional": true,
+        "dialogue": "船员：两条跳板都能登舰。舵楼哨位可守可恢复，别把所有人挤在一条跳板上。",
+        "reward_item": 48,
+        "building": "captain_cabin"
+      }
+    ],
+    "objects_after": [
+      {
+        "id": "plank_1",
+        "kind": "inspect",
+        "position": [
+          14,
+          11
+        ],
+        "label": "检查第一跳板",
+        "adjacent": true,
+        "sprite": "open_gate",
+        "sprite_path": "res://assets/chapter2/modules/gangplank.png",
+        "sprite_offset": [
+          -16,
+          0
+        ]
+      },
+      {
+        "id": "plank_2",
+        "kind": "inspect",
+        "position": [
+          14,
+          19
+        ],
+        "label": "检查第二跳板",
+        "adjacent": true,
+        "sprite": "open_gate",
+        "sprite_path": "res://assets/chapter2/modules/gangplank.png",
+        "sprite_offset": [
+          -16,
+          0
+        ]
+      },
+      {
+        "id": "F21_visit_0",
+        "kind": "visit",
+        "label": "访问船员休息舱",
+        "position": [
+          4,
+          14
+        ],
+        "approach": [
+          4,
+          15
+        ],
+        "approaches": [
+          [
+            4,
+            15
+          ]
+        ],
+        "entrance_cells": [
+          [
+            4,
+            14
+          ]
+        ],
+        "adjacent": true,
+        "door_visual": "native_building_art",
+        "show_indicator": false,
+        "optional": true,
+        "dialogue": "船员：两条跳板都能登舰。舵楼哨位可守可恢复，别把所有人挤在一条跳板上。",
+        "reward_item": 48,
+        "building": "captain_cabin"
+      }
+    ],
+    "exit_before": [
+      37,
+      4
+    ],
+    "exit_after": [
+      25,
+      3
+    ],
+    "targets_before": [
+      [
+        21,
+        11
+      ],
+      [
+        21,
+        20
+      ]
+    ],
+    "targets_after": [
+      [
+        14,
+        11
+      ],
+      [
+        14,
+        19
+      ]
+    ]
+  }
+}

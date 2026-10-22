@@ -1,0 +1,546 @@
+{
+  "code": "M15",
+  "passed": true,
+  "size": [
+    36,
+    28
+  ],
+  "closed_connected": 534,
+  "opened_connected": 548,
+  "all_stats_ai_timing_identity_unchanged": true,
+  "coordinate_changes": {
+    "player_positions": {
+      "before": [
+        [
+          16,
+          15
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          16,
+          14
+        ],
+        [
+          17,
+          15
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          16,
+          17
+        ],
+        [
+          17,
+          16
+        ],
+        [
+          17,
+          14
+        ]
+      ],
+      "after": [
+        [
+          17,
+          22
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          19,
+          22
+        ],
+        [
+          20,
+          22
+        ],
+        [
+          17,
+          23
+        ],
+        [
+          18,
+          23
+        ],
+        [
+          19,
+          23
+        ],
+        [
+          20,
+          23
+        ],
+        [
+          16,
+          23
+        ],
+        [
+          16,
+          24
+        ]
+      ]
+    },
+    "exit": {
+      "before": [
+        38,
+        5
+      ],
+      "after": [
+        28,
+        2
+      ]
+    },
+    "targets": {
+      "before": [
+        [
+          9,
+          9
+        ],
+        [
+          32,
+          26
+        ]
+      ],
+      "after": [
+        [
+          9,
+          9
+        ],
+        [
+          27,
+          22
+        ]
+      ]
+    },
+    "objects": {
+      "before": [
+        {
+          "id": "M15_rescue_0",
+          "kind": "rescue",
+          "position": [
+            9,
+            9
+          ],
+          "label": "救出劳工1",
+          "adjacent": true,
+          "sprite": "open_gate",
+          "open_tile": 48,
+          "open_art_cells": [
+            {
+              "position": [
+                9,
+                9
+              ],
+              "base_tile": 8,
+              "clear_layers": [
+                1,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M15_rescue_1",
+          "kind": "rescue",
+          "position": [
+            32,
+            26
+          ],
+          "label": "救出劳工2",
+          "adjacent": true,
+          "sprite": "open_gate",
+          "open_tile": 48,
+          "open_art_cells": [
+            {
+              "position": [
+                32,
+                26
+              ],
+              "base_tile": 8,
+              "clear_layers": [
+                1,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M15_visit_0",
+          "kind": "visit",
+          "label": "访问旧塔堡档案室",
+          "position": [
+            19,
+            4
+          ],
+          "approach": [
+            19,
+            5
+          ],
+          "approaches": [
+            [
+              19,
+              5
+            ],
+            [
+              18,
+              5
+            ]
+          ],
+          "entrance_cells": [
+            [
+              19,
+              4
+            ],
+            [
+              18,
+              4
+            ]
+          ],
+          "adjacent": true,
+          "door_visual": "native_building_art",
+          "show_indicator": false,
+          "optional": true,
+          "dialogue": "旧记录：这里原是扼守海峡的三塔要塞。东面栈道通往北门，西崖缺口可绕过中庭。",
+          "reward_item": 2,
+          "building": "coastal_keep"
+        }
+      ],
+      "after": [
+        {
+          "id": "M15_rescue_0",
+          "kind": "rescue",
+          "position": [
+            9,
+            9
+          ],
+          "label": "救出劳工1",
+          "adjacent": true,
+          "sprite": "jail_door",
+          "open_tile": 48,
+          "open_art_cells": [
+            {
+              "position": [
+                9,
+                9
+              ],
+              "base_tile": 8,
+              "clear_layers": [
+                1,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M15_rescue_1",
+          "kind": "rescue",
+          "position": [
+            27,
+            22
+          ],
+          "label": "救出劳工2",
+          "adjacent": true,
+          "sprite": "jail_door",
+          "open_tile": 48,
+          "open_art_cells": [
+            {
+              "position": [
+                27,
+                22
+              ],
+              "base_tile": 8,
+              "clear_layers": [
+                1,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "id": "M15_visit_0",
+          "kind": "visit",
+          "label": "访问旧塔堡档案室",
+          "position": [
+            18,
+            4
+          ],
+          "approach": [
+            18,
+            5
+          ],
+          "approaches": [
+            [
+              18,
+              5
+            ],
+            [
+              19,
+              5
+            ]
+          ],
+          "entrance_cells": [
+            [
+              18,
+              4
+            ],
+            [
+              19,
+              4
+            ]
+          ],
+          "adjacent": true,
+          "door_visual": "native_building_art",
+          "show_indicator": false,
+          "optional": true,
+          "dialogue": "旧记录：这里原是扼守海峡的三塔要塞。东面栈道通往北门，西崖缺口可绕过中庭。",
+          "reward_item": 2,
+          "building": "coastal_keep"
+        }
+      ]
+    },
+    "enemies": {
+      "before": {
+        "M15_boss": [
+          24,
+          10
+        ],
+        "M15_e1": [
+          37,
+          9
+        ],
+        "M15_e2": [
+          28,
+          14
+        ],
+        "M15_e3": [
+          37,
+          27
+        ],
+        "M15_e4": [
+          19,
+          7
+        ],
+        "M15_e5": [
+          38,
+          9
+        ],
+        "M15_e6": [
+          29,
+          14
+        ],
+        "M15_e7": [
+          38,
+          26
+        ],
+        "M15_e8": [
+          21,
+          7
+        ],
+        "M15_e9": [
+          37,
+          10
+        ],
+        "M15_e10": [
+          28,
+          16
+        ],
+        "M15_e11": [
+          37,
+          28
+        ],
+        "M15_e12": [
+          19,
+          9
+        ],
+        "M15_e13": [
+          35,
+          9
+        ],
+        "M15_e14": [
+          26,
+          14
+        ]
+      },
+      "after": {
+        "M15_boss": [
+          20,
+          10
+        ],
+        "M15_e1": [
+          25,
+          6
+        ],
+        "M15_e2": [
+          21,
+          14
+        ],
+        "M15_e3": [
+          28,
+          23
+        ],
+        "M15_e4": [
+          13,
+          7
+        ],
+        "M15_e5": [
+          28,
+          7
+        ],
+        "M15_e6": [
+          22,
+          14
+        ],
+        "M15_e7": [
+          26,
+          23
+        ],
+        "M15_e8": [
+          14,
+          8
+        ],
+        "M15_e9": [
+          25,
+          10
+        ],
+        "M15_e10": [
+          21,
+          16
+        ],
+        "M15_e11": [
+          30,
+          21
+        ],
+        "M15_e12": [
+          15,
+          10
+        ],
+        "M15_e13": [
+          29,
+          8
+        ],
+        "M15_e14": [
+          23,
+          13
+        ]
+      }
+    },
+    "npc_units": {
+      "before": {
+        "M15_workers0": [
+          9,
+          8
+        ],
+        "M15_workers1": [
+          32,
+          25
+        ]
+      },
+      "after": {
+        "M15_workers0": [
+          9,
+          7
+        ],
+        "M15_workers1": [
+          27,
+          20
+        ]
+      }
+    },
+    "reinforcements": {
+      "before": {
+        "M15_r0": [
+          37,
+          29
+        ],
+        "M15_r1": [
+          34,
+          31
+        ]
+      },
+      "after": {
+        "M15_r0": [
+          30,
+          25
+        ],
+        "M15_r1": [
+          29,
+          25
+        ]
+      }
+    },
+    "building_sites": {
+      "before": [
+        {
+          "position": [
+            8,
+            11
+          ],
+          "label": "旧哨堡",
+          "occupiable": true,
+          "avoid": 40,
+          "phase_heal": 5
+        },
+        {
+          "position": [
+            34,
+            22
+          ],
+          "label": "港仓",
+          "occupiable": true,
+          "avoid": 20,
+          "phase_heal": 0
+        }
+      ],
+      "after": [
+        {
+          "position": [
+            10,
+            13
+          ],
+          "label": "旧哨堡",
+          "occupiable": true,
+          "avoid": 40,
+          "phase_heal": 5
+        },
+        {
+          "position": [
+            28,
+            16
+          ],
+          "label": "港仓",
+          "occupiable": true,
+          "avoid": 20,
+          "phase_heal": 0
+        }
+      ]
+    }
+  },
+  "notes": [
+    "海崖收束成旧堡半岛，正门两侧残墙分开前场与中庭；西侧牢区、港侧工棚牢区各有实体围栏与南门。",
+    "正面由三格门道攻入中庭，也可从西崖缺口进入；东侧连续木栈沿真正海岸通至北门，可以分派骑兵抢占科兰退路。",
+    "科兰仍第6回合且低于半血开始撤离、最晚第8回合出发，原9移动保持；北门距其初始驻点至少两个移动回合，骑兵可提前沿侧栈截住。",
+    "档案室门前、两扇牢门和可驻守旧哨堡均与道路相接；营房与粮仓完整落地，不将屋顶或城墙当通路。"
+  ],
+  "retreat": {
+    "boss_move": 9,
+    "boss_distance_to_exit": 16,
+    "minimum_unopposed_turns": 2,
+    "deploy_minimum_steps_to_exit": 28,
+    "unchanged_start_condition": "turn>=6 and hp*2<max_hp, or turn>=8"
+  }
+}

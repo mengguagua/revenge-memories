@@ -1,0 +1,59 @@
+#!/usr/bin/env python3
+"""Six current maps, immutable before images and verifiable ordinary-input evidence."""
+from pathlib import Path
+from PIL import Image
+import json,html,hashlib,re,subprocess
+R=Path(__file__).resolve().parents[1];O=R/'reports/chapter1-redesign-20261022'
+read=lambda p:json.loads(p.read_text());sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();e=html.escape
+codes=['M12','M13','M14','M15','S11','S12'];notes={m['code']:m for m in read(O/'design-notes.json')['maps']}
+selection=read(O/'selected-play.json');rules=read(O/'rules-probe.json');capture=read(O/'screenshots/captures.json');package=read(O/'package-checks.json');end=read(O/'play/continuous-main-completion-final/result.json')
+assert all(r['passed']for r in [rules,capture,package,end])
+current={c:sha(R/f'data/stages/{c}.json')for c in codes};before=read(O/'baseline/hashes.json');unchanged={c:h for c,h in before.items()if c not in codes};assert all(sha(R/f'data/stages/{c}.json')==h for c,h in unchanged.items())
+plays={};attempts=[]
+for code in codes:
+ plays[code]=[]
+ for label in selection[code]:
+  path=O/f'play/{label}/{label}-play.json';record=read(path);b=next(b for b in record['battles']if b['code']==code)
+  assert b['outcome']=='victory'and not b['failures']and b['entry_map_sha256']==b['map_sha256']==current[code]
+  assert not record['stat_edits']and not record['forced_victories']
+  victory=read(O/f'play/{label}/{label}-{code}-victory.json');formal=[u for u in victory['units']if u['id']in victory['party']and not u.get('temporary')];npc=[u for u in victory['units']if u.get('quest_kind')]
+  plays[code].append({'label':label,'turns':b['final_turn'],'inputs':b['key_inputs'],'source':str(path.relative_to(O)),'formal_count':len(formal),'formal_alive':sum(u['hp']>0 for u in formal),'formal_dying':[u['name_zh']for u in formal if u.get('dying')],'quest':b['quest'],'npc':[{'id':u['id'],'hp':u['hp'],'side':u['side']}for u in npc]})
+for path in sorted((O/'play').glob('*/*-play.json')):
+ r=read(path);attempts.append({'file':str(path.relative_to(O)),'passed':r['passed'],'battles':[{'code':b['code'],'outcome':b['outcome'],'turn':b['final_turn'],'failures':b['failures'],'current_map':b.get('entry_map_sha256')==b.get('map_sha256')==current.get(b['code'])}for b in r['battles']]})
+images=[]
+for path in list((O/'before').glob('*.png'))+list((O/'images').glob('*.png'))+list((O/'screenshots').glob('*.png')):
+ pixels=Image.open(path).convert('RGBA').tobytes();subprocess.run(['/opt/homebrew/bin/oxipng','-q','-o','3',str(path)],check=True);im=Image.open(path);assert im.convert('RGBA').tobytes()==pixels
+ images.append({'path':str(path.relative_to(O)),'size':list(im.size),'bytes':path.stat().st_size,'sha256':sha(path)})
+summary={'passed':True,'revision':'0.10.5-ch1','maps':current,'unchanged_maps':unchanged,'plays':plays,'attempts':attempts,'images':images,'rules_checks':rules.get('check_count',0),'package':package,'continuous_main_completion':end,'layout_errors':capture['layout_errors'],'limitations':['实机证据由Godot实际输入驱动完成，采用正常移动、菜单、战斗、交互；未改属性、随机结果或强制胜利。','两轮逐关复测使用真实开发记录的隔离副本，不等于两次从新游戏起步。另有一条从M11通关记录连续通过M12至M15并进入第二章的证据链。','连续主线首轮在支线收束确认菜单停下；修正试玩驱动后从同一胜利快照继续完成仪式与第二章入口。后一次少人重跑因伤情累积在M15败北，失败记录保留。','未改人物动画或重新安装手机包；网页资源和交互脚本检查不代替浏览器布局截图。']}
+(O/'delivery-summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n')
+css='''*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#10191f;color:#e9f0f2;font:15px/1.8 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}main{max-width:1380px;margin:auto;padding:42px 30px 70px}h1{font-size:37px;line-height:1.3}h2{font-size:24px;margin:0 0 12px}h3{font-size:17px;margin:0 0 8px}p{color:#b8c9d1;margin:10px 0}.eyebrow{font-size:12px;letter-spacing:.14em;color:#a3cbbd}.tag{display:inline-block;padding:7px 13px;background:#354841;border-radius:8px;color:#d9ece3;font-size:13px}.links,.controls{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}a{color:#b4ddcc;text-underline-offset:4px}.links a,button{display:inline-flex;justify-content:center;align-items:center;min-height:44px;padding:11px 17px;border:0;border-radius:9px;background:#293b44;color:#dce9ed;font:inherit;font-size:14px;text-decoration:none;cursor:pointer}button[aria-pressed=true]{background:#36514e;box-shadow:inset 0 0 18px #9cd9be16,0 4px 18px #0004}a:focus-visible,button:focus-visible{outline:none;box-shadow:0 0 0 5px #a4d6c32c,0 0 24px #a4d6c32c}.panel{padding:24px;background:#1a2932;border-radius:16px;box-shadow:0 14px 38px #0002;margin-top:30px}.pair,.cards,.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.cards{margin:20px 0}.cards article{padding:17px 20px;border-radius:10px;background:#22353e}figure{margin:0;min-width:0}figcaption{font-size:14px;padding:8px 2px 12px}.image{display:block;background:#22333d;border-radius:8px;overflow:hidden}.image img{width:100%;height:auto;display:block;image-rendering:pixelated}.small{font-size:12px;color:#9bb1bc}.board{position:relative;max-width:900px;margin:auto}.board img{display:block;width:100%;image-rendering:pixelated}.board svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.overlay{display:none}.overlay.active{display:block}.legend{min-height:28px;font-size:13px}.shots{margin-top:20px}.note,details{padding:16px 19px;border-radius:10px;background:#24363f;margin:20px 0}summary{cursor:pointer}.stats{font-size:22px;color:#d5e9e0}table{border-collapse:collapse;width:100%;font-size:14px}td,th{text-align:left;padding:9px 12px;border-bottom:1px solid #ffffff0b}footer{font-size:12px;color:#8ca4b0;margin-top:28px}@media(max-width:800px){main{padding:24px 14px}.panel{padding:16px}.pair,.cards,.shots{grid-template-columns:1fr}h1{font-size:28px}}'''
+body=['<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>第一章六图 · 构图与战术重设计</title><style>'+css+'</style></head><body><main>','<div class="eyebrow">REVENGE MEMORIES / CHAPTER ONE</div><h1>第一章六图 · 构图与战术重设计</h1><span class="tag">M41方法推广 · M11原样保留</span><p>粮台、分岸囚院、营帐庭院、海崖塔堡、矿厅与诊所村分别成为六张地图的骨架。先确立地形和建筑关系，再把部署、守军与交互位置接到道路上；保留原有剧情、数值规则和人物动画。</p><nav class="links">']
+for c in codes:body.append(f'<a href="#{c}">{c} · {e(notes[c]["name"])}</a>')
+body+=['<a href="#verification">试玩与复查</a><a href="../../../art-review/battle-maps-20261021/index.html?map=M12#map-viewer">全部地图目录</a><a href="../../dist/RevengeMemories-Chapter1-Redesign-20261022.app">独立桌面包</a></nav>','<p class="small">前后地图均来自游戏原生渲染器；本轮收紧了地图尺寸，左右按各自完整边界展示，并非同像素比例的面积对比。点击原图可放大检查。</p>']
+for code in codes:
+ d=read(R/f'data/stages/{code}.json');old=read(O/f'baseline/{code}.json');n=notes[code];im=Image.open(O/f'images/{code}.png');w,h=im.size
+ body.append(f'<section class="panel" id="{code}"><div class="eyebrow">{code} / {old["map"]["width"]}×{old["map"]["height"]} → {d["map"]["width"]}×{d["map"]["height"]}</div><h2>{e(n["title"])}</h2><p>{e(n["composition"])}</p><div class="pair">')
+ for path,title in [(f'before/{code}.png','修改前 · 前一轮版本'),(f'images/{code}.png','重设计后 · 当前Godot场景')]:body.append(f'<figure><figcaption>{title}</figcaption><a class="image" href="{path}" target="_blank"><img src="{path}" loading="lazy" alt="{code} {title}"></a></figure>')
+ body.append(f'</div><div class="cards"><article><h3>主路线</h3><p>{e(n["main_route"])}</p></article><article><h3>侧路与取舍</h3><p>{e(n["side_route"])}</p><p>{e(n["tradeoff"])}</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">')
+ for mode,title in [('plain','纯场景'),('routes','道路与支路'),('actors','部署与任务')]:body.append(f'<button data-map="{code}" data-layer="{mode}" aria-pressed="{str(mode=="plain").lower()}">{title}</button>')
+ body.append(f'</div><div class="board"><img src="images/{code}.png" alt="{code}地形说明"><svg viewBox="0 0 {w} {h}" aria-hidden="true"><g class="overlay" data-map="{code}" data-overlay="routes">')
+ for i,route in enumerate(n.get('routes',[])[:4]):
+  points=route.get('waypoints',[]);color=['#ce9c4c','#67bed1','#a6b887','#ad91c7'][i]
+  coords=' '.join(f'{40+p[0]*16},{40+p[1]*16}'for p in points)
+  body.append(f'<polyline points="{coords}" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="{coords}" fill="none" stroke="{color}" stroke-width="3.5" stroke-linejoin="round"/>')
+ body.append(f'</g><g class="overlay" data-map="{code}" data-overlay="actors">')
+ for group,color in [(d['player_positions'],'#3872ca'),([u['position']for u in d['enemies']],'#bd4756'),([u['position']for u in d['npc_units']],'#d3af4a'),([o['position']for o in d['objects']],'#46976e'),([d['exit']],'#a784cc')]:
+  for p in group:body.append(f'<circle cx="{40+p[0]*16}" cy="{40+p[1]*16}" r="6" fill="{color}" stroke="#eee" stroke-width="1.3"/>')
+ body.append('</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面；实际通行以游戏地形为准。</p></details><div class="cards">')
+ for i,p in enumerate(plays[code]):
+  body.append(f'<article><h3>第{i+1}轮 · 实际输入复测</h3><div class="stats">第{p["turns"]}回合完成</div><p>结算时正式队员 {p["formal_alive"]}/{p["formal_count"]} 存活；{("濒死："+"、".join(p["formal_dying"])) if p["formal_dying"] else "无人濒死"}。</p><p class="small">{p["inputs"]:,}次按键，含出入场与战后操作。<a href="{p["source"]}">原始记录</a></p></article>')
+ body.append('</div><div class="shots">')
+ for shot in capture['shots']:
+  if shot['stage']!=code:continue
+  path='screenshots/'+Path(shot['path']).name;title=shot.get('title',shot['name']);body.append(f'<figure><a class="image" href="{path}" target="_blank"><img src="{path}" loading="lazy" alt="{e(title)}"></a><figcaption>{e(title)} · 第{shot["turn"]}回合</figcaption></figure>')
+ body.append('</div></section>')
+body+=['<section class="panel" id="verification"><h2>试玩与复查</h2><p>六图完成两轮逐关实际输入复测，并检查战后据点、救人、招募和章末仪式。另从真实M11通关记录出发，以原三人队起步，正常招募并连续完成M12—M15；首轮章末确认菜单补齐后，从该次胜利快照继续完成仪式，正常进入第二章。</p><div class="note"><strong>矿道修正</strong><p>初版矿工站在护卫前方，自动前进时先进入北巷首领射程，三次试走均出现矿工死亡。定稿将矿工放到南厅护卫后方，保留原移动与交战规则，让护卫先开路、矿工跟随。最终复测结果见上方记录。</p></div><p>复查还修正了囚院栏杆拼接、军营过大地坪、海堡东牢墙重叠、溪流被道路截断，以及矿壁平面感。建筑入口、两座桥、牢门开口与地形阻挡逐项对齐。</p>',f'<p>{rules.get("check_count",0)}项独立规则与连通检查通过；{len(capture["shots"])}张实机视口的文字安全区检查无错误。M11和其余33张地图逐文件核对未变，M41仍为已确认版本。程序与人物动画代码沿用。</p>','<details><summary>原始尝试、失败记录与验证范围</summary><p>两轮逐关检查使用真实开发记录的隔离副本；普通按键完成移动、战斗、交互和结算，没有修改属性、随机结果或强制胜利。实际行动结果含随机命中和伤情，表内回合数不代表固定难度。</p><p>保留所有早期失败：矿道护送失败、后一次少人连续重跑在塔堡未能截住科兰，以及试玩脚本遗漏的章末菜单步骤。连续通关的修复只补普通菜单确认，未重写战斗结果。一次矿道检查在新岩石素材导入完成前启动，产生纹理加载错误；该次不计入最终两轮，导入完成后已完整重跑且日志无资源错误。未重新安装手机包；HTML资源与脚本检查不等同浏览器布局验收。</p><ul>']
+for a in attempts:body.append(f'<li><a href="{a["file"]}">{e(a["file"].split("/")[-1])}</a>：'+ '、'.join(f'{b["code"]} {"通过" if b["outcome"]=="victory" and not b["failures"] else "未完成／失败"}'for b in a['battles'])+'</li>')
+body+=['</ul></details><nav class="links"><a href="delivery-summary.json">完整交付记录</a><a href="rules-probe.json">独立规则检查</a><a href="play/continuous-main-completion-final/result.json">连续主线章末接续</a><a href="document-sync.json">流程文档同步</a><a href="runtime-log-review.json">运行日志复核</a></nav></section><footer>第一章地图专项 · 2026-10-22 · 原生像素材质与现有动画。<a href="../m41-redesign-20261022/index.html">已确认的M41样板</a></footer>']
+js='''function selectLayer(code,mode){document.querySelectorAll('button[data-map="'+code+'"]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.layer===mode)));document.querySelectorAll('.overlay[data-map="'+code+'"]').forEach(g=>g.classList.toggle('active',g.dataset.overlay===mode));}document.querySelectorAll('button[data-layer]').forEach(b=>b.addEventListener('click',()=>selectLayer(b.dataset.map,b.dataset.layer)));'''
+body.append('<script>'+js+'</script></main></body></html>');(O/'index.html').write_text('\n'.join(body));(O/'comparison-controls.js').write_text(js+'\n');print(json.dumps({'passed':True,'maps':6,'shots':len(capture['shots']),'images':len(images),'unchanged_maps':len(unchanged)},ensure_ascii=False))

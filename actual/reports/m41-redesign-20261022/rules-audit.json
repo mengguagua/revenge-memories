@@ -1,0 +1,255 @@
+{
+  "scope": "M41 read-only rule and historical deployment audit; no stage or core files modified",
+  "source_checkpoint": "actual/reports/chapter4/play/round2-M41-deployment.json",
+  "source_sha256": "5de36a17585e82b3817a8bd179ef9a6894b5362fe68dbd73f8dc79d22fd83dd4",
+  "historical_deployment": {
+    "party": [
+      "hunapu",
+      "daan",
+      "otto",
+      "beck",
+      "hervi",
+      "fula",
+      "lena",
+      "lance",
+      "german"
+    ],
+    "healthy_combatants": [
+      {
+        "id": "hunapu",
+        "name_zh": "胡纳普",
+        "class_id": 21.0,
+        "position": [
+          12.0,
+          22.0
+        ],
+        "hp": 31,
+        "max_hp": 31.0,
+        "defence": 8.0,
+        "move": 5.0,
+        "item_id": 0.0,
+        "magic_flags": 0.0
+      },
+      {
+        "id": "daan",
+        "name_zh": "达恩",
+        "class_id": 12.0,
+        "position": [
+          13.0,
+          22.0
+        ],
+        "hp": 29,
+        "max_hp": 29.0,
+        "defence": 6.0,
+        "move": 4.0,
+        "item_id": 0.0,
+        "magic_flags": 0.0
+      },
+      {
+        "id": "otto",
+        "name_zh": "奥托",
+        "class_id": 6.0,
+        "position": [
+          14.0,
+          22.0
+        ],
+        "hp": 26,
+        "max_hp": 26.0,
+        "defence": 7.0,
+        "move": 4.0,
+        "item_id": 0.0,
+        "magic_flags": 0.0
+      },
+      {
+        "id": "beck",
+        "name_zh": "贝克",
+        "class_id": 12.0,
+        "position": [
+          15.0,
+          22.0
+        ],
+        "hp": 26,
+        "max_hp": 26.0,
+        "defence": 7.0,
+        "move": 4.0,
+        "item_id": 0.0,
+        "magic_flags": 0.0
+      },
+      {
+        "id": "hervi",
+        "name_zh": "赫维",
+        "class_id": 15.0,
+        "position": [
+          12.0,
+          23.0
+        ],
+        "hp": 30,
+        "max_hp": 30.0,
+        "defence": 7.0,
+        "move": 4.0,
+        "item_id": 50.0,
+        "magic_flags": 19.0
+      },
+      {
+        "id": "fula",
+        "name_zh": "芙拉",
+        "class_id": 18.0,
+        "position": [
+          13.0,
+          23.0
+        ],
+        "hp": 18,
+        "max_hp": 18.0,
+        "defence": 1.0,
+        "move": 4.0,
+        "item_id": 65,
+        "magic_flags": 5.0
+      },
+      {
+        "id": "lance",
+        "name_zh": "兰斯",
+        "class_id": 1.0,
+        "position": [
+          14.0,
+          23.0
+        ],
+        "hp": 26,
+        "max_hp": 26.0,
+        "defence": 8.0,
+        "move": 7.0,
+        "item_id": 2.0,
+        "magic_flags": 0.0
+      },
+      {
+        "id": "german",
+        "name_zh": "格曼",
+        "class_id": 6.0,
+        "position": [
+          15.0,
+          23.0
+        ],
+        "hp": 28,
+        "max_hp": 28.0,
+        "defence": 7.0,
+        "move": 4.0,
+        "item_id": 62.0,
+        "magic_flags": 0.0
+      }
+    ],
+    "active_count": 8,
+    "not_deployed": [
+      {
+        "id": "lena",
+        "hp": 0.0,
+        "dying": true,
+        "implication": "无飞行单位出场，地图不得要求飞行救援。"
+      }
+    ],
+    "slot_count": 12,
+    "roster_compression": "濒死者不占部署位；实际角色按健康名册压缩填入，不能把某个槽固定假设为飞行者或骑兵。"
+  },
+  "hard_constraints": [
+    {
+      "rule": "Victory",
+      "detail": "snow_group0/1/2 至少2组存活且在 flags.quest.evacuated 中；south_gate 和 rest_station 均已确认；battle_data.boss_id 指向的单位HP<=0或投降。不要求全灭普通敌人。",
+      "source": "core/chapter4_rules.gd:142"
+    },
+    {
+      "rule": "Defeat",
+      "detail": "胡纳普HP<=0；或三组居民中HP>0者少于2组。撤离者保留单位和HP，计入存活。没有M41回合上限或冰雪扣血规则。",
+      "source": "core/chapter4_rules.gd:126"
+    },
+    {
+      "rule": "Stable IDs",
+      "detail": "snow_group0/1/2、south_gate、rest_station、M41_boss、stage 401、code M41、route alm、chapter 4需要保留。NPC仍是neutral/temporary/controllable=false/quest_kind=escort/no_counter=true。",
+      "source": "core/chapter4_rules.gd:143"
+    },
+    {
+      "rule": "Flag interaction semantics",
+      "detail": "两个control均adjacent=false，正式可行动角色必须站在对象格确认；flag只记录完成，不开门、不治疗、不调整居民目标、不要求先于撤离。不能画成按旗后才会打开的不可行墙。",
+      "source": "core/game_state.gd:440; core/chapter4_rules.gd:99"
+    },
+    {
+      "rule": "Boundary",
+      "detail": "reachable明确拒绝进入最外圈x=0/y=0/x=w-1/y=h-1。部署、出口、对象、操作前格及必经桥头至少内缩1格。",
+      "source": "core/legacy_game_state.gd:874"
+    },
+    {
+      "rule": "Flow after victory",
+      "detail": "H41 fourth_snow_settle写M41_confirmed后开放W11/M42；fourth_s41邀请S41。地图换坐标不应改hub/action IDs或胜利回程。",
+      "source": "core/chapter4_hub.gd:7; core/chapter4_rules.gd:28"
+    }
+  ],
+  "ai": {
+    "initial_guards": {
+      "count": 13,
+      "behavior": "全部 guard_exit",
+      "movement": "CampaignTactics.action使用actor副本move=0，原地寻找可攻击目标，无目标仍返回hold_exit；不会离岗追击、不会沿道路追撤离者。",
+      "targeting": "按伤害、命中、反击惩罚择目标，居民属于player且未被关押，可以被攻击；没有基于地形的射线遮挡，墙/河不阻断射程。",
+      "source": "core/campaign_tactics.gd:5; core/combat_rules.gd:151"
+    },
+    "reinforcement": {
+      "count": 2,
+      "class_id": 1,
+      "move": 7,
+      "behavior": "advance",
+      "turn": 4,
+      "warning": "第3己方回合开始时预告一次",
+      "activation": "第4己方结束时居民先行动；切到第4敌方阶段后追加两个raw增援，acted=false，随后敌方slot循环当阶段就会行动。",
+      "occupancy": "原落点被占时先找四邻可站格，再free_spawn；仍无合法位则该单位跳过，故出生口应留>=2个合法空位。",
+      "source": "core/game_state.gd:414; core/legacy_main.gd:1379"
+    },
+    "escort": {
+      "base_move": 2,
+      "movement_cost": "quest_kind单位所有本可通行格代价强制1；不能过水/实墙/山岩。",
+      "phase_order": "所有正式玩家结束行动后，按player_slot自动移动友军；然后切敌方阶段。",
+      "target": "始终battle_data.exit，没有诊所/村口中途路标。",
+      "path_selection": "先_toward沿几何最短路选本轮可到格，再_safe_escort_move逐步截断危险段；不会搜索较长但安全的另一条路径。",
+      "safe_distance": "若任一步距任一敌人的曼哈顿距离<=max(4,敌最大攻击射程+1)，立即截停；判断忽略河流、山岩、墙与视线。",
+      "extra_guard": "ChapterFour再次比较最近敌距离：起点距离>4或本次终点离敌更远才采用动作，否则原地等待。因为底层path包含起点，已处于危险半径的NPC一般无法靠自动AI自行脱困，需清敌。",
+      "collision": "能跨过己方单位，但停点必须空；出口要空一格供NPC走入并mark_wait后撤离。",
+      "speed_up": "全部敌人清空且唯一波增援已发生（或无增援）后move至少5，加快收尾。",
+      "evacuation": "必须实际走到exit并mark_wait才写evacuated，改side=evacuated和hidden=true；不是进入附近范围就获救。",
+      "source": "core/game_state.gd:260-318,341,388; core/chapter4_rules.gd:52"
+    }
+  },
+  "story_directions": [
+    "北村居民沿村道向南撤，出口必须位于显然的南口，北口追兵必须有能看懂的北侧来路。",
+    "开场要求先疏通南口，再接山道伤者；可让分兵从中央岔路同步处理，但不能把出口设在北端或使伤者看起来从安全区反向走向敌营。",
+    "rest_station只是假定已经完成安置工作的确认，摆在诊所门前/临时救护院更契合语义。",
+    "奥托在战后承认过去封路，缺席以村民与军令补足；不应把奥托设为唯一能互动的单位。",
+    "数据during提到第3回合医者提醒；当前实际通用触发是第3回合斥候增援预告，不能把未触发的芙拉专属对白当作实现保证。"
+  ],
+  "recommended_layout": [
+    {
+      "part": "中央岔路部署",
+      "proposal": "8名健康队员的部署中心放在南口与医舍之间；向南6-9格可达门前战线，向北/东北8-12格可达医舍/桥头。首轮能看见分队路线，4移动步兵约2-3回合抵达。"
+    },
+    {
+      "part": "南口战线",
+      "proposal": "固定指挥官与1-2护卫控制南口附近，但出口本格和出口前通道保持可用。若用固定弓手覆盖主道，要明确提示其射程；不能让其隔墙冻结看似安全的整条居民路。"
+    },
+    {
+      "part": "救伤者支路",
+      "proposal": "医舍旁的伤者和停靠点放在同一生活院，给2-3名队员清除护卫的独立支路，完成后能从桥/岔路回南口。北路与南路都是玩家可选顺序；NPC只依最短撤离线前进。"
+    },
+    {
+      "part": "北村全部救援选择",
+      "proposal": "北村居民比医舍与南村更远，保留救2组主线、分兵抢救第3组的选择。若期望全救可行，步兵须在第3回合前到北桥屏障，不能依赖历史上缺席的飞行者；两匹7移动骑兵在第4敌方阶段会立即追击。"
+    },
+    {
+      "part": "自然与通路",
+      "proposal": "木桥两端接真正可行岸地，居民主路至少2格宽、汇合点3格，出口前留错身空地。树林是有限移动代价的步行可选路，但不能把唯一伤者路线画成要穿建筑/水面的捷径。"
+    }
+  ],
+  "targeted_checks": [
+    "以真实round2-M41-deployment角色/装备从正常重试重新入场，确认健康8人、无飞行者仍能完成。",
+    "第1回合两路都能走出部署；不用随机瞬移或强行穿敌。",
+    "13初始guard_exit至少连续2回合保持坐标，射程内攻击正常；临近屋墙不错误假设安全。",
+    "第3己方回合仅一次预告，第4敌方回合恰好2骑兵进场并能行动；第5不重复。",
+    "NPC离敌4格会等待、清敌后继续，不与玩家重叠；exit被同伴占用后让开可恢复撤离。",
+    "两个control能站格实际确认；只做两旗+boss但居民不足时不胜利，只救居民但缺旗也不胜利。",
+    "分兵救援/先清南口两种实际战术至少各一轮，保留失败证据；争取验证全3组可救且主线至少2组可靠。",
+    "胜利后H41居民名册正常确认、W11可进入、S41来信可读，生死名册与实际结果一致。"
+  ]
+}

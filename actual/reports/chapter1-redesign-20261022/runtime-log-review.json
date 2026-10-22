@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "runs": [
+    {
+      "label": "round1-mine-recheck",
+      "log": "play/round1-mine-recheck/engine.log",
+      "sha256": "1e8d6223882627cd9d21ad239b7400b10d4a75eccc0d7036c3cd0ab993cde82c",
+      "unexpected_errors": [],
+      "selected_scope": "all battles in this run"
+    },
+    {
+      "label": "round2-final",
+      "log": "play/round2-final/engine.log",
+      "sha256": "622ca7fd2e093b470929cfad85fb9146466f0b8c7dacdb064bd7cbbada659ec6",
+      "unexpected_errors": [],
+      "selected_scope": "all battles in this run"
+    },
+    {
+      "label": "round1-final",
+      "log": "play/round1-final/engine.log",
+      "sha256": "87f275ed3dfab2712e0ad41a164c3564d1781f3a6a1753865099e72ba06224cb",
+      "unexpected_errors": [
+        "ERROR: Natural battle failed: S11 { \"objects\": {  }, \"evacuated\": [], \"freed\": [], \"burn_streak\": 0, \"reinforced\": false, \"mid_done\": false, &\"failed_reason\": \"矿工队1未能获救\" }"
+      ],
+      "selected_scope": "M12,M13,M14,M15,S12 only; original S11 defeat is retained"
+    }
+  ],
+  "excluded_attempt": "round1-mine-final passed battle logic but started concurrently with first import of new rock modules and logged missing-texture errors. It is excluded from both selected rounds; full clean replay round1-mine-recheck replaced it after import.",
+  "final_gameplay_selection": "selected-play.json"
+}

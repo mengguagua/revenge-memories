@@ -1,0 +1,299 @@
+{
+  "passed": true,
+  "map": "S12",
+  "size": [
+    28,
+    24
+  ],
+  "connected_cells": 541,
+  "reachable_anchors": 23,
+  "notes": [
+    "溪流横向分开南侧装车村与北岸诊所，中央两格宽桥直接承接药车道；两岸均有完整桥头落脚。",
+    "西侧一格备用桥沿林缘通向北岸小屋，再绕至诊所西侧；两条路线在医舍院前会合，林带成片而非围着道路撒树。",
+    "药车从南村装车院出发，真正交付点位于诊所南门前；两侧村舍围出生活街院，居民与守军位置配合新道路重新安排。"
+  ],
+  "escorts": [
+    {
+      "id": "medicine_wagon",
+      "start": [
+        7,
+        20
+      ],
+      "target": [
+        22,
+        6
+      ],
+      "path_cells": 29,
+      "nearest_initial_enemy_manhattan": 13
+    }
+  ],
+  "units_only_positions_changed": true,
+  "story_and_rules_unchanged": true,
+  "coordinate_changes": {
+    "enemies": [
+      {
+        "id": "S12_boss",
+        "before": [
+          29,
+          6
+        ],
+        "after": [
+          24,
+          7
+        ]
+      },
+      {
+        "id": "S12_e1",
+        "before": [
+          25,
+          10
+        ],
+        "after": [
+          16,
+          9
+        ]
+      },
+      {
+        "id": "S12_e2",
+        "before": [
+          25,
+          8
+        ],
+        "after": [
+          20,
+          8
+        ]
+      },
+      {
+        "id": "S12_e3",
+        "before": [
+          25,
+          16
+        ],
+        "after": [
+          13,
+          6
+        ]
+      },
+      {
+        "id": "S12_e4",
+        "before": [
+          13,
+          8
+        ],
+        "after": [
+          7,
+          7
+        ]
+      },
+      {
+        "id": "S12_e5",
+        "before": [
+          27,
+          10
+        ],
+        "after": [
+          23,
+          8
+        ]
+      },
+      {
+        "id": "S12_e6",
+        "before": [
+          27,
+          8
+        ],
+        "after": [
+          21,
+          6
+        ]
+      }
+    ],
+    "npc_units": [
+      {
+        "id": "medicine_wagon",
+        "before": [
+          11,
+          18
+        ],
+        "after": [
+          7,
+          20
+        ]
+      },
+      {
+        "id": "hervi",
+        "before": [
+          8,
+          21
+        ],
+        "after": [
+          6,
+          20
+        ]
+      }
+    ],
+    "reinforcements": [],
+    "objects": [
+      {
+        "id": "S12_visit_0",
+        "before": {
+          "position": [
+            26,
+            2
+          ],
+          "approach": [
+            26,
+            3
+          ],
+          "approaches": [
+            [
+              26,
+              3
+            ]
+          ],
+          "entrance_cells": [
+            [
+              26,
+              2
+            ]
+          ]
+        },
+        "after": {
+          "position": [
+            22,
+            4
+          ],
+          "approach": [
+            22,
+            5
+          ],
+          "approaches": [
+            [
+              22,
+              5
+            ]
+          ],
+          "entrance_cells": [
+            [
+              22,
+              4
+            ]
+          ]
+        }
+      }
+    ],
+    "deploy_before": [
+      [
+        10,
+        14
+      ],
+      [
+        9,
+        14
+      ],
+      [
+        10,
+        15
+      ],
+      [
+        11,
+        14
+      ],
+      [
+        8,
+        14
+      ],
+      [
+        9,
+        15
+      ],
+      [
+        10,
+        16
+      ],
+      [
+        11,
+        15
+      ],
+      [
+        12,
+        14
+      ],
+      [
+        7,
+        14
+      ]
+    ],
+    "deploy_after": [
+      [
+        9,
+        16
+      ],
+      [
+        10,
+        16
+      ],
+      [
+        11,
+        16
+      ],
+      [
+        12,
+        16
+      ],
+      [
+        9,
+        17
+      ],
+      [
+        10,
+        17
+      ],
+      [
+        11,
+        17
+      ],
+      [
+        12,
+        17
+      ],
+      [
+        8,
+        16
+      ],
+      [
+        8,
+        17
+      ]
+    ],
+    "exit_before": [
+      29,
+      3
+    ],
+    "exit_after": [
+      25,
+      2
+    ],
+    "targets_before": [
+      [
+        27,
+        6
+      ],
+      [
+        21,
+        15
+      ]
+    ],
+    "targets_after": [
+      [
+        22,
+        6
+      ],
+      [
+        16,
+        16
+      ]
+    ]
+  }
+}

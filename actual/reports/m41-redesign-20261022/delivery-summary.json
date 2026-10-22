@@ -1,0 +1,554 @@
+{
+  "passed": true,
+  "status": "M41 sample approved; original sample-stage evidence retained",
+  "map_sha256": "d95ae830163e3ce06f0469029b6b0ae8ef0e32067aff6e41a4f955cef80e1aba",
+  "map_revision": "0.10.4-m41",
+  "preserved_other_maps": {
+    "S32": true,
+    "S12": true,
+    "M14": true,
+    "M43": true,
+    "F41": true,
+    "M42": true,
+    "M15": true,
+    "F21": true,
+    "M12": true,
+    "F51": true,
+    "F26": true,
+    "M32": true,
+    "S22": true,
+    "M33": true,
+    "F31": true,
+    "M44": true,
+    "M13": true,
+    "M52": true,
+    "S42": true,
+    "J53": true,
+    "M51": true,
+    "S41": true,
+    "F24": true,
+    "F32": true,
+    "F33": true,
+    "F25": true,
+    "M31": true,
+    "S21": true,
+    "M11": true,
+    "F52": true,
+    "F44": true,
+    "F22": true,
+    "F43": true,
+    "S51": true,
+    "S11": true,
+    "J54": true,
+    "F42": true,
+    "F23": true,
+    "S31": true
+  },
+  "gameplay": "Only actor/object/deployment/exit positions changed; identities, stats, behavior, timing, objectives, story and animation code preserved.",
+  "plays": [
+    {
+      "label": "final-main",
+      "title": "主桥推进 + 后卫保护",
+      "turns": 14,
+      "inputs": 1688,
+      "residents_alive": 3,
+      "evacuated": [
+        "snow_group0",
+        "snow_group1"
+      ],
+      "formal_alive": 8,
+      "formal_total": 8,
+      "map_sha256": "d95ae830163e3ce06f0469029b6b0ae8ef0e32067aff6e41a4f955cef80e1aba",
+      "return_view": "world",
+      "source": "play/final-main/final-main-play.json",
+      "northern_crossing_trace": []
+    },
+    {
+      "label": "final-flank",
+      "title": "林桥分兵 + 后卫保护",
+      "turns": 16,
+      "inputs": 1893,
+      "residents_alive": 3,
+      "evacuated": [
+        "snow_group0",
+        "snow_group2"
+      ],
+      "formal_alive": 8,
+      "formal_total": 8,
+      "map_sha256": "d95ae830163e3ce06f0469029b6b0ae8ef0e32067aff6e41a4f955cef80e1aba",
+      "return_view": "world",
+      "source": "play/final-flank/final-flank-play.json",
+      "northern_crossing_trace": [
+        {
+          "from": [
+            20,
+            6
+          ],
+          "kind": "sample route trace",
+          "to": [
+            26,
+            6
+          ],
+          "turn": 4,
+          "unit": "lance"
+        },
+        {
+          "from": [
+            20,
+            6
+          ],
+          "kind": "sample route trace",
+          "to": [
+            24,
+            6
+          ],
+          "turn": 5,
+          "unit": "hervi"
+        },
+        {
+          "from": [
+            24,
+            6
+          ],
+          "kind": "sample route trace",
+          "to": [
+            26,
+            6
+          ],
+          "turn": 6,
+          "unit": "hervi"
+        }
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "source": "play/final-flank/final-flank-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M41",
+          "outcome": "victory",
+          "turn": 16.0,
+          "failures": [],
+          "map_sha256": "d95ae830163e3ce06f0469029b6b0ae8ef0e32067aff6e41a4f955cef80e1aba"
+        }
+      ]
+    },
+    {
+      "source": "play/final-main/final-main-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M41",
+          "outcome": "victory",
+          "turn": 14.0,
+          "failures": [],
+          "map_sha256": "d95ae830163e3ce06f0469029b6b0ae8ef0e32067aff6e41a4f955cef80e1aba"
+        }
+      ]
+    },
+    {
+      "source": "play/leader-rearguard/leader-rearguard-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M41",
+          "outcome": "victory",
+          "turn": 15.0,
+          "failures": [],
+          "map_sha256": "dd459f3d3a3c6c7f00a46fdc605b3fd28757773f97643be88b4d018672b776a2"
+        }
+      ]
+    },
+    {
+      "source": "play/main-bridge-first/main-bridge-first-play.json",
+      "passed": false,
+      "battles": [
+        {
+          "code": "M41",
+          "outcome": "defeat",
+          "turn": 6,
+          "failures": [
+            "Natural battle failed: M41 { \"objects\": {  }, \"evacuated\": [], \"freed\": [], \"burn_streak\": 0, \"reinforced\": true, \"mid_done\": false, &\"beacon_since\": -1, &\"beacon_contested\": false, &\"boats\": [], &\"wells\": { \"well_n\": true, \"well_s\": true }, &\"well_since\": { \"well_n\": -1, \"well_s\": -1 }, &\"record_lost\": false, &\"burn_count\": 0, &\"summon_wave\": false, &\"repair_since\": -1, &\"old_comrades_talked\": false, &\"transfer_cut_snapshot\": false, &\"failed_reason\": \"能够获救的居民不足两组\" }"
+          ],
+          "map_sha256": "c312a2dc0c0b8a6f2edc6a79c67a341ad9fa03aaa1c056bd714ae439fe77c78b"
+        }
+      ]
+    },
+    {
+      "source": "play/main-bridge-safe/main-bridge-safe-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M41",
+          "outcome": "victory",
+          "turn": 14,
+          "failures": [],
+          "map_sha256": "dd459f3d3a3c6c7f00a46fdc605b3fd28757773f97643be88b4d018672b776a2"
+        }
+      ]
+    },
+    {
+      "source": "play/northern-flank/northern-flank-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M41",
+          "outcome": "victory",
+          "turn": 14.0,
+          "failures": [],
+          "map_sha256": "dd459f3d3a3c6c7f00a46fdc605b3fd28757773f97643be88b4d018672b776a2"
+        }
+      ]
+    },
+    {
+      "source": "play/rearguard-main/rearguard-main-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M41",
+          "outcome": "victory",
+          "turn": 15,
+          "failures": [],
+          "map_sha256": "dd459f3d3a3c6c7f00a46fdc605b3fd28757773f97643be88b4d018672b776a2"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "before.png",
+      "size": [
+        576,
+        480
+      ],
+      "bytes": 70540,
+      "sha256": "72d699d6a1c9d8e4f49b94a5d629810655cc20694e417c8041b444b9a4d2b2e2"
+    },
+    {
+      "path": "images/M41.png",
+      "size": [
+        576,
+        480
+      ],
+      "bytes": 86633,
+      "sha256": "cfbd9869500883096b9824eba205bf383899fcdd3b6426a35420d5654bc9c4ce"
+    },
+    {
+      "path": "screenshots/01-deployment.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 68113,
+      "sha256": "d0d085ece99dd3207198b56f3fe3ba8ae6c65d8902cf9c61fd3a145109fcbbdf"
+    },
+    {
+      "path": "screenshots/02-rear-guard.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 38045,
+      "sha256": "0f1723ea59a68f81a0a08da13b43cbdc167637a12bb49a46fb71cd5101a59569"
+    },
+    {
+      "path": "screenshots/03-main-bridge.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 65285,
+      "sha256": "be051a1c31724d3b0280c58bba213e71f41f3f41aa6de0754069ad4bb3928e1e"
+    },
+    {
+      "path": "screenshots/04-northern-bridge.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 68251,
+      "sha256": "718f19414b6e3d7bf5155c477043a9a2bfee9c50a391425cc2bbd10ccc5e76a4"
+    },
+    {
+      "path": "screenshots/05-forest-flank.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 35499,
+      "sha256": "607400642f0670e14ec3dd19fb699666ea3801131129382ac60d9a68bb193cad"
+    },
+    {
+      "path": "screenshots/06-medical-court.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 39332,
+      "sha256": "251a16f9d576462cf058af53fa70503e77905d84b6613e4107a037a97c17a4b1"
+    },
+    {
+      "path": "screenshots/07-south-pass-victory.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 62844,
+      "sha256": "4da5a9fb84615bd0fd53a2964475b269716001a03e4ec4b4202ff61057602023"
+    },
+    {
+      "path": "screenshots/08-objective.png",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 24856,
+      "sha256": "77ac1ab2f1e70b0a328f8577c5e22a6fc3b22efe5bb0ce62f4011436c08a2a90"
+    }
+  ],
+  "runtime_text_layout_errors": [],
+  "rules_checks": [
+    "historical deployment loads",
+    "authentic pre-battle roster restores",
+    "current M41 normal start_battle entry",
+    "unique initial unit hunapu",
+    "inside playable border hunapu",
+    "legal actor terrain hunapu",
+    "unique initial unit daan",
+    "inside playable border daan",
+    "legal actor terrain daan",
+    "unique initial unit otto",
+    "inside playable border otto",
+    "legal actor terrain otto",
+    "unique initial unit beck",
+    "inside playable border beck",
+    "legal actor terrain beck",
+    "unique initial unit hervi",
+    "inside playable border hervi",
+    "legal actor terrain hervi",
+    "unique initial unit fula",
+    "inside playable border fula",
+    "legal actor terrain fula",
+    "unique initial unit lance",
+    "inside playable border lance",
+    "legal actor terrain lance",
+    "unique initial unit german",
+    "inside playable border german",
+    "legal actor terrain german",
+    "unique initial unit M41_boss",
+    "inside playable border M41_boss",
+    "legal actor terrain M41_boss",
+    "unique initial unit M41_e1",
+    "inside playable border M41_e1",
+    "legal actor terrain M41_e1",
+    "unique initial unit M41_e2",
+    "inside playable border M41_e2",
+    "legal actor terrain M41_e2",
+    "unique initial unit M41_e3",
+    "inside playable border M41_e3",
+    "legal actor terrain M41_e3",
+    "unique initial unit M41_e4",
+    "inside playable border M41_e4",
+    "legal actor terrain M41_e4",
+    "unique initial unit M41_e5",
+    "inside playable border M41_e5",
+    "legal actor terrain M41_e5",
+    "unique initial unit M41_e6",
+    "inside playable border M41_e6",
+    "legal actor terrain M41_e6",
+    "unique initial unit M41_e7",
+    "inside playable border M41_e7",
+    "legal actor terrain M41_e7",
+    "unique initial unit M41_e8",
+    "inside playable border M41_e8",
+    "legal actor terrain M41_e8",
+    "unique initial unit M41_e9",
+    "inside playable border M41_e9",
+    "legal actor terrain M41_e9",
+    "unique initial unit M41_e10",
+    "inside playable border M41_e10",
+    "legal actor terrain M41_e10",
+    "unique initial unit M41_e11",
+    "inside playable border M41_e11",
+    "legal actor terrain M41_e11",
+    "unique initial unit M41_e12",
+    "inside playable border M41_e12",
+    "legal actor terrain M41_e12",
+    "unique initial unit snow_group0",
+    "inside playable border snow_group0",
+    "legal actor terrain snow_group0",
+    "unique initial unit snow_group1",
+    "inside playable border snow_group1",
+    "legal actor terrain snow_group1",
+    "unique initial unit snow_group2",
+    "inside playable border snow_group2",
+    "legal actor terrain snow_group2",
+    "static foot connectivity hunapu",
+    "static foot connectivity daan",
+    "static foot connectivity otto",
+    "static foot connectivity beck",
+    "static foot connectivity hervi",
+    "static foot connectivity fula",
+    "static foot connectivity lance",
+    "static foot connectivity german",
+    "static foot connectivity M41_boss",
+    "static foot connectivity M41_e1",
+    "static foot connectivity M41_e2",
+    "static foot connectivity M41_e3",
+    "static foot connectivity M41_e4",
+    "static foot connectivity M41_e5",
+    "static foot connectivity M41_e6",
+    "static foot connectivity M41_e7",
+    "static foot connectivity M41_e8",
+    "static foot connectivity M41_e9",
+    "static foot connectivity M41_e10",
+    "static foot connectivity M41_e11",
+    "static foot connectivity M41_e12",
+    "static foot connectivity snow_group0",
+    "static foot connectivity snow_group1",
+    "static foot connectivity snow_group2",
+    "static object connectivity south_gate",
+    "static object connectivity rest_station",
+    "static exit connectivity",
+    "eight genuine healthy combatants without Lena",
+    "injured flying member remains unavailable",
+    "no initial outcome",
+    "fixed guard stays put M41_boss",
+    "fixed guard stays put M41_e1",
+    "fixed guard stays put M41_e2",
+    "fixed guard stays put M41_e3",
+    "fixed guard stays put M41_e4",
+    "fixed guard stays put M41_e5",
+    "fixed guard stays put M41_e6",
+    "fixed guard stays put M41_e7",
+    "fixed guard stays put M41_e8",
+    "fixed guard stays put M41_e9",
+    "fixed guard stays put M41_e10",
+    "fixed guard stays put M41_e11",
+    "fixed guard stays put M41_e12",
+    "civilian outside initial fixed-guard attack range snow_group0 / M41_boss",
+    "civilian outside initial fixed-guard attack range snow_group0 / M41_e1",
+    "civilian outside initial fixed-guard attack range snow_group0 / M41_e2",
+    "civilian outside initial fixed-guard attack range snow_group0 / M41_e3",
+    "civilian outside initial fixed-guard attack range snow_group0 / M41_e4",
+    "civilian outside initial fixed-guard attack range snow_group0 / M41_e5",
+    "civilian outside initial fixed-guard attack range snow_group0 / M41_e6",
+    "civilian outside initial fixed-guard attack range snow_group0 / M41_e7",
+    "civilian outside initial fixed-guard attack range snow_group0 / M41_e8",
+    "civilian outside initial fixed-guard attack range snow_group0 / M41_e9",
+    "civilian outside initial fixed-guard attack range snow_group0 / M41_e10",
+    "civilian outside initial fixed-guard attack range snow_group0 / M41_e11",
+    "civilian outside initial fixed-guard attack range snow_group0 / M41_e12",
+    "civilian outside initial fixed-guard attack range snow_group1 / M41_boss",
+    "civilian outside initial fixed-guard attack range snow_group1 / M41_e1",
+    "civilian outside initial fixed-guard attack range snow_group1 / M41_e2",
+    "civilian outside initial fixed-guard attack range snow_group1 / M41_e3",
+    "civilian outside initial fixed-guard attack range snow_group1 / M41_e4",
+    "civilian outside initial fixed-guard attack range snow_group1 / M41_e5",
+    "civilian outside initial fixed-guard attack range snow_group1 / M41_e6",
+    "civilian outside initial fixed-guard attack range snow_group1 / M41_e7",
+    "civilian outside initial fixed-guard attack range snow_group1 / M41_e8",
+    "civilian outside initial fixed-guard attack range snow_group1 / M41_e9",
+    "civilian outside initial fixed-guard attack range snow_group1 / M41_e10",
+    "civilian outside initial fixed-guard attack range snow_group1 / M41_e11",
+    "civilian outside initial fixed-guard attack range snow_group1 / M41_e12",
+    "civilian outside initial fixed-guard attack range snow_group2 / M41_boss",
+    "civilian outside initial fixed-guard attack range snow_group2 / M41_e1",
+    "civilian outside initial fixed-guard attack range snow_group2 / M41_e2",
+    "civilian outside initial fixed-guard attack range snow_group2 / M41_e3",
+    "civilian outside initial fixed-guard attack range snow_group2 / M41_e4",
+    "civilian outside initial fixed-guard attack range snow_group2 / M41_e5",
+    "civilian outside initial fixed-guard attack range snow_group2 / M41_e6",
+    "civilian outside initial fixed-guard attack range snow_group2 / M41_e7",
+    "civilian outside initial fixed-guard attack range snow_group2 / M41_e8",
+    "civilian outside initial fixed-guard attack range snow_group2 / M41_e9",
+    "civilian outside initial fixed-guard attack range snow_group2 / M41_e10",
+    "civilian outside initial fixed-guard attack range snow_group2 / M41_e11",
+    "civilian outside initial fixed-guard attack range snow_group2 / M41_e12",
+    "no fixed guard selects a civilian as initial attack target",
+    "historical deployment loads",
+    "authentic pre-battle roster restores",
+    "current M41 normal start_battle entry",
+    "no reinforcement by enemy turn two",
+    "third player phase reached",
+    "warning queued on player turn three",
+    "enemy turn three has no wave",
+    "two riders spawn on enemy turn four",
+    "new rider ready same phase M41_r0",
+    "rider spawn unique M41_r0",
+    "new rider ready same phase M41_r1",
+    "rider spawn unique M41_r1",
+    "no second wave on turn five",
+    "historical deployment loads",
+    "authentic pre-battle roster restores",
+    "current M41 normal start_battle entry",
+    "control available while standing south_gate",
+    "ordinary interaction API accepts south_gate",
+    "control available while standing rest_station",
+    "ordinary interaction API accepts rest_station",
+    "flags and boss without evacuation do not win",
+    "exit mark_wait evacuates snow_group0",
+    "one evacuated group insufficient",
+    "exit mark_wait evacuates snow_group1",
+    "two groups plus both controls and boss win",
+    "historical deployment loads",
+    "authentic pre-battle roster restores",
+    "current M41 normal start_battle entry",
+    "exit mark_wait evacuates snow_group0",
+    "exit mark_wait evacuates snow_group1",
+    "evacuation plus boss but missing flags does not win",
+    "historical deployment loads",
+    "authentic pre-battle roster restores",
+    "current M41 normal start_battle entry",
+    "one casualty remains recoverable",
+    "two civilian casualties fail immediately",
+    "historical deployment loads",
+    "authentic pre-battle roster restores",
+    "current M41 normal start_battle entry",
+    "escort safe empty landing snow_group0",
+    "escort safe empty landing snow_group1",
+    "escort safe empty landing snow_group2",
+    "escort safe empty landing snow_group0",
+    "escort safe empty landing snow_group1",
+    "escort safe empty landing snow_group2",
+    "escort safe empty landing snow_group0",
+    "escort safe empty landing snow_group1",
+    "escort safe empty landing snow_group0",
+    "escort safe empty landing snow_group1",
+    "escort safe empty landing snow_group0",
+    "escort safe empty landing snow_group1",
+    "escort safe empty landing snow_group0",
+    "escort safe empty landing snow_group0",
+    "all three geometry routes evacuate after enemies cleared",
+    "historical checkpoint unchanged",
+    "M41 data unchanged by probe"
+  ],
+  "package": {
+    "checks": 520,
+    "errors": [],
+    "map_revision": "0.10.4-m41",
+    "passed": true,
+    "scope": "Independent exported app exact JSON fingerprints, texture/prop availability, forty-stage retention and review-data exclusion.",
+    "stage_count": 40,
+    "version": "0.10.3"
+  },
+  "atlas": {
+    "path": "assets/m41-valley-20261022/terrain.png",
+    "size": [
+      512,
+      2656
+    ],
+    "bytes": 230182,
+    "compression": "Lossless oxipng; full native tile resolution and original texture palette retained in independent atlas."
+  },
+  "limitations": [
+    "Two strategies use isolated genuine development deployment saves, ordinary preparation/reentry and actual key input, not a continuous new-game playthrough.",
+    "The existing objective settles after two groups evacuate and the commander is defeated. All three groups survived both selected runs; this is not a claim that all three reached the exit before settlement.",
+    "No iPhone package installed; independent desktop sample exported.",
+    "HTML links, script behavior and metadata checked; no browser layout-engine screenshot claimed."
+  ],
+  "capture_note": "Initial victory photograph attempted a disabled battle cursor action. The camera-only result capture helper was corrected; failure report retained in screenshots/captures-before-result-fix.json.",
+  "follow_up": "../chapter1-redesign-20261022/index.html"
+}

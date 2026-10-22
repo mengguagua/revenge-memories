@@ -1,0 +1,2573 @@
+{
+  "passed": true,
+  "revision": "0.10.6-ch2",
+  "maps": {
+    "F21": "ff015967c7bb2ed00a24684cf15b598925e76b7a624e5e9ad63b91476b2c3109",
+    "F22": "9a8ec3ef017183aebc1aedde2747d784137c6c86bbb0502003a16d76a46834b9",
+    "F23": "af6f7e997d49cef3b92debbdcf00624c5fcab045f9b2e4e7f6040f337da89deb",
+    "F24": "e7526eda3e7c452c79fa78e743de1c2e606fd4b9b0e62025dfa6f4cf67230fe8",
+    "F25": "b62aafff7f4310eded79aff6392788380f4ebdacb97f2af99f0308b22e6b72f5",
+    "F26": "c3f52143fbbacb987040ff07928c5bc2a1d5a89fc05ba18f7a0eb2875b6551ad",
+    "S21": "c195bfa305017dcbca0fa5fa2a33b73fa05cec5a2f50a40831973192a2feb02c",
+    "S22": "a477b2e6500e9de2d3c4efc5c95c7d18c5fc956057dc4b4afaa68e6f14dbb035"
+  },
+  "unchanged_maps": {
+    "S32": "957e02698e8aef0d47d03ad26ca38f11d4aeed77c7b4da9e7630312605d4099d",
+    "S12": "83fec7706bf734ef164f834dfc23ff821f3bd987578fd505e2a7271d4c48e64b",
+    "M14": "ccfbff46bd6e607add0cff0d31264c3935012af4cc92631ae303dac2f02e6bf9",
+    "M43": "b16c7408d08f64718d9becbd01ae362a0c0a99da3917c384ec43161dd7bbab24",
+    "F41": "00f6e5e73f45ba92870b0074765b080bc8b86c3b549ccf1f3f7191b09fdf384c",
+    "M42": "cfddbfd07905f01f601d02e4ffc8b75b4d7898f02c4f1616ab273e875945dffb",
+    "M15": "10f940b168b9a124b65412c00b439ea10406c689811de5af19dd269084fde414",
+    "M12": "1b3f4dd3233ab5c083dc7356c34a44cdcefff2938d52121e4b67b8fd51cb82a5",
+    "F51": "6f2664c10b83ef6ca3ae69838a5b288de0c76903ae2f73adb03364e9a33de0c4",
+    "M32": "b46678e2dd4da6c2cfb689a5b24d30591a99598aecd18c31d6591874974b13ed",
+    "M33": "103a79daba1837bda85e08069687bf7b5e2ed468342943b0b7c9ef15edf48ed8",
+    "F31": "22f0bfa05ece43a8d6f91a4c0564d7d8bec21b3b83f43c14216a17ca767cfb6b",
+    "M44": "75b4d8390a2cfb0df28a16dad2bce9dcbd28ac3e17ef4d08b3336bc9da21cfec",
+    "M13": "a3de181d8632bf8b5db745cd5b0d5c677025f6592c5ce54990b76a51390c0b11",
+    "M52": "7e674d4d6f4fc88a45add4d0ed50731c8c646d8e4d8f3237b25b59b5936f18bf",
+    "S42": "a162f1b7536731a66b37c4705be9fd5a09cb0ae7b98f3b256d389dce6ddcd0d2",
+    "J53": "48d459575ff967d2c0d133264a54c32c3043480b29ebedce45d7ebae7738156f",
+    "M51": "09d5cff62952b46c78469ce6e4fce0bd3c26d79fa9e16a07ffefedf19d07308f",
+    "S41": "78c377ee4c06dfa4b2a409e853dd471f7b1e674df238c724a07ee8f7ce51f786",
+    "F32": "83aac9695dc09467efe881923ab3a10bbac625b9aa400fe180b660aa397185df",
+    "F33": "79d971aa102f2b0fa025d71f138cb6ca434ab6c3d2f3c821af316898fc93f1a5",
+    "M31": "660bb9565f195e9ce8bc9a9e5c4cccec0fca2b3174b5b18a4ed53890f67f2d7e",
+    "M11": "4170c977adebe2688d181316b149c173edae39ba97cc317811f0fdc99c367a9a",
+    "F52": "8af039c4a42be4932931ea463e2fc5137786a163f4287d41c37f9662fa4f7a52",
+    "F44": "39175355bba3cfc568f0c3b4422808e18f1474085ac511a7845307ae12aac175",
+    "F43": "2fff36804e683fd47eef182712963fbf5f817f5578c7e8de6bb3fed8fc536064",
+    "S51": "5f707535ed25c93115477d98f7489748556b8660e8b6605f785e0fe09c1f09c9",
+    "M41": "d95ae830163e3ce06f0469029b6b0ae8ef0e32067aff6e41a4f955cef80e1aba",
+    "S11": "33937d30c221b93d96c63a0dfa7055ebbca2da729b420c574ecdd420efe23a8c",
+    "J54": "50c847e72fce641fdb1ab052ec2cfd22693c4e3650720b4c344336a7db8e90fd",
+    "F42": "fd9902a4fac2f4f3e93ed2f5239e754d9c7c2b9fc943160f69bbb6983814db44",
+    "S31": "46dd09860520cbf8613fb477c1bcaec27465d1bcde30216c3dbe3283d778e55e"
+  },
+  "plays": {
+    "F21": [
+      {
+        "label": "round1-ships",
+        "turns": 17,
+        "inputs": 773,
+        "source": "play/round1-ships/round1-ships-play.json",
+        "formal_count": 4,
+        "formal_alive": 4,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "mid_done": false,
+          "objects": {},
+          "reinforced": false
+        },
+        "npc": [
+          {
+            "id": "friendly_ship",
+            "hp": 28,
+            "side": "player"
+          },
+          {
+            "id": "injured_passengers",
+            "hp": 14,
+            "side": "player"
+          }
+        ]
+      },
+      {
+        "label": "round2-other",
+        "turns": 10,
+        "inputs": 494,
+        "source": "play/round2-other/round2-other-play.json",
+        "formal_count": 4,
+        "formal_alive": 4,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "mid_done": false,
+          "objects": {},
+          "reinforced": false
+        },
+        "npc": [
+          {
+            "id": "friendly_ship",
+            "hp": 28,
+            "side": "player"
+          },
+          {
+            "id": "injured_passengers",
+            "hp": 14,
+            "side": "player"
+          }
+        ]
+      }
+    ],
+    "F22": [
+      {
+        "label": "round1-ships",
+        "turns": 29,
+        "inputs": 969,
+        "source": "play/round1-ships/round1-ships-play.json",
+        "formal_count": 4,
+        "formal_alive": 3,
+        "formal_dying": [
+          "莉莎"
+        ],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [
+            "prisoners_0",
+            "prisoners_1",
+            "prisoners_2",
+            "lord"
+          ],
+          "freed": [],
+          "mid_done": false,
+          "objects": {
+            "prison_door": true,
+            "reserve_bridge": true
+          },
+          "pending_friendly_actions": false,
+          "reinforced": true
+        },
+        "npc": [
+          {
+            "id": "prisoners_0",
+            "hp": 24,
+            "side": "evacuated"
+          },
+          {
+            "id": "prisoners_1",
+            "hp": 24,
+            "side": "evacuated"
+          },
+          {
+            "id": "prisoners_2",
+            "hp": 24,
+            "side": "evacuated"
+          },
+          {
+            "id": "lord",
+            "hp": 30,
+            "side": "evacuated"
+          }
+        ]
+      },
+      {
+        "label": "round2-other",
+        "turns": 25,
+        "inputs": 1100,
+        "source": "play/round2-other/round2-other-play.json",
+        "formal_count": 4,
+        "formal_alive": 4,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [
+            "prisoners_0",
+            "prisoners_1",
+            "prisoners_2",
+            "lord"
+          ],
+          "freed": [],
+          "mid_done": false,
+          "objects": {
+            "prison_door": true,
+            "reserve_bridge": true
+          },
+          "pending_friendly_actions": false,
+          "reinforced": true
+        },
+        "npc": [
+          {
+            "id": "prisoners_0",
+            "hp": 24,
+            "side": "evacuated"
+          },
+          {
+            "id": "prisoners_1",
+            "hp": 24,
+            "side": "evacuated"
+          },
+          {
+            "id": "prisoners_2",
+            "hp": 24,
+            "side": "evacuated"
+          },
+          {
+            "id": "lord",
+            "hp": 30,
+            "side": "evacuated"
+          }
+        ]
+      }
+    ],
+    "F23": [
+      {
+        "label": "shore-defense-c",
+        "turns": 11,
+        "inputs": 736,
+        "source": "play/shore-defense-c/shore-defense-c-play.json",
+        "formal_count": 5,
+        "formal_alive": 5,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "mid_done": false,
+          "objects": {},
+          "reinforced": false
+        },
+        "npc": [
+          {
+            "id": "roan",
+            "hp": 23,
+            "side": "player"
+          },
+          {
+            "id": "fishers",
+            "hp": 28,
+            "side": "player"
+          }
+        ]
+      },
+      {
+        "label": "shore-defense-d",
+        "turns": 13,
+        "inputs": 782,
+        "source": "play/shore-defense-d/shore-defense-d-play.json",
+        "formal_count": 5,
+        "formal_alive": 5,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "mid_done": false,
+          "objects": {},
+          "reinforced": false
+        },
+        "npc": [
+          {
+            "id": "roan",
+            "hp": 23,
+            "side": "player"
+          },
+          {
+            "id": "fishers",
+            "hp": 28,
+            "side": "player"
+          }
+        ]
+      }
+    ],
+    "F24": [
+      {
+        "label": "round1-islands",
+        "turns": 11,
+        "inputs": 604,
+        "source": "play/round1-islands/round1-islands-play.json",
+        "formal_count": 4,
+        "formal_alive": 4,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "mid_done": false,
+          "objects": {},
+          "reinforced": true
+        },
+        "npc": [
+          {
+            "id": "shia",
+            "hp": 24,
+            "side": "player"
+          },
+          {
+            "id": "islanders",
+            "hp": 24,
+            "side": "player"
+          }
+        ]
+      },
+      {
+        "label": "round2-other",
+        "turns": 12,
+        "inputs": 716,
+        "source": "play/round2-other/round2-other-play.json",
+        "formal_count": 4,
+        "formal_alive": 4,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "mid_done": false,
+          "objects": {
+            "shelter": true
+          },
+          "reinforced": true,
+          "shelter_open": true
+        },
+        "npc": [
+          {
+            "id": "shia",
+            "hp": 24,
+            "side": "player"
+          },
+          {
+            "id": "islanders",
+            "hp": 16,
+            "side": "player"
+          }
+        ]
+      }
+    ],
+    "F25": [
+      {
+        "label": "round1-harbor",
+        "turns": 19,
+        "inputs": 1267,
+        "source": "play/round1-harbor/round1-harbor-play.json",
+        "formal_count": 5,
+        "formal_alive": 5,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "mid_done": false,
+          "myth_box_secured": true,
+          "objects": {
+            "myth_box": true,
+            "pilot_prison": true
+          },
+          "reinforced": false
+        },
+        "npc": [
+          {
+            "id": "sailors0",
+            "hp": 24,
+            "side": "player"
+          },
+          {
+            "id": "sailors1",
+            "hp": 24,
+            "side": "player"
+          }
+        ]
+      },
+      {
+        "label": "round2-other",
+        "turns": 16,
+        "inputs": 1067,
+        "source": "play/round2-other/round2-other-play.json",
+        "formal_count": 5,
+        "formal_alive": 5,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "mid_done": false,
+          "myth_box_secured": true,
+          "objects": {
+            "myth_box": true,
+            "pilot_prison": true
+          },
+          "reinforced": false
+        },
+        "npc": [
+          {
+            "id": "sailors0",
+            "hp": 24,
+            "side": "player"
+          },
+          {
+            "id": "sailors1",
+            "hp": 24,
+            "side": "player"
+          }
+        ]
+      }
+    ],
+    "F26": [
+      {
+        "label": "round1-harbor",
+        "turns": 15,
+        "inputs": 1107,
+        "source": "play/round1-harbor/round1-harbor-play.json",
+        "formal_count": 5,
+        "formal_alive": 5,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [
+            {
+              "arrived": true,
+              "delay": 4.0,
+              "hp": 30.0,
+              "id": "event_boat_0",
+              "label": "居民船1",
+              "max_hp": 30.0,
+              "path": [
+                [
+                  32.0,
+                  23.0
+                ],
+                [
+                  31.0,
+                  23.0
+                ],
+                [
+                  30.0,
+                  23.0
+                ],
+                [
+                  29.0,
+                  23.0
+                ],
+                [
+                  28.0,
+                  23.0
+                ],
+                [
+                  27.0,
+                  23.0
+                ],
+                [
+                  26.0,
+                  23.0
+                ],
+                [
+                  25.0,
+                  23.0
+                ],
+                [
+                  24.0,
+                  23.0
+                ],
+                [
+                  23.0,
+                  23.0
+                ],
+                [
+                  22.0,
+                  23.0
+                ],
+                [
+                  21.0,
+                  23.0
+                ],
+                [
+                  20.0,
+                  23.0
+                ],
+                [
+                  19.0,
+                  23.0
+                ],
+                [
+                  18.0,
+                  23.0
+                ],
+                [
+                  17.0,
+                  23.0
+                ],
+                [
+                  16.0,
+                  23.0
+                ],
+                [
+                  15.0,
+                  23.0
+                ],
+                [
+                  14.0,
+                  23.0
+                ],
+                [
+                  13.0,
+                  23.0
+                ],
+                [
+                  12.0,
+                  23.0
+                ],
+                [
+                  11.0,
+                  23.0
+                ],
+                [
+                  10.0,
+                  23.0
+                ],
+                [
+                  9.0,
+                  23.0
+                ],
+                [
+                  8.0,
+                  23.0
+                ],
+                [
+                  8.0,
+                  22.0
+                ],
+                [
+                  8.0,
+                  21.0
+                ],
+                [
+                  8.0,
+                  20.0
+                ],
+                [
+                  8.0,
+                  19.0
+                ],
+                [
+                  8.0,
+                  18.0
+                ],
+                [
+                  8.0,
+                  17.0
+                ],
+                [
+                  8.0,
+                  16.0
+                ],
+                [
+                  8.0,
+                  15.0
+                ],
+                [
+                  8.0,
+                  14.0
+                ],
+                [
+                  8.0,
+                  13.0
+                ],
+                [
+                  8.0,
+                  12.0
+                ],
+                [
+                  8.0,
+                  11.0
+                ],
+                [
+                  8.0,
+                  10.0
+                ],
+                [
+                  8.0,
+                  9.0
+                ],
+                [
+                  8.0,
+                  8.0
+                ]
+              ],
+              "path_index": 39,
+              "position": [
+                8.0,
+                8.0
+              ],
+              "speed": 3.0,
+              "sprite_path": "res://assets/chapter2/modules/rowboat.png",
+              "stopped": false
+            },
+            {
+              "arrived": false,
+              "delay": 8.0,
+              "hp": 30.0,
+              "id": "event_boat_1",
+              "label": "居民船2",
+              "max_hp": 30.0,
+              "path": [
+                [
+                  31.0,
+                  27.0
+                ],
+                [
+                  30.0,
+                  27.0
+                ],
+                [
+                  29.0,
+                  27.0
+                ],
+                [
+                  28.0,
+                  27.0
+                ],
+                [
+                  27.0,
+                  27.0
+                ],
+                [
+                  26.0,
+                  27.0
+                ],
+                [
+                  25.0,
+                  27.0
+                ],
+                [
+                  24.0,
+                  27.0
+                ],
+                [
+                  23.0,
+                  27.0
+                ],
+                [
+                  22.0,
+                  27.0
+                ],
+                [
+                  21.0,
+                  27.0
+                ],
+                [
+                  20.0,
+                  27.0
+                ],
+                [
+                  19.0,
+                  27.0
+                ],
+                [
+                  18.0,
+                  27.0
+                ],
+                [
+                  17.0,
+                  27.0
+                ],
+                [
+                  16.0,
+                  27.0
+                ],
+                [
+                  15.0,
+                  27.0
+                ],
+                [
+                  14.0,
+                  27.0
+                ],
+                [
+                  13.0,
+                  27.0
+                ],
+                [
+                  12.0,
+                  27.0
+                ],
+                [
+                  11.0,
+                  27.0
+                ],
+                [
+                  10.0,
+                  27.0
+                ],
+                [
+                  9.0,
+                  27.0
+                ],
+                [
+                  8.0,
+                  27.0
+                ],
+                [
+                  7.0,
+                  27.0
+                ],
+                [
+                  6.0,
+                  27.0
+                ],
+                [
+                  5.0,
+                  27.0
+                ],
+                [
+                  4.0,
+                  27.0
+                ],
+                [
+                  4.0,
+                  26.0
+                ],
+                [
+                  4.0,
+                  25.0
+                ],
+                [
+                  4.0,
+                  24.0
+                ],
+                [
+                  4.0,
+                  23.0
+                ],
+                [
+                  4.0,
+                  22.0
+                ],
+                [
+                  4.0,
+                  21.0
+                ],
+                [
+                  4.0,
+                  20.0
+                ],
+                [
+                  4.0,
+                  19.0
+                ],
+                [
+                  4.0,
+                  18.0
+                ],
+                [
+                  4.0,
+                  17.0
+                ],
+                [
+                  4.0,
+                  16.0
+                ],
+                [
+                  4.0,
+                  15.0
+                ],
+                [
+                  4.0,
+                  14.0
+                ],
+                [
+                  4.0,
+                  13.0
+                ],
+                [
+                  4.0,
+                  12.0
+                ],
+                [
+                  4.0,
+                  11.0
+                ],
+                [
+                  4.0,
+                  10.0
+                ],
+                [
+                  4.0,
+                  9.0
+                ],
+                [
+                  4.0,
+                  8.0
+                ]
+              ],
+              "path_index": 27,
+              "position": [
+                4.0,
+                27.0
+              ],
+              "speed": 3.0,
+              "sprite_path": "res://assets/chapter2/modules/rowboat.png",
+              "stopped": false
+            }
+          ],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "mid_done": false,
+          "objects": {
+            "stone_gate": true
+          },
+          "reinforced": false
+        },
+        "npc": []
+      },
+      {
+        "label": "round2-other",
+        "turns": 16,
+        "inputs": 1140,
+        "source": "play/round2-other/round2-other-play.json",
+        "formal_count": 5,
+        "formal_alive": 5,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [
+            {
+              "arrived": true,
+              "delay": 4.0,
+              "hp": 30.0,
+              "id": "event_boat_0",
+              "label": "居民船1",
+              "max_hp": 30.0,
+              "path": [
+                [
+                  32.0,
+                  23.0
+                ],
+                [
+                  31.0,
+                  23.0
+                ],
+                [
+                  30.0,
+                  23.0
+                ],
+                [
+                  29.0,
+                  23.0
+                ],
+                [
+                  28.0,
+                  23.0
+                ],
+                [
+                  27.0,
+                  23.0
+                ],
+                [
+                  26.0,
+                  23.0
+                ],
+                [
+                  25.0,
+                  23.0
+                ],
+                [
+                  24.0,
+                  23.0
+                ],
+                [
+                  23.0,
+                  23.0
+                ],
+                [
+                  22.0,
+                  23.0
+                ],
+                [
+                  21.0,
+                  23.0
+                ],
+                [
+                  20.0,
+                  23.0
+                ],
+                [
+                  19.0,
+                  23.0
+                ],
+                [
+                  18.0,
+                  23.0
+                ],
+                [
+                  17.0,
+                  23.0
+                ],
+                [
+                  16.0,
+                  23.0
+                ],
+                [
+                  15.0,
+                  23.0
+                ],
+                [
+                  14.0,
+                  23.0
+                ],
+                [
+                  13.0,
+                  23.0
+                ],
+                [
+                  12.0,
+                  23.0
+                ],
+                [
+                  11.0,
+                  23.0
+                ],
+                [
+                  10.0,
+                  23.0
+                ],
+                [
+                  9.0,
+                  23.0
+                ],
+                [
+                  8.0,
+                  23.0
+                ],
+                [
+                  8.0,
+                  22.0
+                ],
+                [
+                  8.0,
+                  21.0
+                ],
+                [
+                  8.0,
+                  20.0
+                ],
+                [
+                  8.0,
+                  19.0
+                ],
+                [
+                  8.0,
+                  18.0
+                ],
+                [
+                  8.0,
+                  17.0
+                ],
+                [
+                  8.0,
+                  16.0
+                ],
+                [
+                  8.0,
+                  15.0
+                ],
+                [
+                  8.0,
+                  14.0
+                ],
+                [
+                  8.0,
+                  13.0
+                ],
+                [
+                  8.0,
+                  12.0
+                ],
+                [
+                  8.0,
+                  11.0
+                ],
+                [
+                  8.0,
+                  10.0
+                ],
+                [
+                  8.0,
+                  9.0
+                ],
+                [
+                  8.0,
+                  8.0
+                ]
+              ],
+              "path_index": 39,
+              "position": [
+                8.0,
+                8.0
+              ],
+              "speed": 3.0,
+              "sprite_path": "res://assets/chapter2/modules/rowboat.png",
+              "stopped": false
+            },
+            {
+              "arrived": false,
+              "delay": 8.0,
+              "hp": 30.0,
+              "id": "event_boat_1",
+              "label": "居民船2",
+              "max_hp": 30.0,
+              "path": [
+                [
+                  31.0,
+                  27.0
+                ],
+                [
+                  30.0,
+                  27.0
+                ],
+                [
+                  29.0,
+                  27.0
+                ],
+                [
+                  28.0,
+                  27.0
+                ],
+                [
+                  27.0,
+                  27.0
+                ],
+                [
+                  26.0,
+                  27.0
+                ],
+                [
+                  25.0,
+                  27.0
+                ],
+                [
+                  24.0,
+                  27.0
+                ],
+                [
+                  23.0,
+                  27.0
+                ],
+                [
+                  22.0,
+                  27.0
+                ],
+                [
+                  21.0,
+                  27.0
+                ],
+                [
+                  20.0,
+                  27.0
+                ],
+                [
+                  19.0,
+                  27.0
+                ],
+                [
+                  18.0,
+                  27.0
+                ],
+                [
+                  17.0,
+                  27.0
+                ],
+                [
+                  16.0,
+                  27.0
+                ],
+                [
+                  15.0,
+                  27.0
+                ],
+                [
+                  14.0,
+                  27.0
+                ],
+                [
+                  13.0,
+                  27.0
+                ],
+                [
+                  12.0,
+                  27.0
+                ],
+                [
+                  11.0,
+                  27.0
+                ],
+                [
+                  10.0,
+                  27.0
+                ],
+                [
+                  9.0,
+                  27.0
+                ],
+                [
+                  8.0,
+                  27.0
+                ],
+                [
+                  7.0,
+                  27.0
+                ],
+                [
+                  6.0,
+                  27.0
+                ],
+                [
+                  5.0,
+                  27.0
+                ],
+                [
+                  4.0,
+                  27.0
+                ],
+                [
+                  4.0,
+                  26.0
+                ],
+                [
+                  4.0,
+                  25.0
+                ],
+                [
+                  4.0,
+                  24.0
+                ],
+                [
+                  4.0,
+                  23.0
+                ],
+                [
+                  4.0,
+                  22.0
+                ],
+                [
+                  4.0,
+                  21.0
+                ],
+                [
+                  4.0,
+                  20.0
+                ],
+                [
+                  4.0,
+                  19.0
+                ],
+                [
+                  4.0,
+                  18.0
+                ],
+                [
+                  4.0,
+                  17.0
+                ],
+                [
+                  4.0,
+                  16.0
+                ],
+                [
+                  4.0,
+                  15.0
+                ],
+                [
+                  4.0,
+                  14.0
+                ],
+                [
+                  4.0,
+                  13.0
+                ],
+                [
+                  4.0,
+                  12.0
+                ],
+                [
+                  4.0,
+                  11.0
+                ],
+                [
+                  4.0,
+                  10.0
+                ],
+                [
+                  4.0,
+                  9.0
+                ],
+                [
+                  4.0,
+                  8.0
+                ]
+              ],
+              "path_index": 30,
+              "position": [
+                4.0,
+                24.0
+              ],
+              "speed": 3.0,
+              "sprite_path": "res://assets/chapter2/modules/rowboat.png",
+              "stopped": false
+            }
+          ],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "mid_done": false,
+          "objects": {
+            "stone_gate": true
+          },
+          "reinforced": false
+        },
+        "npc": []
+      }
+    ],
+    "S21": [
+      {
+        "label": "round1-ships",
+        "turns": 9,
+        "inputs": 653,
+        "source": "play/round1-ships/round1-ships-play.json",
+        "formal_count": 6,
+        "formal_alive": 6,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [
+            "patients0",
+            "patients1"
+          ],
+          "freed": [],
+          "mid_done": false,
+          "objects": {},
+          "reinforced": false
+        },
+        "npc": [
+          {
+            "id": "patients0",
+            "hp": 28,
+            "side": "evacuated"
+          },
+          {
+            "id": "patients1",
+            "hp": 28,
+            "side": "evacuated"
+          }
+        ]
+      },
+      {
+        "label": "round2-other",
+        "turns": 10,
+        "inputs": 687,
+        "source": "play/round2-other/round2-other-play.json",
+        "formal_count": 6,
+        "formal_alive": 6,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [
+            "patients0",
+            "patients1"
+          ],
+          "freed": [],
+          "mid_done": false,
+          "objects": {},
+          "reinforced": false
+        },
+        "npc": [
+          {
+            "id": "patients0",
+            "hp": 28,
+            "side": "evacuated"
+          },
+          {
+            "id": "patients1",
+            "hp": 28,
+            "side": "evacuated"
+          }
+        ]
+      }
+    ],
+    "S22": [
+      {
+        "label": "round1-islands",
+        "turns": 13,
+        "inputs": 632,
+        "source": "play/round1-islands/round1-islands-play.json",
+        "formal_count": 4,
+        "formal_alive": 4,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "mid_done": false,
+          "objects": {
+            "relics": true
+          },
+          "reinforced": false
+        },
+        "npc": [
+          {
+            "id": "old_sailor",
+            "hp": 0,
+            "side": "player"
+          },
+          {
+            "id": "wounded",
+            "hp": 24,
+            "side": "player"
+          }
+        ]
+      },
+      {
+        "label": "round2-other",
+        "turns": 13,
+        "inputs": 641,
+        "source": "play/round2-other/round2-other-play.json",
+        "formal_count": 4,
+        "formal_alive": 4,
+        "formal_dying": [],
+        "quest": {
+          "beacon_contested": false,
+          "beacon_since": -1,
+          "boats": [],
+          "burn_streak": 0,
+          "evacuated": [],
+          "freed": [],
+          "mid_done": false,
+          "objects": {
+            "relics": true
+          },
+          "reinforced": false
+        },
+        "npc": [
+          {
+            "id": "old_sailor",
+            "hp": 0,
+            "side": "player"
+          },
+          {
+            "id": "wounded",
+            "hp": 24,
+            "side": "player"
+          }
+        ]
+      }
+    ]
+  },
+  "attempts": [
+    {
+      "file": "play/baseline-entry/baseline-entry-play.json",
+      "passed": false,
+      "battles": [
+        {
+          "code": "F21",
+          "outcome": "entry_only",
+          "turn": 1,
+          "failures": [],
+          "current_map": false
+        },
+        {
+          "code": "F22",
+          "outcome": "entry_only",
+          "turn": 1,
+          "failures": [],
+          "current_map": false
+        },
+        {
+          "code": "F23",
+          "outcome": "entry_only",
+          "turn": 1,
+          "failures": [],
+          "current_map": false
+        },
+        {
+          "code": "F24",
+          "outcome": "entry_only",
+          "turn": 1,
+          "failures": [],
+          "current_map": false
+        },
+        {
+          "code": "F25",
+          "outcome": "entry_only",
+          "turn": 1,
+          "failures": [],
+          "current_map": false
+        },
+        {
+          "code": "F26",
+          "outcome": "entry_only",
+          "turn": 1,
+          "failures": [],
+          "current_map": false
+        },
+        {
+          "code": "S21",
+          "outcome": "entry_only",
+          "turn": 1,
+          "failures": [],
+          "current_map": false
+        },
+        {
+          "code": "S22",
+          "outcome": "entry_only",
+          "turn": 1,
+          "failures": [],
+          "current_map": false
+        }
+      ]
+    },
+    {
+      "file": "play/continuous-final/continuous-final-play.json",
+      "passed": false,
+      "battles": [
+        {
+          "code": "F21",
+          "outcome": "victory",
+          "turn": 18,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F22",
+          "outcome": "victory",
+          "turn": 21,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F23",
+          "outcome": "victory",
+          "turn": 12,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "S21",
+          "outcome": "victory",
+          "turn": 11,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "S22",
+          "outcome": "victory",
+          "turn": 15,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F24",
+          "outcome": "victory",
+          "turn": 11,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F25",
+          "outcome": "",
+          "turn": 91,
+          "failures": [
+            "Natural battle failed: F25 { \"objects\": { \"pilot_prison\": true }, \"evacuated\": [], \"freed\": [], \"burn_streak\": 0, \"reinforced\": false, \"mid_done\": false, &\"beacon_since\": -1, &\"beacon_contested\": false, &\"boats\": [] }"
+          ],
+          "current_map": true
+        }
+      ]
+    },
+    {
+      "file": "play/continuous-resumed/continuous-resumed-play.json",
+      "passed": false,
+      "battles": [
+        {
+          "code": "F25",
+          "outcome": "victory",
+          "turn": 93,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F26",
+          "outcome": "victory",
+          "turn": 17,
+          "failures": [],
+          "current_map": true
+        }
+      ]
+    },
+    {
+      "file": "play/driver-ready/driver-ready-play.json",
+      "passed": false,
+      "battles": [
+        {
+          "code": "F21",
+          "outcome": "entry_only",
+          "turn": 1,
+          "failures": [],
+          "current_map": false
+        }
+      ]
+    },
+    {
+      "file": "play/first-harbor/first-harbor-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "F25",
+          "outcome": "victory",
+          "turn": 17,
+          "failures": [],
+          "current_map": false
+        },
+        {
+          "code": "F26",
+          "outcome": "victory",
+          "turn": 15,
+          "failures": [],
+          "current_map": true
+        }
+      ]
+    },
+    {
+      "file": "play/first-islands/first-islands-play.json",
+      "passed": false,
+      "battles": [
+        {
+          "code": "F23",
+          "outcome": "victory",
+          "turn": 10,
+          "failures": [],
+          "current_map": false
+        },
+        {
+          "code": "F24",
+          "outcome": "defeat",
+          "turn": 3,
+          "failures": [
+            "Natural battle failed: F24 { \"objects\": {  }, \"evacuated\": [], \"freed\": [], \"burn_streak\": 0, \"reinforced\": true, \"mid_done\": false, &\"beacon_since\": -1, &\"beacon_contested\": false, &\"boats\": [], &\"failed_reason\": \"艾琳濒死，无法继续作战\" }"
+          ],
+          "current_map": false
+        },
+        {
+          "code": "S22",
+          "outcome": "victory",
+          "turn": 13,
+          "failures": [],
+          "current_map": false
+        }
+      ]
+    },
+    {
+      "file": "play/first-ships/first-ships-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "F21",
+          "outcome": "victory",
+          "turn": 10,
+          "failures": [],
+          "current_map": false
+        },
+        {
+          "code": "F22",
+          "outcome": "victory",
+          "turn": 22,
+          "failures": [],
+          "current_map": false
+        },
+        {
+          "code": "S21",
+          "outcome": "victory",
+          "turn": 9,
+          "failures": [],
+          "current_map": false
+        }
+      ]
+    },
+    {
+      "file": "play/lighthouse-defense/lighthouse-defense-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "F24",
+          "outcome": "victory",
+          "turn": 9,
+          "failures": [],
+          "current_map": false
+        }
+      ]
+    },
+    {
+      "file": "play/round1-harbor/round1-harbor-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "F25",
+          "outcome": "victory",
+          "turn": 19,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F26",
+          "outcome": "victory",
+          "turn": 15,
+          "failures": [],
+          "current_map": true
+        }
+      ]
+    },
+    {
+      "file": "play/round1-islands/round1-islands-play.json",
+      "passed": false,
+      "battles": [
+        {
+          "code": "F23",
+          "outcome": "defeat",
+          "turn": 3,
+          "failures": [
+            "Natural battle failed: F23 { \"objects\": {  }, \"evacuated\": [], \"freed\": [], \"burn_streak\": 0, \"reinforced\": false, \"mid_done\": false, &\"beacon_since\": -1, &\"beacon_contested\": false, &\"boats\": [], &\"failed_reason\": \"艾琳濒死，无法继续作战\" }"
+          ],
+          "current_map": true
+        },
+        {
+          "code": "F24",
+          "outcome": "victory",
+          "turn": 11,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "S22",
+          "outcome": "victory",
+          "turn": 13,
+          "failures": [],
+          "current_map": true
+        }
+      ]
+    },
+    {
+      "file": "play/round1-ships/round1-ships-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "F21",
+          "outcome": "victory",
+          "turn": 17,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F22",
+          "outcome": "victory",
+          "turn": 29,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "S21",
+          "outcome": "victory",
+          "turn": 9,
+          "failures": [],
+          "current_map": true
+        }
+      ]
+    },
+    {
+      "file": "play/round2-other/round2-other-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "F21",
+          "outcome": "victory",
+          "turn": 10,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F22",
+          "outcome": "victory",
+          "turn": 25,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F24",
+          "outcome": "victory",
+          "turn": 12,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F25",
+          "outcome": "victory",
+          "turn": 16,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "F26",
+          "outcome": "victory",
+          "turn": 16,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "S21",
+          "outcome": "victory",
+          "turn": 10,
+          "failures": [],
+          "current_map": true
+        },
+        {
+          "code": "S22",
+          "outcome": "victory",
+          "turn": 13,
+          "failures": [],
+          "current_map": true
+        }
+      ]
+    },
+    {
+      "file": "play/shore-defense-a/shore-defense-a-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "F23",
+          "outcome": "victory",
+          "turn": 13,
+          "failures": [],
+          "current_map": true
+        }
+      ]
+    },
+    {
+      "file": "play/shore-defense-b/shore-defense-b-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "F23",
+          "outcome": "victory",
+          "turn": 12,
+          "failures": [],
+          "current_map": true
+        }
+      ]
+    },
+    {
+      "file": "play/shore-defense-c/shore-defense-c-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "F23",
+          "outcome": "victory",
+          "turn": 11,
+          "failures": [],
+          "current_map": true
+        }
+      ]
+    },
+    {
+      "file": "play/shore-defense-d/shore-defense-d-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "F23",
+          "outcome": "victory",
+          "turn": 13,
+          "failures": [],
+          "current_map": true
+        }
+      ]
+    }
+  ],
+  "images": [
+    {
+      "path": "before/F21.png",
+      "size": [
+        768,
+        544
+      ],
+      "bytes": 105134,
+      "sha256": "5400796cbd034da944aeceb855cc1da224ab4054590ee6dcb8eac3f59acbdd76"
+    },
+    {
+      "path": "before/F23.png",
+      "size": [
+        672,
+        544
+      ],
+      "bytes": 80220,
+      "sha256": "cb5ab3a0eacb322ca25767c3202136a17eec3237c135507ebbc25bafb977ac16"
+    },
+    {
+      "path": "before/F22.png",
+      "size": [
+        800,
+        576
+      ],
+      "bytes": 116763,
+      "sha256": "62482f91e4ba780ef867245f881674a99286ea137cb85d927a87190fe05776a4"
+    },
+    {
+      "path": "before/F26.png",
+      "size": [
+        768,
+        576
+      ],
+      "bytes": 118353,
+      "sha256": "74779cb568903e67fd0e8b00955cdb7722ee9b6f2a7bd7fccbf2ee9148202935"
+    },
+    {
+      "path": "before/F25.png",
+      "size": [
+        768,
+        608
+      ],
+      "bytes": 154844,
+      "sha256": "037f18675cbfb78f274e47e9b035dc3fd1cfd179e85bfb3e84188d46f4cd9600"
+    },
+    {
+      "path": "before/F24.png",
+      "size": [
+        704,
+        576
+      ],
+      "bytes": 133180,
+      "sha256": "61565dcf6b47618e9741629a5706385037a8712d4a5f279bfa8561cd00790c2f"
+    },
+    {
+      "path": "before/S21.png",
+      "size": [
+        640,
+        512
+      ],
+      "bytes": 51696,
+      "sha256": "6a055b4b478ca0a0d0c9ac5cc91cbce405d26a2ad3133ae5794db184c8db7b37"
+    },
+    {
+      "path": "before/S22.png",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 82315,
+      "sha256": "3b949f586baae9b03a7c4f86613a836f30056975da04e6fe1343aa2c8e130382"
+    },
+    {
+      "path": "images/F21.png",
+      "size": [
+        576,
+        480
+      ],
+      "bytes": 44950,
+      "sha256": "2468effdc7c8b686d733ac5a0496c778b4fe9066a699396a4b1bfe8c00b82f22"
+    },
+    {
+      "path": "images/F23.png",
+      "size": [
+        576,
+        480
+      ],
+      "bytes": 69994,
+      "sha256": "48cd132687085a6de4b0dabea6bc4e3e3069b07911829bf023809e7c263f8a15"
+    },
+    {
+      "path": "images/F22.png",
+      "size": [
+        608,
+        512
+      ],
+      "bytes": 47471,
+      "sha256": "d0fb700ace5740bc38d209115f0dc7220b433458ec732417b7a6c0a77a5c2c20"
+    },
+    {
+      "path": "images/F26.png",
+      "size": [
+        672,
+        544
+      ],
+      "bytes": 78107,
+      "sha256": "ab4118d4b81c1c6a600f52e76e30095b614ddd7e55460d72a4780e849cacf807"
+    },
+    {
+      "path": "images/F25.png",
+      "size": [
+        608,
+        512
+      ],
+      "bytes": 80999,
+      "sha256": "d708cbe28ddaed79605399c6fc3f0ba15003fed62ed5fe7728a65a54f7a0512a"
+    },
+    {
+      "path": "images/F24.png",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 68926,
+      "sha256": "32d266451d31721790a9a785d2a555a8494429e690e1e22853f317c0fdc547c4"
+    },
+    {
+      "path": "images/S21.png",
+      "size": [
+        576,
+        480
+      ],
+      "bytes": 41258,
+      "sha256": "86ec2283e85eb6710dcbf3e6492419776df7cea712c73197a6e97b7bca19a614"
+    },
+    {
+      "path": "images/S22.png",
+      "size": [
+        512,
+        448
+      ],
+      "bytes": 57866,
+      "sha256": "0fdae95ff37eb5b991909192850c32548ad0e21014ce96adc6981de48d018dcf"
+    },
+    {
+      "path": "screenshots/S22-01.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 54636,
+      "sha256": "03ba32ca600cd68cbfad1748a41749b2d4770693149e568f98a0ab237654b195"
+    },
+    {
+      "path": "screenshots/S22-02.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 51561,
+      "sha256": "39402c4bd071c99471442fee8a391e8c7c27aee877364bb831976613f7185d7e"
+    },
+    {
+      "path": "screenshots/S22-03.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 48007,
+      "sha256": "6ac4bd58bf0df895e6cdc3b0a61ff37b265171c8b842eae1f5f5f51c79639d3d"
+    },
+    {
+      "path": "screenshots/F22-01.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 39691,
+      "sha256": "debe0b3785aaf82ec803bc47e23029712b038d08f6632d3dcec7e2e2ce3f0a36"
+    },
+    {
+      "path": "screenshots/F22-03.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 37602,
+      "sha256": "de137327ac7636c24c028d158aee2232c58bb40884de90930e1a08f7fc63a930"
+    },
+    {
+      "path": "screenshots/F22-02.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 37933,
+      "sha256": "9e47d6eb746a5c41c84ee144e942b3fe0be35a0e6479f599661327e74aac8112"
+    },
+    {
+      "path": "screenshots/F26-01.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 39141,
+      "sha256": "217a49aa6bb12861cc56efe0c3cb4b12baecda3ce3bca896bdaadd6819de0d8d"
+    },
+    {
+      "path": "screenshots/F26-02.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 35043,
+      "sha256": "50996db76d433deedfc8f77d7a21add1a7fbc3e7ad0fd4f3aa106f41daa9eeec"
+    },
+    {
+      "path": "screenshots/F26-03.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 51587,
+      "sha256": "47ea14dd1f40c221faa59aef65dd7bf9e39086397723849c2c75b3b60f101a7a"
+    },
+    {
+      "path": "screenshots/F24-02.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 54742,
+      "sha256": "a2ca016101ac3f0e7d7787976aad94be97660da30bd99f6d9e1566f181d551a9"
+    },
+    {
+      "path": "screenshots/F24-03.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 45596,
+      "sha256": "9614b449b50acb896b31705e05ea7295ea8d3dafcc3ab92bc9824f9bec7ae8c6"
+    },
+    {
+      "path": "screenshots/F24-01.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 50990,
+      "sha256": "436c13b2194d9ed7aaf0a0ef45a74ff8c1ab370f6ee5c146c6fe8a15a0912946"
+    },
+    {
+      "path": "screenshots/F21-01.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 40556,
+      "sha256": "6152fac8100939632ac974d20ff558478a344c36d2f1cdd9432b06e29c5bc2a7"
+    },
+    {
+      "path": "screenshots/F21-02.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 41125,
+      "sha256": "e2d72dd77b98e8084055b24d0a7971338c63d5ca7e98de055a908f0b5a9333ac"
+    },
+    {
+      "path": "screenshots/F21-03.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 35921,
+      "sha256": "a4c03297d1eb93660fd0eff22291b9a7d3a104affed34fbd07cf7ea7bc6b056c"
+    },
+    {
+      "path": "screenshots/F23-02.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 60408,
+      "sha256": "1d60455be54245c63314f357cd6392250765a6f476afc1c63e2ec3b511446115"
+    },
+    {
+      "path": "screenshots/S21-01.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 37611,
+      "sha256": "24fbdb25362c4dba4aaad7addb4864ba89f5dfb7228ac05befb855e4352376ec"
+    },
+    {
+      "path": "screenshots/F23-03.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 48633,
+      "sha256": "69861494575f97874f20314c5db95a2e77664cb55a6e1d7b47675a236c8fd9e9"
+    },
+    {
+      "path": "screenshots/F23-01.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 59270,
+      "sha256": "2abdbf27c192d171d73545e358f9acbcce266b404a4811ae03d528c98785a659"
+    },
+    {
+      "path": "screenshots/S21-03.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 34321,
+      "sha256": "c7ea6bb3cf740b71957bb569c4a9a6e26a168690a96a532091288a0ceabe6dc0"
+    },
+    {
+      "path": "screenshots/S21-02.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 36226,
+      "sha256": "f5fe7e82438d2f18de964dfe639cfc34403856ac7f9de144aff117b086f45956"
+    },
+    {
+      "path": "screenshots/F25-01.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 57416,
+      "sha256": "9e26d9d27c0de02777b39e44e9d52d66d020e9a7410ebfcc1dd666b1262c00ee"
+    },
+    {
+      "path": "screenshots/F25-03.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 55778,
+      "sha256": "148b0cfcea9d942246006e4166a0a8a3d0245b7d8c206c962e93d56049308f8b"
+    },
+    {
+      "path": "screenshots/F25-02.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 57592,
+      "sha256": "4e0b59db99b879ca84183ccbbafe31279cd79a999ca875c979aa1e70549987d9"
+    }
+  ],
+  "rules_checks": 1500,
+  "package": {
+    "atlases": {
+      "res://assets/battlefield-0.3.0/terrain.png": [
+        512,
+        2528
+      ],
+      "res://assets/chapter1-redesign-20261022/camp-fort/terrain.png": [
+        512,
+        2656
+      ],
+      "res://assets/chapter1-redesign-20261022/grain-prison/terrain.png": [
+        512,
+        2624
+      ],
+      "res://assets/chapter1-redesign-20261022/side/terrain.png": [
+        512,
+        2672
+      ],
+      "res://assets/chapter2-redesign-20261022/harbor-channel/terrain.png": [
+        512,
+        2688
+      ],
+      "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png": [
+        512,
+        2816
+      ],
+      "res://assets/chapter2-redesign-20261022/ships/terrain.png": [
+        512,
+        2576
+      ],
+      "res://assets/m41-valley-20261022/terrain.png": [
+        512,
+        2656
+      ],
+      "res://assets/map-polish-late-20261022/chapter3-terrain.png": [
+        512,
+        3200
+      ],
+      "res://assets/map-polish-late-20261022/chapter4/terrain.png": [
+        512,
+        3072
+      ],
+      "res://assets/map-polish-late-20261022/temple-shores.png": [
+        512,
+        832
+      ]
+    },
+    "checks": 770,
+    "command_line": [
+      "--script",
+      "/Users/gcc/gaocc/project/revenge-memories/actual/tools/package_ch2_redesign_probe.gd"
+    ],
+    "errors": [],
+    "existing_compatibility_count": 44,
+    "existing_compatibility_paths": [
+      "res://data/compat/0.2.0/F25.json",
+      "res://data/compat/0.2.0/M12.json",
+      "res://data/compat/0.2.0/M13.json",
+      "res://data/compat/0.2.0/M14.json",
+      "res://data/compat/0.2.0/M15.json",
+      "res://data/compat/0.2.0/S22.json",
+      "res://data/compat/0.2.1/F21.json",
+      "res://data/compat/0.2.1/F22.json",
+      "res://data/compat/0.2.1/F23.json",
+      "res://data/compat/0.2.1/F24.json",
+      "res://data/compat/0.2.1/F25.json",
+      "res://data/compat/0.2.1/F26.json",
+      "res://data/compat/0.2.1/M11.json",
+      "res://data/compat/0.2.1/M12.json",
+      "res://data/compat/0.2.1/M13.json",
+      "res://data/compat/0.2.1/M14.json",
+      "res://data/compat/0.2.1/M15.json",
+      "res://data/compat/0.2.1/S11.json",
+      "res://data/compat/0.2.1/S12.json",
+      "res://data/compat/0.2.1/S21.json",
+      "res://data/compat/0.2.1/S22.json",
+      "res://data/compat/0.3.0/F21.json",
+      "res://data/compat/0.3.0/F22.json",
+      "res://data/compat/0.3.0/F23.json",
+      "res://data/compat/0.3.0/F24.json",
+      "res://data/compat/0.3.0/F25.json",
+      "res://data/compat/0.3.0/F26.json",
+      "res://data/compat/0.3.0/M11.json",
+      "res://data/compat/0.3.0/M12.json",
+      "res://data/compat/0.3.0/M13.json",
+      "res://data/compat/0.3.0/M14.json",
+      "res://data/compat/0.3.0/M15.json",
+      "res://data/compat/0.3.0/S11.json",
+      "res://data/compat/0.3.0/S12.json",
+      "res://data/compat/0.3.0/S21.json",
+      "res://data/compat/0.3.0/S22.json",
+      "res://data/compat/0.3.1/M11.json",
+      "res://data/compat/0.3.4/F25.json",
+      "res://data/compat/0.3.4/M12.json",
+      "res://data/compat/0.3.4/M13.json",
+      "res://data/compat/0.3.4/M14.json",
+      "res://data/compat/0.3.4/M15.json",
+      "res://data/compat/0.3.4/S12.json",
+      "res://data/compat/0.3.5/M14.json"
+    ],
+    "map_revision": "0.10.6-ch2",
+    "maps": {
+      "F21": {
+        "atlas": "res://assets/chapter2-redesign-20261022/ships/terrain.png",
+        "revision": "0.10.6-ch2",
+        "sha256": "ff015967c7bb2ed00a24684cf15b598925e76b7a624e5e9ad63b91476b2c3109"
+      },
+      "F22": {
+        "atlas": "res://assets/chapter2-redesign-20261022/ships/terrain.png",
+        "revision": "0.10.6-ch2",
+        "sha256": "9a8ec3ef017183aebc1aedde2747d784137c6c86bbb0502003a16d76a46834b9"
+      },
+      "F23": {
+        "atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png",
+        "revision": "0.10.6-ch2",
+        "sha256": "af6f7e997d49cef3b92debbdcf00624c5fcab045f9b2e4e7f6040f337da89deb"
+      },
+      "F24": {
+        "atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png",
+        "revision": "0.10.6-ch2",
+        "sha256": "e7526eda3e7c452c79fa78e743de1c2e606fd4b9b0e62025dfa6f4cf67230fe8"
+      },
+      "F25": {
+        "atlas": "res://assets/chapter2-redesign-20261022/harbor-channel/terrain.png",
+        "revision": "0.10.6-ch2",
+        "sha256": "b62aafff7f4310eded79aff6392788380f4ebdacb97f2af99f0308b22e6b72f5"
+      },
+      "F26": {
+        "atlas": "res://assets/chapter2-redesign-20261022/harbor-channel/terrain.png",
+        "revision": "0.10.6-ch2",
+        "sha256": "c3f52143fbbacb987040ff07928c5bc2a1d5a89fc05ba18f7a0eb2875b6551ad"
+      },
+      "F31": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter3-terrain.png",
+        "revision": "0.10.3",
+        "sha256": "22f0bfa05ece43a8d6f91a4c0564d7d8bec21b3b83f43c14216a17ca767cfb6b"
+      },
+      "F32": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter3-terrain.png",
+        "revision": "0.10.3",
+        "sha256": "83aac9695dc09467efe881923ab3a10bbac625b9aa400fe180b660aa397185df"
+      },
+      "F33": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter3-terrain.png",
+        "revision": "0.10.3",
+        "sha256": "79d971aa102f2b0fa025d71f138cb6ca434ab6c3d2f3c821af316898fc93f1a5"
+      },
+      "F41": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter4/terrain.png",
+        "revision": "0.10.3",
+        "sha256": "00f6e5e73f45ba92870b0074765b080bc8b86c3b549ccf1f3f7191b09fdf384c"
+      },
+      "F42": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter4/terrain.png",
+        "revision": "0.10.3",
+        "sha256": "fd9902a4fac2f4f3e93ed2f5239e754d9c7c2b9fc943160f69bbb6983814db44"
+      },
+      "F43": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter4/terrain.png",
+        "revision": "0.10.3",
+        "sha256": "2fff36804e683fd47eef182712963fbf5f817f5578c7e8de6bb3fed8fc536064"
+      },
+      "F44": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter4/terrain.png",
+        "revision": "0.10.3",
+        "sha256": "39175355bba3cfc568f0c3b4422808e18f1474085ac511a7845307ae12aac175"
+      },
+      "F51": {
+        "atlas": "res://assets/map-polish-late-20261022/temple-shores.png",
+        "revision": "0.10.3",
+        "sha256": "6f2664c10b83ef6ca3ae69838a5b288de0c76903ae2f73adb03364e9a33de0c4"
+      },
+      "F52": {
+        "atlas": "res://assets/map-polish-late-20261022/temple-shores.png",
+        "revision": "0.10.3",
+        "sha256": "8af039c4a42be4932931ea463e2fc5137786a163f4287d41c37f9662fa4f7a52"
+      },
+      "J53": {
+        "atlas": "res://assets/map-polish-late-20261022/temple-shores.png",
+        "revision": "0.10.3",
+        "sha256": "48d459575ff967d2c0d133264a54c32c3043480b29ebedce45d7ebae7738156f"
+      },
+      "J54": {
+        "atlas": "res://assets/map-polish-late-20261022/temple-shores.png",
+        "revision": "0.10.3",
+        "sha256": "50c847e72fce641fdb1ab052ec2cfd22693c4e3650720b4c344336a7db8e90fd"
+      },
+      "M11": {
+        "atlas": "res://assets/battlefield-0.3.0/terrain.png",
+        "revision": "0.5.0",
+        "sha256": "4170c977adebe2688d181316b149c173edae39ba97cc317811f0fdc99c367a9a"
+      },
+      "M12": {
+        "atlas": "res://assets/chapter1-redesign-20261022/grain-prison/terrain.png",
+        "revision": "0.10.5-ch1",
+        "sha256": "1b3f4dd3233ab5c083dc7356c34a44cdcefff2938d52121e4b67b8fd51cb82a5"
+      },
+      "M13": {
+        "atlas": "res://assets/chapter1-redesign-20261022/grain-prison/terrain.png",
+        "revision": "0.10.5-ch1",
+        "sha256": "a3de181d8632bf8b5db745cd5b0d5c677025f6592c5ce54990b76a51390c0b11"
+      },
+      "M14": {
+        "atlas": "res://assets/chapter1-redesign-20261022/camp-fort/terrain.png",
+        "revision": "0.10.5-ch1",
+        "sha256": "ccfbff46bd6e607add0cff0d31264c3935012af4cc92631ae303dac2f02e6bf9"
+      },
+      "M15": {
+        "atlas": "res://assets/chapter1-redesign-20261022/camp-fort/terrain.png",
+        "revision": "0.10.5-ch1",
+        "sha256": "10f940b168b9a124b65412c00b439ea10406c689811de5af19dd269084fde414"
+      },
+      "M31": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter3-terrain.png",
+        "revision": "0.10.3",
+        "sha256": "660bb9565f195e9ce8bc9a9e5c4cccec0fca2b3174b5b18a4ed53890f67f2d7e"
+      },
+      "M32": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter3-terrain.png",
+        "revision": "0.10.3",
+        "sha256": "b46678e2dd4da6c2cfb689a5b24d30591a99598aecd18c31d6591874974b13ed"
+      },
+      "M33": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter3-terrain.png",
+        "revision": "0.10.3",
+        "sha256": "103a79daba1837bda85e08069687bf7b5e2ed468342943b0b7c9ef15edf48ed8"
+      },
+      "M41": {
+        "atlas": "res://assets/m41-valley-20261022/terrain.png",
+        "revision": "0.10.4-m41",
+        "sha256": "d95ae830163e3ce06f0469029b6b0ae8ef0e32067aff6e41a4f955cef80e1aba"
+      },
+      "M42": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter4/terrain.png",
+        "revision": "0.10.3",
+        "sha256": "cfddbfd07905f01f601d02e4ffc8b75b4d7898f02c4f1616ab273e875945dffb"
+      },
+      "M43": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter4/terrain.png",
+        "revision": "0.10.3",
+        "sha256": "b16c7408d08f64718d9becbd01ae362a0c0a99da3917c384ec43161dd7bbab24"
+      },
+      "M44": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter4/terrain.png",
+        "revision": "0.10.3",
+        "sha256": "75b4d8390a2cfb0df28a16dad2bce9dcbd28ac3e17ef4d08b3336bc9da21cfec"
+      },
+      "M51": {
+        "atlas": "res://assets/map-polish-late-20261022/temple-shores.png",
+        "revision": "0.10.3",
+        "sha256": "09d5cff62952b46c78469ce6e4fce0bd3c26d79fa9e16a07ffefedf19d07308f"
+      },
+      "M52": {
+        "atlas": "res://assets/map-polish-late-20261022/temple-shores.png",
+        "revision": "0.10.3",
+        "sha256": "7e674d4d6f4fc88a45add4d0ed50731c8c646d8e4d8f3237b25b59b5936f18bf"
+      },
+      "S11": {
+        "atlas": "res://assets/chapter1-redesign-20261022/side/terrain.png",
+        "revision": "0.10.5-ch1",
+        "sha256": "33937d30c221b93d96c63a0dfa7055ebbca2da729b420c574ecdd420efe23a8c"
+      },
+      "S12": {
+        "atlas": "res://assets/chapter1-redesign-20261022/side/terrain.png",
+        "revision": "0.10.5-ch1",
+        "sha256": "83fec7706bf734ef164f834dfc23ff821f3bd987578fd505e2a7271d4c48e64b"
+      },
+      "S21": {
+        "atlas": "res://assets/chapter2-redesign-20261022/ships/terrain.png",
+        "revision": "0.10.6-ch2",
+        "sha256": "c195bfa305017dcbca0fa5fa2a33b73fa05cec5a2f50a40831973192a2feb02c"
+      },
+      "S22": {
+        "atlas": "res://assets/chapter2-redesign-20261022/islands-cave/terrain.png",
+        "revision": "0.10.6-ch2",
+        "sha256": "a477b2e6500e9de2d3c4efc5c95c7d18c5fc956057dc4b4afaa68e6f14dbb035"
+      },
+      "S31": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter3-terrain.png",
+        "revision": "0.10.3",
+        "sha256": "46dd09860520cbf8613fb477c1bcaec27465d1bcde30216c3dbe3283d778e55e"
+      },
+      "S32": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter3-terrain.png",
+        "revision": "0.10.3",
+        "sha256": "957e02698e8aef0d47d03ad26ca38f11d4aeed77c7b4da9e7630312605d4099d"
+      },
+      "S41": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter4/terrain.png",
+        "revision": "0.10.3",
+        "sha256": "78c377ee4c06dfa4b2a409e853dd471f7b1e674df238c724a07ee8f7ce51f786"
+      },
+      "S42": {
+        "atlas": "res://assets/map-polish-late-20261022/chapter4/terrain.png",
+        "revision": "0.10.3",
+        "sha256": "a162f1b7536731a66b37c4705be9fd5a09cb0ae7b98f3b256d389dce6ddcd0d2"
+      },
+      "S51": {
+        "atlas": "res://assets/map-polish-late-20261022/temple-shores.png",
+        "revision": "0.10.3",
+        "sha256": "5f707535ed25c93115477d98f7489748556b8660e8b6605f785e0fe09c1f09c9"
+      }
+    },
+    "new_compatibility_copies": 0,
+    "passed": true,
+    "resource_root": "",
+    "scope": "Independent exported app probe from isolated /private/tmp using --main-pack. Exact forty-map hashes and revision, actual terrain/prop load, object assets, report/test/source exclusions. Existing historical compatibility is recorded; this task does not clean it up or add any new compatibility copies.",
+    "software_version": "0.10.3",
+    "stage_count": 40,
+    "version": "0.10.3",
+    "app_path": "/Users/gcc/gaocc/project/revenge-memories/actual/dist/RevengeMemories-Chapter2-Redesign-20261022.app",
+    "display_name": "复仇与回忆 · 第二章地图重设计",
+    "pck_bytes": 180126724,
+    "pck_sha256": "d84af115065fb0ff4db86afec3edadf079ceee9f05a898e717bbf4b5e78afb8b",
+    "ad_hoc_signature_verified": true,
+    "signature_verification": "codesign --verify --deep --strict (exit 0)",
+    "headless_only": true,
+    "expected_current_maps_match_after_signing": true
+  },
+  "flow_continuation": {
+    "passed": true,
+    "description": "另从上一章真实完成记录起步，保留自然成长、伤情与招募结果，通过第二章八图并正常进入第三章。军港曾因自动试玩的跟随策略停滞；从同一T91记录续行，3个玩家回合内完成军港，继续完成断航护航与章末接续，没有重开战场或改写战斗状态。",
+    "chain": "play/continuous-completion-verification.json",
+    "chapter3_entry": "play/continuous-resumed-entry/chapter3-entry-verification.json",
+    "battles": [
+      {
+        "code": "F21",
+        "outcome": "victory",
+        "final_turn": 18.0,
+        "starting_turn": 1,
+        "map_sha256": "ff015967c7bb2ed00a24684cf15b598925e76b7a624e5e9ad63b91476b2c3109"
+      },
+      {
+        "code": "F22",
+        "outcome": "victory",
+        "final_turn": 21.0,
+        "starting_turn": 1,
+        "map_sha256": "9a8ec3ef017183aebc1aedde2747d784137c6c86bbb0502003a16d76a46834b9"
+      },
+      {
+        "code": "F23",
+        "outcome": "victory",
+        "final_turn": 12.0,
+        "starting_turn": 1,
+        "map_sha256": "af6f7e997d49cef3b92debbdcf00624c5fcab045f9b2e4e7f6040f337da89deb"
+      },
+      {
+        "code": "S21",
+        "outcome": "victory",
+        "final_turn": 11.0,
+        "starting_turn": 1,
+        "map_sha256": "c195bfa305017dcbca0fa5fa2a33b73fa05cec5a2f50a40831973192a2feb02c"
+      },
+      {
+        "code": "S22",
+        "outcome": "victory",
+        "final_turn": 15.0,
+        "starting_turn": 1,
+        "map_sha256": "a477b2e6500e9de2d3c4efc5c95c7d18c5fc956057dc4b4afaa68e6f14dbb035"
+      },
+      {
+        "code": "F24",
+        "outcome": "victory",
+        "final_turn": 11.0,
+        "starting_turn": 1,
+        "map_sha256": "e7526eda3e7c452c79fa78e743de1c2e606fd4b9b0e62025dfa6f4cf67230fe8"
+      },
+      {
+        "code": "F25",
+        "outcome": "victory",
+        "final_turn": 93,
+        "starting_turn": 91,
+        "map_sha256": "b62aafff7f4310eded79aff6392788380f4ebdacb97f2af99f0308b22e6b72f5"
+      },
+      {
+        "code": "F26",
+        "outcome": "victory",
+        "final_turn": 17,
+        "starting_turn": 1,
+        "map_sha256": "c3f52143fbbacb987040ff07928c5bc2a1d5a89fc05ba18f7a0eb2875b6551ad"
+      }
+    ],
+    "source_T91_sha256": "a18523011a8c7adb98d26beefd3c33c09a8123b0c1472ea5d4db92196d518d15",
+    "source_T91_unchanged": true,
+    "ordinary_inputs_only": true,
+    "scope": "Six initial consecutive victories, exact T91 continuation for the last two maps, and ordinary chapter transition. Not an uninterrupted automatic policy run."
+  },
+  "layout_errors": [],
+  "limitations": [
+    "Actual input uses isolated genuine development records, not live user saves. No unit attributes, random results or victories are forced.",
+    "Two per-map rounds do not mean two new-game playthroughs; continuous flow scope is recorded separately.",
+    "No iPhone installation. HTML link/script tests do not claim browser layout-engine verification."
+  ]
+}

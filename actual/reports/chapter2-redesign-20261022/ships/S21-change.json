@@ -1,0 +1,339 @@
+{
+  "code": "S21",
+  "map_sha256": "c195bfa305017dcbca0fa5fa2a33b73fa05cec5a2f50a40831973192a2feb02c",
+  "notes": [
+    "两艘漂泊渔船错位相接，前后跳板把作业甲板连成可互援的船队；右船保留飞行魔物的侧面进攻空间。",
+    "两组病人位于护卫后方的左船后甲板，南侧短跳板通向真实沙岸停泊口，撤离方向与靠岸画面一致。",
+    "桅杆、船员舱和舷边货物划分护卫前线与病人区域；仍须清除全部魔物并至少一组病人存活靠岸，飞行敌人能绕过跳板。"
+  ],
+  "coordinates": {
+    "enemies": [
+      {
+        "id": "S21_boss",
+        "before": [
+          30,
+          8
+        ],
+        "after": [
+          25,
+          5
+        ]
+      },
+      {
+        "id": "S21_e1",
+        "before": [
+          28,
+          9
+        ],
+        "after": [
+          25,
+          8
+        ]
+      },
+      {
+        "id": "S21_e2",
+        "before": [
+          24,
+          11
+        ],
+        "after": [
+          20,
+          11
+        ]
+      },
+      {
+        "id": "S21_e3",
+        "before": [
+          28,
+          20
+        ],
+        "after": [
+          25,
+          18
+        ]
+      },
+      {
+        "id": "S21_e4",
+        "before": [
+          14,
+          8
+        ],
+        "after": [
+          10,
+          7
+        ]
+      },
+      {
+        "id": "S21_e5",
+        "before": [
+          30,
+          9
+        ],
+        "after": [
+          26,
+          5
+        ]
+      },
+      {
+        "id": "S21_e6",
+        "before": [
+          27,
+          11
+        ],
+        "after": [
+          24,
+          12
+        ]
+      }
+    ],
+    "npc_units": [
+      {
+        "id": "patients0",
+        "before": [
+          10,
+          24
+        ],
+        "after": [
+          5,
+          18
+        ]
+      },
+      {
+        "id": "patients1",
+        "before": [
+          22,
+          23
+        ],
+        "after": [
+          8,
+          18
+        ]
+      }
+    ],
+    "reinforcements": [],
+    "deploy_before": [
+      [
+        9,
+        12
+      ],
+      [
+        9,
+        13
+      ],
+      [
+        9,
+        11
+      ],
+      [
+        10,
+        12
+      ],
+      [
+        9,
+        14
+      ],
+      [
+        10,
+        13
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        10,
+        11
+      ],
+      [
+        11,
+        12
+      ],
+      [
+        9,
+        15
+      ]
+    ],
+    "deploy_after": [
+      [
+        6,
+        14
+      ],
+      [
+        7,
+        14
+      ],
+      [
+        8,
+        14
+      ],
+      [
+        6,
+        15
+      ],
+      [
+        7,
+        15
+      ],
+      [
+        8,
+        15
+      ],
+      [
+        5,
+        14
+      ],
+      [
+        5,
+        15
+      ],
+      [
+        6,
+        16
+      ],
+      [
+        7,
+        16
+      ]
+    ],
+    "objects_before": [
+      {
+        "id": "ship_guard",
+        "kind": "inspect",
+        "position": [
+          17,
+          13
+        ],
+        "label": "查看护船位置",
+        "adjacent": true,
+        "sprite": "open_gate"
+      },
+      {
+        "id": "mooring",
+        "kind": "inspect",
+        "position": [
+          17,
+          21
+        ],
+        "label": "确认停泊跳板",
+        "adjacent": true,
+        "sprite": "open_gate"
+      },
+      {
+        "id": "S21_visit_0",
+        "kind": "visit",
+        "label": "访问船员休息舱",
+        "position": [
+          6,
+          21
+        ],
+        "approach": [
+          6,
+          22
+        ],
+        "approaches": [
+          [
+            6,
+            22
+          ]
+        ],
+        "entrance_cells": [
+          [
+            6,
+            21
+          ]
+        ],
+        "adjacent": true,
+        "door_visual": "native_building_art",
+        "show_indicator": false,
+        "optional": true,
+        "dialogue": "船员：先让病人远离跳板。舵楼哨位可轮换伤员，清出甲板后再护送。",
+        "reward_item": 48,
+        "building": "captain_cabin"
+      }
+    ],
+    "objects_after": [
+      {
+        "id": "ship_guard",
+        "kind": "inspect",
+        "position": [
+          15,
+          11
+        ],
+        "label": "查看护船位置",
+        "adjacent": true,
+        "sprite": "open_gate"
+      },
+      {
+        "id": "mooring",
+        "kind": "inspect",
+        "position": [
+          6,
+          22
+        ],
+        "label": "确认停泊跳板",
+        "adjacent": true,
+        "sprite": "open_gate"
+      },
+      {
+        "id": "S21_visit_0",
+        "kind": "visit",
+        "label": "访问船员休息舱",
+        "position": [
+          4,
+          12
+        ],
+        "approach": [
+          4,
+          13
+        ],
+        "approaches": [
+          [
+            4,
+            13
+          ]
+        ],
+        "entrance_cells": [
+          [
+            4,
+            12
+          ]
+        ],
+        "adjacent": true,
+        "door_visual": "native_building_art",
+        "show_indicator": false,
+        "optional": true,
+        "dialogue": "船员：先让病人远离跳板。舵楼哨位可轮换伤员，清出甲板后再护送。",
+        "reward_item": 48,
+        "building": "captain_cabin"
+      }
+    ],
+    "exit_before": [
+      6,
+      25
+    ],
+    "exit_after": [
+      3,
+      24
+    ],
+    "targets_before": [
+      [
+        17,
+        13
+      ],
+      [
+        17,
+        21
+      ]
+    ],
+    "targets_after": [
+      [
+        15,
+        11
+      ],
+      [
+        6,
+        22
+      ]
+    ]
+  }
+}

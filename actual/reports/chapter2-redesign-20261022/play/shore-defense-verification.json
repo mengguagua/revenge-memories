@@ -1,0 +1,179 @@
+{
+  "scope": "F23 ordinary-input shore defence, unchanged map and core; same policy independently reentered from genuine deployment source twice.",
+  "driver": "res://tests/ch2_shore_play.gd",
+  "driver_sha256": "1ccca6dee6774bbdfa3644453d55bc1a19b49aed0bb84e5f23f22757ffa1fa8a",
+  "policy": [
+    "First three turns hold the southern camp court: Lord (15,18), Carlo (14,18), Lisa (13,20), Eileen (12,19), Mireille (12,21). Attack moves must also respect the line.",
+    "Heavy guard acts first, Carlo follows, casters act next, Mireille heals last.",
+    "Prioritize flyers entering the rear; after mobile attackers are cleared, advance to remaining stationary guards and boss."
+  ],
+  "runs": [
+    {
+      "label": "shore-defense-c",
+      "passed": true,
+      "turns": 11,
+      "key_inputs": 736,
+      "source_sha256": "0583b1d43fb5f6fab6010bf5b424f6ede32e9635131e3beaef978832449906e3",
+      "map_sha256": "af6f7e997d49cef3b92debbdcf00624c5fcab045f9b2e4e7f6040f337da89deb",
+      "entry_map_sha256": "af6f7e997d49cef3b92debbdcf00624c5fcab045f9b2e4e7f6040f337da89deb",
+      "return_view": "world",
+      "npcs": {
+        "roan": {
+          "hp": 23,
+          "max_hp": 23.0
+        },
+        "fishers": {
+          "hp": 28,
+          "max_hp": 28.0
+        }
+      },
+      "report": "actual/reports/chapter2-redesign-20261022/play/shore-defense-c/shore-defense-c-play.json",
+      "actions": "actual/reports/chapter2-redesign-20261022/play/shore-defense-c/shore-defense-c-shore-actions.json",
+      "no_stat_rng_position_outcome_edits": true,
+      "minimum_observed_in_battle_hp": {
+        "eileen": 14,
+        "carlo": 10,
+        "mireille": 15,
+        "lisa": 9,
+        "lord": 20
+      },
+      "settled_party": {
+        "eileen": {
+          "hp": 22,
+          "max_hp": 22.0,
+          "position": [
+            27,
+            6
+          ],
+          "dead": false
+        },
+        "carlo": {
+          "hp": 24,
+          "max_hp": 24,
+          "position": [
+            25,
+            8
+          ],
+          "dead": false
+        },
+        "mireille": {
+          "hp": 18,
+          "max_hp": 18.0,
+          "position": [
+            23,
+            7
+          ],
+          "dead": false
+        },
+        "lisa": {
+          "hp": 21,
+          "max_hp": 21.0,
+          "position": [
+            26,
+            7
+          ],
+          "dead": false
+        },
+        "lord": {
+          "hp": 31,
+          "max_hp": 31,
+          "position": [
+            26,
+            6
+          ],
+          "dead": false
+        }
+      },
+      "settled_party_note": "Victory settlement restores surviving units normally; battle minimum HP is recorded separately."
+    },
+    {
+      "label": "shore-defense-d",
+      "passed": true,
+      "turns": 13,
+      "key_inputs": 782,
+      "source_sha256": "0583b1d43fb5f6fab6010bf5b424f6ede32e9635131e3beaef978832449906e3",
+      "map_sha256": "af6f7e997d49cef3b92debbdcf00624c5fcab045f9b2e4e7f6040f337da89deb",
+      "entry_map_sha256": "af6f7e997d49cef3b92debbdcf00624c5fcab045f9b2e4e7f6040f337da89deb",
+      "return_view": "world",
+      "npcs": {
+        "roan": {
+          "hp": 23,
+          "max_hp": 23.0
+        },
+        "fishers": {
+          "hp": 28,
+          "max_hp": 28.0
+        }
+      },
+      "report": "actual/reports/chapter2-redesign-20261022/play/shore-defense-d/shore-defense-d-play.json",
+      "actions": "actual/reports/chapter2-redesign-20261022/play/shore-defense-d/shore-defense-d-shore-actions.json",
+      "no_stat_rng_position_outcome_edits": true,
+      "minimum_observed_in_battle_hp": {
+        "eileen": 20,
+        "carlo": 11,
+        "mireille": 16,
+        "lisa": 7,
+        "lord": 9
+      },
+      "settled_party": {
+        "eileen": {
+          "hp": 22,
+          "max_hp": 22.0,
+          "position": [
+            27,
+            6
+          ],
+          "dead": false
+        },
+        "carlo": {
+          "hp": 25,
+          "max_hp": 25,
+          "position": [
+            25,
+            7
+          ],
+          "dead": false
+        },
+        "mireille": {
+          "hp": 18,
+          "max_hp": 18.0,
+          "position": [
+            20,
+            7
+          ],
+          "dead": false
+        },
+        "lisa": {
+          "hp": 21,
+          "max_hp": 21,
+          "position": [
+            26,
+            7
+          ],
+          "dead": false
+        },
+        "lord": {
+          "hp": 30,
+          "max_hp": 30,
+          "position": [
+            26,
+            6
+          ],
+          "dead": false
+        }
+      },
+      "settled_party_note": "Victory settlement restores surviving units normally; battle minimum HP is recorded separately."
+    }
+  ],
+  "discarded_prototypes": [
+    {
+      "label": "shore-defense-a",
+      "result": "Victory T13 but Carlo died; not a final verification."
+    },
+    {
+      "label": "shore-defense-b",
+      "result": "Victory T12, all five alive, healer exposed; refined flyer target priority before final two runs."
+    }
+  ],
+  "passed": true
+}

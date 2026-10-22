@@ -1,0 +1,406 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>第二章八图 · 构图与战术重设计</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#10191f;color:#e9f0f2;font:15px/1.8 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}main{max-width:1380px;margin:auto;padding:42px 30px 70px}h1{font-size:37px;line-height:1.3}h2{font-size:24px;margin:0 0 12px}h3{font-size:17px;margin:0 0 8px}p{color:#b8c9d1;margin:10px 0}.eyebrow{font-size:12px;letter-spacing:.14em;color:#a3cbbd}.tag{display:inline-block;padding:7px 13px;background:#354841;border-radius:8px;color:#d9ece3;font-size:13px}.links,.controls{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}a{color:#b4ddcc;text-underline-offset:4px}.links a,button{display:inline-flex;justify-content:center;align-items:center;min-height:44px;padding:11px 17px;border:0;border-radius:9px;background:#293b44;color:#dce9ed;font:inherit;font-size:14px;text-decoration:none;cursor:pointer}button[aria-pressed=true]{background:#36514e;box-shadow:inset 0 0 18px #9cd9be16,0 4px 18px #0004}a:focus-visible,button:focus-visible{outline:none;box-shadow:0 0 0 5px #a4d6c32c,0 0 24px #a4d6c32c}.panel{padding:24px;background:#1a2932;border-radius:16px;box-shadow:0 14px 38px #0002;margin-top:30px}.pair,.cards,.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.cards{margin:20px 0}.cards article{padding:17px 20px;border-radius:10px;background:#22353e}figure{margin:0;min-width:0}figcaption{font-size:14px;padding:8px 2px 12px}.image{display:block;background:#22333d;border-radius:8px;overflow:hidden}.image img{width:100%;height:auto;display:block;image-rendering:pixelated}.small{font-size:12px;color:#9bb1bc}.board{position:relative;max-width:900px;margin:auto}.board img{display:block;width:100%;image-rendering:pixelated}.board svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.overlay{display:none}.overlay.active{display:block}.legend{min-height:28px;font-size:13px}.shots{margin-top:20px}.note,details{padding:16px 19px;border-radius:10px;background:#24363f;margin:20px 0}summary{cursor:pointer}.stats{font-size:22px;color:#d5e9e0}table{border-collapse:collapse;width:100%;font-size:14px}td,th{text-align:left;padding:9px 12px;border-bottom:1px solid #ffffff0b}footer{font-size:12px;color:#8ca4b0;margin-top:28px}@media(max-width:800px){main{padding:24px 14px}.panel{padding:16px}.pair,.cards,.shots{grid-template-columns:1fr}h1{font-size:28px}}</style></head><body><main>
+<div class="eyebrow">REVENGE MEMORIES / CHAPTER TWO</div><h1>第二章八图 · 构图与战术重设计</h1><span class="tag">延续已确认方法 · 第二章全八图</span><p>双舰接舷、囚舱救援、礁岛渔村、灯庭防守、湾岸军港、沿岸护航、漂泊病船与避潮洞厅分别组织构图。甲板、水道、岸线和建筑先建立真实关系，再安排部署与任务点；保留剧情、数值规则和现有动画。</p><nav class="links">
+<a href="#F21">F21 · 海上拦截</a>
+<a href="#F22">F22 · 押送舰救援</a>
+<a href="#F23">F23 · 礁岛登岸</a>
+<a href="#F24">F24 · 海灯岛防卫</a>
+<a href="#F25">F25 · 潮狩军港</a>
+<a href="#F26">F26 · 断航古道</a>
+<a href="#S21">S21 · 漂泊渔船</a>
+<a href="#S22">S22 · 碎石海洞</a>
+<a href="#verification">试玩与复查</a><a href="../../../art-review/battle-maps-20261021/index.html?map=F21#map-viewer">全部地图目录</a><a href="../../dist/RevengeMemories-Chapter2-Redesign-20261022.app">独立桌面包</a></nav>
+<p class="small">前后地图均来自游戏原生渲染器；本轮收紧了地图尺寸，左右按各自完整边界展示，并非同像素比例的面积对比。点击原图可放大检查。</p>
+<section class="panel" id="F21"><div class="eyebrow">F21 / 44×30 → 32×26</div><h2>海上拦截 · 双口登舰</h2><p>两艘错位舰船由船艏、作业甲板和后舱组成，己船后甲板安置船体旗位、伤者与休息舱。</p><div class="pair">
+<figure><figcaption>修改前 · 前一轮版本</figcaption><a class="image" href="before/F21.png" target="_blank"><img src="before/F21.png" loading="lazy" alt="F21 修改前 · 前一轮版本"></a></figure>
+<figure><figcaption>重设计后 · 当前Godot场景</figcaption><a class="image" href="images/F21.png" target="_blank"><img src="images/F21.png" loading="lazy" alt="F21 重设计后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>上方两格跳板连接两船前部战区，登舰后可沿敌舰中轴接近指挥官。</p></article><article><h3>侧路与取舍</h3><p>下方两格跳板通敌舰后段，桅杆和舷边货物之间保留连续甲板。</p><p>可由两处同时登舰，也可留人守住己船与伤者；恢复格沿用原规则，不能代替正式成员的濒死救治。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="F21" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="F21" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="F21" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/F21.png" alt="F21地形说明"><svg viewBox="0 0 576 480" aria-hidden="true"><g class="overlay" data-map="F21" data-overlay="routes">
+<polyline points="" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="F21" data-overlay="actors">
+<circle cx="120" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="424" cy="216" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="424" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="328" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="392" cy="328" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="200" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="456" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="248" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="456" cy="328" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="200" cy="152" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="392" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="376" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="264" cy="216" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="264" cy="344" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="104" cy="264" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="88" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面；F26另用青蓝与紫色画出两艘居民船的实际水路。实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第17回合完成</div><p>结算时正式队员 4/4 存活；无人濒死。</p><p class="small">773次按键，含出入场与战后操作。<a href="play/round1-ships/round1-ships-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第10回合完成</div><p>结算时正式队员 4/4 存活；无人濒死。</p><p class="small">494次按键，含出入场与战后操作。<a href="play/round2-other/round2-other-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/F21-01.png" target="_blank"><img src="screenshots/F21-01.png" loading="lazy" alt="双舰接舷与己船部署"></a><figcaption>双舰接舷与己船部署 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/F21-02.png" target="_blank"><img src="screenshots/F21-02.png" loading="lazy" alt="两条跳板之间的推进"></a><figcaption>两条跳板之间的推进 · 第6回合</figcaption></figure>
+<figure><a class="image" href="screenshots/F21-03.png" target="_blank"><img src="screenshots/F21-03.png" loading="lazy" alt="保住船体并击败指挥官"></a><figcaption>保住船体并击败指挥官 · 第10回合</figcaption></figure>
+</div></section>
+<section class="panel" id="F22"><div class="eyebrow">F22 / 46×32 → 34×28</div><h2>押送舰救援 · 双舱与接应旗</h2><p>前后两间实体囚舱沿敌舰中轴布置，接应旗位在中段跳板落点旁，与总闸相邻。</p><div class="pair">
+<figure><figcaption>修改前 · 前一轮版本</figcaption><a class="image" href="before/F22.png" target="_blank"><img src="before/F22.png" loading="lazy" alt="F22 修改前 · 前一轮版本"></a></figure>
+<figure><figcaption>重设计后 · 当前Godot场景</figcaption><a class="image" href="images/F22.png" target="_blank"><img src="images/F22.png" loading="lazy" alt="F22 重设计后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>上跳板初始贯通，两船甲板与囚舱门前通道连成主要救援线。</p></article><article><h3>侧路与取舍</h3><p>下方备用跳板须在独立绞盘处放下后使用，提供后甲板支援路线。</p><p>先清理门前和撤离通道再开总闸；两扇牢门同时开放，三名普通俘虏必须存活抵达接应旗，洛德单独记录。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="F22" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="F22" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="F22" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/F22.png" alt="F22地形说明"><svg viewBox="0 0 608 512" aria-hidden="true"><g class="overlay" data-map="F22" data-overlay="routes">
+<polyline points="" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="F22" data-overlay="actors">
+<circle cx="152" cy="264" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="264" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="264" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="280" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="280" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="280" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="264" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="280" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="296" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="296" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="392" cy="104" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="376" cy="136" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="232" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="408" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="504" cy="232" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="392" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="392" cy="360" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="232" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="504" cy="280" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="136" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="472" cy="136" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="328" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="472" cy="328" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="328" cy="264" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="392" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="104" cy="312" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="312" cy="248" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面；F26另用青蓝与紫色画出两艘居民船的实际水路。实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第29回合完成</div><p>结算时正式队员 3/4 存活；濒死：莉莎。</p><p class="small">969次按键，含出入场与战后操作。<a href="play/round1-ships/round1-ships-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第25回合完成</div><p>结算时正式队员 4/4 存活；无人濒死。</p><p class="small">1,100次按键，含出入场与战后操作。<a href="play/round2-other/round2-other-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/F22-01.png" target="_blank"><img src="screenshots/F22-01.png" loading="lazy" alt="接应舰与押送舰"></a><figcaption>接应舰与押送舰 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/F22-02.png" target="_blank"><img src="screenshots/F22-02.png" loading="lazy" alt="总闸打开后的双囚舱开口"></a><figcaption>总闸打开后的双囚舱开口 · 第22回合</figcaption></figure>
+<figure><a class="image" href="screenshots/F22-03.png" target="_blank"><img src="screenshots/F22-03.png" loading="lazy" alt="三名普通俘虏撤至接应旗位"></a><figcaption>三名普通俘虏撤至接应旗位 · 第25回合</figcaption></figure>
+</div></section>
+<section class="panel" id="F23"><div class="eyebrow">F23 / 38×30 → 32×26</div><h2>礁岛登岸 · 沙湾与林崖</h2><p>西南登陆湾和渔村围出后方营地，西岸旧瞭望塔与东北林崖标明岛屿两端。</p><div class="pair">
+<figure><figcaption>修改前 · 前一轮版本</figcaption><a class="image" href="before/F23.png" target="_blank"><img src="before/F23.png" loading="lazy" alt="F23 修改前 · 前一轮版本"></a></figure>
+<figure><figcaption>重设计后 · 当前Godot场景</figcaption><a class="image" href="images/F23.png" target="_blank"><img src="images/F23.png" loading="lazy" alt="F23 重设计后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>两格村路从沙滩越过营地前方，转入东北草坡和首领高地。</p></article><article><h3>侧路与取舍</h3><p>西侧一格岩坡路绕林而行，东坡短路与主道形成清场回路。</p><p>护卫从营地前方展开，可分路清除魔物，但仍须照看身后的渔民；飞行敌人能跨越林崖，击败首领不能替代清场。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="F23" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="F23" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="F23" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/F23.png" alt="F23地形说明"><svg viewBox="0 0 576 480" aria-hidden="true"><g class="overlay" data-map="F23" data-overlay="routes">
+<polyline points="136,424 184,424 184,376 232,376 232,312 296,312 296,216 408,216 424,216 424,152 456,152 456,104 472,88" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="136,424 184,424 184,376 232,376 232,312 296,312 296,216 408,216 424,216 424,152 456,152 456,104 472,88" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="184,376 152,376 152,296 168,296 168,248 232,248 232,168 264,168 264,120 344,120" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="184,376 152,376 152,296 168,296 168,248 232,248 232,168 264,168 264,120 344,120" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="296,312 376,312 376,264 424,264 424,216" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="296,312 376,312 376,264 424,264 424,216" fill="none" stroke="#a6b887" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="F23" data-overlay="actors">
+<circle cx="232" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="232" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="216" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="216" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="264" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="232" cy="360" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="360" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="216" cy="360" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="456" cy="120" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="424" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="264" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="408" cy="328" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="216" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="392" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="424" cy="280" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="152" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="216" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="376" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="392" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="376" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="408" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="344" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="472" cy="88" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面；F26另用青蓝与紫色画出两艘居民船的实际水路。实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第11回合完成</div><p>结算时正式队员 5/5 存活；无人濒死。</p><p class="small">736次按键，含出入场与战后操作。<a href="play/shore-defense-c/shore-defense-c-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第13回合完成</div><p>结算时正式队员 5/5 存活；无人濒死。</p><p class="small">782次按键，含出入场与战后操作。<a href="play/shore-defense-d/shore-defense-d-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/F23-01.png" target="_blank"><img src="screenshots/F23-01.png" loading="lazy" alt="南湾渔村与登陆部署"></a><figcaption>南湾渔村与登陆部署 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/F23-02.png" target="_blank"><img src="screenshots/F23-02.png" loading="lazy" alt="守住南营地迎击飞兵"></a><figcaption>守住南营地迎击飞兵 · 第4回合</figcaption></figure>
+<figure><a class="image" href="screenshots/F23-03.png" target="_blank"><img src="screenshots/F23-03.png" loading="lazy" alt="清场后保住渔民营地"></a><figcaption>清场后保住渔民营地 · 第13回合</figcaption></figure>
+</div></section>
+<section class="panel" id="F24"><div class="eyebrow">F24 / 40×32 → 32×28</div><h2>海灯岛防卫 · 中央灯庭</h2><p>守灯塔屋、南门石阶和塔前航灯台组成中央防守地标，岛民与希雅留在南侧庇护村街。</p><div class="pair">
+<figure><figcaption>修改前 · 前一轮版本</figcaption><a class="image" href="before/F24.png" target="_blank"><img src="before/F24.png" loading="lazy" alt="F24 修改前 · 前一轮版本"></a></figure>
+<figure><figcaption>重设计后 · 当前Godot场景</figcaption><a class="image" href="images/F24.png" target="_blank"><img src="images/F24.png" loading="lazy" alt="F24 重设计后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>南村两格主路直抵灯庭，前列部署能迅速进入守灯位置。</p></article><article><h3>侧路与取舍</h3><p>北岸一格登岛路与东岸两格登陆路汇入两翼，村落后路用于调防，东南岸承接援军。</p><p>留守灯位的单位与两翼应敌者需要分工，避免全员追向北口；第6己方回合起仍须首领败北且灯位安全，敌占整回合才会失败。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="F24" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="F24" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="F24" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/F24.png" alt="F24地形说明"><svg viewBox="0 0 576 512" aria-hidden="true"><g class="overlay" data-map="F24" data-overlay="routes">
+<polyline points="296,456 296,344 296,280 296,232" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="296,456 296,344 296,280 296,232" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="232,72 232,168 232,184 264,184 264,216" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="232,72 232,168 232,184 264,184 264,216" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="504,344 440,344 440,280 392,280 392,248 328,248" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="504,344 440,344 440,280 392,280 392,248 328,248" fill="none" stroke="#a6b887" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="488,200 440,200 440,136 440,120 408,120 408,184 392,184 392,248" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="488,200 440,200 440,136 440,120 408,120 408,184 392,184 392,248" fill="none" stroke="#ad91c7" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="F24" data-overlay="actors">
+<circle cx="264" cy="280" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="280" cy="280" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="296" cy="280" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="312" cy="280" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="264" cy="296" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="280" cy="296" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="296" cy="296" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="312" cy="296" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="296" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="328" cy="296" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="120" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="408" cy="104" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="456" cy="184" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="184" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="232" cy="88" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="280" cy="88" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="408" cy="232" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="280" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="200" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="472" cy="200" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="392" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="232" cy="328" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="280" cy="344" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="296" cy="232" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="344" cy="344" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="296" cy="184" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="296" cy="456" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面；F26另用青蓝与紫色画出两艘居民船的实际水路。实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第11回合完成</div><p>结算时正式队员 4/4 存活；无人濒死。</p><p class="small">604次按键，含出入场与战后操作。<a href="play/round1-islands/round1-islands-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第12回合完成</div><p>结算时正式队员 4/4 存活；无人濒死。</p><p class="small">716次按键，含出入场与战后操作。<a href="play/round2-other/round2-other-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/F24-01.png" target="_blank"><img src="screenshots/F24-01.png" loading="lazy" alt="灯庭、南村与两路敌袭"></a><figcaption>灯庭、南村与两路敌袭 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/F24-02.png" target="_blank"><img src="screenshots/F24-02.png" loading="lazy" alt="洛德守灯、队伍据庭应敌"></a><figcaption>洛德守灯、队伍据庭应敌 · 第4回合</figcaption></figure>
+<figure><a class="image" href="screenshots/F24-03.png" target="_blank"><img src="screenshots/F24-03.png" loading="lazy" alt="航灯防卫完成"></a><figcaption>航灯防卫完成 · 第12回合</figcaption></figure>
+</div></section>
+<section class="panel" id="F25"><div class="eyebrow">F25 / 44×34 → 34×28</div><h2>潮狩军港 · 仓街与沿湾码头</h2><p>南仓入口、仓街、驻军院和北侧主楼逐层展开，东牢与木码头共同界定港湾。</p><div class="pair">
+<figure><figcaption>修改前 · 前一轮版本</figcaption><a class="image" href="before/F25.png" target="_blank"><img src="before/F25.png" loading="lazy" alt="F25 修改前 · 前一轮版本"></a></figure>
+<figure><figcaption>重设计后 · 当前Godot场景</figcaption><a class="image" href="images/F25.png" target="_blank"><img src="images/F25.png" loading="lazy" alt="F25 重设计后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>两格仓街经过驻军院，通向主楼前庭的神教箱与账房门前。</p></article><article><h3>侧路与取舍</h3><p>东侧连续木码头绕过驻军院，接东牢南门和北哨；西仓房另有一格勤务道。</p><p>陆路便于推进与取箱，沿湾码头可侧进牢区与主楼；须兼顾取回神教箱、打开引航者牢门和击败裴萨，船员生死仍按原规则记录。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="F25" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="F25" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="F25" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/F25.png" alt="F25地形说明"><svg viewBox="0 0 608 512" aria-hidden="true"><g class="overlay" data-map="F25" data-overlay="routes">
+<polyline points="200,456 200,360 232,360 232,248 296,248 296,168 392,168 392,120" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="200,456 200,360 232,360 232,248 296,248 296,168 392,168 392,120" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="136,392 136,184 200,184 200,120 312,120" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="136,392 136,184 200,184 200,120 312,120" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="264,104 296,104 296,168" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="264,104 296,104 296,168" fill="none" stroke="#a6b887" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="264,408 520,408 520,136 408,136" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="264,408 520,408 520,136 408,136" fill="none" stroke="#ad91c7" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="F25" data-overlay="actors">
+<circle cx="200" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="216" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="232" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="408" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="200" cy="424" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="216" cy="424" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="232" cy="424" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="424" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="424" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="184" cy="440" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="392" cy="136" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="424" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="312" cy="264" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="408" cy="392" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="200" cy="136" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="408" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="280" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="392" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="232" cy="120" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="472" cy="152" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="312" cy="248" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="520" cy="296" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="520" cy="216" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="376" cy="312" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="344" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="472" cy="344" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="376" cy="152" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="456" cy="376" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="264" cy="88" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="472" cy="88" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面；F26另用青蓝与紫色画出两艘居民船的实际水路。实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第19回合完成</div><p>结算时正式队员 5/5 存活；无人濒死。</p><p class="small">1,267次按键，含出入场与战后操作。<a href="play/round1-harbor/round1-harbor-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第16回合完成</div><p>结算时正式队员 5/5 存活；无人濒死。</p><p class="small">1,067次按键，含出入场与战后操作。<a href="play/round2-other/round2-other-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/F25-01.png" target="_blank"><img src="screenshots/F25-01.png" loading="lazy" alt="军港入口与岸侧码头"></a><figcaption>军港入口与岸侧码头 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/F25-02.png" target="_blank"><img src="screenshots/F25-02.png" loading="lazy" alt="内庭推进与引航者牢区"></a><figcaption>内庭推进与引航者牢区 · 第8回合</figcaption></figure>
+<figure><a class="image" href="screenshots/F25-03.png" target="_blank"><img src="screenshots/F25-03.png" loading="lazy" alt="牢门与神教箱确认完成"></a><figcaption>牢门与神教箱确认完成 · 第16回合</figcaption></figure>
+</div></section>
+<section class="panel" id="F26"><div class="eyebrow">F26 / 44×32 → 38×30</div><h2>断航古道 · 沿岸护航与双水道</h2><p>北岸古道与遗迹内侧支路通向西岸石门，两艘居民船从东泊口沿分离水道西行。</p><div class="pair">
+<figure><figcaption>修改前 · 前一轮版本</figcaption><a class="image" href="before/F26.png" target="_blank"><img src="before/F26.png" loading="lazy" alt="F26 修改前 · 前一轮版本"></a></figure>
+<figure><figcaption>重设计后 · 当前Godot场景</figcaption><a class="image" href="images/F26.png" target="_blank"><img src="images/F26.png" loading="lazy" alt="F26 重设计后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>两格沿岸古道连接东泊口、岸上守军和西岸石门，护卫可沿岸提前清理威胁。</p></article><article><h3>侧路与取舍</h3><p>一格遗迹内侧小路绕过部分沿岸守军；居民船的内外两条水道独立，始终保持真实水面。</p><p>船队按原延迟与速度前进，近敌停航，岸上弓手和术士仍会威胁船体；护卫需先清岸线，至少一艘存活入泊且首领败北才胜利。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="F26" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="F26" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="F26" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/F26.png" alt="F26地形说明"><svg viewBox="0 0 672 544" aria-hidden="true"><g class="overlay" data-map="F26" data-overlay="routes">
+<polyline points="536,344 488,344 488,312 392,312 392,280 296,280 296,312 232,312 232,168 200,168 200,104 104,104" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="536,344 488,344 488,312 392,312 392,280 296,280 296,312 232,312 232,168 200,168 200,104 104,104" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="520,328 600,328 600,456" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="520,328 600,328 600,456" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="472,312 472,232 440,232 440,168 376,168 376,120 232,120 200,120" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="472,312 472,232 440,232 440,168 376,168 376,120 232,120 200,120" fill="none" stroke="#a6b887" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="72,104 56,104 56,216" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="72,104 56,104 56,216" fill="none" stroke="#ad91c7" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="552,408 536,408 520,408 504,408 488,408 472,408 456,408 440,408 424,408 408,408 392,408 376,408 360,408 344,408 328,408 312,408 296,408 280,408 264,408 248,408 232,408 216,408 200,408 184,408 168,408 168,392 168,376 168,360 168,344 168,328 168,312 168,296 168,280 168,264 168,248 168,232 168,216 168,200 168,184 168,168" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="552,408 536,408 520,408 504,408 488,408 472,408 456,408 440,408 424,408 408,408 392,408 376,408 360,408 344,408 328,408 312,408 296,408 280,408 264,408 248,408 232,408 216,408 200,408 184,408 168,408 168,392 168,376 168,360 168,344 168,328 168,312 168,296 168,280 168,264 168,248 168,232 168,216 168,200 168,184 168,168" fill="none" stroke="#53d1df" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="536,472 520,472 504,472 488,472 472,472 456,472 440,472 424,472 408,472 392,472 376,472 360,472 344,472 328,472 312,472 296,472 280,472 264,472 248,472 232,472 216,472 200,472 184,472 168,472 152,472 136,472 120,472 104,472 104,456 104,440 104,424 104,408 104,392 104,376 104,360 104,344 104,328 104,312 104,296 104,280 104,264 104,248 104,232 104,216 104,200 104,184 104,168" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="536,472 520,472 504,472 488,472 472,472 456,472 440,472 424,472 408,472 392,472 376,472 360,472 344,472 328,472 312,472 296,472 280,472 264,472 248,472 232,472 216,472 200,472 184,472 168,472 152,472 136,472 120,472 104,472 104,456 104,440 104,424 104,408 104,392 104,376 104,360 104,344 104,328 104,312 104,296 104,280 104,264 104,248 104,232 104,216 104,200 104,184 104,168" fill="none" stroke="#cfa0ee" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="F26" data-overlay="actors">
+<circle cx="504" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="520" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="536" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="552" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="504" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="520" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="536" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="552" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="488" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="216" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="152" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="392" cy="264" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="600" cy="376" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="264" cy="296" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="120" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="424" cy="296" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="600" cy="424" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="232" cy="328" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="56" cy="216" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="216" cy="264" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="56" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="104" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="456" cy="216" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="104" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面；F26另用青蓝与紫色画出两艘居民船的实际水路。实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第15回合完成</div><p>结算时正式队员 5/5 存活；无人濒死。</p><p class="small">1,107次按键，含出入场与战后操作。<a href="play/round1-harbor/round1-harbor-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第16回合完成</div><p>结算时正式队员 5/5 存活；无人濒死。</p><p class="small">1,140次按键，含出入场与战后操作。<a href="play/round2-other/round2-other-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/F26-01.png" target="_blank"><img src="screenshots/F26-01.png" loading="lazy" alt="古道护航队的南侧入口"></a><figcaption>古道护航队的南侧入口 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/F26-02.png" target="_blank"><img src="screenshots/F26-02.png" loading="lazy" alt="两艘居民船沿独立水路行进"></a><figcaption>两艘居民船沿独立水路行进 · 第12回合</figcaption></figure>
+<figure><a class="image" href="screenshots/F26-03.png" target="_blank"><img src="screenshots/F26-03.png" loading="lazy" alt="首船抵泊后的护航结算"></a><figcaption>首船抵泊后的护航结算 · 第16回合</figcaption></figure>
+</div></section>
+<section class="panel" id="S21"><div class="eyebrow">S21 / 36×28 → 32×26</div><h2>漂泊渔船 · 船队靠岸</h2><p>错位渔船通过前后跳板互援，两组病人安置在护卫后方的左船后甲板。</p><div class="pair">
+<figure><figcaption>修改前 · 前一轮版本</figcaption><a class="image" href="before/S21.png" target="_blank"><img src="before/S21.png" loading="lazy" alt="S21 修改前 · 前一轮版本"></a></figure>
+<figure><figcaption>重设计后 · 当前Godot场景</figcaption><a class="image" href="images/S21.png" target="_blank"><img src="images/S21.png" loading="lazy" alt="S21 重设计后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>连续甲板接两处横向跳板，清场后沿南侧短跳板走向实际沙岸停泊口。</p></article><article><h3>侧路与取舍</h3><p>前后两处船间跳板提供换线与支援空间，舷边货物不压住护送走廊。</p><p>护卫先清理飞行与甲板敌人，再让病人靠岸；飞行魔物仍可绕过跳板，至少一组病人须存活撤离。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="S21" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="S21" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="S21" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/S21.png" alt="S21地形说明"><svg viewBox="0 0 576 480" aria-hidden="true"><g class="overlay" data-map="S21" data-overlay="routes">
+<polyline points="" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="" fill="none" stroke="#a6b887" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="S21" data-overlay="actors">
+<circle cx="136" cy="264" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="264" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="264" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="280" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="280" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="280" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="264" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="280" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="296" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="296" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="120" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="168" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="216" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="440" cy="328" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="200" cy="152" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="456" cy="120" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="424" cy="232" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="328" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="328" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="280" cy="216" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="392" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="104" cy="232" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="88" cy="424" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面；F26另用青蓝与紫色画出两艘居民船的实际水路。实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第9回合完成</div><p>结算时正式队员 6/6 存活；无人濒死。</p><p class="small">653次按键，含出入场与战后操作。<a href="play/round1-ships/round1-ships-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第10回合完成</div><p>结算时正式队员 6/6 存活；无人濒死。</p><p class="small">687次按键，含出入场与战后操作。<a href="play/round2-other/round2-other-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/S21-01.png" target="_blank"><img src="screenshots/S21-01.png" loading="lazy" alt="病人在护卫后方的漂泊船队"></a><figcaption>病人在护卫后方的漂泊船队 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/S21-02.png" target="_blank"><img src="screenshots/S21-02.png" loading="lazy" alt="甲板迎战飞行魔物"></a><figcaption>甲板迎战飞行魔物 · 第4回合</figcaption></figure>
+<figure><a class="image" href="screenshots/S21-03.png" target="_blank"><img src="screenshots/S21-03.png" loading="lazy" alt="病人抵达沙岸停泊口"></a><figcaption>病人抵达沙岸停泊口 · 第10回合</figcaption></figure>
+</div></section>
+<section class="panel" id="S22"><div class="eyebrow">S22 / 32×28 → 28×24</div><h2>碎石海洞 · 潮池与避潮厅</h2><p>连续岩体刻出南避潮厅、遗物厅和北侧遗迹厅，边缘潮池与完整旧拱门区分各空间。</p><div class="pair">
+<figure><figcaption>修改前 · 前一轮版本</figcaption><a class="image" href="before/S22.png" target="_blank"><img src="before/S22.png" loading="lazy" alt="S22 修改前 · 前一轮版本"></a></figure>
+<figure><figcaption>重设计后 · 当前Godot场景</figcaption><a class="image" href="images/S22.png" target="_blank"><img src="images/S22.png" loading="lazy" alt="S22 重设计后 · 当前Godot场景"></a></figure>
+</div><div class="cards"><article><h3>主路线</h3><p>两格主巷从南厅经拱门中央开口通北洞口，南侧藏身室从唯一东门接回主巷。</p></article><article><h3>侧路与取舍</h3><p>一格西潮潭检修巷绕回遗物厅，遗物台和洞口避潮室各有短支路。</p><p>可先清理威胁再打开藏身室，让船员沿主巷安全撤离；仍需清场与取得遗物，旧船员生死按原规则分别记录。</p></article></div><details><summary>查看路线、部署与任务标注</summary><div class="controls">
+<button data-map="S22" data-layer="plain" aria-pressed="true">纯场景</button>
+<button data-map="S22" data-layer="routes" aria-pressed="false">道路与支路</button>
+<button data-map="S22" data-layer="actors" aria-pressed="false">部署与任务</button>
+</div><div class="board"><img src="images/S22.png" alt="S22地形说明"><svg viewBox="0 0 512 448" aria-hidden="true"><g class="overlay" data-map="S22" data-overlay="routes">
+<polyline points="136,408 136,344 248,344 248,264 328,264 328,168 408,168 408,88 424,88" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="136,408 136,344 248,344 248,264 328,264 328,168 408,168 408,88 424,88" fill="none" stroke="#ce9c4c" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="136,344 184,344 184,184 280,184 280,136 328,136" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="136,344 184,344 184,184 280,184 280,136 328,136" fill="none" stroke="#67bed1" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="216,200 248,200 248,264" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="216,200 248,200 248,264" fill="none" stroke="#a6b887" stroke-width="3.5" stroke-linejoin="round"/>
+<polyline points="248,344 360,344 360,264 328,264" fill="none" stroke="#10202a99" stroke-width="7" stroke-linejoin="round"/><polyline points="248,344 360,344 360,264 328,264" fill="none" stroke="#ad91c7" stroke-width="3.5" stroke-linejoin="round"/>
+</g><g class="overlay" data-map="S22" data-overlay="actors">
+<circle cx="136" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="328" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="120" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="168" cy="344" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="136" cy="360" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="152" cy="360" r="6" fill="#3872ca" stroke="#eee" stroke-width="1.3"/>
+<circle cx="424" cy="104" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="392" cy="184" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="344" cy="216" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="360" cy="248" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="248" cy="184" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="376" cy="104" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="424" cy="136" r="6" fill="#bd4756" stroke="#eee" stroke-width="1.3"/>
+<circle cx="312" cy="328" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="312" cy="344" r="6" fill="#d3af4a" stroke="#eee" stroke-width="1.3"/>
+<circle cx="216" cy="200" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="328" cy="328" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="376" cy="72" r="6" fill="#46976e" stroke="#eee" stroke-width="1.3"/>
+<circle cx="424" cy="72" r="6" fill="#a784cc" stroke="#eee" stroke-width="1.3"/>
+</g></svg></div><p class="legend">蓝：候选部署；红：守军；金：剧情友军；绿：交互；紫：出口。路线仅为本页解释，不加入实机画面；F26另用青蓝与紫色画出两艘居民船的实际水路。实际通行以游戏地形为准。</p></details><div class="cards">
+<article><h3>第1轮 · 实际输入复测</h3><div class="stats">第13回合完成</div><p>结算时正式队员 4/4 存活；无人濒死。</p><p class="small">632次按键，含出入场与战后操作。<a href="play/round1-islands/round1-islands-play.json">原始记录</a></p></article>
+<article><h3>第2轮 · 实际输入复测</h3><div class="stats">第13回合完成</div><p>结算时正式队员 4/4 存活；无人濒死。</p><p class="small">641次按键，含出入场与战后操作。<a href="play/round2-other/round2-other-play.json">原始记录</a></p></article>
+</div><div class="shots">
+<figure><a class="image" href="screenshots/S22-01.png" target="_blank"><img src="screenshots/S22-01.png" loading="lazy" alt="海洞南厅与避潮支巷"></a><figcaption>海洞南厅与避潮支巷 · 第1回合</figcaption></figure>
+<figure><a class="image" href="screenshots/S22-02.png" target="_blank"><img src="screenshots/S22-02.png" loading="lazy" alt="岩厅中的战斗与救援"></a><figcaption>岩厅中的战斗与救援 · 第6回合</figcaption></figure>
+<figure><a class="image" href="screenshots/S22-03.png" target="_blank"><img src="screenshots/S22-03.png" loading="lazy" alt="遗物确认后的海洞结算"></a><figcaption>遗物确认后的海洞结算 · 第13回合</figcaption></figure>
+</div></section>
+<section class="panel" id="verification"><h2>试玩与复查</h2><p>八图完成两轮逐关实际输入复测，检查战后据点、救援、招募和主线接续。另从上一章真实完成记录起步，保留自然成长、伤情与招募结果，通过第二章八图并正常进入第三章。军港曾因自动试玩的跟随策略停滞；从同一T91记录续行，3个玩家回合内完成军港，继续完成断航护航与章末接续，没有重开战场或改写战斗状态。</p><div class="note"><strong>复查后的修正</strong><p>囚舱栏杆补齐连续接缝，甲板按前后舱与货区分组；礁岛和灯岛去掉海岸亮色描线，保留实际沙滩，灯屋石阶连接守灯台；海洞外围改为连续岩层。两艘居民船使用分开的水路和泊位，避免停航或靠岸重叠。</p></div>
+<p>1500项独立规则、连通与保存检查通过；24张实机视口文字安全区检查无错误。第一章与M41在内的其余32张地图保持原样，程序与人物动画代码沿用。</p>
+<details><summary>原始尝试、失败记录与验证范围</summary><p>两轮逐关检查使用真实开发记录的隔离副本；普通按键完成移动、战斗、交互和结算，没有修改属性、随机结果或强制胜利。表内回合数受路线、命中和伤情影响，不代表固定难度。</p><p>初版海灯岛试玩把全队都按抢灯策略前压，艾琳在第3回合濒死；随后以洛德驻灯、其余单位据灯庭应敌完成复测，游戏规则未因此修改。早期驱动准备时曾与新图集首次写入相遇并记录纹理错误，该次仅用于入口脚本诊断，不计入最终两轮。最终轮次均在素材导入完成后启动。 礁岛初期前压与治疗时序也曾造成艾琳或卡洛倒下；定稿复测采用先守南营地、治疗后行动、优先处理绕后飞兵的同一策略，两次五名队员都存活。 整章连续样本在军港因测试驾驶器的治疗跟随约束原地等待，从精确T91状态改用健康前排推进后T93获胜，随后完成护航与第三章入口。章末一次西队字段断言因整数/浮点规范化误报；前后持久化字段核对一致，入口验证从同一章末记录继续。原始报告均保留。</p><p>未重新安装手机包；HTML资源与脚本检查不等同浏览器布局验收。</p><ul>
+<li><a href="play/baseline-entry/baseline-entry-play.json">baseline-entry-play.json</a>：F21 未完成／失败、F22 未完成／失败、F23 未完成／失败、F24 未完成／失败、F25 未完成／失败、F26 未完成／失败、S21 未完成／失败、S22 未完成／失败</li>
+<li><a href="play/continuous-final/continuous-final-play.json">continuous-final-play.json</a>：F21 通过、F22 通过、F23 通过、S21 通过、S22 通过、F24 通过、F25 未完成／失败</li>
+<li><a href="play/continuous-resumed/continuous-resumed-play.json">continuous-resumed-play.json</a>：F25 通过、F26 通过</li>
+<li><a href="play/driver-ready/driver-ready-play.json">driver-ready-play.json</a>：F21 未完成／失败</li>
+<li><a href="play/first-harbor/first-harbor-play.json">first-harbor-play.json</a>：F25 通过、F26 通过</li>
+<li><a href="play/first-islands/first-islands-play.json">first-islands-play.json</a>：F23 通过、F24 未完成／失败、S22 通过</li>
+<li><a href="play/first-ships/first-ships-play.json">first-ships-play.json</a>：F21 通过、F22 通过、S21 通过</li>
+<li><a href="play/lighthouse-defense/lighthouse-defense-play.json">lighthouse-defense-play.json</a>：F24 通过</li>
+<li><a href="play/round1-harbor/round1-harbor-play.json">round1-harbor-play.json</a>：F25 通过、F26 通过</li>
+<li><a href="play/round1-islands/round1-islands-play.json">round1-islands-play.json</a>：F23 未完成／失败、F24 通过、S22 通过</li>
+<li><a href="play/round1-ships/round1-ships-play.json">round1-ships-play.json</a>：F21 通过、F22 通过、S21 通过</li>
+<li><a href="play/round2-other/round2-other-play.json">round2-other-play.json</a>：F21 通过、F22 通过、F24 通过、F25 通过、F26 通过、S21 通过、S22 通过</li>
+<li><a href="play/shore-defense-a/shore-defense-a-play.json">shore-defense-a-play.json</a>：F23 通过</li>
+<li><a href="play/shore-defense-b/shore-defense-b-play.json">shore-defense-b-play.json</a>：F23 通过</li>
+<li><a href="play/shore-defense-c/shore-defense-c-play.json">shore-defense-c-play.json</a>：F23 通过</li>
+<li><a href="play/shore-defense-d/shore-defense-d-play.json">shore-defense-d-play.json</a>：F23 通过</li>
+</ul></details><nav class="links"><a href="delivery-summary.json">完整交付记录</a><a href="rules-probe.json">独立规则检查</a><a href="flow-continuation.json">主线接续记录</a><a href="document-sync.json">流程文档同步</a><a href="runtime-log-review.json">运行日志复核</a></nav></section><footer>第二章地图专项 · 2026-10-22 · 原生像素材质与现有动画。<a href="../m41-redesign-20261022/index.html">已确认的M41样板</a></footer>
+<script>function selectLayer(code,mode){document.querySelectorAll('button[data-map="'+code+'"]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.layer===mode)));document.querySelectorAll('.overlay[data-map="'+code+'"]').forEach(g=>g.classList.toggle('active',g.dataset.overlay===mode));}document.querySelectorAll('button[data-layer]').forEach(b=>b.addEventListener('click',()=>selectLayer(b.dataset.map,b.dataset.layer)));</script></main></body></html>

@@ -1,0 +1,98 @@
+{
+  "passed": true,
+  "background_guard": true,
+  "maps": [
+    {
+      "code": "F25",
+      "sha256": "b62aafff7f4310eded79aff6392788380f4ebdacb97f2af99f0308b22e6b72f5",
+      "native_modules": true,
+      "geometry_passed": true
+    },
+    {
+      "code": "F26",
+      "sha256": "c3f52143fbbacb987040ff07928c5bc2a1d5a89fc05ba18f7a0eb2875b6551ad",
+      "native_modules": true,
+      "geometry_passed": true
+    }
+  ],
+  "assets": [
+    {
+      "purpose": "F25 native Godot map viewport",
+      "path": "actual/reports/chapter2-redesign-20261022/harbor-channel/images/F25.png",
+      "size": [
+        608,
+        512
+      ],
+      "bytes": 80999
+    },
+    {
+      "purpose": "F26 native Godot map viewport",
+      "path": "actual/reports/chapter2-redesign-20261022/harbor-channel/images/F26.png",
+      "size": [
+        672,
+        544
+      ],
+      "bytes": 78107
+    },
+    {
+      "purpose": "Independent native atlas preserving all original IDs",
+      "path": "actual/assets/chapter2-redesign-20261022/harbor-channel/terrain.png",
+      "size": [
+        512,
+        2688
+      ],
+      "bytes": 236495
+    },
+    {
+      "purpose": "Unmodified event-boat bitmap used by F26",
+      "path": "actual/assets/chapter2/modules/rowboat.png",
+      "size": [
+        32,
+        48
+      ],
+      "bytes": 715
+    }
+  ],
+  "art_style": "Original native pixel art, no rescaling of structures, no animation edits.",
+  "fixes": [
+    "Moved F25 shore mage and flying guard onto real wooden pier anchors before first play.",
+    "Omitted explicit open_tile=208 on pilot_prison: existing runtime default208 preserves original field contract.",
+    "F26 waterway reserves complete32x48 boat sprite bounds, and entire swept regions of both paths are disjoint, including stopped or arrived states."
+  ],
+  "boat_route_checks": {
+    "sprite_size": [
+      32,
+      48
+    ],
+    "draw_offset_pixels": [
+      -8,
+      -32
+    ],
+    "conservative_covered_cells": "x-1..x+1 / y-2..y",
+    "all_hull_cells_are_water": true,
+    "all_possible_pair_positions_disjoint": true,
+    "distinct_final_berths": [
+      [
+        8,
+        8
+      ],
+      [
+        4,
+        8
+      ]
+    ],
+    "delays": [
+      4,
+      8
+    ],
+    "speed": [
+      3,
+      3
+    ],
+    "hp": [
+      30,
+      30
+    ]
+  },
+  "quality_note": "Independent atlas is losslessly optimized; exact native pixel edges and tile IDs retained even above the reference size."
+}

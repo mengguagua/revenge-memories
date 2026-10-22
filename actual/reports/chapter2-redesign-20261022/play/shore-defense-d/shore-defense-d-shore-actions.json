@@ -1,0 +1,3702 @@
+{
+  "inputs_only": true,
+  "operations": [
+    {
+      "kind": "world route",
+      "node": 20,
+      "previous": 19
+    },
+    {
+      "item": 60,
+      "kind": "actual convoy equipment comparison and confirmation",
+      "node": 20,
+      "unit": "eileen"
+    },
+    {
+      "kind": "shore formation",
+      "turn": 1,
+      "units": [
+        {
+          "hp": 22,
+          "id": "eileen",
+          "pos": [
+            12.0,
+            18.0
+          ]
+        },
+        {
+          "hp": 18,
+          "id": "mireille",
+          "pos": [
+            13.0,
+            18.0
+          ]
+        },
+        {
+          "hp": 21,
+          "id": "lisa",
+          "pos": [
+            12.0,
+            19.0
+          ]
+        },
+        {
+          "hp": 24,
+          "id": "carlo",
+          "pos": [
+            13.0,
+            19.0
+          ]
+        },
+        {
+          "hp": 30,
+          "id": "lord",
+          "pos": [
+            11.0,
+            18.0
+          ]
+        },
+        {
+          "hp": 29.0,
+          "id": "F23_boss",
+          "pos": [
+            26.0,
+            5.0
+          ]
+        },
+        {
+          "hp": 23.0,
+          "id": "F23_e1",
+          "pos": [
+            24.0,
+            10.0
+          ]
+        },
+        {
+          "hp": 23.0,
+          "id": "F23_e2",
+          "pos": [
+            20.0,
+            14.0
+          ]
+        },
+        {
+          "hp": 23.0,
+          "id": "F23_e3",
+          "pos": [
+            23.0,
+            18.0
+          ]
+        },
+        {
+          "hp": 23.0,
+          "id": "F23_e4",
+          "pos": [
+            13.0,
+            10.0
+          ]
+        },
+        {
+          "hp": 23.0,
+          "id": "F23_e5",
+          "pos": [
+            25.0,
+            11.0
+          ]
+        },
+        {
+          "hp": 21.0,
+          "id": "F23_e6",
+          "pos": [
+            22.0,
+            10.0
+          ]
+        },
+        {
+          "hp": 21.0,
+          "id": "F23_e7",
+          "pos": [
+            24.0,
+            15.0
+          ]
+        },
+        {
+          "hp": 21.0,
+          "id": "F23_e8",
+          "pos": [
+            13.0,
+            7.0
+          ]
+        },
+        {
+          "hp": 26.0,
+          "id": "F23_e9",
+          "pos": [
+            25.0,
+            8.0
+          ]
+        },
+        {
+          "hp": 26.0,
+          "id": "F23_e10",
+          "pos": [
+            20.0,
+            11.0
+          ]
+        },
+        {
+          "hp": 23.0,
+          "id": "roan",
+          "pos": [
+            6.0,
+            21.0
+          ]
+        },
+        {
+          "hp": 28.0,
+          "id": "fishers",
+          "pos": [
+            8.0,
+            22.0
+          ]
+        }
+      ]
+    },
+    {
+      "action": {
+        "cell": [
+          15,
+          18
+        ],
+        "kind": "wait",
+        "score": 0.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        15,
+        18
+      ],
+      "after_hp": 30,
+      "cell": [
+        11.0,
+        18.0
+      ],
+      "hp": 30,
+      "target_after_hp": -1,
+      "turn": 1,
+      "unit": "lord"
+    },
+    {
+      "from": [
+        11,
+        18
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        15,
+        18
+      ],
+      "turn": 1,
+      "unit": "lord"
+    },
+    {
+      "action": {
+        "cell": [
+          14,
+          18
+        ],
+        "kind": "wait",
+        "score": 0.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        14,
+        18
+      ],
+      "after_hp": 24,
+      "cell": [
+        13.0,
+        19.0
+      ],
+      "hp": 24,
+      "target_after_hp": -1,
+      "turn": 1,
+      "unit": "carlo"
+    },
+    {
+      "from": [
+        13,
+        19
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        14,
+        18
+      ],
+      "turn": 1,
+      "unit": "carlo"
+    },
+    {
+      "action": {
+        "cell": [
+          13,
+          20
+        ],
+        "kind": "wait",
+        "score": 0.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        13,
+        20
+      ],
+      "after_hp": 21,
+      "cell": [
+        12.0,
+        19.0
+      ],
+      "hp": 21,
+      "target_after_hp": -1,
+      "turn": 1,
+      "unit": "lisa"
+    },
+    {
+      "from": [
+        12,
+        19
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        13,
+        20
+      ],
+      "turn": 1,
+      "unit": "lisa"
+    },
+    {
+      "action": {
+        "cell": [
+          12,
+          19
+        ],
+        "kind": "wait",
+        "score": 0.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        12,
+        19
+      ],
+      "after_hp": 22,
+      "cell": [
+        12.0,
+        18.0
+      ],
+      "hp": 22,
+      "target_after_hp": -1,
+      "turn": 1,
+      "unit": "eileen"
+    },
+    {
+      "from": [
+        12,
+        18
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        12,
+        19
+      ],
+      "turn": 1,
+      "unit": "eileen"
+    },
+    {
+      "action": {
+        "cell": [
+          12,
+          21
+        ],
+        "kind": "wait",
+        "score": 0.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        12,
+        21
+      ],
+      "after_hp": 18,
+      "cell": [
+        13.0,
+        18.0
+      ],
+      "hp": 18,
+      "target_after_hp": -1,
+      "turn": 1,
+      "unit": "mireille"
+    },
+    {
+      "from": [
+        13,
+        18
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        12,
+        21
+      ],
+      "turn": 2,
+      "unit": "mireille"
+    },
+    {
+      "kind": "shore formation",
+      "turn": 2,
+      "units": [
+        {
+          "hp": 22,
+          "id": "eileen",
+          "pos": [
+            12,
+            19
+          ]
+        },
+        {
+          "hp": 18,
+          "id": "mireille",
+          "pos": [
+            12,
+            21
+          ]
+        },
+        {
+          "hp": 21,
+          "id": "lisa",
+          "pos": [
+            13,
+            20
+          ]
+        },
+        {
+          "hp": 24,
+          "id": "carlo",
+          "pos": [
+            14,
+            18
+          ]
+        },
+        {
+          "hp": 30,
+          "id": "lord",
+          "pos": [
+            15,
+            18
+          ]
+        },
+        {
+          "hp": 29,
+          "id": "F23_boss",
+          "pos": [
+            26,
+            5
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "F23_e1",
+          "pos": [
+            20,
+            10
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "F23_e2",
+          "pos": [
+            17,
+            15
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "F23_e3",
+          "pos": [
+            19,
+            18
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "F23_e4",
+          "pos": [
+            12,
+            13
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "F23_e5",
+          "pos": [
+            22,
+            12
+          ]
+        },
+        {
+          "hp": 21,
+          "id": "F23_e6",
+          "pos": [
+            21,
+            16
+          ]
+        },
+        {
+          "hp": 21,
+          "id": "F23_e7",
+          "pos": [
+            18,
+            15
+          ]
+        },
+        {
+          "hp": 21,
+          "id": "F23_e8",
+          "pos": [
+            13,
+            14
+          ]
+        },
+        {
+          "hp": 26,
+          "id": "F23_e9",
+          "pos": [
+            25,
+            8
+          ]
+        },
+        {
+          "hp": 26,
+          "id": "F23_e10",
+          "pos": [
+            20,
+            11
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "roan",
+          "pos": [
+            6,
+            21
+          ]
+        },
+        {
+          "hp": 28,
+          "id": "fishers",
+          "pos": [
+            8,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "action": {
+        "cell": [
+          15,
+          18
+        ],
+        "kind": "wait",
+        "score": -6.072,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        15,
+        18
+      ],
+      "after_hp": 30,
+      "cell": [
+        15,
+        18
+      ],
+      "hp": 30,
+      "target_after_hp": -1,
+      "turn": 2,
+      "unit": "lord"
+    },
+    {
+      "from": [
+        15,
+        18
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        15,
+        18
+      ],
+      "turn": 2,
+      "unit": "lord"
+    },
+    {
+      "action": {
+        "cell": [
+          14,
+          18
+        ],
+        "kind": "wait",
+        "score": -7.872,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        14,
+        18
+      ],
+      "after_hp": 24,
+      "cell": [
+        14,
+        18
+      ],
+      "hp": 24,
+      "target_after_hp": -1,
+      "turn": 2,
+      "unit": "carlo"
+    },
+    {
+      "from": [
+        14,
+        18
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        14,
+        18
+      ],
+      "turn": 2,
+      "unit": "carlo"
+    },
+    {
+      "action": {
+        "cell": [
+          13,
+          20
+        ],
+        "kind": "wait",
+        "score": -4.094,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        13,
+        20
+      ],
+      "after_hp": 21,
+      "cell": [
+        13,
+        20
+      ],
+      "hp": 21,
+      "target_after_hp": -1,
+      "turn": 2,
+      "unit": "lisa"
+    },
+    {
+      "from": [
+        13,
+        20
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        13,
+        20
+      ],
+      "turn": 2,
+      "unit": "lisa"
+    },
+    {
+      "action": {
+        "cell": [
+          12,
+          20
+        ],
+        "kind": "wait",
+        "score": -5.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        12,
+        20
+      ],
+      "after_hp": 22,
+      "cell": [
+        12,
+        19
+      ],
+      "hp": 22,
+      "target_after_hp": -1,
+      "turn": 2,
+      "unit": "eileen"
+    },
+    {
+      "from": [
+        12,
+        19
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        12,
+        20
+      ],
+      "turn": 2,
+      "unit": "eileen"
+    },
+    {
+      "action": {
+        "cell": [
+          12,
+          21
+        ],
+        "kind": "wait",
+        "score": 0.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        12,
+        21
+      ],
+      "after_hp": 18,
+      "cell": [
+        12,
+        21
+      ],
+      "hp": 18,
+      "target_after_hp": -1,
+      "turn": 2,
+      "unit": "mireille"
+    },
+    {
+      "from": [
+        12,
+        21
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        12,
+        21
+      ],
+      "turn": 3,
+      "unit": "mireille"
+    },
+    {
+      "kind": "shore formation",
+      "turn": 3,
+      "units": [
+        {
+          "hp": 22,
+          "id": "eileen",
+          "pos": [
+            12,
+            20
+          ]
+        },
+        {
+          "hp": 18,
+          "id": "mireille",
+          "pos": [
+            12,
+            21
+          ]
+        },
+        {
+          "hp": 21,
+          "id": "lisa",
+          "pos": [
+            13,
+            20
+          ]
+        },
+        {
+          "hp": 20,
+          "id": "carlo",
+          "pos": [
+            14,
+            18
+          ]
+        },
+        {
+          "hp": 27,
+          "id": "lord",
+          "pos": [
+            15,
+            18
+          ]
+        },
+        {
+          "hp": 29,
+          "id": "F23_boss",
+          "pos": [
+            26,
+            5
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "F23_e1",
+          "pos": [
+            19,
+            13
+          ]
+        },
+        {
+          "hp": 12,
+          "id": "F23_e2",
+          "pos": [
+            15,
+            17
+          ]
+        },
+        {
+          "hp": 12,
+          "id": "F23_e3",
+          "pos": [
+            16,
+            18
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "F23_e4",
+          "pos": [
+            13,
+            13
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "F23_e5",
+          "pos": [
+            19,
+            12
+          ]
+        },
+        {
+          "hp": 21,
+          "id": "F23_e6",
+          "pos": [
+            16,
+            17
+          ]
+        },
+        {
+          "hp": 7,
+          "id": "F23_e7",
+          "pos": [
+            14,
+            17
+          ]
+        },
+        {
+          "hp": 13,
+          "id": "F23_e8",
+          "pos": [
+            12,
+            19
+          ]
+        },
+        {
+          "hp": 26,
+          "id": "F23_e9",
+          "pos": [
+            25,
+            8
+          ]
+        },
+        {
+          "hp": 26,
+          "id": "F23_e10",
+          "pos": [
+            20,
+            11
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "roan",
+          "pos": [
+            6,
+            21
+          ]
+        },
+        {
+          "hp": 28,
+          "id": "fishers",
+          "pos": [
+            8,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "action": {
+        "cell": [
+          12,
+          18
+        ],
+        "kind": "attack",
+        "score": 80.43,
+        "spell": -1,
+        "target": "F23_e8"
+      },
+      "after_cell": [
+        12,
+        18
+      ],
+      "after_hp": 25,
+      "cell": [
+        15,
+        18
+      ],
+      "hp": 27,
+      "target_after_hp": 2,
+      "turn": 3,
+      "unit": "lord"
+    },
+    {
+      "from": [
+        15,
+        18
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        12,
+        18
+      ],
+      "turn": 3,
+      "unit": "lord"
+    },
+    {
+      "action": {
+        "cell": [
+          14,
+          18
+        ],
+        "kind": "attack",
+        "score": 115.88,
+        "spell": -1,
+        "target": "F23_e7"
+      },
+      "after_cell": [
+        14,
+        18
+      ],
+      "after_hp": 20,
+      "cell": [
+        14,
+        18
+      ],
+      "hp": 20,
+      "target_after_hp": 0,
+      "turn": 3,
+      "unit": "carlo"
+    },
+    {
+      "from": [
+        14,
+        18
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        14,
+        18
+      ],
+      "turn": 3,
+      "unit": "carlo"
+    },
+    {
+      "action": {
+        "cell": [
+          13,
+          20
+        ],
+        "kind": "attack",
+        "score": 118.791,
+        "spell": -1,
+        "target": "F23_e8"
+      },
+      "after_cell": [
+        13,
+        20
+      ],
+      "after_hp": 20,
+      "cell": [
+        13,
+        20
+      ],
+      "hp": 21,
+      "target_after_hp": 0,
+      "turn": 3,
+      "unit": "lisa"
+    },
+    {
+      "from": [
+        13,
+        20
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        13,
+        20
+      ],
+      "turn": 3,
+      "unit": "lisa"
+    },
+    {
+      "action": {
+        "cell": [
+          12,
+          20
+        ],
+        "kind": "wait",
+        "score": -13.096,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        12,
+        20
+      ],
+      "after_hp": 22,
+      "cell": [
+        12,
+        20
+      ],
+      "hp": 22,
+      "target_after_hp": -1,
+      "turn": 3,
+      "unit": "eileen"
+    },
+    {
+      "from": [
+        12,
+        20
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        12,
+        20
+      ],
+      "turn": 3,
+      "unit": "eileen"
+    },
+    {
+      "action": {
+        "cell": [
+          11,
+          21
+        ],
+        "kind": "wait",
+        "score": -5.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        11,
+        21
+      ],
+      "after_hp": 18,
+      "cell": [
+        12,
+        21
+      ],
+      "hp": 18,
+      "target_after_hp": -1,
+      "turn": 3,
+      "unit": "mireille"
+    },
+    {
+      "from": [
+        12,
+        21
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        11,
+        21
+      ],
+      "turn": 4,
+      "unit": "mireille"
+    },
+    {
+      "kind": "shore formation",
+      "turn": 4,
+      "units": [
+        {
+          "hp": 22,
+          "id": "eileen",
+          "pos": [
+            12,
+            20
+          ]
+        },
+        {
+          "hp": 18,
+          "id": "mireille",
+          "pos": [
+            11,
+            21
+          ]
+        },
+        {
+          "hp": 20,
+          "id": "lisa",
+          "pos": [
+            13,
+            20
+          ]
+        },
+        {
+          "hp": 11,
+          "id": "carlo",
+          "pos": [
+            14,
+            18
+          ]
+        },
+        {
+          "hp": 25,
+          "id": "lord",
+          "pos": [
+            12,
+            18
+          ]
+        },
+        {
+          "hp": 29,
+          "id": "F23_boss",
+          "pos": [
+            26,
+            5
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "F23_e1",
+          "pos": [
+            17,
+            15
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "F23_e4",
+          "pos": [
+            14,
+            15
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "F23_e5",
+          "pos": [
+            19,
+            16
+          ]
+        },
+        {
+          "hp": 7,
+          "id": "F23_e6",
+          "pos": [
+            14,
+            17
+          ]
+        },
+        {
+          "hp": 26,
+          "id": "F23_e9",
+          "pos": [
+            25,
+            8
+          ]
+        },
+        {
+          "hp": 26,
+          "id": "F23_e10",
+          "pos": [
+            20,
+            11
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "roan",
+          "pos": [
+            6,
+            21
+          ]
+        },
+        {
+          "hp": 28,
+          "id": "fishers",
+          "pos": [
+            8,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "action": {
+        "cell": [
+          15,
+          17
+        ],
+        "kind": "attack",
+        "score": 120.52,
+        "spell": -1,
+        "target": "F23_e6"
+      },
+      "after_cell": [
+        15,
+        17
+      ],
+      "after_hp": 25,
+      "cell": [
+        12,
+        18
+      ],
+      "hp": 25,
+      "target_after_hp": 0,
+      "turn": 4,
+      "unit": "lord"
+    },
+    {
+      "from": [
+        12,
+        18
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        15,
+        17
+      ],
+      "turn": 4,
+      "unit": "lord"
+    },
+    {
+      "action": {
+        "cell": [
+          14,
+          18
+        ],
+        "kind": "wait",
+        "score": -4.92,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        14,
+        18
+      ],
+      "after_hp": 11,
+      "cell": [
+        14,
+        18
+      ],
+      "hp": 11,
+      "target_after_hp": -1,
+      "turn": 4,
+      "unit": "carlo"
+    },
+    {
+      "from": [
+        14,
+        18
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        14,
+        18
+      ],
+      "turn": 4,
+      "unit": "carlo"
+    },
+    {
+      "action": {
+        "cell": [
+          14,
+          17
+        ],
+        "kind": "attack",
+        "score": 49.652,
+        "spell": -1,
+        "target": "F23_e4"
+      },
+      "after_cell": [
+        14,
+        17
+      ],
+      "after_hp": 18,
+      "cell": [
+        13,
+        20
+      ],
+      "hp": 20,
+      "target_after_hp": 0,
+      "turn": 4,
+      "unit": "lisa"
+    },
+    {
+      "from": [
+        13,
+        20
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        14,
+        17
+      ],
+      "turn": 4,
+      "unit": "lisa"
+    },
+    {
+      "action": {
+        "cell": [
+          12,
+          19
+        ],
+        "kind": "wait",
+        "score": 0.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        12,
+        19
+      ],
+      "after_hp": 22,
+      "cell": [
+        12,
+        20
+      ],
+      "hp": 22,
+      "target_after_hp": -1,
+      "turn": 4,
+      "unit": "eileen"
+    },
+    {
+      "from": [
+        12,
+        20
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        12,
+        19
+      ],
+      "turn": 4,
+      "unit": "eileen"
+    },
+    {
+      "action": {
+        "cell": [
+          12,
+          21
+        ],
+        "kind": "wait",
+        "score": 0.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        12,
+        21
+      ],
+      "after_hp": 18,
+      "cell": [
+        11,
+        21
+      ],
+      "hp": 18,
+      "target_after_hp": -1,
+      "turn": 4,
+      "unit": "mireille"
+    },
+    {
+      "from": [
+        11,
+        21
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        12,
+        21
+      ],
+      "turn": 5,
+      "unit": "mireille"
+    },
+    {
+      "kind": "shore formation",
+      "turn": 5,
+      "units": [
+        {
+          "hp": 22,
+          "id": "eileen",
+          "pos": [
+            12,
+            19
+          ]
+        },
+        {
+          "hp": 18,
+          "id": "mireille",
+          "pos": [
+            12,
+            21
+          ]
+        },
+        {
+          "hp": 14,
+          "id": "lisa",
+          "pos": [
+            14,
+            17
+          ]
+        },
+        {
+          "hp": 11,
+          "id": "carlo",
+          "pos": [
+            14,
+            18
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "lord",
+          "pos": [
+            15,
+            17
+          ]
+        },
+        {
+          "hp": 29,
+          "id": "F23_boss",
+          "pos": [
+            26,
+            5
+          ]
+        },
+        {
+          "hp": 12,
+          "id": "F23_e5",
+          "pos": [
+            15,
+            16
+          ]
+        },
+        {
+          "hp": 26,
+          "id": "F23_e9",
+          "pos": [
+            25,
+            8
+          ]
+        },
+        {
+          "hp": 26,
+          "id": "F23_e10",
+          "pos": [
+            20,
+            11
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "roan",
+          "pos": [
+            6,
+            21
+          ]
+        },
+        {
+          "hp": 28,
+          "id": "fishers",
+          "pos": [
+            8,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "action": {
+        "cell": [
+          15,
+          17
+        ],
+        "kind": "attack",
+        "score": 36.18,
+        "spell": -1,
+        "target": "F23_e5"
+      },
+      "after_cell": [
+        15,
+        17
+      ],
+      "after_hp": 21,
+      "cell": [
+        15,
+        17
+      ],
+      "hp": 23,
+      "target_after_hp": 1,
+      "turn": 5,
+      "unit": "lord"
+    },
+    {
+      "from": [
+        15,
+        17
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        15,
+        17
+      ],
+      "turn": 5,
+      "unit": "lord"
+    },
+    {
+      "action": {
+        "cell": [
+          14,
+          16
+        ],
+        "kind": "attack",
+        "score": 60.9,
+        "spell": -1,
+        "target": "F23_e5"
+      },
+      "after_cell": [
+        14,
+        16
+      ],
+      "after_hp": 11,
+      "cell": [
+        14,
+        18
+      ],
+      "hp": 11,
+      "target_after_hp": 0,
+      "turn": 5,
+      "unit": "carlo"
+    },
+    {
+      "from": [
+        14,
+        18
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        14,
+        16
+      ],
+      "turn": 5,
+      "unit": "carlo"
+    },
+    {
+      "action": {
+        "cell": [
+          14,
+          13
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        14,
+        13
+      ],
+      "after_hp": 14,
+      "cell": [
+        14,
+        17
+      ],
+      "hp": 14,
+      "target_after_hp": -1,
+      "turn": 5,
+      "unit": "lisa"
+    },
+    {
+      "from": [
+        14,
+        17
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        14,
+        13
+      ],
+      "turn": 5,
+      "unit": "lisa"
+    },
+    {
+      "action": {
+        "cell": [
+          13,
+          16
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        13,
+        16
+      ],
+      "after_hp": 22,
+      "cell": [
+        12,
+        19
+      ],
+      "hp": 22,
+      "target_after_hp": -1,
+      "turn": 5,
+      "unit": "eileen"
+    },
+    {
+      "from": [
+        12,
+        19
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        13,
+        16
+      ],
+      "turn": 5,
+      "unit": "eileen"
+    },
+    {
+      "action": {
+        "cell": [
+          12,
+          17
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        12,
+        17
+      ],
+      "after_hp": 18,
+      "cell": [
+        12,
+        21
+      ],
+      "hp": 18,
+      "target_after_hp": -1,
+      "turn": 5,
+      "unit": "mireille"
+    },
+    {
+      "from": [
+        12,
+        21
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        12,
+        17
+      ],
+      "turn": 6,
+      "unit": "mireille"
+    },
+    {
+      "kind": "shore formation",
+      "turn": 6,
+      "units": [
+        {
+          "hp": 22,
+          "id": "eileen",
+          "pos": [
+            13,
+            16
+          ]
+        },
+        {
+          "hp": 18,
+          "id": "mireille",
+          "pos": [
+            12,
+            17
+          ]
+        },
+        {
+          "hp": 14,
+          "id": "lisa",
+          "pos": [
+            14,
+            13
+          ]
+        },
+        {
+          "hp": 11,
+          "id": "carlo",
+          "pos": [
+            14,
+            16
+          ]
+        },
+        {
+          "hp": 21,
+          "id": "lord",
+          "pos": [
+            15,
+            17
+          ]
+        },
+        {
+          "hp": 29,
+          "id": "F23_boss",
+          "pos": [
+            26,
+            5
+          ]
+        },
+        {
+          "hp": 26,
+          "id": "F23_e9",
+          "pos": [
+            25,
+            8
+          ]
+        },
+        {
+          "hp": 26,
+          "id": "F23_e10",
+          "pos": [
+            20,
+            11
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "roan",
+          "pos": [
+            6,
+            21
+          ]
+        },
+        {
+          "hp": 28,
+          "id": "fishers",
+          "pos": [
+            8,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "action": {
+        "cell": [
+          16,
+          14
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        16,
+        14
+      ],
+      "after_hp": 21,
+      "cell": [
+        15,
+        17
+      ],
+      "hp": 21,
+      "target_after_hp": -1,
+      "turn": 6,
+      "unit": "lord"
+    },
+    {
+      "from": [
+        15,
+        17
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        16,
+        14
+      ],
+      "turn": 6,
+      "unit": "lord"
+    },
+    {
+      "action": {
+        "cell": [
+          12,
+          16
+        ],
+        "kind": "wait",
+        "score": 10.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        12,
+        16
+      ],
+      "after_hp": 11,
+      "cell": [
+        14,
+        16
+      ],
+      "hp": 11,
+      "target_after_hp": -1,
+      "turn": 6,
+      "unit": "carlo"
+    },
+    {
+      "from": [
+        14,
+        16
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        12,
+        16
+      ],
+      "turn": 6,
+      "unit": "carlo"
+    },
+    {
+      "action": {
+        "cell": [
+          16,
+          11
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        16,
+        11
+      ],
+      "after_hp": 14,
+      "cell": [
+        14,
+        13
+      ],
+      "hp": 14,
+      "target_after_hp": -1,
+      "turn": 6,
+      "unit": "lisa"
+    },
+    {
+      "from": [
+        14,
+        13
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        16,
+        11
+      ],
+      "turn": 6,
+      "unit": "lisa"
+    },
+    {
+      "action": {
+        "cell": [
+          16,
+          15
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        16,
+        15
+      ],
+      "after_hp": 22,
+      "cell": [
+        13,
+        16
+      ],
+      "hp": 22,
+      "target_after_hp": -1,
+      "turn": 6,
+      "unit": "eileen"
+    },
+    {
+      "from": [
+        13,
+        16
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        16,
+        15
+      ],
+      "turn": 6,
+      "unit": "eileen"
+    },
+    {
+      "action": {
+        "cell": [
+          12,
+          17
+        ],
+        "kind": "heal",
+        "score": 44.0,
+        "spell": 40,
+        "target": "carlo"
+      },
+      "after_cell": [
+        12,
+        17
+      ],
+      "after_hp": 17,
+      "cell": [
+        12,
+        17
+      ],
+      "hp": 18,
+      "target_after_hp": 18,
+      "turn": 6,
+      "unit": "mireille"
+    },
+    {
+      "from": [
+        12,
+        17
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        12,
+        17
+      ],
+      "turn": 7,
+      "unit": "mireille"
+    },
+    {
+      "kind": "shore formation",
+      "turn": 7,
+      "units": [
+        {
+          "hp": 22,
+          "id": "eileen",
+          "pos": [
+            16,
+            15
+          ]
+        },
+        {
+          "hp": 17,
+          "id": "mireille",
+          "pos": [
+            12,
+            17
+          ]
+        },
+        {
+          "hp": 14,
+          "id": "lisa",
+          "pos": [
+            16,
+            11
+          ]
+        },
+        {
+          "hp": 18,
+          "id": "carlo",
+          "pos": [
+            12,
+            16
+          ]
+        },
+        {
+          "hp": 21,
+          "id": "lord",
+          "pos": [
+            16,
+            14
+          ]
+        },
+        {
+          "hp": 29,
+          "id": "F23_boss",
+          "pos": [
+            26,
+            5
+          ]
+        },
+        {
+          "hp": 26,
+          "id": "F23_e9",
+          "pos": [
+            25,
+            8
+          ]
+        },
+        {
+          "hp": 26,
+          "id": "F23_e10",
+          "pos": [
+            20,
+            11
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "roan",
+          "pos": [
+            6,
+            21
+          ]
+        },
+        {
+          "hp": 28,
+          "id": "fishers",
+          "pos": [
+            8,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "action": {
+        "cell": [
+          17,
+          11
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        17,
+        11
+      ],
+      "after_hp": 21,
+      "cell": [
+        16,
+        14
+      ],
+      "hp": 21,
+      "target_after_hp": -1,
+      "turn": 7,
+      "unit": "lord"
+    },
+    {
+      "from": [
+        16,
+        14
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        17,
+        11
+      ],
+      "turn": 7,
+      "unit": "lord"
+    },
+    {
+      "action": {
+        "cell": [
+          15,
+          15
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        15,
+        15
+      ],
+      "after_hp": 18,
+      "cell": [
+        12,
+        16
+      ],
+      "hp": 18,
+      "target_after_hp": -1,
+      "turn": 7,
+      "unit": "carlo"
+    },
+    {
+      "from": [
+        12,
+        16
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        15,
+        15
+      ],
+      "turn": 7,
+      "unit": "carlo"
+    },
+    {
+      "action": {
+        "cell": [
+          18,
+          11
+        ],
+        "kind": "attack",
+        "score": 35.96,
+        "spell": -1,
+        "target": "F23_e10"
+      },
+      "after_cell": [
+        18,
+        11
+      ],
+      "after_hp": 12,
+      "cell": [
+        16,
+        11
+      ],
+      "hp": 14,
+      "target_after_hp": 14,
+      "turn": 7,
+      "unit": "lisa"
+    },
+    {
+      "from": [
+        16,
+        11
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        18,
+        11
+      ],
+      "turn": 7,
+      "unit": "lisa"
+    },
+    {
+      "action": {
+        "cell": [
+          16,
+          11
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        16,
+        11
+      ],
+      "after_hp": 22,
+      "cell": [
+        16,
+        15
+      ],
+      "hp": 22,
+      "target_after_hp": -1,
+      "turn": 7,
+      "unit": "eileen"
+    },
+    {
+      "from": [
+        16,
+        15
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        16,
+        11
+      ],
+      "turn": 7,
+      "unit": "eileen"
+    },
+    {
+      "action": {
+        "cell": [
+          14,
+          15
+        ],
+        "kind": "heal",
+        "score": 19.0,
+        "spell": 40,
+        "target": "carlo"
+      },
+      "after_cell": [
+        14,
+        15
+      ],
+      "after_hp": 16,
+      "cell": [
+        12,
+        17
+      ],
+      "hp": 17,
+      "target_after_hp": 25,
+      "turn": 7,
+      "unit": "mireille"
+    },
+    {
+      "from": [
+        12,
+        17
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        14,
+        15
+      ],
+      "turn": 8,
+      "unit": "mireille"
+    },
+    {
+      "kind": "shore formation",
+      "turn": 8,
+      "units": [
+        {
+          "hp": 22,
+          "id": "eileen",
+          "pos": [
+            16,
+            11
+          ]
+        },
+        {
+          "hp": 16,
+          "id": "mireille",
+          "pos": [
+            14,
+            15
+          ]
+        },
+        {
+          "hp": 12,
+          "id": "lisa",
+          "pos": [
+            18,
+            11
+          ]
+        },
+        {
+          "hp": 25,
+          "id": "carlo",
+          "pos": [
+            15,
+            15
+          ]
+        },
+        {
+          "hp": 21,
+          "id": "lord",
+          "pos": [
+            17,
+            11
+          ]
+        },
+        {
+          "hp": 29,
+          "id": "F23_boss",
+          "pos": [
+            26,
+            5
+          ]
+        },
+        {
+          "hp": 26,
+          "id": "F23_e9",
+          "pos": [
+            25,
+            8
+          ]
+        },
+        {
+          "hp": 14,
+          "id": "F23_e10",
+          "pos": [
+            20,
+            11
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "roan",
+          "pos": [
+            6,
+            21
+          ]
+        },
+        {
+          "hp": 28,
+          "id": "fishers",
+          "pos": [
+            8,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "action": {
+        "cell": [
+          19,
+          11
+        ],
+        "kind": "attack",
+        "score": 11.592,
+        "spell": -1,
+        "target": "F23_e10"
+      },
+      "after_cell": [
+        19,
+        11
+      ],
+      "after_hp": 19,
+      "cell": [
+        17,
+        11
+      ],
+      "hp": 21,
+      "target_after_hp": 14,
+      "turn": 8,
+      "unit": "lord"
+    },
+    {
+      "from": [
+        17,
+        11
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        19,
+        11
+      ],
+      "turn": 8,
+      "unit": "lord"
+    },
+    {
+      "action": {
+        "cell": [
+          16,
+          12
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        16,
+        12
+      ],
+      "after_hp": 25,
+      "cell": [
+        15,
+        15
+      ],
+      "hp": 25,
+      "target_after_hp": -1,
+      "turn": 8,
+      "unit": "carlo"
+    },
+    {
+      "from": [
+        15,
+        15
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        16,
+        12
+      ],
+      "turn": 8,
+      "unit": "carlo"
+    },
+    {
+      "action": {
+        "cell": [
+          18,
+          11
+        ],
+        "kind": "attack",
+        "score": 57.0,
+        "spell": -1,
+        "target": "F23_e10"
+      },
+      "after_cell": [
+        18,
+        11
+      ],
+      "after_hp": 10,
+      "cell": [
+        18,
+        11
+      ],
+      "hp": 12,
+      "target_after_hp": 0,
+      "turn": 8,
+      "unit": "lisa"
+    },
+    {
+      "from": [
+        18,
+        11
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        18,
+        11
+      ],
+      "turn": 8,
+      "unit": "lisa"
+    },
+    {
+      "action": {
+        "cell": [
+          19,
+          10
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        19,
+        10
+      ],
+      "after_hp": 22,
+      "cell": [
+        16,
+        11
+      ],
+      "hp": 22,
+      "target_after_hp": -1,
+      "turn": 8,
+      "unit": "eileen"
+    },
+    {
+      "from": [
+        16,
+        11
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        19,
+        10
+      ],
+      "turn": 8,
+      "unit": "eileen"
+    },
+    {
+      "action": {
+        "cell": [
+          16,
+          13
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        16,
+        13
+      ],
+      "after_hp": 16,
+      "cell": [
+        14,
+        15
+      ],
+      "hp": 16,
+      "target_after_hp": -1,
+      "turn": 8,
+      "unit": "mireille"
+    },
+    {
+      "from": [
+        14,
+        15
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        16,
+        13
+      ],
+      "turn": 9,
+      "unit": "mireille"
+    },
+    {
+      "kind": "shore formation",
+      "turn": 9,
+      "units": [
+        {
+          "hp": 22,
+          "id": "eileen",
+          "pos": [
+            19,
+            10
+          ]
+        },
+        {
+          "hp": 16,
+          "id": "mireille",
+          "pos": [
+            16,
+            13
+          ]
+        },
+        {
+          "hp": 10,
+          "id": "lisa",
+          "pos": [
+            18,
+            11
+          ]
+        },
+        {
+          "hp": 25,
+          "id": "carlo",
+          "pos": [
+            16,
+            12
+          ]
+        },
+        {
+          "hp": 19,
+          "id": "lord",
+          "pos": [
+            19,
+            11
+          ]
+        },
+        {
+          "hp": 29,
+          "id": "F23_boss",
+          "pos": [
+            26,
+            5
+          ]
+        },
+        {
+          "hp": 26,
+          "id": "F23_e9",
+          "pos": [
+            25,
+            8
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "roan",
+          "pos": [
+            6,
+            21
+          ]
+        },
+        {
+          "hp": 28,
+          "id": "fishers",
+          "pos": [
+            8,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "action": {
+        "cell": [
+          21,
+          9
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        21,
+        9
+      ],
+      "after_hp": 19,
+      "cell": [
+        19,
+        11
+      ],
+      "hp": 19,
+      "target_after_hp": -1,
+      "turn": 9,
+      "unit": "lord"
+    },
+    {
+      "from": [
+        19,
+        11
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        21,
+        9
+      ],
+      "turn": 9,
+      "unit": "lord"
+    },
+    {
+      "action": {
+        "cell": [
+          18,
+          10
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        18,
+        10
+      ],
+      "after_hp": 25,
+      "cell": [
+        16,
+        12
+      ],
+      "hp": 25,
+      "target_after_hp": -1,
+      "turn": 9,
+      "unit": "carlo"
+    },
+    {
+      "from": [
+        16,
+        12
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        18,
+        10
+      ],
+      "turn": 9,
+      "unit": "carlo"
+    },
+    {
+      "action": {
+        "cell": [
+          19,
+          8
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        19,
+        8
+      ],
+      "after_hp": 10,
+      "cell": [
+        18,
+        11
+      ],
+      "hp": 10,
+      "target_after_hp": -1,
+      "turn": 9,
+      "unit": "lisa"
+    },
+    {
+      "from": [
+        18,
+        11
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        19,
+        8
+      ],
+      "turn": 9,
+      "unit": "lisa"
+    },
+    {
+      "action": {
+        "cell": [
+          21,
+          8
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        21,
+        8
+      ],
+      "after_hp": 22,
+      "cell": [
+        19,
+        10
+      ],
+      "hp": 22,
+      "target_after_hp": -1,
+      "turn": 9,
+      "unit": "eileen"
+    },
+    {
+      "from": [
+        19,
+        10
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        21,
+        8
+      ],
+      "turn": 9,
+      "unit": "eileen"
+    },
+    {
+      "action": {
+        "cell": [
+          16,
+          9
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        16,
+        9
+      ],
+      "after_hp": 16,
+      "cell": [
+        16,
+        13
+      ],
+      "hp": 16,
+      "target_after_hp": -1,
+      "turn": 9,
+      "unit": "mireille"
+    },
+    {
+      "from": [
+        16,
+        13
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        16,
+        9
+      ],
+      "turn": 10,
+      "unit": "mireille"
+    },
+    {
+      "kind": "shore formation",
+      "turn": 10,
+      "units": [
+        {
+          "hp": 22,
+          "id": "eileen",
+          "pos": [
+            21,
+            8
+          ]
+        },
+        {
+          "hp": 16,
+          "id": "mireille",
+          "pos": [
+            16,
+            9
+          ]
+        },
+        {
+          "hp": 10,
+          "id": "lisa",
+          "pos": [
+            19,
+            8
+          ]
+        },
+        {
+          "hp": 25,
+          "id": "carlo",
+          "pos": [
+            18,
+            10
+          ]
+        },
+        {
+          "hp": 19,
+          "id": "lord",
+          "pos": [
+            21,
+            9
+          ]
+        },
+        {
+          "hp": 29,
+          "id": "F23_boss",
+          "pos": [
+            26,
+            5
+          ]
+        },
+        {
+          "hp": 26,
+          "id": "F23_e9",
+          "pos": [
+            25,
+            8
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "roan",
+          "pos": [
+            6,
+            21
+          ]
+        },
+        {
+          "hp": 28,
+          "id": "fishers",
+          "pos": [
+            8,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "action": {
+        "cell": [
+          24,
+          8
+        ],
+        "kind": "attack",
+        "score": 11.592,
+        "spell": -1,
+        "target": "F23_e9"
+      },
+      "after_cell": [
+        24,
+        8
+      ],
+      "after_hp": 17,
+      "cell": [
+        21,
+        9
+      ],
+      "hp": 19,
+      "target_after_hp": 2,
+      "turn": 10,
+      "unit": "lord"
+    },
+    {
+      "from": [
+        21,
+        9
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        24,
+        8
+      ],
+      "turn": 10,
+      "unit": "lord"
+    },
+    {
+      "action": {
+        "cell": [
+          21,
+          9
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        21,
+        9
+      ],
+      "after_hp": 25,
+      "cell": [
+        18,
+        10
+      ],
+      "hp": 25,
+      "target_after_hp": -1,
+      "turn": 10,
+      "unit": "carlo"
+    },
+    {
+      "from": [
+        18,
+        10
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        21,
+        9
+      ],
+      "turn": 10,
+      "unit": "carlo"
+    },
+    {
+      "action": {
+        "cell": [
+          23,
+          8
+        ],
+        "kind": "attack",
+        "score": 33.0,
+        "spell": -1,
+        "target": "F23_e9"
+      },
+      "after_cell": [
+        23,
+        8
+      ],
+      "after_hp": 9,
+      "cell": [
+        19,
+        8
+      ],
+      "hp": 10,
+      "target_after_hp": 0,
+      "turn": 10,
+      "unit": "lisa"
+    },
+    {
+      "from": [
+        19,
+        8
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        23,
+        8
+      ],
+      "turn": 10,
+      "unit": "lisa"
+    },
+    {
+      "action": {
+        "cell": [
+          24,
+          7
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        24,
+        7
+      ],
+      "after_hp": 22,
+      "cell": [
+        21,
+        8
+      ],
+      "hp": 22,
+      "target_after_hp": -1,
+      "turn": 10,
+      "unit": "eileen"
+    },
+    {
+      "from": [
+        21,
+        8
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        24,
+        7
+      ],
+      "turn": 10,
+      "unit": "eileen"
+    },
+    {
+      "action": {
+        "cell": [
+          17,
+          8
+        ],
+        "kind": "wait",
+        "score": 10.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        17,
+        8
+      ],
+      "after_hp": 16,
+      "cell": [
+        16,
+        9
+      ],
+      "hp": 16,
+      "target_after_hp": -1,
+      "turn": 10,
+      "unit": "mireille"
+    },
+    {
+      "from": [
+        16,
+        9
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        17,
+        8
+      ],
+      "turn": 11,
+      "unit": "mireille"
+    },
+    {
+      "kind": "shore formation",
+      "turn": 11,
+      "units": [
+        {
+          "hp": 22,
+          "id": "eileen",
+          "pos": [
+            24,
+            7
+          ]
+        },
+        {
+          "hp": 16,
+          "id": "mireille",
+          "pos": [
+            17,
+            8
+          ]
+        },
+        {
+          "hp": 9,
+          "id": "lisa",
+          "pos": [
+            23,
+            8
+          ]
+        },
+        {
+          "hp": 25,
+          "id": "carlo",
+          "pos": [
+            21,
+            9
+          ]
+        },
+        {
+          "hp": 17,
+          "id": "lord",
+          "pos": [
+            24,
+            8
+          ]
+        },
+        {
+          "hp": 29,
+          "id": "F23_boss",
+          "pos": [
+            26,
+            5
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "roan",
+          "pos": [
+            6,
+            21
+          ]
+        },
+        {
+          "hp": 28,
+          "id": "fishers",
+          "pos": [
+            8,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "action": {
+        "cell": [
+          26,
+          6
+        ],
+        "kind": "attack",
+        "score": 9.264,
+        "spell": -1,
+        "target": "F23_boss"
+      },
+      "after_cell": [
+        26,
+        6
+      ],
+      "after_hp": 15,
+      "cell": [
+        24,
+        8
+      ],
+      "hp": 17,
+      "target_after_hp": 22,
+      "turn": 11,
+      "unit": "lord"
+    },
+    {
+      "from": [
+        24,
+        8
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        26,
+        6
+      ],
+      "turn": 11,
+      "unit": "lord"
+    },
+    {
+      "action": {
+        "cell": [
+          23,
+          7
+        ],
+        "kind": "wait",
+        "score": 20.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        23,
+        7
+      ],
+      "after_hp": 25,
+      "cell": [
+        21,
+        9
+      ],
+      "hp": 25,
+      "target_after_hp": -1,
+      "turn": 11,
+      "unit": "carlo"
+    },
+    {
+      "from": [
+        21,
+        9
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        23,
+        7
+      ],
+      "turn": 11,
+      "unit": "carlo"
+    },
+    {
+      "action": {
+        "cell": [
+          26,
+          7
+        ],
+        "kind": "attack",
+        "score": 9.36,
+        "spell": -1,
+        "target": "F23_boss"
+      },
+      "after_cell": [
+        26,
+        7
+      ],
+      "after_hp": 8,
+      "cell": [
+        23,
+        8
+      ],
+      "hp": 9,
+      "target_after_hp": 22,
+      "turn": 11,
+      "unit": "lisa"
+    },
+    {
+      "from": [
+        23,
+        8
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        26,
+        7
+      ],
+      "turn": 11,
+      "unit": "lisa"
+    },
+    {
+      "action": {
+        "cell": [
+          27,
+          6
+        ],
+        "kind": "attack",
+        "score": 6.4,
+        "spell": 23,
+        "target": "F23_boss"
+      },
+      "after_cell": [
+        27,
+        6
+      ],
+      "after_hp": 21,
+      "cell": [
+        24,
+        7
+      ],
+      "hp": 22,
+      "target_after_hp": 22,
+      "turn": 11,
+      "unit": "eileen"
+    },
+    {
+      "from": [
+        24,
+        7
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        27,
+        6
+      ],
+      "turn": 11,
+      "unit": "eileen"
+    },
+    {
+      "action": {
+        "cell": [
+          18,
+          7
+        ],
+        "kind": "wait",
+        "score": 10.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        18,
+        7
+      ],
+      "after_hp": 16,
+      "cell": [
+        17,
+        8
+      ],
+      "hp": 16,
+      "target_after_hp": -1,
+      "turn": 11,
+      "unit": "mireille"
+    },
+    {
+      "from": [
+        17,
+        8
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        18,
+        7
+      ],
+      "turn": 12,
+      "unit": "mireille"
+    },
+    {
+      "kind": "shore formation",
+      "turn": 12,
+      "units": [
+        {
+          "hp": 21,
+          "id": "eileen",
+          "pos": [
+            27,
+            6
+          ]
+        },
+        {
+          "hp": 16,
+          "id": "mireille",
+          "pos": [
+            18,
+            7
+          ]
+        },
+        {
+          "hp": 8,
+          "id": "lisa",
+          "pos": [
+            26,
+            7
+          ]
+        },
+        {
+          "hp": 25,
+          "id": "carlo",
+          "pos": [
+            23,
+            7
+          ]
+        },
+        {
+          "hp": 13,
+          "id": "lord",
+          "pos": [
+            26,
+            6
+          ]
+        },
+        {
+          "hp": 15,
+          "id": "F23_boss",
+          "pos": [
+            26,
+            5
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "roan",
+          "pos": [
+            6,
+            21
+          ]
+        },
+        {
+          "hp": 28,
+          "id": "fishers",
+          "pos": [
+            8,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "action": {
+        "cell": [
+          26,
+          6
+        ],
+        "kind": "attack",
+        "score": 9.264,
+        "spell": -1,
+        "target": "F23_boss"
+      },
+      "after_cell": [
+        26,
+        6
+      ],
+      "after_hp": 11,
+      "cell": [
+        26,
+        6
+      ],
+      "hp": 13,
+      "target_after_hp": 8,
+      "turn": 12,
+      "unit": "lord"
+    },
+    {
+      "from": [
+        26,
+        6
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        26,
+        6
+      ],
+      "turn": 12,
+      "unit": "lord"
+    },
+    {
+      "action": {
+        "cell": [
+          25,
+          7
+        ],
+        "kind": "wait",
+        "score": 10.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        25,
+        7
+      ],
+      "after_hp": 25,
+      "cell": [
+        23,
+        7
+      ],
+      "hp": 25,
+      "target_after_hp": -1,
+      "turn": 12,
+      "unit": "carlo"
+    },
+    {
+      "from": [
+        23,
+        7
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        25,
+        7
+      ],
+      "turn": 12,
+      "unit": "carlo"
+    },
+    {
+      "action": {
+        "cell": [
+          26,
+          7
+        ],
+        "kind": "attack",
+        "score": 9.36,
+        "spell": -1,
+        "target": "F23_boss"
+      },
+      "after_cell": [
+        26,
+        7
+      ],
+      "after_hp": 7,
+      "cell": [
+        26,
+        7
+      ],
+      "hp": 8,
+      "target_after_hp": 8,
+      "turn": 12,
+      "unit": "lisa"
+    },
+    {
+      "from": [
+        26,
+        7
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        26,
+        7
+      ],
+      "turn": 12,
+      "unit": "lisa"
+    },
+    {
+      "action": {
+        "cell": [
+          27,
+          6
+        ],
+        "kind": "attack",
+        "score": 6.4,
+        "spell": 23,
+        "target": "F23_boss"
+      },
+      "after_cell": [
+        27,
+        6
+      ],
+      "after_hp": 20,
+      "cell": [
+        27,
+        6
+      ],
+      "hp": 21,
+      "target_after_hp": 3,
+      "turn": 12,
+      "unit": "eileen"
+    },
+    {
+      "from": [
+        27,
+        6
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        27,
+        6
+      ],
+      "turn": 12,
+      "unit": "eileen"
+    },
+    {
+      "action": {
+        "cell": [
+          20,
+          7
+        ],
+        "kind": "wait",
+        "score": 10.0,
+        "spell": -1,
+        "target": ""
+      },
+      "after_cell": [
+        20,
+        7
+      ],
+      "after_hp": 16,
+      "cell": [
+        18,
+        7
+      ],
+      "hp": 16,
+      "target_after_hp": -1,
+      "turn": 12,
+      "unit": "mireille"
+    },
+    {
+      "from": [
+        18,
+        7
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        20,
+        7
+      ],
+      "turn": 13,
+      "unit": "mireille"
+    },
+    {
+      "kind": "shore formation",
+      "turn": 13,
+      "units": [
+        {
+          "hp": 20,
+          "id": "eileen",
+          "pos": [
+            27,
+            6
+          ]
+        },
+        {
+          "hp": 16,
+          "id": "mireille",
+          "pos": [
+            20,
+            7
+          ]
+        },
+        {
+          "hp": 7,
+          "id": "lisa",
+          "pos": [
+            26,
+            7
+          ]
+        },
+        {
+          "hp": 25,
+          "id": "carlo",
+          "pos": [
+            25,
+            7
+          ]
+        },
+        {
+          "hp": 9,
+          "id": "lord",
+          "pos": [
+            26,
+            6
+          ]
+        },
+        {
+          "hp": 3,
+          "id": "F23_boss",
+          "pos": [
+            26,
+            5
+          ]
+        },
+        {
+          "hp": 23,
+          "id": "roan",
+          "pos": [
+            6,
+            21
+          ]
+        },
+        {
+          "hp": 28,
+          "id": "fishers",
+          "pos": [
+            8,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "action": {
+        "cell": [
+          26,
+          6
+        ],
+        "kind": "attack",
+        "score": 34.12,
+        "spell": -1,
+        "target": "F23_boss"
+      },
+      "after_cell": [
+        26,
+        6
+      ],
+      "after_hp": 30,
+      "cell": [
+        26,
+        6
+      ],
+      "hp": 9,
+      "target_after_hp": 0,
+      "turn": 13,
+      "unit": "lord"
+    },
+    {
+      "from": [
+        26,
+        6
+      ],
+      "kind": "route trace",
+      "stage": "F23",
+      "to": [
+        26,
+        6
+      ],
+      "turn": 13,
+      "unit": "lord"
+    },
+    {
+      "action": "reef_route",
+      "kind": "facing confirmation",
+      "room": "H24"
+    },
+    {
+      "action": "roan",
+      "kind": "facing confirmation",
+      "room": "H24"
+    },
+    {
+      "action": "holy_sword",
+      "kind": "facing confirmation",
+      "room": "H24"
+    },
+    {
+      "action": "invite_s22",
+      "kind": "facing confirmation",
+      "room": "H24"
+    }
+  ],
+  "policy": "Hold southern camp court for incoming flyers and raiders, then advance together after the local wave is cleared."
+}

@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "scope": "Independent full-map Godot scenery review; gameplay playthroughs are owned by root.",
+  "images": [
+    {
+      "path": "actual/reports/chapter1-redesign-20261022/side/images/S11.png",
+      "size": [
+        480,
+        416
+      ],
+      "bytes": 49421,
+      "sha256": "e59793515813e43bb2c831d54c6d3fecf6b50dd23c2712b40a3c098b1fec80d4",
+      "rgba_sha256": "11085fd4d58262339c82116eee669c9bce7d23303141f87f92834f5bbe43dbb6"
+    },
+    {
+      "path": "actual/reports/chapter1-redesign-20261022/side/images/S12.png",
+      "size": [
+        512,
+        448
+      ],
+      "bytes": 58842,
+      "sha256": "33db121c9193b315c8463282de8b5337cbd0589b428a732eab4741433ac4713d",
+      "rgba_sha256": "95e5ffb95a1815ca80e43dba41e40a4b619e7d3d8b47cb7f7c18262e02bc5710"
+    }
+  ],
+  "map_hashes": {
+    "S11": "33937d30c221b93d96c63a0dfa7055ebbca2da729b420c574ecdd420efe23a8c",
+    "S12": "83fec7706bf734ef164f834dfc23ff821f3bd987578fd505e2a7271d4c48e64b"
+  },
+  "observations": {
+    "S11": [
+      "Continuous rock body and shaded wall lips clearly separate blocked walls from three mine halls.",
+      "Main ore lane and western service corridor join around one central pillar.",
+      "Mine tool-room doorway remains accessible; both miners begin with the rescue party, far from ranged enemies.",
+      "Final complete low ore ridges follow six groups of existing blocked cliff lips; all full bitmap rectangles remain inside the original blocked rock cells and do not touch narrow paths.",
+      "Final foreground deployment keeps the first four guards at y18 while both miners start behind them at [4,19] and [7,19]; only two reserve deployment cells moved to y17.",
+      "Compared complete native grey rim assets on dark and pale backgrounds; original alpha silhouette preserved with no white fringe or cropped tips."
+    ],
+    "S12": [
+      "Both bridges span a continuous actual water channel and land on both banks.",
+      "Northern bridgehead road was shifted two tiles north to restore six river tiles; no dirt crosses the water channel.",
+      "Clinic approach and medicine delivery square align with the same southern building entrance.",
+      "Grouped forest crowns do not overlap road or deployment cells."
+    ]
+  },
+  "source_atlas_original_tiles_pixel_identical": 5042,
+  "background_guard": true,
+  "compression": "oxipng lossless; bitmap modules remain native16px scale.",
+  "rim_edge_review": "mine-rim-edges.png",
+  "final_source": "../images/S11.png actual guarded Godot capture after import"
+}

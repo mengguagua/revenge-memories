@@ -1,0 +1,16 @@
+{
+  "final_passed": true,
+  "final_rules_checks": 1159,
+  "final_invariant_checks": 2770,
+  "attempts": [
+    {
+      "file": "rules-probe-attempt1.json",
+      "reason": "The test compared serialized JSON strings; int/float representation differed after legitimate JSON reload. No value changes were found. Test corrected to compare normalized data."
+    },
+    {
+      "file": "rules-probe-attempt2.json",
+      "reason": "New exact terrain assertion encountered integer open_tile values re-applied during load versus parsed JSON floats. Final test compares every numeric tile value and canonicalizes both sides; all 8 before/after terrain arrays have zero value differences."
+    }
+  ],
+  "production_changes_required": false
+}

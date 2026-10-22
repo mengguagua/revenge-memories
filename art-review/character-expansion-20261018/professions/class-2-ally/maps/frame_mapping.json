@@ -21,7 +21,7 @@
         16,
         24
       ],
-      "output_atlas": "../../../heavy-infantry-redraw-v1-20261022/ally/tactical-walk-atlas.png",
+      "output_atlas": "../../../heavy-infantry-up-step-v2-20261022/ally/walk-atlas.png",
       "output_frame_size": [
         128,
         96
@@ -35,23 +35,23 @@
         {
           "source_index": 0,
           "source_frame": 0,
-          "path": "../../../heavy-infantry-redraw-v1-20261022/ally/tactical-walk/frame-000.png",
-          "output_path": "../../../heavy-infantry-redraw-v1-20261022/ally/tactical-walk/frame-000.png",
-          "revision": "heavy-infantry-redraw-v1-20261022",
+          "path": "../../../heavy-infantry-up-step-v2-20261022/ally/frame-000.png",
+          "output_path": "../../../heavy-infantry-up-step-v2-20261022/ally/frame-000.png",
+          "revision": "heavy-infantry-up-step-v2-20261022",
           "size": [
             128,
             96
           ],
-          "bytes": 2136,
-          "sha256": "f0d1f118aa2d0d6a8b1649ad3373e1b6757b872fea678c124292304c94d5f6fe",
+          "bytes": 2051,
+          "sha256": "d0ad1149b45c6492e546bc94dc90e22842e14d13210f131665794d169064b2b5",
           "art_status": "review_candidate"
         },
         {
           "source_index": 1,
           "source_frame": 1,
-          "path": "../../../heavy-infantry-redraw-v1-20261022/ally/tactical-walk/frame-001.png",
-          "output_path": "../../../heavy-infantry-redraw-v1-20261022/ally/tactical-walk/frame-001.png",
-          "revision": "heavy-infantry-redraw-v1-20261022",
+          "path": "../../../heavy-infantry-up-step-v2-20261022/ally/frame-001.png",
+          "output_path": "../../../heavy-infantry-up-step-v2-20261022/ally/frame-001.png",
+          "revision": "heavy-infantry-up-step-v2-20261022",
           "size": [
             128,
             96
@@ -823,8 +823,8 @@
       "source_side": "ally",
       "character_id": "class-2-ally",
       "display_name": "盟军重装兵",
-      "revision": "heavy-infantry-redraw-v1-20261022",
-      "output_atlas_bytes": 13232,
+      "revision": "heavy-infantry-up-step-v2-20261022",
+      "output_atlas_bytes": 12179,
       "status": "review_candidate",
       "art_review_status": "review_candidate",
       "review_note": "重新绘制中阶重装兵；固定头部和中轴，完整姿势按原相位登记；蓝白／蓝紫14色，纯色发色和哑光衣料。",
@@ -833,7 +833,49 @@
         "center": "one face/helmet landmark per direction, fixed target and shared pair scale",
         "native_timing_changed": false,
         "shield": "attached to the same forearm in the whole drawn pose",
-        "runtime_integrated": false
+        "runtime_integrated": false,
+        "up_step_revision": "heavy-infantry-up-step-v2-20261022",
+        "up_phase_order": [
+          "left raised, right support",
+          "right raised, left support"
+        ],
+        "up_core": "pixel-identical approved upper body and equipment",
+        "up_leg_edit_box": [
+          54,
+          70,
+          76,
+          96
+        ],
+        "up_leg_bounds": [
+          [
+            [
+              56,
+              78,
+              63,
+              81
+            ],
+            [
+              67,
+              78,
+              73,
+              91
+            ]
+          ],
+          [
+            [
+              57,
+              78,
+              63,
+              91
+            ],
+            [
+              67,
+              78,
+              73,
+              81
+            ]
+          ]
+        ]
       },
       "source_aliases": {
         "0": 0,
@@ -844,6 +886,9 @@
         "5": 5,
         "6": 6,
         "7": 7
+      },
+      "direction_action_notes": {
+        "up": "向上两相：左腿抬起、右腿支撑，再右腿抬起、左腿支撑。头盔、躯干、裙甲、手臂、盾牌和长枪两相像素一致；每相仍16帧。"
       }
     },
     {

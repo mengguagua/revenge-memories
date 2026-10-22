@@ -1,0 +1,438 @@
+{
+  "code": "M14",
+  "passed": true,
+  "size": [
+    32,
+    26
+  ],
+  "closed_connected": 612,
+  "opened_connected": 612,
+  "all_stats_ai_timing_identity_unchanged": true,
+  "coordinate_changes": {
+    "player_positions": {
+      "before": [
+        [
+          23,
+          26
+        ],
+        [
+          22,
+          26
+        ],
+        [
+          23,
+          27
+        ],
+        [
+          23,
+          25
+        ],
+        [
+          24,
+          26
+        ],
+        [
+          21,
+          26
+        ],
+        [
+          22,
+          27
+        ],
+        [
+          23,
+          28
+        ],
+        [
+          20,
+          26
+        ],
+        [
+          21,
+          27
+        ]
+      ],
+      "after": [
+        [
+          10,
+          21
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          12,
+          21
+        ],
+        [
+          13,
+          21
+        ],
+        [
+          10,
+          22
+        ],
+        [
+          11,
+          22
+        ],
+        [
+          12,
+          22
+        ],
+        [
+          13,
+          22
+        ],
+        [
+          9,
+          22
+        ],
+        [
+          9,
+          23
+        ]
+      ]
+    },
+    "exit": {
+      "before": [
+        35,
+        3
+      ],
+      "after": [
+        25,
+        1
+      ]
+    },
+    "targets": {
+      "before": [
+        [
+          20,
+          18
+        ],
+        [
+          34,
+          20
+        ]
+      ],
+      "after": [
+        [
+          14,
+          17
+        ],
+        [
+          26,
+          18
+        ]
+      ]
+    },
+    "objects": {
+      "before": [
+        {
+          "id": "M14_control_0",
+          "kind": "control",
+          "position": [
+            20,
+            18
+          ],
+          "label": "控制南营哨卡",
+          "adjacent": false,
+          "sprite": "white_flag",
+          "name_zh": "南营哨卡",
+          "persistent_visual": true,
+          "show_indicator": false
+        },
+        {
+          "id": "M14_control_1",
+          "kind": "control",
+          "position": [
+            34,
+            20
+          ],
+          "label": "控制东营哨卡",
+          "adjacent": false,
+          "sprite": "white_flag",
+          "name_zh": "东营哨卡",
+          "persistent_visual": true,
+          "show_indicator": false
+        },
+        {
+          "id": "M14_visit_0",
+          "kind": "visit",
+          "label": "访问营地文书帐",
+          "position": [
+            25,
+            4
+          ],
+          "approach": [
+            25,
+            5
+          ],
+          "approaches": [
+            [
+              25,
+              5
+            ]
+          ],
+          "entrance_cells": [
+            [
+              25,
+              4
+            ]
+          ],
+          "adjacent": true,
+          "door_visual": "native_building_art",
+          "show_indicator": false,
+          "optional": true,
+          "dialogue": "文书：旧哨堡还能守人，军帐只能提供掩护。把两个控制点都拿下，别只追着长官打。",
+          "reward_item": 4,
+          "building": "command_pavilion"
+        }
+      ],
+      "after": [
+        {
+          "id": "M14_control_0",
+          "kind": "control",
+          "position": [
+            14,
+            17
+          ],
+          "label": "控制南营哨卡",
+          "adjacent": false,
+          "sprite": "white_flag",
+          "name_zh": "南营哨卡",
+          "persistent_visual": true,
+          "show_indicator": false
+        },
+        {
+          "id": "M14_control_1",
+          "kind": "control",
+          "position": [
+            26,
+            18
+          ],
+          "label": "控制东营哨卡",
+          "adjacent": false,
+          "sprite": "white_flag",
+          "name_zh": "东营哨卡",
+          "persistent_visual": true,
+          "show_indicator": false
+        },
+        {
+          "id": "M14_visit_0",
+          "kind": "visit",
+          "label": "访问营地文书帐",
+          "position": [
+            21,
+            7
+          ],
+          "approach": [
+            21,
+            8
+          ],
+          "approaches": [
+            [
+              21,
+              8
+            ]
+          ],
+          "entrance_cells": [
+            [
+              21,
+              7
+            ]
+          ],
+          "adjacent": true,
+          "door_visual": "native_building_art",
+          "show_indicator": false,
+          "optional": true,
+          "dialogue": "文书：旧哨堡还能守人，军帐只能提供掩护。把两个控制点都拿下，别只追着长官打。",
+          "reward_item": 4,
+          "building": "command_pavilion"
+        }
+      ]
+    },
+    "enemies": {
+      "before": {
+        "M14_boss": [
+          35,
+          6
+        ],
+        "M14_e1": [
+          32,
+          9
+        ],
+        "M14_e2": [
+          26,
+          13
+        ],
+        "M14_e3": [
+          32,
+          25
+        ],
+        "M14_e4": [
+          17,
+          7
+        ],
+        "M14_e5": [
+          34,
+          9
+        ],
+        "M14_e6": [
+          26,
+          15
+        ],
+        "M14_e7": [
+          34,
+          25
+        ],
+        "M14_e8": [
+          18,
+          7
+        ],
+        "M14_e9": [
+          32,
+          10
+        ],
+        "M14_e10": [
+          25,
+          13
+        ],
+        "M14_e11": [
+          32,
+          26
+        ]
+      },
+      "after": {
+        "M14_boss": [
+          25,
+          5
+        ],
+        "M14_e1": [
+          26,
+          10
+        ],
+        "M14_e2": [
+          26,
+          15
+        ],
+        "M14_e3": [
+          25,
+          20
+        ],
+        "M14_e4": [
+          13,
+          8
+        ],
+        "M14_e5": [
+          23,
+          7
+        ],
+        "M14_e6": [
+          17,
+          13
+        ],
+        "M14_e7": [
+          25,
+          19
+        ],
+        "M14_e8": [
+          15,
+          7
+        ],
+        "M14_e9": [
+          22,
+          11
+        ],
+        "M14_e10": [
+          16,
+          10
+        ],
+        "M14_e11": [
+          23,
+          16
+        ]
+      }
+    },
+    "npc_units": {
+      "before": {},
+      "after": {}
+    },
+    "reinforcements": {
+      "before": {},
+      "after": {}
+    },
+    "building_sites": {
+      "before": [
+        {
+          "position": [
+            14,
+            8
+          ],
+          "label": "旧哨堡",
+          "occupiable": true,
+          "avoid": 40,
+          "phase_heal": 5
+        },
+        {
+          "position": [
+            19,
+            9
+          ],
+          "label": "军帐",
+          "occupiable": true,
+          "avoid": 20,
+          "phase_heal": 0
+        },
+        {
+          "position": [
+            28,
+            24
+          ],
+          "label": "军帐",
+          "occupiable": true,
+          "avoid": 20,
+          "phase_heal": 0
+        }
+      ],
+      "after": [
+        {
+          "position": [
+            8,
+            10
+          ],
+          "label": "旧哨堡",
+          "occupiable": true,
+          "avoid": 40,
+          "phase_heal": 5
+        },
+        {
+          "position": [
+            18,
+            12
+          ],
+          "label": "军帐",
+          "occupiable": true,
+          "avoid": 20,
+          "phase_heal": 0
+        },
+        {
+          "position": [
+            24,
+            20
+          ],
+          "label": "军帐",
+          "occupiable": true,
+          "avoid": 20,
+          "phase_heal": 0
+        }
+      ]
+    }
+  },
+  "notes": [
+    "旧瞭望塔与林缘为营盘定形，寝帐朝向中间勤务道，右侧粮料库和骑兵营留出独立调动道路。",
+    "南营军旗立在三格勤务口，东营军旗立在侧路木障缺口；两处都需站格控制，文书帐的南门可访问。",
+    "可以正面进入南营，也能经西林旧哨堡绕到帐区侧后；右路骑兵会压来，指挥官半血投降与邻接接受规则保持。"
+  ]
+}

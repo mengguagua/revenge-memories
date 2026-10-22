@@ -1,0 +1,184 @@
+{
+  "passed": true,
+  "scope": "One genuine continuous campaign through all eight chapter-two maps. F25 test-pilot stall was resumed from exact live T91 save with a corrected ordinary-input strategy, without restarting the battle. Chapter-three entry continued from the resulting chapter-end save.",
+  "battles": [
+    {
+      "code": "F21",
+      "outcome": "victory",
+      "final_turn": 18.0,
+      "starting_turn": 1,
+      "map_sha256": "ff015967c7bb2ed00a24684cf15b598925e76b7a624e5e9ad63b91476b2c3109"
+    },
+    {
+      "code": "F22",
+      "outcome": "victory",
+      "final_turn": 21.0,
+      "starting_turn": 1,
+      "map_sha256": "9a8ec3ef017183aebc1aedde2747d784137c6c86bbb0502003a16d76a46834b9"
+    },
+    {
+      "code": "F23",
+      "outcome": "victory",
+      "final_turn": 12.0,
+      "starting_turn": 1,
+      "map_sha256": "af6f7e997d49cef3b92debbdcf00624c5fcab045f9b2e4e7f6040f337da89deb"
+    },
+    {
+      "code": "S21",
+      "outcome": "victory",
+      "final_turn": 11.0,
+      "starting_turn": 1,
+      "map_sha256": "c195bfa305017dcbca0fa5fa2a33b73fa05cec5a2f50a40831973192a2feb02c"
+    },
+    {
+      "code": "S22",
+      "outcome": "victory",
+      "final_turn": 15.0,
+      "starting_turn": 1,
+      "map_sha256": "a477b2e6500e9de2d3c4efc5c95c7d18c5fc956057dc4b4afaa68e6f14dbb035"
+    },
+    {
+      "code": "F24",
+      "outcome": "victory",
+      "final_turn": 11.0,
+      "starting_turn": 1,
+      "map_sha256": "e7526eda3e7c452c79fa78e743de1c2e606fd4b9b0e62025dfa6f4cf67230fe8"
+    },
+    {
+      "code": "F25",
+      "outcome": "victory",
+      "final_turn": 93,
+      "starting_turn": 91,
+      "map_sha256": "b62aafff7f4310eded79aff6392788380f4ebdacb97f2af99f0308b22e6b72f5"
+    },
+    {
+      "code": "F26",
+      "outcome": "victory",
+      "final_turn": 17,
+      "starting_turn": 1,
+      "map_sha256": "c3f52143fbbacb987040ff07928c5bc2a1d5a89fc05ba18f7a0eb2875b6551ad"
+    }
+  ],
+  "chapter3_entry": {
+    "chapter": 3,
+    "chapter2_complete": true,
+    "checkpoints": [
+      {
+        "name": "chapter2-end",
+        "path": "res://reports/chapter2-redesign-20261022/play/continuous-resumed-entry/continuous-resumed-entry-chapter2-end.json",
+        "stage": 206,
+        "turn": 17,
+        "view": "chapter_end"
+      },
+      {
+        "name": "chapter3-start",
+        "path": "res://reports/chapter2-redesign-20261022/play/continuous-resumed-entry/continuous-resumed-entry-chapter3-start.json",
+        "stage": 301,
+        "turn": 1,
+        "view": "hub"
+      }
+    ],
+    "failures": [],
+    "key_inputs": 2,
+    "no_state_rng_or_outcome_edits": true,
+    "original_T91_source": "res://reports/chapter2-redesign-20261022/play/continuous-final/working-journey.json",
+    "original_T91_source_sha256": "a18523011a8c7adb98d26beefd3c33c09a8123b0c1472ea5d4db92196d518d15",
+    "passed": true,
+    "prior_assertion_resolution": "Direct Dictionary comparison treated loaded numeric Variants and ordinary integer HP restoration as different; all persisted western fields match the original T91 source after canonical JSON normalization.",
+    "source": "res://reports/chapter2-redesign-20261022/play/continuous-resumed/working-journey.json",
+    "source_sha256": "0cd5e97724eb22c18c485184d927119d18ee84f2742e69fa2a8b144c4617a46c",
+    "western_persisted_value_checks": [
+      {
+        "persisted_values_unchanged": true,
+        "unit": "hunapu"
+      },
+      {
+        "persisted_values_unchanged": true,
+        "unit": "daan"
+      },
+      {
+        "persisted_values_unchanged": true,
+        "unit": "otto"
+      },
+      {
+        "persisted_values_unchanged": true,
+        "unit": "fula"
+      },
+      {
+        "persisted_values_unchanged": true,
+        "unit": "lena"
+      },
+      {
+        "persisted_values_unchanged": true,
+        "unit": "lance"
+      }
+    ]
+  },
+  "prior_six_and_stall_report": "actual/reports/chapter2-redesign-20261022/play/continuous-final/continuous-final-play.json",
+  "continuation_report": "actual/reports/chapter2-redesign-20261022/play/continuous-resumed/continuous-chain.json",
+  "source_T91_sha256": "a18523011a8c7adb98d26beefd3c33c09a8123b0c1472ea5d4db92196d518d15",
+  "source_T91_unchanged": true,
+  "six_continuing_party_members": [
+    "eileen",
+    "mireille",
+    "carlo",
+    "lord",
+    "roan",
+    "shia"
+  ],
+  "f25_remaining_west_guard_surrendered": true,
+  "f26_boats": [
+    {
+      "id": "event_boat_0",
+      "hp": 30.0,
+      "arrived": true
+    },
+    {
+      "id": "event_boat_1",
+      "hp": 30.0,
+      "arrived": false
+    }
+  ],
+  "resolved_harness_checks": [
+    {
+      "original_messages": [
+        "Western roster changed during eastern continuation: hunapu",
+        "Western roster changed during eastern continuation: daan",
+        "Western roster changed during eastern continuation: otto",
+        "Western roster changed during eastern continuation: lance"
+      ],
+      "resolution": "Direct Dictionary comparison treated loaded numeric Variants and ordinary integer HP restoration as different; all persisted western fields match the original T91 source after canonical JSON normalization.",
+      "proof": [
+        {
+          "persisted_values_unchanged": true,
+          "unit": "hunapu"
+        },
+        {
+          "persisted_values_unchanged": true,
+          "unit": "daan"
+        },
+        {
+          "persisted_values_unchanged": true,
+          "unit": "otto"
+        },
+        {
+          "persisted_values_unchanged": true,
+          "unit": "fula"
+        },
+        {
+          "persisted_values_unchanged": true,
+          "unit": "lena"
+        },
+        {
+          "persisted_values_unchanged": true,
+          "unit": "lance"
+        }
+      ]
+    }
+  ],
+  "ordinary_inputs_only": true,
+  "stat_edits": false,
+  "rng_edits": false,
+  "position_edits": false,
+  "forced_victories": false
+}
