@@ -1,0 +1,48 @@
+{
+  "info" : {
+    "arguments" : [
+      "devicectl",
+      "device",
+      "info",
+      "apps",
+      "--device",
+      "E6C675BC-6B6B-591A-A686-2B7AECFBADDF",
+      "--bundle-id",
+      "com.gaocc.revengememories",
+      "--timeout",
+      "15",
+      "--json-output",
+      "actual/reports/iphone-layout-20261022/installed-app.json"
+    ],
+    "commandType" : "devicectl.device.info.apps",
+    "environment" : {
+      "TERM" : "dumb"
+    },
+    "jsonVersion" : 3,
+    "outcome" : "success",
+    "version" : "518.33"
+  },
+  "result" : {
+    "apps" : [
+      {
+        "appClip" : false,
+        "builtByDeveloper" : true,
+        "bundleIdentifier" : "com.gaocc.revengememories",
+        "bundleVersion" : "0.10.2",
+        "defaultApp" : false,
+        "hidden" : false,
+        "internalApp" : false,
+        "name" : "复仇与回忆",
+        "removable" : true,
+        "url" : "file:///private/var/containers/Bundle/Application/9A666AE1-16F2-4C35-AEFB-628B82A17EFE/RevengeMemories.app/",
+        "version" : "0.10.2"
+      }
+    ],
+    "defaultAppsIncluded" : false,
+    "deviceIdentifier" : "E6C675BC-6B6B-591A-A686-2B7AECFBADDF",
+    "hiddenAppsIncluded" : false,
+    "internalAppsIncluded" : false,
+    "matchingBundleIdentifier" : "com.gaocc.revengememories",
+    "removableAppsIncluded" : true
+  }
+}

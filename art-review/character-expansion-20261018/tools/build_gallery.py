@@ -94,19 +94,23 @@ def safe_path(base, value):
 
 def apply_class_display_names(profiles, classes, overrides):
     """Use approved campaign labels while preserving source IDs and enemy forms."""
+    # The former review-only label 枪兵 is the same class as campaign 士兵 (6).
+    # Normalize old mappings too, so rebuilding an older art revision stays named correctly.
+    review_aliases={'6':('枪兵',)}
     source_classes={str(row['class_id']):row for row in classes['classes']}
     for profile in profiles:
         cid=str(profile['classId']);enemy=profile.get('side')=='enemy'
         name_key='enemy_name_zh' if enemy else 'name_zh'
-        new_name=overrides.get(cid,{}).get(name_key)
-        if not new_name:continue
         source=source_classes[cid]
         old_name=source['enemy_source_name'] if enemy else source['name']
-        profile['actorName']=profile['actorName'].replace(old_name,new_name)
+        new_name=overrides.get(cid,{}).get(name_key) or (old_name if cid in review_aliases else None)
+        if not new_name:continue
+        for alias in (old_name,)+review_aliases.get(cid,()):
+            profile['actorName']=profile['actorName'].replace(alias,new_name)
+            profile['reviewNote']=profile.get('reviewNote','').replace(alias,new_name)
         profile['className']=new_name
-        profile['reviewNote']=profile.get('reviewNote','').replace(old_name,new_name)
         profile['sourceClassName']=old_name
-        profile['displayNameRevision']='profession-names-20261020'
+        profile['displayNameRevision']='infantry-profession-names-20261022' if cid in review_aliases else 'profession-names-20261020'
 
 def map_bundle(mapping_path, mapping, actors, class_names, enemy_names):
     profiles, actions = [], []
@@ -413,7 +417,7 @@ def build():
         'ready':sum(a['ready'] for a in actions),'pending':sum(not a['ready'] for a in actions)},
       'validation':{'structuralIssues':issues,'browserVisualInspection':'not performed; file URL access was denied by the environment, and no alternate server/browser was attempted'},
       'referenceCorrections':{'label':corrected.get('label'),'note':corrected.get('reference_note'),'keys':list(corrected.get('variants',{}))},
-      'policy':'素材齐备表示能完整播放；男主、弓箭手和本轮已验收枪兵地图均已接入测试包；其余未验收素材保持审核状态。缺图不回退为旧美术。'}
+      'policy':'素材齐备表示能完整播放；男主、弓箭手和已验收士兵地图均已接入测试包；其余未验收素材保持审核状态。缺图不回退为旧美术。'}
     (ROOT/'gallery-data.js').write_text('window.GALLERY_DATA = '+json.dumps(result,ensure_ascii=False,separators=(',',':'))+';\n')
     demos=ROOT/'demos';demos.mkdir(exist_ok=True)
     (demos/'gallery-data.json').write_text(json.dumps(result,ensure_ascii=False,separators=(',',':'))+'\n')

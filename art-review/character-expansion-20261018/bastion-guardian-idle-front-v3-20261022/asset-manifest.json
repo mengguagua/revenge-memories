@@ -1,0 +1,628 @@
+{
+  "revision": "bastion-guardian-idle-front-v3-20261022",
+  "image_generation": "built-in image_gen",
+  "source_master": "source/static-body-arm-layers-master-v1.png",
+  "palette": {
+    "ally": [
+      "172638",
+      "304461",
+      "3976b5",
+      "6e8fb0",
+      "a7b9ca",
+      "f1f0e6",
+      "6c6870",
+      "925e46",
+      "d09873",
+      "f0c6a0",
+      "795a43",
+      "493b38",
+      "8296ac",
+      "c5d2db"
+    ],
+    "enemy": [
+      "151b2c",
+      "2d344f",
+      "484d7c",
+      "63678d",
+      "7f849f",
+      "b1b7d0",
+      "55536c",
+      "785b60",
+      "ad8590",
+      "dcc0b9",
+      "424361",
+      "2b304a",
+      "6b7597",
+      "949fbd"
+    ]
+  },
+  "registration": [
+    {
+      "source": "static-body-arm-layers-master-v1.png",
+      "source_sha256": "a53c4ce332fd00ded15700a27f9b415619db1f4544ba3f794123454761d66408",
+      "source_bounds": [
+        74,
+        6,
+        658,
+        715
+      ],
+      "opaque_pixels": 285204,
+      "hair_material_box": [
+        145,
+        14,
+        358,
+        137
+      ],
+      "hair_color": "6c6870",
+      "hair_swatch_count": 1,
+      "label": "one-shared-static-body",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        251.5,
+        14
+      ],
+      "target_landmark": [
+        48,
+        16
+      ],
+      "scale": 0.0920863309352518,
+      "resampled_size": [
+        54,
+        65
+      ],
+      "translation": [
+        25,
+        15
+      ],
+      "actual_landmark": [
+        48.255136986301366,
+        16.283497884344147
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "static-body-arm-layers-master-v1.png",
+      "source_sha256": "a53c4ce332fd00ded15700a27f9b415619db1f4544ba3f794123454761d66408",
+      "source_bounds": [
+        790,
+        176,
+        1150,
+        552
+      ],
+      "opaque_pixels": 57692,
+      "label": "arm-layer-0",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        40,
+        326
+      ],
+      "target_landmark": [
+        22,
+        52
+      ],
+      "scale": 0.075,
+      "resampled_size": [
+        27,
+        28
+      ],
+      "translation": [
+        19,
+        28
+      ],
+      "actual_landmark": [
+        22.0,
+        52.27659574468085
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "static-body-arm-layers-master-v1.png",
+      "source_sha256": "a53c4ce332fd00ded15700a27f9b415619db1f4544ba3f794123454761d66408",
+      "source_bounds": [
+        1278,
+        176,
+        1639,
+        498
+      ],
+      "opaque_pixels": 56161,
+      "label": "arm-layer-1",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        40,
+        266
+      ],
+      "target_landmark": [
+        22,
+        46
+      ],
+      "scale": 0.075,
+      "resampled_size": [
+        27,
+        24
+      ],
+      "translation": [
+        19,
+        26
+      ],
+      "actual_landmark": [
+        21.991689750692522,
+        45.826086956521735
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "static-body-arm-layers-master-v1.png",
+      "source_sha256": "a53c4ce332fd00ded15700a27f9b415619db1f4544ba3f794123454761d66408",
+      "source_bounds": [
+        1751,
+        173,
+        2147,
+        479
+      ],
+      "opaque_pixels": 61525,
+      "label": "arm-layer-2",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        42,
+        130
+      ],
+      "target_landmark": [
+        22,
+        40
+      ],
+      "scale": 0.075,
+      "resampled_size": [
+        30,
+        23
+      ],
+      "translation": [
+        19,
+        30
+      ],
+      "actual_landmark": [
+        22.181818181818183,
+        39.77124183006536
+      ],
+      "clipped_pixels": 0
+    }
+  ],
+  "static_body_proof": {
+    "ally": {
+      "shared_body_sha256": "bfcc3dcd00abd8c3afe0dce8235d5b76f3cf181f1fe93678a62d7a6ee9217ce4",
+      "protected_body_pixels": 2300,
+      "protected_body_pixels_identical_every_phase": true,
+      "arm_motion_box": [
+        17,
+        34,
+        40,
+        57
+      ],
+      "spear_positions": [
+        [
+          18,
+          12
+        ],
+        [
+          18,
+          6
+        ],
+        [
+          18,
+          0
+        ]
+      ],
+      "body_offset_all_phases": [
+        0,
+        0
+      ]
+    },
+    "enemy": {
+      "shared_body_sha256": "7758112c2b28c8da1c12c95f8b2bd2a4f0fd5f192c14b602ae232293b1519e87",
+      "protected_body_pixels": 2300,
+      "protected_body_pixels_identical_every_phase": true,
+      "arm_motion_box": [
+        17,
+        34,
+        40,
+        57
+      ],
+      "spear_positions": [
+        [
+          18,
+          12
+        ],
+        [
+          18,
+          6
+        ],
+        [
+          18,
+          0
+        ]
+      ],
+      "body_offset_all_phases": [
+        0,
+        0
+      ]
+    }
+  },
+  "arm_motion_box": [
+    17,
+    34,
+    40,
+    57
+  ],
+  "source_arm_grips": [
+    [
+      40,
+      326
+    ],
+    [
+      40,
+      266
+    ],
+    [
+      42,
+      130
+    ]
+  ],
+  "target_arm_grips": [
+    [
+      22,
+      52
+    ],
+    [
+      22,
+      46
+    ],
+    [
+      22,
+      40
+    ]
+  ],
+  "shared_spear_size": [
+    8,
+    76
+  ],
+  "shared_spear_positions": [
+    [
+      18,
+      12
+    ],
+    [
+      18,
+      6
+    ],
+    [
+      18,
+      0
+    ]
+  ],
+  "body_offset_all_phases": [
+    0,
+    0
+  ],
+  "runtime_integrated": false,
+  "assets": [
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/ally/shared-fixed-body.png",
+      "purpose": "one shared head, torso, planted legs and full front-facing shield, immutable across all phases",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2353,
+      "sha256": "bfcc3dcd00abd8c3afe0dce8235d5b76f3cf181f1fe93678a62d7a6ee9217ce4"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/ally/shared-spear.png",
+      "purpose": "same complete spear, translated without scaling",
+      "size": [
+        8,
+        76
+      ],
+      "bytes": 385,
+      "sha256": "360e5e649c2835fc4625212159cf0e8ca0a67d99a034b74a699157afa12ce871"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/ally/arm-000.png",
+      "purpose": "detached armored arm layer, fixed attachment region beneath pauldron",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 564,
+      "sha256": "2eb3aba9eb9d5bf28e94553b48d16130f8e88b2e168fd10e3dc683220b270538"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/ally/hand-occlusion-000.png",
+      "purpose": "own arm grip drawn in front of rigid spear",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 287,
+      "sha256": "be1b4ec1ef280f2378b6113f74f8fa3b960bc6918735ce7deebf702a90cdf757"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/ally/arm-001.png",
+      "purpose": "detached armored arm layer, fixed attachment region beneath pauldron",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 493,
+      "sha256": "acb138025e26948d381b35c4f6c8999b4e4f416bb87224b125525232b71e2efa"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/ally/hand-occlusion-001.png",
+      "purpose": "own arm grip drawn in front of rigid spear",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 248,
+      "sha256": "65f9cd6ed5c18d9f2a4d068e9a6cb890ed6fd8638e21e516f8aa0a108e8ef792"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/ally/arm-002.png",
+      "purpose": "detached armored arm layer, fixed attachment region beneath pauldron",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 651,
+      "sha256": "45bc060c8889416e0da1e385271c0f71db251c9f23680a2a422dd33dec2fa31e"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/ally/hand-occlusion-002.png",
+      "purpose": "own arm grip drawn in front of rigid spear",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 262,
+      "sha256": "825325091bf3803d72a9f861f7597dd73ef2d93ad6d79b3ad118c21e5a60c3c0"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/ally/frame-000.png",
+      "purpose": "fixed body and outward full shield; only arm and complete spear move",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2811,
+      "sha256": "ac8cbdbf30cf1221c4f3bc7ba144eaf4b1cc9f36afa18a3e6b8237ac5c1ca6ba"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/ally/frame-001.png",
+      "purpose": "fixed body and outward full shield; only arm and complete spear move",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2793,
+      "sha256": "02eec2792b33485d6aaa39ffb809b9f0fdc4cc67c88ba6681bcdfbb3754faa2d"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/ally/frame-002.png",
+      "purpose": "fixed body and outward full shield; only arm and complete spear move",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2857,
+      "sha256": "dd2d4759ba37ce97483b364265a1cadc81f8f0cba3dfe7500caa0b2876330c68"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/ally/frame-003.png",
+      "purpose": "fixed body and outward full shield; only arm and complete spear move",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2793,
+      "sha256": "02eec2792b33485d6aaa39ffb809b9f0fdc4cc67c88ba6681bcdfbb3754faa2d"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/ally/frame-004.png",
+      "purpose": "fixed body and outward full shield; only arm and complete spear move",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2811,
+      "sha256": "ac8cbdbf30cf1221c4f3bc7ba144eaf4b1cc9f36afa18a3e6b8237ac5c1ca6ba"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/ally/frame-005.png",
+      "purpose": "fixed body and outward full shield; only arm and complete spear move",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2793,
+      "sha256": "02eec2792b33485d6aaa39ffb809b9f0fdc4cc67c88ba6681bcdfbb3754faa2d"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/ally/idle-atlas.png",
+      "purpose": "six original alias slots, unchanged native idle timing",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 5087,
+      "sha256": "817f4a4a2d28646c0cc8cfc87d5854d945a413072f7999128c44e69e6ebc938f"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/enemy/shared-fixed-body.png",
+      "purpose": "one shared head, torso, planted legs and full front-facing shield, immutable across all phases",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2258,
+      "sha256": "7758112c2b28c8da1c12c95f8b2bd2a4f0fd5f192c14b602ae232293b1519e87"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/enemy/shared-spear.png",
+      "purpose": "same complete spear, translated without scaling",
+      "size": [
+        8,
+        76
+      ],
+      "bytes": 389,
+      "sha256": "e912b0ca884b12bb69fb258f43b30abc8e904a62eefd4157eee27d1f0e7d8a33"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/enemy/arm-000.png",
+      "purpose": "detached armored arm layer, fixed attachment region beneath pauldron",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 523,
+      "sha256": "59003807965deab24a9158237890a783eb01569596b74e386453f646717fb895"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/enemy/hand-occlusion-000.png",
+      "purpose": "own arm grip drawn in front of rigid spear",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 283,
+      "sha256": "3485cc22de6535269dd50371526b71f958e614105a2245716a4a068fd34cf868"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/enemy/arm-001.png",
+      "purpose": "detached armored arm layer, fixed attachment region beneath pauldron",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 493,
+      "sha256": "fdad20a2ce64b3cc15596ac19c1300a819c7ddaa8998da625296e8c5afd3593d"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/enemy/hand-occlusion-001.png",
+      "purpose": "own arm grip drawn in front of rigid spear",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 245,
+      "sha256": "ac6e9c667634802cad1e61e4a6448e8745891f2b8741ef2e94ae7e3c2e53b627"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/enemy/arm-002.png",
+      "purpose": "detached armored arm layer, fixed attachment region beneath pauldron",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 636,
+      "sha256": "ee6ffe91c7b7e5020e5a5c2f13595aab5610c4dd6d71b3c78f442e5cfd693d31"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/enemy/hand-occlusion-002.png",
+      "purpose": "own arm grip drawn in front of rigid spear",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 256,
+      "sha256": "c4a9c69fb6ae50d55c9909d827bebcb80d6bdce5b5764d44f303ef91410b3103"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/enemy/frame-000.png",
+      "purpose": "fixed body and outward full shield; only arm and complete spear move",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2727,
+      "sha256": "9d2fb0fb24e7249a7767edac3badd96d4e17f8946e87db4d7817acd019702d1c"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/enemy/frame-001.png",
+      "purpose": "fixed body and outward full shield; only arm and complete spear move",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2691,
+      "sha256": "664f7dd5f0de1d1e62c000ba441789aa6be9ac8e102b09a469e2062978a69330"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/enemy/frame-002.png",
+      "purpose": "fixed body and outward full shield; only arm and complete spear move",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2739,
+      "sha256": "216585e6d4050846a70eb18d49abc808ed81c22ef66df7f431800974091356f3"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/enemy/frame-003.png",
+      "purpose": "fixed body and outward full shield; only arm and complete spear move",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2691,
+      "sha256": "664f7dd5f0de1d1e62c000ba441789aa6be9ac8e102b09a469e2062978a69330"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/enemy/frame-004.png",
+      "purpose": "fixed body and outward full shield; only arm and complete spear move",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2727,
+      "sha256": "9d2fb0fb24e7249a7767edac3badd96d4e17f8946e87db4d7817acd019702d1c"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/enemy/frame-005.png",
+      "purpose": "fixed body and outward full shield; only arm and complete spear move",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2691,
+      "sha256": "664f7dd5f0de1d1e62c000ba441789aa6be9ac8e102b09a469e2062978a69330"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/enemy/idle-atlas.png",
+      "purpose": "six original alias slots, unchanged native idle timing",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 5031,
+      "sha256": "d8cfeea7e75fd3ddfbc7b09bd53dfc2482bfbceb4856a005dd9376a2c714650c"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/poses-dark.png",
+      "purpose": "both factions three phases, fixed body and complete outward shield, dark/light",
+      "size": [
+        960,
+        670
+      ],
+      "bytes": 27082,
+      "sha256": "cd114adc8ea09b0f30f0338033bb66fc384bf5e34e80bf83ad707fbdcc11156a"
+    },
+    {
+      "path": "bastion-guardian-idle-front-v3-20261022/poses-light.png",
+      "purpose": "both factions three phases, fixed body and complete outward shield, dark/light",
+      "size": [
+        960,
+        670
+      ],
+      "bytes": 26839,
+      "sha256": "149661ee24fe828ec9c37ef576dbf5dd2466b1d7b4d9fb72ea49d816588f6c92"
+    }
+  ]
+}

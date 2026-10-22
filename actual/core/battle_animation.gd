@@ -253,11 +253,10 @@ func play(event: Dictionary) -> void:
 						var before_contact=Time.get_ticks_usec()
 						await _contact(event)
 						deadline+=float(Time.get_ticks_usec()-before_contact)
-					var speed=float(ui.animation_speed)
+					var speed=float(ui.effective_animation_speed())
 					if not graphic.get("original_motion",false):
 						await ui._wait(1.0/float(variant.get("native_fps",FPS)))
 						continue
-					if Input.is_physical_key_pressed(KEY_Z) or Input.is_physical_key_pressed(KEY_SPACE):speed*=3.0
 					deadline+=1000000.0/(float(variant.get("native_fps",FPS))*speed)
 					while float(Time.get_ticks_usec())<deadline:await ui.get_tree().process_frame
 		"melee":

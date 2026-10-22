@@ -1,0 +1,108 @@
+{
+  "info" : {
+    "arguments" : [
+      "devicectl",
+      "list",
+      "devices",
+      "--timeout",
+      "15",
+      "--json-output",
+      "/Users/gcc/gaocc/project/revenge-memories/actual/reports/iphone-refine-20261022/device-status.json"
+    ],
+    "commandType" : "devicectl.list.devices",
+    "environment" : {
+      "TERM" : "dumb"
+    },
+    "jsonVersion" : 3,
+    "outcome" : "success",
+    "version" : "518.33"
+  },
+  "result" : {
+    "devices" : [
+      {
+        "capabilities" : [
+          {
+            "featureIdentifier" : "com.apple.coredevice.feature.tags",
+            "name" : "Modify Tags"
+          },
+          {
+            "featureIdentifier" : "com.apple.coredevice.feature.default.user.credentials",
+            "name" : "Modify credentials for default users for a device"
+          },
+          {
+            "featureIdentifier" : "com.apple.coredevice.feature.unpairdevice",
+            "name" : "Unpair Device"
+          }
+        ],
+        "connectionProperties" : {
+          "authenticationType" : "manualPairing",
+          "isMobileDeviceOnly" : false,
+          "lastConnectionDate" : "2026-10-22T01:36:00.000Z",
+          "pairingState" : "paired",
+          "potentialHostnames" : [
+            "iPhone16-gcc.coredevice.local",
+            "E6C675BC-6B6B-591A-A686-2B7AECFBADDF.coredevice.local",
+            "00008140-000E09EA2EEB001C.coredevice.local"
+          ],
+          "tunnelState" : "unavailable"
+        },
+        "deviceProperties" : {
+          "bootedFromSnapshot" : true,
+          "bootedSnapshotName" : "com.apple.os.update-11E16E1115628A088A7B52F6F1556ADE4A3F78A417F59BD1A3EE3035D1316A23",
+          "ddiServicesAvailable" : false,
+          "developerModeStatus" : "enabled",
+          "hasInternalOSBuild" : false,
+          "name" : "iPhone16-gcc",
+          "osBuildUpdate" : "22H352",
+          "osVersionNumber" : "18.7.8",
+          "rootFileSystemIsWritable" : false,
+          "supportsCheckedAllocations" : false
+        },
+        "hardwareProperties" : {
+          "cpuType" : {
+            "name" : "arm64e",
+            "subType" : 2,
+            "type" : 16777228
+          },
+          "deviceType" : "iPhone",
+          "ecid" : 3951551088099356,
+          "hardwareModel" : "D47AP",
+          "internalStorageCapacity" : 256000000000,
+          "isProductionFused" : true,
+          "marketingName" : "iPhone 16",
+          "platform" : "iOS",
+          "productType" : "iPhone17,3",
+          "reality" : "physical",
+          "serialNumber" : "GK12YH0W46",
+          "supportedCPUTypes" : [
+            {
+              "name" : "arm64e",
+              "subType" : 2,
+              "type" : 16777228
+            },
+            {
+              "name" : "arm64",
+              "subType" : 0,
+              "type" : 16777228
+            },
+            {
+              "name" : "unknown-12-13",
+              "subType" : 13,
+              "type" : 12
+            }
+          ],
+          "supportedDeviceFamilies" : [
+            1
+          ],
+          "thinningProductType" : "iPhone17,3",
+          "udid" : "00008140-000E09EA2EEB001C"
+        },
+        "identifier" : "E6C675BC-6B6B-591A-A686-2B7AECFBADDF",
+        "tags" : [
+
+        ],
+        "visibilityClass" : "default"
+      }
+    ]
+  }
+}

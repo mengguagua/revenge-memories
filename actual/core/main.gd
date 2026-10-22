@@ -6,6 +6,14 @@ const Portraits = preload("res://core/portrait_library.gd")
 const PartySprites = preload("res://core/party_sprites.gd")
 const JourneyScreen = preload("res://core/journey_screen.gd")
 const EquipmentScreen = preload("res://core/equipment_screen.gd")
+const HubCaption = preload("res://core/hub_caption_layout.gd")
+const OVERVIEW_IMAGE = preload("res://assets/world_tiles/formal-world-overview.png")
+var overview_zoom := 1
+var overview_center := Vector2(0.5,0.5)
+var overview_mouse_drag := false
+var overview_audit: Dictionary = {}
+var phone_hub_caption := Rect2()
+var phone_hub_caption_room := ""
 var journey
 var equipment_screen
 var battle_card_audit: Dictionary={}
@@ -66,6 +74,10 @@ func _process(delta: float) -> void:
 	if view not in ["title","journal","journal_confirm"]:game.play_seconds+=delta
 	if journey!=null:journey.saved_left=maxf(0.0,journey.saved_left-delta)
 	super._process(delta)
+	if view=="overview" and held_direction!=Vector2i.ZERO:
+		repeat_timer-=delta
+		if repeat_timer<=0.0:
+			repeat_timer=0.14;_direction(held_direction)
 	if previous_canvas_size!=get_viewport_rect().size:
 		previous_canvas_size=get_viewport_rect().size
 		if view=="plot":_reflow_plot()
@@ -94,7 +106,8 @@ func _mouse_accept(point: Vector2) -> void:
 	if equipment_screen!=null and equipment_screen.active():equipment_screen.mouse(local);return
 	if view in ["journal","journal_confirm"]:journey.mouse(local);return
 	if view=="plot":_accept();return
-	if view=="overview" or (view=="chapter_end" and menu_items.is_empty()):_accept();return
+	if view=="overview":return
+	if view=="chapter_end" and menu_items.is_empty():_accept();return
 	if view=="title" and title_menu:
 		for i in range(2):
 			if journey.title_button(i).has_point(local):title_selected=i;_accept();return
@@ -160,7 +173,8 @@ func _accept() -> void:
 			game.flags.ending_done=true;game.save_game();_open_menu("ending",["重看结局","返回标题"],["new:replay_ending","title"],Vector2(48,164))
 		return
 	if view=="plot":_advance_plot();return
-	if view=="overview":view="world";return
+	if view=="overview":
+		held_direction=Vector2i.ZERO;overview_mouse_drag=false;view="world";return
 	if view=="chapter_end" and menu_items.is_empty():
 		var entries=["返回世界地图","保存进度","返回标题"]
 		var actions=["new:world","new:save","title"]
@@ -190,7 +204,9 @@ func _accept() -> void:
 func _direction(direction: Vector2i) -> void:
 	if equipment_screen!=null and equipment_screen.active():equipment_screen.direction(direction);return
 	if view in ["journal","journal_confirm"]:journey.direction(direction);return
-	if view=="plot" or view=="overview" or view=="chapter_end":
+	if view=="overview":
+		_overview_pan_pixels(-Vector2(direction)*24);return
+	if view=="plot" or view=="chapter_end":
 		if not menu_items.is_empty():super._direction(direction)
 		return
 	if view=="world" and menu_items.is_empty() and not busy:
@@ -263,6 +279,10 @@ func _menu_action(action: String,context: String) -> void:
 		"new:prepare":
 			if game.return_to_preparation():_continue_world();_notice("已重置本战，保留此前进度")
 		"new:save","save":journey.open("save")
+		"new:battle_title":
+			# Resume the current battle instead of silently discarding this turn.
+			if game.save_game():_show_title()
+			else:_notice("保存失败，仍停留在当前战场",3.0)
 		"new:goal":
 			var text=str(game.battle_data.goal)
 			if not game.exit_marker().is_empty():text+="\n出口有旗标。S菜单可定位出口与首领。"
@@ -273,7 +293,8 @@ func _menu_action(action: String,context: String) -> void:
 				for status in game.objective_status():pages.append({"speaker":"战场提示","text":status})
 			for note in game.battle_data.get("tactical_notes",[]):pages.append({"speaker":"战场提示","text":str(note)})
 			await play_pages(pages,"battle")
-		"new:overview":view="overview"
+		"new:overview":
+			overview_zoom=1;overview_center=Vector2(0.5,0.5);overview_mouse_drag=false;held_direction=Vector2i.ZERO;view="overview"
 		_:super._menu_action(action,context)
 
 func play_victory_rewards() -> void:
@@ -297,12 +318,17 @@ func _open_system_menu() -> void:
 	if view=="world" and not busy:
 		_open_menu("world_system",["部队整备","世界全图","保存进度","返回标题"],["new:camp","new:overview","new:save","title"],Vector2(48,64));return
 	super._open_system_menu()
-	if view=="battle" and not menu_items.is_empty():
+	if view=="battle" and menu_context=="system" and not menu_items.is_empty():
+		var save_index=menu_actions.find("save")
+		if save_index>=0:menu_actions.remove_at(save_index);menu_items.remove_at(save_index)
+		var end_index=menu_actions.find("end_turn")
+		if end_index>=0:menu_items[end_index]="结束回合（第%d回合）" % game.turn
 		menu_items.append("战场目标");menu_actions.append("new:goal")
 		if not game.exit_marker().is_empty():menu_items.append("定位出口或目的地");menu_actions.append("new:focus_exit")
 		var boss=game.find_unit(str(game.battle_data.boss_id))
 		if not boss.is_empty() and int(boss.hp)>0:menu_items.append("定位首领："+str(boss.name_zh));menu_actions.append("new:focus_boss")
 		menu_items.append("返回整备（重置本战）");menu_actions.append("new:prepare")
+		menu_items.append("保存并返回主菜单");menu_actions.append("new:battle_title")
 
 func _show_status() -> void:
 	if equipment_screen!=null and equipment_screen.active():equipment_screen.toggle_details();return
@@ -359,15 +385,42 @@ func _small_text(text: String,at: Vector2,color: Color=Color.WHITE) -> void:
 	text_checks.append({"text":text,"bounds":bounds,"font_px":8})
 	if not safe_panels.is_empty() and not safe_panels[-1].encloses(bounds):layout_errors.append("Small text outside content-safe rectangle: "+text)
 
+func _hub_caption_protected() -> Array:
+	var protected=[]
+	for object in hub_controller.objects:
+		var at=hub_controller.ORIGIN+Vector2(object.position[0],object.position[1])*16
+		if object.sprite=="actor":
+			var sprite=_party_hub_sprite(object,graphics.village_sprites.get(str(int(object.source)),graphics.village_sprites["1"]))
+			protected.append(Rect2(at-Vector2(sprite.tile_origin[0],sprite.tile_origin[1]),Vector2(sprite.frame_size[0],sprite.frame_size[1])/maxf(1.0,float(sprite.get("native_density",1)))).grow(4))
+		else:
+			var texture=_tex(str(object.get("sprite_path","res://assets/battle_tiles/modules/"+str(object.sprite)+".png")))
+			protected.append(Rect2(at-Vector2(0,texture.get_height()-16),texture.get_size()).grow(4))
+		if game.hub_position+hub_controller.facing==Vector2i(object.position[0],object.position[1]):protected.append(Rect2(at+Vector2(0,-12),Vector2(16,16)))
+	var hero=_personal_hub_sprite(graphics.village_sprites["2" if game.route=="celica" else "1"])
+	var hero_size=Vector2(hero.frame_size[0],hero.frame_size[1])/maxf(1.0,float(hero.get("native_density",1)));var origin=hub_controller.ORIGIN-Vector2(hero.tile_origin[0],hero.tile_origin[1])
+	var hero_rect=Rect2(hub_controller.render_position+origin,hero_size)
+	if hub_controller.motion_left>0:
+		hero_rect=hero_rect.merge(Rect2(hub_controller.motion_origin+origin,hero_size)).merge(Rect2(hub_controller.motion_target+origin,hero_size))
+	protected.append(hero_rect.grow(4))
+	protected.append(Rect2(hub_controller.ORIGIN+Vector2(6,8)*16+Vector2(0,-6),Vector2(16,16)))
+	return protected
+
 func _draw_hub_caption(title: String,hint: String) -> void:
 	if game.chapter==5 and menu_context=="fifth_selection" and not menu_items.is_empty():
 		presentation_audit.hub_caption=Rect2();return
 	# Full native 12px glyphs preserve strokes in complex Chinese place names.
-	var limit=minf(240.0,get_viewport_rect().size.x-40.0)
+	var limit=minf(280.0 if bool(get_meta("phone",false)) else 240.0,get_viewport_rect().size.x-40.0)
 	var title_lines=_wrapped_lines(title,limit);var lines=_wrapped_lines(hint,limit)
 	var widest=0.0
 	for line in title_lines+lines:widest=maxf(widest,_text_width(line))
 	var rect=Rect2(_visible_native_rect().position+Vector2(8,8),Vector2(widest+24,24+16*(title_lines.size()+lines.size())))
+	if bool(get_meta("phone",false)):
+		if phone_hub_caption_room!=hub_controller.room:phone_hub_caption=Rect2();phone_hub_caption_room=hub_controller.room
+		var protected=_hub_caption_protected()
+		var placed=HubCaption.place(rect.size,_visible_native_rect(),protected,phone_hub_caption)
+		presentation_audit.hub_protected=protected
+		if placed.has_area():rect=placed;phone_hub_caption=rect
+		else:layout_errors.append("No unobstructed phone hub caption position")
 	_panel(rect)
 	for i in range(title_lines.size()):_center_text(title_lines[i],Rect2(rect.position+Vector2(12,12+i*16),Vector2(widest,12)),Color(.93,.87,.67))
 	for i in range(lines.size()):_center_text(lines[i],Rect2(rect.position+Vector2(12,12+(title_lines.size()+i)*16),Vector2(widest,12)))
@@ -750,11 +803,68 @@ func _map_unit_sprite(unit: Dictionary) -> Dictionary:
 	art.path=key;return art
 
 func _attack_preview_placement() -> Dictionary:
-	var neighbours=[]
+	var neighbours=[];var combatants=[]
 	for actor in game.units:
 		if int(actor.hp)>0 and not actor.get("hidden",false):
 			neighbours.append(Rect2(_battle_cell_screen(game.pos(actor))+Vector2(-4,-10),Vector2(24,30)))
-	return BattlePanels.forecast(_battle_cell_screen(game.cursor),_visible_native_rect(),neighbours)
+	for id in [game.selected_id,str(target_ids[target_index]) if not target_ids.is_empty() else ""]:
+		var actor=game.find_unit(str(id))
+		if actor.is_empty():continue
+		var sprite=_map_unit_sprite(actor);var origin=sprite.get("tile_origin",[4,4]);var size=sprite.get("frame_size",[24,24])
+		var bounds=Rect2(_battle_cell_screen(game.pos(actor))-Vector2(origin[0],origin[1]),Vector2(size[0],size[1])/maxf(1.0,float(sprite.get("native_density",1))))
+		combatants.append(bounds.grow(2))
+	var result=BattlePanels.forecast(_battle_cell_screen(game.cursor),_visible_native_rect(),neighbours,combatants)
+	result.combatants=combatants
+	result.attacker_occluded=result.valid and not combatants.is_empty() and result.panel.intersects(combatants[0])
+	return result
+
+func _preview_glyph(character: String) -> Dictionary:
+	# Use the existing native 12px digits, preserving their full vertical ink.
+	# Only empty horizontal columns are removed; no fractional resampling.
+	var digits="0123456789";var index=digits.find(character)
+	if index>=0 or character=="%":
+		var source="０１２３４５６７８９".substr(index,1) if index>=0 else "％"
+		var glyph: Dictionary=chinese_font.glyphs[source].duplicate(true)
+		var crop=2 if index>=0 else 1;var advance=7 if index>=0 else 9
+		glyph.rect[0]+=crop;glyph.rect[2]=advance;glyph.advance=advance
+		return glyph
+	return _zh_glyph(character)
+
+func _preview_text_width(value: String) -> float:
+	var width=0.0
+	for character in value:
+		var glyph=_preview_glyph(character)
+		width+=float(glyph.advance) if not glyph.is_empty() else 4.0 if character==" " else 8.0
+	return width
+
+func _preview_text(value: String,at: Vector2,color: Color=Color.WHITE) -> void:
+	var start=at.round();var cursor=start
+	for character in value:
+		var glyph=_preview_glyph(character)
+		if not glyph.is_empty():
+			var r: Array=glyph.rect
+			draw_texture_rect_region(_tex(chinese_font.path),Rect2(cursor,Vector2(r[2],r[3])),Rect2(r[0],r[1],r[2],r[3]),color)
+			cursor.x+=float(glyph.advance)
+		elif character==" ":cursor.x+=4
+		else:
+			for code in graphics.font.char_codes.get(character,[0x9c]):_glyph(int(code),cursor+Vector2(0,2),color)
+			cursor.x+=8
+	var bounds=Rect2(start,Vector2(_preview_text_width(value),12))
+	text_checks.append({"text":value,"bounds":bounds,"font_px":12,"native_digits":true})
+	if not safe_panels.is_empty() and not safe_panels[-1].encloses(bounds):layout_errors.append("Forecast text outside content-safe rectangle: "+value)
+
+func _draw_preview_health(hp: int,maximum: int,at: Vector2,side: String,largest_maximum: int) -> void:
+	# A shared density for both combatants prevents different cell heights.
+	var columns=52 if largest_maximum>52 else 26
+	var cell_size=Vector2(2,2) if largest_maximum>52 else Vector2(4,4)
+	var count=clampi(maximum,1,255);var filled=clampi(hp,0,count)
+	var bounds=Rect2(at,Vector2(mini(count,columns)*cell_size.x,ceili(float(count)/columns)*cell_size.y))
+	if not safe_panels.is_empty() and not safe_panels[-1].encloses(bounds):layout_errors.append("Forecast HP cells outside content-safe rectangle")
+	for index in range(count):
+		var cell="filled" if index<filled else "empty"
+		var position=at+Vector2(index%columns,index/columns)*cell_size
+		draw_texture_rect(_tex(health_ui.cells[side][cell].path),Rect2(position,cell_size),false)
+	health_checks.append({"hp":filled,"maximum":count,"cells":count,"filled_cells":filled,"bounds":bounds,"cell_size":cell_size,"columns":columns,"forecast":true})
 
 func _draw_preview() -> void:
 	if target_ids.is_empty():return
@@ -766,6 +876,9 @@ func _draw_preview() -> void:
 	if not placement.valid:return
 	var rect: Rect2=placement.panel
 	_panel(rect)
+	var largest_maximum=maxi(int(attacker.max_hp),int(reply.max_hp))
+	battle_preview_audit.text_font_px=12;battle_preview_audit.hp_cell_size=Vector2(2,2) if largest_maximum>52 else Vector2(4,4)
+	battle_preview_audit.text_rows=[]
 	for unit in [attacker,reply]:
 		if int(unit.get("character_id",0))==167:unit.weapon_index=Rules.boss_weapon(unit,game.frame_counter)
 	for i in range(2):
@@ -775,16 +888,23 @@ func _draw_preview() -> void:
 		other.story_invulnerable=Rules.boss_guard(other,game.turn)
 		var stats=Rules.attack_stats(unit,other,game.terrain_avoid(game.pos(other)))
 		var can_attack=Rules.can_attack(unit,distance);var blocked=Rules.attack_blocked(unit,other)
-		var x=rect.position.x+12+i*112;var y=rect.position.y
-		_text(str(unit.name_zh),Vector2(x,y+12))
-		var lines=["生命"+str(int(unit.hp)),"攻击无效" if blocked else ("伤害"+str(stats.damage)+" 命中"+str(stats.hit)+"%" if can_attack else "无法反击"),"不能造成伤害" if blocked else ("必杀"+str(stats.critical)+"%" if can_attack else "超出攻击范围")]
+		var x=rect.position.x+12+(0 if placement.stacked else i*112);var y=rect.position.y+(i*88 if placement.stacked else 0)
+		_preview_text(str(unit.name_zh),Vector2(x,y+(10 if placement.compact else 12)))
+		var lines=["生命%d/%d"%[int(unit.hp),int(unit.max_hp)],"攻击无效" if blocked else ("伤害"+str(stats.damage)+" 命中"+str(stats.hit)+"%" if can_attack else "无法反击"),"不能造成伤害" if blocked else ("必杀"+str(stats.critical)+"%" if can_attack else "超出攻击范围")]
 		for row in range(3):
-			if placement.compact:_small_text(lines[row],Vector2(x,y+30+row*12))
-			else:_text(lines[row],Vector2(x,y+36+row*16))
-		_draw_health(int(unit.hp),int(unit.max_hp),Vector2(x,y+(64 if placement.compact else 90)),"ally" if unit.side=="player" else "enemy",8 if placement.compact else 12)
+			var line=str(lines[row])
+			if _preview_text_width(line)>104:line=line.replace(" ","")
+			_preview_text(line,Vector2(x,y+(24+row*14 if placement.compact else 32+row*16)))
+			battle_preview_audit.text_rows.append({"unit":str(unit.id),"text":line})
+		_draw_preview_health(int(unit.hp),int(unit.max_hp),Vector2(x,y+(66 if placement.compact else 82)),"ally" if unit.side=="player" else "enemy",largest_maximum)
 	if target_ids.size()>1:
-		_draw_indicator("left",rect.position+Vector2(110,14))
-		_draw_indicator("right",rect.position+Vector2(220,14))
+		if placement.stacked:
+			var sprite=_map_unit_sprite(defender);var arrow_y=-int(sprite.get("tile_origin",[4,4])[1])-9
+			_draw_indicator("left",_battle_cell_screen(game.cursor)+Vector2(-8,arrow_y))
+			_draw_indicator("right",_battle_cell_screen(game.cursor)+Vector2(16,arrow_y))
+		else:
+			_draw_indicator("left",rect.position+Vector2(110,14))
+			_draw_indicator("right",rect.position+Vector2(220,14))
 	# The whole panel is outside this protected sprite/arrow rectangle.
 	var target_sprite=_map_unit_sprite(defender)
 	_draw_indicator("down",_battle_cell_screen(game.cursor)+Vector2(4,-int(target_sprite.get("tile_origin",[4,4])[1])-9))
@@ -900,11 +1020,57 @@ func _draw_exit_direction() -> void:
 	if battle_card_audit.get("panel",Rect2()).has_area() and rect.intersects(battle_card_audit.panel):return
 	_panel(rect);_small_text(text,rect.position+Vector2(10,10),Color(.76,1,.82))
 
+func _input(event: InputEvent) -> void:
+	if view=="overview":
+		if event is InputEventKey and event.pressed and not event.echo:
+			if event.physical_keycode in [KEY_EQUAL,KEY_KP_ADD]:_overview_change_zoom(1);return
+			if event.physical_keycode in [KEY_MINUS,KEY_KP_SUBTRACT]:_overview_change_zoom(-1);return
+			if event.physical_keycode==KEY_R:
+				overview_zoom=1;overview_center=Vector2(0.5,0.5);queue_redraw();return
+		if event is InputEventMouseButton:
+			if event.button_index==MOUSE_BUTTON_LEFT:
+				overview_mouse_drag=event.pressed and _overview_area().has_point(event.position-_canvas_offset());return
+			if event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN]:
+				_overview_change_zoom(1 if event.button_index==MOUSE_BUTTON_WHEEL_UP else -1);return
+		if event is InputEventMouseMotion and overview_mouse_drag:
+			_overview_pan_pixels(event.relative);return
+	super._input(event)
+
+func _notification(what: int) -> void:
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED]:overview_mouse_drag=false
+	super._notification(what)
+
+func _overview_area() -> Rect2:
+	var bounds=_visible_native_rect()
+	return Rect2(bounds.position+Vector2(8,8),Vector2(bounds.size.x-16,196))
+
+func _overview_geometry() -> Dictionary:
+	var area=_overview_area();var texture_size=OVERVIEW_IMAGE.get_size()
+	var scale=minf(area.size.x/texture_size.x,area.size.y/texture_size.y)*overview_zoom
+	var shown=Vector2(minf(area.size.x,texture_size.x*scale),minf(area.size.y,texture_size.y*scale))
+	var source_size=shown/scale
+	var half=source_size/texture_size/2
+	overview_center=overview_center.clamp(half,Vector2.ONE-half)
+	var source=Rect2(overview_center*texture_size-source_size/2,source_size)
+	return {"area":area,"dest":Rect2((area.get_center()-shown/2).round(),shown),"source":source,"scale":scale,"zoom":overview_zoom}
+
+func _overview_change_zoom(step:int) -> void:
+	overview_zoom=clampi(overview_zoom+step,1,3);_overview_geometry();queue_redraw()
+
+func _overview_pan_pixels(delta:Vector2) -> void:
+	var geometry=_overview_geometry()
+	overview_center-=delta/(OVERVIEW_IMAGE.get_size()*float(geometry.scale))
+	_overview_geometry();queue_redraw()
+
 func _draw_overview() -> void:
-	draw_rect(Rect2(0,0,256,240),Color(.08,.12,.15))
-	draw_texture_rect(_tex("res://assets/world_tiles/formal-world-overview.png"),Rect2(42,8,172,196),false)
-	_center_text("西大陆 · 东群岛 · 神宫",Rect2(4,207,248,16))
-	_center_text("确认返回当前地点",Rect2(4,225,248,12))
+	draw_rect(_visible_native_rect(),Color(.08,.12,.15))
+	overview_audit=_overview_geometry()
+	draw_texture_rect_region(OVERVIEW_IMAGE,overview_audit.dest,overview_audit.source)
+	var bounds=_visible_native_rect()
+	var heading="世界全图 · %d倍" % overview_zoom
+	_preview_text(heading,Vector2(roundf(bounds.get_center().x-_preview_text_width(heading)/2),210),Color(.94,.88,.67))
+	var hint="方向或拖动查看 · 返回退出" if get_meta("phone",false) else "方向移动 · 滚轮缩放 · 返回退出"
+	_center_text(hint,Rect2(bounds.position.x+8,226,bounds.size.x-16,12))
 
 func _draw_chapter_end() -> void:
 	draw_rect(Rect2(0,0,256,240),Color(.06,.1,.13));_panel(Rect2(12,20,232,196))
@@ -919,7 +1085,8 @@ func _cancel() -> void:
 	if view in ["journal","journal_confirm"]:journey.cancel();return
 	if view=="title":return
 	if view=="plot":return
-	if view=="overview":view="world";return
+	if view=="overview":
+		held_direction=Vector2i.ZERO;overview_mouse_drag=false;view="world";return
 	super._cancel()
 
 

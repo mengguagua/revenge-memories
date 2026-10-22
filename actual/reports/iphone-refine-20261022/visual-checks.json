@@ -1,0 +1,734 @@
+{
+  "actual_device_touch_playtested": false,
+  "background_render": true,
+  "checks": [
+    "iPhone asymmetric rails retain integer 4x display",
+    "content moves right by 176 physical pixels",
+    "direction keys enlarged from32x34 to36x36",
+    "left/right key gap increased from4 to36 logical pixels",
+    "center gap is a neutral area and cannot trigger either direction",
+    "all four directions equally distant from center 4194320",
+    "all four directions equally distant from center 4194322",
+    "all four directions equally distant from center 4194319",
+    "all four directions equally distant from center 4194321",
+    "equal cross has square108x108 outer bounds",
+    "01-title-controls control text and touch safe regions",
+    "01-title-controls content text stays inside panels",
+    "01-title-controls visible direction arrow 4194320",
+    "01-title-controls visible direction arrow 4194322",
+    "01-title-controls visible direction arrow 4194319",
+    "01-title-controls visible direction arrow 4194321",
+    "battle menu has no independent save action",
+    "battle menu retains exactly one save-and-return action",
+    "opened menu states current turn12",
+    "02-battle-turn-menu control text and touch safe regions",
+    "02-battle-turn-menu content text stays inside panels",
+    "02-battle-turn-menu visible direction arrow 4194320",
+    "02-battle-turn-menu visible direction arrow 4194322",
+    "02-battle-turn-menu visible direction arrow 4194319",
+    "02-battle-turn-menu visible direction arrow 4194321",
+    "03-long-turn-number control text and touch safe regions",
+    "03-long-turn-number content text stays inside panels",
+    "03-long-turn-number visible direction arrow 4194320",
+    "03-long-turn-number visible direction arrow 4194322",
+    "03-long-turn-number visible direction arrow 4194319",
+    "03-long-turn-number visible direction arrow 4194321",
+    "save-and-return leaves battle checkpoint resumable",
+    "saved battle can be read back",
+    "return preserves round, injury and action status",
+    "world save entry remains available",
+    "overview opens1x with zoom-out disabled",
+    "04-overview-1x control text and touch safe regions",
+    "04-overview-1x content text stays inside panels",
+    "04-overview-1x visible direction arrow 4194320",
+    "04-overview-1x visible direction arrow 4194322",
+    "04-overview-1x visible direction arrow 4194319",
+    "04-overview-1x visible direction arrow 4194321",
+    "tapping overview no longer accidentally exits",
+    "touch zoom-in advances to2x",
+    "05-overview-2x control text and touch safe regions",
+    "05-overview-2x content text stays inside panels",
+    "05-overview-2x visible direction arrow 4194320",
+    "05-overview-2x visible direction arrow 4194322",
+    "05-overview-2x visible direction arrow 4194319",
+    "05-overview-2x visible direction arrow 4194321",
+    "zoom capped at3x and zoom-in disabled",
+    "06-overview-3x control text and touch safe regions",
+    "06-overview-3x content text stays inside panels",
+    "06-overview-3x visible direction arrow 4194320",
+    "06-overview-3x visible direction arrow 4194322",
+    "06-overview-3x visible direction arrow 4194319",
+    "06-overview-3x visible direction arrow 4194321",
+    "holding direction continues panning after initial press",
+    "releasing direction stops map motion",
+    "direction keys pan enlarged map right and down",
+    "map follows finger drag in both axes",
+    "control-origin drag cannot become a map gesture",
+    "pan cannot leave texture bounds (-99999.0, -99999.0)",
+    "zoomed image cannot overlap footer (-99999.0, -99999.0)",
+    "pan cannot leave texture bounds (99999.0, 99999.0)",
+    "zoomed image cannot overlap footer (99999.0, 99999.0)",
+    "pan cannot leave texture bounds (99999.0, -99999.0)",
+    "zoomed image cannot overlap footer (99999.0, -99999.0)",
+    "pan cannot leave texture bounds (-99999.0, 99999.0)",
+    "zoomed image cannot overlap footer (-99999.0, 99999.0)",
+    "07-overview-panned-edge control text and touch safe regions",
+    "07-overview-panned-edge content text stays inside panels",
+    "07-overview-panned-edge visible direction arrow 4194320",
+    "07-overview-panned-edge visible direction arrow 4194322",
+    "07-overview-panned-edge visible direction arrow 4194319",
+    "07-overview-panned-edge visible direction arrow 4194321",
+    "reset restores1x centered whole map",
+    "1x map has no unnecessary pan",
+    "desktop plus respects3x cap",
+    "desktop minus zooms out",
+    "desktop wheel zooms in",
+    "focus loss cancels map dragging",
+    "back returns to same world location",
+    "map viewing does not rewrite saved progress",
+    "reopening overview starts whole map",
+    "08-small-map-1334 control text and touch safe regions",
+    "08-small-map-1334 content text stays inside panels",
+    "08-small-map-1334 visible direction arrow 4194320",
+    "08-small-map-1334 visible direction arrow 4194322",
+    "08-small-map-1334 visible direction arrow 4194319",
+    "08-small-map-1334 visible direction arrow 4194321",
+    "08-small-map-1136 control text and touch safe regions",
+    "08-small-map-1136 content text stays inside panels",
+    "08-small-map-1136 visible direction arrow 4194320",
+    "08-small-map-1136 visible direction arrow 4194322",
+    "08-small-map-1136 visible direction arrow 4194319",
+    "08-small-map-1136 visible direction arrow 4194321"
+  ],
+  "errors": [],
+  "passed": true,
+  "shots": [
+    {
+      "buttons": [
+        {
+          "arrow": "up",
+          "hit_rect": "[P: (40.0, 98.0), S: (36.0, 36.0)]",
+          "key": 4194320,
+          "rect": "[P: (40.0, 98.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "down",
+          "hit_rect": "[P: (40.0, 170.0), S: (36.0, 36.0)]",
+          "key": 4194322,
+          "rect": "[P: (40.0, 170.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "left",
+          "hit_rect": "[P: (4.0, 134.0), S: (36.0, 36.0)]",
+          "key": 4194319,
+          "rect": "[P: (4.0, 134.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "right",
+          "hit_rect": "[P: (76.0, 134.0), S: (36.0, 36.0)]",
+          "key": 4194321,
+          "rect": "[P: (76.0, 134.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 58.0), S: (68.0, 38.0)]",
+          "key": 90,
+          "rect": "[P: (483.0, 60.0), S: (64.0, 34.0)]",
+          "text": "确认"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 100.0), S: (68.0, 38.0)]",
+          "key": 88,
+          "rect": "[P: (483.0, 102.0), S: (64.0, 34.0)]",
+          "text": "返回"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 142.0), S: (68.0, 38.0)]",
+          "key": 83,
+          "rect": "[P: (483.0, 144.0), S: (64.0, 34.0)]",
+          "text": "菜单"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 184.0), S: (68.0, 38.0)]",
+          "key": 4194306,
+          "rect": "[P: (483.0, 186.0), S: (64.0, 34.0)]",
+          "text": "状态"
+        }
+      ],
+      "errors": [],
+      "file": "01-title-controls.png",
+      "game_rect": "[P: (642.0, 78.0), S: (1456.0, 960.0)]",
+      "map": {}
+    },
+    {
+      "buttons": [
+        {
+          "arrow": "up",
+          "hit_rect": "[P: (40.0, 98.0), S: (36.0, 36.0)]",
+          "key": 4194320,
+          "rect": "[P: (40.0, 98.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "down",
+          "hit_rect": "[P: (40.0, 170.0), S: (36.0, 36.0)]",
+          "key": 4194322,
+          "rect": "[P: (40.0, 170.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "left",
+          "hit_rect": "[P: (4.0, 134.0), S: (36.0, 36.0)]",
+          "key": 4194319,
+          "rect": "[P: (4.0, 134.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "right",
+          "hit_rect": "[P: (76.0, 134.0), S: (36.0, 36.0)]",
+          "key": 4194321,
+          "rect": "[P: (76.0, 134.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 24.0), S: (68.0, 38.0)]",
+          "key": 90,
+          "rect": "[P: (483.0, 26.0), S: (64.0, 34.0)]",
+          "text": "确认"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 66.0), S: (68.0, 38.0)]",
+          "key": 88,
+          "rect": "[P: (483.0, 68.0), S: (64.0, 34.0)]",
+          "text": "返回"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 108.0), S: (68.0, 38.0)]",
+          "key": 69,
+          "rect": "[P: (483.0, 110.0), S: (64.0, 34.0)]",
+          "text": "切换我方"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 150.0), S: (68.0, 64.0)]",
+          "key": 83,
+          "rect": "[P: (483.0, 152.0), S: (64.0, 60.0)]",
+          "text": "菜单"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 218.0), S: (68.0, 38.0)]",
+          "key": 4194306,
+          "rect": "[P: (483.0, 220.0), S: (64.0, 34.0)]",
+          "text": "状态"
+        }
+      ],
+      "errors": [],
+      "file": "02-battle-turn-menu.png",
+      "game_rect": "[P: (642.0, 78.0), S: (1456.0, 960.0)]",
+      "map": {}
+    },
+    {
+      "buttons": [
+        {
+          "arrow": "up",
+          "hit_rect": "[P: (40.0, 98.0), S: (36.0, 36.0)]",
+          "key": 4194320,
+          "rect": "[P: (40.0, 98.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "down",
+          "hit_rect": "[P: (40.0, 170.0), S: (36.0, 36.0)]",
+          "key": 4194322,
+          "rect": "[P: (40.0, 170.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "left",
+          "hit_rect": "[P: (4.0, 134.0), S: (36.0, 36.0)]",
+          "key": 4194319,
+          "rect": "[P: (4.0, 134.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "right",
+          "hit_rect": "[P: (76.0, 134.0), S: (36.0, 36.0)]",
+          "key": 4194321,
+          "rect": "[P: (76.0, 134.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 24.0), S: (68.0, 38.0)]",
+          "key": 90,
+          "rect": "[P: (483.0, 26.0), S: (64.0, 34.0)]",
+          "text": "确认"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 66.0), S: (68.0, 38.0)]",
+          "key": 88,
+          "rect": "[P: (483.0, 68.0), S: (64.0, 34.0)]",
+          "text": "返回"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 108.0), S: (68.0, 38.0)]",
+          "key": 69,
+          "rect": "[P: (483.0, 110.0), S: (64.0, 34.0)]",
+          "text": "切换我方"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 150.0), S: (68.0, 64.0)]",
+          "key": 83,
+          "rect": "[P: (483.0, 152.0), S: (64.0, 60.0)]",
+          "text": "菜单"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 218.0), S: (68.0, 38.0)]",
+          "key": 4194306,
+          "rect": "[P: (483.0, 220.0), S: (64.0, 34.0)]",
+          "text": "状态"
+        }
+      ],
+      "errors": [],
+      "file": "03-long-turn-number.png",
+      "game_rect": "[P: (642.0, 78.0), S: (1456.0, 960.0)]",
+      "map": {}
+    },
+    {
+      "buttons": [
+        {
+          "arrow": "up",
+          "hit_rect": "[P: (40.0, 98.0), S: (36.0, 36.0)]",
+          "key": 4194320,
+          "rect": "[P: (40.0, 98.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "down",
+          "hit_rect": "[P: (40.0, 170.0), S: (36.0, 36.0)]",
+          "key": 4194322,
+          "rect": "[P: (40.0, 170.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "left",
+          "hit_rect": "[P: (4.0, 134.0), S: (36.0, 36.0)]",
+          "key": 4194319,
+          "rect": "[P: (4.0, 134.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "right",
+          "hit_rect": "[P: (76.0, 134.0), S: (36.0, 36.0)]",
+          "key": 4194321,
+          "rect": "[P: (76.0, 134.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 58.0), S: (68.0, 38.0)]",
+          "key": 61,
+          "rect": "[P: (483.0, 60.0), S: (64.0, 34.0)]",
+          "text": "放大"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 100.0), S: (68.0, 38.0)]",
+          "key": 45,
+          "rect": "[P: (483.0, 102.0), S: (64.0, 34.0)]",
+          "text": "缩小"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 142.0), S: (68.0, 38.0)]",
+          "key": 82,
+          "rect": "[P: (483.0, 144.0), S: (64.0, 34.0)]",
+          "text": "复位"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 184.0), S: (68.0, 38.0)]",
+          "key": 88,
+          "rect": "[P: (483.0, 186.0), S: (64.0, 34.0)]",
+          "text": "返回"
+        }
+      ],
+      "errors": [],
+      "file": "04-overview-1x.png",
+      "game_rect": "[P: (642.0, 78.0), S: (1456.0, 960.0)]",
+      "map": {
+        "area": "[P: (-46.0, 8.0), S: (348.0, 196.0)]",
+        "dest": "[P: (42.0, 8.0), S: (171.5, 196.0)]",
+        "scale": 0.19140625,
+        "source": "[P: (0.0, 0.0), S: (896.0, 1024.0)]",
+        "zoom": 1
+      }
+    },
+    {
+      "buttons": [
+        {
+          "arrow": "up",
+          "hit_rect": "[P: (40.0, 98.0), S: (36.0, 36.0)]",
+          "key": 4194320,
+          "rect": "[P: (40.0, 98.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "down",
+          "hit_rect": "[P: (40.0, 170.0), S: (36.0, 36.0)]",
+          "key": 4194322,
+          "rect": "[P: (40.0, 170.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "left",
+          "hit_rect": "[P: (4.0, 134.0), S: (36.0, 36.0)]",
+          "key": 4194319,
+          "rect": "[P: (4.0, 134.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "right",
+          "hit_rect": "[P: (76.0, 134.0), S: (36.0, 36.0)]",
+          "key": 4194321,
+          "rect": "[P: (76.0, 134.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 58.0), S: (68.0, 38.0)]",
+          "key": 61,
+          "rect": "[P: (483.0, 60.0), S: (64.0, 34.0)]",
+          "text": "放大"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 100.0), S: (68.0, 38.0)]",
+          "key": 45,
+          "rect": "[P: (483.0, 102.0), S: (64.0, 34.0)]",
+          "text": "缩小"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 142.0), S: (68.0, 38.0)]",
+          "key": 82,
+          "rect": "[P: (483.0, 144.0), S: (64.0, 34.0)]",
+          "text": "复位"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 184.0), S: (68.0, 38.0)]",
+          "key": 88,
+          "rect": "[P: (483.0, 186.0), S: (64.0, 34.0)]",
+          "text": "返回"
+        }
+      ],
+      "errors": [],
+      "file": "05-overview-2x.png",
+      "game_rect": "[P: (642.0, 78.0), S: (1456.0, 960.0)]",
+      "map": {
+        "area": "[P: (-46.0, 8.0), S: (348.0, 196.0)]",
+        "dest": "[P: (-44.0, 8.0), S: (343.0, 196.0)]",
+        "scale": 0.3828125,
+        "source": "[P: (0.0, 256.0), S: (896.0, 512.0)]",
+        "zoom": 2
+      }
+    },
+    {
+      "buttons": [
+        {
+          "arrow": "up",
+          "hit_rect": "[P: (40.0, 98.0), S: (36.0, 36.0)]",
+          "key": 4194320,
+          "rect": "[P: (40.0, 98.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "down",
+          "hit_rect": "[P: (40.0, 170.0), S: (36.0, 36.0)]",
+          "key": 4194322,
+          "rect": "[P: (40.0, 170.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "left",
+          "hit_rect": "[P: (4.0, 134.0), S: (36.0, 36.0)]",
+          "key": 4194319,
+          "rect": "[P: (4.0, 134.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "right",
+          "hit_rect": "[P: (76.0, 134.0), S: (36.0, 36.0)]",
+          "key": 4194321,
+          "rect": "[P: (76.0, 134.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 58.0), S: (68.0, 38.0)]",
+          "key": 61,
+          "rect": "[P: (483.0, 60.0), S: (64.0, 34.0)]",
+          "text": "放大"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 100.0), S: (68.0, 38.0)]",
+          "key": 45,
+          "rect": "[P: (483.0, 102.0), S: (64.0, 34.0)]",
+          "text": "缩小"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 142.0), S: (68.0, 38.0)]",
+          "key": 82,
+          "rect": "[P: (483.0, 144.0), S: (64.0, 34.0)]",
+          "text": "复位"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 184.0), S: (68.0, 38.0)]",
+          "key": 88,
+          "rect": "[P: (483.0, 186.0), S: (64.0, 34.0)]",
+          "text": "返回"
+        }
+      ],
+      "errors": [],
+      "file": "06-overview-3x.png",
+      "game_rect": "[P: (642.0, 78.0), S: (1456.0, 960.0)]",
+      "map": {
+        "area": "[P: (-46.0, 8.0), S: (348.0, 196.0)]",
+        "dest": "[P: (-46.0, 8.0), S: (348.0, 196.0)]",
+        "scale": 0.57421875,
+        "source": "[P: (144.9796, 341.3333), S: (606.0408, 341.3333)]",
+        "zoom": 3
+      }
+    },
+    {
+      "buttons": [
+        {
+          "arrow": "up",
+          "hit_rect": "[P: (40.0, 98.0), S: (36.0, 36.0)]",
+          "key": 4194320,
+          "rect": "[P: (40.0, 98.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "down",
+          "hit_rect": "[P: (40.0, 170.0), S: (36.0, 36.0)]",
+          "key": 4194322,
+          "rect": "[P: (40.0, 170.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "left",
+          "hit_rect": "[P: (4.0, 134.0), S: (36.0, 36.0)]",
+          "key": 4194319,
+          "rect": "[P: (4.0, 134.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "right",
+          "hit_rect": "[P: (76.0, 134.0), S: (36.0, 36.0)]",
+          "key": 4194321,
+          "rect": "[P: (76.0, 134.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 58.0), S: (68.0, 38.0)]",
+          "key": 61,
+          "rect": "[P: (483.0, 60.0), S: (64.0, 34.0)]",
+          "text": "放大"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 100.0), S: (68.0, 38.0)]",
+          "key": 45,
+          "rect": "[P: (483.0, 102.0), S: (64.0, 34.0)]",
+          "text": "缩小"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 142.0), S: (68.0, 38.0)]",
+          "key": 82,
+          "rect": "[P: (483.0, 144.0), S: (64.0, 34.0)]",
+          "text": "复位"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (481.0, 184.0), S: (68.0, 38.0)]",
+          "key": 88,
+          "rect": "[P: (483.0, 186.0), S: (64.0, 34.0)]",
+          "text": "返回"
+        }
+      ],
+      "errors": [],
+      "file": "07-overview-panned-edge.png",
+      "game_rect": "[P: (642.0, 78.0), S: (1456.0, 960.0)]",
+      "map": {
+        "area": "[P: (-46.0, 8.0), S: (348.0, 196.0)]",
+        "dest": "[P: (-46.0, 8.0), S: (348.0, 196.0)]",
+        "scale": 0.57421875,
+        "source": "[P: (289.9591, 0.0), S: (606.0408, 341.3333)]",
+        "zoom": 3
+      }
+    },
+    {
+      "buttons": [
+        {
+          "arrow": "up",
+          "hit_rect": "[P: (40.0, 83.0), S: (36.0, 36.0)]",
+          "key": 4194320,
+          "rect": "[P: (40.0, 83.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "down",
+          "hit_rect": "[P: (40.0, 155.0), S: (36.0, 36.0)]",
+          "key": 4194322,
+          "rect": "[P: (40.0, 155.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "left",
+          "hit_rect": "[P: (4.0, 119.0), S: (36.0, 36.0)]",
+          "key": 4194319,
+          "rect": "[P: (4.0, 119.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "right",
+          "hit_rect": "[P: (76.0, 119.0), S: (36.0, 36.0)]",
+          "key": 4194321,
+          "rect": "[P: (76.0, 119.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (376.0, 43.0), S: (68.0, 38.0)]",
+          "key": 61,
+          "rect": "[P: (378.0, 45.0), S: (64.0, 34.0)]",
+          "text": "放大"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (376.0, 85.0), S: (68.0, 38.0)]",
+          "key": 45,
+          "rect": "[P: (378.0, 87.0), S: (64.0, 34.0)]",
+          "text": "缩小"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (376.0, 127.0), S: (68.0, 38.0)]",
+          "key": 82,
+          "rect": "[P: (378.0, 129.0), S: (64.0, 34.0)]",
+          "text": "复位"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (376.0, 169.0), S: (68.0, 38.0)]",
+          "key": 88,
+          "rect": "[P: (378.0, 171.0), S: (64.0, 34.0)]",
+          "text": "返回"
+        }
+      ],
+      "errors": [],
+      "file": "08-small-map-1334.png",
+      "game_rect": "[P: (349.0, 15.0), S: (774.0, 720.0)]",
+      "map": {
+        "area": "[P: (7.0, 8.0), S: (242.0, 196.0)]",
+        "dest": "[P: (7.0, 8.0), S: (242.0, 196.0)]",
+        "scale": 0.57421875,
+        "source": "[P: (474.5579, 0.0), S: (421.4422, 341.3333)]",
+        "zoom": 3
+      }
+    },
+    {
+      "buttons": [
+        {
+          "arrow": "up",
+          "hit_rect": "[P: (40.0, 118.0), S: (36.0, 36.0)]",
+          "key": 4194320,
+          "rect": "[P: (40.0, 118.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "down",
+          "hit_rect": "[P: (40.0, 190.0), S: (36.0, 36.0)]",
+          "key": 4194322,
+          "rect": "[P: (40.0, 190.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "left",
+          "hit_rect": "[P: (4.0, 154.0), S: (36.0, 36.0)]",
+          "key": 4194319,
+          "rect": "[P: (4.0, 154.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "right",
+          "hit_rect": "[P: (76.0, 154.0), S: (36.0, 36.0)]",
+          "key": 4194321,
+          "rect": "[P: (76.0, 154.0), S: (36.0, 36.0)]",
+          "text": ""
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (499.0, 78.0), S: (68.0, 38.0)]",
+          "key": 61,
+          "rect": "[P: (501.0, 80.0), S: (64.0, 34.0)]",
+          "text": "放大"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (499.0, 120.0), S: (68.0, 38.0)]",
+          "key": 45,
+          "rect": "[P: (501.0, 122.0), S: (64.0, 34.0)]",
+          "text": "缩小"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (499.0, 162.0), S: (68.0, 38.0)]",
+          "key": 82,
+          "rect": "[P: (501.0, 164.0), S: (64.0, 34.0)]",
+          "text": "复位"
+        },
+        {
+          "arrow": "",
+          "hit_rect": "[P: (499.0, 204.0), S: (68.0, 38.0)]",
+          "key": 88,
+          "rect": "[P: (501.0, 206.0), S: (64.0, 34.0)]",
+          "text": "返回"
+        }
+      ],
+      "errors": [],
+      "file": "08-small-map-1136.png",
+      "game_rect": "[P: (232.0, 80.0), S: (764.0, 480.0)]",
+      "map": {
+        "area": "[P: (-55.0, 8.0), S: (366.0, 196.0)]",
+        "dest": "[P: (-55.0, 8.0), S: (366.0, 196.0)]",
+        "scale": 0.57421875,
+        "source": "[P: (258.6123, 0.0), S: (637.3878, 341.3333)]",
+        "zoom": 3
+      }
+    }
+  ],
+  "user_saves_touched": false
+}

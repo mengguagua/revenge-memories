@@ -1,0 +1,498 @@
+{
+  "revision": "bastion-guardian-idle-v2-20261022",
+  "image_generation": "built-in image_gen",
+  "source_master": "source/idle-shield-edge-master-v1.png",
+  "palette": {
+    "ally": [
+      "172638",
+      "304461",
+      "3976b5",
+      "6e8fb0",
+      "a7b9ca",
+      "f1f0e6",
+      "6c6870",
+      "925e46",
+      "d09873",
+      "f0c6a0",
+      "795a43",
+      "493b38",
+      "8296ac",
+      "c5d2db"
+    ],
+    "enemy": [
+      "151b2c",
+      "2d344f",
+      "484d7c",
+      "63678d",
+      "7f849f",
+      "b1b7d0",
+      "55536c",
+      "785b60",
+      "ad8590",
+      "dcc0b9",
+      "424361",
+      "2b304a",
+      "6b7597",
+      "949fbd"
+    ]
+  },
+  "registration": [
+    {
+      "source": "idle-shield-edge-master-v1.png",
+      "source_sha256": "89c4b277ad4a7f663bdc24d8f33ad96c8a3f4a6b545515a0c600c3af0d255394",
+      "source_bounds": [
+        151,
+        125,
+        558,
+        660
+      ],
+      "opaque_pixels": 153045,
+      "hair_material_box": [
+        102,
+        13,
+        270,
+        110
+      ],
+      "hair_color": "6c6870",
+      "hair_swatch_count": 1,
+      "label": "idle-body-0",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        186.0,
+        13
+      ],
+      "target_landmark": [
+        48,
+        16
+      ],
+      "scale": 0.12237093690248566,
+      "resampled_size": [
+        50,
+        65
+      ],
+      "translation": [
+        25,
+        14
+      ],
+      "actual_landmark": [
+        47.85012285012285,
+        15.57943925233645
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "idle-shield-edge-master-v1.png",
+      "source_sha256": "89c4b277ad4a7f663bdc24d8f33ad96c8a3f4a6b545515a0c600c3af0d255394",
+      "source_bounds": [
+        738,
+        125,
+        1171,
+        660
+      ],
+      "opaque_pixels": 155196,
+      "hair_material_box": [
+        125,
+        12,
+        295,
+        110
+      ],
+      "hair_color": "6c6870",
+      "hair_swatch_count": 1,
+      "label": "idle-body-1",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        210.0,
+        12
+      ],
+      "target_landmark": [
+        48,
+        16
+      ],
+      "scale": 0.12237093690248566,
+      "resampled_size": [
+        53,
+        65
+      ],
+      "translation": [
+        22,
+        15
+      ],
+      "actual_landmark": [
+        47.70438799076213,
+        16.457943925233646
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "idle-shield-edge-master-v1.png",
+      "source_sha256": "89c4b277ad4a7f663bdc24d8f33ad96c8a3f4a6b545515a0c600c3af0d255394",
+      "source_bounds": [
+        1356,
+        125,
+        1780,
+        660
+      ],
+      "opaque_pixels": 154625,
+      "hair_material_box": [
+        118,
+        12,
+        287,
+        109
+      ],
+      "hair_color": "6c6870",
+      "hair_swatch_count": 1,
+      "label": "idle-body-2",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        202.5,
+        12
+      ],
+      "target_landmark": [
+        48,
+        16
+      ],
+      "scale": 0.12237093690248566,
+      "resampled_size": [
+        52,
+        65
+      ],
+      "translation": [
+        23,
+        15
+      ],
+      "actual_landmark": [
+        47.83490566037736,
+        16.457943925233646
+      ],
+      "clipped_pixels": 0
+    }
+  ],
+  "shared_spear_size": [
+    8,
+    76
+  ],
+  "shared_spear_positions": [
+    [
+      25,
+      10
+    ],
+    [
+      23,
+      5
+    ],
+    [
+      23,
+      0
+    ]
+  ],
+  "shared_spear_layer": {
+    "ally": "../../../bastion-guardian-idle-v2-20261022/ally/shared-spear.png",
+    "enemy": "../../../bastion-guardian-idle-v2-20261022/enemy/shared-spear.png"
+  },
+  "weapon_scaling_between_phases": false,
+  "same_pose_glove_occlusion": true,
+  "body_or_limb_warping": false,
+  "assets": [
+    {
+      "path": "bastion-guardian-idle-v2-20261022/ally/shared-spear.png",
+      "purpose": "one immutable complete spear used by every idle phase",
+      "size": [
+        8,
+        76
+      ],
+      "bytes": 385,
+      "sha256": "360e5e649c2835fc4625212159cf0e8ca0a67d99a034b74a699157afa12ce871"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/ally/body-000.png",
+      "purpose": "whole ImageGen body with clear bent arms and horizontal edge-on shield",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2420,
+      "sha256": "f9cae5acb2eec0c42d5cde1d2668abfbc8b07e477cdd51ea347a9e7129e439db"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/ally/glove-occlusion-000.png",
+      "purpose": "same-pose glove occlusion in original position",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 293,
+      "sha256": "cb97bbc17fc589bb0f50f21a778bb00716dab2a9a3e882978fa9ff708fdcf083"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/ally/body-001.png",
+      "purpose": "whole ImageGen body with clear bent arms and horizontal edge-on shield",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2396,
+      "sha256": "1a47d95c98b75fb806087821f91ae13b0e48af5bc5c38d080494d8d2b0c0d59a"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/ally/glove-occlusion-001.png",
+      "purpose": "same-pose glove occlusion in original position",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 293,
+      "sha256": "9fdd69b3e92cec739b98fa1dcd47719a19d6efa8df902f81110feb8c911236ae"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/ally/body-002.png",
+      "purpose": "whole ImageGen body with clear bent arms and horizontal edge-on shield",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2317,
+      "sha256": "604e251aebc00fe7653ecf1e220d7592bf28dc4070131eb4bc3ce7257dde50de"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/ally/glove-occlusion-002.png",
+      "purpose": "same-pose glove occlusion in original position",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 308,
+      "sha256": "69f09bdd733655c5f5688f6a89bb50a3adb991d8a3c43a80a230bd9b44a62536"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/ally/frame-000.png",
+      "purpose": "full constant-length spear slides against narrow edge-on shield",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2653,
+      "sha256": "37c38884606b34eb10d7f61b29322c8dc515e768a6aff8ef559b8823e9fee946"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/ally/frame-001.png",
+      "purpose": "full constant-length spear slides against narrow edge-on shield",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2732,
+      "sha256": "56ae06bd2b4ac1e5df916a121845e3477efc51250b90969922a66e0a5206bdd0"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/ally/frame-002.png",
+      "purpose": "full constant-length spear slides against narrow edge-on shield",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2625,
+      "sha256": "02e1ec4edae3c938dfccce2941e6868b4e369c8c6f833bd09543d14ed9e90b16"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/ally/frame-003.png",
+      "purpose": "full constant-length spear slides against narrow edge-on shield",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2732,
+      "sha256": "56ae06bd2b4ac1e5df916a121845e3477efc51250b90969922a66e0a5206bdd0"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/ally/frame-004.png",
+      "purpose": "full constant-length spear slides against narrow edge-on shield",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2653,
+      "sha256": "37c38884606b34eb10d7f61b29322c8dc515e768a6aff8ef559b8823e9fee946"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/ally/frame-005.png",
+      "purpose": "full constant-length spear slides against narrow edge-on shield",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2732,
+      "sha256": "56ae06bd2b4ac1e5df916a121845e3477efc51250b90969922a66e0a5206bdd0"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/ally/idle-atlas.png",
+      "purpose": "six original alias slots, no changes to native cycle",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 7208,
+      "sha256": "f7fc202232b43a8761c69e6a8e8322fb2f37e00888159b4b658e6a83f37e38f6"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/enemy/shared-spear.png",
+      "purpose": "one immutable complete spear used by every idle phase",
+      "size": [
+        8,
+        76
+      ],
+      "bytes": 389,
+      "sha256": "e912b0ca884b12bb69fb258f43b30abc8e904a62eefd4157eee27d1f0e7d8a33"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/enemy/body-000.png",
+      "purpose": "whole ImageGen body with clear bent arms and horizontal edge-on shield",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2392,
+      "sha256": "2bc4860bf8489ad0cae049386a7b70d33a8da8aa08cf9f771b211220fa412b57"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/enemy/glove-occlusion-000.png",
+      "purpose": "same-pose glove occlusion in original position",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 293,
+      "sha256": "24ed0db885b33fa2dec6a6a5794937a9d9695dfe6a9a07fed1acb80f05681f14"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/enemy/body-001.png",
+      "purpose": "whole ImageGen body with clear bent arms and horizontal edge-on shield",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2429,
+      "sha256": "5f12199303b02a150fc44823af3219de37a03477e5b566776fbdca47a40df414"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/enemy/glove-occlusion-001.png",
+      "purpose": "same-pose glove occlusion in original position",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 284,
+      "sha256": "bed51b68e91d6d10b34c456f91a800e3d284bac99dbcf9362eb19b9431c4b6c6"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/enemy/body-002.png",
+      "purpose": "whole ImageGen body with clear bent arms and horizontal edge-on shield",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2320,
+      "sha256": "aa73c762461b25f540b260aaeebe38b1a488f70b9d89ec635cfe999fcdcc1a66"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/enemy/glove-occlusion-002.png",
+      "purpose": "same-pose glove occlusion in original position",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 309,
+      "sha256": "f96e9f47e0670985b093b9043131d9e76e8d3bff48be787e81fa58bcddf81538"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/enemy/frame-000.png",
+      "purpose": "full constant-length spear slides against narrow edge-on shield",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2603,
+      "sha256": "99211c06d4667d7c401ab968edde4866b66863ba13cd9dcb6caf1a24a326437a"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/enemy/frame-001.png",
+      "purpose": "full constant-length spear slides against narrow edge-on shield",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2738,
+      "sha256": "51755346c322d31bd314e616d7a78a10030a81d80b7379114120fbf751d8d4b5"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/enemy/frame-002.png",
+      "purpose": "full constant-length spear slides against narrow edge-on shield",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2597,
+      "sha256": "77df25907201e94076add2c30a9f931f285caee6b37014019b5ebe6fc54e59c3"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/enemy/frame-003.png",
+      "purpose": "full constant-length spear slides against narrow edge-on shield",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2738,
+      "sha256": "51755346c322d31bd314e616d7a78a10030a81d80b7379114120fbf751d8d4b5"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/enemy/frame-004.png",
+      "purpose": "full constant-length spear slides against narrow edge-on shield",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2603,
+      "sha256": "99211c06d4667d7c401ab968edde4866b66863ba13cd9dcb6caf1a24a326437a"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/enemy/frame-005.png",
+      "purpose": "full constant-length spear slides against narrow edge-on shield",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 2738,
+      "sha256": "51755346c322d31bd314e616d7a78a10030a81d80b7379114120fbf751d8d4b5"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/enemy/idle-atlas.png",
+      "purpose": "six original alias slots, no changes to native cycle",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 6971,
+      "sha256": "df1e536e0f1a996598593cfd997840d212c2d48d755b090053fc0831d4e619a5"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/poses-dark.png",
+      "purpose": "both factions, all three phases, actual sprites at3x",
+      "size": [
+        960,
+        670
+      ],
+      "bytes": 33370,
+      "sha256": "af33d6089e22e53ccee8eb947c674a61f661daa8aeb40748fa9ae3de29329908"
+    },
+    {
+      "path": "bastion-guardian-idle-v2-20261022/poses-light.png",
+      "purpose": "both factions, all three phases, actual sprites at3x",
+      "size": [
+        960,
+        670
+      ],
+      "bytes": 33172,
+      "sha256": "6c1c976ecda38016ea172a56c820f99289754179ee01b4a5d19821890e11bfe9"
+    }
+  ],
+  "runtime_integrated": false
+}

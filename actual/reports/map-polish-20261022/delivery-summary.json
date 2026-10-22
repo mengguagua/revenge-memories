@@ -1,0 +1,2005 @@
+{
+  "passed": true,
+  "date": "2026-10-22",
+  "maps": [
+    {
+      "code": "M12",
+      "name": "丘堡粮站",
+      "size": [
+        36,
+        28
+      ],
+      "notes": [
+        "主坡道从南侧部署区直达粮站前庭，西坡小路与东侧装卸路可以分兵；路旁林丛提供掩护，仓门与仓吏入口均有明确接路。",
+        "占领格位于完整粮仓正门前(28,8)，木栅在两侧留出通道。焚毁兵第6回合预告、第7回合出发；别让他连续两次在仓门行动。"
+      ],
+      "goal": "占领粮仓前庭并击败守将；粮仓被焚毁则失败。占领需一名正式成员在目标格确认。",
+      "source": "play/polish-west-a2/polish-west-a2-play.json",
+      "checkpoint": "play/polish-west-a2/polish-west-a2-M12-victory.json",
+      "turn": 8,
+      "inputs": 494,
+      "quest": {
+        "burn_streak": 0.0,
+        "evacuated": [],
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "M12_occupy_0": true
+        },
+        "reinforced": false
+      },
+      "map_sha256": "05025badbcf7c735f10f2a5262bd8febcf4f11c6d218d284aa79ccff9ad357bb",
+      "play_map_sha256": "05025badbcf7c735f10f2a5262bd8febcf4f11c6d218d284aa79ccff9ad357bb",
+      "outcome": "victory",
+      "continuation": null
+    },
+    {
+      "code": "M13",
+      "name": "南岗押送所",
+      "size": [
+        40,
+        30
+      ],
+      "notes": [
+        "西囚区与东囚区之间有连续院路，文书帐、三处岗堡和各牢门都与院路相接；营房与军需车场沿南侧道路布置。",
+        "两扇牢门仍须分别邻接确认；获释劳工从开门处出牢，东侧外廊与西崖巡行路均保持连通。第5敌回合的一次增援与原条件相同。"
+      ],
+      "goal": "击败押送长并打开两间牢房。蕾娜可阵亡而主线继续；必须至少救出一组劳工。",
+      "source": "play/polish-west-a2/polish-west-a2-play.json",
+      "checkpoint": "play/polish-west-a2/polish-west-a2-M13-victory.json",
+      "turn": 9,
+      "inputs": 693,
+      "quest": {
+        "burn_streak": 0.0,
+        "evacuated": [],
+        "freed": [
+          0.0,
+          1.0
+        ],
+        "mid_done": false,
+        "objects": {
+          "M13_door_0": true,
+          "M13_door_1": true
+        },
+        "reinforced": true
+      },
+      "map_sha256": "8344eee2778b44454fb2759bfaa258cd0406760edd52dff588dc3a1122a2293d",
+      "play_map_sha256": "8344eee2778b44454fb2759bfaa258cd0406760edd52dff588dc3a1122a2293d",
+      "outcome": "victory",
+      "continuation": null
+    },
+    {
+      "code": "M14",
+      "name": "旧塔外营",
+      "size": [
+        40,
+        32
+      ],
+      "notes": [
+        "南营、东营两处军旗立在道路缺口中，站到旗点选择控制，红旗会变为蓝旗。南路三格宽便于布阵，东路两格宽适合卡口；西侧林道可以绕后。",
+        "文书帐门前路接入北营横道；营帐朝向中间勤务道，南北道路贯通。树林集中在山脚与营盘外围，不遮挡旗点和建筑门前格。"
+      ],
+      "goal": "击败守将或接受其投降，并站到南营、东营两处军旗格，选择控制哨卡。",
+      "source": "play/polish-west-camp-fort/polish-west-camp-fort-play.json",
+      "checkpoint": "play/polish-west-camp-fort/polish-west-camp-fort-M14-victory.json",
+      "turn": 5,
+      "inputs": 495,
+      "quest": {
+        "burn_streak": 0.0,
+        "evacuated": [],
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "M14_control_0": true,
+          "M14_control_1": true
+        },
+        "reinforced": false
+      },
+      "map_sha256": "cabcfda74b7510b84416ffce383ca92ad61bfed732c2963bb9a9de3a832eacbb",
+      "play_map_sha256": "cabcfda74b7510b84416ffce383ca92ad61bfed732c2963bb9a9de3a832eacbb",
+      "outcome": "victory",
+      "continuation": null
+    },
+    {
+      "code": "M15",
+      "name": "海峡旧塔堡",
+      "size": [
+        44,
+        34
+      ],
+      "notes": [
+        "海崖围成三条进堡路线。中路缺口可守，东侧栈道可截北门；科兰第八回合开始撤离，提前派骑兵封路。",
+        "北堡档案室、守军营房、中庭与北侧退路由明确道路相连。东侧货仓设装卸院并接木栈廊，正面堡墙保留宽阔缺口与西侧绕行通道。"
+      ],
+      "goal": "击败科兰并救出内院劳工。科兰到达撤离格则失败；退路预先标示。",
+      "source": "play/polish-tower-formation/polish-tower-formation-play.json",
+      "checkpoint": "play/polish-tower-formation/polish-tower-formation-M15-victory.json",
+      "turn": 5,
+      "inputs": 477,
+      "quest": {
+        "burn_streak": 0.0,
+        "evacuated": [],
+        "freed": [
+          0.0
+        ],
+        "mid_done": false,
+        "objects": {
+          "M15_rescue_0": true
+        },
+        "reinforced": true
+      },
+      "map_sha256": "d6dcc0394f4d435effd27d7d0f90f625a6ec595a2990b56f04b64bae65cc85df",
+      "play_map_sha256": "d6dcc0394f4d435effd27d7d0f90f625a6ec595a2990b56f04b64bae65cc85df",
+      "outcome": "victory",
+      "continuation": null
+    },
+    {
+      "code": "S11",
+      "name": "旧矿道救援",
+      "size": [
+        32,
+        26
+      ],
+      "notes": [
+        "西侧土径进入救援区域，暖色运矿主巷串起两组矿工、工具箱和北侧撤离口；工具间南门通过短巷接回出口。",
+        "岩脊保留主巷与东侧绕行支巷，两路在北部岩室汇合。矿工仍按现有护送规则等待危险解除后前进。"
+      ],
+      "goal": "至少两名矿工撤到出口，击败盗掠首领；贝克可死亡，主线不受阻。",
+      "source": "play/polish-mine-formation/polish-mine-formation-play.json",
+      "checkpoint": "play/polish-mine-formation/polish-mine-formation-S11-victory.json",
+      "turn": 11,
+      "inputs": 333,
+      "quest": {
+        "burn_streak": 0.0,
+        "evacuated": [
+          "S11_miners0",
+          "S11_miners1"
+        ],
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "S11_tools_0": true
+        },
+        "reinforced": false
+      },
+      "map_sha256": "22cc3400cba035e145e57f84f5071b8beba46a19914589c0c2bd97fc2f64b579",
+      "play_map_sha256": "22cc3400cba035e145e57f84f5071b8beba46a19914589c0c2bd97fc2f64b579",
+      "outcome": "victory",
+      "continuation": null
+    },
+    {
+      "code": "S12",
+      "name": "林村诊所道路",
+      "size": [
+        34,
+        26
+      ],
+      "notes": [
+        "药车沿南岸三格宽主路接上中部木桥，桥面真正跨过连续溪流；西侧双格木桥连接林间支路，两岸都有明确桥头。",
+        "诊所南门、药车交接前庭与北岸渔舍都接回道路。树林集中在道路外侧，入口和桥头保留布阵空地；南岸村路可接近封路士兵。"
+      ],
+      "goal": "击败封路队，护送药箱抵诊所；药箱为事件对象，不占唯一神器槽。",
+      "source": "play/polish-west-side/polish-west-side-play.json",
+      "checkpoint": "play/polish-west-side/polish-west-side-S12-victory.json",
+      "turn": 9,
+      "inputs": 339,
+      "quest": {
+        "burn_streak": 0.0,
+        "evacuated": [
+          "medicine_wagon"
+        ],
+        "freed": [],
+        "mid_done": false,
+        "objects": {},
+        "reinforced": false
+      },
+      "map_sha256": "4be2802fe54913cb1a0c2ceff1c280673cb0dbe24f4005c01ea57e37b8e05078",
+      "play_map_sha256": "6d9bc0d6877fb5a8b742e6b19039e6db6ad87d9a9dce6105c1e15ad78762577f",
+      "outcome": "victory",
+      "continuation": null
+    },
+    {
+      "code": "F21",
+      "name": "海上拦截",
+      "size": [
+        44,
+        30
+      ],
+      "notes": [
+        "上下两条跳板完整连接两舰，前甲板与中央登船横道留空；货物集中在舷边货舱旁，桅杆两侧均可绕行。",
+        "己船后甲板医药区保留原有恢复格，每回合恢复5生命；该地形只能恢复普通伤势，不能救治濒死。保住己方船并击败指挥官。"
+      ],
+      "goal": "击败搜捕船指挥官，保住己方船。甲板两端是地面通路，水面不能作为步兵落点。",
+      "source": "play/polish-ships/polish-ships-play.json",
+      "checkpoint": "play/polish-ships/polish-ships-F21-victory.json",
+      "turn": 25,
+      "inputs": 802,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1.0,
+        "boats": [],
+        "burn_streak": 0.0,
+        "evacuated": [],
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "plank_1": true,
+          "plank_2": true
+        },
+        "reinforced": false
+      },
+      "map_sha256": "24f16fcc87af7521bc429ff880812e9a3d975ba6f3d298dbfdc3cabf24732c1d",
+      "play_map_sha256": "24f16fcc87af7521bc429ff880812e9a3d975ba6f3d298dbfdc3cabf24732c1d",
+      "outcome": "victory",
+      "continuation": null
+    },
+    {
+      "code": "F22",
+      "name": "押送舰救援",
+      "size": [
+        46,
+        32
+      ],
+      "notes": [
+        "上跳板开战时可通行，下方备用跳板仍为空水面；从原绞盘操作后放下。囚舱总闸同时开启两处真正牢门，囚室与开门字段均保持。",
+        "下囚室围栏旁的旧货舱口已移到后货区，囚门前留出撤离通道；同伴接应旗标仍在敌舰中段总闸旁，到旗标即可获救。",
+        "己船后甲板的恢复格与船员舱保留。东西向登船走廊与中轴通路贯通，舵楼哨位仍为可占据的单格地形。"
+      ],
+      "goal": "打开囚舱、击败舰长，至少三名俘虏撤至己方船。洛德死亡不阻断主线。接应出口位于敌舰中段、囚舱总闸旁的旗标。",
+      "source": "play/polish-f22-continued/polish-f22-continued-play.json",
+      "checkpoint": "play/polish-f22-continued/polish-f22-continued-F22-victory.json",
+      "turn": 87,
+      "inputs": 1807,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1.0,
+        "boats": [],
+        "burn_streak": 0.0,
+        "evacuated": [
+          "prisoners_0",
+          "prisoners_1",
+          "prisoners_2",
+          "lord"
+        ],
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "prison_door": true,
+          "reserve_bridge": true
+        },
+        "pending_friendly_actions": false,
+        "reinforced": true
+      },
+      "map_sha256": "d183de053ae925282c6cfa2dd4f8609882d658c4c90a470befe76f09513f72da",
+      "play_map_sha256": "d183de053ae925282c6cfa2dd4f8609882d658c4c90a470befe76f09513f72da",
+      "outcome": "victory",
+      "continuation": {
+        "from_turn": 66,
+        "chain": "play/polish-f22-continued/continuation-chain.json",
+        "note": "首段中米蕾、莉莎濒死留队，队伍残血后出现策略停滞；续玩保留第66回合单位、位置和随机状态，经已有恢复哨位恢复、清场、开门放下桥并完成四人撤离。该长回合记录用于验证可完成，不作为关卡目标时长。"
+      }
+    },
+    {
+      "code": "F23",
+      "name": "礁岛登岸",
+      "size": [
+        38,
+        30
+      ],
+      "notes": [
+        "西岸登陆集结区通过村路连接南侧渔民营地，完整渔舍的门前留有接应空地；东北草坡主道与西侧岩坡小路可分队清场。",
+        "原居民营地、罗恩和所有敌军位置保持不变。飞行首领败退后仍须清除自然魔物；推进时留人保护南侧营地。"
+      ],
+      "goal": "清除岸上魔物，保护渔民营地；击败飞行首领后仍需处理未撤离的自然魔物。",
+      "source": "play/polish-islands/polish-islands-play.json",
+      "checkpoint": "play/polish-islands/polish-islands-F23-victory.json",
+      "turn": 15,
+      "inputs": 1087,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1.0,
+        "boats": [],
+        "burn_streak": 0.0,
+        "evacuated": [],
+        "freed": [],
+        "mid_done": false,
+        "objects": {},
+        "reinforced": false
+      },
+      "map_sha256": "8ea4e44b77628cc630ee58524fdbd0b903a4ce55db19ccc1f93dec6bd1abe0fd",
+      "play_map_sha256": "8ea4e44b77628cc630ee58524fdbd0b903a4ce55db19ccc1f93dec6bd1abe0fd",
+      "outcome": "victory",
+      "continuation": null
+    },
+    {
+      "code": "F24",
+      "name": "海灯岛防卫",
+      "size": [
+        40,
+        32
+      ],
+      "notes": [
+        "南侧部署区沿三格宽主道直达航灯石庭；灯塔正门与灯台之间已连成连续步行广场，西坡与东侧避难所保留支路。",
+        "第6己方回合与击败首领的胜利条件不变。留意东侧飞兵和海兵，航灯被敌军连续占满一整回合仍会失败；安置岛民从避难所门前操作。"
+      ],
+      "goal": "守住航灯至第6己方回合并击败搜捕首领；航灯失守则失败。",
+      "source": "play/polish-islands/polish-islands-play.json",
+      "checkpoint": "play/polish-islands/polish-islands-F24-victory.json",
+      "turn": 13,
+      "inputs": 614,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1.0,
+        "boats": [],
+        "burn_streak": 0.0,
+        "evacuated": [],
+        "freed": [],
+        "mid_done": false,
+        "objects": {},
+        "reinforced": true
+      },
+      "map_sha256": "e8dbed2c5471167c2c151c80526b2d359eaf14265623b1f501334a4a924b2003",
+      "play_map_sha256": "e8dbed2c5471167c2c151c80526b2d359eaf14265623b1f501334a4a924b2003",
+      "outcome": "victory",
+      "continuation": null
+    },
+    {
+      "code": "F25",
+      "name": "潮狩军港",
+      "size": [
+        44,
+        34
+      ],
+      "notes": [
+        "西侧木码头沿真实港湾水面相连，北仓与账房经装卸台接主路；中央转运场通向神教箱。",
+        "幸存船员与引航者在东侧囚室内，原牢门是唯一出口。先清理门前接应道，再打开牢门；仓库和囚室墙体均有完整阻挡。"
+      ],
+      "goal": "击败裴萨，打开引航者牢房并取回神教箱；逃离的普通军人不追杀。",
+      "source": "play/polish-harbor/polish-harbor-play.json",
+      "checkpoint": "play/polish-harbor/polish-harbor-F25-victory.json",
+      "turn": 20,
+      "inputs": 1212,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1.0,
+        "boats": [],
+        "burn_streak": 0.0,
+        "evacuated": [],
+        "freed": [],
+        "mid_done": false,
+        "myth_box_secured": true,
+        "objects": {
+          "myth_box": true,
+          "pilot_prison": true
+        },
+        "reinforced": false
+      },
+      "map_sha256": "7357e44ea62ee6bad70797aa859442ae07838b4dd38e03c4fab3940529a84e10",
+      "play_map_sha256": "87524a9ed2518fa6f8296ccbc2b78dff4f5e89b60617f92097accbfa367ea2c9",
+      "outcome": "victory",
+      "continuation": null
+    },
+    {
+      "code": "F26",
+      "name": "断航古道",
+      "size": [
+        44,
+        32
+      ],
+      "notes": [
+        "古堤与木架是两条连续路线：草地岛头提供集结空间，桥身与桥头材质清楚衔接。居民船从西岛下方水道出航，完整航道仍为水面。",
+        "古石门现在正对原辨认点；门洞两列石面可通行。航灯旧座落在木架转角的独立岛台，便于理解旧航路的位置。",
+        "清除全部沿岸敌军和增援后，居民船加速到每回合6格；交战时保持原速，遇敌仍会停船。"
+      ],
+      "goal": "护送船队穿过遗迹通道，击败封航守军。出口至少有一艘居民船抵达。",
+      "source": "play/polish-harbor/polish-harbor-play.json",
+      "checkpoint": "play/polish-harbor/polish-harbor-F26-victory.json",
+      "turn": 17,
+      "inputs": 1004,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1.0,
+        "boats": [
+          {
+            "arrived": true,
+            "delay": 4.0,
+            "hp": 30.0,
+            "id": "event_boat_0",
+            "label": "居民船1",
+            "max_hp": 30.0,
+            "path": [
+              [
+                5.0,
+                29.0
+              ],
+              [
+                6.0,
+                29.0
+              ],
+              [
+                7.0,
+                29.0
+              ],
+              [
+                8.0,
+                29.0
+              ],
+              [
+                9.0,
+                29.0
+              ],
+              [
+                10.0,
+                29.0
+              ],
+              [
+                11.0,
+                29.0
+              ],
+              [
+                12.0,
+                29.0
+              ],
+              [
+                13.0,
+                29.0
+              ],
+              [
+                14.0,
+                29.0
+              ],
+              [
+                15.0,
+                29.0
+              ],
+              [
+                16.0,
+                29.0
+              ],
+              [
+                17.0,
+                29.0
+              ],
+              [
+                18.0,
+                29.0
+              ],
+              [
+                19.0,
+                29.0
+              ],
+              [
+                20.0,
+                29.0
+              ],
+              [
+                21.0,
+                29.0
+              ],
+              [
+                22.0,
+                29.0
+              ],
+              [
+                23.0,
+                29.0
+              ],
+              [
+                24.0,
+                29.0
+              ],
+              [
+                25.0,
+                29.0
+              ],
+              [
+                26.0,
+                29.0
+              ],
+              [
+                27.0,
+                29.0
+              ],
+              [
+                28.0,
+                29.0
+              ],
+              [
+                29.0,
+                29.0
+              ],
+              [
+                30.0,
+                29.0
+              ],
+              [
+                31.0,
+                29.0
+              ],
+              [
+                32.0,
+                29.0
+              ],
+              [
+                33.0,
+                29.0
+              ],
+              [
+                34.0,
+                29.0
+              ],
+              [
+                35.0,
+                29.0
+              ],
+              [
+                36.0,
+                29.0
+              ],
+              [
+                37.0,
+                29.0
+              ],
+              [
+                38.0,
+                29.0
+              ],
+              [
+                39.0,
+                29.0
+              ],
+              [
+                40.0,
+                29.0
+              ],
+              [
+                41.0,
+                29.0
+              ],
+              [
+                41.0,
+                28.0
+              ],
+              [
+                41.0,
+                27.0
+              ],
+              [
+                41.0,
+                26.0
+              ],
+              [
+                41.0,
+                25.0
+              ],
+              [
+                41.0,
+                24.0
+              ],
+              [
+                41.0,
+                23.0
+              ],
+              [
+                41.0,
+                22.0
+              ],
+              [
+                41.0,
+                21.0
+              ],
+              [
+                41.0,
+                20.0
+              ],
+              [
+                41.0,
+                19.0
+              ],
+              [
+                41.0,
+                18.0
+              ],
+              [
+                41.0,
+                17.0
+              ],
+              [
+                41.0,
+                16.0
+              ],
+              [
+                41.0,
+                15.0
+              ],
+              [
+                41.0,
+                14.0
+              ],
+              [
+                41.0,
+                13.0
+              ],
+              [
+                41.0,
+                12.0
+              ],
+              [
+                41.0,
+                11.0
+              ],
+              [
+                41.0,
+                10.0
+              ],
+              [
+                41.0,
+                9.0
+              ],
+              [
+                41.0,
+                8.0
+              ],
+              [
+                41.0,
+                7.0
+              ],
+              [
+                41.0,
+                6.0
+              ],
+              [
+                41.0,
+                5.0
+              ]
+            ],
+            "path_index": 60.0,
+            "position": [
+              41.0,
+              5.0
+            ],
+            "speed": 3.0,
+            "sprite_path": "res://assets/chapter2/modules/rowboat.png",
+            "stopped": false
+          },
+          {
+            "arrived": false,
+            "delay": 8.0,
+            "hp": 30.0,
+            "id": "event_boat_1",
+            "label": "居民船2",
+            "max_hp": 30.0,
+            "path": [
+              [
+                5.0,
+                29.0
+              ],
+              [
+                6.0,
+                29.0
+              ],
+              [
+                7.0,
+                29.0
+              ],
+              [
+                8.0,
+                29.0
+              ],
+              [
+                9.0,
+                29.0
+              ],
+              [
+                10.0,
+                29.0
+              ],
+              [
+                11.0,
+                29.0
+              ],
+              [
+                12.0,
+                29.0
+              ],
+              [
+                13.0,
+                29.0
+              ],
+              [
+                14.0,
+                29.0
+              ],
+              [
+                15.0,
+                29.0
+              ],
+              [
+                16.0,
+                29.0
+              ],
+              [
+                17.0,
+                29.0
+              ],
+              [
+                18.0,
+                29.0
+              ],
+              [
+                19.0,
+                29.0
+              ],
+              [
+                20.0,
+                29.0
+              ],
+              [
+                21.0,
+                29.0
+              ],
+              [
+                22.0,
+                29.0
+              ],
+              [
+                23.0,
+                29.0
+              ],
+              [
+                24.0,
+                29.0
+              ],
+              [
+                25.0,
+                29.0
+              ],
+              [
+                26.0,
+                29.0
+              ],
+              [
+                27.0,
+                29.0
+              ],
+              [
+                28.0,
+                29.0
+              ],
+              [
+                29.0,
+                29.0
+              ],
+              [
+                30.0,
+                29.0
+              ],
+              [
+                31.0,
+                29.0
+              ],
+              [
+                32.0,
+                29.0
+              ],
+              [
+                33.0,
+                29.0
+              ],
+              [
+                34.0,
+                29.0
+              ],
+              [
+                35.0,
+                29.0
+              ],
+              [
+                36.0,
+                29.0
+              ],
+              [
+                37.0,
+                29.0
+              ],
+              [
+                38.0,
+                29.0
+              ],
+              [
+                39.0,
+                29.0
+              ],
+              [
+                40.0,
+                29.0
+              ],
+              [
+                41.0,
+                29.0
+              ],
+              [
+                41.0,
+                28.0
+              ],
+              [
+                41.0,
+                27.0
+              ],
+              [
+                41.0,
+                26.0
+              ],
+              [
+                41.0,
+                25.0
+              ],
+              [
+                41.0,
+                24.0
+              ],
+              [
+                41.0,
+                23.0
+              ],
+              [
+                41.0,
+                22.0
+              ],
+              [
+                41.0,
+                21.0
+              ],
+              [
+                41.0,
+                20.0
+              ],
+              [
+                41.0,
+                19.0
+              ],
+              [
+                41.0,
+                18.0
+              ],
+              [
+                41.0,
+                17.0
+              ],
+              [
+                41.0,
+                16.0
+              ],
+              [
+                41.0,
+                15.0
+              ],
+              [
+                41.0,
+                14.0
+              ],
+              [
+                41.0,
+                13.0
+              ],
+              [
+                41.0,
+                12.0
+              ],
+              [
+                41.0,
+                11.0
+              ],
+              [
+                41.0,
+                10.0
+              ],
+              [
+                41.0,
+                9.0
+              ],
+              [
+                41.0,
+                8.0
+              ],
+              [
+                41.0,
+                7.0
+              ],
+              [
+                41.0,
+                6.0
+              ],
+              [
+                41.0,
+                5.0
+              ]
+            ],
+            "path_index": 48.0,
+            "position": [
+              41.0,
+              17.0
+            ],
+            "speed": 3.0,
+            "sprite_path": "res://assets/chapter2/modules/rowboat.png",
+            "stopped": false
+          }
+        ],
+        "burn_streak": 0.0,
+        "evacuated": [],
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "old_beacon": true,
+          "stone_gate": true
+        },
+        "reinforced": false
+      },
+      "map_sha256": "3bf9359de52efbb34241641a6aadc0a349017ef762b02fa2022a56e248796ddf",
+      "play_map_sha256": "3bf9359de52efbb34241641a6aadc0a349017ef762b02fa2022a56e248796ddf",
+      "outcome": "victory",
+      "continuation": null
+    },
+    {
+      "code": "S21",
+      "name": "漂泊渔船",
+      "size": [
+        36,
+        28
+      ],
+      "notes": [
+        "两船船艏与后甲板清楚分区，货物贴舷集中摆放；上下两条跳板与病人后甲板之间保留宽敞路线。",
+        "清出跳板后再护送病人，飞行魔物仍可绕过桥口。普通舵楼哨位保持原有回避与恢复规则。"
+      ],
+      "goal": "击败海上魔物，保住载病人船至靠岸；至少一组居民存活。",
+      "source": "play/polish-ships/polish-ships-play.json",
+      "checkpoint": "play/polish-ships/polish-ships-S21-victory.json",
+      "turn": 13,
+      "inputs": 866,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1.0,
+        "boats": [],
+        "burn_streak": 0.0,
+        "evacuated": [
+          "patients0"
+        ],
+        "freed": [],
+        "mid_done": false,
+        "objects": {},
+        "reinforced": false
+      },
+      "map_sha256": "888590e096a22b003540d16133e45652954a1229dba52328a709457e6e72709b",
+      "play_map_sha256": "888590e096a22b003540d16133e45652954a1229dba52328a709457e6e72709b",
+      "outcome": "victory",
+      "continuation": null
+    },
+    {
+      "code": "S22",
+      "name": "碎石海洞",
+      "size": [
+        32,
+        28
+      ],
+      "notes": [
+        "灰褐洞底与暖色避潮土径区分岩室和主巷；遗物箱、旧船员藏身处、北侧避潮室均由完整道路串联。",
+        "遗迹拱门中央两格可以通行，两侧柱脚是实体；旧船员藏身石室从东侧门前救援，开门后接回北向主巷。西潮潭与东南潮水保留边界。"
+      ],
+      "goal": "击败洞内魔物，带旧船员到出口，取遗物箱后返回；船员死亡记录失败后日谈但可完成清场。",
+      "source": "play/polish-seacave/polish-seacave-play.json",
+      "checkpoint": "play/polish-seacave/polish-seacave-S22-victory.json",
+      "turn": 12,
+      "inputs": 519,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1.0,
+        "boats": [],
+        "burn_streak": 0.0,
+        "evacuated": [],
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "relics": true
+        },
+        "reinforced": false
+      },
+      "map_sha256": "b2499cc73616ccc657ca145390c465818ca052fb7d53d16942ffd589103ad0a6",
+      "play_map_sha256": "b2499cc73616ccc657ca145390c465818ca052fb7d53d16942ffd589103ad0a6",
+      "outcome": "victory",
+      "continuation": null
+    }
+  ],
+  "count": 14,
+  "reference_unchanged": true,
+  "real_key_inputs": 10742,
+  "no_stat_rng_position_or_win_overrides": true,
+  "return_flow": "return-flow.json",
+  "runtime_captures": "screenshots/captures.json",
+  "attempts": [
+    {
+      "report": "play/polish-f22-continued/polish-f22-continued-play.json",
+      "battles": [
+        {
+          "code": "F22",
+          "outcome": "victory",
+          "turn": 87.0,
+          "reason": "",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "report": "play/polish-f22-formation/polish-f22-formation-play.json",
+      "battles": [
+        {
+          "code": "F22",
+          "outcome": "",
+          "turn": 66.0,
+          "reason": "",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "report": "play/polish-f22-formation2/polish-f22-formation2-play.json",
+      "battles": [
+        {
+          "code": "F22",
+          "outcome": "defeat",
+          "turn": 16.0,
+          "reason": "艾琳濒死，无法继续作战",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "report": "play/polish-harbor/polish-harbor-play.json",
+      "battles": [
+        {
+          "code": "F25",
+          "outcome": "victory",
+          "turn": 20.0,
+          "reason": "",
+          "errors": []
+        },
+        {
+          "code": "F26",
+          "outcome": "victory",
+          "turn": 17.0,
+          "reason": "",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "report": "play/polish-islands/polish-islands-play.json",
+      "battles": [
+        {
+          "code": "F23",
+          "outcome": "victory",
+          "turn": 15.0,
+          "reason": "",
+          "errors": []
+        },
+        {
+          "code": "F24",
+          "outcome": "victory",
+          "turn": 13.0,
+          "reason": "",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "report": "play/polish-mine-equipped/polish-mine-equipped-play.json",
+      "battles": [
+        {
+          "code": "S11",
+          "outcome": "",
+          "turn": 1.0,
+          "reason": "",
+          "errors": [
+            "Prompt/action missing: camp:withdraw_member:hunapu in ",
+            "Actual equipment menu did not equip hunapu",
+            "Prompt/action missing: new:battle in ",
+            "Prompt/action missing: new:goal in "
+          ]
+        }
+      ]
+    },
+    {
+      "report": "play/polish-mine-equipped2/polish-mine-equipped2-play.json",
+      "battles": [
+        {
+          "code": "S11",
+          "outcome": "defeat",
+          "turn": 5.0,
+          "reason": "矿工队2未能获救",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "report": "play/polish-mine-formation/polish-mine-formation-play.json",
+      "battles": [
+        {
+          "code": "S11",
+          "outcome": "victory",
+          "turn": 11.0,
+          "reason": "",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "report": "play/polish-mine-screen/polish-mine-screen-play.json",
+      "battles": [
+        {
+          "code": "S11",
+          "outcome": "defeat",
+          "turn": 5.0,
+          "reason": "矿工队2未能获救",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "report": "play/polish-seacave/polish-seacave-play.json",
+      "battles": [
+        {
+          "code": "S22",
+          "outcome": "victory",
+          "turn": 12.0,
+          "reason": "",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "report": "play/polish-ships/polish-ships-play.json",
+      "battles": [
+        {
+          "code": "F21",
+          "outcome": "victory",
+          "turn": 25.0,
+          "reason": "",
+          "errors": []
+        },
+        {
+          "code": "F22",
+          "outcome": "defeat",
+          "turn": 12.0,
+          "reason": "艾琳濒死，无法继续作战",
+          "errors": []
+        },
+        {
+          "code": "S21",
+          "outcome": "victory",
+          "turn": 13.0,
+          "reason": "",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "report": "play/polish-tower/polish-tower-play.json",
+      "battles": [
+        {
+          "code": "M15",
+          "outcome": "defeat",
+          "turn": 4.0,
+          "reason": "胡纳普濒死，无法继续作战",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "report": "play/polish-tower-formation/polish-tower-formation-play.json",
+      "battles": [
+        {
+          "code": "M15",
+          "outcome": "victory",
+          "turn": 5.0,
+          "reason": "",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "report": "play/polish-west-a/polish-west-a-play.json",
+      "battles": [
+        {
+          "code": "M12",
+          "outcome": "victory",
+          "turn": 8.0,
+          "reason": "",
+          "errors": []
+        },
+        {
+          "code": "M13",
+          "outcome": "",
+          "turn": 1.0,
+          "reason": "",
+          "errors": [
+            "Input did not release: victory"
+          ]
+        }
+      ]
+    },
+    {
+      "report": "play/polish-west-a2/polish-west-a2-play.json",
+      "battles": [
+        {
+          "code": "M12",
+          "outcome": "victory",
+          "turn": 8.0,
+          "reason": "",
+          "errors": []
+        },
+        {
+          "code": "M13",
+          "outcome": "victory",
+          "turn": 9.0,
+          "reason": "",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "report": "play/polish-west-camp-fort/polish-west-camp-fort-play.json",
+      "battles": [
+        {
+          "code": "M14",
+          "outcome": "victory",
+          "turn": 5.0,
+          "reason": "",
+          "errors": []
+        },
+        {
+          "code": "M15",
+          "outcome": "",
+          "turn": 1.0,
+          "reason": "",
+          "errors": [
+            "Prompt/action missing: camp:withdraw_member:hunapu in ",
+            "Actual equipment menu did not equip hunapu",
+            "Prompt/action missing: new:camp in ",
+            "Prompt/action missing: camp:convoy in ",
+            "Prompt/action missing: camp:withdraw in ",
+            "Prompt/action missing: camp:withdraw_item:0 in ",
+            "Prompt/action missing: camp:withdraw_member:otto in ",
+            "Actual equipment menu did not equip otto",
+            "Prompt/action missing: new:battle in ",
+            "Prompt/action missing: new:goal in "
+          ]
+        }
+      ]
+    },
+    {
+      "report": "play/polish-west-side/polish-west-side-play.json",
+      "battles": [
+        {
+          "code": "S11",
+          "outcome": "defeat",
+          "turn": 6.0,
+          "reason": "矿工队2未能获救",
+          "errors": []
+        },
+        {
+          "code": "S12",
+          "outcome": "victory",
+          "turn": 9.0,
+          "reason": "",
+          "errors": []
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "file": "before/F21.png",
+      "purpose": "优化前全景",
+      "size": [
+        768,
+        544
+      ],
+      "bytes": 96049,
+      "sha256": "bddbcd6d8e129a8cde7c99b1efe1d71ef5c4ca1bc4acd59b88b97b62a4380aef",
+      "compression": "lossless"
+    },
+    {
+      "file": "before/F22.png",
+      "purpose": "优化前全景",
+      "size": [
+        800,
+        576
+      ],
+      "bytes": 106324,
+      "sha256": "7ea2a5c79490d86e6a124dbb3b424de25ff21a22cdcdba8205ed7f916d0db05c",
+      "compression": "lossless"
+    },
+    {
+      "file": "before/F23.png",
+      "purpose": "优化前全景",
+      "size": [
+        672,
+        544
+      ],
+      "bytes": 79841,
+      "sha256": "905dbf5dbafe0e97f61265051800642333703aa0b4ffcb044973bf87c43043e7",
+      "compression": "lossless"
+    },
+    {
+      "file": "before/F24.png",
+      "purpose": "优化前全景",
+      "size": [
+        704,
+        576
+      ],
+      "bytes": 123724,
+      "sha256": "91fbc3b2ff91cc3bb100f080401a333e088433a9cb6f6b322958fa409e6e18be",
+      "compression": "lossless"
+    },
+    {
+      "file": "before/F25.png",
+      "purpose": "优化前全景",
+      "size": [
+        768,
+        608
+      ],
+      "bytes": 139480,
+      "sha256": "63f7e66a4b3d2c621b999e3d57608a50283a8bed53505bc10cc19d590e6af55b",
+      "compression": "lossless"
+    },
+    {
+      "file": "before/F26.png",
+      "purpose": "优化前全景",
+      "size": [
+        768,
+        576
+      ],
+      "bytes": 43864,
+      "sha256": "fa80aa4fc31a38110a01c27e94d5ce900f94b1a95ae3dcace094bcc8fdab73c2",
+      "compression": "lossless"
+    },
+    {
+      "file": "before/M11.png",
+      "purpose": "优化前全景",
+      "size": [
+        416,
+        352
+      ],
+      "bytes": 20284,
+      "sha256": "349144cef98e976b2c7df792b150275c95df488f6c754543de279fc5f6c961d9",
+      "compression": "lossless"
+    },
+    {
+      "file": "before/M12.png",
+      "purpose": "优化前全景",
+      "size": [
+        640,
+        512
+      ],
+      "bytes": 69519,
+      "sha256": "72f4e2c885ca872b9c5776131a69237321a56d581a1fb193935d518d0e1892a7",
+      "compression": "lossless"
+    },
+    {
+      "file": "before/M13.png",
+      "purpose": "优化前全景",
+      "size": [
+        704,
+        544
+      ],
+      "bytes": 103835,
+      "sha256": "c7302b61f43a295879e8319449f9223791b5262f8f8522a6a90b48283f4c0cbb",
+      "compression": "lossless"
+    },
+    {
+      "file": "before/M14.png",
+      "purpose": "优化前全景",
+      "size": [
+        704,
+        576
+      ],
+      "bytes": 119466,
+      "sha256": "4c45062ec6b7b1b61c89950b02329fcc21a936cf5b043a715cabd49f545fa823",
+      "compression": "lossless"
+    },
+    {
+      "file": "before/M15.png",
+      "purpose": "优化前全景",
+      "size": [
+        768,
+        608
+      ],
+      "bytes": 163816,
+      "sha256": "b2cc8cc5ccfb90f75f180b87f7a6a1c73da555d60ae6a9534e1cc9b114d96103",
+      "compression": "lossless"
+    },
+    {
+      "file": "before/S11.png",
+      "purpose": "优化前全景",
+      "size": [
+        576,
+        480
+      ],
+      "bytes": 38091,
+      "sha256": "7d1094709606f75d691bea8afa6cc6cd19bdc12f7c6d2a6e65ee154164c88707",
+      "compression": "lossless"
+    },
+    {
+      "file": "before/S12.png",
+      "purpose": "优化前全景",
+      "size": [
+        608,
+        480
+      ],
+      "bytes": 71893,
+      "sha256": "a4de4798065915a459cc224e2bc14a9e207767a635f71ce0056826b26a6c984e",
+      "compression": "lossless"
+    },
+    {
+      "file": "before/S21.png",
+      "purpose": "优化前全景",
+      "size": [
+        640,
+        512
+      ],
+      "bytes": 47502,
+      "sha256": "26b45394f073e7258f302f7cda6c562d80ad36314a0f0b9e67c8c8d2d1a119c5",
+      "compression": "lossless"
+    },
+    {
+      "file": "before/S22.png",
+      "purpose": "优化前全景",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 67078,
+      "sha256": "fa5ea7c36bcd3dca3122b2f220275246f0d7990e5fdcf78240df5fb1537c8452",
+      "compression": "lossless"
+    },
+    {
+      "file": "after/F21.png",
+      "purpose": "优化后全景",
+      "size": [
+        768,
+        544
+      ],
+      "bytes": 105134,
+      "sha256": "5400796cbd034da944aeceb855cc1da224ab4054590ee6dcb8eac3f59acbdd76",
+      "compression": "lossless"
+    },
+    {
+      "file": "after/F22.png",
+      "purpose": "优化后全景",
+      "size": [
+        800,
+        576
+      ],
+      "bytes": 116763,
+      "sha256": "62482f91e4ba780ef867245f881674a99286ea137cb85d927a87190fe05776a4",
+      "compression": "lossless"
+    },
+    {
+      "file": "after/F23.png",
+      "purpose": "优化后全景",
+      "size": [
+        672,
+        544
+      ],
+      "bytes": 80220,
+      "sha256": "cb5ab3a0eacb322ca25767c3202136a17eec3237c135507ebbc25bafb977ac16",
+      "compression": "lossless"
+    },
+    {
+      "file": "after/F24.png",
+      "purpose": "优化后全景",
+      "size": [
+        704,
+        576
+      ],
+      "bytes": 133180,
+      "sha256": "61565dcf6b47618e9741629a5706385037a8712d4a5f279bfa8561cd00790c2f",
+      "compression": "lossless"
+    },
+    {
+      "file": "after/F25.png",
+      "purpose": "优化后全景",
+      "size": [
+        768,
+        608
+      ],
+      "bytes": 154844,
+      "sha256": "037f18675cbfb78f274e47e9b035dc3fd1cfd179e85bfb3e84188d46f4cd9600",
+      "compression": "lossless"
+    },
+    {
+      "file": "after/F26.png",
+      "purpose": "优化后全景",
+      "size": [
+        768,
+        576
+      ],
+      "bytes": 118353,
+      "sha256": "74779cb568903e67fd0e8b00955cdb7722ee9b6f2a7bd7fccbf2ee9148202935",
+      "compression": "lossless"
+    },
+    {
+      "file": "after/M12.png",
+      "purpose": "优化后全景",
+      "size": [
+        640,
+        512
+      ],
+      "bytes": 79316,
+      "sha256": "8a462815ea7f5f590d73d9d7a319ff32bc82aa2447cf4499d213882fee9d85dd",
+      "compression": "lossless"
+    },
+    {
+      "file": "after/M13.png",
+      "purpose": "优化后全景",
+      "size": [
+        704,
+        544
+      ],
+      "bytes": 129150,
+      "sha256": "9e369db7b5b552542db1f8d3383a78f7c19d093cdd9ac3089cc83f2992dccc5b",
+      "compression": "lossless"
+    },
+    {
+      "file": "after/M14.png",
+      "purpose": "优化后全景",
+      "size": [
+        704,
+        576
+      ],
+      "bytes": 127858,
+      "sha256": "d5fefa452eb7a741d724ef1ace05c9204016f67b057111f41031833576f44700",
+      "compression": "lossless"
+    },
+    {
+      "file": "after/M15.png",
+      "purpose": "优化后全景",
+      "size": [
+        768,
+        608
+      ],
+      "bytes": 180032,
+      "sha256": "4d4c6cd6ec3d6b4e0b49d3a4861034faa2af7878e04b24a323800f9636501001",
+      "compression": "lossless"
+    },
+    {
+      "file": "after/S11.png",
+      "purpose": "优化后全景",
+      "size": [
+        576,
+        480
+      ],
+      "bytes": 43147,
+      "sha256": "50ce61cefdbed1a4ef067ab0151c722d139a7451fe5799aae20b4b2d8eeb6299",
+      "compression": "lossless"
+    },
+    {
+      "file": "after/S12.png",
+      "purpose": "优化后全景",
+      "size": [
+        608,
+        480
+      ],
+      "bytes": 57716,
+      "sha256": "3877ee70fc76300b9faaa5db058fe5803d12b60200eb91215a3b3f808618fa6c",
+      "compression": "lossless"
+    },
+    {
+      "file": "after/S21.png",
+      "purpose": "优化后全景",
+      "size": [
+        640,
+        512
+      ],
+      "bytes": 51696,
+      "sha256": "6a055b4b478ca0a0d0c9ac5cc91cbce405d26a2ad3133ae5794db184c8db7b37",
+      "compression": "lossless"
+    },
+    {
+      "file": "after/S22.png",
+      "purpose": "优化后全景",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 82315,
+      "sha256": "3b949f586baae9b03a7c4f86613a836f30056975da04e6fe1343aa2c8e130382",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/F21-entry.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 37753,
+      "sha256": "75e51948c89e2a23171c9bdc4627aa403db3a780110b9e12011cda85ac3b226c",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/F21-field.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 14928,
+      "sha256": "8383c092929fa7fc167f226bdac1ad785d237cee09a67f92a1a904df8537d7fa",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/F22-entry.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 39167,
+      "sha256": "d3c6793e5064eff1ea08e4124b663e08dbf4048dda329ee4b4a24469f14353f5",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/F22-field.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 15848,
+      "sha256": "cc26e5bee69cd69b746bb1fe6a4ad1ac1fc85d899184822273c8eb4e2fb45103",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/F23-entry.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 58571,
+      "sha256": "315fda64f40f029cc34267da8e1e1acb59935be2b7a69d793c2fea0c067a7503",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/F23-field.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 31731,
+      "sha256": "509759a76931bb25fc4b4e6890ca2bfed3254f458914db7dc019be59b114bdaf",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/F24-entry.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 55666,
+      "sha256": "f2e6436763398815142902a0f3a8143dd22a84beb8d3c1da8bbecaff598573a8",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/F24-field.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 34030,
+      "sha256": "ce68d3dda2a13682b3a2dcac8cf72052ff0e74beeee4276adb3de80a6aedf42d",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/F25-entry.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 50546,
+      "sha256": "b85041d6ccbd44f4bc03e9da3ded4cd1b5c6b794886be210250b3b2b2745e1b2",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/F25-field.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 29435,
+      "sha256": "546f14c26fffd5a48010c408ff8e7dc9f602d3771429227299715d85afc5164a",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/F25-objective-notes.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 22784,
+      "sha256": "5244574656c9be4f4add67a80a60dbfecfc35c2beb9356542dbbe611aea8113e",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/F26-entry.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 45467,
+      "sha256": "397bfe8840662e7f15cd096cdcdf58b271dbe91fdc3a61e0093ae67343625d88",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/F26-field.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 33143,
+      "sha256": "9ffaa04f2986f368f08339b9c0b6e650327b5e983c435b54b3eae5bdbd2bdaec",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/M12-entry.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 54432,
+      "sha256": "43f2d359e495349948b33706b5b25355aa4683c1147067a22c30853c469fe744",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/M12-field.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 29447,
+      "sha256": "4d12d404ca478c8704dcee58b1ceda8493fed9f100ce1a5d01d2c7ef8f79759c",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/M12-objective-notes.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 21081,
+      "sha256": "3ac06cf1567a3ae5e296c0059af7145492a50ebae108a89c3e082d452dcfa31e",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/M13-entry.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 56839,
+      "sha256": "5e54cae46293f14da9f1301d3ad4cb525c465fbd6afee633519e284e39a73603",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/M13-field.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 32210,
+      "sha256": "e2588d33094da4744cac7b72bd0a9a5d245711891fdfe6e5698a39ef719401cb",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/M14-entry.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 50572,
+      "sha256": "c005c765876a6773465dd9e94156d22c2757e22792faf3746920dbc181ce0ac1",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/M14-field.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 32590,
+      "sha256": "a6b053115f6e8ae9ffaeffcf6172a92494e98a863a5098a7d7e2550478f6a84b",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/M15-entry.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 63076,
+      "sha256": "a6cece9fc94a7aeafc17e2c5f8efab3c06c20ddd8cacb46303ddd0c7e8a78735",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/M15-field.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 31806,
+      "sha256": "a7b592264364f759a6d090c4d1e0ea5cc8ee5f915940404eb591c686fd75b0ac",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/S11-entry.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 51433,
+      "sha256": "b45595b36b6c77e10d38ffadb6cf3c71df197bd1677a9448e2356e454c3a8bc3",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/S11-field.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 32184,
+      "sha256": "dbd366c62789ed6e0727f268dc4209174fc30ed5220d1f097739f15a4902798f",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/S11-objective-notes.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 23110,
+      "sha256": "c775f96165a868c809245f419e0a3a708e9d9d856e4b9c56a83a8a4eba4b423f",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/S12-entry.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 42851,
+      "sha256": "4b38bb3c3d590db79c51c29f1c44eb8a4bef260464aad7e421bb74254e7c69de",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/S12-field.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 25922,
+      "sha256": "13cb45b17a515fd4ccdb6b7013ff5beca7be04436e85d7779f8203bbcf5b9be1",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/S21-entry.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 43774,
+      "sha256": "79eef7ed78b1db675f3f18cff282deba66a6ec241e99d719a63c21e60dd30851",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/S21-field.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 27027,
+      "sha256": "a06124d7ba2aef51d3849c33e36f87719aba424d477f0fba743a6badc1c31b41",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/S22-entry.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 52625,
+      "sha256": "7c574b2b8137e8045aca384797aaba1a4611bf8d4d57c455022fc9297889aca1",
+      "compression": "lossless"
+    },
+    {
+      "file": "screenshots/S22-field.png",
+      "purpose": "真实按键试玩存档视口",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 18402,
+      "sha256": "1dd1274009123f566ccb1c8ffd9bad26541757a3b383852436307868f9876d0d",
+      "compression": "lossless"
+    },
+    {
+      "file": "../../assets/map-polish-20261022/harbor-shore.png",
+      "purpose": "复用既有像素与编号的独立洞底/岸线过渡图集",
+      "size": [
+        512,
+        2592
+      ],
+      "bytes": 223542,
+      "sha256": "bcf9d868985705c084e83b602cf76c535ba4decd366bb06aa0fa3393d5d692bd",
+      "quality_note": "无损压缩；保留原5042图块的像素/编号，避免动态开门图块引用失效，略高于200KB优化参考值。"
+    },
+    {
+      "file": "../../assets/map-polish-20261022/side-terrain.png",
+      "purpose": "复用既有像素与编号的独立洞底/岸线过渡图集",
+      "size": [
+        512,
+        2848
+      ],
+      "bytes": 234673,
+      "sha256": "68b85ce338363c69149ffd83293ace7f883e4090afc05a764d0c5eeb15b7d37b",
+      "quality_note": "无损压缩；保留原5042图块的像素/编号，避免动态开门图块引用失效，略高于200KB优化参考值。"
+    }
+  ],
+  "scope": "14张地图逐关从真实开发存档经正常整备重新入场，通过实际按键完成战斗；独立结果返回与路线复查。不是从序章连续重跑整部游戏。",
+  "failures_retained": "S11早期护送及M15冲锋、F22船战的战败保留；换用寻路/阵型/保护策略，未改数值或强制结果。旧测试脚本对结算异步与装备预览的适配失败单独保留，不作为游戏缺陷。",
+  "map_changes_after_play": "S11/S12在首轮之后仅更新洞底/岸线纹理；F25在首轮后清除一个无锚点且不可达的孤立草格，关键通路/单位与任务不变。最终地形重新检查并以最新运行截图展示。",
+  "limitations": [
+    "未重跑第三至五章完整流程",
+    "未重新导出或安装iPhone包",
+    "对照页自动浏览器渲染未验收；Godot实际视口与文字安全区另有检查"
+  ],
+  "checks": {
+    "geometry": 1171,
+    "state": 926,
+    "result_return": 280,
+    "exported_app": 289,
+    "runtime_text_layout_errors": 0
+  },
+  "desktop_app": {
+    "path": "dist/RevengeMemories-MapPolish-20261022.app",
+    "pck_sha256": "ce64ee6cc2c437aeaceeb839de69fc26a5b462df16c2bbb3ca2b5cf58892551a",
+    "pck_bytes": 172223328,
+    "engine_version": "0.10.1",
+    "map_revision": "0.10.2",
+    "verification": "package-checks.json"
+  }
+}

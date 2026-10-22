@@ -141,7 +141,7 @@
     text('story',selected.story || '剧情背景与推进条件见本关任务说明。');text('next-step',selected.next || '战后返回所属队伍的当前行军节点。');
     text('rewards',selected.fixed_rewards.length?selected.fixed_rewards.join('、'):'未配置独立的固定通关补给。');
     if(selected.reward)$('rewards').append(element('br'),document.createTextNode(selected.reward));
-    const source=$('source-note');source.replaceChildren(document.createTextNode(`配置快照 · ${selected.code} / 2026-10-21 · `));
+    const source=$('source-note');source.replaceChildren(document.createTextNode(`配置快照 · ${selected.code} / ${data.date} · `));
     const a=element('a','查看本关配置');a.href=selected.source;source.append(a,document.createTextNode(` · SHA-256 ${selected.source_sha256.slice(0,16)}…`));
   }
   function updateZoom() {

@@ -1,0 +1,177 @@
+{
+  "passed": true,
+  "stages": [
+    {
+      "code": "S11",
+      "passed": true,
+      "unchanged_gameplay_fields": [
+        "schema_version",
+        "id",
+        "code",
+        "name_zh",
+        "chapter",
+        "route",
+        "node",
+        "characters",
+        "player_positions",
+        "enemies",
+        "npc_units",
+        "terrain",
+        "enemy_group_ids",
+        "objects",
+        "reinforcements",
+        "reinforcement_turn",
+        "exit",
+        "boss_id",
+        "targets",
+        "goal",
+        "cause",
+        "before",
+        "during",
+        "after",
+        "absent_branch",
+        "optional",
+        "contract",
+        "ai_and_timing",
+        "escort_move"
+      ],
+      "escort_paths": [
+        {
+          "unit": "S11_miners0",
+          "before": 35,
+          "after": 35,
+          "goal": [
+            26,
+            3
+          ]
+        },
+        {
+          "unit": "S11_miners1",
+          "before": 27,
+          "after": 27,
+          "goal": [
+            26,
+            3
+          ]
+        }
+      ],
+      "reachable_anchors": 24,
+      "nature_props": 112,
+      "terrain_changes": 216,
+      "shore_fallbacks": [],
+      "map_sha256": "22cc3400cba035e145e57f84f5071b8beba46a19914589c0c2bd97fc2f64b579"
+    },
+    {
+      "code": "S12",
+      "passed": true,
+      "unchanged_gameplay_fields": [
+        "schema_version",
+        "id",
+        "code",
+        "name_zh",
+        "chapter",
+        "route",
+        "node",
+        "characters",
+        "player_positions",
+        "enemies",
+        "npc_units",
+        "terrain",
+        "enemy_group_ids",
+        "objects",
+        "reinforcements",
+        "reinforcement_turn",
+        "exit",
+        "boss_id",
+        "targets",
+        "goal",
+        "cause",
+        "before",
+        "during",
+        "after",
+        "absent_branch",
+        "optional",
+        "contract",
+        "ai_and_timing",
+        "escort_move"
+      ],
+      "escort_paths": [
+        {
+          "unit": "medicine_wagon",
+          "before": 28,
+          "after": 28,
+          "goal": [
+            27,
+            6
+          ]
+        }
+      ],
+      "reachable_anchors": 23,
+      "nature_props": 143,
+      "terrain_changes": 359,
+      "shore_fallbacks": [],
+      "map_sha256": "4be2802fe54913cb1a0c2ceff1c280673cb0dbe24f4005c01ea57e37b8e05078"
+    },
+    {
+      "code": "S22",
+      "passed": true,
+      "unchanged_gameplay_fields": [
+        "schema_version",
+        "id",
+        "code",
+        "name_zh",
+        "chapter",
+        "route",
+        "node",
+        "characters",
+        "player_positions",
+        "enemies",
+        "npc_units",
+        "terrain",
+        "enemy_group_ids",
+        "objects",
+        "reinforcements",
+        "reinforcement_turn",
+        "exit",
+        "boss_id",
+        "targets",
+        "goal",
+        "cause",
+        "before",
+        "during",
+        "after",
+        "absent_branch",
+        "optional",
+        "contract",
+        "ai_and_timing",
+        "escort_move"
+      ],
+      "escort_paths": [
+        {
+          "unit": "old_sailor",
+          "before": 18,
+          "after": 18,
+          "goal": [
+            27,
+            3
+          ]
+        },
+        {
+          "unit": "wounded",
+          "before": 19,
+          "after": 19,
+          "goal": [
+            27,
+            3
+          ]
+        }
+      ],
+      "reachable_anchors": 23,
+      "nature_props": 124,
+      "terrain_changes": 215,
+      "shore_fallbacks": [],
+      "map_sha256": "b2499cc73616ccc657ca145390c465818ca052fb7d53d16942ffd589103ad0a6"
+    }
+  ],
+  "notes": "Source current-map baseline, unchanged all story and actor data. Walkability checks use blocked rock/wall/water; actual gameplay replays performed by parent."
+}

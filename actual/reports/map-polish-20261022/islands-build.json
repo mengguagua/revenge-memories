@@ -1,0 +1,477 @@
+[
+  {
+    "code": "F23",
+    "passed": true,
+    "closed_connected": 647,
+    "opened_connected": 647,
+    "actors_objectives_stats_unchanged": true,
+    "all_actor_cells_same_movement_category": true,
+    "new_structures": [
+      {
+        "name": "fishing_cottage",
+        "position": [
+          9,
+          21
+        ],
+        "purpose": "南侧接应渔舍：罗恩位于门前(10,23)"
+      },
+      {
+        "name": "fishing_cottage",
+        "position": [
+          14,
+          23
+        ],
+        "purpose": "渔民营地旁的完整渔舍，南向门前接入村路"
+      },
+      {
+        "name": "grain_sacks",
+        "position": [
+          17,
+          19
+        ],
+        "purpose": "居民营地的补给袋"
+      },
+      {
+        "name": "crates",
+        "position": [
+          20,
+          19
+        ],
+        "purpose": "营地外围装卸木箱"
+      }
+    ],
+    "changed_logic_cells": 251,
+    "natural_props": 65,
+    "routes": [
+      {
+        "name": "登陆坡至居民营地与东侧渔家",
+        "waypoints": [
+          [
+            5,
+            15
+          ],
+          [
+            11,
+            15
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            18,
+            15
+          ],
+          [
+            18,
+            20
+          ],
+          [
+            24,
+            20
+          ],
+          [
+            28,
+            20
+          ]
+        ],
+        "width": 3,
+        "surface": "p"
+      },
+      {
+        "name": "南侧渔村接应路",
+        "waypoints": [
+          [
+            13,
+            25
+          ],
+          [
+            15,
+            25
+          ],
+          [
+            15,
+            20
+          ],
+          [
+            18,
+            20
+          ]
+        ],
+        "width": 2,
+        "surface": "p"
+      },
+      {
+        "name": "营地北上草坡主道",
+        "waypoints": [
+          [
+            18,
+            15
+          ],
+          [
+            19,
+            13
+          ],
+          [
+            26,
+            13
+          ],
+          [
+            28,
+            13
+          ],
+          [
+            28,
+            7
+          ],
+          [
+            32,
+            7
+          ],
+          [
+            32,
+            3
+          ]
+        ],
+        "width": 3,
+        "surface": "p"
+      },
+      {
+        "name": "西侧岩坡绕行路",
+        "waypoints": [
+          [
+            11,
+            15
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            15,
+            8
+          ],
+          [
+            27,
+            8
+          ]
+        ],
+        "width": 2,
+        "surface": "p"
+      },
+      {
+        "name": "渔家门前院路",
+        "waypoints": [
+          [
+            26,
+            17
+          ],
+          [
+            26,
+            20
+          ],
+          [
+            28,
+            20
+          ]
+        ],
+        "width": 2,
+        "surface": "p"
+      },
+      {
+        "name": "接应渔舍前院",
+        "waypoints": [
+          [
+            10,
+            23
+          ],
+          [
+            13,
+            23
+          ],
+          [
+            13,
+            25
+          ]
+        ],
+        "width": 2,
+        "surface": "p"
+      }
+    ],
+    "native_shore_rim_substitutions": {
+      "wwaawagw": "wwaawaaw",
+      "wpawppaw": "wppwpppw",
+      "wwaawwap": "wwaawwaa",
+      "aawwgwwa": "aawwpwwa",
+      "rwwawwwg": "rwwawwwr",
+      "wwawaaaw": "wwpwappw",
+      "aaawagaw": "aapwappw",
+      "awwrwwwg": "pwwrwwwp"
+    },
+    "water_topology_unchanged": true,
+    "objective_ground_changes": [
+      {
+        "id": "landing",
+        "position": [
+          28,
+          20
+        ],
+        "from": "forest",
+        "to": "dirt",
+        "reason": "让登陆坡门框与前院同为真实土路，修正隐形林地格；坐标与交互不变"
+      }
+    ]
+  },
+  {
+    "code": "F24",
+    "passed": true,
+    "closed_connected": 738,
+    "opened_connected": 738,
+    "actors_objectives_stats_unchanged": true,
+    "all_actor_cells_same_movement_category": true,
+    "new_structures": [
+      {
+        "name": "fishing_cottage",
+        "position": [
+          14,
+          23
+        ],
+        "purpose": "希雅接应处的完整渔舍，门前连通南村道路"
+      },
+      {
+        "name": "fishing_cottage",
+        "position": [
+          25,
+          26
+        ],
+        "purpose": "南村住屋，与原单格村舍形成聚落"
+      },
+      {
+        "name": "crates",
+        "position": [
+          29,
+          24
+        ],
+        "purpose": "避难所侧边备运物资"
+      }
+    ],
+    "changed_logic_cells": 313,
+    "natural_props": 83,
+    "routes": [
+      {
+        "name": "南村至航灯的守备主道",
+        "waypoints": [
+          [
+            22,
+            29
+          ],
+          [
+            22,
+            25
+          ],
+          [
+            22,
+            20
+          ],
+          [
+            23,
+            17
+          ]
+        ],
+        "width": 3,
+        "surface": "p"
+      },
+      {
+        "name": "岛民住屋与接应路",
+        "waypoints": [
+          [
+            15,
+            25
+          ],
+          [
+            22,
+            25
+          ],
+          [
+            27,
+            25
+          ]
+        ],
+        "width": 2,
+        "surface": "p"
+      },
+      {
+        "name": "南村至东侧避难所",
+        "waypoints": [
+          [
+            22,
+            23
+          ],
+          [
+            29,
+            23
+          ],
+          [
+            32,
+            23
+          ],
+          [
+            32,
+            24
+          ]
+        ],
+        "width": 3,
+        "surface": "p"
+      },
+      {
+        "name": "可占据村舍门前",
+        "waypoints": [
+          [
+            27,
+            24
+          ],
+          [
+            27,
+            25
+          ]
+        ],
+        "width": 2,
+        "surface": "p"
+      },
+      {
+        "name": "灯台北侧高地通路",
+        "waypoints": [
+          [
+            23,
+            14
+          ],
+          [
+            26,
+            14
+          ],
+          [
+            28,
+            14
+          ],
+          [
+            28,
+            8
+          ],
+          [
+            32,
+            8
+          ],
+          [
+            34,
+            8
+          ],
+          [
+            34,
+            3
+          ]
+        ],
+        "width": 3,
+        "surface": "p"
+      },
+      {
+        "name": "西侧渔舍与灯台联络路",
+        "waypoints": [
+          [
+            23,
+            17
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            13,
+            17
+          ],
+          [
+            9,
+            17
+          ],
+          [
+            8,
+            16
+          ]
+        ],
+        "width": 2,
+        "surface": "p"
+      },
+      {
+        "name": "西坡巡灯支路",
+        "waypoints": [
+          [
+            13,
+            17
+          ],
+          [
+            15,
+            14
+          ],
+          [
+            15,
+            8
+          ],
+          [
+            23,
+            8
+          ],
+          [
+            23,
+            13
+          ]
+        ],
+        "width": 2,
+        "surface": "p"
+      },
+      {
+        "name": "避难所外侧巡行路",
+        "waypoints": [
+          [
+            29,
+            23
+          ],
+          [
+            32,
+            20
+          ],
+          [
+            32,
+            8
+          ]
+        ],
+        "width": 2,
+        "surface": "p"
+      },
+      {
+        "name": "守灯人小屋门前",
+        "waypoints": [
+          [
+            21,
+            13
+          ],
+          [
+            22,
+            13
+          ]
+        ],
+        "width": 2,
+        "surface": "p"
+      }
+    ],
+    "native_shore_rim_substitutions": {
+      "aawwgwwa": "aawwpwwa",
+      "pwwpwwrp": "pwwpwwpp",
+      "wwawaaaw": "wwpwappw",
+      "aaawagaw": "aapwappw",
+      "wwwrwwwp": "wwwrwwwr",
+      "pwwpawwp": "pwwppwwp",
+      "awwwpwwa": "awwwawwa"
+    },
+    "water_topology_unchanged": true,
+    "objective_ground_changes": []
+  }
+]

@@ -65,6 +65,8 @@ var result_sequence_running := false
 var instant_mode := false
 var animation_speed := 1.0
 var wait_accumulated := 0.0
+var touch_fast_forward := false
+var combat_wait_accumulated := 0.0
 var map_actor_alpha: Dictionary = {}
 var map_flash := false
 var map_offset := Vector2.ZERO
@@ -127,6 +129,9 @@ func _ready() -> void:
 	queue_redraw()
 
 func _process(delta: float) -> void:
+	if view != "combat":
+		touch_fast_forward = false
+		combat_wait_accumulated = 0.0
 	elapsed += delta
 	chapter_elapsed += delta
 	dialogue_reveal += delta * 28.0
@@ -1292,12 +1297,39 @@ func _contact(event: Dictionary) -> void:
 		if game.find_unit(feedback_id).side == "player" and feedback_id not in ["alm", "celica"]:
 			audio.play_jingle("unit_death")
 
+func set_touch_fast_forward(pressed: bool) -> void:
+	# This dedicated touch action never emits a confirmation key.
+	touch_fast_forward = pressed and view == "combat"
+
+func effective_animation_speed() -> float:
+	if view != "combat": touch_fast_forward = false
+	var held = touch_fast_forward or Input.is_physical_key_pressed(KEY_Z) or Input.is_physical_key_pressed(KEY_SPACE)
+	return maxf(0.001, animation_speed) * (3.0 if held else 1.0)
+
+func _notification(what: int) -> void:
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_APPLICATION_PAUSED]:
+		set_touch_fast_forward(false)
+
 func _wait(seconds: float) -> void:
 	if instant_mode:
 		return
-	var speed = animation_speed
-	if Input.is_physical_key_pressed(KEY_Z) or Input.is_physical_key_pressed(KEY_SPACE):
-		speed *= 3.0
+	var speed = effective_animation_speed()
+	if view == "combat":
+		# Batch short source ticks, but consume longer waits one rendered frame
+		# at a time so pressing/releasing also affects a wait already in progress.
+		combat_wait_accumulated += seconds
+		if combat_wait_accumulated / speed < 1.0 / 60.0988: return
+		var remaining = combat_wait_accumulated
+		combat_wait_accumulated = 0.0
+		var previous = Time.get_ticks_usec()
+		while remaining > 0.0:
+			var current_speed = effective_animation_speed()
+			await get_tree().process_frame
+			var now = Time.get_ticks_usec()
+			remaining -= float(now - previous) / 1000000.0 * current_speed
+			previous = now
+		return
+	combat_wait_accumulated = 0.0
 	# Batch accelerated source ticks; a per-tick Timer cannot run faster
 	# than the renderer and otherwise makes the speed key ineffective.
 	wait_accumulated += seconds / speed

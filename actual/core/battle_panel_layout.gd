@@ -1,14 +1,21 @@
 extends RefCounted
 ## Logical canvas coordinates; the selected sprite and arrow are hard exclusions.
-static func forecast(anchor: Vector2,canvas: Rect2,neighbours: Array=[]) -> Dictionary:
-	# A full forecast cannot fit above/below a central target on a 256x240
-	# canvas. Keep every field, with the existing small font in the compact card.
-	for height in [112,84]:
-		var result=place(anchor,Vector2(240,height),canvas,neighbours)
+static func forecast(anchor: Vector2,canvas: Rect2,neighbours: Array=[],combatants: Array=[]) -> Dictionary:
+	# Preserve native type in both horizontal and side-mounted forecasts.
+	# The narrow side card keeps both combatants visible on phone landscapes.
+	for size in [Vector2(240,112),Vector2(240,86),Vector2(128,180)]:
+		var result=place(anchor,size,canvas,neighbours,combatants)
 		if result.valid:
-			result.compact=height==84
+			result.compact=size.y!=112;result.stacked=size.x==128
+			result.combatants_protected=true
 			return result
-	return {"valid":false,"panel":Rect2(),"focus":Rect2(),"compact":true}
+	if not combatants.is_empty():
+		# At the minimum desktop canvas, separated ranged combatants can use
+		# every remaining card location. Keep the forecast and target visible.
+		var result=forecast(anchor,canvas,neighbours)
+		result.combatants_protected=false;result.fallback_reason="minimum_canvas_combatants_do_not_fit"
+		return result
+	return {"valid":false,"panel":Rect2(),"focus":Rect2(),"compact":true,"stacked":false,"combatants_protected":false}
 
 static func place(anchor: Vector2, size: Vector2, canvas: Rect2, neighbours: Array=[], exclusions: Array=[]) -> Dictionary:
 	var safe=canvas.grow(-8)
@@ -22,6 +29,9 @@ static func place(anchor: Vector2, size: Vector2, canvas: Rect2, neighbours: Arr
 	# the smaller gap. The focus rectangle already includes arrow/sprite margins.
 	for y in [focus.position.y-size.y-2,focus.end.y+2]:
 		candidates.append(Vector2(anchor.x-size.x/2,y))
+	for other in exclusions:
+		for x in [other.position.x-size.x-2,other.end.x+2]:candidates.append(Vector2(x,anchor.y-size.y/2))
+		for y in [other.position.y-size.y-2,other.end.y+2]:candidates.append(Vector2(anchor.x-size.x/2,y))
 	var best=Rect2();var best_score=INF;var clear=Rect2();var clear_score=INF
 	for point in candidates:
 		point.x=clampf(point.x,safe.position.x,safe.end.x-size.x)

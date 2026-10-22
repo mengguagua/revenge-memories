@@ -1,0 +1,1298 @@
+{
+  "professions/class-22-ally/maps/frame_mapping.json": {
+    "schema_version": 1,
+    "class_id": 22,
+    "source_side": "ally",
+    "character_id": "ally-bastion-guardian",
+    "display_name": "盟军壁垒卫士",
+    "width_height_scale": 4,
+    "runtime_integrated": false,
+    "status": "review_candidate",
+    "scenarios": [
+      {
+        "id": "tactical-idle",
+        "class_id": 22,
+        "source_side": "ally",
+        "character_id": "ally-bastion-guardian",
+        "display_name": "盟军壁垒卫士",
+        "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_22_ally.png",
+        "source_frame_size": [
+          24,
+          24
+        ],
+        "source_anchor": [
+          12,
+          20
+        ],
+        "output_frame_size": [
+          96,
+          96
+        ],
+        "output_anchor": [
+          48,
+          80
+        ],
+        "output_atlas": "../../../bastion-guardian-v1-20261022/ally/tactical-idle-atlas.png",
+        "output_atlas_bytes": 6558,
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "path": "../../../bastion-guardian-v1-20261022/ally/tactical-idle/frame-000.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/ally/tactical-idle/frame-000.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2449,
+            "sha256": "93efdf47b8ee3efbf563701ce0fcf235ba00ee642a9105364b4d3765922fd955",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "path": "../../../bastion-guardian-v1-20261022/ally/tactical-idle/frame-001.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/ally/tactical-idle/frame-001.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2566,
+            "sha256": "c4e9e67fb994efc1d389ada18818388d490bfe597f34ac09d1964a060b1d8509",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "path": "../../../bastion-guardian-v1-20261022/ally/tactical-idle/frame-002.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/ally/tactical-idle/frame-002.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2526,
+            "sha256": "e6e07ee5cb15c7b10eff30d573215751fcfdc1a5ea522681653e9598e382d3a6",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "path": "../../../bastion-guardian-v1-20261022/ally/tactical-idle/frame-003.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/ally/tactical-idle/frame-003.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2566,
+            "sha256": "c4e9e67fb994efc1d389ada18818388d490bfe597f34ac09d1964a060b1d8509",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "path": "../../../bastion-guardian-v1-20261022/ally/tactical-idle/frame-004.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/ally/tactical-idle/frame-004.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2449,
+            "sha256": "93efdf47b8ee3efbf563701ce0fcf235ba00ee642a9105364b4d3765922fd955",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "path": "../../../bastion-guardian-v1-20261022/ally/tactical-idle/frame-005.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/ally/tactical-idle/frame-005.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2566,
+            "sha256": "c4e9e67fb994efc1d389ada18818388d490bfe597f34ac09d1964a060b1d8509",
+            "art_status": "review_candidate"
+          }
+        ],
+        "logical_render_scale": 0.25,
+        "default_facing": "fixed",
+        "static_facing": true,
+        "directions": {
+          "all": [
+            0,
+            1,
+            2,
+            1
+          ]
+        },
+        "direction_mirror_x": {},
+        "timing": {
+          "native_fps": 60.0988,
+          "cycle_frames": [
+            0,
+            1,
+            2,
+            1
+          ],
+          "frame_ticks": [
+            14,
+            8,
+            14,
+            8
+          ]
+        },
+        "art_review_status": "review_candidate",
+        "semantic_note": "Stationary legs: native lower-leg ROI byte-identical across three phases. Visible left haft shifts higher over three poses. Exact weapon blade type unresolved; no invented horizontal steel spearhead.",
+        "revision": "bastion-guardian-v1-20261022",
+        "status": "review_candidate",
+        "motion_review": {
+          "registration": "complete whole-pose hair/torso reference; no limb splicing or deformation",
+          "runtime_integrated": false
+        },
+        "review_note": "完整姿势绘制，固定头部参照定位；盟军柔白甲、蓝衣，敌军蓝紫；纯色头发、衣料去高光，原姿态与相位顺序、循环、节奏保留。",
+        "action_note": "本轮壁垒卫士全动作重绘，待验收。"
+      },
+      {
+        "id": "tactical-walk",
+        "class_id": 22,
+        "source_side": "ally",
+        "character_id": "ally-bastion-guardian",
+        "display_name": "盟军壁垒卫士",
+        "source_atlas": "../../../source-input/corrected-tactical-walk/class-22-ally.png",
+        "source_frame_size": [
+          32,
+          24
+        ],
+        "source_columns": 8,
+        "source_frame_count": 8,
+        "source_anchor": [
+          16,
+          24
+        ],
+        "output_frame_size": [
+          128,
+          96
+        ],
+        "output_anchor": [
+          64,
+          96
+        ],
+        "output_atlas": "../../../bastion-guardian-v1-20261022/ally/tactical-walk-atlas.png",
+        "output_atlas_bytes": 16785,
+        "logical_render_scale": 0.25,
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "path": "../../../bastion-guardian-v1-20261022/ally/tactical-walk/frame-000.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/ally/tactical-walk/frame-000.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2592,
+            "sha256": "909f4e575e58d9e25cb82ed6f0904d8683e2dab77ebe441e7b5a1756aae06453",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "path": "../../../bastion-guardian-v1-20261022/ally/tactical-walk/frame-001.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/ally/tactical-walk/frame-001.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2671,
+            "sha256": "d01290e4e6c96780c717ddd12387a8c41489a50829030bc6c4b2b772b04130e7",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "path": "../../../bastion-guardian-v1-20261022/ally/tactical-walk/frame-002.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/ally/tactical-walk/frame-002.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2985,
+            "sha256": "e61c213302be708b24ee811c539495f51313a6b88767c94f5704fae19548628b",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "path": "../../../bastion-guardian-v1-20261022/ally/tactical-walk/frame-003.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/ally/tactical-walk/frame-003.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2841,
+            "sha256": "389b6899d146371430313e1d77ac60bc4cdfe3c3a04aaf8103bee17f9709b82a",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "path": "../../../bastion-guardian-v1-20261022/ally/tactical-walk/frame-004.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/ally/tactical-walk/frame-004.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2640,
+            "sha256": "1ab807b7db2de3f6ac820541b4bb59d72fe17a1434da4ed8bb5d0b25f95c9b4d",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "path": "../../../bastion-guardian-v1-20261022/ally/tactical-walk/frame-005.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/ally/tactical-walk/frame-005.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2581,
+            "sha256": "d16c3fab1a9f5cec75c8bd53b71f4101aef3ec3bb76e9eca999fbad3569fc895",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 6,
+            "source_frame": 6,
+            "path": "../../../bastion-guardian-v1-20261022/ally/tactical-walk/frame-006.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/ally/tactical-walk/frame-006.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2988,
+            "sha256": "84ae3fa1f2ad045acb70124f2ab3662df43c37dd6733b17f5eae263add7a61e8",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 7,
+            "source_frame": 7,
+            "path": "../../../bastion-guardian-v1-20261022/ally/tactical-walk/frame-007.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/ally/tactical-walk/frame-007.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2881,
+            "sha256": "c75a92fcf90603075281e203b56bd8a2a8f0d28366008b87837f07716f90ba16",
+            "art_status": "review_candidate"
+          }
+        ],
+        "directions": {
+          "up": [
+            0,
+            1
+          ],
+          "right": [
+            2,
+            3
+          ],
+          "down": [
+            4,
+            5
+          ],
+          "left": [
+            6,
+            7
+          ]
+        },
+        "direction_mirror_x": {},
+        "default_facing": "down",
+        "timing": {
+          "native_fps": 60.0988,
+          "frame_ticks": 16,
+          "cycle_ticks": 32,
+          "phase_source": "$36 & $10 selects phase; L0BB62C",
+          "movement_pixels_per_tick": 1,
+          "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+        },
+        "source_audit": {
+          "status": "verified_native_tactical",
+          "proof": "../../../source-input/corrected-tactical-walk/verification.json",
+          "unit_evidence": "../../../source-input/corrected-tactical-walk/verification.json",
+          "entry": "bank011:L0BB5B1",
+          "source_chr": 27
+        },
+        "art_review_status": "review_candidate",
+        "registration_note": "Native tile-base anchor; new pair shares uniform scale, positioned by helmet/hair top and X. One output-pixel resampling adjustment protects visible contour. Not a claim of every hoof/joint exact alignment.",
+        "revision": "bastion-guardian-v1-20261022",
+        "status": "review_candidate",
+        "motion_review": {
+          "registration": "complete whole-pose hair/torso reference; no limb splicing or deformation",
+          "runtime_integrated": false
+        },
+        "review_note": "完整姿势绘制，固定头部参照定位；盟军柔白甲、蓝衣，敌军蓝紫；纯色头发、衣料去高光，原姿态与相位顺序、循环、节奏保留。",
+        "action_note": "本轮壁垒卫士全动作重绘，待验收。"
+      }
+    ],
+    "source_note": "Correct native tactical renderer supersedes old village-OAM/CHR26 hybrid; historical raw/mapping preserved. Battle and static idle unchanged.",
+    "display_class_name": "壁垒卫士",
+    "revision": "bastion-guardian-v1-20261022"
+  },
+  "professions/class-22-ally/battle/frame_mapping.json": {
+    "schema_version": 1,
+    "character_id": "ally-bastion-guardian",
+    "display_name": "盟军壁垒卫士",
+    "original_class_id": 22,
+    "source_side": "ally",
+    "status": "review_candidate",
+    "source_atlas": "../../../source-input/original-motion/class-22.png",
+    "source_atlas_base": "mapping directory",
+    "source_frame_size": [
+      80,
+      64
+    ],
+    "output_frame_size": [
+      320,
+      256
+    ],
+    "source_anchor": [
+      40,
+      64
+    ],
+    "output_anchor": [
+      160,
+      256
+    ],
+    "source_columns": 16,
+    "source_idle_frame": 0,
+    "canonical_frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      13,
+      24,
+      25,
+      27
+    ],
+    "independently_generated_drawings": 14,
+    "frame_mapping": {
+      "0": "../../../bastion-guardian-v1-20261022/ally/battle/frame-000.png",
+      "1": "../../../bastion-guardian-v1-20261022/ally/battle/frame-001.png",
+      "2": "../../../bastion-guardian-v1-20261022/ally/battle/frame-002.png",
+      "3": "../../../bastion-guardian-v1-20261022/ally/battle/frame-003.png",
+      "4": "../../../bastion-guardian-v1-20261022/ally/battle/frame-004.png",
+      "5": "../../../bastion-guardian-v1-20261022/ally/battle/frame-005.png",
+      "6": "../../../bastion-guardian-v1-20261022/ally/battle/frame-006.png",
+      "7": "../../../bastion-guardian-v1-20261022/ally/battle/frame-007.png",
+      "8": "../../../bastion-guardian-v1-20261022/ally/battle/frame-008.png",
+      "9": "../../../bastion-guardian-v1-20261022/ally/battle/frame-009.png",
+      "10": "../../../bastion-guardian-v1-20261022/ally/battle/frame-010.png",
+      "11": "../../../bastion-guardian-v1-20261022/ally/battle/frame-011.png",
+      "13": "../../../bastion-guardian-v1-20261022/ally/battle/frame-013.png",
+      "24": "../../../bastion-guardian-v1-20261022/ally/battle/frame-024.png",
+      "25": "../../../bastion-guardian-v1-20261022/ally/battle/frame-025.png",
+      "27": "../../../bastion-guardian-v1-20261022/ally/battle/frame-027.png"
+    },
+    "records": [
+      {
+        "source_frame": 0,
+        "path": "../../../bastion-guardian-v1-20261022/ally/battle/frame-000.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "9707894b31842bab6d241ee16ff73e58a9b5020fb6e2e7936102861e85a09196"
+      },
+      {
+        "source_frame": 1,
+        "path": "../../../bastion-guardian-v1-20261022/ally/battle/frame-001.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "4f0c3f636f88bf00e70c4b6bbd77e0f49f00713f79f4096354c4e0df403261e2"
+      },
+      {
+        "source_frame": 2,
+        "path": "../../../bastion-guardian-v1-20261022/ally/battle/frame-002.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "1b023b1b53a04e1cb801ef7e1c7dd5ee7247977c1577712194f0d482e1376323"
+      },
+      {
+        "source_frame": 3,
+        "path": "../../../bastion-guardian-v1-20261022/ally/battle/frame-003.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "f7c7c7cdd28c66ca2dd013163f954fbd183c296a3c84afe8e7041ab65562c360"
+      },
+      {
+        "source_frame": 4,
+        "path": "../../../bastion-guardian-v1-20261022/ally/battle/frame-004.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "1a434842107620147acc1b95318cc68119462e7b0aa5ca2a6bfdef582d81ddc4"
+      },
+      {
+        "source_frame": 5,
+        "path": "../../../bastion-guardian-v1-20261022/ally/battle/frame-005.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "2d5b67d8ef2e262843e4ba0374bfc19925b0d55941e3ee463a4833a76aa451ec"
+      },
+      {
+        "source_frame": 6,
+        "path": "../../../bastion-guardian-v1-20261022/ally/battle/frame-006.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "ed9150b23fb0c42a300e7062c7c86e060e78d4e56866cccde7f3d1c49c324d31"
+      },
+      {
+        "source_frame": 7,
+        "path": "../../../bastion-guardian-v1-20261022/ally/battle/frame-007.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "6ef1ba69c2d12ca84265a9a3cbde5ebdf1f730f533e9e2bd82ada47d6eabfbad"
+      },
+      {
+        "source_frame": 8,
+        "path": "../../../bastion-guardian-v1-20261022/ally/battle/frame-008.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "a690ed5119fb96d67fa80022bada43708eaed7eabaa2989d8c3b647c26f2e534"
+      },
+      {
+        "source_frame": 9,
+        "path": "../../../bastion-guardian-v1-20261022/ally/battle/frame-009.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "05def4b4a059d8b5f356fa1d1ab01aff15ec25399842e34b2a11f75cd4d954f7"
+      },
+      {
+        "source_frame": 10,
+        "path": "../../../bastion-guardian-v1-20261022/ally/battle/frame-010.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "91f5723e4980a4c78ad3af588f90a3c14f34c57ad76fba1801f9a9ad2dca49b5"
+      },
+      {
+        "source_frame": 11,
+        "path": "../../../bastion-guardian-v1-20261022/ally/battle/frame-011.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "25ac0f06a233c468da7515c9b3eccf5e97bca2c2c5b775210f25022139ae13da"
+      },
+      {
+        "source_frame": 13,
+        "path": "../../../bastion-guardian-v1-20261022/ally/battle/frame-013.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "9707894b31842bab6d241ee16ff73e58a9b5020fb6e2e7936102861e85a09196"
+      },
+      {
+        "source_frame": 24,
+        "path": "../../../bastion-guardian-v1-20261022/ally/battle/frame-024.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "9707894b31842bab6d241ee16ff73e58a9b5020fb6e2e7936102861e85a09196"
+      },
+      {
+        "source_frame": 25,
+        "path": "../../../bastion-guardian-v1-20261022/ally/battle/frame-025.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "5b2472f540195f24088e694a93ae2dc1deae2985738d5033fb4413756964bac3"
+      },
+      {
+        "source_frame": 27,
+        "path": "../../../bastion-guardian-v1-20261022/ally/battle/frame-027.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "46ca7bc14741c83094870f690f9b2ea20ad62560e26399cdb7c9078273930657"
+      }
+    ],
+    "variant_keys": [
+      "original_class_22_normal",
+      "class_22_ally_javelin",
+      "class_22_ally_javelin_vs_heavy",
+      "class_22_ally_javelin_far_ally",
+      "class_22_ally_javelin_far_ally_vs_heavy",
+      "class_22_ally_javelin_far_enemy",
+      "class_22_ally_javelin_far_enemy_vs_heavy"
+    ],
+    "output_atlas": "../../../bastion-guardian-v1-20261022/ally/battle-atlas.png",
+    "output_atlas_frame_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      13,
+      24,
+      25,
+      27
+    ],
+    "batches": [
+      {
+        "id": "完整姿势",
+        "review": "../../../bastion-guardian-v1-20261022/ally-battle-dark.png",
+        "status": "review_candidate"
+      }
+    ],
+    "source_semantics": {
+      "0-9": "Original marching phases and sideways turn, one held lance and shield.",
+      "10": "Shield extended left, spear prepared behind shoulder.",
+      "11": "Wide planted stance and forward spear thrust.",
+      "25": "One horizontal overhead javelin.",
+      "27": "Empty fist after release.",
+      "13/24": "Native background alias of0: ally0px / enemy-64px.",
+      "25/27 registration": "Enemy background shifts-96 output pixels relative to ally; native proven atlas placement."
+    },
+    "art_mode": "Built-in imagegen, technical crop/uniform resampling/whole-body registration and proven translation aliases only.",
+    "runtime_integrated": false,
+    "display_class_name": "壁垒卫士",
+    "revision": "bastion-guardian-v1-20261022",
+    "effect_overrides": {
+      "fdf70ce5ad8318": "../../../bastion-guardian-v1-20261022/ally/flying-lance.png"
+    },
+    "palette": [
+      "172638",
+      "304461",
+      "3976b5",
+      "6e8fb0",
+      "a7b9ca",
+      "f1f0e6",
+      "6c6870",
+      "925e46",
+      "d09873",
+      "f0c6a0",
+      "795a43",
+      "493b38",
+      "8296ac",
+      "c5d2db"
+    ],
+    "art_provenance": "Built-in ImageGen complete figure edits. Uniform whole-pose registration, deterministic matte material palette and faction variant; no limb splice or warp.",
+    "review_note": "双方壁垒卫士：纯色头发、去衣料高光，柔白蓝甲／蓝紫14色；固定头部参照登记，原作各自攻击、投枪、命中时刻及收势程序完整保留。"
+  },
+  "professions/class-22-enemy/maps/frame_mapping.json": {
+    "schema_version": 1,
+    "class_id": 22,
+    "source_side": "enemy",
+    "character_id": "enemy-bastion-guardian",
+    "display_name": "敌方壁垒卫士",
+    "width_height_scale": 4,
+    "runtime_integrated": false,
+    "status": "review_candidate",
+    "scenarios": [
+      {
+        "id": "tactical-idle",
+        "class_id": 22,
+        "source_side": "enemy",
+        "character_id": "enemy-bastion-guardian",
+        "display_name": "敌方壁垒卫士",
+        "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_22_enemy.png",
+        "source_frame_size": [
+          24,
+          24
+        ],
+        "source_anchor": [
+          12,
+          20
+        ],
+        "output_frame_size": [
+          96,
+          96
+        ],
+        "output_anchor": [
+          48,
+          80
+        ],
+        "output_atlas": "../../../bastion-guardian-v1-20261022/enemy/tactical-idle-atlas.png",
+        "output_atlas_bytes": 6529,
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "path": "../../../bastion-guardian-v1-20261022/enemy/tactical-idle/frame-000.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/enemy/tactical-idle/frame-000.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2442,
+            "sha256": "ab60a22b2a775a8d85ad332f31e3c2e25e9dfc7b7486cb4baaa677dce38616df",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "path": "../../../bastion-guardian-v1-20261022/enemy/tactical-idle/frame-001.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/enemy/tactical-idle/frame-001.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2526,
+            "sha256": "98498a8cad737aadcc65123107c7ce49d4481c307ecc29024d4810f0f51b57b5",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "path": "../../../bastion-guardian-v1-20261022/enemy/tactical-idle/frame-002.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/enemy/tactical-idle/frame-002.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2501,
+            "sha256": "b599e36009eb8c1a2a2a06c678bd8636815a3ccc2884083919755d98187eef09",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "path": "../../../bastion-guardian-v1-20261022/enemy/tactical-idle/frame-003.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/enemy/tactical-idle/frame-003.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2526,
+            "sha256": "98498a8cad737aadcc65123107c7ce49d4481c307ecc29024d4810f0f51b57b5",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "path": "../../../bastion-guardian-v1-20261022/enemy/tactical-idle/frame-004.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/enemy/tactical-idle/frame-004.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2442,
+            "sha256": "ab60a22b2a775a8d85ad332f31e3c2e25e9dfc7b7486cb4baaa677dce38616df",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "path": "../../../bastion-guardian-v1-20261022/enemy/tactical-idle/frame-005.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/enemy/tactical-idle/frame-005.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 2526,
+            "sha256": "98498a8cad737aadcc65123107c7ce49d4481c307ecc29024d4810f0f51b57b5",
+            "art_status": "review_candidate"
+          }
+        ],
+        "logical_render_scale": 0.25,
+        "default_facing": "fixed",
+        "static_facing": true,
+        "directions": {
+          "all": [
+            0,
+            1,
+            2,
+            1
+          ]
+        },
+        "direction_mirror_x": {},
+        "timing": {
+          "native_fps": 60.0988,
+          "cycle_frames": [
+            0,
+            1,
+            2,
+            1
+          ],
+          "frame_ticks": [
+            14,
+            8,
+            14,
+            8
+          ]
+        },
+        "art_review_status": "review_candidate",
+        "semantic_note": "Stationary legs: native lower-leg ROI byte-identical across three phases. Visible left haft shifts higher over three poses. Exact weapon blade type unresolved; no invented horizontal steel spearhead.",
+        "revision": "bastion-guardian-v1-20261022",
+        "status": "review_candidate",
+        "motion_review": {
+          "registration": "complete whole-pose hair/torso reference; no limb splicing or deformation",
+          "runtime_integrated": false
+        },
+        "review_note": "完整姿势绘制，固定头部参照定位；盟军柔白甲、蓝衣，敌军蓝紫；纯色头发、衣料去高光，原姿态与相位顺序、循环、节奏保留。",
+        "action_note": "本轮壁垒卫士全动作重绘，待验收。"
+      },
+      {
+        "id": "tactical-walk",
+        "class_id": 22,
+        "source_side": "enemy",
+        "character_id": "enemy-bastion-guardian",
+        "display_name": "敌方壁垒卫士",
+        "source_atlas": "../../../source-input/corrected-tactical-walk/class-22-enemy.png",
+        "source_frame_size": [
+          32,
+          24
+        ],
+        "source_columns": 8,
+        "source_frame_count": 8,
+        "source_anchor": [
+          16,
+          24
+        ],
+        "output_frame_size": [
+          128,
+          96
+        ],
+        "output_anchor": [
+          64,
+          96
+        ],
+        "output_atlas": "../../../bastion-guardian-v1-20261022/enemy/tactical-walk-atlas.png",
+        "output_atlas_bytes": 16541,
+        "logical_render_scale": 0.25,
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "path": "../../../bastion-guardian-v1-20261022/enemy/tactical-walk/frame-000.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/enemy/tactical-walk/frame-000.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2663,
+            "sha256": "965268b02bcce642cc2c72d1ec5ef855deb271b414cfc18348266275c4cfc10a",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "path": "../../../bastion-guardian-v1-20261022/enemy/tactical-walk/frame-001.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/enemy/tactical-walk/frame-001.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2715,
+            "sha256": "2faf106514d96dfed6e459eeb7f875a6c6f82033e0ffaa01683802e73fc947b5",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "path": "../../../bastion-guardian-v1-20261022/enemy/tactical-walk/frame-002.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/enemy/tactical-walk/frame-002.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 3002,
+            "sha256": "65814dcf115d820c43c7a741c023e365acd5b7fd0a61d699f90e2c290296356b",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "path": "../../../bastion-guardian-v1-20261022/enemy/tactical-walk/frame-003.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/enemy/tactical-walk/frame-003.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2771,
+            "sha256": "0aee36ea856444c94e7502997e28ef22caf198cd64349ab77d340eaaaaaecb9d",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "path": "../../../bastion-guardian-v1-20261022/enemy/tactical-walk/frame-004.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/enemy/tactical-walk/frame-004.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2604,
+            "sha256": "eb8339cd470130ed9d097bfb7831d65bdd76b1e34b2cc85fc72445d373aeef71",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "path": "../../../bastion-guardian-v1-20261022/enemy/tactical-walk/frame-005.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/enemy/tactical-walk/frame-005.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2562,
+            "sha256": "fa08ca6009c885b12a05f37fee2115082f961790ae7afcac9e8460f4f81822a4",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 6,
+            "source_frame": 6,
+            "path": "../../../bastion-guardian-v1-20261022/enemy/tactical-walk/frame-006.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/enemy/tactical-walk/frame-006.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2949,
+            "sha256": "e4f63d4fe58f588962ba3a0233270c916e6a3f206c41dab2de454c72d1c71793",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 7,
+            "source_frame": 7,
+            "path": "../../../bastion-guardian-v1-20261022/enemy/tactical-walk/frame-007.png",
+            "output_path": "../../../bastion-guardian-v1-20261022/enemy/tactical-walk/frame-007.png",
+            "revision": "bastion-guardian-v1-20261022",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 2872,
+            "sha256": "22c3abf09efb7aece6eb96d2d2d67dc074cc54f9445ab4f26afabc4632ae4702",
+            "art_status": "review_candidate"
+          }
+        ],
+        "directions": {
+          "up": [
+            0,
+            1
+          ],
+          "right": [
+            2,
+            3
+          ],
+          "down": [
+            4,
+            5
+          ],
+          "left": [
+            6,
+            7
+          ]
+        },
+        "direction_mirror_x": {},
+        "default_facing": "down",
+        "timing": {
+          "native_fps": 60.0988,
+          "frame_ticks": 16,
+          "cycle_ticks": 32,
+          "phase_source": "$36 & $10 selects phase; L0BB62C",
+          "movement_pixels_per_tick": 1,
+          "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+        },
+        "source_audit": {
+          "status": "verified_native_tactical",
+          "proof": "../../../source-input/corrected-tactical-walk/verification.json",
+          "unit_evidence": "../../../source-input/corrected-tactical-walk/verification.json",
+          "entry": "bank011:L0BB5B1",
+          "source_chr": 27
+        },
+        "art_review_status": "review_candidate",
+        "registration_note": "Native tile-base anchor; new pair shares uniform scale, positioned by helmet/hair top and X. One output-pixel resampling adjustment protects visible contour. Not a claim of every hoof/joint exact alignment.",
+        "revision": "bastion-guardian-v1-20261022",
+        "status": "review_candidate",
+        "motion_review": {
+          "registration": "complete whole-pose hair/torso reference; no limb splicing or deformation",
+          "runtime_integrated": false
+        },
+        "review_note": "完整姿势绘制，固定头部参照定位；盟军柔白甲、蓝衣，敌军蓝紫；纯色头发、衣料去高光，原姿态与相位顺序、循环、节奏保留。",
+        "action_note": "本轮壁垒卫士全动作重绘，待验收。"
+      }
+    ],
+    "source_note": "Correct native tactical renderer supersedes old village-OAM/CHR26 hybrid; historical raw/mapping preserved. Battle and static idle unchanged.",
+    "display_class_name": "壁垒卫士",
+    "revision": "bastion-guardian-v1-20261022"
+  },
+  "professions/class-22-enemy/battle/frame_mapping.json": {
+    "schema_version": 1,
+    "character_id": "enemy-bastion-guardian",
+    "display_name": "敌方壁垒卫士",
+    "original_class_id": 22,
+    "source_side": "enemy",
+    "status": "review_candidate",
+    "source_atlas": "../../../source-input/enemy-motion/class-22-enemy.png",
+    "source_atlas_base": "mapping directory",
+    "source_frame_size": [
+      80,
+      64
+    ],
+    "output_frame_size": [
+      320,
+      256
+    ],
+    "source_anchor": [
+      40,
+      64
+    ],
+    "output_anchor": [
+      160,
+      256
+    ],
+    "source_columns": 16,
+    "source_idle_frame": 0,
+    "canonical_frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      13,
+      24,
+      25,
+      27
+    ],
+    "independently_generated_drawings": 14,
+    "frame_mapping": {
+      "0": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-000.png",
+      "1": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-001.png",
+      "2": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-002.png",
+      "3": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-003.png",
+      "4": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-004.png",
+      "5": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-005.png",
+      "6": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-006.png",
+      "7": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-007.png",
+      "8": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-008.png",
+      "9": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-009.png",
+      "10": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-010.png",
+      "11": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-011.png",
+      "13": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-013.png",
+      "24": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-024.png",
+      "25": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-025.png",
+      "27": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-027.png"
+    },
+    "records": [
+      {
+        "source_frame": 0,
+        "path": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-000.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "1ac12ded6b917586de6aea1601ebbad056ab657685370deabe0d3c0b0d91226f"
+      },
+      {
+        "source_frame": 1,
+        "path": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-001.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "69cf856ff19b9d96220955a7658a527b26c078184a1453c23c2c1dbcfd94c8c4"
+      },
+      {
+        "source_frame": 2,
+        "path": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-002.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "879523506f6d3151cb94bdcae6592369a1707c88b48bbdeaf7e6689d725030c1"
+      },
+      {
+        "source_frame": 3,
+        "path": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-003.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "a1a390734f01dfcd8aecb3740c99e64495fb5cbb3d18c1db74e504cf3534f28f"
+      },
+      {
+        "source_frame": 4,
+        "path": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-004.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "22a48a160f8f1e068e3249346fa63b7f57c64a13da1241d192f2fd6623dbdf88"
+      },
+      {
+        "source_frame": 5,
+        "path": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-005.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "a2f25b1dce94d07a2fd6c6104f4cba6679620f10b0f219d2e28c9ca27f689e9b"
+      },
+      {
+        "source_frame": 6,
+        "path": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-006.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "291f2ef9685c063a75443bac32a8310c06b711c2d6d685f1055fbe941cd10b81"
+      },
+      {
+        "source_frame": 7,
+        "path": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-007.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "0442a2ff11e488aeb29c7cae153498eafeec37cf96d1fe6d8dee8b1c556bf21c"
+      },
+      {
+        "source_frame": 8,
+        "path": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-008.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "f4ce9d9d55daccb7ac3be9404a3d8eedccfcd8ec503e587530a98744cb63df4c"
+      },
+      {
+        "source_frame": 9,
+        "path": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-009.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "dd75fb81b42279d6d0d95ebc5bf339759a9db83f1f807783986221d259db2a40"
+      },
+      {
+        "source_frame": 10,
+        "path": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-010.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "3f9746f55b04efd342c780365f2a79e35f769715c2444d1d9151af578b780b59"
+      },
+      {
+        "source_frame": 11,
+        "path": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-011.png",
+        "native_background_translation": [
+          0,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "13a205d01fd28755accb5971f562cc75dc4c6c33854c177ec3cf5bb6dbdc3fa4"
+      },
+      {
+        "source_frame": 13,
+        "path": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-013.png",
+        "native_background_translation": [
+          -64,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "43a8c13ce1837cc6ac4083b770ff3842c09f01475cf1f02d32b09b334b94c315"
+      },
+      {
+        "source_frame": 24,
+        "path": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-024.png",
+        "native_background_translation": [
+          -64,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "43a8c13ce1837cc6ac4083b770ff3842c09f01475cf1f02d32b09b334b94c315"
+      },
+      {
+        "source_frame": 25,
+        "path": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-025.png",
+        "native_background_translation": [
+          -96,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "721c883c042688847091920aad3cdbc22ec40cdcc2d4421c8b69408705ad65d6"
+      },
+      {
+        "source_frame": 27,
+        "path": "../../../bastion-guardian-v1-20261022/enemy/battle/frame-027.png",
+        "native_background_translation": [
+          -96,
+          0
+        ],
+        "art_status": "review_candidate",
+        "sha256": "071550dbfe9d7dd0c08e8aa9d4cd594cde3e93f362c6750cf7e9a68437aa47bf"
+      }
+    ],
+    "variant_keys": [
+      "original_class_22_enemy_normal",
+      "class_22_enemy_javelin",
+      "class_22_enemy_javelin_vs_heavy",
+      "class_22_enemy_javelin_far_ally",
+      "class_22_enemy_javelin_far_ally_vs_heavy",
+      "class_22_enemy_javelin_far_enemy",
+      "class_22_enemy_javelin_far_enemy_vs_heavy"
+    ],
+    "output_atlas": "../../../bastion-guardian-v1-20261022/enemy/battle-atlas.png",
+    "output_atlas_frame_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      13,
+      24,
+      25,
+      27
+    ],
+    "batches": [
+      {
+        "id": "完整姿势",
+        "review": "../../../bastion-guardian-v1-20261022/enemy-battle-dark.png",
+        "status": "review_candidate"
+      }
+    ],
+    "source_semantics": {
+      "0-9": "Original marching phases and sideways turn, one held lance and shield.",
+      "10": "Shield extended left, spear prepared behind shoulder.",
+      "11": "Wide planted stance and forward spear thrust.",
+      "25": "One horizontal overhead javelin.",
+      "27": "Empty fist after release.",
+      "13/24": "Native background alias of0: ally0px / enemy-64px.",
+      "25/27 registration": "Enemy background shifts-96 output pixels relative to ally; native proven atlas placement."
+    },
+    "art_mode": "Built-in imagegen, technical crop/uniform resampling/whole-body registration and proven translation aliases only.",
+    "runtime_integrated": false,
+    "display_class_name": "壁垒卫士",
+    "revision": "bastion-guardian-v1-20261022",
+    "effect_overrides": {
+      "native-b99a752ee6f720": "../../../bastion-guardian-v1-20261022/enemy/flying-lance.png"
+    },
+    "palette": [
+      "151b2c",
+      "2d344f",
+      "484d7c",
+      "63678d",
+      "7f849f",
+      "b1b7d0",
+      "55536c",
+      "785b60",
+      "ad8590",
+      "dcc0b9",
+      "424361",
+      "2b304a",
+      "6b7597",
+      "949fbd"
+    ],
+    "art_provenance": "Built-in ImageGen complete figure edits. Uniform whole-pose registration, deterministic matte material palette and faction variant; no limb splice or warp.",
+    "review_note": "双方壁垒卫士：纯色头发、去衣料高光，柔白蓝甲／蓝紫14色；固定头部参照登记，原作各自攻击、投枪、命中时刻及收势程序完整保留。"
+  }
+}

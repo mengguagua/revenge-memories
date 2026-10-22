@@ -1,0 +1,586 @@
+{
+  "actual_keyboard_input": true,
+  "caption_probes": 1824,
+  "checks": [
+    "unobstructed spawn caption 256/P00",
+    "actual movement reaches room floor 256/P00",
+    "all reachable standing/facing states avoid actors and markers 256/P00",
+    "real input walks beside Helan 256",
+    "shortened Helan interaction caption remains clear 256",
+    "nearby character prompt names Helan 256",
+    "real movement starts an interpolated step 256",
+    "caption avoids entire moving hero sweep 256",
+    "unobstructed spawn caption 256/H09",
+    "actual movement reaches room floor 256/H09",
+    "all reachable standing/facing states avoid actors and markers 256/H09",
+    "unobstructed spawn caption 406/P00",
+    "actual movement reaches room floor 406/P00",
+    "all reachable standing/facing states avoid actors and markers 406/P00",
+    "real input walks beside Helan 406",
+    "shortened Helan interaction caption remains clear 406",
+    "nearby character prompt names Helan 406",
+    "real movement starts an interpolated step 406",
+    "caption avoids entire moving hero sweep 406",
+    "unobstructed spawn caption 406/H09",
+    "actual movement reaches room floor 406/H09",
+    "all reachable standing/facing states avoid actors and markers 406/H09",
+    "unobstructed spawn caption 426/P00",
+    "actual movement reaches room floor 426/P00",
+    "all reachable standing/facing states avoid actors and markers 426/P00",
+    "real input walks beside Helan 426",
+    "shortened Helan interaction caption remains clear 426",
+    "nearby character prompt names Helan 426",
+    "real movement starts an interpolated step 426",
+    "caption avoids entire moving hero sweep 426",
+    "unobstructed spawn caption 426/H09",
+    "actual movement reaches room floor 426/H09",
+    "all reachable standing/facing states avoid actors and markers 426/H09",
+    "battle fixture enters first stage",
+    "seed neighbouring independent slot",
+    "choose third slot before battle menu",
+    "battle menu exposes save and return separately 256",
+    "selected main-menu entry fits visible battle menu 256",
+    "battle menu exposes save and return separately 406",
+    "selected main-menu entry fits visible battle menu 406",
+    "battle menu exposes save and return separately 426",
+    "selected main-menu entry fits visible battle menu 426",
+    "successful save returns to title and retains active battle slot",
+    "saved battle retains turn wounds actions and retry snapshot",
+    "return-to-title does not modify another record",
+    "continue returns to exact saved turn in selected slot",
+    "continue preserves wounds acted flags positions and random state without retry",
+    "failed save stays in battle with visible feedback",
+    "failed return leaves live battle and prior checkpoint intact",
+    "failure also preserves neighbouring record"
+  ],
+  "errors": [],
+  "independent_actual_sprite_bounds": true,
+  "passed": true,
+  "representative": [
+    {
+      "actors": [
+        {
+          "name": "教团守卫",
+          "rect": "[P: (70.0, 62.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "赫兰",
+          "rect": "[P: (118.0, 30.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "艾琳",
+          "rect": "[P: (166.0, 46.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "传光台",
+          "rect": "[P: (110.0, 6.0), S: (36.0, 36.0)]"
+        },
+        {
+          "name": "hero and movement sweep",
+          "rect": "[P: (102.0, 110.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "exit arrow",
+          "rect": "[P: (116.0, 134.0), S: (8.0, 8.0)]"
+        }
+      ],
+      "caption": "[P: (8.0, 176.0), S: (168.0, 56.0)]",
+      "errors": [],
+      "label": "256/P00/spawn",
+      "texts": [
+        {
+          "bounds": "[P: (36.0, 188.0), S: (112.0, 12.0)]",
+          "text": "序章 · 海峡城庆典"
+        },
+        {
+          "bounds": "[P: (20.0, 204.0), S: (144.0, 12.0)]",
+          "text": "走向传光台，面对人物确认"
+        }
+      ]
+    },
+    {
+      "actors": [
+        {
+          "name": "教团守卫",
+          "rect": "[P: (70.0, 62.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "赫兰",
+          "rect": "[P: (118.0, 30.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "interaction arrow 赫兰",
+          "rect": "[P: (132.0, 32.0), S: (8.0, 8.0)]"
+        },
+        {
+          "name": "艾琳",
+          "rect": "[P: (166.0, 46.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "传光台",
+          "rect": "[P: (110.0, 6.0), S: (36.0, 36.0)]"
+        },
+        {
+          "name": "hero and movement sweep",
+          "rect": "[P: (118.0, 46.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "exit arrow",
+          "rect": "[P: (116.0, 134.0), S: (8.0, 8.0)]"
+        }
+      ],
+      "caption": "[P: (8.0, 176.0), S: (136.0, 56.0)]",
+      "errors": [],
+      "label": "256/P00/Helan",
+      "texts": [
+        {
+          "bounds": "[P: (20.0, 188.0), S: (112.0, 12.0)]",
+          "text": "序章 · 海峡城庆典"
+        },
+        {
+          "bounds": "[P: (48.0, 204.0), S: (56.0, 12.0)]",
+          "text": "确认:赫兰"
+        }
+      ]
+    },
+    {
+      "actors": [
+        {
+          "name": "教团守卫",
+          "rect": "[P: (70.0, 62.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "赫兰",
+          "rect": "[P: (118.0, 30.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "艾琳",
+          "rect": "[P: (166.0, 46.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "传光台",
+          "rect": "[P: (110.0, 6.0), S: (36.0, 36.0)]"
+        },
+        {
+          "name": "hero and movement sweep",
+          "rect": "[P: (102.0, 46.0), S: (52.0, 28.0)]"
+        },
+        {
+          "name": "exit arrow",
+          "rect": "[P: (116.0, 134.0), S: (8.0, 8.0)]"
+        }
+      ],
+      "caption": "[P: (8.0, 176.0), S: (168.0, 56.0)]",
+      "errors": [],
+      "label": "256/P00/moving",
+      "texts": [
+        {
+          "bounds": "[P: (36.0, 188.0), S: (112.0, 12.0)]",
+          "text": "序章 · 海峡城庆典"
+        },
+        {
+          "bounds": "[P: (20.0, 204.0), S: (144.0, 12.0)]",
+          "text": "走向传光台，面对人物确认"
+        }
+      ]
+    },
+    {
+      "actors": [
+        {
+          "name": "管理员",
+          "rect": "[P: (70.0, 46.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "赫维",
+          "rect": "[P: (150.0, 78.0), S: (36.0, 36.0)]"
+        },
+        {
+          "name": "hero and movement sweep",
+          "rect": "[P: (102.0, 110.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "exit arrow",
+          "rect": "[P: (116.0, 134.0), S: (8.0, 8.0)]"
+        }
+      ],
+      "caption": "[P: (8.0, 176.0), S: (204.0, 56.0)]",
+      "errors": [],
+      "label": "256/H09/spawn",
+      "texts": [
+        {
+          "bounds": "[P: (60.0, 188.0), S: (100.0, 12.0)]",
+          "text": "林村诊所 · 战后"
+        },
+        {
+          "bounds": "[P: (20.0, 204.0), S: (180.0, 12.0)]",
+          "text": "请管理员接手医疗，再与赫维交谈"
+        }
+      ]
+    },
+    {
+      "actors": [
+        {
+          "name": "教团守卫",
+          "rect": "[P: (70.0, 62.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "赫兰",
+          "rect": "[P: (118.0, 30.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "艾琳",
+          "rect": "[P: (166.0, 46.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "传光台",
+          "rect": "[P: (110.0, 6.0), S: (36.0, 36.0)]"
+        },
+        {
+          "name": "hero and movement sweep",
+          "rect": "[P: (102.0, 110.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "exit arrow",
+          "rect": "[P: (116.0, 134.0), S: (8.0, 8.0)]"
+        }
+      ],
+      "caption": "[P: (-67.0, 176.0), S: (168.0, 56.0)]",
+      "errors": [],
+      "label": "406/P00/spawn",
+      "texts": [
+        {
+          "bounds": "[P: (-39.0, 188.0), S: (112.0, 12.0)]",
+          "text": "序章 · 海峡城庆典"
+        },
+        {
+          "bounds": "[P: (-55.0, 204.0), S: (144.0, 12.0)]",
+          "text": "走向传光台，面对人物确认"
+        }
+      ]
+    },
+    {
+      "actors": [
+        {
+          "name": "教团守卫",
+          "rect": "[P: (70.0, 62.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "赫兰",
+          "rect": "[P: (118.0, 30.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "interaction arrow 赫兰",
+          "rect": "[P: (132.0, 32.0), S: (8.0, 8.0)]"
+        },
+        {
+          "name": "艾琳",
+          "rect": "[P: (166.0, 46.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "传光台",
+          "rect": "[P: (110.0, 6.0), S: (36.0, 36.0)]"
+        },
+        {
+          "name": "hero and movement sweep",
+          "rect": "[P: (118.0, 46.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "exit arrow",
+          "rect": "[P: (116.0, 134.0), S: (8.0, 8.0)]"
+        }
+      ],
+      "caption": "[P: (-67.0, 176.0), S: (136.0, 56.0)]",
+      "errors": [],
+      "label": "406/P00/Helan",
+      "texts": [
+        {
+          "bounds": "[P: (-55.0, 188.0), S: (112.0, 12.0)]",
+          "text": "序章 · 海峡城庆典"
+        },
+        {
+          "bounds": "[P: (-27.0, 204.0), S: (56.0, 12.0)]",
+          "text": "确认:赫兰"
+        }
+      ]
+    },
+    {
+      "actors": [
+        {
+          "name": "教团守卫",
+          "rect": "[P: (70.0, 62.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "赫兰",
+          "rect": "[P: (118.0, 30.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "艾琳",
+          "rect": "[P: (166.0, 46.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "传光台",
+          "rect": "[P: (110.0, 6.0), S: (36.0, 36.0)]"
+        },
+        {
+          "name": "hero and movement sweep",
+          "rect": "[P: (102.0, 46.0), S: (52.0, 28.0)]"
+        },
+        {
+          "name": "exit arrow",
+          "rect": "[P: (116.0, 134.0), S: (8.0, 8.0)]"
+        }
+      ],
+      "caption": "[P: (-67.0, 176.0), S: (168.0, 56.0)]",
+      "errors": [],
+      "label": "406/P00/moving",
+      "texts": [
+        {
+          "bounds": "[P: (-39.0, 188.0), S: (112.0, 12.0)]",
+          "text": "序章 · 海峡城庆典"
+        },
+        {
+          "bounds": "[P: (-55.0, 204.0), S: (144.0, 12.0)]",
+          "text": "走向传光台，面对人物确认"
+        }
+      ]
+    },
+    {
+      "actors": [
+        {
+          "name": "管理员",
+          "rect": "[P: (70.0, 46.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "赫维",
+          "rect": "[P: (150.0, 78.0), S: (36.0, 36.0)]"
+        },
+        {
+          "name": "hero and movement sweep",
+          "rect": "[P: (102.0, 110.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "exit arrow",
+          "rect": "[P: (116.0, 134.0), S: (8.0, 8.0)]"
+        }
+      ],
+      "caption": "[P: (-67.0, 176.0), S: (204.0, 56.0)]",
+      "errors": [],
+      "label": "406/H09/spawn",
+      "texts": [
+        {
+          "bounds": "[P: (-15.0, 188.0), S: (100.0, 12.0)]",
+          "text": "林村诊所 · 战后"
+        },
+        {
+          "bounds": "[P: (-55.0, 204.0), S: (180.0, 12.0)]",
+          "text": "请管理员接手医疗，再与赫维交谈"
+        }
+      ]
+    },
+    {
+      "actors": [
+        {
+          "name": "教团守卫",
+          "rect": "[P: (70.0, 62.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "赫兰",
+          "rect": "[P: (118.0, 30.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "艾琳",
+          "rect": "[P: (166.0, 46.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "传光台",
+          "rect": "[P: (110.0, 6.0), S: (36.0, 36.0)]"
+        },
+        {
+          "name": "hero and movement sweep",
+          "rect": "[P: (102.0, 110.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "exit arrow",
+          "rect": "[P: (116.0, 134.0), S: (8.0, 8.0)]"
+        }
+      ],
+      "caption": "[P: (-77.0, 176.0), S: (168.0, 56.0)]",
+      "errors": [],
+      "label": "426/P00/spawn",
+      "texts": [
+        {
+          "bounds": "[P: (-49.0, 188.0), S: (112.0, 12.0)]",
+          "text": "序章 · 海峡城庆典"
+        },
+        {
+          "bounds": "[P: (-65.0, 204.0), S: (144.0, 12.0)]",
+          "text": "走向传光台，面对人物确认"
+        }
+      ]
+    },
+    {
+      "actors": [
+        {
+          "name": "教团守卫",
+          "rect": "[P: (70.0, 62.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "赫兰",
+          "rect": "[P: (118.0, 30.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "interaction arrow 赫兰",
+          "rect": "[P: (132.0, 32.0), S: (8.0, 8.0)]"
+        },
+        {
+          "name": "艾琳",
+          "rect": "[P: (166.0, 46.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "传光台",
+          "rect": "[P: (110.0, 6.0), S: (36.0, 36.0)]"
+        },
+        {
+          "name": "hero and movement sweep",
+          "rect": "[P: (118.0, 46.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "exit arrow",
+          "rect": "[P: (116.0, 134.0), S: (8.0, 8.0)]"
+        }
+      ],
+      "caption": "[P: (-77.0, 176.0), S: (136.0, 56.0)]",
+      "errors": [],
+      "label": "426/P00/Helan",
+      "texts": [
+        {
+          "bounds": "[P: (-65.0, 188.0), S: (112.0, 12.0)]",
+          "text": "序章 · 海峡城庆典"
+        },
+        {
+          "bounds": "[P: (-37.0, 204.0), S: (56.0, 12.0)]",
+          "text": "确认:赫兰"
+        }
+      ]
+    },
+    {
+      "actors": [
+        {
+          "name": "教团守卫",
+          "rect": "[P: (70.0, 62.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "赫兰",
+          "rect": "[P: (118.0, 30.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "艾琳",
+          "rect": "[P: (166.0, 46.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "传光台",
+          "rect": "[P: (110.0, 6.0), S: (36.0, 36.0)]"
+        },
+        {
+          "name": "hero and movement sweep",
+          "rect": "[P: (102.0, 46.0), S: (52.0, 28.0)]"
+        },
+        {
+          "name": "exit arrow",
+          "rect": "[P: (116.0, 134.0), S: (8.0, 8.0)]"
+        }
+      ],
+      "caption": "[P: (-77.0, 176.0), S: (168.0, 56.0)]",
+      "errors": [],
+      "label": "426/P00/moving",
+      "texts": [
+        {
+          "bounds": "[P: (-49.0, 188.0), S: (112.0, 12.0)]",
+          "text": "序章 · 海峡城庆典"
+        },
+        {
+          "bounds": "[P: (-65.0, 204.0), S: (144.0, 12.0)]",
+          "text": "走向传光台，面对人物确认"
+        }
+      ]
+    },
+    {
+      "actors": [
+        {
+          "name": "管理员",
+          "rect": "[P: (70.0, 46.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "赫维",
+          "rect": "[P: (150.0, 78.0), S: (36.0, 36.0)]"
+        },
+        {
+          "name": "hero and movement sweep",
+          "rect": "[P: (102.0, 110.0), S: (36.0, 28.0)]"
+        },
+        {
+          "name": "exit arrow",
+          "rect": "[P: (116.0, 134.0), S: (8.0, 8.0)]"
+        }
+      ],
+      "caption": "[P: (-77.0, 176.0), S: (204.0, 56.0)]",
+      "errors": [],
+      "label": "426/H09/spawn",
+      "texts": [
+        {
+          "bounds": "[P: (-25.0, 188.0), S: (100.0, 12.0)]",
+          "text": "林村诊所 · 战后"
+        },
+        {
+          "bounds": "[P: (-65.0, 204.0), S: (180.0, 12.0)]",
+          "text": "请管理员接手医疗，再与赫维交谈"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "passed": true,
+      "probes": 296,
+      "reachable_cells": 74,
+      "room": "P00",
+      "width": 256
+    },
+    {
+      "passed": true,
+      "probes": 308,
+      "reachable_cells": 77,
+      "room": "H09",
+      "width": 256
+    },
+    {
+      "passed": true,
+      "probes": 296,
+      "reachable_cells": 74,
+      "room": "P00",
+      "width": 406
+    },
+    {
+      "passed": true,
+      "probes": 308,
+      "reachable_cells": 77,
+      "room": "H09",
+      "width": 406
+    },
+    {
+      "passed": true,
+      "probes": 296,
+      "reachable_cells": 74,
+      "room": "P00",
+      "width": 426
+    },
+    {
+      "passed": true,
+      "probes": 308,
+      "reachable_cells": 77,
+      "room": "H09",
+      "width": 426
+    }
+  ],
+  "user_saves_touched": false
+}

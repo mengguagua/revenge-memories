@@ -1,0 +1,486 @@
+{
+  "revision": "bastion-guardian-side-shield-v4-20261022",
+  "image_generation": "built-in image_gen",
+  "source_master": "source/side-walk-rig-master-v1.png",
+  "palette": {
+    "ally": [
+      "172638",
+      "304461",
+      "3976b5",
+      "6e8fb0",
+      "a7b9ca",
+      "f1f0e6",
+      "6c6870",
+      "925e46",
+      "d09873",
+      "f0c6a0",
+      "795a43",
+      "493b38",
+      "8296ac",
+      "c5d2db"
+    ],
+    "enemy": [
+      "151b2c",
+      "2d344f",
+      "484d7c",
+      "63678d",
+      "7f849f",
+      "b1b7d0",
+      "55536c",
+      "785b60",
+      "ad8590",
+      "dcc0b9",
+      "424361",
+      "2b304a",
+      "6b7597",
+      "949fbd"
+    ]
+  },
+  "registration": [
+    {
+      "source": "side-walk-rig-master-v1.png",
+      "source_sha256": "9db9be87e71153095958639dbff82feb9459f65553a64783224656c617a807b4",
+      "source_bounds": [
+        75,
+        91,
+        728,
+        647
+      ],
+      "opaque_pixels": 116089,
+      "hair_material_box": [
+        154,
+        11,
+        341,
+        127
+      ],
+      "hair_color": "6c6870",
+      "hair_swatch_count": 1,
+      "label": "shared-static-upper-body",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        247.5,
+        11
+      ],
+      "target_landmark": [
+        64,
+        32
+      ],
+      "scale": 0.10828025477707007,
+      "resampled_size": [
+        71,
+        60
+      ],
+      "translation": [
+        37,
+        31
+      ],
+      "actual_landmark": [
+        63.9104134762634,
+        32.18705035971223
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "side-walk-rig-master-v1.png",
+      "source_sha256": "9db9be87e71153095958639dbff82feb9459f65553a64783224656c617a807b4",
+      "source_bounds": [
+        763,
+        331,
+        1255,
+        641
+      ],
+      "opaque_pixels": 87865,
+      "label": "legs-0",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        255,
+        35
+      ],
+      "target_landmark": [
+        65,
+        66
+      ],
+      "scale": 0.10600706713780919,
+      "resampled_size": [
+        52,
+        33
+      ],
+      "translation": [
+        38,
+        62
+      ],
+      "actual_landmark": [
+        64.95121951219512,
+        65.7258064516129
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "side-walk-rig-master-v1.png",
+      "source_sha256": "9db9be87e71153095958639dbff82feb9459f65553a64783224656c617a807b4",
+      "source_bounds": [
+        1362,
+        330,
+        1701,
+        648
+      ],
+      "opaque_pixels": 70477,
+      "label": "legs-1",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        198,
+        35
+      ],
+      "target_landmark": [
+        65,
+        66
+      ],
+      "scale": 0.10600706713780919,
+      "resampled_size": [
+        36,
+        34
+      ],
+      "translation": [
+        44,
+        62
+      ],
+      "actual_landmark": [
+        65.02654867256638,
+        65.74213836477988
+      ],
+      "clipped_pixels": 0
+    },
+    {
+      "source": "side-walk-rig-master-v1.png",
+      "source_sha256": "9db9be87e71153095958639dbff82feb9459f65553a64783224656c617a807b4",
+      "source_bounds": [
+        1848,
+        188,
+        2118,
+        581
+      ],
+      "opaque_pixels": 72648,
+      "label": "shared-attached-arm-shield",
+      "method": "whole-pose uniform scale and integer translation only",
+      "source_landmark": [
+        173,
+        82
+      ],
+      "target_landmark": [
+        48,
+        48
+      ],
+      "scale": 0.10828025477707007,
+      "resampled_size": [
+        29,
+        43
+      ],
+      "translation": [
+        29,
+        39
+      ],
+      "actual_landmark": [
+        47.58148148148148,
+        47.972010178117046
+      ],
+      "clipped_pixels": 0
+    }
+  ],
+  "shared_arm_shield_rig": {
+    "ally": {
+      "pivot": [
+        48,
+        48
+      ],
+      "angles": [
+        -12,
+        16
+      ],
+      "assembly_bounds": [
+        [
+          23,
+          49,
+          52,
+          80
+        ],
+        [
+          32,
+          53,
+          62,
+          85
+        ]
+      ],
+      "shared_core_sha256": "8499f9acd3c799b2bf979cf3879454089b1411113e7a6ecb216105f057332efb",
+      "shared_arm_shield_sha256": "a4a3d005c23f38a2d08336e15ca751fed37b716cd87a6ef6d9d4f754312bdec8"
+    },
+    "enemy": {
+      "pivot": [
+        48,
+        48
+      ],
+      "angles": [
+        -12,
+        16
+      ],
+      "assembly_bounds": [
+        [
+          23,
+          49,
+          52,
+          80
+        ],
+        [
+          32,
+          53,
+          62,
+          85
+        ]
+      ],
+      "shared_core_sha256": "4ff7c4777636f3962e513d65f7feecfd43f12061d06e5fe23b13e96f6418fb29",
+      "shared_arm_shield_sha256": "b1f1d99c3e7e3f22de668d582bb4f10b51bfd8c382a05c09dbcd38916e52da35"
+    }
+  },
+  "runtime_integrated": false,
+  "assets": [
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/ally/shared-upper-body.png",
+      "purpose": "one fixed head/torso, spear arm and lance",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1665,
+      "sha256": "8499f9acd3c799b2bf979cf3879454089b1411113e7a6ecb216105f057332efb"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/ally/shared-arm-shield.png",
+      "purpose": "shield and holding arm form one connected immutable rig layer",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 672,
+      "sha256": "a4a3d005c23f38a2d08336e15ca751fed37b716cd87a6ef6d9d4f754312bdec8"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/ally/legs-0.png",
+      "purpose": "native two-phase stride, waist attachment registered",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1281,
+      "sha256": "727624c17ba338a71e56c454a542844832994472b1b8f07e8ee1d4dd1951341f"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/ally/arm-shield-0.png",
+      "purpose": "same connected arm/shield layer rotated around common shoulder pivot",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 758,
+      "sha256": "3c46016e4948b19a028e09fd3535bf7f3f2bf72093a259dc46d5e3e58b003bab"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/ally/legs-1.png",
+      "purpose": "native two-phase stride, waist attachment registered",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1001,
+      "sha256": "8ac7df6d796cf6fa6c429bad7b57220be14dfb0545c613e90636b14bd8aff183"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/ally/arm-shield-1.png",
+      "purpose": "same connected arm/shield layer rotated around common shoulder pivot",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 804,
+      "sha256": "b9918e89403808afdbef53a8164ab1dce2cbf535f5c5eed2243ac39efce75b64"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/ally/frame-002.png",
+      "purpose": "shield carried by its swinging arm; fixed upper body",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2687,
+      "sha256": "108d6386c1affa48376df68767626f5683d6c59ab9d772e9c4b9bf269a18f85f"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/ally/frame-003.png",
+      "purpose": "shield carried by its swinging arm; fixed upper body",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2367,
+      "sha256": "a97cf353d2ccbec0292f8fc71ea515115f2f69379002b1fc3aaecd590a0b0c7e"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/ally/frame-006.png",
+      "purpose": "shield carried by its swinging arm; fixed upper body",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2706,
+      "sha256": "cda15b3fe0442fd2066dfb32418c0151cc52db7d50d3c52169846260690b7aba"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/ally/frame-007.png",
+      "purpose": "shield carried by its swinging arm; fixed upper body",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2326,
+      "sha256": "069b3a1df63232b6d5ec73829c738b595c5b15f4d3e59a30aa6db6f4f449659e"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/ally/walk-atlas.png",
+      "purpose": "all8 source slots: corrected sides and unchanged up/down",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 14828,
+      "sha256": "bee0a57f8e50fb871f955f5aade2022bfa13a0f74f9a914d6dca1771d4889b97"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/enemy/shared-upper-body.png",
+      "purpose": "one fixed head/torso, spear arm and lance",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1697,
+      "sha256": "4ff7c4777636f3962e513d65f7feecfd43f12061d06e5fe23b13e96f6418fb29"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/enemy/shared-arm-shield.png",
+      "purpose": "shield and holding arm form one connected immutable rig layer",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 670,
+      "sha256": "b1f1d99c3e7e3f22de668d582bb4f10b51bfd8c382a05c09dbcd38916e52da35"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/enemy/legs-0.png",
+      "purpose": "native two-phase stride, waist attachment registered",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1250,
+      "sha256": "ad9a5fe4b0b9df08232351574498208694137abb36c14628e41db02ba5d2f026"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/enemy/arm-shield-0.png",
+      "purpose": "same connected arm/shield layer rotated around common shoulder pivot",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 754,
+      "sha256": "843cca055160c0dbab6cde73cb31916298040152bcfedd0120b6881ba4c4d88f"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/enemy/legs-1.png",
+      "purpose": "native two-phase stride, waist attachment registered",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 984,
+      "sha256": "d3d3cd76f443bee6c7db43c0c53e264f9fd2fb27e5cdb5c042c16cbabb32f62d"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/enemy/arm-shield-1.png",
+      "purpose": "same connected arm/shield layer rotated around common shoulder pivot",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 810,
+      "sha256": "fc1506b6c777e134bc6da801718e68b4085ee4fbb3f57ad03dd3594522bac32d"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/enemy/frame-002.png",
+      "purpose": "shield carried by its swinging arm; fixed upper body",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2681,
+      "sha256": "4d7b262fc562a9c7855d59b5ea9faed0e6cf1b2b90be107e03bdace0f8cf3137"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/enemy/frame-003.png",
+      "purpose": "shield carried by its swinging arm; fixed upper body",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2344,
+      "sha256": "a3d55135dcacda4e3a94f8751b3236aa12b73f4688e7a78af34bdaae6338b4b9"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/enemy/frame-006.png",
+      "purpose": "shield carried by its swinging arm; fixed upper body",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2668,
+      "sha256": "1b66a7315cb8d54ffc42c053a24d1d71d051350a5445e0ef9318424d3a805a41"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/enemy/frame-007.png",
+      "purpose": "shield carried by its swinging arm; fixed upper body",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 2461,
+      "sha256": "043325fa9ee7711f7c21d4d46364ff772639e0073cd6e60bb56f2e069b23ffb8"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/enemy/walk-atlas.png",
+      "purpose": "all8 source slots: corrected sides and unchanged up/down",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 14403,
+      "sha256": "fbab6c76a7a289bad695955a459af2f59a478d3f179c3133ff7d1312bbde992d"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/poses-dark.png",
+      "purpose": "both factions, right/left two-phase walk on dark/light",
+      "size": [
+        1152,
+        548
+      ],
+      "bytes": 30925,
+      "sha256": "099698e388458e1ee22716e55748e3fba3a64e8c13bb4df0d200d2515a878cd4"
+    },
+    {
+      "path": "bastion-guardian-side-shield-v4-20261022/poses-light.png",
+      "purpose": "both factions, right/left two-phase walk on dark/light",
+      "size": [
+        1152,
+        548
+      ],
+      "bytes": 30890,
+      "sha256": "df7ba0d373fa70bef507c08bacc2e6fd6c8f6bbd30cde3b6aeffb48eecd4be5b"
+    }
+  ]
+}

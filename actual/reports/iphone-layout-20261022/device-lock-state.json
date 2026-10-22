@@ -1,0 +1,28 @@
+{
+  "info" : {
+    "arguments" : [
+      "devicectl",
+      "device",
+      "info",
+      "lockState",
+      "--device",
+      "E6C675BC-6B6B-591A-A686-2B7AECFBADDF",
+      "--timeout",
+      "15",
+      "--json-output",
+      "actual/reports/iphone-layout-20261022/device-lock-state.json"
+    ],
+    "commandType" : "devicectl.device.info.lockState",
+    "environment" : {
+      "TERM" : "dumb"
+    },
+    "jsonVersion" : 3,
+    "outcome" : "success",
+    "version" : "518.33"
+  },
+  "result" : {
+    "deviceIdentifier" : "E6C675BC-6B6B-591A-A686-2B7AECFBADDF",
+    "passcodeRequired" : true,
+    "unlockedSinceBoot" : true
+  }
+}

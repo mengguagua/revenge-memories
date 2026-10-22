@@ -1,0 +1,137 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>前两章地图优化 · 2026-10-22</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#0e151a;color:#e9f0f0;font:15px/1.8 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}main{max-width:1510px;margin:auto;padding:38px 30px 65px}h1{font-size:34px;line-height:1.4;margin:6px 0 18px}h2{font-size:22px;margin:0}h3{font-size:15px;margin:0}p{color:#aabdc5;max-width:1060px}a{color:#a8d6c8;text-underline-offset:4px}.eyebrow{color:#a8d6c8;letter-spacing:.13em;font-size:12px}.pills,nav{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}.pills span,nav a{background:#22343d;padding:10px 17px;border-radius:9px}nav a{text-decoration:none;display:flex;align-items:center;justify-content:center;min-height:44px}a:focus-visible{outline:none;box-shadow:0 0 0 5px #a8d6c82b,0 0 24px #a8d6c82b}article{padding:22px;margin-top:24px;background:#18232b;border-radius:15px;box-shadow:0 12px 34px #0003;scroll-margin-top:20px}.head{display:flex;gap:18px;justify-content:space-between;align-items:center;margin-bottom:18px}.head small{color:#aabdc5}.pair{display:grid;grid-template-columns:1fr 1fr;gap:18px}figure{margin:0;min-width:0}figcaption{padding:0 3px 10px;color:#c4d6d3;font-size:13px}.picture{display:block;background:#202d35;border-radius:9px;overflow:hidden}.picture img{width:100%;height:auto;display:block;image-rendering:pixelated}.notes{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;margin-top:17px}ul{padding-left:20px;color:#b5c7cc;font-size:13px}li+li{margin-top:7px}.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px}.shots figcaption{padding:12px 4px;color:#aabdc5}.fine{font-size:12px;color:#91a7b2}details{margin-top:18px}summary{cursor:pointer;padding:12px 16px;background:#263a42;border-radius:8px}.goal{padding:13px 16px;background:#a8d6c80a;border-radius:9px;color:#d2e4db;font-size:13px}.toc{margin-top:26px}.toc a{font-size:12px;padding:8px 13px}@media(max-width:800px){main{padding:24px 14px}.pair,.notes,.shots{grid-template-columns:1fr}article{padding:16px}.head{align-items:start;flex-direction:column;gap:8px}h1{font-size:27px}}</style></head><body><main>
+<p class="eyebrow">REVENGE MEMORIES / LANDSCAPE REVIEW</p><h1>前两章地图优化 · 场景与实机复查</h1><p>以M11的道路、林地、建筑入口和河桥关系为参照，完成其余六张第一章地图，并继续优化第二章八张地图。原生像素素材重新组合，形成粮站、押送院、军营、塔堡、矿道、溪村、甲板、港湾和海洞各自的空间关系。</p>
+<div class="pills"><span>14张地图完成</span><span>14场实际通关</span><span>10,742次试玩按键</span><span>M11原样保留</span></div>
+<nav><a href="../../../art-review/battle-maps-20261021/index.html">全部40张地图与交互标注</a><a href="delivery-summary.json">复查记录</a><a href="return-flow.json">战后接续检查</a></nav>
+<p class="fine">左侧是本轮修改前的同版全景，右侧是修改后的Godot后台场景。展开每关可查看本轮真实按键试玩的视口。战斗使用记录中的真实成长与装备，失败和策略重试保留；未改属性、随机结果或强制胜利。最终胜利分别从开发记录入场，不宣称连续重跑整部游戏。</p>
+<nav class="toc"><a href="#M12">M12 丘堡粮站</a><a href="#M13">M13 南岗押送所</a><a href="#M14">M14 旧塔外营</a><a href="#M15">M15 海峡旧塔堡</a><a href="#S11">S11 旧矿道救援</a><a href="#S12">S12 林村诊所道路</a><a href="#F21">F21 海上拦截</a><a href="#F22">F22 押送舰救援</a><a href="#F23">F23 礁岛登岸</a><a href="#F24">F24 海灯岛防卫</a><a href="#F25">F25 潮狩军港</a><a href="#F26">F26 断航古道</a><a href="#S21">S21 漂泊渔船</a><a href="#S22">S22 碎石海洞</a></nav>
+<article id="M12"><div class="head"><h2>M12 · 丘堡粮站</h2><small>36 × 28格 · 第8回合通关</small></div><div class="pair">
+<figure><figcaption>优化前</figcaption><a class="picture" href="before/M12.png" target="_blank"><img src="before/M12.png" alt="丘堡粮站优化前" loading="lazy"></a></figure>
+<figure><figcaption>优化后 · 当前地图</figcaption><a class="picture" href="after/M12.png" target="_blank"><img src="after/M12.png" alt="丘堡粮站优化后 · 当前地图" loading="lazy"></a></figure>
+</div><div class="notes"><section><h3>空间与行动</h3><ul><li>主坡道从南侧部署区直达粮站前庭，西坡小路与东侧装卸路可以分兵；路旁林丛提供掩护，仓门与仓吏入口均有明确接路。</li><li>占领格位于完整粮仓正门前(28,8)，木栅在两侧留出通道。焚毁兵第6回合预告、第7回合出发；别让他连续两次在仓门行动。</li></ul></section><section><h3>原任务</h3><p class="goal">占领粮仓前庭并击败守将；粮仓被焚毁则失败。占领需一名正式成员在目标格确认。</p><p class="fine">实机：494次按键 · <a href="play/polish-west-a2/polish-west-a2-play.json">输入与结算记录</a></p></section></div>
+<details><summary>展开本轮实机视口 · 3张</summary><div class="shots">
+<figure><a class="picture" href="screenshots/M12-entry.png" target="_blank"><img src="screenshots/M12-entry.png" alt="M12实际试玩视口" loading="lazy"></a><figcaption>M12 · 第1回合 · 562 × 320原生像素</figcaption></figure>
+<figure><a class="picture" href="screenshots/M12-field.png" target="_blank"><img src="screenshots/M12-field.png" alt="M12实际试玩视口" loading="lazy"></a><figcaption>M12 · 第4回合 · 426 × 240原生像素</figcaption></figure>
+<figure><a class="picture" href="screenshots/M12-objective-notes.png" target="_blank"><img src="screenshots/M12-objective-notes.png" alt="M12实际试玩视口" loading="lazy"></a><figcaption>M12 · 第1回合 · 426 × 240原生像素</figcaption></figure>
+</div>
+</details></article>
+<article id="M13"><div class="head"><h2>M13 · 南岗押送所</h2><small>40 × 30格 · 第9回合通关</small></div><div class="pair">
+<figure><figcaption>优化前</figcaption><a class="picture" href="before/M13.png" target="_blank"><img src="before/M13.png" alt="南岗押送所优化前" loading="lazy"></a></figure>
+<figure><figcaption>优化后 · 当前地图</figcaption><a class="picture" href="after/M13.png" target="_blank"><img src="after/M13.png" alt="南岗押送所优化后 · 当前地图" loading="lazy"></a></figure>
+</div><div class="notes"><section><h3>空间与行动</h3><ul><li>西囚区与东囚区之间有连续院路，文书帐、三处岗堡和各牢门都与院路相接；营房与军需车场沿南侧道路布置。</li><li>两扇牢门仍须分别邻接确认；获释劳工从开门处出牢，东侧外廊与西崖巡行路均保持连通。第5敌回合的一次增援与原条件相同。</li></ul></section><section><h3>原任务</h3><p class="goal">击败押送长并打开两间牢房。蕾娜可阵亡而主线继续；必须至少救出一组劳工。</p><p class="fine">实机：693次按键 · <a href="play/polish-west-a2/polish-west-a2-play.json">输入与结算记录</a></p></section></div>
+<details><summary>展开本轮实机视口 · 2张</summary><div class="shots">
+<figure><a class="picture" href="screenshots/M13-entry.png" target="_blank"><img src="screenshots/M13-entry.png" alt="M13实际试玩视口" loading="lazy"></a><figcaption>M13 · 第1回合 · 562 × 320原生像素</figcaption></figure>
+<figure><a class="picture" href="screenshots/M13-field.png" target="_blank"><img src="screenshots/M13-field.png" alt="M13实际试玩视口" loading="lazy"></a><figcaption>M13 · 第4回合 · 426 × 240原生像素</figcaption></figure>
+</div>
+</details></article>
+<article id="M14"><div class="head"><h2>M14 · 旧塔外营</h2><small>40 × 32格 · 第5回合通关</small></div><div class="pair">
+<figure><figcaption>优化前</figcaption><a class="picture" href="before/M14.png" target="_blank"><img src="before/M14.png" alt="旧塔外营优化前" loading="lazy"></a></figure>
+<figure><figcaption>优化后 · 当前地图</figcaption><a class="picture" href="after/M14.png" target="_blank"><img src="after/M14.png" alt="旧塔外营优化后 · 当前地图" loading="lazy"></a></figure>
+</div><div class="notes"><section><h3>空间与行动</h3><ul><li>南营、东营两处军旗立在道路缺口中，站到旗点选择控制，红旗会变为蓝旗。南路三格宽便于布阵，东路两格宽适合卡口；西侧林道可以绕后。</li><li>文书帐门前路接入北营横道；营帐朝向中间勤务道，南北道路贯通。树林集中在山脚与营盘外围，不遮挡旗点和建筑门前格。</li></ul></section><section><h3>原任务</h3><p class="goal">击败守将或接受其投降，并站到南营、东营两处军旗格，选择控制哨卡。</p><p class="fine">实机：495次按键 · <a href="play/polish-west-camp-fort/polish-west-camp-fort-play.json">输入与结算记录</a></p></section></div>
+<details><summary>展开本轮实机视口 · 2张</summary><div class="shots">
+<figure><a class="picture" href="screenshots/M14-entry.png" target="_blank"><img src="screenshots/M14-entry.png" alt="M14实际试玩视口" loading="lazy"></a><figcaption>M14 · 第1回合 · 562 × 320原生像素</figcaption></figure>
+<figure><a class="picture" href="screenshots/M14-field.png" target="_blank"><img src="screenshots/M14-field.png" alt="M14实际试玩视口" loading="lazy"></a><figcaption>M14 · 第4回合 · 426 × 240原生像素</figcaption></figure>
+</div>
+</details></article>
+<article id="M15"><div class="head"><h2>M15 · 海峡旧塔堡</h2><small>44 × 34格 · 第5回合通关</small></div><div class="pair">
+<figure><figcaption>优化前</figcaption><a class="picture" href="before/M15.png" target="_blank"><img src="before/M15.png" alt="海峡旧塔堡优化前" loading="lazy"></a></figure>
+<figure><figcaption>优化后 · 当前地图</figcaption><a class="picture" href="after/M15.png" target="_blank"><img src="after/M15.png" alt="海峡旧塔堡优化后 · 当前地图" loading="lazy"></a></figure>
+</div><div class="notes"><section><h3>空间与行动</h3><ul><li>海崖围成三条进堡路线。中路缺口可守，东侧栈道可截北门；科兰第八回合开始撤离，提前派骑兵封路。</li><li>北堡档案室、守军营房、中庭与北侧退路由明确道路相连。东侧货仓设装卸院并接木栈廊，正面堡墙保留宽阔缺口与西侧绕行通道。</li></ul></section><section><h3>原任务</h3><p class="goal">击败科兰并救出内院劳工。科兰到达撤离格则失败；退路预先标示。</p><p class="fine">实机：477次按键 · <a href="play/polish-tower-formation/polish-tower-formation-play.json">输入与结算记录</a></p></section></div>
+<details><summary>展开本轮实机视口 · 2张</summary><div class="shots">
+<figure><a class="picture" href="screenshots/M15-entry.png" target="_blank"><img src="screenshots/M15-entry.png" alt="M15实际试玩视口" loading="lazy"></a><figcaption>M15 · 第1回合 · 562 × 320原生像素</figcaption></figure>
+<figure><a class="picture" href="screenshots/M15-field.png" target="_blank"><img src="screenshots/M15-field.png" alt="M15实际试玩视口" loading="lazy"></a><figcaption>M15 · 第4回合 · 426 × 240原生像素</figcaption></figure>
+</div>
+</details></article>
+<article id="S11"><div class="head"><h2>S11 · 旧矿道救援</h2><small>32 × 26格 · 第11回合通关</small></div><div class="pair">
+<figure><figcaption>优化前</figcaption><a class="picture" href="before/S11.png" target="_blank"><img src="before/S11.png" alt="旧矿道救援优化前" loading="lazy"></a></figure>
+<figure><figcaption>优化后 · 当前地图</figcaption><a class="picture" href="after/S11.png" target="_blank"><img src="after/S11.png" alt="旧矿道救援优化后 · 当前地图" loading="lazy"></a></figure>
+</div><div class="notes"><section><h3>空间与行动</h3><ul><li>西侧土径进入救援区域，暖色运矿主巷串起两组矿工、工具箱和北侧撤离口；工具间南门通过短巷接回出口。</li><li>岩脊保留主巷与东侧绕行支巷，两路在北部岩室汇合。矿工仍按现有护送规则等待危险解除后前进。</li></ul></section><section><h3>原任务</h3><p class="goal">至少两名矿工撤到出口，击败盗掠首领；贝克可死亡，主线不受阻。</p><p class="fine">实机：333次按键 · <a href="play/polish-mine-formation/polish-mine-formation-play.json">输入与结算记录</a></p></section></div>
+<details><summary>展开本轮实机视口 · 3张</summary><div class="shots">
+<figure><a class="picture" href="screenshots/S11-entry.png" target="_blank"><img src="screenshots/S11-entry.png" alt="S11实际试玩视口" loading="lazy"></a><figcaption>S11 · 第1回合 · 562 × 320原生像素</figcaption></figure>
+<figure><a class="picture" href="screenshots/S11-field.png" target="_blank"><img src="screenshots/S11-field.png" alt="S11实际试玩视口" loading="lazy"></a><figcaption>S11 · 第4回合 · 426 × 240原生像素</figcaption></figure>
+<figure><a class="picture" href="screenshots/S11-objective-notes.png" target="_blank"><img src="screenshots/S11-objective-notes.png" alt="S11实际试玩视口" loading="lazy"></a><figcaption>S11 · 第1回合 · 426 × 240原生像素</figcaption></figure>
+</div>
+</details></article>
+<article id="S12"><div class="head"><h2>S12 · 林村诊所道路</h2><small>34 × 26格 · 第9回合通关</small></div><div class="pair">
+<figure><figcaption>优化前</figcaption><a class="picture" href="before/S12.png" target="_blank"><img src="before/S12.png" alt="林村诊所道路优化前" loading="lazy"></a></figure>
+<figure><figcaption>优化后 · 当前地图</figcaption><a class="picture" href="after/S12.png" target="_blank"><img src="after/S12.png" alt="林村诊所道路优化后 · 当前地图" loading="lazy"></a></figure>
+</div><div class="notes"><section><h3>空间与行动</h3><ul><li>药车沿南岸三格宽主路接上中部木桥，桥面真正跨过连续溪流；西侧双格木桥连接林间支路，两岸都有明确桥头。</li><li>诊所南门、药车交接前庭与北岸渔舍都接回道路。树林集中在道路外侧，入口和桥头保留布阵空地；南岸村路可接近封路士兵。</li></ul></section><section><h3>原任务</h3><p class="goal">击败封路队，护送药箱抵诊所；药箱为事件对象，不占唯一神器槽。</p><p class="fine">实机：339次按键 · <a href="play/polish-west-side/polish-west-side-play.json">输入与结算记录</a></p></section></div>
+<details><summary>展开本轮实机视口 · 2张</summary><div class="shots">
+<figure><a class="picture" href="screenshots/S12-entry.png" target="_blank"><img src="screenshots/S12-entry.png" alt="S12实际试玩视口" loading="lazy"></a><figcaption>S12 · 第1回合 · 562 × 320原生像素</figcaption></figure>
+<figure><a class="picture" href="screenshots/S12-field.png" target="_blank"><img src="screenshots/S12-field.png" alt="S12实际试玩视口" loading="lazy"></a><figcaption>S12 · 第4回合 · 426 × 240原生像素</figcaption></figure>
+</div>
+</details></article>
+<article id="F21"><div class="head"><h2>F21 · 海上拦截</h2><small>44 × 30格 · 第25回合通关</small></div><div class="pair">
+<figure><figcaption>优化前</figcaption><a class="picture" href="before/F21.png" target="_blank"><img src="before/F21.png" alt="海上拦截优化前" loading="lazy"></a></figure>
+<figure><figcaption>优化后 · 当前地图</figcaption><a class="picture" href="after/F21.png" target="_blank"><img src="after/F21.png" alt="海上拦截优化后 · 当前地图" loading="lazy"></a></figure>
+</div><div class="notes"><section><h3>空间与行动</h3><ul><li>上下两条跳板完整连接两舰，前甲板与中央登船横道留空；货物集中在舷边货舱旁，桅杆两侧均可绕行。</li><li>己船后甲板医药区保留原有恢复格，每回合恢复5生命；该地形只能恢复普通伤势，不能救治濒死。保住己方船并击败指挥官。</li></ul></section><section><h3>原任务</h3><p class="goal">击败搜捕船指挥官，保住己方船。甲板两端是地面通路，水面不能作为步兵落点。</p><p class="fine">实机：802次按键 · <a href="play/polish-ships/polish-ships-play.json">输入与结算记录</a></p></section></div>
+<details><summary>展开本轮实机视口 · 2张</summary><div class="shots">
+<figure><a class="picture" href="screenshots/F21-entry.png" target="_blank"><img src="screenshots/F21-entry.png" alt="F21实际试玩视口" loading="lazy"></a><figcaption>F21 · 第1回合 · 562 × 320原生像素</figcaption></figure>
+<figure><a class="picture" href="screenshots/F21-field.png" target="_blank"><img src="screenshots/F21-field.png" alt="F21实际试玩视口" loading="lazy"></a><figcaption>F21 · 第4回合 · 426 × 240原生像素</figcaption></figure>
+</div>
+</details></article>
+<article id="F22"><div class="head"><h2>F22 · 押送舰救援</h2><small>46 × 32格 · 第87回合通关</small></div><div class="pair">
+<figure><figcaption>优化前</figcaption><a class="picture" href="before/F22.png" target="_blank"><img src="before/F22.png" alt="押送舰救援优化前" loading="lazy"></a></figure>
+<figure><figcaption>优化后 · 当前地图</figcaption><a class="picture" href="after/F22.png" target="_blank"><img src="after/F22.png" alt="押送舰救援优化后 · 当前地图" loading="lazy"></a></figure>
+</div><div class="notes"><section><h3>空间与行动</h3><ul><li>上跳板开战时可通行，下方备用跳板仍为空水面；从原绞盘操作后放下。囚舱总闸同时开启两处真正牢门，囚室与开门字段均保持。</li><li>下囚室围栏旁的旧货舱口已移到后货区，囚门前留出撤离通道；同伴接应旗标仍在敌舰中段总闸旁，到旗标即可获救。</li><li>己船后甲板的恢复格与船员舱保留。东西向登船走廊与中轴通路贯通，舵楼哨位仍为可占据的单格地形。</li></ul></section><section><h3>原任务</h3><p class="goal">打开囚舱、击败舰长，至少三名俘虏撤至己方船。洛德死亡不阻断主线。接应出口位于敌舰中段、囚舱总闸旁的旗标。</p><p class="fine">实机：1807次按键 · <a href="play/polish-f22-continued/polish-f22-continued-play.json">输入与结算记录</a></p></section></div>
+<details><summary>展开本轮实机视口 · 2张</summary><div class="shots">
+<figure><a class="picture" href="screenshots/F22-entry.png" target="_blank"><img src="screenshots/F22-entry.png" alt="F22实际试玩视口" loading="lazy"></a><figcaption>F22 · 第66回合 · 562 × 320原生像素</figcaption></figure>
+<figure><a class="picture" href="screenshots/F22-field.png" target="_blank"><img src="screenshots/F22-field.png" alt="F22实际试玩视口" loading="lazy"></a><figcaption>F22 · 第69回合 · 426 × 240原生像素</figcaption></figure>
+</div>
+<p class="fine">首段中米蕾、莉莎濒死留队，队伍残血后出现策略停滞；续玩保留第66回合单位、位置和随机状态，经已有恢复哨位恢复、清场、开门放下桥并完成四人撤离。该长回合记录用于验证可完成，不作为关卡目标时长。 <a href="play/polish-f22-continued/continuation-chain.json">首段与续玩证据链</a></p>
+</details></article>
+<article id="F23"><div class="head"><h2>F23 · 礁岛登岸</h2><small>38 × 30格 · 第15回合通关</small></div><div class="pair">
+<figure><figcaption>优化前</figcaption><a class="picture" href="before/F23.png" target="_blank"><img src="before/F23.png" alt="礁岛登岸优化前" loading="lazy"></a></figure>
+<figure><figcaption>优化后 · 当前地图</figcaption><a class="picture" href="after/F23.png" target="_blank"><img src="after/F23.png" alt="礁岛登岸优化后 · 当前地图" loading="lazy"></a></figure>
+</div><div class="notes"><section><h3>空间与行动</h3><ul><li>西岸登陆集结区通过村路连接南侧渔民营地，完整渔舍的门前留有接应空地；东北草坡主道与西侧岩坡小路可分队清场。</li><li>原居民营地、罗恩和所有敌军位置保持不变。飞行首领败退后仍须清除自然魔物；推进时留人保护南侧营地。</li></ul></section><section><h3>原任务</h3><p class="goal">清除岸上魔物，保护渔民营地；击败飞行首领后仍需处理未撤离的自然魔物。</p><p class="fine">实机：1087次按键 · <a href="play/polish-islands/polish-islands-play.json">输入与结算记录</a></p></section></div>
+<details><summary>展开本轮实机视口 · 2张</summary><div class="shots">
+<figure><a class="picture" href="screenshots/F23-entry.png" target="_blank"><img src="screenshots/F23-entry.png" alt="F23实际试玩视口" loading="lazy"></a><figcaption>F23 · 第1回合 · 562 × 320原生像素</figcaption></figure>
+<figure><a class="picture" href="screenshots/F23-field.png" target="_blank"><img src="screenshots/F23-field.png" alt="F23实际试玩视口" loading="lazy"></a><figcaption>F23 · 第4回合 · 426 × 240原生像素</figcaption></figure>
+</div>
+</details></article>
+<article id="F24"><div class="head"><h2>F24 · 海灯岛防卫</h2><small>40 × 32格 · 第13回合通关</small></div><div class="pair">
+<figure><figcaption>优化前</figcaption><a class="picture" href="before/F24.png" target="_blank"><img src="before/F24.png" alt="海灯岛防卫优化前" loading="lazy"></a></figure>
+<figure><figcaption>优化后 · 当前地图</figcaption><a class="picture" href="after/F24.png" target="_blank"><img src="after/F24.png" alt="海灯岛防卫优化后 · 当前地图" loading="lazy"></a></figure>
+</div><div class="notes"><section><h3>空间与行动</h3><ul><li>南侧部署区沿三格宽主道直达航灯石庭；灯塔正门与灯台之间已连成连续步行广场，西坡与东侧避难所保留支路。</li><li>第6己方回合与击败首领的胜利条件不变。留意东侧飞兵和海兵，航灯被敌军连续占满一整回合仍会失败；安置岛民从避难所门前操作。</li></ul></section><section><h3>原任务</h3><p class="goal">守住航灯至第6己方回合并击败搜捕首领；航灯失守则失败。</p><p class="fine">实机：614次按键 · <a href="play/polish-islands/polish-islands-play.json">输入与结算记录</a></p></section></div>
+<details><summary>展开本轮实机视口 · 2张</summary><div class="shots">
+<figure><a class="picture" href="screenshots/F24-entry.png" target="_blank"><img src="screenshots/F24-entry.png" alt="F24实际试玩视口" loading="lazy"></a><figcaption>F24 · 第1回合 · 562 × 320原生像素</figcaption></figure>
+<figure><a class="picture" href="screenshots/F24-field.png" target="_blank"><img src="screenshots/F24-field.png" alt="F24实际试玩视口" loading="lazy"></a><figcaption>F24 · 第4回合 · 426 × 240原生像素</figcaption></figure>
+</div>
+</details></article>
+<article id="F25"><div class="head"><h2>F25 · 潮狩军港</h2><small>44 × 34格 · 第20回合通关</small></div><div class="pair">
+<figure><figcaption>优化前</figcaption><a class="picture" href="before/F25.png" target="_blank"><img src="before/F25.png" alt="潮狩军港优化前" loading="lazy"></a></figure>
+<figure><figcaption>优化后 · 当前地图</figcaption><a class="picture" href="after/F25.png" target="_blank"><img src="after/F25.png" alt="潮狩军港优化后 · 当前地图" loading="lazy"></a></figure>
+</div><div class="notes"><section><h3>空间与行动</h3><ul><li>西侧木码头沿真实港湾水面相连，北仓与账房经装卸台接主路；中央转运场通向神教箱。</li><li>幸存船员与引航者在东侧囚室内，原牢门是唯一出口。先清理门前接应道，再打开牢门；仓库和囚室墙体均有完整阻挡。</li></ul></section><section><h3>原任务</h3><p class="goal">击败裴萨，打开引航者牢房并取回神教箱；逃离的普通军人不追杀。</p><p class="fine">实机：1212次按键 · <a href="play/polish-harbor/polish-harbor-play.json">输入与结算记录</a></p></section></div>
+<details><summary>展开本轮实机视口 · 3张</summary><div class="shots">
+<figure><a class="picture" href="screenshots/F25-entry.png" target="_blank"><img src="screenshots/F25-entry.png" alt="F25实际试玩视口" loading="lazy"></a><figcaption>F25 · 第1回合 · 562 × 320原生像素</figcaption></figure>
+<figure><a class="picture" href="screenshots/F25-field.png" target="_blank"><img src="screenshots/F25-field.png" alt="F25实际试玩视口" loading="lazy"></a><figcaption>F25 · 第4回合 · 426 × 240原生像素</figcaption></figure>
+<figure><a class="picture" href="screenshots/F25-objective-notes.png" target="_blank"><img src="screenshots/F25-objective-notes.png" alt="F25实际试玩视口" loading="lazy"></a><figcaption>F25 · 第1回合 · 426 × 240原生像素</figcaption></figure>
+</div>
+</details></article>
+<article id="F26"><div class="head"><h2>F26 · 断航古道</h2><small>44 × 32格 · 第17回合通关</small></div><div class="pair">
+<figure><figcaption>优化前</figcaption><a class="picture" href="before/F26.png" target="_blank"><img src="before/F26.png" alt="断航古道优化前" loading="lazy"></a></figure>
+<figure><figcaption>优化后 · 当前地图</figcaption><a class="picture" href="after/F26.png" target="_blank"><img src="after/F26.png" alt="断航古道优化后 · 当前地图" loading="lazy"></a></figure>
+</div><div class="notes"><section><h3>空间与行动</h3><ul><li>古堤与木架是两条连续路线：草地岛头提供集结空间，桥身与桥头材质清楚衔接。居民船从西岛下方水道出航，完整航道仍为水面。</li><li>古石门现在正对原辨认点；门洞两列石面可通行。航灯旧座落在木架转角的独立岛台，便于理解旧航路的位置。</li><li>清除全部沿岸敌军和增援后，居民船加速到每回合6格；交战时保持原速，遇敌仍会停船。</li></ul></section><section><h3>原任务</h3><p class="goal">护送船队穿过遗迹通道，击败封航守军。出口至少有一艘居民船抵达。</p><p class="fine">实机：1004次按键 · <a href="play/polish-harbor/polish-harbor-play.json">输入与结算记录</a></p></section></div>
+<details><summary>展开本轮实机视口 · 2张</summary><div class="shots">
+<figure><a class="picture" href="screenshots/F26-entry.png" target="_blank"><img src="screenshots/F26-entry.png" alt="F26实际试玩视口" loading="lazy"></a><figcaption>F26 · 第1回合 · 562 × 320原生像素</figcaption></figure>
+<figure><a class="picture" href="screenshots/F26-field.png" target="_blank"><img src="screenshots/F26-field.png" alt="F26实际试玩视口" loading="lazy"></a><figcaption>F26 · 第4回合 · 426 × 240原生像素</figcaption></figure>
+</div>
+</details></article>
+<article id="S21"><div class="head"><h2>S21 · 漂泊渔船</h2><small>36 × 28格 · 第13回合通关</small></div><div class="pair">
+<figure><figcaption>优化前</figcaption><a class="picture" href="before/S21.png" target="_blank"><img src="before/S21.png" alt="漂泊渔船优化前" loading="lazy"></a></figure>
+<figure><figcaption>优化后 · 当前地图</figcaption><a class="picture" href="after/S21.png" target="_blank"><img src="after/S21.png" alt="漂泊渔船优化后 · 当前地图" loading="lazy"></a></figure>
+</div><div class="notes"><section><h3>空间与行动</h3><ul><li>两船船艏与后甲板清楚分区，货物贴舷集中摆放；上下两条跳板与病人后甲板之间保留宽敞路线。</li><li>清出跳板后再护送病人，飞行魔物仍可绕过桥口。普通舵楼哨位保持原有回避与恢复规则。</li></ul></section><section><h3>原任务</h3><p class="goal">击败海上魔物，保住载病人船至靠岸；至少一组居民存活。</p><p class="fine">实机：866次按键 · <a href="play/polish-ships/polish-ships-play.json">输入与结算记录</a></p></section></div>
+<details><summary>展开本轮实机视口 · 2张</summary><div class="shots">
+<figure><a class="picture" href="screenshots/S21-entry.png" target="_blank"><img src="screenshots/S21-entry.png" alt="S21实际试玩视口" loading="lazy"></a><figcaption>S21 · 第1回合 · 562 × 320原生像素</figcaption></figure>
+<figure><a class="picture" href="screenshots/S21-field.png" target="_blank"><img src="screenshots/S21-field.png" alt="S21实际试玩视口" loading="lazy"></a><figcaption>S21 · 第4回合 · 426 × 240原生像素</figcaption></figure>
+</div>
+</details></article>
+<article id="S22"><div class="head"><h2>S22 · 碎石海洞</h2><small>32 × 28格 · 第12回合通关</small></div><div class="pair">
+<figure><figcaption>优化前</figcaption><a class="picture" href="before/S22.png" target="_blank"><img src="before/S22.png" alt="碎石海洞优化前" loading="lazy"></a></figure>
+<figure><figcaption>优化后 · 当前地图</figcaption><a class="picture" href="after/S22.png" target="_blank"><img src="after/S22.png" alt="碎石海洞优化后 · 当前地图" loading="lazy"></a></figure>
+</div><div class="notes"><section><h3>空间与行动</h3><ul><li>灰褐洞底与暖色避潮土径区分岩室和主巷；遗物箱、旧船员藏身处、北侧避潮室均由完整道路串联。</li><li>遗迹拱门中央两格可以通行，两侧柱脚是实体；旧船员藏身石室从东侧门前救援，开门后接回北向主巷。西潮潭与东南潮水保留边界。</li></ul></section><section><h3>原任务</h3><p class="goal">击败洞内魔物，带旧船员到出口，取遗物箱后返回；船员死亡记录失败后日谈但可完成清场。</p><p class="fine">实机：519次按键 · <a href="play/polish-seacave/polish-seacave-play.json">输入与结算记录</a></p></section></div>
+<details><summary>展开本轮实机视口 · 2张</summary><div class="shots">
+<figure><a class="picture" href="screenshots/S22-entry.png" target="_blank"><img src="screenshots/S22-entry.png" alt="S22实际试玩视口" loading="lazy"></a><figcaption>S22 · 第1回合 · 562 × 320原生像素</figcaption></figure>
+<figure><a class="picture" href="screenshots/S22-field.png" target="_blank"><img src="screenshots/S22-field.png" alt="S22实际试玩视口" loading="lazy"></a><figcaption>S22 · 第4回合 · 426 × 240原生像素</figcaption></figure>
+</div>
+</details></article>
+<p class="fine">F25两名被囚者移入原牢门后的东侧囚室，门与解锁条件保持。人物动画沿用现行代码；新增两张独立图集仅复用既有纹理追加洞底/岸线过渡。地图与图像以2026-10-22快照为准。本轮不新增旧战斗兼容地图。Godot全程后台捕获，不显示或激活窗口；未更新iPhone安装包。</p></main></body></html>
