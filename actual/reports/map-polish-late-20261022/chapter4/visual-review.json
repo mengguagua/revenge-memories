@@ -1,0 +1,146 @@
+{
+  "passed": true,
+  "render": "Godot native map renderer, background_guard, no activation",
+  "rounds": 5,
+  "findings_fixed": [
+    "部署/敌人格保留原类别时，视觉地面独立沿路面铺设，消除孤立紫色碎片。",
+    "F44便桥改为真正横跨北池，两端各有石廊接地。",
+    "F41两处井院保持完整铺石，土路进入院缘后不切碎院面。",
+    "新增雪村住屋、骑兵营帐补齐门前短路。",
+    "雪/沙/盐原山石下的大块深色基底改为相应地面；保留全部^逻辑并让每个裸岩阻挡格具有完整石块轮廓。",
+    "F43/F44/S42小艇从部署木台移入紧邻西侧的真实泊水，移位不占部署或交互格；三处水面修正共34个西边缘无锚点格，待主代理最终逐图再试玩。"
+  ],
+  "checked_images": [
+    {
+      "code": "F41",
+      "image": "images/F41.png",
+      "size": [
+        576,
+        480
+      ],
+      "bytes": 58965,
+      "roads_match_surfaces": true,
+      "door_front_clear": true,
+      "native_bitmap_scale": true,
+      "objective_anchors_preserved": true
+    },
+    {
+      "code": "F42",
+      "image": "images/F42.png",
+      "size": [
+        512,
+        512
+      ],
+      "bytes": 49657,
+      "roads_match_surfaces": true,
+      "door_front_clear": true,
+      "native_bitmap_scale": true,
+      "objective_anchors_preserved": true
+    },
+    {
+      "code": "F43",
+      "image": "images/F43.png",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 55883,
+      "roads_match_surfaces": true,
+      "door_front_clear": true,
+      "native_bitmap_scale": true,
+      "objective_anchors_preserved": true
+    },
+    {
+      "code": "F44",
+      "image": "images/F44.png",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 51183,
+      "roads_match_surfaces": true,
+      "door_front_clear": true,
+      "native_bitmap_scale": true,
+      "objective_anchors_preserved": true
+    },
+    {
+      "code": "M41",
+      "image": "images/M41.png",
+      "size": [
+        576,
+        480
+      ],
+      "bytes": 70540,
+      "roads_match_surfaces": true,
+      "door_front_clear": true,
+      "native_bitmap_scale": true,
+      "objective_anchors_preserved": true
+    },
+    {
+      "code": "M42",
+      "image": "images/M42.png",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 77868,
+      "roads_match_surfaces": true,
+      "door_front_clear": true,
+      "native_bitmap_scale": true,
+      "objective_anchors_preserved": true
+    },
+    {
+      "code": "M43",
+      "image": "images/M43.png",
+      "size": [
+        512,
+        512
+      ],
+      "bytes": 69575,
+      "roads_match_surfaces": true,
+      "door_front_clear": true,
+      "native_bitmap_scale": true,
+      "objective_anchors_preserved": true
+    },
+    {
+      "code": "M44",
+      "image": "images/M44.png",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 68357,
+      "roads_match_surfaces": true,
+      "door_front_clear": true,
+      "native_bitmap_scale": true,
+      "objective_anchors_preserved": true
+    },
+    {
+      "code": "S41",
+      "image": "images/S41.png",
+      "size": [
+        448,
+        416
+      ],
+      "bytes": 41935,
+      "roads_match_surfaces": true,
+      "door_front_clear": true,
+      "native_bitmap_scale": true,
+      "objective_anchors_preserved": true
+    },
+    {
+      "code": "S42",
+      "image": "images/S42.png",
+      "size": [
+        448,
+        416
+      ],
+      "bytes": 38269,
+      "roads_match_surfaces": true,
+      "door_front_clear": true,
+      "native_bitmap_scale": true,
+      "objective_anchors_preserved": true
+    }
+  ],
+  "gameplay_validation": "由主代理使用普通按键逐图试玩；本报告只声称全景与静态几何检查。"
+}

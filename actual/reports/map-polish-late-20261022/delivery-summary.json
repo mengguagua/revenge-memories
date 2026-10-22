@@ -1,0 +1,2715 @@
+{
+  "passed": true,
+  "date": "2026-10-22",
+  "map_revision": "0.10.3",
+  "maps": [
+    {
+      "code": "M31",
+      "chapter": 3,
+      "name": "西街撤离",
+      "size": [
+        28,
+        24
+      ],
+      "notes": [
+        "西门撤离主街与东侧环街围合拘押院，院门朝南接路；居民获释后可以沿连续宽街抵达真正的西门。",
+        "街边医舍、粮仓和民宅各有门前短巷，南住区围绕水井布置，林带与小院分开街道和建筑。",
+        "保留两名拘押居民、侧街路障和第四敌回合追兵的原位置与条件；部署到拘押院不增加绕行。"
+      ],
+      "goal": "救出被拘押者并撤至西门；击败追捕队长。不得攻击平民。",
+      "turn": 14,
+      "inputs": 951,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_streak": 0,
+        "evacuated": [
+          "street_resident",
+          "detained0",
+          "detained1"
+        ],
+        "freed": [],
+        "german_decision": "",
+        "mid_done": false,
+        "objects": {
+          "court": true
+        },
+        "reinforced": true,
+        "transport_index": 0,
+        "transport_stopped": false
+      },
+      "map_sha256": "660bb9565f195e9ce8bc9a9e5c4cccec0fca2b3174b5b18a4ed53890f67f2d7e",
+      "source": "play/round2-ch3/round2-ch3-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "M32",
+      "chapter": 3,
+      "name": "军需大道截运",
+      "size": [
+        32,
+        24
+      ],
+      "notes": [
+        "军需大道穿过丘陵林带，两处铺石运输站直接连在车辙上；北口由哨棚守卫，粮仓和工棚都有接路的南向入口。",
+        "南侧林缘留出一条宽度两格的迂回道，树林集中在道路两侧，车场与粮袋沿站场边缘放置。",
+        "运输车、两站和车锁的位置与原条件保持，既有北撤道路贯通，首个可控制目标不增加路径距离。"
+      ],
+      "goal": "占领两处运输站并击败护送长；救出车上的工匠。运输车逃出北口则失败。",
+      "turn": 14,
+      "inputs": 1055,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_streak": 0,
+        "evacuated": [],
+        "freed": [],
+        "german_decision": "",
+        "mid_done": false,
+        "objects": {
+          "cart_release": true,
+          "station_n": true,
+          "station_w": true
+        },
+        "reinforced": false,
+        "transport_index": 0,
+        "transport_stopped": true
+      },
+      "map_sha256": "b46678e2dd4da6c2cfb689a5b24d30591a99598aecd18c31d6591874974b13ed",
+      "source": "play/round2-ch3/round2-ch3-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "M33",
+      "chapter": 3,
+      "name": "沿海石堡",
+      "size": [
+        28,
+        26
+      ],
+      "notes": [
+        "石堡的铺石内院、南侧工房与东岸投送栈桥形成明确的军港关系；码头控制旗位于上岸通路尽头。",
+        "西侧灰岩山脊与林坡框住入堡车道，诊所和工房各有门前支路，南林缘留有平行进退空间。",
+        "保留格曼交涉、工房记录和投送码头的实际位置，堡主与增援条件保持；栈桥两端均连接真实陆地。"
+      ],
+      "goal": "击败堡主并控制投送码头；格曼可投降，存活时不作为必须歼灭对象。",
+      "turn": 17,
+      "inputs": 1272,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_streak": 0,
+        "evacuated": [],
+        "freed": [],
+        "german_decision": "accepted",
+        "mid_done": false,
+        "objects": {
+          "dock_control": true,
+          "workshop": true
+        },
+        "reinforced": false,
+        "transport_index": 0,
+        "transport_stopped": false
+      },
+      "map_sha256": "103a79daba1837bda85e08069687bf7b5e2ed468342943b0b7c9ef15edf48ed8",
+      "source": "play/round2-ch3/round2-ch3-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "F31",
+      "chapter": 3,
+      "name": "码头脱围",
+      "size": [
+        28,
+        22
+      ],
+      "notes": [
+        "己方船停在西侧港湾，连续的两格跳板连到码头主街；船首、甲板、船尾与上岸口保持同一条船的轮廓。",
+        "北扣船所和南停泊所分别朝南开门，门前支街接入环形装卸通道，伤者无需穿越仓库或货箱。",
+        "木质靠泊边、石质内街、仓库与货场分层呈现；两处解锁、伤者撤回船只及第三敌回合增援规则保持。"
+      ],
+      "goal": "保护两组船上伤者回到己方船，并击败扣船队长；伤者全灭失败。",
+      "turn": 17,
+      "inputs": 1008,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_streak": 0,
+        "evacuated": [
+          "dock_patients0",
+          "dock_patients1"
+        ],
+        "freed": [],
+        "german_decision": "",
+        "mid_done": false,
+        "objects": {
+          "mooring": true,
+          "ship_lock": true
+        },
+        "reinforced": true,
+        "transport_index": 0,
+        "transport_stopped": false
+      },
+      "map_sha256": "22f0bfa05ece43a8d6f91a4c0564d7d8bec21b3b83f43c14216a17ca767cfb6b",
+      "source": "play/round2-ch3/round2-ch3-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "F32",
+      "chapter": 3,
+      "name": "盐路解围",
+      "size": [
+        28,
+        24
+      ],
+      "notes": [
+        "干燥盐路绕开西侧卤湖，经过中央水井歇脚坪再抵达北口；路旁小屋、运输车与补给箱组成有人使用的盐路驿站。",
+        "灰色岩台收束北侧和东南边界，主路与东侧短道围出中央开阔战场，避免用密林装饰盐原。",
+        "向导、路线册和可移路障位置保持；向导正常撤离与遇难后回收路线册两条路径都可达。"
+      ],
+      "goal": "击败封路神官并护送向导至出口；不要求踏遍沙地。",
+      "turn": 13,
+      "inputs": 885,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_streak": 0,
+        "evacuated": [],
+        "freed": [],
+        "german_decision": "",
+        "mid_done": false,
+        "objects": {
+          "guide_notes": true,
+          "salt_barrier": true
+        },
+        "reinforced": false,
+        "transport_index": 0,
+        "transport_stopped": false
+      },
+      "map_sha256": "83aac9695dc09467efe881923ab3a10bbac625b9aa400fe180b660aa397185df",
+      "source": "play/round2-ch3/round2-ch3-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "F33",
+      "chapter": 3,
+      "name": "提炼院后庭",
+      "size": [
+        28,
+        24
+      ],
+      "notes": [
+        "提炼院用石质主廊连接物料仓、术士工房、记录室和控制阵台，院内保留回廊与中央设备空地，呈现设施后庭而非空白广场。",
+        "南侧卸货口接运输路，外侧盐地和灰岩台划定设施边界；祭器平台独立设于东侧，控制旗在玩家能够站立的地面。",
+        "两名术士的保护、工房开门、记录复制与阵台稳定各自保留，所有门前操作格与原战斗条件一致。"
+      ],
+      "goal": "击败控制神官，保护两名维持设施的术士，并取得调节记录。",
+      "turn": 11,
+      "inputs": 863,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_streak": 0,
+        "evacuated": [],
+        "freed": [],
+        "german_decision": "",
+        "mid_done": false,
+        "objects": {
+          "control_array": true,
+          "regulation_record": true,
+          "workers_gate": true
+        },
+        "reinforced": false,
+        "transport_index": 0,
+        "transport_stopped": false
+      },
+      "map_sha256": "79d971aa102f2b0fa025d71f138cb6ca434ab6c3d2f3c821af316898fc93f1a5",
+      "source": "play/round2-ch3/round2-ch3-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "S31",
+      "chapter": 3,
+      "name": "山村地牢",
+      "size": [
+        22,
+        20
+      ],
+      "notes": [
+        "灰岩地牢围绕两间独立牢房组织横廊，东西牢门都朝向明亮土质通道，主廊连到东北守卫岗。",
+        "矿口工具角与东侧巡守回廊形成可读的内部空间；自然岩壁取代整圈紫色方框，牢室和火盆保留完整原生像素轮廓。",
+        "牢门、家属、首领和劝降条件保持，释放家属后不增加撤离要求；两扇门都可从南侧到达。"
+      ],
+      "goal": "击败狱卒首领，释放两组家庭；至少一组存活。",
+      "turn": 10,
+      "inputs": 739,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_streak": 0,
+        "evacuated": [],
+        "freed": [],
+        "german_decision": "",
+        "mid_done": false,
+        "objects": {
+          "family_e": true,
+          "family_w": true
+        },
+        "reinforced": false,
+        "transport_index": 0,
+        "transport_stopped": false
+      },
+      "map_sha256": "46dd09860520cbf8613fb477c1bcaec27465d1bcde30216c3dbe3283d778e55e",
+      "source": "play/round2-ch3/round2-ch3-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "S32",
+      "chapter": 3,
+      "name": "盐原营地",
+      "size": [
+        28,
+        22
+      ],
+      "notes": [
+        "营地依靠西侧卤湖与北面岩台选址，两间拘押营房都有南向门前空地，并由宽干道连向军帐与守军营房。",
+        "外围短木栅、仓箱和东侧巡路表达临时驻军用途；岩台和盐地保留开阔视线，不铺设与盐原不符的树林。",
+        "两间营房及诺娅、弟弟、居民的位置和独立生死判定保持；从部署区到任一牢门都有连续通路。"
+      ],
+      "goal": "击败营长，打开术士与居民营房；诺娅及弟弟分别记录生死。",
+      "turn": 11,
+      "inputs": 740,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_streak": 0,
+        "evacuated": [],
+        "freed": [],
+        "german_decision": "",
+        "mid_done": false,
+        "objects": {
+          "civilian_barrack": true,
+          "mage_barrack": true
+        },
+        "reinforced": false,
+        "transport_index": 0,
+        "transport_stopped": false
+      },
+      "map_sha256": "957e02698e8aef0d47d03ad26ca38f11d4aeed77c7b4da9e7630312605d4099d",
+      "source": "play/round2-ch3/round2-ch3-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "M41",
+      "chapter": 4,
+      "name": "雪峡撤离战",
+      "size": [
+        32,
+        26
+      ],
+      "notes": [
+        "融雪溪顺峡谷贯通南北，两座横向木桥分别接北村与南口，桥面两端均落在村道上。",
+        "雪松集中成林，岩壁形成峡口轮廓；村舍南门、医舍停靠点与东侧巡逻路各有明确支路。",
+        "南口部署、三组居民、伤者停靠点与追兵入口原位保留，居民可沿连贯道路向南撤离。"
+      ],
+      "goal": "疏通南口与停靠点，撤离至少两组居民并击败指挥官。",
+      "turn": 17,
+      "inputs": 1848,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_count": 0,
+        "burn_streak": 0,
+        "evacuated": [
+          "snow_group2",
+          "snow_group1"
+        ],
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "rest_station": true,
+          "south_gate": true
+        },
+        "old_comrades_talked": false,
+        "record_lost": false,
+        "reinforced": true,
+        "repair_since": -1,
+        "summon_wave": false,
+        "transfer_cut_snapshot": false,
+        "well_since": {
+          "well_n": -1,
+          "well_s": -1
+        },
+        "wells": {
+          "well_n": true,
+          "well_s": true
+        }
+      },
+      "map_sha256": "fe27b399ee6a4673584501460599736cecf8d814c7c37fcde248b6bbd3bb2659",
+      "source": "play/round2-ch4/round2-ch4-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "M42",
+      "chapter": 4,
+      "name": "铁骑封锁线",
+      "size": [
+        32,
+        28
+      ],
+      "notes": [
+        "贯通南北的宽军道通向北侧关堡；西侧骑兵环道与东侧营地支路形成可迂回的关卡。",
+        "投送站位于独立铺石后勤院，仓房、营帐和货箱沿院缘布置，驻军与旧同袍各有可辨识的集结区域。",
+        "旧同袍交涉、投送站和营地登记坐标不变，原骑兵与增援入口保持连通。"
+      ],
+      "goal": "控制投送站并击败铁骑统领。",
+      "turn": 15,
+      "inputs": 1304,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_count": 0,
+        "burn_streak": 0,
+        "evacuated": [],
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "transfer_station": true
+        },
+        "old_comrades_talked": false,
+        "record_lost": false,
+        "reinforced": true,
+        "repair_since": -1,
+        "summon_wave": false,
+        "transfer_cut_snapshot": false,
+        "well_since": {
+          "well_n": -1,
+          "well_s": -1
+        },
+        "wells": {
+          "well_n": true,
+          "well_s": true
+        }
+      },
+      "map_sha256": "cfddbfd07905f01f601d02e4ffc8b75b4d7898f02c4f1616ab273e875945dffb",
+      "source": "play/round2-ch4/round2-ch4-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "M43",
+      "chapter": 4,
+      "name": "北境日塔",
+      "size": [
+        28,
+        28
+      ],
+      "notes": [
+        "日塔坐落于两侧雪崖之间，铺石主路接入外院，塔脚留出前庭与环行通道。",
+        "西侧医舍、东侧控制工房形成独立服务院，覆雪花圃和灯柱分开战斗区域，避免整片无层次的石地。",
+        "外院旗位、病人、工匠及控制室南侧读档位置不变，尚未取得观测步骤时仍能完成夺塔。"
+      ],
+      "goal": "接管外院与控制室，击败塔卫统领。",
+      "turn": 10,
+      "inputs": 838,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_count": 0,
+        "burn_streak": 0,
+        "evacuated": [],
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "outer_court": true,
+          "tower_control": true
+        },
+        "old_comrades_talked": false,
+        "record_lost": false,
+        "reinforced": false,
+        "repair_since": -1,
+        "summon_wave": false,
+        "transfer_cut_snapshot": true,
+        "well_since": {
+          "well_n": -1,
+          "well_s": -1
+        },
+        "wells": {
+          "well_n": true,
+          "well_s": true
+        }
+      },
+      "map_sha256": "b16c7408d08f64718d9becbd01ae362a0c0a99da3917c384ec43161dd7bbab24",
+      "source": "play/round2-ch4/round2-ch4-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "M44",
+      "chapter": 4,
+      "name": "王都城门",
+      "size": [
+        32,
+        28
+      ],
+      "notes": [
+        "城墙与四格正门作为明确前后界线，南侧民居、仓储街、伤兵医舍分别围绕主街组织。",
+        "北侧留出门内集结广场，城堡前路与门楼衔接；街角绿地、屋门前的小路与边缘林带减少大面积重复铺砖。",
+        "门楼占领、伤兵后撤门、赫兰投降判定与增援保持原位；屋顶和城墙不能通行，入口及巷道均可到达。"
+      ],
+      "goal": "占领门楼，击败并解除赫兰指挥权。",
+      "turn": 16,
+      "inputs": 1295,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_count": 0,
+        "burn_streak": 0,
+        "evacuated": [],
+        "freed": [],
+        "mid_done": true,
+        "objects": {
+          "gatehouse": true
+        },
+        "old_comrades_talked": false,
+        "record_lost": false,
+        "reinforced": true,
+        "repair_since": -1,
+        "summon_wave": false,
+        "transfer_cut_snapshot": true,
+        "well_since": {
+          "well_n": -1,
+          "well_s": -1
+        },
+        "wells": {
+          "well_n": true,
+          "well_s": true
+        }
+      },
+      "map_sha256": "75b4d8390a2cfb0df28a16dad2bce9dcbd28ac3e17ef4d08b3336bc9da21cfec",
+      "source": "play/round2-ch4/round2-ch4-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "F41",
+      "chapter": 4,
+      "name": "沙城守井战",
+      "size": [
+        32,
+        26
+      ],
+      "notes": [
+        "沙城以两处铺石井院为生活中心，取水路连接井台与民居，横街供部队穿行和调防。",
+        "外围沙丘岩脊、紧凑的住屋组和仓房围成街区；井口保持实体，南侧取水台清楚可站。",
+        "南井首回合布防和分兵夺北井的原距离保持，敌军连续占井一轮才失守的规则不变。"
+      ],
+      "goal": "保住至少一井至第6己方回合，并击败强迁队长。",
+      "turn": 11,
+      "inputs": 986,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_count": 0,
+        "burn_streak": 0,
+        "evacuated": [],
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "well_s": true
+        },
+        "old_comrades_talked": false,
+        "record_lost": false,
+        "reinforced": true,
+        "repair_since": -1,
+        "summon_wave": false,
+        "transfer_cut_snapshot": true,
+        "well_since": {
+          "well_n": 2,
+          "well_s": -1
+        },
+        "wells": {
+          "well_n": false,
+          "well_s": true
+        }
+      },
+      "map_sha256": "00f6e5e73f45ba92870b0074765b080bc8b86c3b549ccf1f3f7191b09fdf384c",
+      "source": "play/round2-ch4/round2-ch4-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "F42",
+      "chapter": 4,
+      "name": "盐原观测台",
+      "size": [
+        28,
+        28
+      ],
+      "notes": [
+        "盐原上的观测院采用磨旧石路和裸露盐地交错，主设备、东楼档案与北侧值守堡各有明确前庭。",
+        "成组岩脊围出高台边缘，旧石拱、对称灯柱与抄录工住屋交代遗址和维护区域，保持低饱和度。",
+        "东楼记录南侧读取格与中央设备确认格原位保留，焚毁兵出发时机和保护记录任务不变。"
+      ],
+      "goal": "保护东楼记录、复制设备，击败萨弥。",
+      "turn": 17,
+      "inputs": 1458,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_count": 0,
+        "burn_streak": 0,
+        "evacuated": [],
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "observation_device": true,
+          "observatory_record": true
+        },
+        "old_comrades_talked": false,
+        "record_lost": false,
+        "reinforced": false,
+        "repair_since": -1,
+        "summon_wave": false,
+        "transfer_cut_snapshot": true,
+        "well_since": {
+          "well_n": -1,
+          "well_s": -1
+        },
+        "wells": {
+          "well_n": true,
+          "well_s": true
+        }
+      },
+      "map_sha256": "fd9902a4fac2f4f3e93ed2f5239e754d9c7c2b9fc943160f69bbb6983814db44",
+      "source": "play/round2-ch4/round2-ch4-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "F43",
+      "chapter": 4,
+      "name": "亡潮沼泽",
+      "size": [
+        32,
+        28
+      ],
+      "notes": [
+        "毒沼由不规则水洼、抬高干岛和木栈连接，第一、第二、第三干地沿连续古道依次可见。",
+        "木栈只铺在湿地间的窄段，接地端各有足够落脚地；船口与北侧旧瞭望塔明确标出进入和离开方向。",
+        "毒沼材质和原伤害保留，居民与干地确认点原位；护送路线保持干燥连续，并保留西侧绕行选择。"
+      ],
+      "goal": "依次确认三处干地、撤离至少两组居民并击败神官。",
+      "turn": 21,
+      "inputs": 1575,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_count": 0,
+        "burn_streak": 0,
+        "evacuated": [
+          "marsh_group2",
+          "marsh_group0"
+        ],
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "dry_1": true,
+          "dry_2": true,
+          "dry_3": true
+        },
+        "old_comrades_talked": false,
+        "record_lost": false,
+        "reinforced": false,
+        "repair_since": -1,
+        "summon_wave": true,
+        "transfer_cut_snapshot": true,
+        "well_since": {
+          "well_n": -1,
+          "well_s": -1
+        },
+        "wells": {
+          "well_n": true,
+          "well_s": true
+        }
+      },
+      "map_sha256": "2fff36804e683fd47eef182712963fbf5f817f5578c7e8de6bb3fed8fc536064",
+      "source": "play/round2-ch4/round2-ch4-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "F44",
+      "chapter": 4,
+      "name": "沉没祭所",
+      "size": [
+        32,
+        28
+      ],
+      "notes": [
+        "沉没祭所由中央调节庭、两座下陷水院和外圈石廊组成；西侧小码头接主入口，北侧神门构成视觉终点。",
+        "水院岸线直接落在真实水格内，局部木便桥横跨北池；残留盐渍平台与成对灯柱增强遗址层次。",
+        "三处调节点及工匠位置不变，沿外环可完成全部交接；维修等待、守兽与条件增援规则保持。"
+      ],
+      "goal": "交接三处调节点，保护工匠至下一回合并击败守兽。",
+      "turn": 20,
+      "inputs": 1736,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_count": 0,
+        "burn_streak": 0,
+        "evacuated": [],
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "regulator_1": true,
+          "regulator_2": true,
+          "regulator_3": true
+        },
+        "old_comrades_talked": false,
+        "record_lost": false,
+        "reinforced": false,
+        "repair_since": 19,
+        "summon_wave": false,
+        "transfer_cut_snapshot": true,
+        "well_since": {
+          "well_n": -1,
+          "well_s": -1
+        },
+        "wells": {
+          "well_n": true,
+          "well_s": true
+        }
+      },
+      "map_sha256": "39175355bba3cfc568f0c3b4422808e18f1474085ac511a7845307ae12aac175",
+      "source": "play/round2-ch4/round2-ch4-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "S41",
+      "chapter": 4,
+      "name": "黑钟村名册",
+      "size": [
+        24,
+        22
+      ],
+      "notes": [
+        "黑钟村形成钟楼前街、名册屋前院与西侧避难院，覆雪住屋集中在道路两旁而非散落空地。",
+        "林带包围村缘并留出视线，所有房屋正门都有短路接入主街，南侧另设回村支路。",
+        "名册读取、同袍对话与避难院坐标不变，焚毁支线损失仍不阻断主线。"
+      ],
+      "goal": "击败焚毁队长；尽力保护名册，失去记录不阻断主线。",
+      "turn": 8,
+      "inputs": 768,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_count": 0,
+        "burn_streak": 0,
+        "evacuated": [],
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "black_register": true
+        },
+        "old_comrades_talked": false,
+        "record_lost": false,
+        "reinforced": false,
+        "repair_since": -1,
+        "summon_wave": false,
+        "transfer_cut_snapshot": false,
+        "well_since": {
+          "well_n": -1,
+          "well_s": -1
+        },
+        "wells": {
+          "well_n": true,
+          "well_s": true
+        }
+      },
+      "map_sha256": "78c377ee4c06dfa4b2a409e853dd471f7b1e674df238c724a07ee8f7ce51f786",
+      "source": "play/round2-ch4/round2-ch4-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "S42",
+      "chapter": 4,
+      "name": "沼泽孤岛",
+      "size": [
+        24,
+        22
+      ],
+      "notes": [
+        "诊疗所位于岛中央抬高干地，病人等候处、照护住屋与西南船口由连续转运路相接。",
+        "岛缘水洼与湿地边界自然收束，两段木栈跨过低洼处，树林集中在干路外侧，便于判断安全通行区域。",
+        "赛琳、两组病人和船口接应位置均不移动；记录屋南侧可读，护送两组病人撤离的条件保持。"
+      ],
+      "goal": "确认船口、护送两组病人撤离并击败清洗队长。",
+      "turn": 8,
+      "inputs": 691,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_count": 0,
+        "burn_streak": 0,
+        "evacuated": [
+          "island_group0",
+          "island_group1"
+        ],
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "landing": true
+        },
+        "old_comrades_talked": false,
+        "record_lost": false,
+        "reinforced": false,
+        "repair_since": -1,
+        "summon_wave": false,
+        "transfer_cut_snapshot": true,
+        "well_since": {
+          "well_n": -1,
+          "well_s": -1
+        },
+        "wells": {
+          "well_n": true,
+          "well_s": true
+        }
+      },
+      "map_sha256": "a162f1b7536731a66b37c4705be9fd5a09cb0ae7b98f3b256d389dce6ddcd0d2",
+      "source": "play/round2-ch4/round2-ch4-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "M51",
+      "chapter": 5,
+      "name": "王都内廷",
+      "size": [
+        28,
+        26
+      ],
+      "notes": [
+        "宫门大道贯通北宫与南侧撤离口，东西病房由连续救护横街连接；两处南门操作格与伤兵出门格保持原位。",
+        "西侧仓院以土色卸货地和独立小路连接救护街，药车留在院前；建筑本体仍不可步行。",
+        "水池、成组常绿树和庭院草地收住宫墙边缘，南部保留伤兵转送与队伍展开空间。",
+        "采用既有低饱和宫殿美术，主路换为较克制的浅砂石铺面，避免大面积青色棋盘抢过角色。"
+      ],
+      "goal": "开放两处伤兵病房，撤离至少一组伤兵，并击败神军队长。",
+      "turn": 14,
+      "inputs": 1206,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_streak": 0,
+        "evacuated": [
+          "royal_wounded0",
+          "royal_wounded1"
+        ],
+        "final_phase": false,
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "ward_1": true,
+          "ward_2": true
+        },
+        "reinforced": true,
+        "repair_since": {
+          "repair_1": -1,
+          "repair_2": -1
+        },
+        "summon_wave": false
+      },
+      "map_sha256": "09d5cff62952b46c78469ce6e4fce0bd3c26d79fa9e16a07ffefedf19d07308f",
+      "source": "play/round2-ch5/round2-ch5-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "M52",
+      "chapter": 5,
+      "name": "登天桥",
+      "size": [
+        32,
+        24
+      ],
+      "notes": [
+        "保留完整六格石桥，三个桥锁沿同一横向主路排列；两岸道路确实接上桥面，桥外均为不能步行的水域。",
+        "西桥台保留部署与增援通道，东桥台为守卫留出回廊，两端由小片常绿庭园和错落岸线形成落脚点。",
+        "六根原有完整石柱与桥边护栏保持原位，桥面以浅石铺装和两条克制的青灰嵌线区分通行层。",
+        "三段控制顺序、首领与出口均保持，景观不增加绕行距离。"
+      ],
+      "goal": "依次解除三段桥锁，并击败桥卫统领。",
+      "turn": 12,
+      "inputs": 952,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_streak": 0,
+        "evacuated": [],
+        "final_phase": false,
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "bridge_1": true,
+          "bridge_2": true,
+          "bridge_3": true
+        },
+        "reinforced": true,
+        "repair_since": {
+          "repair_1": -1,
+          "repair_2": -1
+        },
+        "summon_wave": false
+      },
+      "map_sha256": "7e674d4d6f4fc88a45add4d0ed50731c8c646d8e4d8f3237b25b59b5936f18bf",
+      "source": "play/round2-ch5/round2-ch5-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "F51",
+      "chapter": 5,
+      "name": "祭所底层",
+      "size": [
+        28,
+        26
+      ],
+      "notes": [
+        "地下水渠从北侧岩口延伸到南部维修廊，中段三格检修桥连接两岸装置，渠尾另留日常维护通道。",
+        "两处调节器南面的交接格和工班站位保持原样，操作平台与通往楼梯的石路连续。",
+        "外围岩壁与小型检修物资围合地下空间，灯火分布在工作区边缘，不把地下祭所画成露天庭园。",
+        "北侧守卫平台、南部增援口和全部部署点仍可步行到达；交接后保护一轮的机制不变。"
+      ],
+      "goal": "交接两处修复区，分别保护至下一己方回合，并击败守卫长。",
+      "turn": 16,
+      "inputs": 1428,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_streak": 0,
+        "evacuated": [],
+        "final_phase": false,
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "repair_1": true,
+          "repair_2": true
+        },
+        "reinforced": true,
+        "repair_since": {
+          "repair_1": 3,
+          "repair_2": 15
+        },
+        "summon_wave": false
+      },
+      "map_sha256": "6f2664c10b83ef6ca3ae69838a5b288de0c76903ae2f73adb03364e9a33de0c4",
+      "source": "play/round2-ch5/round2-ch5-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "F52",
+      "chapter": 5,
+      "name": "日宫下层",
+      "size": [
+        32,
+        26
+      ],
+      "notes": [
+        "中央水渠分开左右门阵，原石桥与南侧绕渠回廊组成闭合路线，主殿南侧另有通向两翼的短廊。",
+        "两处装置门前留足操作平台，站位与确认规则保持原样；水面边缘不再用整格伪岸线占用道路。",
+        "大树与矮树集中在外围和南部庭园，建筑入口、中央桥和正殿阶前保持清楚留白。",
+        "共享神宫的低饱和石材和建筑，与地下维修层通过水渠形制相联系，但用庭园和双翼布局区分场景。"
+      ],
+      "goal": "确认两处门阵，击败下层神官。",
+      "turn": 14,
+      "inputs": 1185,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_streak": 0,
+        "evacuated": [],
+        "final_phase": false,
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "lower_east": true,
+          "lower_west": true
+        },
+        "reinforced": false,
+        "repair_since": {
+          "repair_1": -1,
+          "repair_2": -1
+        },
+        "summon_wave": false
+      },
+      "map_sha256": "8af039c4a42be4932931ea463e2fc5137786a163f4287d41c37f9662fa4f7a52",
+      "source": "play/round2-ch5/round2-ch5-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "S51",
+      "chapter": 5,
+      "name": "神宫旧书库",
+      "size": [
+        24,
+        20
+      ],
+      "notes": [
+        "书库正门与南门交接处沿同一条中轴步道相连，取回记录后能直观看到返回方向。",
+        "两侧阅览庭由一圈石路连通，成组常绿树隔出安静的小庭，守卫区与部署区仍有充分展开空间。",
+        "原有书箱、石柱和完整书库立面保留；南门不增加假门或不可交互装饰，避免误判。",
+        "支线记录、南门交接条件和开放时机均不变，路线可直接走完，也能从侧廊接近守卫。"
+      ],
+      "goal": "取回旧事记录，击败书库守卫后在南门交接。",
+      "turn": 10,
+      "inputs": 868,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_streak": 0,
+        "evacuated": [],
+        "final_phase": false,
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "archive_exit": true,
+          "old_record": true
+        },
+        "reinforced": false,
+        "repair_since": {
+          "repair_1": -1,
+          "repair_2": -1
+        },
+        "summon_wave": false
+      },
+      "map_sha256": "5f707535ed25c93115477d98f7489748556b8660e8b6605f785e0fe09c1f09c9",
+      "source": "play/round2-ch5/round2-ch5-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "J53",
+      "chapter": 5,
+      "name": "神宫前庭",
+      "size": [
+        32,
+        28
+      ],
+      "notes": [
+        "两军从西南、东南入口沿南廊会合，五格中轴通向正殿；双方各有直达侧翼阵门的道路。",
+        "双池与成组庭树分隔外侧通道和中央推进线，横向联络廊让两翼能互相支援，无需绕入建筑背后。",
+        "两处阵门操作格、双方部署名册和前庭统领位置保持，新增景观不会把单方队伍关在支路。",
+        "浅石铺路承托低饱和宫殿，只在会师线和中轴保留细青灰嵌线，重点留给建筑、角色和阵门。"
+      ],
+      "goal": "确认两翼门阵，击败前庭统领。",
+      "turn": 9,
+      "inputs": 2147,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_streak": 0,
+        "evacuated": [],
+        "final_phase": false,
+        "freed": [],
+        "mid_done": false,
+        "objects": {
+          "court_east": true,
+          "court_west": true
+        },
+        "reinforced": false,
+        "repair_since": {
+          "repair_1": -1,
+          "repair_2": -1
+        },
+        "summon_wave": false
+      },
+      "map_sha256": "48d459575ff967d2c0d133264a54c32c3043480b29ebedce45d7ebae7738156f",
+      "source": "play/round2-ch5/round2-ch5-play.json",
+      "result": "victory",
+      "return_view": "world",
+      "ending_done": false
+    },
+    {
+      "code": "J54",
+      "chapter": 5,
+      "name": "太阳神乌库布·卡基",
+      "size": [
+        32,
+        30
+      ],
+      "notes": [
+        "神座与五格入场轴线一眼可辨，前庭的分路推进在此收束为宽阔的中央会战平台。",
+        "两侧柱廊、水池与南部庭园围合场地；西东回转廊保留会师与援护空间，池边不设置隐藏可走格。",
+        "神座、首领、双主角部署与半血援军规则不变，平台留空让现有战斗动作和法术表现清楚。",
+        "沿用低饱和神宫建筑与浅色石材，用稀疏青灰嵌线和成组植被控制节奏，不以额外发光或高饱和地面遮盖单位。"
+      ],
+      "goal": "击败乌库布·卡基的实体；胡纳普和艾琳均须存活。",
+      "turn": 15,
+      "inputs": 2878,
+      "quest": {
+        "beacon_contested": false,
+        "beacon_since": -1,
+        "boats": [],
+        "burn_streak": 0,
+        "evacuated": [],
+        "final_phase": true,
+        "freed": [],
+        "mid_done": false,
+        "objects": {},
+        "reinforced": false,
+        "repair_since": {
+          "repair_1": -1,
+          "repair_2": -1
+        },
+        "summon_wave": true
+      },
+      "map_sha256": "50c847e72fce641fdb1ab052ec2cfd22693c4e3650720b4c344336a7db8e90fd",
+      "source": "play/round2-ch5/round2-ch5-play.json",
+      "result": "victory",
+      "return_view": "ending",
+      "ending_done": true
+    }
+  ],
+  "map_count": 25,
+  "real_key_inputs_final_round": 30676,
+  "screenshots": 55,
+  "checks": {
+    "geometry": 1525,
+    "runtime_reachability_and_saves": 1845,
+    "chapter_contract_fixtures": 1572,
+    "exported_app": 510,
+    "runtime_text_layout_errors": 0
+  },
+  "two_rounds": {
+    "first": "Iteration play on all25 scenes; F43 escort loss retained, then normal input escort-first retry won. First-round art was still under review.",
+    "second": "All25 finalized maps reentered and won with unchanged map hashes from entry through result; ordinary post-battle hubs returned to world, J54 ending completed."
+  },
+  "attempt_count": 51,
+  "winning_attempts": 50,
+  "attempts": [
+    {
+      "label": "marsh-escort",
+      "source": "play/marsh-escort/marsh-escort-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "F43",
+          "outcome": "victory",
+          "turn": 21,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "label": "round1-ch3",
+      "source": "play/round1-ch3/round1-ch3-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M31",
+          "outcome": "victory",
+          "turn": 15,
+          "failures": []
+        },
+        {
+          "code": "M32",
+          "outcome": "victory",
+          "turn": 14,
+          "failures": []
+        },
+        {
+          "code": "M33",
+          "outcome": "victory",
+          "turn": 18,
+          "failures": []
+        },
+        {
+          "code": "F31",
+          "outcome": "victory",
+          "turn": 14,
+          "failures": []
+        },
+        {
+          "code": "F32",
+          "outcome": "victory",
+          "turn": 17,
+          "failures": []
+        },
+        {
+          "code": "F33",
+          "outcome": "victory",
+          "turn": 10,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "label": "round1-ch3-side",
+      "source": "play/round1-ch3-side/round1-ch3-side-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "S31",
+          "outcome": "victory",
+          "turn": 9,
+          "failures": []
+        },
+        {
+          "code": "S32",
+          "outcome": "victory",
+          "turn": 11,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "label": "round1-ch4",
+      "source": "play/round1-ch4/round1-ch4-play.json",
+      "passed": false,
+      "battles": [
+        {
+          "code": "M41",
+          "outcome": "victory",
+          "turn": 19,
+          "failures": []
+        },
+        {
+          "code": "S41",
+          "outcome": "victory",
+          "turn": 8,
+          "failures": []
+        },
+        {
+          "code": "M42",
+          "outcome": "victory",
+          "turn": 15,
+          "failures": []
+        },
+        {
+          "code": "M43",
+          "outcome": "victory",
+          "turn": 25,
+          "failures": []
+        },
+        {
+          "code": "M44",
+          "outcome": "victory",
+          "turn": 13,
+          "failures": []
+        },
+        {
+          "code": "F41",
+          "outcome": "victory",
+          "turn": 16,
+          "failures": []
+        },
+        {
+          "code": "F42",
+          "outcome": "victory",
+          "turn": 12,
+          "failures": []
+        },
+        {
+          "code": "F43",
+          "outcome": "defeat",
+          "turn": 6,
+          "failures": [
+            "Natural battle failed: F43 { \"objects\": { \"dry_1\": true }, \"evacuated\": [], \"freed\": [], \"burn_streak\": 0, \"reinforced\": false, \"mid_done\": false, &\"beacon_since\": -1, &\"beacon_contested\": false, &\"boats\": [], &\"wells\": { \"well_n\": true, \"well_s\": true }, &\"well_since\": { \"well_n\": -1, \"well_s\": -1 }, &\"record_lost\": false, &\"burn_count\": 0, &\"summon_wave\": true, &\"repair_since\": -1, &\"old_comrades_talked\": false, &\"transfer_cut_snapshot\": true, &\"failed_reason\": \"能够获救的居民不足两组\" }"
+          ]
+        },
+        {
+          "code": "S42",
+          "outcome": "victory",
+          "turn": 8,
+          "failures": []
+        },
+        {
+          "code": "F44",
+          "outcome": "victory",
+          "turn": 21,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "label": "round1-ch5",
+      "source": "play/round1-ch5/round1-ch5-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M51",
+          "outcome": "victory",
+          "turn": 14,
+          "failures": []
+        },
+        {
+          "code": "M52",
+          "outcome": "victory",
+          "turn": 11,
+          "failures": []
+        },
+        {
+          "code": "F51",
+          "outcome": "victory",
+          "turn": 12,
+          "failures": []
+        },
+        {
+          "code": "F52",
+          "outcome": "victory",
+          "turn": 13,
+          "failures": []
+        },
+        {
+          "code": "S51",
+          "outcome": "victory",
+          "turn": 11,
+          "failures": []
+        },
+        {
+          "code": "J53",
+          "outcome": "victory",
+          "turn": 8,
+          "failures": []
+        },
+        {
+          "code": "J54",
+          "outcome": "victory",
+          "turn": 10,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "label": "round2-ch3",
+      "source": "play/round2-ch3/round2-ch3-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M31",
+          "outcome": "victory",
+          "turn": 14,
+          "failures": []
+        },
+        {
+          "code": "M32",
+          "outcome": "victory",
+          "turn": 14,
+          "failures": []
+        },
+        {
+          "code": "M33",
+          "outcome": "victory",
+          "turn": 17,
+          "failures": []
+        },
+        {
+          "code": "F31",
+          "outcome": "victory",
+          "turn": 17,
+          "failures": []
+        },
+        {
+          "code": "F32",
+          "outcome": "victory",
+          "turn": 13,
+          "failures": []
+        },
+        {
+          "code": "F33",
+          "outcome": "victory",
+          "turn": 11,
+          "failures": []
+        },
+        {
+          "code": "S31",
+          "outcome": "victory",
+          "turn": 10,
+          "failures": []
+        },
+        {
+          "code": "S32",
+          "outcome": "victory",
+          "turn": 11,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "label": "round2-ch4",
+      "source": "play/round2-ch4/round2-ch4-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M41",
+          "outcome": "victory",
+          "turn": 17,
+          "failures": []
+        },
+        {
+          "code": "S41",
+          "outcome": "victory",
+          "turn": 8,
+          "failures": []
+        },
+        {
+          "code": "M42",
+          "outcome": "victory",
+          "turn": 15,
+          "failures": []
+        },
+        {
+          "code": "M43",
+          "outcome": "victory",
+          "turn": 10,
+          "failures": []
+        },
+        {
+          "code": "M44",
+          "outcome": "victory",
+          "turn": 16,
+          "failures": []
+        },
+        {
+          "code": "F41",
+          "outcome": "victory",
+          "turn": 11,
+          "failures": []
+        },
+        {
+          "code": "F42",
+          "outcome": "victory",
+          "turn": 17,
+          "failures": []
+        },
+        {
+          "code": "F43",
+          "outcome": "victory",
+          "turn": 21,
+          "failures": []
+        },
+        {
+          "code": "S42",
+          "outcome": "victory",
+          "turn": 8,
+          "failures": []
+        },
+        {
+          "code": "F44",
+          "outcome": "victory",
+          "turn": 20,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "label": "round2-ch5",
+      "source": "play/round2-ch5/round2-ch5-play.json",
+      "passed": true,
+      "battles": [
+        {
+          "code": "M51",
+          "outcome": "victory",
+          "turn": 14,
+          "failures": []
+        },
+        {
+          "code": "M52",
+          "outcome": "victory",
+          "turn": 12,
+          "failures": []
+        },
+        {
+          "code": "F51",
+          "outcome": "victory",
+          "turn": 16,
+          "failures": []
+        },
+        {
+          "code": "F52",
+          "outcome": "victory",
+          "turn": 14,
+          "failures": []
+        },
+        {
+          "code": "S51",
+          "outcome": "victory",
+          "turn": 10,
+          "failures": []
+        },
+        {
+          "code": "J53",
+          "outcome": "victory",
+          "turn": 9,
+          "failures": []
+        },
+        {
+          "code": "J54",
+          "outcome": "victory",
+          "turn": 15,
+          "failures": []
+        }
+      ]
+    }
+  ],
+  "preserved_first_two_chapters": {
+    "F21": true,
+    "F22": true,
+    "F23": true,
+    "F24": true,
+    "F25": true,
+    "F26": true,
+    "M11": true,
+    "M12": true,
+    "M13": true,
+    "M14": true,
+    "M15": true,
+    "S11": true,
+    "S12": true,
+    "S21": true,
+    "S22": true
+  },
+  "source_saves_modified": false,
+  "new_compatibility_maps": false,
+  "animation_changes_by_this_task": false,
+  "assets": [
+    {
+      "file": "before/F31.png",
+      "purpose": "before",
+      "size": [
+        512,
+        416
+      ],
+      "bytes": 37829,
+      "sha256": "fb4e1aaeb658f5853db337927fd909e24eb0f6a01ecbc9247985e99d5665b7f6",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/F32.png",
+      "purpose": "before",
+      "size": [
+        512,
+        448
+      ],
+      "bytes": 33889,
+      "sha256": "68d700f0498f129c1d4de0e7e19452af4c372aea8c7ee854db246ac8d1b965ea",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/F33.png",
+      "purpose": "before",
+      "size": [
+        512,
+        448
+      ],
+      "bytes": 35707,
+      "sha256": "ad7720839aad5820e7d66b6e3b02f0f72f664d5670b132e55c9dc87af674bed3",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/F41.png",
+      "purpose": "before",
+      "size": [
+        576,
+        480
+      ],
+      "bytes": 27160,
+      "sha256": "9b375233dac4ffea0ce135268f5493f0a2e94cd7dcf23bc2ca6ada87a9d07b92",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/F42.png",
+      "purpose": "before",
+      "size": [
+        512,
+        512
+      ],
+      "bytes": 37852,
+      "sha256": "f862703a686ac2f9e91cfa2d26dfa8582cae790578c5060520fa7397f384a0a9",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/F43.png",
+      "purpose": "before",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 27934,
+      "sha256": "0995b5fdac1b13b51a4d61db4edd815f102bb5b36abf4fbe20962dc83a7013bb",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/F44.png",
+      "purpose": "before",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 26008,
+      "sha256": "a7923039f981e0a077117c915c5ef978f02444ad2498a880dc7c029c9b1749db",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/F51.png",
+      "purpose": "before",
+      "size": [
+        512,
+        480
+      ],
+      "bytes": 61227,
+      "sha256": "ff09826c7643a9fad2290c7449aa6fafd33d75d608a96870f5f5fc3090f5fe2d",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/F52.png",
+      "purpose": "before",
+      "size": [
+        576,
+        480
+      ],
+      "bytes": 76757,
+      "sha256": "2fc407824af9010eab9b40ece2e21982c575667abe0c57e30c1d94445f686081",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/J53.png",
+      "purpose": "before",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 79202,
+      "sha256": "98f4a1ec4acbccf6a68cd004bde17594a5501566e6663674037defd2611c8e60",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/J54.png",
+      "purpose": "before",
+      "size": [
+        576,
+        544
+      ],
+      "bytes": 75121,
+      "sha256": "551e6e6cb279e8973099ee7aaea4cd7cf353fb127c478bb4985c955eac8dd786",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/M31.png",
+      "purpose": "before",
+      "size": [
+        512,
+        448
+      ],
+      "bytes": 42687,
+      "sha256": "b50a6a5766755fece95ce70624bac8e4f42a3125d5a0439e0aa1c53b270d6799",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/M32.png",
+      "purpose": "before",
+      "size": [
+        576,
+        448
+      ],
+      "bytes": 50418,
+      "sha256": "579a55a7f4c289912f09d2afd363609e4e03fd7a75c3ed756fdb0f474f6e6e4a",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/M33.png",
+      "purpose": "before",
+      "size": [
+        512,
+        480
+      ],
+      "bytes": 68966,
+      "sha256": "52237685c3ad0dcc194c104b2c9ed101ca732110d37a1182c9eac178b03010bb",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/M41.png",
+      "purpose": "before",
+      "size": [
+        576,
+        480
+      ],
+      "bytes": 53941,
+      "sha256": "d5cdbd20722eb53d2272ce32dc70993f53ed216bd1edd6c6e9bcf85ea2f79002",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/M42.png",
+      "purpose": "before",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 59508,
+      "sha256": "05129c86fc1d9442f5e8290513162fb19cc16598d1b3b0c2202d08517b793715",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/M43.png",
+      "purpose": "before",
+      "size": [
+        512,
+        512
+      ],
+      "bytes": 55948,
+      "sha256": "9352fbce5dbda7aea64dfe4c79c099492c124c32d3eee7e0359dc50937ad4eaa",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/M44.png",
+      "purpose": "before",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 46005,
+      "sha256": "a1321dd5f491be0eea5c43209cc909a3d65b822669d897591d6018d5c95cca62",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/M51.png",
+      "purpose": "before",
+      "size": [
+        512,
+        480
+      ],
+      "bytes": 95777,
+      "sha256": "c0a1fde97b05f3cfd19d81597bb3095dee5135634f101f8f32b570d09f9c504e",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/M52.png",
+      "purpose": "before",
+      "size": [
+        576,
+        448
+      ],
+      "bytes": 34072,
+      "sha256": "80976ca2191ed4870ced61a475b598bdd80c1f5bb09442d22dc29d7aa6096c03",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/S31.png",
+      "purpose": "before",
+      "size": [
+        416,
+        384
+      ],
+      "bytes": 29720,
+      "sha256": "ddb4d2505b199938a3b06c43f585679f1b4e0b425b0f32c045f3dd2be94ac53a",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/S32.png",
+      "purpose": "before",
+      "size": [
+        512,
+        416
+      ],
+      "bytes": 37780,
+      "sha256": "b38347a20ebce0533bce54c82331e4e98a00680847e01d921dd8b9deef669ce9",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/S41.png",
+      "purpose": "before",
+      "size": [
+        448,
+        416
+      ],
+      "bytes": 36692,
+      "sha256": "050e90ef66775ed31f5f59db8c8ea6998edc926ec896da2c6e424c75947e966a",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/S42.png",
+      "purpose": "before",
+      "size": [
+        448,
+        416
+      ],
+      "bytes": 18156,
+      "sha256": "4ff78ec2e0b9e91905ef126fe3075d8fe81858222048fe511ad72a2ba4060299",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "before/S51.png",
+      "purpose": "before",
+      "size": [
+        448,
+        384
+      ],
+      "bytes": 51623,
+      "sha256": "f72e7f9df4055bce762a95e1a1e1b64ab1c979cb5dc9733eac6f929e5a18360c",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/F31.png",
+      "purpose": "after",
+      "size": [
+        512,
+        416
+      ],
+      "bytes": 42668,
+      "sha256": "6142b62ae5625f03da514f4392f5191d11cf2b1eb6877873ca1b5e5c8e677424",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/F32.png",
+      "purpose": "after",
+      "size": [
+        512,
+        448
+      ],
+      "bytes": 41037,
+      "sha256": "f6ab483a6352c863dd2fe2b18e7221197fbc98a5914686b06cbb711bd5b26511",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/F33.png",
+      "purpose": "after",
+      "size": [
+        512,
+        448
+      ],
+      "bytes": 53792,
+      "sha256": "50b33499f52b8cf817244f426d6dfa0348bd387781ff702414637428608e9601",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/F41.png",
+      "purpose": "after",
+      "size": [
+        576,
+        480
+      ],
+      "bytes": 58965,
+      "sha256": "982fa353ecd8d78767debbc6a8eac9375d5fec29e59a945ac7778c9278c31db9",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/F42.png",
+      "purpose": "after",
+      "size": [
+        512,
+        512
+      ],
+      "bytes": 49657,
+      "sha256": "688674caf9f2910b49fe1dc102cb2062fb1b17100055f3bfc86a6f8927a0e127",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/F43.png",
+      "purpose": "after",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 55883,
+      "sha256": "dc912577dddb11fdce98f9290ce327e50a21b9a3621596d96dd60f052577303c",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/F44.png",
+      "purpose": "after",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 51183,
+      "sha256": "fa4d5f3c221553df0a11558b1306a0136dd12c2407a0238162cc4cdfb3eceb87",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/F51.png",
+      "purpose": "after",
+      "size": [
+        512,
+        480
+      ],
+      "bytes": 53729,
+      "sha256": "ae583a6c3898e92f5668b48a22f98be907221c47e7f138f3a7fde0a782b0af7e",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/F52.png",
+      "purpose": "after",
+      "size": [
+        576,
+        480
+      ],
+      "bytes": 63537,
+      "sha256": "0e66b46d800429a509afaacbca86de8786602c6e05b8d3df3063ad747e94314f",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/J53.png",
+      "purpose": "after",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 67559,
+      "sha256": "24135525c90e410498acbb266ec34883e27a91bc8e27792b6aea1fdfe8535e03",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/J54.png",
+      "purpose": "after",
+      "size": [
+        576,
+        544
+      ],
+      "bytes": 60626,
+      "sha256": "4c52efadefab38869106b30c5fd236bfc60ecf9b0862d04faaf661573653047b",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/M31.png",
+      "purpose": "after",
+      "size": [
+        512,
+        448
+      ],
+      "bytes": 41685,
+      "sha256": "46f052c387fdfcc8702a95c373e1110143268b2ff03a77487f42f13a4ddf1634",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/M32.png",
+      "purpose": "after",
+      "size": [
+        576,
+        448
+      ],
+      "bytes": 65542,
+      "sha256": "63052f965a969c1c598f7d74b7acc1a15e1d1693658a9b0a2596e343838f69dd",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/M33.png",
+      "purpose": "after",
+      "size": [
+        512,
+        480
+      ],
+      "bytes": 73460,
+      "sha256": "9f6f026db8eddfda9453537b4e2ba6ef5f1a2c622832ab1283fa057763cfe8f1",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/M41.png",
+      "purpose": "after",
+      "size": [
+        576,
+        480
+      ],
+      "bytes": 70540,
+      "sha256": "72d699d6a1c9d8e4f49b94a5d629810655cc20694e417c8041b444b9a4d2b2e2",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/M42.png",
+      "purpose": "after",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 77868,
+      "sha256": "c63578b19288c96f0f78418067fcb83420f9d63905935da8ea461e8802adc92b",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/M43.png",
+      "purpose": "after",
+      "size": [
+        512,
+        512
+      ],
+      "bytes": 69575,
+      "sha256": "b940226d10ef8f24906b3cbb83909730e55bbb249aa5e62dfe9a453b5a249510",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/M44.png",
+      "purpose": "after",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 68357,
+      "sha256": "2bf4ab8751a26fcd7441caec7b2dd933a53a5e825a7e6551506519fac7c2bacb",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/M51.png",
+      "purpose": "after",
+      "size": [
+        512,
+        480
+      ],
+      "bytes": 85315,
+      "sha256": "7dec2284ef87a0a1e21ac8ec7174d961577ab72e94d81cc26897016b26658c2e",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/M52.png",
+      "purpose": "after",
+      "size": [
+        576,
+        448
+      ],
+      "bytes": 37191,
+      "sha256": "76681e3293c29a3affc59070c5673a5496fe65d845994687be3de8934bca714b",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/S31.png",
+      "purpose": "after",
+      "size": [
+        416,
+        384
+      ],
+      "bytes": 47847,
+      "sha256": "7871ec62053f169383859c58e1f7e8251b643c5edb283f65cb786ddc42a6f243",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/S32.png",
+      "purpose": "after",
+      "size": [
+        512,
+        416
+      ],
+      "bytes": 44198,
+      "sha256": "95417c4b71402eb7ea3e64e2434f5d77a8725c42b6c4b27f1e5b48fb88f65623",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/S41.png",
+      "purpose": "after",
+      "size": [
+        448,
+        416
+      ],
+      "bytes": 41935,
+      "sha256": "5dc06afac47590de5453d839985fe03c4c6eb8a5fe80b660f89bd66732a75ba1",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/S42.png",
+      "purpose": "after",
+      "size": [
+        448,
+        416
+      ],
+      "bytes": 38269,
+      "sha256": "75437bd265e0cd2119e3db6ae6a8146b1c88b3c3ab006bdc390527094885be00",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "after/S51.png",
+      "purpose": "after",
+      "size": [
+        448,
+        384
+      ],
+      "bytes": 42343,
+      "sha256": "aedbe5521292ab5d643e7ac6fff30eda396319729189895d1b766eb76db476a6",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/F31-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 44576,
+      "sha256": "a8294a5123519111fd5dfd8b51184b53c692433792523ce79b36f06553451281",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/F31-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 33910,
+      "sha256": "a6feca57b23eb10292abb05ec1781f01c313274b17f663bef5ff193b48250c9b",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/F32-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 36495,
+      "sha256": "77841a8c21c576b5c914359dc5e1489ebc280784eaae2afeaa0967989ff5050c",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/F32-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 24222,
+      "sha256": "a40e80e924bda5c6c1251dd1a9ab6f7d896cf016079288b13f48bc9f2382d048",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/F33-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 46977,
+      "sha256": "9d8394251c116243c8310e3fd1fa4c5e6262347767123f1382aa53cf05ed6b64",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/F33-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 30493,
+      "sha256": "a94b774bf24a300d1e9118f6225da32c8650af6c5df51726706de097b56b2f2b",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/F41-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 50332,
+      "sha256": "de6844f252c66a0be250314b7527dea975a9f132c8eb7c74f4e8a0a115572726",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/F41-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 26877,
+      "sha256": "9234915c3c0694a4762f65c8695ac3b474216d4bd823cfa91a08b0d0affd5443",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/F42-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 40253,
+      "sha256": "0bd7c9b1b951f27f7d2343ff3707063622d1345ea592c6e0a5d7f173c2040644",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/F42-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 28968,
+      "sha256": "8f5fde5e6674fdfc6bbff55f9d7cafb3bdcbc23ce380cdbf5a34949ca5fa79f5",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/F43-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 42648,
+      "sha256": "62ffc859f41f0bcb5a195d56b320447c78ad999958c698bb9ea4589f93d6ee6d",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/F43-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 24920,
+      "sha256": "e2539e9597f0a8c8706befc759a555fc29936fac640507103e8fab729cabe04c",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/F43-objective.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 11934,
+      "sha256": "5ddf967d3e2ae9178049408def525d6b4845b499c8b67ce956a4559085d61d6b",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/F44-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 41177,
+      "sha256": "2881fda287068c3d9b80a4df9b09026f933af0af2f40fe1616fafb8630b3e50e",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/F44-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 18054,
+      "sha256": "4f1e36c9a26646f7aaf9dc2644c4841a38c9521cfd809303c9a5540fe7e64be6",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/F51-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 44654,
+      "sha256": "1b64098834ee338615e573b6112764aa2baa12c2435b09824f1072fab5d10006",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/F51-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 32590,
+      "sha256": "e9614522083bbbc36bc5cfa118ba79e60aa72de7240c19bfbb516bf7d9b49442",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/F52-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 53835,
+      "sha256": "f1d3ed79faef9ff5fed029c4f722e264047db69ab522fb5052c368a6797ddd1d",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/F52-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 31818,
+      "sha256": "aaf30e5cc2abe62aedc77c53c85d2bb87e6282295e0769de735283896320c1d5",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/J53-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 53418,
+      "sha256": "8315844d4d4eaae659f84ea9da1a8884d98c1f2fe3e46fad2a8cf0a1efdb44d3",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/J53-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 26971,
+      "sha256": "2e48816f55d873c9d7def4c2147aacdd5e97c35ce9316820641011f639a08e5b",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/J54-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 38629,
+      "sha256": "5a0ea21e24385427a9654d4ca0a4e48c64d68684a09ecc3639b1d0d0f4d948bb",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/J54-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 18529,
+      "sha256": "97fb6dcd5f14d5016852987d0d4f410b245848fd654dc587905dd45844f2176f",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/J54-objective.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 14633,
+      "sha256": "8cc79fbac6f3ca6cb7f2a6da65129fb68613c9cf986ff8a97366a05c5ba0c96a",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M31-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 41779,
+      "sha256": "f4f6c4c46324b1531faec0c44e9e16d71c6458b36af360a2485e6a8946ac79ca",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M31-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 29469,
+      "sha256": "558475d39edfee35ba739ef66d668d0ea4ef82de07dbdac6d55dbdae722afa3e",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M31-objective.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 23974,
+      "sha256": "7f8d164bd2d44d2a45b80eb9b13bd93f57a070ccacdebda085513c6f20d472db",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M32-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 54707,
+      "sha256": "34cbf3b105f4605e54836b990b8cb711fa6ab31276081aca90192768a3841600",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M32-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 32599,
+      "sha256": "a441f4115ea47c30256fd5d85d94d31f5f007703c448bcecc86a937670391d15",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M33-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 59716,
+      "sha256": "584943d47a50bb604c6e90093f9961b686fcd22b5d6573c518fee7ab6e9d7ca1",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M33-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 38756,
+      "sha256": "34a4976b095a28c1b2f33bce5e1271b0e700f87cf3265e52662396e116eebcc7",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M41-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 53654,
+      "sha256": "96b4c2920903b67685bf1058383438a5bdcbad3ab0a91135c79d8b1b4e4f862f",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M41-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 33597,
+      "sha256": "c81ef8ab61bc5d65bc1349a87899d70ac1e80761521d428fe99b9b47a3c97f1d",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M41-objective.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 26030,
+      "sha256": "6abf2dfed926bb032c183364a69aaa8153fa6eb311bc58541cef9c856c6866d5",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M42-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 51463,
+      "sha256": "33669dc6187449e8a1bf9ae2ecef769147bdcca0652ba719af787326e7d5fdf8",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M42-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 28944,
+      "sha256": "d32effa41fffa500135dfcc03f2a7ac997ab6e154755685df9a656e340ad850e",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M43-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 46418,
+      "sha256": "9603b07d68cc7833342f72c6982061326f27fb24be7cdef68a3205bc3c96c147",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M43-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 30488,
+      "sha256": "7e26c48661f3e8984a3d67afe20d553015e7d45d9c0976aa59c11fab0133da02",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M44-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 51214,
+      "sha256": "1978ab10c8e5f390697120c4df4b6f036dfae59c0b336d04083b35ab7cce10d9",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M44-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 30498,
+      "sha256": "9e9bbb68870f6668a2dbff794eedbd5011c83593f7f96d92d21c372cabe9771b",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M51-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 79707,
+      "sha256": "d7a4a9af977cec034f6387166694f21f0e00b0ecadcd5e25bb519e1f17a76568",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M51-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 49875,
+      "sha256": "d96e1b177260843b60a2dd83022efbcdcd0ba90264ec596a85728203eb42e5d9",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M52-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 39530,
+      "sha256": "8acca3dc2397190c5ffdabff303e4532ded70d935c231d976a8411bb4c30d5d2",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M52-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 25317,
+      "sha256": "bebb9960ff09a7e498d5ddd46c17b465c2af9fa9e2a58e7442eeb80608f11e47",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/M52-objective.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 17186,
+      "sha256": "aed8a7f4476c8c140fb78ea548758ca7c51012887c6f4d3bedbbe450ff2a8b7b",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/S31-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 52008,
+      "sha256": "c87ed000d3747c3b412a2b0c95b6ab6634540df79ee6020d4741d0a35d3931b8",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/S31-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 36317,
+      "sha256": "c033fb0a4d4ba04e33c0560915e0d7dcf6c0fb36d02156ed1b47a2dbde0412dd",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/S32-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 43974,
+      "sha256": "4a3c23a466f246b64272db8b791963d1f7d9c5b02637414611e2a6988c4b3ace",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/S32-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 29261,
+      "sha256": "23ea459b306d316987c761e03a749e919410654950488969fcc93bcf3586a172",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/S41-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 40429,
+      "sha256": "c43c39e08401d49bb381a3c37d6effd57fbf072f1e05763fbf23989c30341c50",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/S41-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 28882,
+      "sha256": "8e44674991075f3050ac367a296b9c130fd727f1624c0344ad67c7bd841ed0d1",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/S42-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 40898,
+      "sha256": "85be7e5ef32330cd1d40cf746280ef4337e628b8fb415f52d3451fbf17122f6a",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/S42-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 30599,
+      "sha256": "d437bf3de3edd1bc1f7074e9499b49fb25dffab0e19de931d6801396d0ad9009",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/S51-entry.png",
+      "purpose": "screenshots",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 36527,
+      "sha256": "89fec02ab5b2fa90be6b5879b6683b188959761d5e3ab1f9ce75f60dea7d831f",
+      "compression": "lossless oxipng"
+    },
+    {
+      "file": "screenshots/S51-field.png",
+      "purpose": "screenshots",
+      "size": [
+        426,
+        240
+      ],
+      "bytes": 25175,
+      "sha256": "69dc3259371be263fb0485ecccad13898317af9ba45bde5e7dc952f96bf65c3f",
+      "compression": "lossless oxipng"
+    }
+  ],
+  "limitations": [
+    "按真实开发部署记录逐关重入与通关，未宣称从新游戏连续重跑全部五章。",
+    "剧情判定fixture与实际输入试玩分开记录，fixture的状态安排不计为实机通关。",
+    "未重新导出或安装iPhone包。",
+    "未完成浏览器布局引擎验收；页面数据交互检查与Godot实际视口检查分别记录。"
+  ],
+  "runtime_asset_reviews": [
+    "chapter3/assets.json",
+    "chapter4/asset-review.json",
+    "chapter5/asset-checks.json"
+  ],
+  "environment_notes": [
+    "Initial exported probe lacked an explicit writable log path and failed under the filesystem sandbox; the identical app passed all510 checks with /private/tmp log output.",
+    "Graphical capture completed all55 jobs with no layout errors; process teardown still reported12 ObjectDB references and3 resources, as in the existing capture helper.",
+    "Headless editor import completed; user editor-settings write was denied outside the workspace."
+  ],
+  "desktop_app": {
+    "path": "dist/RevengeMemories-LateMaps-20261022.app",
+    "program_version": "0.10.3",
+    "pck_sha256": "ad02251ac42ad33b7dca5701ddc3ed0bd6ba27df5efc7e9dcc212c5e4c4bbb2b"
+  }
+}
