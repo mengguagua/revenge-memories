@@ -20,14 +20,20 @@ static func action(h,key:String) -> void:
    if not g.flags.get("obs_steps_ready",false):await pages(h,["工匠：控制室由我们驻守，不必重打。缺少东岸盐原观测台的完整步骤。", "提示：按S切到东队，完成沙城与盐原观测台；信使会送来步骤，再返回本控制室确认。"]);return
    await pages(h,["工匠：依观测步骤，先隔离远端，再分段降流。南口村庄的照明仍然稳定。", "胡纳普：等病人的照护处也检查完，再撤最后一班守卫。", "工匠：三次读数相符，可以安全停用。王都的路已打开。"])
    g.flags.west_tower_safe=true;Rules.promote_hero(g,"hunapu")
+   await pages(h,["旁白：胡纳普进阶为破晓勇士，基础移动由5提升至6，可装备相容的剑与弓。", "旁白：进阶按最低基底补足属性，保留已有更高值。等级、经验、当前生命与原有训练不变。"])
   "fourth_herlan":await pages(h,["赫兰：他们跟着我守住西岸。我以为只要再等到大典，就能安排剩下的人。", "胡纳普：另一岸的人已经等不下去。你先照看伤兵，把命令和名单留下。"])
   "fourth_well_report":g.flags.F41_confirmed=true;await pages(h,["居民：南北井台的水够这一批人转移。古道路线已抄成几份，就算向导不在，也能沿标记找到观测台。", "艾琳：留一份在井台。不要让后来的人再空走一趟。"])
   "fourth_obs_report":await pages(h,["技术员：停用步骤已经发给西队。祭所坐标在这份副本上，穿过亡潮沼泽就能到。", "艾琳：母亲没能验证完的部分，我们继续查。不能只因为她相信这条路，就让别人冒同样的险。"])
   "fourth_marsh_report":g.flags.F43_confirmed=true;await pages(h,["船团医者：居民已按实际获救名单交接，船分批运送，不占正式成员的物品槽。", "舵手：古道连接沉没祭所。西南孤岛还有两组病人等待接应。"])
   "fourth_s42":g.flags.S42_invited=true;await pages(h,["舵手：赛琳留在沼泽孤岛守着两组病人。支路从这里分开，船可以在西南木台靠岸。"])
   "fourth_island_verify":
+   var first=not g.flags.get("chapter4_promoted_eileen",false)
    Rules.promote_hero(g,"eileen")
-   await pages(h,["地方技术员：局部隔离试验已成功。三个调节点由留守工匠接手，不需要远征队一直站在那里。", "艾琳：先保护住这里的人。等西塔也安全停下，再读两岸的确认信。", "旁白：艾琳已掌握地方循环的调节步骤。原有法术训练保留，试验不代替同伴救治。"])
+   var text=["地方技术员：局部隔离试验已成功。三个调节点由留守工匠接手，不需要远征队一直站在那里。", "艾琳：先保护住这里的人。等西塔也安全停下，再读两岸的确认信。"]
+   if first and g.flags.get("chapter4_promoted_eileen",false):
+    text.append_array(["旁白：艾琳进阶为引光剑使，基础移动提升至5，按最低基底补足属性与抗性。等级、经验、当前生命和原有法术训练保留。", "旁白：术法精熟使已学攻击法术每次减耗1生命，正费用最低为1；辅助法术费用不变。试验不代替同伴救治。"])
+   else:text.append("旁白：艾琳已掌握地方循环的调节步骤。原有法术训练保留，试验不代替同伴救治。")
+   await pages(h,text)
   "fourth_d42":
    if g.flags.get("D42_done",false):await pages(h,["信使：两岸验证已完成。最后一份救治材料已送往H10会合营站，和早期剩余份额一起使用。"]);return
    if not g.flags.get("west_tower_safe",false):await pages(h,["信使：祭所的局部试验已成功，但还缺西塔安全停用的回信。切到西队，回北境日塔控制室确认，不必重打。"]);return

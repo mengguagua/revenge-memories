@@ -61,3 +61,5 @@ CAMPAIGN_CAPTURE_LOG=/private/tmp/map-catalog-render.log bash actual/tools/captu
 2026-10-23：第三章环境与室内外材质修订已合入当前40图；第一、二章环境修订保留。第三章前后对照见 ../../actual/reports/chapter3-environment-20261023/index.html 。世界冬景按故事时间保留到第二章日返事件前，第三章西部转暖、东部延续黑昼。
 
 2026-10-23：第四章环境与室内外材质修订0.10.14已合入当前40图；第一至第三章修订保留。当前对照见 ../../actual/reports/chapter4-environment-20261023/index.html 。
+
+2026-10-23：第五章环境复核0.10.15已合入当前40图。M52/F51材质细化，其余五图保持；当前对照页 ../../actual/reports/chapter5-environment-20261023/index.html 。

@@ -52,7 +52,7 @@ static func weapon_index(unit: Dictionary) -> int:
 
 
 static func magic_cost(unit: Dictionary) -> int:
-	return Items.cost(weapon_index(unit))
+	return Items.cost_for(unit,weapon_index(unit))
 
 
 static func attack_speed(unit: Dictionary) -> int:

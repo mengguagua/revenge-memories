@@ -3,6 +3,7 @@ extends RefCounted
 ## All methods return new values and do not mutate the caller's unit.
 
 static var _rules: Dictionary = {}
+const HeroProfessions = preload("res://core/hero_professions.gd")
 
 static func data() -> Dictionary:
 	if _rules.is_empty():
@@ -52,7 +53,7 @@ static func can_use(unit: Dictionary, item_id: int) -> bool:
 		return false
 	if item_id in [17, 18]:
 		return int(unit.get("character_id", 1 if str(unit.get("id", "")) == "alm" else 0)) == 1
-	if item_id >= 23 and int(unit.get("hp", 0)) <= cost(item_id):
+	if item_id >= 23 and int(unit.get("hp", 0)) <= cost_for(unit,item_id):
 		return false
 	if item_id <= 1:
 		return true
@@ -81,6 +82,12 @@ static func weapon_profile(unit: Dictionary, weapon_id: int) -> Dictionary:
 
 static func cost(spell_id: int) -> int:
 	return int(item(spell_id).get("hp_cost", 0)) if spell_id >= 23 and spell_id < 48 else 0
+
+static func cost_for(unit: Dictionary, spell_id: int) -> int:
+	var base := cost(spell_id)
+	if base > 0 and spell_id >= 23 and spell_id <= 46 and not is_support(spell_id) and spell_id in spells(unit) and HeroProfessions.advanced(unit) and str(unit.id)=="eileen":
+		return maxi(1,base-1)
+	return base
 
 static func is_support(spell_id: int) -> bool:
 	return str(item(spell_id).get("kind", "")) == "support"

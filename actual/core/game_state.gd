@@ -11,6 +11,7 @@ const CampaignExperience = preload("res://core/campaign_experience.gd")
 const RefugeeTactics = preload("res://core/refugee_tactics.gd")
 const Journals = preload("res://core/journey_slots.gd")
 const EquipmentComparison = preload("res://core/equipment_comparison.gd")
+const HeroProfessions = preload("res://core/hero_professions.gd")
 const CAMPAIGN_ID := "revenge-memories-1"
 const SAVE_FIELDS := ["chapter","route","parties","route_positions","previous_world_node","convoy","hub_id","hub_position","battle_return","battle_settled","story_events","stage_id","world_node","cleared_stages","roster","battle_start_snapshot","victory_rewards","flags","party","mode","units","phase","turn","rng_state","frame_counter","kills","selected_id","cursor","move_origin","battle_outcome"]
 var campaign: Dictionary
@@ -628,6 +629,8 @@ func load_game() -> bool:
 	if int(s.schema)<3:
 		Casualties.migrate(s)
 		if not SaveValidation.campaign_valid(self,s,SAVE_FIELDS):return false
+	HeroProfessions.upgrade_checkpoint(s)
+	if not SaveValidation.campaign_valid(self,s,SAVE_FIELDS):return false
 	for key in SAVE_FIELDS:
 		if key in ["hub_position","cursor","move_origin"]:set(key,Vector2i(s[key][0],s[key][1]))
 		elif key=="cleared_stages":cleared_stages=s[key].map(func(v):return int(v))

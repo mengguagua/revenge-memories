@@ -1,0 +1,32 @@
+{
+  "tool": "built-in image_gen",
+  "prompts": [
+    {
+      "name": "falcon-design",
+      "prompt": "Use case: identity-preserve. Asset type: upgraded Falcon Knight game sprite style reference. Image1 is the edit target, an existing sheet of mounted armored female Falcon Knight native movement poses. Image2 is the cavalry lance silhouette reference. Keep the exact individual poses, facing, helmet, horse anatomy, feathers, wing phases, silhouettes and layout of image1. Restyle ALL sprites to six flat matte materials: navy #172638 outlines and deep shadows, blue #3976b5 cloth/harness, ivory #e4e1c8 armor and white Pegasus, skin #dda77d, single flat coral-red #b96369 braid, and ONE muted orange #c98953 accent for helmet trim/pauldron tabs/saddle edge. Strengthen her upgraded class with open-faced ivory helmet, full ivory vambraces/greaves and layered pauldrons; stronger than a bare-headed Pegasus Knight. Remove gray fills and glossy specular dots. Keep eyes and skin readable. Replace visible weapons with image2's narrow needle point transitioning into a tapered cone and flared guard, short grip and pommel, fitting same native holding axis and hands. White horse and feather wings remain readable, clearly separate legs and hooves, wings paired synchronously. Crisp actual pixel art, small limited-color clusters, no gradients, no hair or cloth highlights. Transparent background, no text labels, no shadows under horse except source's existing map projection. Preserve every facing: top row first two show BACK of rider and horse, do not turn their heads toward viewer. This sheet is a material/design guide for later exact registration.",
+      "files": [
+        "existing-map-art.png",
+        "weapon-reference.png"
+      ]
+    },
+    {
+      "name": "falcon-weapon",
+      "prompt": "Use case: precise-object-edit. Asset type: isolated 2D pixel-art cavalry lance sprite for a tactical RPG. Use attached image as exact weapon silhouette/design reference. Draw ONE complete weapon horizontally, sharp needle tip pointing LEFT, grip and butt pointing RIGHT. Long front part: slender needle point tapering into a faceted conical lance body, slightly wider toward the hand, one narrow collar, then a broad flared circular hand-guard near the grip. Short wrapped grip and small rear pommel/spike extend right of guard. Match reference proportions; this is a rigid cavalry lance with a cone and flared guard, not a spear with a leaf blade and not a sword. Design must be clean and recognizable at 100 pixels total length. Use only flat navy #172638 outline/shadow, ivory #e4e1c8 face, blue #3976b5 side plane and tiny muted orange #c98953 guard studs/grip rings. No gray, no gradient, no texture noise or specular sparkles. Crisp pixel steps with consistent nearest-neighbor block size. Entire weapon unobstructed with 12% transparent margins. True transparent background. One horizontal weapon only, no character, no hand, no text, no UI. Strong pointed tip and complete rear grip/pommel.",
+      "files": [
+        "weapon-reference.png"
+      ]
+    }
+  ],
+  "throw_ready_prompt": "Use case: precise-object-edit. Image1 edit target, exact flying mounted Falcon Knight holding a weapon OVERHEAD in her raised right hand. Image2 is the NEW LANCE asset, needle point LEFT and short rear grip RIGHT. Replace ONLY the old thin brown overhead spear with image2's conical cavalry lance: long needle taper, cone, wide flared guard immediately LEFT of the raised gripping fist, short wrapped grip and tiny pommel right of fist. Keep gripping fist exactly where it is. Keep same roughly horizontal overhead axis and tilt. At image1 resolution 768x1088, new total lance length about 220 pixels (110 native output pixels), sharp tip around x260,y408, grip x440,y416, butt x475,y418. Remove old shaft extending past that butt and restore the ivory feathers underneath seamlessly. Preserve every other pixel and original composition of rider, face, helmet, red-brown braid, armor, both original feather wings, horse, hooves, proportions, scale, positions. Original raised arm must remain connected. New weapon matte ivory/blue/navy/orange, exactly image2. Transparent background, no text, no glow. Never change any wing or horse pose, this is a local weapon replacement.",
+  "masters": [
+    "design-guide-master.png",
+    "lance-master.png",
+    "throw-ready-master.png"
+  ],
+  "production_use": {
+    "design": "material reference only; own class5 registered skeleton/poses retained",
+    "lance": "alpha-isolated raster composited on same grip axes",
+    "throw_ready": "new overhead pose, registered by own native top and near forehoof"
+  },
+  "source_masters_retained": true
+}

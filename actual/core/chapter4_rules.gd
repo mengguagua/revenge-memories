@@ -207,12 +207,7 @@ static func missing(g) -> Array[String]:
 static func promote_hero(g,id:String) -> void:
  var key="chapter4_promoted_"+id
  if g.flags.get(key,false):return
- var u:Dictionary=g.roster[id]
- if g.is_dying(u):return
- # Narrative advancement uses established weapon/spell permissions, preserves all training and HP.
- if id=="hunapu":
-  var result=g.Progression.promote(u,23,true)
-  if result.valid:
-   var next:Dictionary=result.unit;next.level=u.level;next.exp=u.exp;next.hp=u.hp;g.roster[id]=next
- else:g.roster[id].promoted=true;g.flags.eileen_local_cycle_understood=true
+ var u:Dictionary=g.roster.get(id,{})
+ if g.is_dying(u) or not g.HeroProfessions.apply(u):return
+ if id=="eileen":g.flags.eileen_local_cycle_understood=true
  g.flags[key]=true

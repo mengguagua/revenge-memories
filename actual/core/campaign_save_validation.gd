@@ -519,6 +519,7 @@ static func _campaign_unit(game, unit: Variant, tactical: bool) -> bool:
 		if not _integer(unit.get(key),0,255):return false
 	if not _integer(unit.get("max_hp"),1,255) or int(unit.hp)>int(unit.max_hp):return false
 	if not _integer(unit.get("class_id"),1,255) or not game.catalog.classes.has(str(int(unit.class_id))):return false
+	if not Items.HeroProfessions.valid_marker(unit):return false
 	if not _integer(unit.get("level"),1,20) or not unit.get("acted") is bool:return false
 	if not unit.get("name_zh") is String:return false
 	if tactical and not _point(unit.get("position")):return false
@@ -527,7 +528,7 @@ static func _campaign_unit(game, unit: Variant, tactical: bool) -> bool:
 	for key in ["exp","magic_level","magic_flags","raw_magic_flags","character_id","name_id","resistance","ai_flags","raw_ai_flags","record_index","exp_value","weapon_index"]:
 		if unit.has(key) and not _integer(unit[key],0,65535):return false
 	if unit.has("treatment_count") and not _integer(unit.treatment_count,0,1):return false
-	for key in ["dead","dying","ever_dying","acted","neutral","controllable","temporary","locked","hidden","event_object","no_counter","no_experience","no_drop","surrendered","battle_guard"]:
+	for key in ["dead","dying","ever_dying","acted","neutral","controllable","temporary","locked","hidden","event_object","no_counter","no_experience","no_drop","surrendered","battle_guard","promoted"]:
 		if unit.has(key) and not unit[key] is bool:return false
 	if unit.has("route") and unit.route not in ["alm","celica"]:return false
 	if unit.has("growths"):

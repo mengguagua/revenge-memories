@@ -26,6 +26,7 @@ var climate_layout_cache: Dictionary={}
 var chapter2_environment: Dictionary={}
 var chapter3_environment: Dictionary={}
 var chapter4_environment: Dictionary={}
+var chapter5_environment: Dictionary={}
 
 func _init(owner) -> void:
 	ui=owner
@@ -33,6 +34,7 @@ func _init(owner) -> void:
 	chapter2_environment=ui.GameState.read_json("res://data/chapter2_hub_environment.json")
 	chapter3_environment=ui.GameState.read_json("res://data/chapter3_hub_environment.json")
 	chapter4_environment=ui.GameState.read_json("res://data/chapter4_hub_environment.json")
+	chapter5_environment=ui.GameState.read_json("res://data/chapter5_hub_environment.json")
 	var data=ui.GameState.read_json("res://data/chapter2_hubs.json")
 	chapter2_rooms=data.get("rooms",{});east_materials=data.get("materials",{})
 	var third=ui.GameState.read_json("res://data/chapter3_hubs.json")
@@ -364,6 +366,7 @@ func draw() -> void:
 		if not winter.is_empty():path=str(chapter1_climate.get("scenery_paths",{}).get(str(d.name),path))
 		if ui.game.chapter==3:path=str(chapter3_environment.get("rooms",{}).get(room,{}).get("scenery_paths",{}).get(path,path))
 		if ui.game.chapter==4:path=str(chapter4_environment.get("rooms",{}).get(room,{}).get("scenery_paths",{}).get(path,path))
+		if ui.game.chapter==5:path=str(chapter5_environment.get("rooms",{}).get(room,{}).get("scenery_paths",{}).get(path,path))
 		ui.draw_texture(ui._tex(path),ORIGIN+Vector2(d.rect.position)*16,_east_environment_tint())
 	for o in objects:
 		var at=Vector2(o.position[0],o.position[1])*16+ORIGIN
@@ -440,6 +443,9 @@ func _east_exit_allowed() -> bool:
 	return true
 
 func _east_environment_tint() -> Color:
+	if ui.game.chapter==5 and chapter5_environment.get("rooms",{}).has(room):
+		var fifth_tint=chapter5_environment.rooms[room].get("tint",[1.0,1.0,1.0])
+		return Color(fifth_tint[0],fifth_tint[1],fifth_tint[2])
 	if ui.game.chapter==4 and chapter4_environment.get("rooms",{}).has(room):
 		if room=="H48" and ui.game.flags.get("island_loop_safe",false):return Color.WHITE
 		if room=="H47" and ui.game.flags.get("D42_done",false):return Color.WHITE
@@ -459,8 +465,10 @@ func _draw_east_floor(atlas: Texture2D) -> void:
 	var environment: Dictionary=chapter2_environment.get("rooms",{}).get(room,{}) if ui.game.chapter==2 else {}
 	if ui.game.chapter==3:environment=chapter3_environment.get("rooms",{}).get(room,{})
 	if ui.game.chapter==4:environment=chapter4_environment.get("rooms",{}).get(room,{})
+	if ui.game.chapter==5:environment=chapter5_environment.get("rooms",{}).get(room,{})
 	var environment_atlas=chapter3_environment.get("atlas","") if ui.game.chapter==3 else chapter2_environment.get("atlas","")
 	if ui.game.chapter==4:environment_atlas=environment.get("source_atlas",chapter4_environment.get("atlas",""))
+	if ui.game.chapter==5:environment_atlas=chapter5_environment.get("atlas","")
 	var background=str(environment.get("background",east_data.get("biome_override","sea")))
 	for y in range(floori((visible.position.y-ORIGIN.y)/16),ceili((visible.end.y-ORIGIN.y)/16)):
 		for x in range(floori((visible.position.x-ORIGIN.x)/16),ceili((visible.end.x-ORIGIN.x)/16)):

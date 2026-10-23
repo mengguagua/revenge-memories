@@ -818,7 +818,7 @@ func _menu_action(action: String, _context: String) -> void:
 		"magic":
 			var caster = game.find_unit(game.selected_id)
 			var spells = Items.spells(caster)
-			_open_menu("magic", spells.map(func(id): return str(Items.spell(id).name_zh) + " " + str(Items.cost(id)) + "HP"), spells.map(func(id): return "spell:" + str(id)), Vector2(64, 40))
+			_open_menu("magic", spells.map(func(id): return str(Items.spell(id).name_zh) + " " + str(Items.cost_for(caster,id)) + "HP"), spells.map(func(id): return "spell:" + str(id)), Vector2(64, 40))
 		"wait":
 			game.mark_wait(game.selected_id)
 			ui_mode = "inspect"
@@ -999,7 +999,7 @@ func _camp_action(action: String) -> void:
 
 func _choose_spell(id: int) -> void:
 	var caster = game.find_unit(game.selected_id)
-	if int(caster.hp) <= Items.cost(id):
+	if int(caster.hp) <= Items.cost_for(caster,id):
 		_notice("生命不足以施放")
 		_unit_action_menu()
 		return

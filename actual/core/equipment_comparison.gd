@@ -4,6 +4,8 @@ const Items=preload("res://core/item_rules.gd")
 const Rules=preload("res://core/combat_rules.gd")
 
 static func profession_name(unit: Dictionary,classes: Dictionary) -> String:
+	var hero_name := Items.HeroProfessions.name(unit)
+	if not hero_name.is_empty():return hero_name
 	return str(classes.get(str(int(unit.get("class_id",0))),{}).get("name_zh","未知职业"))
 
 static func automatic(unit: Dictionary) -> Dictionary:

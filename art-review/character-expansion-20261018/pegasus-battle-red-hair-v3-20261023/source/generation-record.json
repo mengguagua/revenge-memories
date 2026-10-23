@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "mode": "precise-object-edit",
+  "prompt": "Use case: precise-object-edit. Image 1 is the EDIT TARGET: a magnified low-resolution pixel-art crop of a Pegasus rider. Image 2 is an ANATOMICAL MATERIAL REFERENCE ONLY of exactly the same original pose before flat palette conversion. Fix only incorrectly colored hair in image 1: all of the hair cap, left and right side locks and trailing ponytail must be a single flat muted coral red #b96369. Identify hair using image 2, where it is brown. Preserve dark navy outline pixels, the ivory metal circlet/headband, visible face and eyes; do not mistake skin or armor for hair. Keep original pixel grid, every outline, head shape, scale and position. No hair highlights, no glints, no gradients. Do not recolor blue clothing, armor, horse, reins or weapon. Background transparent. This is a color correction, do not redesign or repaint the pose.",
+  "output": "head3-hair-guide-master.png",
+  "production_use": "Local head material reference; final production recolors explicit source-material masks to preserve every original alpha/position pixel."
+}

@@ -1,0 +1,53 @@
+{
+  "revision": "sage-complete-v1-20261023",
+  "tool": "builtin image_gen",
+  "transparent_background": true,
+  "raw_masters_preserved": true,
+  "actual_prompts": [
+    {
+      "file": "battle-a-master.png",
+      "generated_file": "exec-e307ef85-9fc1-45a8-9f7c-04417b47b45b.png",
+      "references": [
+        "target-battle-a.png",
+        "approved-mage-style.png"
+      ],
+      "prompt": "Use case: style-transfer. Production game pixel sprite sheet, transparent RGBA background, NOT a scene. Image1 is the EDIT TARGET with exact pose geometry, 3 columns x 2 rows, each cell 480x384. Image2 is ONLY the existing Mage material/style reference, do not copy its poses or conical hat. Redraw all SIX target sprites into the SAME stronger promoted male scholar-sage, slim torso and narrow waist, mature visible face and eyes, plain solid dark-brown hair, fitted royal-blue inner tunic, large clean ivory-white mantle/chest panels and sleeve lining, muted burgundy shoulder cape retained from Mage, restrained dull gold edging and belt, dark navy outlines. Less bulky than target. Keep the target's short scholarly cowl/head covering silhouette, not a huge hat. Higher rank shown by layered shoulder mantle and neat long split robe; no books or new objects. Keep the long crook staff on screen RIGHT in each cell, tall ivory crook at top, muted burgundy/wood shaft and gold collar, hand holds same spot, staff reaches floor. Matte flat pixel clusters, six to eight colors, no glints, no scattered white dots, no cloth or hair gloss, no gradients, no magical VFX. EXACT POSES Image1: top-left resting free hand folded at chest; top-center free arm angled down toward screen-left; top-right free arm reaches horizontally screen-left, open palm down; bottom-left free arm extends screen-left slightly higher; bottom-center free forearm bends up with palm above elbow; bottom-right forearm raised further. Preserve arm endpoints, cape outline changing with each gesture, body facing left three-quarter, both planted feet positions. Head, face, torso, waist, staff and planted feet all register IDENTICALLY across six cells, only free arm, sleeve and cape folds change. Each sprite occupies exactly target original position and scale including generous surrounding transparent space. Do not enlarge sprites to fill cells. Preserve same 1440x768 sheet layout and complete weapons/limbs. No captions/grid/background/watermark."
+    },
+    {
+      "file": "battle-b-master.png",
+      "generated_file": "exec-fa031c51-f50f-4203-aced-297c1c668362.png",
+      "references": [
+        "target-battle-b.png",
+        "battle-a-master.png"
+      ],
+      "prompt": "Use case: style-transfer. Transparent production pixel game sprite sheet, 3 columns x 2 rows, 1440x768 same layout as Image1. Image1 EDIT TARGET is authoritative for six sequential arm poses. Image2 is EXACT character identity/costume/staff style; match it consistently. Redraw all six Image1 sage poses as the same slim male brown-haired scholar in Image2: royal-blue fitted tunic, ivory split front panels and sleeve lining, muted burgundy shoulder mantle/cape, restrained dull-gold edging, navy outline; clearly visible natural skin and eyes. Flatten hair into ONE dark brown color and cloth into large matte color clusters; no shine, gradients, sparkles or random white pixels. Long crook staff in SCREEN RIGHT hand remains fixed on ground, staff head ivory, shaft burgundy. Exact Image1 free arm gestures by row-major order: 1 elbow raised, forearm vertical with hand beside forehead; 2 hand bends inward across chin/chest, sleeve pulled inward; 3 hand lifted closer to face with elbow outward; 4 hand rises over brow; 5 arm points DIAGONALLY UP LEFT above head; 6 returns free hand to sternum, cape spreads low to screen-left. Preserve original gesture endpoints relative to face, do not duplicate the poses. Head, torso, waist, staff, planted boots and knees remain at identical coordinates, only free shoulder/elbow/wrist and draped sleeve/cape change. Keep slim vertical proportions and same face and clothes from Image2. Generous empty transparent cell margins exactly like Image1, don't enlarge. No text, no visible grid, no VFX."
+    },
+    {
+      "file": "battle-c-master.png",
+      "generated_file": "exec-2021e984-e64d-4bdc-bd11-067188526454.png",
+      "references": [
+        "target-battle-c.png",
+        "battle-a-master.png"
+      ],
+      "prompt": "Use case: style-transfer. Transparent game sprite sheet, edit Image1, exactly 3 columns by2rows, five sprites and empty bottom-right cell. SAME slender male scholar-sage identity as Image2, dark-brown solid hair, visible skin/eyes, blue fitted tunic, whole ivory long split front panels and sleeve linings, burgundy shoulder mantle/cape, restrained old-gold trim, navy outline. NO conical hat. Image1 native pose endpoints are authoritative. Keep tall ivory crook staff at SCREEN RIGHT in exactly same floor contact and staff-hand position. Five exact free arm poses in row-major order: top-left open hand to screen-left at shoulder level palm upward; top-middle arm extends left horizontal palm down; top-right arm slopes left-down 15degrees open palm; bottom-left arm extended lower 35degrees open palm; bottom-middle hand returns to chest and cape extends diagonally down-left like target. All heads, torsos, belts, knees, planted boots and staff fixed to IDENTICAL coordinates relative to their cell and match same scale as Image2. Only free arm and draped sleeve/cape move. Preserve all target left-hand endpoints and elbow geometry. High-quality clean pixel clusters at game sprite scale, matte 8-color appearance, no hair highlights, no glints, no random white fragments, no background/shadows/magic/VFX/text/grid. Generous transparent margins, keep exact 1440x768 Image1 layout, do not enlarge characters."
+    },
+    {
+      "file": "walk-master.png",
+      "generated_file": "exec-98a9f5b9-558c-4012-9141-92bd6acd5c83.png",
+      "references": [
+        "target-walk.png",
+        "battle-a-master.png"
+      ],
+      "prompt": "Use case: style-transfer. Edit Image1 into a crisp low-resolution tactical-map pixel sprite sheet, EXACT 3 columns x2 rows six equal 384x288 cells, transparent background. Image1 is the exact directional pose and silhouette guide; Image2 ONLY character identity and costume reference, not scale. SAME slender male scholar-sage: SOLID dark brown hair with no highlights, visible natural skin and dark eyes; large simple IVORY split front robe and sleeve lining, royal-blue inner tunic, muted burgundy shoulder cape, restrained gold belt/edging, dark navy contours. Promoted scholar, slim body, stronger layered shoulder mantle but not bulky. Crook-topped staff, ivory hook and burgundy wooden shaft. NO conical hat. Pose order Image1: top-left UP phase0 viewed from BACK with no face; top-middle UP phase1 from back; top-right walking RIGHT phase0 clear right side profile face and body; bottom-left walking RIGHT phase1; bottom-middle walking DOWN phase0 straight front face with BOTH eyes; bottom-right walking DOWN phase1 straight front. Respect original staff placement and crook height in each view: back-view staff visible at screen-left beside shoulder; right and down held in front screen-right, hook turned inward. One hand grips staff at chest/waist. The original body is short, approximately native 14px high; render with chunky sharp coherent pixel clusters, not a detailed illustration. Tall long robe covers knees, boot tips visible alternating left and right below hem. Preserve original support boot placement and alternating cloth swing in phases. HEAD/NECK/SHOULDERS/TORSO centered and fixed in each directional pair, phase changes ONLY hem, boots and slight staff-hand movement, never whole-body bob. Keep all sprites complete with enough padding even if original guide touches bottom. Preserve exact Image1 cell arrangement and sprite scale, same transparent margins, no decorative shadows/text/grid/VFX, no shiny highlights or fragmented white dots. Use at most 8 matte colors."
+    },
+    {
+      "file": "idle-master.png",
+      "generated_file": "exec-8b7e8a9f-661a-4edb-9aab-5dcc9c107d3e.png",
+      "references": [
+        "target-idle.png",
+        "walk-master.png"
+      ],
+      "prompt": "Use case: style-transfer. Transparent tactical-map pixel game sprites, one row THREE equal square cells, edit Image1, preserve exact three idle poses, layout and relative scale. Use Image2 as EXACT same male scholar-sage identity/costume/crook staff, do not copy its walking stance. All three idle figures face SCREEN RIGHT three-quarter as original Image1. Solid dark brown hair (ONE shade no highlights), natural skin color and dark eye, ivory split robe and sleeve lining, royal-blue tunic, muted burgundy shoulder cape, restrained gold edging/belt, navy outlines, no conical hat. Slim body, promoted academic cloak. The native idle motion: torso and head remain absolutely fixed, hand grips curled ivory-headed burgundy crook in front screen-right; the forearm/crook gently raise and lower, lower cape and split hem move a little in three phases. Follow Image1 difference exactly: first crook at normal height, second slightly lower, third slightly higher and angled closer to face. Preserve identical head-neck connected position, shoulder and waist center and planted boots across all three cells; no whole body bob, no stepping. Crook shaft complete wherever not occluded by sleeve. Native-scale clean pixel clusters, large calm ivory patches with minimal noise, at most8 flat matte colors. No white eyes overflowing the face; keep small dark eye. Keep generous transparent padding and complete boot tips. No background, grid, writing, magic, glow, shadows, glints, gloss, gradients or extra figures."
+    }
+  ]
+}

@@ -11,6 +11,7 @@ const OVERVIEW_IMAGE = preload("res://assets/world_tiles/formal-world-overview.p
 var chapter_one_world_climate: Dictionary = {}
 var chapter_three_world_environment: Dictionary = {}
 var chapter_four_world_environment: Dictionary = {}
+var chapter_five_world_environment: Dictionary = {}
 var overview_zoom := 1
 var overview_center := Vector2(0.5,0.5)
 var overview_mouse_drag := false
@@ -348,6 +349,15 @@ func _open_camp_menu() -> void:
 	var ready=game.party.filter(func(id):return game.can_deploy(game.roster[id])).size()
 	menu_items[0]="部队状态 · "+str(ready)+"/"+str(game.party.size())+"可出阵"
 	_open_menu("camp",menu_items.duplicate(),menu_actions.duplicate(),Vector2(32,48))
+
+func _camp_members(action: String, except_id: String = "") -> void:
+	super._camp_members(action,except_id)
+	if action!="status" or menu_context!="camp_members":return
+	for i in range(menu_actions.size()):
+		var id = str(menu_actions[i]).get_slice(":",2)
+		var unit: Dictionary = game.roster.get(id,{})
+		if game.HeroProfessions.advanced(unit):
+			menu_items[i]=str(unit.name_zh)+" · "+game.HeroProfessions.name(unit)+(" 濒死" if game.is_dying(unit) else "")
 
 func _camp_action(action: String) -> void:
 	if action=="save":journey.open("save");return
@@ -712,6 +722,9 @@ func _fourth_world_environment_active() -> bool:
 	return game.chapter==4 or (game.chapter==5 and game.flags.get("chapter4_complete",false) and not game.flags.get("campaign_complete",false))
 
 func _world_visual_data() -> Dictionary:
+	if game.chapter==5:
+		if chapter_five_world_environment.is_empty():chapter_five_world_environment=GameState.read_json("res://data/chapter5_world_environment.json")
+		return chapter_five_world_environment
 	if _fourth_world_environment_active():
 		if chapter_four_world_environment.is_empty():chapter_four_world_environment=GameState.read_json("res://data/chapter4_world_environment.json")
 		return chapter_four_world_environment
@@ -728,7 +741,7 @@ func _second_chapter_blackday() -> bool:
 	return game.chapter==2 and bool(game.flags.get("F22_confirmed",false))
 
 func _world_has_eastern_blackday() -> bool:
-	return _second_chapter_blackday() or game.chapter==3 or _fourth_world_environment_active()
+	return _second_chapter_blackday() or game.chapter==3 or _fourth_world_environment_active() or (game.chapter==5 and not game.flags.get("campaign_complete",false))
 
 func _second_chapter_world_tint(at: Vector2) -> Color:
 	if not _world_has_eastern_blackday():return Color.WHITE
@@ -740,14 +753,17 @@ func _second_chapter_world_tint(at: Vector2) -> Color:
 	var harbor=1.0-smoothstep(2.0,6.0,at.distance_to(Vector2(49,34)))
 	tint=tint.lerp(Color(.66,.72,.84),beacon).lerp(Color(.75,.8,.9),harbor)
 	var result=Color.WHITE.lerp(tint,strength)
-	if game.chapter==3 or _fourth_world_environment_active():
+	if game.chapter in [3,5] or _fourth_world_environment_active():
 		# The present-day eastern salt routes remain outside western protection.
-		var salt_strength=smoothstep(31.5,35.5,at.x)*smoothstep(7.0 if _fourth_world_environment_active() else 14.0,11.0 if _fourth_world_environment_active() else 20.0,at.y)*(1.0-smoothstep(33.0,39.0,at.y))
+		var salt_strength=smoothstep(31.5,35.5,at.x)*smoothstep(7.0 if game.chapter==5 or _fourth_world_environment_active() else 14.0,11.0 if game.chapter==5 or _fourth_world_environment_active() else 20.0,at.y)*(1.0-smoothstep(33.0,39.0,at.y))
 		result=result.lerp(Color(.80,.84,.92),salt_strength)
-	if _fourth_world_environment_active() and game.flags.get("island_loop_safe",false):
+	if (game.chapter==5 or _fourth_world_environment_active()) and game.flags.get("island_loop_safe",false):
 		# Only the repaired shrine and nearby islands recover; the wider blackday remains.
 		var radius=6.0 if game.flags.get("D42_done",false) else 3.0
 		result=result.lerp(Color.WHITE,1.0-smoothstep(radius-1.5,radius,at.distance_to(Vector2(44,15))))
+	if game.chapter==5 and game.flags.get("east_network_ready",false):
+		# The extended local repair protects the palace approach and archive district.
+		for site in [Vector2(40,11),Vector2(48,9)]:result=result.lerp(Color.WHITE,1.0-smoothstep(1.5,3.5,at.distance_to(site)))
 	return result
 
 func _draw_second_chapter_world_cell(atlas: Texture2D,id: int,origin: Vector2,cell: Vector2) -> void:
@@ -776,6 +792,9 @@ func _draw_second_chapter_world(visual: Dictionary,origin: Vector2,skip_cells: D
 		_draw_nature_props([prop],origin,_second_chapter_world_tint(cell))
 
 func _world_overview_texture() -> Texture2D:
+	if game.chapter==5:
+		var phase="clear" if game.flags.get("campaign_complete",false) else "network" if game.flags.get("east_network_ready",false) else "arrival"
+		return _tex("res://assets/chapter5-environment-20261023/world/overview-"+phase+".png")
 	if _fourth_world_environment_active():
 		var phase="verified" if game.flags.get("D42_done",false) else "trial" if game.flags.get("island_loop_safe",false) else "before"
 		return _tex("res://assets/chapter4-environment-20261023/world/overview-"+phase+".png")
@@ -1052,6 +1071,28 @@ func _terrain_name(cell: Vector2i) -> String:
 		if ground=="=" or ground=="b":return "室外石铺"
 		if ground=="p" or ground==",":return "土路"
 		if ground==".":return "草地"
+	if game.chapter==5 and game.category(cell)==7:
+		if game.battle_data.code=="F51":return "人工水渠"
+		if game.battle_data.code=="F52":return "室内蓄水池"
+		if str(game.battle_data.code) in ["M51","J53","J54"]:return "庭院水池"
+	if game.chapter==5 and game.category(cell) in [0,6,8]:
+		var ground=str(game.battle_data.visual_ground[cell.y][cell.x])
+		match str(game.battle_data.code):
+			"F51":
+				if ground in ["b","c","="]:return "室内石地"
+				if ground=="s":return "检修木桥"
+			"F52":
+				if ground in ["b","c","="]:return "神宫大理石地"
+			"S51":
+				if ground=="w":return "室内木地"
+				if ground=="b":return "室内石地"
+			"M51":
+				if ground=="b":return "病房石地"
+				if ground=="=":return "室外石铺"
+			"M52":
+				if ground in ["b","c","="]:return "露天石桥"
+			"J53","J54":
+				if ground in ["b","="]:return "神宫大理石地" if game.battle_data.code=="J54" and cell.y<=15 else "庭院石铺"
 	if game.chapter==4 and game.category(cell) in [0,6,8]:
 		var ground=str(game.battle_data.visual_ground[cell.y][cell.x])
 		if ground in ["=","b"]:return "室外石铺"
@@ -1215,6 +1256,33 @@ func _status_members() -> Array:
 		if game.Casualties.owner({"parties":game.parties},status_id).is_empty():return []
 		return game.units.filter(func(u):return u.side=="player" and not u.get("temporary",false) and not u.get("neutral",false)).map(func(u):return str(u.id))
 	return super._status_members()
+
+func _draw_status(unit: Dictionary) -> void:
+	if not game.HeroProfessions.advanced(unit):super._draw_status(unit);return
+	_panel(Rect2(8,12,240,220))
+	var members = _status_members()
+	if members.size()>1:
+		_center_text("队伍 %d/%d"%[members.find(status_id)+1,members.size()],Rect2(40,24,176,12))
+		_draw_indicator("left",Vector2(24,24));_draw_indicator("right",Vector2(224,24))
+	var portrait = _unit_portrait(unit)
+	if not portrait.is_empty():draw_texture(_tex(portrait.path),Vector2(24,40))
+	_text(str(unit.name_zh),Vector2(96,40))
+	_text(game.HeroProfessions.name(unit),Vector2(96,56),Color(.94,.88,.67))
+	_text("等级%d 经验%d"%[int(unit.level),int(unit.get("exp",0))],Vector2(96,72))
+	_text("生命%d/%d"%[int(unit.hp),int(unit.max_hp)],Vector2(96,88))
+	_draw_health(int(unit.hp),int(unit.max_hp),Vector2(96,104),"ally")
+	var stats = [["攻击",int(unit.strength)],["技巧",int(unit.skill)],
+		["速度",int(unit.speed)],["幸运",int(unit.luck)],
+		["防御",int(unit.defence)],["抗性",int(unit.get("resistance",0))],
+		["移动",Items.movement(unit)],["训练",int(unit.get("magic_level",0))]]
+	for i in range(stats.size()):
+		var x = 32+104*(i%2);var y = 124+16*int(i/2)
+		_text(str(stats[i][0]),Vector2(x,y));_text(str(stats[i][1]),Vector2(x+64,y))
+	var held = int(unit.get("item_id",0))
+	var footer = "装备："+str(Items.item(held).get("name_zh","")) if held>0 else "未携带装备（职业默认）"
+	if game.is_dying(unit):footer="濒死 · 不可出阵"
+	_center_text(footer,Rect2(24,190,208,14))
+	_center_text(game.HeroProfessions.summary(unit),Rect2(24,206,208,14))
 
 func _start_ending() -> void:
 	if not game.flags.get("campaign_complete",false):return
