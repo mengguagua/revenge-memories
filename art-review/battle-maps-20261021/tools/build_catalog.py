@@ -28,6 +28,16 @@ climate_review={
  'M15':'冬季海崖旧堡：积雪、冬岩、雪顶建筑与远景一致；工棚和石地牢房不铺雪，栈桥保留木材，海面保持水面。',
  'S12':'雪林诊所与村道统一寒地气候：松冠、岩脚、屋顶积雪，药车道为清扫土路；两座木桥和开放流水清楚区分。'}
 for code,conclusion in climate_review.items():material_review[code]=dict(material_review[code],conclusion=conclusion)
+# Current chapter-two environment review only supersedes these six changed maps.
+chapter2_environment_review={
+ 'F21':'海上双舰保持露天风化木甲板和木跳板；船医恢复格改为木板，船员舱采用同占地低矮木船舱与圆舷窗，不在船上摆陆地尖顶小屋。',
+ 'F22':'押送舰囚舱采用较平整的室内横木板，与露天旧甲板清楚区分；两扇南门打开后仍是同一木门槛。船医区为木板，低矮木舱、总闸和备用跳板关系保持。',
+ 'F23':'礁岛沙滩、草地与木码头用途正确，保留原地面；按长时间黑昼初现加入轻冷暗环境，与世界图及战后据点衔接。',
+ 'F25':'军港剖面牢室六格与门槛换室内磨损石板，开门后保持同一石材；外部土路、石院和风化木码头分开。军港延续黑昼冷暗环境，与H26一致。',
+ 'S21':'漂泊渔船保留木甲板、双跳板和真实沙岸停泊口；低矮木船舱替代陆地尖顶小屋，船舱、甲板和岸地材质用途清楚。',
+ 'S22':'碎石海洞主巷改为裸露灰岩，湿沉积地、岩壁和潮水保持；去除地下的户外黄土路观感，不向洞内引入草地或沙岸铺装。'}
+for code,conclusion in chapter2_environment_review.items():material_review[code]=dict(material_review[code],conclusion=conclusion)
+
 
 records=[];images=[];errors=[]
 for sid,meta in sorted(campaign['stages'].items(),key=lambda p:int(p[0])):
@@ -59,10 +69,10 @@ for sid,meta in sorted(campaign['stages'].items(),key=lambda p:int(p[0])):
  assert len(indices)==rec['size'][0]*rec['size'][1]
  records.append(rec);images.append({'code':code,'file':str(png.relative_to(OUT)),'size':list(im.size),'bytes':png.stat().st_size,'thumbnail_bytes':(OUT/f'thumbnails/{code}.webp').stat().st_size,'sha256':hashlib.sha256(png.read_bytes()).hexdigest()})
 assert len(records)==40 and sum(not x['optional']for x in records)==31 and sum(x['optional']for x in records)==9
-payload={'title':'全部战斗地图 · 场景与行动说明','date':'2026-10-23','version':re.search(r'config/version="([^"]+)"',(ACTUAL/'project.godot').read_text()).group(1),'map_revision':'0.10.11-climate','maps':records,'chapters':[{'id':i,'count':sum(x['chapter']==i for x in records)}for i in range(1,6)],'notes':'当前关卡初始地形与配置；2026-10-22分两轮优化M11之后全部39图，M11保留；第3至5章25图已调整，M41重设计样板已确认；第一章M12—M15与S11/S12现按该方法重新组织地形、建筑、部署和任务点，M11保持；第二章F21—F26与S21/S22现也完成舰船、海岸、灯庭、军港和水道重设计；第三章M31—M33、F31—F33及S31/S32现完成街区救援、军需截运、沿海石堡、码头盐路、提炼水庭与双院支线重设计。第四章现保留M41样板，并完成其余九图的铁骑营地、日塔、王都护院、沙城、观测台、沼泽与祭所重设计。第五章七图现完成内廷双病房、三段长桥、地下修复院、日宫水庭、旧书库、两军前庭和神座重设计。2026-10-22追加空间与材质复查：旧书库与日宫下层统一室内表达，病房、桥头和阶台修正；全部40图逐张核对贴图用途，另修正前四章9图的地面材质，布局与规则保持。2026-10-23第一章寒地一致性修订：M12—M15与S12改为雪地、冬季屋顶和雪松，清扫土路、室内石地、木桥与开放水面保持各自材质；M11原图和S11地下矿道保持。世界与室外据点只在第一章日返前使用冬景。场景由Godot后台绘制，人物以可切换标注展示。正式出阵成员随存档名册和伤情变化。'}
+payload={'title':'全部战斗地图 · 场景与行动说明','date':'2026-10-23','version':re.search(r'config/version="([^"]+)"',(ACTUAL/'project.godot').read_text()).group(1),'map_revision':'0.10.12-environment','maps':records,'chapters':[{'id':i,'count':sum(x['chapter']==i for x in records)}for i in range(1,6)],'notes':'当前关卡初始地形与配置；2026-10-22分两轮优化M11之后全部39图，M11保留；第3至5章25图已调整，M41重设计样板已确认；第一章M12—M15与S11/S12现按该方法重新组织地形、建筑、部署和任务点，M11保持；第二章F21—F26与S21/S22现也完成舰船、海岸、灯庭、军港和水道重设计；第三章M31—M33、F31—F33及S31/S32现完成街区救援、军需截运、沿海石堡、码头盐路、提炼水庭与双院支线重设计。第四章现保留M41样板，并完成其余九图的铁骑营地、日塔、王都护院、沙城、观测台、沼泽与祭所重设计。第五章七图现完成内廷双病房、三段长桥、地下修复院、日宫水庭、旧书库、两军前庭和神座重设计。2026-10-22追加空间与材质复查：旧书库与日宫下层统一室内表达，病房、桥头和阶台修正；全部40图逐张核对贴图用途，另修正前四章9图的地面材质，布局与规则保持。2026-10-23第一章寒地一致性修订：M12—M15与S12改为雪地、冬季屋顶和雪松，清扫土路、室内石地、木桥与开放水面保持各自材质；M11原图和S11地下矿道保持。世界与室外据点只在第一章日返前使用冬景。2026-10-23第二章环境一致性复查：船战木舱与甲板、囚舱和军港牢室门槛、海洞裸岩材质已修正；礁岛与军港延续剧情黑昼，世界全图和据点同步。F24航灯防卫与F26古道材质经检查保留。场景由Godot后台绘制，人物以可切换标注展示。正式出阵成员随存档名册和伤情变化。'}
 (OUT/'maps-data.js').write_text('window.MAP_CATALOG='+json.dumps(payload,ensure_ascii=False,separators=(',',':'))+';\n')
-(OUT/'manifest.json').write_text(json.dumps({'passed':True,'count':40,'main':31,'side':9,'chapters':payload['chapters'],'images':images,'map_hashes':{m['code']:m['source_sha256']for m in records},'render':'Godot native tile and architecture renderer; no UI or character sprites','reference':'../character-expansion-20261018/index.html','palette':'chapter5 muted-v2','source_date':'2026-10-23','landscape_review':'../../actual/reports/map-polish-late-20261022/index.html','climate_review':'../../actual/reports/chapter1-climate-20261022/index.html','map_revision':payload['map_revision']},ensure_ascii=False,indent=2)+'\n')
-lines=['# 全部战斗地图 · 逐关说明','', '2026-10-23，当前40张运行地图；本次第一章气候修订0.10.11。说明摘自 docs2/完整游戏流程.md，对照同版关卡配置与引擎地形规则；本页包含剧情及奖励信息。','']
+(OUT/'manifest.json').write_text(json.dumps({'passed':True,'count':40,'main':31,'side':9,'chapters':payload['chapters'],'images':images,'map_hashes':{m['code']:m['source_sha256']for m in records},'render':'Godot native tile and architecture renderer; no UI or character sprites','reference':'../character-expansion-20261018/index.html','palette':'chapter5 muted-v2','source_date':'2026-10-23','landscape_review':'../../actual/reports/map-polish-late-20261022/index.html','climate_review':'../../actual/reports/chapter1-climate-20261022/index.html','environment_review':'../../actual/reports/chapter2-environment-20261023/index.html','map_revision':payload['map_revision']},ensure_ascii=False,indent=2)+'\n')
+lines=['# 全部战斗地图 · 逐关说明','', '2026-10-23，当前40张运行地图；本次第二章环境修订0.10.12；第一章气候修订保留。说明摘自 docs2/完整游戏流程.md，对照同版关卡配置与引擎地形规则；本页包含剧情及奖励信息。','']
 for m in records:
  lines += [f"## {m['code']} · {m['name']}",'',f"第{m['chapter']}章 · {'支线' if m['optional'] else '主线'} · {m['size'][0]}×{m['size'][1]}格",'',f"场景：../{m['image']}",'',f"**目标与失败：**{m['conditions']}",'',f"**剧情：**{m['story']}",'',f"**战后与下一步：**{m['next']}",'']
  for note in m['notes']:lines += ['- '+note]

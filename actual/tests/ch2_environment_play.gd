@@ -1,4 +1,4 @@
-extends "res://tests/ch2_continuous_play.gd"
+extends "res://tests/chapter2_play.gd"
 # Isolated real-input second-chapter review. No live attributes or outcomes changed.
 
 const LATE_OUT="res://reports/chapter2-environment-20261023/play/"
@@ -129,7 +129,7 @@ func act(id:String)->void:
 
 func run_continuous()->void:
  late_folder=LATE_OUT+late_label+"/";DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(late_folder))
- source_checkpoint="res://reports/chapter1-redesign-20261022/play/continuous-main-completion-final/continuous-main-completion-final-chapter2-start.json"
+ source_checkpoint="res://reports/chapter1-climate-20261022/play/continuous-recruits/continuous-recruits-chapter2-start.json"
  var source_hash=FileAccess.get_file_as_string(source_checkpoint).sha256_text();var working=late_folder+"working-journey.json"
  DirAccess.copy_absolute(ProjectSettings.globalize_path(source_checkpoint),ProjectSettings.globalize_path(working))
  ui=load("res://scenes/main.tscn").instantiate();ui.game.save_path=working;root.add_child(ui);await process_frame;ui.instant_mode=true

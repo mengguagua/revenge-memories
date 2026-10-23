@@ -23,10 +23,12 @@ var east_materials: Dictionary={}
 var east_shore_cache: Dictionary={}
 var chapter1_climate: Dictionary={}
 var climate_layout_cache: Dictionary={}
+var chapter2_environment: Dictionary={}
 
 func _init(owner) -> void:
 	ui=owner
 	chapter1_climate=ui.GameState.read_json("res://data/chapter1_hub_climate.json")
+	chapter2_environment=ui.GameState.read_json("res://data/chapter2_hub_environment.json")
 	var data=ui.GameState.read_json("res://data/chapter2_hubs.json")
 	chapter2_rooms=data.get("rooms",{});east_materials=data.get("materials",{})
 	var third=ui.GameState.read_json("res://data/chapter3_hubs.json")
@@ -432,12 +434,15 @@ func _east_exit_allowed() -> bool:
 	return true
 
 func _east_environment_tint() -> Color:
+	if ui.game.chapter==2 and ui.game.flags.get("F22_confirmed",false) and room in ["H21","H22","H23"]:
+		return Color(.82,.86,.94)
 	var tint=east_data.get("environment_tint",[1.0,1.0,1.0])
 	return Color(float(tint[0]),float(tint[1]),float(tint[2]))
 
 func _draw_east_floor(atlas: Texture2D) -> void:
 	var visible: Rect2=ui._visible_native_rect()
 	var tint=_east_environment_tint()
+	var environment: Dictionary=chapter2_environment.get("rooms",{}).get(room,{}) if ui.game.chapter==2 else {}
 	var background=str(east_data.get("biome_override","sea"))
 	for y in range(floori((visible.position.y-ORIGIN.y)/16),ceili((visible.end.y-ORIGIN.y)/16)):
 		for x in range(floori((visible.position.x-ORIGIN.x)/16),ceili((visible.end.x-ORIGIN.x)/16)):
@@ -451,10 +456,15 @@ func _draw_east_floor(atlas: Texture2D) -> void:
 			var material=str(east_materials.get(mark,"sand"))
 			var variant=posmod((x*73856093)^(y*19349663)^((x+y*17)>>2),4)
 			var id=int(ui.battle_pack.base[material][variant])
-			ui.draw_texture_rect_region(atlas,Rect2(Vector2(x,y)*16+ORIGIN,Vector2(16,16)),Rect2(id%32*16,id/32*16,16,16),tint)
+			if not environment.is_empty():
+				ui._draw_atlas_cell(ui._tex(str(chapter2_environment.atlas)),int(environment.tiles[y][x]),Vector2(x,y)*16+ORIGIN,tint)
+			else:
+				ui.draw_texture_rect_region(atlas,Rect2(Vector2(x,y)*16+ORIGIN,Vector2(16,16)),Rect2(id%32*16,id/32*16,16,16),tint)
 			if background=="sea" and mark not in ["=","c"]:
 				var mask=_east_land_mask(Vector2i(x,y))
 				if mask!=255:ui.draw_texture(_east_shore_overlay(atlas,mask),Vector2(x,y)*16+ORIGIN,tint)
+	for prop in environment.get("props",[]):
+		ui.draw_texture(ui._tex(str(prop.path)),ORIGIN+Vector2(prop.position[0],prop.position[1]),tint)
 
 	if background=="cobble":ui._draw_hub_surroundings("P00",ORIGIN)
 

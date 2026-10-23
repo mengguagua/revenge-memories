@@ -1,0 +1,106 @@
+{
+  "passed": true,
+  "maps": [
+    {
+      "code": "F21",
+      "image": "reports/chapter2-environment-20261023/ships/images/F21.png",
+      "size": [
+        576,
+        480
+      ],
+      "sha256": "6ce296c306dfceff93d32dfef530c3ae29006e6f85041d03ed3decf967e7a37a",
+      "observations": [
+        "两艘甲板轮廓与两条跳板接海面保持，船员舱改为低矮木舱、圆舷窗和中间南门。",
+        "两处恢复格原石面已消失；仍有木板、船医物资作为位置参照。"
+      ],
+      "native_viewed": true
+    },
+    {
+      "code": "F22",
+      "image": "reports/chapter2-environment-20261023/ships/images/F22.png",
+      "size": [
+        608,
+        512
+      ],
+      "sha256": "53048e147574de58da5e0756f8d2b4bce88b1a921654481dfd2175170dc00743",
+      "observations": [
+        "两间囚舱以较平整的横木板区分露天旧甲板，灰铁栏与南门完整。",
+        "开门前后地板ID一致，无石坪或露海；总闸、备用跳板和南门坐标不变。"
+      ],
+      "native_viewed": true
+    },
+    {
+      "code": "S21",
+      "image": "reports/chapter2-environment-20261023/ships/images/S21.png",
+      "size": [
+        576,
+        480
+      ],
+      "sha256": "7be0ad3d24ba25b522c1edacdfd8d265a6550965dd40847d4e39ad108d25d3b1",
+      "observations": [
+        "低矮木船舱替代陆地尖顶房屋；双渔船甲板与接应沙岸保持。",
+        "沙地、草岸、木船、桥板、水面用途互不混淆，停泊跳板落点保持。"
+      ],
+      "native_viewed": true
+    }
+  ],
+  "checks": [
+    "F21 exact map",
+    "F21 exact logic_grid",
+    "F21 exact enemies",
+    "F21 exact npc_units",
+    "F21 exact reinforcements",
+    "F21 exact player_positions",
+    "F21 exact goal",
+    "F21 exact targets",
+    "F21 exact exit",
+    "F21 exact recovery_sites",
+    "F21 exact building_sites",
+    "F21 exact tactical_routes",
+    "F21 same48x32deckhouse",
+    "F21 same48x32deckhouse",
+    "F22 exact map",
+    "F22 exact logic_grid",
+    "F22 exact enemies",
+    "F22 exact npc_units",
+    "F22 exact reinforcements",
+    "F22 exact player_positions",
+    "F22 exact goal",
+    "F22 exact targets",
+    "F22 exact exit",
+    "F22 exact recovery_sites",
+    "F22 exact building_sites",
+    "F22 exact tactical_routes",
+    "F22 same48x32deckhouse",
+    "F22 dry wood persists after open at [26, 8]",
+    "F22 dry wood persists after open at [26, 9]",
+    "F22 dry wood persists after open at [26, 20]",
+    "F22 dry wood persists after open at [26, 21]",
+    "S21 exact map",
+    "S21 exact logic_grid",
+    "S21 exact enemies",
+    "S21 exact npc_units",
+    "S21 exact reinforcements",
+    "S21 exact player_positions",
+    "S21 exact goal",
+    "S21 exact targets",
+    "S21 exact exit",
+    "S21 exact recovery_sites",
+    "S21 exact building_sites",
+    "S21 exact tactical_routes",
+    "S21 same48x32deckhouse",
+    "S21 same48x32deckhouse"
+  ],
+  "issues": [],
+  "artwork": "Imagegen source originals are isolated; local export keeps same48x32canvas, door anchor and full cabin outline; new floor generated as flat wood then uniformly sampled64px.",
+  "open_door_capture": {
+    "path": "images/F22-gates-open.png",
+    "sha256": "f4252f4423f9074001e0461e3be3849a8d0ffd97fb1bfadd34462688eccaab9c",
+    "passed": true,
+    "observations": [
+      "从本轮真实囚舱总闸检查点捕获，主角和获救者均为实际存档位置。",
+      "开门处仍有同色室内木地，门下没有石地或水面露底；囚舱南门、外甲板与接应点可辨认。",
+      "文字框内容有内边距且无边界重叠，后台截图未激活窗口。"
+    ]
+  }
+}

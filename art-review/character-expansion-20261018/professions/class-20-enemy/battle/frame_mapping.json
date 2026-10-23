@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "revision": "bow-knight-arrow-continuity-v3-20261023",
+  "character_id": "class-20-enemy",
+  "display_name": "敌方弓骑士",
+  "display_class_name": "弓骑士",
+  "original_class_id": 20,
+  "source_side": "enemy",
+  "source_atlas": "../../../source-input/enemy-motion/class-20-enemy.png",
+  "source_frame_size": [
+    80,
+    64
+  ],
+  "output_frame_size": [
+    320,
+    256
+  ],
+  "source_anchor": [
+    40,
+    64
+  ],
+  "output_anchor": [
+    160,
+    256
+  ],
+  "source_columns": 16,
+  "source_oam_frame_count": 1,
+  "source_idle_frame": 1,
+  "source_frame_count": 7,
+  "frame_mapping": {
+    "1": "../../../bow-knight-battle-lock-string-v2-20261023/enemy/battle/frame-001.png",
+    "5": "../../../bow-knight-battle-lock-string-v2-20261023/enemy/battle/frame-005.png",
+    "6": "../../../bow-knight-battle-lock-string-v2-20261023/enemy/battle/frame-006.png",
+    "7": "../../../bow-knight-arrow-continuity-v3-20261023/enemy/frame-007.png",
+    "8": "../../../bow-knight-arrow-continuity-v3-20261023/enemy/frame-008.png"
+  },
+  "canonical_frames": [
+    1,
+    5,
+    6
+  ],
+  "required_source_frames": [
+    1,
+    5,
+    6
+  ],
+  "variant_keys": [
+    "class_20_enemy_bow",
+    "class_20_enemy_bow_vs_heavy",
+    "class_20_enemy_bow_far_ally",
+    "class_20_enemy_bow_far_ally_vs_heavy",
+    "class_20_enemy_bow_far_enemy",
+    "class_20_enemy_bow_far_enemy_vs_heavy"
+  ],
+  "records": [
+    {
+      "source_frame": 1,
+      "path": "../../../bow-knight-battle-lock-string-v2-20261023/enemy/battle/frame-001.png",
+      "bytes": 3620,
+      "sha256": "f043c8c3707313d05fae32c24a51c9266f852aef0003475ae34cba3873b411b1",
+      "size": [
+        320,
+        256
+      ]
+    },
+    {
+      "source_frame": 5,
+      "path": "../../../bow-knight-battle-lock-string-v2-20261023/enemy/battle/frame-005.png",
+      "bytes": 3626,
+      "sha256": "e39c914e0b3cfd3872dee64e5697688548f1a7b27357807bc74b6adc4a46a50e",
+      "size": [
+        320,
+        256
+      ]
+    },
+    {
+      "source_frame": 6,
+      "path": "../../../bow-knight-battle-lock-string-v2-20261023/enemy/battle/frame-006.png",
+      "bytes": 3615,
+      "sha256": "e4f53d56b3493d1beb9f07c7e866ecc2a7bad4f31b25857d2f7a6c1e201b98d7",
+      "size": [
+        320,
+        256
+      ]
+    },
+    {
+      "source_frame": 7,
+      "review_source_frame": 1,
+      "path": "../../../bow-knight-arrow-continuity-v3-20261023/enemy/frame-007.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 3586,
+      "sha256": "d3af610cf9704f5e8ce9e1e36d9c02ead138add0245c548896abccf4fc025d4b"
+    },
+    {
+      "source_frame": 8,
+      "review_source_frame": 6,
+      "path": "../../../bow-knight-arrow-continuity-v3-20261023/enemy/frame-008.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 3582,
+      "sha256": "25df355912138096f0deda7ecab79b7016b436309df3a0b19c693fd2a1c57354"
+    }
+  ],
+  "output_atlas_frame_order": [
+    1,
+    5,
+    6
+  ],
+  "output_atlas": "../../../bow-knight-battle-lock-string-v2-20261023/enemy/battle-atlas.png",
+  "effect_overrides": {
+    "native-1487ce1e7365a7": "../../../bow-knight-battle-lock-string-v2-20261023/enemy/flying-arrow.png"
+  },
+  "status": "review_candidate",
+  "modified_by": "codex",
+  "runtime_integrated": false,
+  "review_note": "搭箭／拉弓中间补箭：待发姿势保留箭，原飞行帧起才交接；射后收弓仍用空弓。已确认的马匹、弓弦、配色和箭轨均保持。",
+  "palette": [
+    "172638",
+    "4f4f7d",
+    "bbc1d6",
+    "dda77d",
+    "8c6b45",
+    "7c87a3"
+  ],
+  "art_provenance": "ImageGen separated rider/weapon layers on an immutable existing mounted core; indexed matte six-material palette; explicit visible bowstrings and registered arrow texture",
+  "batches": [
+    {
+      "id": "搭箭连续性",
+      "review": "../../../bow-knight-arrow-continuity-v3-20261023/enemy-continuity-dark.png",
+      "status": "review_candidate"
+    },
+    {
+      "id": "原身体姿势（含收弓）",
+      "review": "../../../bow-knight-battle-lock-string-v2-20261023/enemy-battle-light.png",
+      "status": "review_candidate"
+    }
+  ],
+  "motion_review": {
+    "fixed_mount_layer": "../../../bow-knight-battle-lock-string-v2-20261023/source/shared-mounted-core.png",
+    "unchanged_native_schedule": true,
+    "charged_shaft_output_rows": [
+      112,
+      116
+    ],
+    "flight_shaft_texture_row": 2,
+    "registration": "../../../bow-knight-battle-lock-string-v2-20261023/registration.json"
+  },
+  "review_frame_sources": {
+    "7": 1,
+    "8": 6
+  },
+  "review_frame_labels": {
+    "1": "空弓／收弓 · 源姿势1",
+    "7": "搭箭待发 · 源姿势1",
+    "6": "箭已离弦 · 源姿势6",
+    "8": "离弦前 · 源姿势6"
+  },
+  "review_timeline": "../../../bow-knight-arrow-continuity-v3-20261023/enemy-review-timeline.json"
+}

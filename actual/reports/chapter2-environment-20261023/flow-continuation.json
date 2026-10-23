@@ -1,0 +1,186 @@
+{
+  "passed": true,
+  "scope": "Chapter-two progression from the current genuine first-chapter completion through all eight battles to chapter3, using a linked continuation chain; one ordinary F23 retry and preserved test-pilot stops. Not an uninterrupted no-retry playthrough.",
+  "description": "从本轮第一章真实完成记录接续八战至第三章。F22在第91回合驾驶停滞后，按真实两格法术射程续行至第104回合胜利；F23保留首次败北，一次正常整备重试后通关。濒死成员换装和缺席的可选私人对话由测试驾驶略过，随后从原世界／据点记录继续，没有重打前关。全程保留米蕾、卡洛伤情及西队真实成长，不是一次无重试全通。",
+  "battles": [
+    {
+      "code": "F21",
+      "source": "play/continuous-final/continuous-final-play.json",
+      "outcome": "victory",
+      "starting_turn": 1,
+      "final_turn": 12,
+      "key_inputs": 575,
+      "map_sha256": "1ab8e4827a3a5dbc5edbf9790ee6bbd8a96410294e39961b9d24ab6c8f3debaa",
+      "driver_note": ""
+    },
+    {
+      "code": "F22",
+      "source": "play/continuous-resumed/continuous-resumed-play.json",
+      "outcome": "victory",
+      "starting_turn": 91,
+      "final_turn": 104,
+      "key_inputs": 630,
+      "map_sha256": "b5b54b7fdbc4577cae6851c6e77886a782b737c22620e007f88ddbf65d44fc7d",
+      "driver_note": "Live T91 continued, no retry."
+    },
+    {
+      "code": "F23",
+      "source": "play/continuous-shore-retry/continuous-shore-retry-play.json",
+      "outcome": "victory",
+      "starting_turn": 1,
+      "final_turn": 14,
+      "key_inputs": 561,
+      "map_sha256": "1da27145ce12275f9dff78ca046c97e96523782f7eab16b4f45be6568af80163",
+      "driver_note": "One ordinary preparation retry after retained defeat."
+    },
+    {
+      "code": "S21",
+      "source": "play/continuous-after-shore/continuous-after-shore-play.json",
+      "outcome": "victory",
+      "starting_turn": 1,
+      "final_turn": 10,
+      "key_inputs": 478,
+      "map_sha256": "5470ff170b965d990ea96a7ac46ebaae65efa7ecb91e71a88ff4583e9eb0ac2d",
+      "driver_note": ""
+    },
+    {
+      "code": "S22",
+      "source": "play/continuous-after-shore/continuous-after-shore-play.json",
+      "outcome": "victory",
+      "starting_turn": 1,
+      "final_turn": 11,
+      "key_inputs": 527,
+      "map_sha256": "6da94dc1b1e873763145723052e4237ec8674f1bc85a8355dfdeff505892b03c",
+      "driver_note": ""
+    },
+    {
+      "code": "F24",
+      "source": "play/continuous-after-shore/continuous-after-shore-play.json",
+      "outcome": "victory",
+      "starting_turn": 1,
+      "final_turn": 14,
+      "key_inputs": 746,
+      "map_sha256": "e7526eda3e7c452c79fa78e743de1c2e606fd4b9b0e62025dfa6f4cf67230fe8",
+      "driver_note": "Optional r05 absent because Carlo is dying; resumed saved H25 and left through normal input."
+    },
+    {
+      "code": "F25",
+      "source": "play/continuous-after-lighthouse/continuous-after-lighthouse-play.json",
+      "outcome": "victory",
+      "starting_turn": 1,
+      "final_turn": 12,
+      "key_inputs": 920,
+      "map_sha256": "acb59f5c50f5fddb16ff4758c88333b05adc9afa2be0dde7eb8ebc99c58539f3",
+      "driver_note": ""
+    },
+    {
+      "code": "F26",
+      "source": "play/continuous-after-lighthouse/continuous-after-lighthouse-play.json",
+      "outcome": "victory",
+      "starting_turn": 1,
+      "final_turn": 16,
+      "key_inputs": 1104,
+      "map_sha256": "c3f52143fbbacb987040ff07928c5bc2a1d5a89fc05ba18f7a0eb2875b6551ad",
+      "driver_note": ""
+    }
+  ],
+  "attempts": [
+    {
+      "label": "continuous-final",
+      "path": "play/continuous-final/continuous-final-play.json",
+      "sha256": "e1db0b52fd7491887e592431164d5f9947f81ad0f6ee9d5e6da25f4bc9a3cdeb",
+      "passed": false,
+      "inputs": 2542,
+      "failures": [
+        "Natural battle failed: F22 { \"objects\": {  }, \"evacuated\": [], \"freed\": [], \"burn_streak\": 0, \"reinforced\": true, \"mid_done\": false, &\"beacon_since\": -1, &\"beacon_contested\": false, &\"boats\": [], &\"pending_friendly_actions\": false }"
+      ]
+    },
+    {
+      "label": "continuous-resumed",
+      "path": "play/continuous-resumed/continuous-resumed-play.json",
+      "sha256": "908789bf389d04a41cb1b4aca941ef25c3eb111fe98c86f5408f85ce30000d1f",
+      "passed": false,
+      "inputs": 802,
+      "failures": [
+        "Natural battle failed: F23 { \"objects\": {  }, \"evacuated\": [], \"freed\": [], \"burn_streak\": 0, \"reinforced\": false, \"mid_done\": false, &\"beacon_since\": -1, &\"beacon_contested\": false, &\"boats\": [], &\"failed_reason\": \"艾琳濒死，无法继续作战\" }"
+      ]
+    },
+    {
+      "label": "continuous-shore-retry",
+      "path": "play/continuous-shore-retry/continuous-shore-retry-play.json",
+      "sha256": "f8f5fbd02f2e5a1b67da74e0408adeda2af6173799a8e7866a776ae5ac26debe",
+      "passed": false,
+      "inputs": 604,
+      "failures": [
+        "Equipment comparison rejected carlo"
+      ]
+    },
+    {
+      "label": "continuous-after-shore",
+      "path": "play/continuous-after-shore/continuous-after-shore-play.json",
+      "sha256": "1696593382bd196291d4f913e3ecef7b7ad54516ce8f16bac0160edc77d69be5",
+      "passed": false,
+      "inputs": 1810,
+      "failures": [
+        "Hub object absent: r05"
+      ]
+    },
+    {
+      "label": "continuous-after-lighthouse",
+      "path": "play/continuous-after-lighthouse/continuous-after-lighthouse-play.json",
+      "sha256": "2c161eaa365fad76e39a0fca7479223ee071efc415804831e3725d327be9453b",
+      "passed": true,
+      "inputs": 2089,
+      "failures": []
+    }
+  ],
+  "all_attempt_inputs": 7847,
+  "battle_retries": 1,
+  "retry_stage": "F23",
+  "source": "reports/chapter1-climate-20261022/play/continuous-recruits/continuous-recruits-chapter2-start.json",
+  "source_sha256": "b8ad1d3a5986460dc0aaf2ac18ef671329d2bbbc909bb3a0a77271857493e7e3",
+  "chapter_end": "play/continuous-after-lighthouse/continuous-after-lighthouse-chapter-end.json",
+  "chapter3_start": "play/continuous-after-lighthouse/continuous-after-lighthouse-chapter3-start.json",
+  "chapter3_entered": true,
+  "western_roster_checks": [
+    {
+      "id": "hunapu",
+      "unchanged": true
+    },
+    {
+      "id": "daan",
+      "unchanged": true
+    },
+    {
+      "id": "otto",
+      "unchanged": true
+    },
+    {
+      "id": "fula",
+      "unchanged": true
+    },
+    {
+      "id": "lena",
+      "unchanged": true
+    },
+    {
+      "id": "lance",
+      "unchanged": true
+    },
+    {
+      "id": "beck",
+      "unchanged": true
+    },
+    {
+      "id": "hervi",
+      "unchanged": true
+    }
+  ],
+  "east_dying": [
+    "mireille",
+    "carlo"
+  ],
+  "no_stat_position_rng_or_outcome_edits": true,
+  "core_gameplay_modified_for_tests": false,
+  "uninterrupted": false
+}

@@ -1,0 +1,90 @@
+{
+  "passed": true,
+  "images": [
+    {
+      "code": "F23",
+      "path": "reports/chapter2-environment-20261023/coasts/images/F23.png",
+      "size": [
+        576,
+        480
+      ],
+      "bytes": 70051,
+      "sha256": "cc646c82e2c7eeefb28b9e8bcdb031f9cd08e2005a9c95ecf4822ef912512e02",
+      "pixels_identical_to_before": false,
+      "observation": "轻冷暗调仍能清晰区分沙岸、土路、草坡与林崖，主体和海岸轮廓保持。"
+    },
+    {
+      "code": "F24",
+      "path": "reports/chapter2-environment-20261023/coasts/images/F24.png",
+      "size": [
+        576,
+        512
+      ],
+      "bytes": 68926,
+      "sha256": "32d266451d31721790a9a785d2a555a8494429e690e1e22853f317c0fdc547c4",
+      "pixels_identical_to_before": true,
+      "observation": "既有黑昼冷暗调、灯庭石坪与草坡/沙岸明确，原生图保持。"
+    },
+    {
+      "code": "F25",
+      "path": "reports/chapter2-environment-20261023/coasts/images/F25.png",
+      "size": [
+        608,
+        512
+      ],
+      "bytes": 100126,
+      "sha256": "1148031dccb279dfdbfb7a66eb115b646f2bbb09b54d23a2a9b0b9358a53bdca",
+      "pixels_identical_to_before": false,
+      "observation": "军港冷暗环境与H26相符，六格牢室为室内磨损石板，门槛在关闭状态与室内相接；木码头与室外石坪仍独立。"
+    },
+    {
+      "code": "F26",
+      "path": "reports/chapter2-environment-20261023/coasts/images/F26.png",
+      "size": [
+        672,
+        544
+      ],
+      "bytes": 78107,
+      "sha256": "ab4118d4b81c1c6a600f52e76e30095b614ddd7e55460d72a4780e849cacf807",
+      "pixels_identical_to_before": true,
+      "observation": "石路、草坡和海水保持；西岸接应点与船行水道明确，原生图保持。"
+    },
+    {
+      "code": "S22",
+      "path": "reports/chapter2-environment-20261023/coasts/images/S22.png",
+      "size": [
+        512,
+        448
+      ],
+      "bytes": 53925,
+      "sha256": "2954ae618231b98f19bc2d7445e8983f15815d4745056d59469942d874fde5a2",
+      "pixels_identical_to_before": false,
+      "observation": "主巷改灰紫裸岩，与周边潮湿灰褐淤泥厅和深岩壁区分；不再出现明黄户外土路；岩拱门与救援房原位。"
+    },
+    {
+      "path": "reports/chapter2-environment-20261023/coasts/details/F25-entry.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 72361,
+      "sha256": "40bd2c2d7f45c61c6147911ef26210f36bf80cce28f0fb11dd489f4ba28c5f4a",
+      "observation": "Actual F25 checkpoint. Closed/open threshold remains indoor stone, consistent with six prison floor cells. Outdoor timber and dirt stay distinct. Actor positions remain exact."
+    },
+    {
+      "path": "reports/chapter2-environment-20261023/coasts/details/F25-object-pilot_prison.png",
+      "size": [
+        562,
+        320
+      ],
+      "bytes": 73287,
+      "sha256": "84e0b08eb38561543ed1c99defb0563081d1607068f1143d7e8c7f903b7ba309",
+      "observation": "Actual F25 checkpoint. Closed/open threshold remains indoor stone, consistent with six prison floor cells. Outdoor timber and dirt stay distinct. Actor positions remain exact."
+    }
+  ],
+  "issues": [],
+  "review": "Direct visual inspection of all baseline images and current F23/F25/S22 native output. Unchanged F24/F26 exact pixel equality also checked. Native output captured with background_guard. F25 closed/open actual-input checkpoint details directly inspected. The capture script initially had an inherited constant-name collision; fixed before final capture, no game changes.",
+  "capture_tool_limits": [
+    "Final detail capture exited successfully but Godot reported four ObjectDB instances and one resource still in use during tool shutdown. Both images saved and source checkpoints unmodified; this is not a claim of a warning-free graphical test."
+  ]
+}

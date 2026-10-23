@@ -699,14 +699,60 @@ func _draw_camp_control_flag(at: Vector2,controlled: bool,marker_colour: Color=C
 func _first_chapter_winter() -> bool:
 	return game.chapter==1 and not game.flags.get("chapter1_complete",false)
 
+func _world_uses_winter() -> bool:
+	# Chapter two rewinds the same half-year: completed western progress is
+	# retained in the save, but the western season follows this story time.
+	return _first_chapter_winter() or (game.chapter==2 and not _second_chapter_blackday())
+
 func _world_visual_data() -> Dictionary:
-	if not _first_chapter_winter():return world
+	if not _world_uses_winter():return world
 	if chapter_one_world_climate.is_empty():
 		chapter_one_world_climate=GameState.read_json("res://data/chapter1_world_climate.json")
 	return chapter_one_world_climate
 
+# Chapter two's eastern black day is display-only and follows the existing story flag.
+func _second_chapter_blackday() -> bool:
+	return game.chapter==2 and bool(game.flags.get("F22_confirmed",false))
+
+func _second_chapter_world_tint(at: Vector2) -> Color:
+	if not _second_chapter_blackday():return Color.WHITE
+	# The old western passage lies outside the dimmed islands, beyond the local veil.
+	var west_edge=lerpf(42.0,30.0,clampf((at.y-42.0)/8.0,0.0,1.0))
+	var strength=smoothstep(west_edge,west_edge+3.0,at.x)*smoothstep(29.0,32.0,at.y)
+	var tint=Color(.82,.86,.94)
+	var beacon=1.0-smoothstep(2.0,7.0,at.distance_to(Vector2(51,42)))
+	var harbor=1.0-smoothstep(2.0,6.0,at.distance_to(Vector2(49,34)))
+	tint=tint.lerp(Color(.66,.72,.84),beacon).lerp(Color(.75,.8,.9),harbor)
+	return Color.WHITE.lerp(tint,strength)
+
+func _draw_second_chapter_world_cell(atlas: Texture2D,id: int,origin: Vector2,cell: Vector2) -> void:
+	var corners=[Vector2.ZERO,Vector2.RIGHT,Vector2.ONE,Vector2.DOWN]
+	var vertices=PackedVector2Array();var colors=PackedColorArray();var uvs=PackedVector2Array()
+	var source=Vector2(id%32,floori(id/32.0))*16.0
+	for corner in corners:
+		vertices.append(origin+(cell+corner)*16.0)
+		colors.append(_second_chapter_world_tint(cell+corner-Vector2(.5,.5)))
+		uvs.append((source+corner*16.0)/atlas.get_size())
+	draw_polygon(vertices,colors,uvs,atlas)
+
+func _draw_second_chapter_world(visual: Dictionary,origin: Vector2,skip_cells: Dictionary={}) -> void:
+	var atlas=_tex(str(visual.atlas));var bounds=_visible_native_rect().grow(16)
+	for layer_index in range(visual.layers.size()):
+		var layer=visual.layers[layer_index]
+		for y in range(layer.size()):
+			if y*16+origin.y<bounds.position.y or y*16+origin.y>bounds.end.y:continue
+			for x in range(layer[y].size()):
+				if layer_index==visual.layers.size()-1 and skip_cells.has(Vector2i(x,y)):continue
+				if x*16+origin.x<bounds.position.x or x*16+origin.x>bounds.end.x:continue
+				if layer[y][x]==null or int(layer[y][x])<0:continue
+				_draw_second_chapter_world_cell(atlas,int(layer[y][x]),origin,Vector2(x,y))
+	for prop in visual.get("natural_props",[]):
+		var cell=Vector2(prop.position[0],prop.position[1])/16.0
+		_draw_nature_props([prop],origin,_second_chapter_world_tint(cell))
+
 func _world_overview_texture() -> Texture2D:
-	if _first_chapter_winter():return _tex(str(_world_visual_data().overview))
+	if _world_uses_winter():return _tex(str(_world_visual_data().overview))
+	if _second_chapter_blackday():return _tex("res://assets/chapter2-environment-20261023/world/overview-blackday.png")
 	return OVERVIEW_IMAGE
 
 func _draw_world() -> void:
@@ -723,9 +769,11 @@ func _draw_world() -> void:
 		for node in world.nodes.values():
 			if node.get("symbol","")=="camp" and actor_cell==Vector2i(node.position[0],node.position[1]):occupied_camps[actor_cell]=true
 	var visual=_world_visual_data()
-	_draw_layers(visual.layers.slice(0,visual.layers.size()-1),32,_tex(visual.atlas),origin)
-	_draw_layers([visual.layers.back()],32,_tex(visual.atlas),origin,Color.WHITE,occupied_camps)
-	_draw_nature_props(visual.get("natural_props",[]),origin)
+	if _second_chapter_blackday():_draw_second_chapter_world(visual,origin,occupied_camps)
+	else:
+		_draw_layers(visual.layers.slice(0,visual.layers.size()-1),32,_tex(visual.atlas),origin)
+		_draw_layers([visual.layers.back()],32,_tex(visual.atlas),origin,Color.WHITE,occupied_camps)
+		_draw_nature_props(visual.get("natural_props",[]),origin)
 	var sp: Dictionary=graphics.map_units.class_11_ally if game.route=="celica" else graphics.map_units.class_21_ally
 	var class_actor=PartySprites.sprite("world",game.roster.get(game.leader_id(),{}),game.chapter)
 	if class_actor.is_empty():class_actor=PartySprites.sprite("map",game.roster.get(game.leader_id(),{}),game.chapter)

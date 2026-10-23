@@ -7,7 +7,7 @@
   "display_name": "盟军天马骑士",
   "width_height_scale": 4,
   "runtime_integrated": false,
-  "art_mode": "Built-in ImageGen; technical crop, uniform scale, rigid registration and lossless compression only.",
+  "art_mode": "existing native-registered ImageGen anatomy; ImageGen material guide, five matte material assignment and rigid center registration",
   "scenarios": [
     {
       "id": "tactical-walk",
@@ -25,7 +25,7 @@
         24
       ],
       "source_columns": 8,
-      "output_atlas": "frames/tactical-native-walk.png",
+      "output_atlas": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-walk-atlas.png",
       "output_frame_size": [
         128,
         96
@@ -38,2010 +38,116 @@
       "output_atlas_bytes": 61917,
       "frame_mapping": [
         {
+          "source_index": 0,
           "source_frame": 0,
-          "representative_frame": 0,
-          "kind": "imagegen_from_native_pose",
-          "path": "tactical-native-frames/frame-000.png",
-          "generated_source": "source/native-walk-000-generated-v3.png",
-          "generated_cell": [
-            0,
-            0,
-            1024,
-            1536
-          ],
-          "generated_content_bounds": [
-            70,
-            136,
-            954,
-            1331
-          ],
-          "head_top": 300,
-          "generated_feet_roi": [
-            390,
-            1210,
-            480,
-            1305
-          ],
-          "generated_foot_bounds": [
-            390,
-            1210,
-            475,
-            1299
-          ],
-          "uniform_scale": 0.06406406406406406,
-          "resampled_size": [
-            57,
-            77
-          ],
-          "registration_offset": [
-            34,
-            1
-          ],
-          "output_foot_roi": [
-            55,
-            70,
-            60,
-            76
-          ],
-          "target_foot_anchor": [
-            58,
-            76
-          ],
-          "registered_foot_anchor": [
-            57.5,
-            76
-          ],
-          "foot_delta": [
-            -0.5,
-            0
-          ],
-          "visible_bounds": [
-            34,
-            0,
-            96,
-            96
-          ],
+          "output_index": 0,
+          "path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-walk/frame-000.png",
+          "output_path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-walk/frame-000.png",
+          "revision": "pegasus-knight-complete-v1-20261023",
           "size": [
             128,
             96
           ],
-          "bytes": 6845,
-          "sha256": "361c4c45b10214d0834aa7dfbe92a4e09b578d8101d1bd46846680a5b9ca977e",
-          "source_index": 0,
-          "output_index": 0,
-          "output_path": "tactical-native-frames/frame-000.png",
-          "native_hoof_roi": [
-            14,
-            18,
-            15,
-            19
-          ],
-          "native_hoof_bounds": [
-            14,
-            18,
-            15,
-            19
-          ],
-          "body_visible_bounds": [
-            34,
-            0,
-            91,
-            78
-          ],
-          "native_projection": {
-            "source_roi": [
-              0,
-              22,
-              32,
-              24
-            ],
-            "source_rgba_sha256": "3b073e3e6a9f0819a564821f1443f7edce2496f1435371f30bfaced80663a531",
-            "source_file": "source/native-shadow-000.png",
-            "composite_at": [
-              0,
-              88
-            ],
-            "scale": 4,
-            "filter": "nearest",
-            "separate_from_body_registration": true
-          },
-          "direction": "up",
-          "anchor_is_anatomical_foot": true,
-          "anchor_kind": "selected visible hoof",
-          "registration_scope": "Selected declared semantic anchor only; source frame/tile anchor remains [16,24]. Projection is not an anatomical anchor. Tail registration is explicitly not reported as foot precision.",
-          "native_cpu_frame": {
-            "direction": "up",
-            "direction_code": 0,
-            "phase": 0,
-            "clock_value": 0,
-            "frame_ticks": 16,
-            "source_chr": 19,
-            "source_frame_index": 125,
-            "source_frame_address": "L088A82",
-            "oam": [
-              [
-                63,
-                200,
-                0,
-                56
-              ],
-              [
-                63,
-                201,
-                0,
-                64
-              ],
-              [
-                71,
-                216,
-                0,
-                56
-              ],
-              [
-                71,
-                217,
-                0,
-                64
-              ],
-              [
-                79,
-                232,
-                0,
-                56
-              ],
-              [
-                79,
-                233,
-                0,
-                64
-              ]
-            ],
-            "chr_writes": [
-              {
-                "register": "0xb000",
-                "value": 19
-              },
-              {
-                "register": "0xc000",
-                "value": 19
-              }
-            ],
-            "cpu_instructions": 400,
-            "source_global_flip": false,
-            "lookup": {
-              "animation": "L0BB669",
-              "chr": "L0BB719",
-              "right_mirror_flag": "L0BB72F"
-            },
-            "source_slot": 0,
-            "source_alpha_bounds": [
-              8,
-              0,
-              24,
-              24
-            ],
-            "rgba_sha256": "10f4665c242d0b09fbf2a006b72717cb3fd18fef72d4e070dd3dca85a27b445f"
-          },
-          "weapon_endpoint_correction": "source/spear-end-patch-qa.json",
-          "weapon_semantics": "Blunt cap upper/upper-right; steel blade lower/lower-left, with native rear-view occlusion.",
-          "imagegen_endpoint_patch": {
-            "path": "tactical-native-frames/frame-000.png",
-            "before": "source/spear-end-patches/tactical-native-frames-000-before.png",
-            "before_sha256": "11143f9e13af96af776974e9162a3be997053d44a3807de462df20875d8443b9",
-            "after_sha256": "361c4c45b10214d0834aa7dfbe92a4e09b578d8101d1bd46846680a5b9ca977e",
-            "changed_pixels": 104,
-            "outside_endpoint_masks_rgba_exact": true,
-            "patches": [
-              {
-                "roi": [
-                  69,
-                  0,
-                  79,
-                  14
-                ],
-                "imagegen_component": "upcap",
-                "source_component_roi": [
-                  282,
-                  170,
-                  403,
-                  540
-                ],
-                "uniform_width": 5,
-                "resampled_size": [
-                  5,
-                  15
-                ],
-                "paste_xy": [
-                  70,
-                  0
-                ],
-                "diagonal_sum_max": null,
-                "preserve_existing_body_alpha_ge16": false
-              },
-              {
-                "roi": [
-                  72,
-                  49,
-                  77,
-                  56
-                ],
-                "imagegen_component": "bladetip",
-                "source_component_roi": [
-                  850,
-                  320,
-                  984,
-                  552
-                ],
-                "uniform_width": 3,
-                "resampled_size": [
-                  3,
-                  5
-                ],
-                "paste_xy": [
-                  73,
-                  49
-                ],
-                "diagonal_sum_max": null,
-                "preserve_existing_body_alpha_ge16": true
-              }
-            ]
-          }
+          "bytes": 1469,
+          "sha256": "c8dfffb18eb2034a13cfeac79f0eceeef5959236cb3e6af7b98631c5be533ecc"
         },
         {
+          "source_index": 1,
           "source_frame": 1,
-          "representative_frame": 1,
-          "kind": "imagegen_from_native_pose",
-          "path": "tactical-native-frames/frame-001.png",
-          "generated_source": "source/native-walk-001-generated-v1.png",
-          "generated_cell": [
-            0,
-            0,
-            1024,
-            1536
-          ],
-          "generated_content_bounds": [
-            122,
-            137,
-            903,
-            1293
-          ],
-          "head_top": 300,
-          "generated_feet_roi": [
-            450,
-            1180,
-            590,
-            1305
-          ],
-          "generated_foot_bounds": [
-            459,
-            1180,
-            582,
-            1293
-          ],
-          "uniform_scale": 0.06847935548841894,
-          "resampled_size": [
-            54,
-            80
-          ],
-          "registration_offset": [
-            38,
-            0
-          ],
-          "output_foot_roi": [
-            61,
-            72,
-            70,
-            80
-          ],
-          "target_foot_anchor": [
-            66,
-            80
-          ],
-          "registered_foot_anchor": [
-            65.5,
-            80
-          ],
-          "foot_delta": [
-            -0.5,
-            0
-          ],
-          "visible_bounds": [
-            38,
-            0,
-            92,
-            96
-          ],
+          "output_index": 1,
+          "path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-walk/frame-001.png",
+          "output_path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-walk/frame-001.png",
+          "revision": "pegasus-knight-complete-v1-20261023",
           "size": [
             128,
             96
           ],
-          "bytes": 7357,
-          "sha256": "a58e2ca9ce1ce5856f5c677e0f6eccbcf64e40177909d5dfd380a387c59cd8b1",
-          "source_index": 1,
-          "output_index": 1,
-          "output_path": "tactical-native-frames/frame-001.png",
-          "native_hoof_roi": [
-            16,
-            17,
-            17,
-            20
-          ],
-          "native_hoof_bounds": [
-            16,
-            17,
-            17,
-            20
-          ],
-          "body_visible_bounds": [
-            38,
-            0,
-            92,
-            80
-          ],
-          "native_projection": {
-            "source_roi": [
-              0,
-              22,
-              32,
-              24
-            ],
-            "source_rgba_sha256": "471475b0d4aba7968a0430bb7f58fd18c1fdb980a94e23521120227196bee40f",
-            "source_file": "source/native-shadow-001.png",
-            "composite_at": [
-              0,
-              88
-            ],
-            "scale": 4,
-            "filter": "nearest",
-            "separate_from_body_registration": true
-          },
-          "direction": "up",
-          "anchor_is_anatomical_foot": false,
-          "anchor_kind": "tail-end silhouette; tucked hind hooves overlap in source and are visually checked separately",
-          "registration_scope": "Selected declared semantic anchor only; source frame/tile anchor remains [16,24]. Projection is not an anatomical anchor. Tail registration is explicitly not reported as foot precision.",
-          "native_cpu_frame": {
-            "direction": "up",
-            "direction_code": 0,
-            "phase": 1,
-            "clock_value": 16,
-            "frame_ticks": 16,
-            "source_chr": 19,
-            "source_frame_index": 126,
-            "source_frame_address": "L088A8A",
-            "oam": [
-              [
-                63,
-                196,
-                0,
-                56
-              ],
-              [
-                63,
-                197,
-                0,
-                64
-              ],
-              [
-                71,
-                212,
-                0,
-                56
-              ],
-              [
-                71,
-                213,
-                0,
-                64
-              ],
-              [
-                79,
-                228,
-                0,
-                56
-              ],
-              [
-                79,
-                229,
-                0,
-                64
-              ]
-            ],
-            "chr_writes": [
-              {
-                "register": "0xb000",
-                "value": 19
-              },
-              {
-                "register": "0xc000",
-                "value": 19
-              }
-            ],
-            "cpu_instructions": 400,
-            "source_global_flip": false,
-            "lookup": {
-              "animation": "L0BB669",
-              "chr": "L0BB719",
-              "right_mirror_flag": "L0BB72F"
-            },
-            "source_slot": 1,
-            "source_alpha_bounds": [
-              8,
-              0,
-              24,
-              24
-            ],
-            "rgba_sha256": "89c597e5fdf0e80cbd20b36db40b3879a17bb30955349ccef2e9e9bff6e643be"
-          },
-          "weapon_endpoint_correction": "source/spear-end-patch-qa.json",
-          "weapon_semantics": "Blunt cap upper/upper-right; steel blade lower/lower-left, with native rear-view occlusion.",
-          "imagegen_endpoint_patch": {
-            "path": "tactical-native-frames/frame-001.png",
-            "before": "source/spear-end-patches/tactical-native-frames-001-before.png",
-            "before_sha256": "b496b6207b23ffd15e2ba915409244b4aa340b5882726130b31d08991ca2e332",
-            "after_sha256": "a58e2ca9ce1ce5856f5c677e0f6eccbcf64e40177909d5dfd380a387c59cd8b1",
-            "changed_pixels": 99,
-            "outside_endpoint_masks_rgba_exact": true,
-            "patches": [
-              {
-                "roi": [
-                  73,
-                  0,
-                  83,
-                  14
-                ],
-                "imagegen_component": "upcap",
-                "source_component_roi": [
-                  282,
-                  170,
-                  403,
-                  540
-                ],
-                "uniform_width": 5,
-                "resampled_size": [
-                  5,
-                  15
-                ],
-                "paste_xy": [
-                  74,
-                  0
-                ],
-                "diagonal_sum_max": null,
-                "preserve_existing_body_alpha_ge16": false
-              },
-              {
-                "roi": [
-                  76,
-                  50,
-                  81,
-                  57
-                ],
-                "imagegen_component": "bladetip",
-                "source_component_roi": [
-                  850,
-                  320,
-                  984,
-                  552
-                ],
-                "uniform_width": 3,
-                "resampled_size": [
-                  3,
-                  5
-                ],
-                "paste_xy": [
-                  77,
-                  50
-                ],
-                "diagonal_sum_max": null,
-                "preserve_existing_body_alpha_ge16": true
-              }
-            ]
-          }
+          "bytes": 1538,
+          "sha256": "dbe48913492ebd468164c7793563f075f4ede6cf143c948bdc822a8b2fd9303c"
         },
         {
           "source_index": 2,
           "source_frame": 2,
           "output_index": 2,
-          "representative_frame": 6,
-          "kind": "native_proven_full_canvas_mirror",
-          "path": "tactical-native-frames/frame-002.png",
-          "output_path": "tactical-native-frames/frame-002.png",
-          "mirrored_from": "tactical-native-frames/frame-006.png",
-          "direction": "right",
+          "path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-walk/frame-002.png",
+          "output_path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-walk/frame-002.png",
+          "revision": "pegasus-knight-complete-v1-20261023",
           "size": [
             128,
             96
           ],
-          "bytes": 10845,
-          "sha256": "f9934ed2847598a30f00d72cb4c7f1b768586149a768cbbc2b05061932883bf4",
-          "source_and_output_mirror_exact": true,
-          "generated_source": "source/native-walk-006-generated-v3.png",
-          "generated_cell": [
-            0,
-            0,
-            1254,
-            1254
-          ],
-          "generated_content_bounds": [
-            131,
-            244,
-            1019,
-            1053
-          ],
-          "head_top": 244,
-          "generated_feet_roi": [
-            320,
-            850,
-            405,
-            930
-          ],
-          "generated_foot_bounds": [
-            320,
-            850,
-            396,
-            918
-          ],
-          "uniform_scale": 0.08160237388724036,
-          "resampled_size": [
-            73,
-            67
-          ],
-          "registration_offset": [
-            27,
-            0
-          ],
-          "output_foot_roi": [
-            78,
-            50,
-            85,
-            57
-          ],
-          "target_foot_anchor": [
-            82,
-            56
-          ],
-          "registered_foot_anchor": [
-            82.0,
-            56
-          ],
-          "foot_delta": [
-            -0.0,
-            0
-          ],
-          "visible_bounds": [
-            28,
-            0,
-            101,
-            96
-          ],
-          "native_hoof_roi": [
-            20,
-            13,
-            21,
-            14
-          ],
-          "native_hoof_bounds": [
-            11,
-            13,
-            12,
-            14
-          ],
-          "body_visible_bounds": [
-            28,
-            0,
-            101,
-            67
-          ],
-          "native_projection": {
-            "source_roi": [
-              0,
-              22,
-              32,
-              24
-            ],
-            "source_rgba_sha256": "f1550319cccd52272ae4c6e3c90b420088981532f98fcc847bed84e81e6bab4f",
-            "source_file": "source/native-shadow-002.png",
-            "composite_at": [
-              0,
-              88
-            ],
-            "scale": 4,
-            "filter": "nearest",
-            "separate_from_body_registration": true
-          },
-          "anchor_is_anatomical_foot": true,
-          "anchor_kind": "selected visible hoof",
-          "registration_scope": "Selected declared semantic anchor only; source frame/tile anchor remains [16,24]. Projection is not an anatomical anchor. Tail registration is explicitly not reported as foot precision.",
-          "registration_transform": "Full128x96 canvas horizontal mirror after representative registration; inherited crop/scale/offset describe representative before mirror.",
-          "native_cpu_frame": {
-            "direction": "right",
-            "direction_code": 1,
-            "phase": 0,
-            "clock_value": 0,
-            "frame_ticks": 16,
-            "source_chr": 19,
-            "source_frame_index": 127,
-            "source_frame_address": "L088A92",
-            "oam": [
-              [
-                63,
-                148,
-                64,
-                64
-              ],
-              [
-                63,
-                149,
-                64,
-                56
-              ],
-              [
-                71,
-                164,
-                64,
-                64
-              ],
-              [
-                71,
-                165,
-                64,
-                56
-              ],
-              [
-                79,
-                180,
-                64,
-                64
-              ],
-              [
-                79,
-                181,
-                64,
-                56
-              ]
-            ],
-            "chr_writes": [
-              {
-                "register": "0xb000",
-                "value": 19
-              },
-              {
-                "register": "0xc000",
-                "value": 19
-              }
-            ],
-            "cpu_instructions": 510,
-            "source_global_flip": true,
-            "lookup": {
-              "animation": "L0BB669",
-              "chr": "L0BB719",
-              "right_mirror_flag": "L0BB72F"
-            },
-            "source_slot": 2,
-            "source_alpha_bounds": [
-              8,
-              0,
-              24,
-              24
-            ],
-            "rgba_sha256": "a51533496f3f15041730a48a5baf7f4b271becb967e883d5f97604823b444672"
-          },
-          "weapon_endpoint_correction": "source/spear-end-patch-qa.json",
-          "weapon_semantics": "Blunt cap upper/upper-right; steel blade lower/lower-left, with native rear-view occlusion.",
-          "imagegen_endpoint_patch": {
-            "path": "tactical-native-frames/frame-006.png",
-            "before": "source/spear-end-patches/tactical-native-frames-006-before.png",
-            "before_sha256": "82a8cc83b1edbebcd867885a4438ee527816ae039414aeda340cd51b1d2c33f6",
-            "after_sha256": "f275d9cdc368ba4d350b03c424856dc3f5c2ea44185378db1cdb2ba55b82f7ce",
-            "changed_pixels": 222,
-            "outside_endpoint_masks_rgba_exact": true,
-            "patches": [
-              {
-                "roi": [
-                  83,
-                  3,
-                  101,
-                  17
-                ],
-                "imagegen_component": "diagcap",
-                "source_component_roi": [
-                  125,
-                  694,
-                  547,
-                  1115
-                ],
-                "uniform_width": 14,
-                "resampled_size": [
-                  14,
-                  14
-                ],
-                "paste_xy": [
-                  83,
-                  3
-                ],
-                "diagonal_sum_max": null,
-                "preserve_existing_body_alpha_ge16": false
-              },
-              {
-                "roi": [
-                  32,
-                  33,
-                  43,
-                  44
-                ],
-                "imagegen_component": "diagblade",
-                "source_component_roi": [
-                  785,
-                  699,
-                  1175,
-                  1112
-                ],
-                "uniform_width": 9,
-                "resampled_size": [
-                  9,
-                  10
-                ],
-                "paste_xy": [
-                  32,
-                  33
-                ],
-                "diagonal_sum_max": 78,
-                "preserve_existing_body_alpha_ge16": false
-              }
-            ]
-          }
+          "bytes": 1790,
+          "sha256": "c9f4036527cd0019a66db3d8f66790005ffd5348bbb7c1879353e268e06cf1e0"
         },
         {
           "source_index": 3,
           "source_frame": 3,
           "output_index": 3,
-          "representative_frame": 7,
-          "kind": "native_proven_full_canvas_mirror",
-          "path": "tactical-native-frames/frame-003.png",
-          "output_path": "tactical-native-frames/frame-003.png",
-          "mirrored_from": "tactical-native-frames/frame-007.png",
-          "direction": "right",
+          "path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-walk/frame-003.png",
+          "output_path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-walk/frame-003.png",
+          "revision": "pegasus-knight-complete-v1-20261023",
           "size": [
             128,
             96
           ],
-          "bytes": 9568,
-          "sha256": "1bcd2026135d245d984cc6f5aafb5a5552adf3b9f9e0503b29da20705d2b58a9",
-          "source_and_output_mirror_exact": true,
-          "generated_source": "source/native-walk-007-generated-v1.png",
-          "generated_cell": [
-            0,
-            0,
-            1254,
-            1254
-          ],
-          "generated_content_bounds": [
-            131,
-            244,
-            1052,
-            1078
-          ],
-          "head_top": 244,
-          "generated_feet_roi": [
-            410,
-            1005,
-            505,
-            1085
-          ],
-          "generated_foot_bounds": [
-            410,
-            1005,
-            499,
-            1078
-          ],
-          "uniform_scale": 0.07553956834532374,
-          "resampled_size": [
-            70,
-            63
-          ],
-          "registration_offset": [
-            30,
-            1
-          ],
-          "output_foot_roi": [
-            70,
-            58,
-            77,
-            64
-          ],
-          "target_foot_anchor": [
-            74,
-            64
-          ],
-          "registered_foot_anchor": [
-            73.5,
-            64
-          ],
-          "foot_delta": [
-            -0.5,
-            0
-          ],
-          "visible_bounds": [
-            28,
-            1,
-            98,
-            96
-          ],
-          "native_hoof_roi": [
-            18,
-            15,
-            19,
-            16
-          ],
-          "native_hoof_bounds": [
-            13,
-            15,
-            14,
-            16
-          ],
-          "body_visible_bounds": [
-            28,
-            1,
-            98,
-            64
-          ],
-          "native_projection": {
-            "source_roi": [
-              0,
-              22,
-              32,
-              24
-            ],
-            "source_rgba_sha256": "289a9c845c77228774562f6ff50f684f162b8e2ad415a8877a0734264cf002ec",
-            "source_file": "source/native-shadow-003.png",
-            "composite_at": [
-              0,
-              88
-            ],
-            "scale": 4,
-            "filter": "nearest",
-            "separate_from_body_registration": true
-          },
-          "anchor_is_anatomical_foot": true,
-          "anchor_kind": "selected visible hoof",
-          "registration_scope": "Selected declared semantic anchor only; source frame/tile anchor remains [16,24]. Projection is not an anatomical anchor. Tail registration is explicitly not reported as foot precision.",
-          "registration_transform": "Full128x96 canvas horizontal mirror after representative registration; inherited crop/scale/offset describe representative before mirror.",
-          "native_cpu_frame": {
-            "direction": "right",
-            "direction_code": 1,
-            "phase": 1,
-            "clock_value": 16,
-            "frame_ticks": 16,
-            "source_chr": 19,
-            "source_frame_index": 128,
-            "source_frame_address": "L088A9A",
-            "oam": [
-              [
-                63,
-                100,
-                64,
-                64
-              ],
-              [
-                63,
-                101,
-                64,
-                56
-              ],
-              [
-                71,
-                116,
-                64,
-                64
-              ],
-              [
-                71,
-                117,
-                64,
-                56
-              ],
-              [
-                79,
-                132,
-                64,
-                64
-              ],
-              [
-                79,
-                133,
-                64,
-                56
-              ]
-            ],
-            "chr_writes": [
-              {
-                "register": "0xb000",
-                "value": 19
-              },
-              {
-                "register": "0xc000",
-                "value": 19
-              }
-            ],
-            "cpu_instructions": 511,
-            "source_global_flip": true,
-            "lookup": {
-              "animation": "L0BB669",
-              "chr": "L0BB719",
-              "right_mirror_flag": "L0BB72F"
-            },
-            "source_slot": 3,
-            "source_alpha_bounds": [
-              8,
-              0,
-              24,
-              24
-            ],
-            "rgba_sha256": "4670443ad63ab173773613b6154fadaebeb54bc11ac0f27b74aad7a7fe3aef06"
-          },
-          "weapon_endpoint_correction": "source/spear-end-patch-qa.json",
-          "weapon_semantics": "Blunt cap upper/upper-right; steel blade lower/lower-left, with native rear-view occlusion.",
-          "imagegen_endpoint_patch": {
-            "path": "tactical-native-frames/frame-007.png",
-            "before": "source/spear-end-patches/tactical-native-frames-007-before.png",
-            "before_sha256": "ba5857fcfb94d5a3d58f60adbf37827fc156bdb86d10ff9f597eb23f992eee2e",
-            "after_sha256": "467e347e299accf6526d859316ffe0262652addbfdab18fa8e7a2b439b0ad0c5",
-            "changed_pixels": 246,
-            "outside_endpoint_masks_rgba_exact": true,
-            "patches": [
-              {
-                "roi": [
-                  83,
-                  3,
-                  103,
-                  18
-                ],
-                "imagegen_component": "diagcap",
-                "source_component_roi": [
-                  125,
-                  694,
-                  547,
-                  1115
-                ],
-                "uniform_width": 14,
-                "resampled_size": [
-                  14,
-                  14
-                ],
-                "paste_xy": [
-                  83,
-                  4
-                ],
-                "diagonal_sum_max": null,
-                "preserve_existing_body_alpha_ge16": false
-              },
-              {
-                "roi": [
-                  32,
-                  32,
-                  43,
-                  43
-                ],
-                "imagegen_component": "diagblade",
-                "source_component_roi": [
-                  785,
-                  699,
-                  1175,
-                  1112
-                ],
-                "uniform_width": 9,
-                "resampled_size": [
-                  9,
-                  10
-                ],
-                "paste_xy": [
-                  32,
-                  32
-                ],
-                "diagonal_sum_max": 77,
-                "preserve_existing_body_alpha_ge16": false
-              }
-            ]
-          }
+          "bytes": 1717,
+          "sha256": "5996326116decdb5bdcb81dadc865448706f147367beeacf6d7008142c964669"
         },
         {
-          "source_frame": 4,
-          "representative_frame": 4,
-          "kind": "imagegen_from_native_pose",
-          "path": "tactical-native-frames/frame-004.png",
-          "generated_source": "source/native-walk-004-generated-v3.png",
-          "generated_cell": [
-            0,
-            0,
-            1086,
-            1448
-          ],
-          "generated_content_bounds": [
-            156,
-            292,
-            964,
-            1361
-          ],
-          "head_top": 360,
-          "generated_feet_roi": [
-            450,
-            1280,
-            545,
-            1370
-          ],
-          "generated_foot_bounds": [
-            450,
-            1280,
-            542,
-            1361
-          ],
-          "uniform_scale": 0.06993006993006994,
-          "resampled_size": [
-            57,
-            75
-          ],
-          "registration_offset": [
-            38,
-            1
-          ],
-          "output_foot_roi": [
-            59,
-            70,
-            65,
-            76
-          ],
-          "target_foot_anchor": [
-            62,
-            76
-          ],
-          "registered_foot_anchor": [
-            62.0,
-            76
-          ],
-          "foot_delta": [
-            0.0,
-            0
-          ],
-          "visible_bounds": [
-            38,
-            0,
-            96,
-            96
-          ],
-          "size": [
-            128,
-            96
-          ],
-          "bytes": 8750,
-          "sha256": "a83f84b64af5a373cca62b5621b2467e7d60c058e9b4f777dff2ff38d60a4c2a",
           "source_index": 4,
+          "source_frame": 4,
           "output_index": 4,
-          "output_path": "tactical-native-frames/frame-004.png",
-          "native_hoof_roi": [
-            15,
-            18,
-            16,
-            19
-          ],
-          "native_hoof_bounds": [
-            15,
-            18,
-            16,
-            19
-          ],
-          "body_visible_bounds": [
-            38,
-            0,
-            95,
-            78
-          ],
-          "native_projection": {
-            "source_roi": [
-              0,
-              22,
-              32,
-              24
-            ],
-            "source_rgba_sha256": "0029d55e5fbb3480a76b9186d948b46b2d968912b5f9b55590867e2ef009a96e",
-            "source_file": "source/native-shadow-004.png",
-            "composite_at": [
-              0,
-              88
-            ],
-            "scale": 4,
-            "filter": "nearest",
-            "separate_from_body_registration": true
-          },
-          "direction": "down",
-          "anchor_is_anatomical_foot": true,
-          "anchor_kind": "selected visible hoof",
-          "registration_scope": "Selected declared semantic anchor only; source frame/tile anchor remains [16,24]. Projection is not an anatomical anchor. Tail registration is explicitly not reported as foot precision.",
-          "native_cpu_frame": {
-            "direction": "down",
-            "direction_code": 2,
-            "phase": 0,
-            "clock_value": 0,
-            "frame_ticks": 16,
-            "source_chr": 19,
-            "source_frame_index": 129,
-            "source_frame_address": "L088AA2",
-            "oam": [
-              [
-                63,
-                52,
-                0,
-                56
-              ],
-              [
-                63,
-                53,
-                0,
-                64
-              ],
-              [
-                71,
-                68,
-                0,
-                56
-              ],
-              [
-                71,
-                69,
-                0,
-                64
-              ],
-              [
-                79,
-                84,
-                0,
-                56
-              ],
-              [
-                79,
-                85,
-                0,
-                64
-              ]
-            ],
-            "chr_writes": [
-              {
-                "register": "0xb000",
-                "value": 19
-              },
-              {
-                "register": "0xc000",
-                "value": 19
-              }
-            ],
-            "cpu_instructions": 401,
-            "source_global_flip": false,
-            "lookup": {
-              "animation": "L0BB669",
-              "chr": "L0BB719",
-              "right_mirror_flag": "L0BB72F"
-            },
-            "source_slot": 4,
-            "source_alpha_bounds": [
-              9,
-              0,
-              24,
-              24
-            ],
-            "rgba_sha256": "c6f430a9c49a3db1e25e661ddcf741d1b44cdba75cd63d364a682de6690c0bf5"
-          },
-          "weapon_endpoint_correction": "source/spear-end-patch-qa.json",
-          "weapon_semantics": "Blunt cap upper/upper-right; steel blade lower/lower-left, with native rear-view occlusion.",
-          "imagegen_endpoint_patch": {
-            "path": "tactical-native-frames/frame-004.png",
-            "before": "source/spear-end-patches/tactical-native-frames-004-before.png",
-            "before_sha256": "6fe9f2efa2b57dea6df288edba639bfb5cf3a11041df44903b57c4d1300c4e89",
-            "after_sha256": "a83f84b64af5a373cca62b5621b2467e7d60c058e9b4f777dff2ff38d60a4c2a",
-            "changed_pixels": 195,
-            "outside_endpoint_masks_rgba_exact": true,
-            "patches": [
-              {
-                "roi": [
-                  45,
-                  0,
-                  54,
-                  16
-                ],
-                "imagegen_component": "upcap",
-                "source_component_roi": [
-                  282,
-                  170,
-                  403,
-                  540
-                ],
-                "uniform_width": 5,
-                "resampled_size": [
-                  5,
-                  15
-                ],
-                "paste_xy": [
-                  47,
-                  0
-                ],
-                "diagonal_sum_max": null,
-                "preserve_existing_body_alpha_ge16": false
-              },
-              {
-                "roi": [
-                  46,
-                  63,
-                  54,
-                  79
-                ],
-                "imagegen_component": "downblade",
-                "source_component_roi": [
-                  846,
-                  127,
-                  984,
-                  552
-                ],
-                "uniform_width": 5,
-                "resampled_size": [
-                  5,
-                  15
-                ],
-                "paste_xy": [
-                  47,
-                  63
-                ],
-                "diagonal_sum_max": null,
-                "preserve_existing_body_alpha_ge16": false
-              }
-            ]
-          }
-        },
-        {
-          "source_frame": 5,
-          "representative_frame": 5,
-          "kind": "imagegen_from_native_pose",
-          "path": "tactical-native-frames/frame-005.png",
-          "generated_source": "source/native-walk-005-generated-v3.png",
-          "generated_cell": [
-            0,
-            0,
-            1086,
-            1448
-          ],
-          "generated_content_bounds": [
-            114,
-            194,
-            972,
-            1366
-          ],
-          "head_top": 282,
-          "generated_feet_roi": [
-            460,
-            1170,
-            575,
-            1260
-          ],
-          "generated_foot_bounds": [
-            467,
-            1170,
-            564,
-            1248
-          ],
-          "uniform_scale": 0.06625258799171843,
-          "resampled_size": [
-            57,
-            78
-          ],
-          "registration_offset": [
-            40,
-            2
-          ],
-          "output_foot_roi": [
-            63,
-            67,
-            71,
-            73
-          ],
-          "target_foot_anchor": [
-            66,
-            72
-          ],
-          "registered_foot_anchor": [
-            66.5,
-            72
-          ],
-          "foot_delta": [
-            0.5,
-            0
-          ],
-          "visible_bounds": [
-            40,
-            1,
-            97,
-            96
-          ],
+          "path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-walk/frame-004.png",
+          "output_path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-walk/frame-004.png",
+          "revision": "pegasus-knight-complete-v1-20261023",
           "size": [
             128,
             96
           ],
-          "bytes": 8560,
-          "sha256": "756d21a0e4541342dc0a78adfa9959cf9273d2fb5aef1552cfbf91d862c0ab37",
+          "bytes": 1646,
+          "sha256": "68e482cdfedb01b2ddaa245c097e190d1ec274d8fe479a52898236cf3d78ff87"
+        },
+        {
           "source_index": 5,
+          "source_frame": 5,
           "output_index": 5,
-          "output_path": "tactical-native-frames/frame-005.png",
-          "native_hoof_roi": [
-            16,
-            16,
-            17,
-            18
-          ],
-          "native_hoof_bounds": [
-            16,
-            16,
-            17,
-            18
-          ],
-          "body_visible_bounds": [
-            40,
-            1,
-            97,
-            81
-          ],
-          "native_projection": {
-            "source_roi": [
-              0,
-              22,
-              32,
-              24
-            ],
-            "source_rgba_sha256": "114a4cea9ac54fc68cb408a49bb2aa3b84138591291b60e1bf380f308afafab0",
-            "source_file": "source/native-shadow-005.png",
-            "composite_at": [
-              0,
-              88
-            ],
-            "scale": 4,
-            "filter": "nearest",
-            "separate_from_body_registration": true
-          },
-          "direction": "down",
-          "anchor_is_anatomical_foot": true,
-          "anchor_kind": "selected visible hoof",
-          "registration_scope": "Selected declared semantic anchor only; source frame/tile anchor remains [16,24]. Projection is not an anatomical anchor. Tail registration is explicitly not reported as foot precision.",
-          "native_cpu_frame": {
-            "direction": "down",
-            "direction_code": 2,
-            "phase": 1,
-            "clock_value": 16,
-            "frame_ticks": 16,
-            "source_chr": 19,
-            "source_frame_index": 130,
-            "source_frame_address": "L088AAA",
-            "oam": [
-              [
-                63,
-                4,
-                0,
-                56
-              ],
-              [
-                63,
-                5,
-                0,
-                64
-              ],
-              [
-                71,
-                20,
-                0,
-                56
-              ],
-              [
-                71,
-                21,
-                0,
-                64
-              ],
-              [
-                79,
-                36,
-                0,
-                56
-              ],
-              [
-                79,
-                37,
-                0,
-                64
-              ]
-            ],
-            "chr_writes": [
-              {
-                "register": "0xb000",
-                "value": 19
-              },
-              {
-                "register": "0xc000",
-                "value": 19
-              }
-            ],
-            "cpu_instructions": 401,
-            "source_global_flip": false,
-            "lookup": {
-              "animation": "L0BB669",
-              "chr": "L0BB719",
-              "right_mirror_flag": "L0BB72F"
-            },
-            "source_slot": 5,
-            "source_alpha_bounds": [
-              8,
-              0,
-              24,
-              24
-            ],
-            "rgba_sha256": "69ac8e633b7d92372591ccee8747dc61a1f408502b8d8ca51b1036b1bcb277bb"
-          },
-          "weapon_endpoint_correction": "source/spear-end-patch-qa.json",
-          "weapon_semantics": "Blunt cap upper/upper-right; steel blade lower/lower-left, with native rear-view occlusion.",
-          "imagegen_endpoint_patch": {
-            "path": "tactical-native-frames/frame-005.png",
-            "before": "source/spear-end-patches/tactical-native-frames-005-before.png",
-            "before_sha256": "300ac2c19c1e0c031e9af28fe1deb9956f288991f05baf4650e3bcb2ebdbaa79",
-            "after_sha256": "756d21a0e4541342dc0a78adfa9959cf9273d2fb5aef1552cfbf91d862c0ab37",
-            "changed_pixels": 193,
-            "outside_endpoint_masks_rgba_exact": true,
-            "patches": [
-              {
-                "roi": [
-                  49,
-                  0,
-                  58,
-                  16
-                ],
-                "imagegen_component": "upcap",
-                "source_component_roi": [
-                  282,
-                  170,
-                  403,
-                  540
-                ],
-                "uniform_width": 5,
-                "resampled_size": [
-                  5,
-                  15
-                ],
-                "paste_xy": [
-                  51,
-                  1
-                ],
-                "diagonal_sum_max": null,
-                "preserve_existing_body_alpha_ge16": false
-              },
-              {
-                "roi": [
-                  50,
-                  66,
-                  58,
-                  83
-                ],
-                "imagegen_component": "downblade",
-                "source_component_roi": [
-                  846,
-                  127,
-                  984,
-                  552
-                ],
-                "uniform_width": 5,
-                "resampled_size": [
-                  5,
-                  15
-                ],
-                "paste_xy": [
-                  51,
-                  66
-                ],
-                "diagonal_sum_max": null,
-                "preserve_existing_body_alpha_ge16": false
-              }
-            ]
-          }
-        },
-        {
-          "source_frame": 6,
-          "representative_frame": 6,
-          "kind": "imagegen_from_native_pose",
-          "path": "tactical-native-frames/frame-006.png",
-          "generated_source": "source/native-walk-006-generated-v3.png",
-          "generated_cell": [
-            0,
-            0,
-            1254,
-            1254
-          ],
-          "generated_content_bounds": [
-            131,
-            244,
-            1019,
-            1053
-          ],
-          "head_top": 244,
-          "generated_feet_roi": [
-            320,
-            850,
-            405,
-            930
-          ],
-          "generated_foot_bounds": [
-            320,
-            850,
-            396,
-            918
-          ],
-          "uniform_scale": 0.08160237388724036,
-          "resampled_size": [
-            73,
-            67
-          ],
-          "registration_offset": [
-            27,
-            0
-          ],
-          "output_foot_roi": [
-            43,
-            50,
-            50,
-            57
-          ],
-          "target_foot_anchor": [
-            46,
-            56
-          ],
-          "registered_foot_anchor": [
-            46.0,
-            56
-          ],
-          "foot_delta": [
-            0.0,
-            0
-          ],
-          "visible_bounds": [
-            27,
-            0,
-            100,
-            96
-          ],
+          "path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-walk/frame-005.png",
+          "output_path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-walk/frame-005.png",
+          "revision": "pegasus-knight-complete-v1-20261023",
           "size": [
             128,
             96
           ],
-          "bytes": 10886,
-          "sha256": "f275d9cdc368ba4d350b03c424856dc3f5c2ea44185378db1cdb2ba55b82f7ce",
+          "bytes": 1661,
+          "sha256": "0016a0bc6c1c1ef5cb0782cce36b7a99a630eb3afab726d64336016ad9a51746"
+        },
+        {
           "source_index": 6,
+          "source_frame": 6,
           "output_index": 6,
-          "output_path": "tactical-native-frames/frame-006.png",
-          "native_hoof_roi": [
-            11,
-            13,
-            12,
-            14
-          ],
-          "native_hoof_bounds": [
-            11,
-            13,
-            12,
-            14
-          ],
-          "body_visible_bounds": [
-            27,
-            0,
-            100,
-            67
-          ],
-          "native_projection": {
-            "source_roi": [
-              0,
-              22,
-              32,
-              24
-            ],
-            "source_rgba_sha256": "d8cb46bbf1331238a2c52c4f9e3abba2df92806b776b36a84cb25de31b76c71c",
-            "source_file": "source/native-shadow-006.png",
-            "composite_at": [
-              0,
-              88
-            ],
-            "scale": 4,
-            "filter": "nearest",
-            "separate_from_body_registration": true
-          },
-          "direction": "left",
-          "anchor_is_anatomical_foot": true,
-          "anchor_kind": "selected visible hoof",
-          "registration_scope": "Selected declared semantic anchor only; source frame/tile anchor remains [16,24]. Projection is not an anatomical anchor. Tail registration is explicitly not reported as foot precision.",
-          "native_cpu_frame": {
-            "direction": "left",
-            "direction_code": 3,
-            "phase": 0,
-            "clock_value": 0,
-            "frame_ticks": 16,
-            "source_chr": 19,
-            "source_frame_index": 127,
-            "source_frame_address": "L088A92",
-            "oam": [
-              [
-                63,
-                148,
-                0,
-                56
-              ],
-              [
-                63,
-                149,
-                0,
-                64
-              ],
-              [
-                71,
-                164,
-                0,
-                56
-              ],
-              [
-                71,
-                165,
-                0,
-                64
-              ],
-              [
-                79,
-                180,
-                0,
-                56
-              ],
-              [
-                79,
-                181,
-                0,
-                64
-              ]
-            ],
-            "chr_writes": [
-              {
-                "register": "0xb000",
-                "value": 19
-              },
-              {
-                "register": "0xc000",
-                "value": 19
-              }
-            ],
-            "cpu_instructions": 400,
-            "source_global_flip": false,
-            "lookup": {
-              "animation": "L0BB669",
-              "chr": "L0BB719",
-              "right_mirror_flag": "L0BB72F"
-            },
-            "source_slot": 6,
-            "source_alpha_bounds": [
-              8,
-              0,
-              24,
-              24
-            ],
-            "rgba_sha256": "f5d10305fd5865df9bd53eaffa5085afa6920d12edfced9bd1a278486623e7d4"
-          },
-          "weapon_endpoint_correction": "source/spear-end-patch-qa.json",
-          "weapon_semantics": "Blunt cap upper/upper-right; steel blade lower/lower-left, with native rear-view occlusion.",
-          "imagegen_endpoint_patch": {
-            "path": "tactical-native-frames/frame-006.png",
-            "before": "source/spear-end-patches/tactical-native-frames-006-before.png",
-            "before_sha256": "82a8cc83b1edbebcd867885a4438ee527816ae039414aeda340cd51b1d2c33f6",
-            "after_sha256": "f275d9cdc368ba4d350b03c424856dc3f5c2ea44185378db1cdb2ba55b82f7ce",
-            "changed_pixels": 222,
-            "outside_endpoint_masks_rgba_exact": true,
-            "patches": [
-              {
-                "roi": [
-                  83,
-                  3,
-                  101,
-                  17
-                ],
-                "imagegen_component": "diagcap",
-                "source_component_roi": [
-                  125,
-                  694,
-                  547,
-                  1115
-                ],
-                "uniform_width": 14,
-                "resampled_size": [
-                  14,
-                  14
-                ],
-                "paste_xy": [
-                  83,
-                  3
-                ],
-                "diagonal_sum_max": null,
-                "preserve_existing_body_alpha_ge16": false
-              },
-              {
-                "roi": [
-                  32,
-                  33,
-                  43,
-                  44
-                ],
-                "imagegen_component": "diagblade",
-                "source_component_roi": [
-                  785,
-                  699,
-                  1175,
-                  1112
-                ],
-                "uniform_width": 9,
-                "resampled_size": [
-                  9,
-                  10
-                ],
-                "paste_xy": [
-                  32,
-                  33
-                ],
-                "diagonal_sum_max": 78,
-                "preserve_existing_body_alpha_ge16": false
-              }
-            ]
-          }
-        },
-        {
-          "source_frame": 7,
-          "representative_frame": 7,
-          "kind": "imagegen_from_native_pose",
-          "path": "tactical-native-frames/frame-007.png",
-          "generated_source": "source/native-walk-007-generated-v1.png",
-          "generated_cell": [
-            0,
-            0,
-            1254,
-            1254
-          ],
-          "generated_content_bounds": [
-            131,
-            244,
-            1052,
-            1078
-          ],
-          "head_top": 244,
-          "generated_feet_roi": [
-            410,
-            1005,
-            505,
-            1085
-          ],
-          "generated_foot_bounds": [
-            410,
-            1005,
-            499,
-            1078
-          ],
-          "uniform_scale": 0.07553956834532374,
-          "resampled_size": [
-            70,
-            63
-          ],
-          "registration_offset": [
-            30,
-            1
-          ],
-          "output_foot_roi": [
-            51,
-            58,
-            58,
-            64
-          ],
-          "target_foot_anchor": [
-            54,
-            64
-          ],
-          "registered_foot_anchor": [
-            54.5,
-            64
-          ],
-          "foot_delta": [
-            0.5,
-            0
-          ],
-          "visible_bounds": [
-            30,
-            1,
-            100,
-            96
-          ],
+          "path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-walk/frame-006.png",
+          "output_path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-walk/frame-006.png",
+          "revision": "pegasus-knight-complete-v1-20261023",
           "size": [
             128,
             96
           ],
-          "bytes": 9565,
-          "sha256": "467e347e299accf6526d859316ffe0262652addbfdab18fa8e7a2b439b0ad0c5",
+          "bytes": 1786,
+          "sha256": "97d2144f195998516ec0a543457378ac1046ea03f38da1934aa2c6429dab78bf"
+        },
+        {
           "source_index": 7,
+          "source_frame": 7,
           "output_index": 7,
-          "output_path": "tactical-native-frames/frame-007.png",
-          "native_hoof_roi": [
-            13,
-            15,
-            14,
-            16
+          "path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-walk/frame-007.png",
+          "output_path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-walk/frame-007.png",
+          "revision": "pegasus-knight-complete-v1-20261023",
+          "size": [
+            128,
+            96
           ],
-          "native_hoof_bounds": [
-            13,
-            15,
-            14,
-            16
-          ],
-          "body_visible_bounds": [
-            30,
-            1,
-            100,
-            64
-          ],
-          "native_projection": {
-            "source_roi": [
-              0,
-              22,
-              32,
-              24
-            ],
-            "source_rgba_sha256": "a3582b47ed4fdd45604e05cfbba48ad69aa2e7407aa1cb23bb37e5c6665ddc37",
-            "source_file": "source/native-shadow-007.png",
-            "composite_at": [
-              0,
-              88
-            ],
-            "scale": 4,
-            "filter": "nearest",
-            "separate_from_body_registration": true
-          },
-          "direction": "left",
-          "anchor_is_anatomical_foot": true,
-          "anchor_kind": "selected visible hoof",
-          "registration_scope": "Selected declared semantic anchor only; source frame/tile anchor remains [16,24]. Projection is not an anatomical anchor. Tail registration is explicitly not reported as foot precision.",
-          "native_cpu_frame": {
-            "direction": "left",
-            "direction_code": 3,
-            "phase": 1,
-            "clock_value": 16,
-            "frame_ticks": 16,
-            "source_chr": 19,
-            "source_frame_index": 128,
-            "source_frame_address": "L088A9A",
-            "oam": [
-              [
-                63,
-                100,
-                0,
-                56
-              ],
-              [
-                63,
-                101,
-                0,
-                64
-              ],
-              [
-                71,
-                116,
-                0,
-                56
-              ],
-              [
-                71,
-                117,
-                0,
-                64
-              ],
-              [
-                79,
-                132,
-                0,
-                56
-              ],
-              [
-                79,
-                133,
-                0,
-                64
-              ]
-            ],
-            "chr_writes": [
-              {
-                "register": "0xb000",
-                "value": 19
-              },
-              {
-                "register": "0xc000",
-                "value": 19
-              }
-            ],
-            "cpu_instructions": 401,
-            "source_global_flip": false,
-            "lookup": {
-              "animation": "L0BB669",
-              "chr": "L0BB719",
-              "right_mirror_flag": "L0BB72F"
-            },
-            "source_slot": 7,
-            "source_alpha_bounds": [
-              8,
-              0,
-              24,
-              24
-            ],
-            "rgba_sha256": "06fee9a5253e2d2c1cae06e7b9855a538d164f2db4bd2faa0b4a49997dd1812f"
-          },
-          "weapon_endpoint_correction": "source/spear-end-patch-qa.json",
-          "weapon_semantics": "Blunt cap upper/upper-right; steel blade lower/lower-left, with native rear-view occlusion.",
-          "imagegen_endpoint_patch": {
-            "path": "tactical-native-frames/frame-007.png",
-            "before": "source/spear-end-patches/tactical-native-frames-007-before.png",
-            "before_sha256": "ba5857fcfb94d5a3d58f60adbf37827fc156bdb86d10ff9f597eb23f992eee2e",
-            "after_sha256": "467e347e299accf6526d859316ffe0262652addbfdab18fa8e7a2b439b0ad0c5",
-            "changed_pixels": 246,
-            "outside_endpoint_masks_rgba_exact": true,
-            "patches": [
-              {
-                "roi": [
-                  83,
-                  3,
-                  103,
-                  18
-                ],
-                "imagegen_component": "diagcap",
-                "source_component_roi": [
-                  125,
-                  694,
-                  547,
-                  1115
-                ],
-                "uniform_width": 14,
-                "resampled_size": [
-                  14,
-                  14
-                ],
-                "paste_xy": [
-                  83,
-                  4
-                ],
-                "diagonal_sum_max": null,
-                "preserve_existing_body_alpha_ge16": false
-              },
-              {
-                "roi": [
-                  32,
-                  32,
-                  43,
-                  43
-                ],
-                "imagegen_component": "diagblade",
-                "source_component_roi": [
-                  785,
-                  699,
-                  1175,
-                  1112
-                ],
-                "uniform_width": 9,
-                "resampled_size": [
-                  9,
-                  10
-                ],
-                "paste_xy": [
-                  32,
-                  32
-                ],
-                "diagonal_sum_max": 77,
-                "preserve_existing_body_alpha_ge16": false
-              }
-            ]
-          }
+          "bytes": 1715,
+          "sha256": "94c7af1fda3c14c5ba0a71632108a8a02d8da2f2b524c90a439714a86b2b991b"
         }
       ],
       "directions": {
@@ -2118,9 +224,125 @@
         "native_render": "bank015:L0FE80F with bank8/0589=0",
         "mirror_policy": "All CPU direction and OAM flips are in source frames. Right output frames are proven full-canvas mirrors of left frames. No additional runtime direction mirror."
       },
-      "review_status": "parent_visual_review_passed",
+      "review_status": "pending_user_visual_acceptance",
       "projection_policy": "Exact original black projection ROI y22:24 composed nearest4 at[0,88]; its pixel SHA is per record. It is excluded from all anatomical registration.",
-      "parent_visual_review_passed": true
+      "revision": "pegasus-knight-complete-v1-20261023",
+      "status": "review_candidate",
+      "review_note": "盟军天马：沿用原作逐帧扑翼、收腿、前刺和投枪姿势／循环／节奏；地图固定骑手头部锚点消除整体位移。弓箭手蓝白四色加一种柔和红色，保留肤色和眼睛，头发纯色、衣甲哑光。敌方按用户选择暂缓。",
+      "motion_review": {
+        "fixed_head_anchors": [
+          {
+            "label": "up",
+            "slot": 0,
+            "source_head_anchor": [
+              62,
+              13
+            ],
+            "fixed_head_anchor": [
+              64,
+              13
+            ],
+            "translation": [
+              2,
+              0
+            ],
+            "projection_not_translated": true,
+            "clipped_pixels": 0
+          },
+          {
+            "label": "up",
+            "slot": 1,
+            "source_head_anchor": [
+              64,
+              12
+            ],
+            "fixed_head_anchor": [
+              64,
+              13
+            ],
+            "translation": [
+              0,
+              1
+            ],
+            "projection_not_translated": true,
+            "clipped_pixels": 0
+          },
+          {
+            "label": "down",
+            "slot": 4,
+            "source_head_anchor": [
+              63,
+              7
+            ],
+            "fixed_head_anchor": [
+              64,
+              9
+            ],
+            "translation": [
+              1,
+              2
+            ],
+            "projection_not_translated": true,
+            "clipped_pixels": 0
+          },
+          {
+            "label": "down",
+            "slot": 5,
+            "source_head_anchor": [
+              68,
+              9
+            ],
+            "fixed_head_anchor": [
+              64,
+              9
+            ],
+            "translation": [
+              -4,
+              0
+            ],
+            "projection_not_translated": true,
+            "clipped_pixels": 0
+          },
+          {
+            "label": "left",
+            "slot": 6,
+            "source_head_anchor": [
+              64,
+              1
+            ],
+            "fixed_head_anchor": [
+              64,
+              2
+            ],
+            "translation": [
+              0,
+              1
+            ],
+            "projection_not_translated": true,
+            "clipped_pixels": 0
+          },
+          {
+            "label": "left",
+            "slot": 7,
+            "source_head_anchor": [
+              64,
+              2
+            ],
+            "fixed_head_anchor": [
+              64,
+              2
+            ],
+            "translation": [
+              0,
+              0
+            ],
+            "projection_not_translated": true,
+            "clipped_pixels": 0
+          }
+        ],
+        "pose_shape_transforms": "whole connected body integer translation only; native projection is not moved",
+        "native_timing_unchanged": true
+      }
     },
     {
       "id": "tactical-idle",
@@ -2137,7 +359,7 @@
         12,
         20
       ],
-      "output_atlas": "frames/tactical-idle.png",
+      "output_atlas": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-idle-atlas.png",
       "output_frame_size": [
         96,
         96
@@ -2149,766 +371,88 @@
       "logical_render_scale": 0.25,
       "frame_mapping": [
         {
-          "source_frame": 0,
-          "representative_frame": 0,
-          "kind": "imagegen_from_native_pose",
-          "path": "idle-frames/frame-000.png",
-          "generated_source": "source/idle-000-generated-v4.png",
-          "generated_cell": [
-            0,
-            0,
-            1254,
-            1254
-          ],
-          "generated_content_bounds": [
-            243,
-            330,
-            1150,
-            1169
-          ],
-          "head_top": 330,
-          "generated_feet_roi": [
-            450,
-            1025,
-            535,
-            1078
-          ],
-          "generated_foot_bounds": [
-            450,
-            1025,
-            532,
-            1071
-          ],
-          "uniform_scale": 0.07557354925775979,
-          "resampled_size": [
-            69,
-            64
-          ],
-          "registration_offset": [
-            15,
-            15
-          ],
-          "output_foot_roi": [
-            31,
-            68,
-            37,
-            72
-          ],
-          "target_foot_anchor": [
-            34,
-            72
-          ],
-          "registered_foot_anchor": [
-            34.0,
-            72
-          ],
-          "foot_delta": [
-            0.0,
-            0
-          ],
-          "visible_bounds": [
-            15,
-            15,
-            84,
-            79
-          ],
-          "size": [
-            96,
-            96
-          ],
-          "bytes": 9985,
-          "sha256": "c1561157b29a0af53089822bbe6fbfe430f495676e84d3cb885c47ff1d9c1a82",
           "source_index": 0,
+          "source_frame": 0,
           "output_index": 0,
-          "output_path": "idle-frames/frame-000.png",
-          "native_hoof_roi": [
-            8,
-            17,
-            9,
-            18
-          ],
-          "native_hoof_bounds": [
-            8,
-            17,
-            9,
-            18
-          ],
-          "source_visible_bounds": [
-            4,
-            4,
-            20,
-            20
-          ],
-          "registration_scope": "Selected visible front hoof endpoint only; rounding error is not a claim that all limbs/joints match pixel-for-pixel.",
-          "native_hoof_semantics": "Colored hoof-end pixel, excludes broad black base/shadow and excludes occluded diagonal spear.",
-          "weapon_endpoint_correction": "source/spear-end-patch-qa.json",
-          "weapon_semantics": "Blunt cap upper/upper-right; steel blade lower/lower-left, with native rear-view occlusion.",
-          "imagegen_endpoint_patch": {
-            "path": "idle-frames/frame-000.png",
-            "before": "source/spear-end-patches/idle-frames-000-before.png",
-            "before_sha256": "0e9928fd27bc9f4255d3ece9db4648fef248baf17f1dafd2a0bfb072bcee46ee",
-            "after_sha256": "c1561157b29a0af53089822bbe6fbfe430f495676e84d3cb885c47ff1d9c1a82",
-            "changed_pixels": 171,
-            "outside_endpoint_masks_rgba_exact": true,
-            "patches": [
-              {
-                "roi": [
-                  58,
-                  18,
-                  71,
-                  30
-                ],
-                "imagegen_component": "diagcap",
-                "source_component_roi": [
-                  125,
-                  694,
-                  547,
-                  1115
-                ],
-                "uniform_width": 11,
-                "resampled_size": [
-                  11,
-                  11
-                ],
-                "paste_xy": [
-                  59,
-                  18
-                ],
-                "diagonal_sum_max": 92,
-                "preserve_existing_body_alpha_ge16": false
-              },
-              {
-                "roi": [
-                  15,
-                  49,
-                  25,
-                  60
-                ],
-                "imagegen_component": "diagblade",
-                "source_component_roi": [
-                  785,
-                  699,
-                  1175,
-                  1112
-                ],
-                "uniform_width": 9,
-                "resampled_size": [
-                  9,
-                  10
-                ],
-                "paste_xy": [
-                  15,
-                  49
-                ],
-                "diagonal_sum_max": 77,
-                "preserve_existing_body_alpha_ge16": false
-              }
-            ]
-          }
-        },
-        {
-          "source_frame": 1,
-          "representative_frame": 1,
-          "kind": "imagegen_from_native_pose",
-          "path": "idle-frames/frame-001.png",
-          "generated_source": "source/idle-001-generated-v1.png",
-          "generated_cell": [
-            0,
-            0,
-            1254,
-            1254
-          ],
-          "generated_content_bounds": [
-            226,
-            284,
-            1139,
-            1143
-          ],
-          "head_top": 284,
-          "generated_feet_roi": [
-            415,
-            1090,
-            510,
-            1150
-          ],
-          "generated_foot_bounds": [
-            420,
-            1090,
-            510,
-            1143
-          ],
-          "uniform_scale": 0.06984866123399301,
-          "resampled_size": [
-            64,
-            60
-          ],
-          "registration_offset": [
-            22,
-            16
-          ],
-          "output_foot_roi": [
-            35,
-            72,
-            42,
-            76
-          ],
-          "target_foot_anchor": [
-            38,
-            76
-          ],
-          "registered_foot_anchor": [
-            38.5,
-            76
-          ],
-          "foot_delta": [
-            0.5,
-            0
-          ],
-          "visible_bounds": [
-            22,
-            16,
-            86,
-            76
-          ],
+          "path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-idle/frame-000.png",
+          "output_path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-idle/frame-000.png",
+          "revision": "pegasus-knight-complete-v1-20261023",
           "size": [
             96,
             96
           ],
-          "bytes": 8637,
-          "sha256": "91c20d914e9296d3300a9c13a2eb9187778e1037d2dbad71b3e5171f52649f4b",
+          "bytes": 1648,
+          "sha256": "de5451a49619ced1ec4f4ecf34075329a5168eb464f3a951c070e6ff6ecc08d6"
+        },
+        {
           "source_index": 1,
+          "source_frame": 1,
           "output_index": 1,
-          "output_path": "idle-frames/frame-001.png",
-          "native_hoof_roi": [
-            9,
-            18,
-            10,
-            19
-          ],
-          "native_hoof_bounds": [
-            9,
-            18,
-            10,
-            19
-          ],
-          "source_visible_bounds": [
-            4,
-            4,
-            20,
-            20
-          ],
-          "registration_scope": "Selected visible front hoof endpoint only; rounding error is not a claim that all limbs/joints match pixel-for-pixel.",
-          "native_hoof_semantics": "Colored hoof-end pixel, excludes broad black base/shadow and excludes occluded diagonal spear.",
-          "weapon_endpoint_correction": "source/spear-end-patch-qa.json",
-          "weapon_semantics": "Blunt cap upper/upper-right; steel blade lower/lower-left, with native rear-view occlusion.",
-          "imagegen_endpoint_patch": {
-            "path": "idle-frames/frame-001.png",
-            "before": "source/spear-end-patches/idle-frames-001-before.png",
-            "before_sha256": "75c0eb53c3894aa31bd9d183c4c534ab69970c2254194eba331621940d3bfbe6",
-            "after_sha256": "91c20d914e9296d3300a9c13a2eb9187778e1037d2dbad71b3e5171f52649f4b",
-            "changed_pixels": 156,
-            "outside_endpoint_masks_rgba_exact": true,
-            "patches": [
-              {
-                "roi": [
-                  61,
-                  19,
-                  74,
-                  32
-                ],
-                "imagegen_component": "diagcap",
-                "source_component_roi": [
-                  125,
-                  694,
-                  547,
-                  1115
-                ],
-                "uniform_width": 11,
-                "resampled_size": [
-                  11,
-                  11
-                ],
-                "paste_xy": [
-                  61,
-                  20
-                ],
-                "diagonal_sum_max": null,
-                "preserve_existing_body_alpha_ge16": false
-              },
-              {
-                "roi": [
-                  23,
-                  50,
-                  33,
-                  61
-                ],
-                "imagegen_component": "diagblade",
-                "source_component_roi": [
-                  785,
-                  699,
-                  1175,
-                  1112
-                ],
-                "uniform_width": 9,
-                "resampled_size": [
-                  9,
-                  10
-                ],
-                "paste_xy": [
-                  23,
-                  50
-                ],
-                "diagonal_sum_max": 85,
-                "preserve_existing_body_alpha_ge16": false
-              }
-            ]
-          }
-        },
-        {
-          "source_frame": 2,
-          "representative_frame": 2,
-          "kind": "imagegen_from_native_pose",
-          "path": "idle-frames/frame-002.png",
-          "generated_source": "source/idle-002-generated-v1.png",
-          "generated_cell": [
-            0,
-            0,
-            1254,
-            1254
-          ],
-          "generated_content_bounds": [
-            226,
-            271,
-            1154,
-            1144
-          ],
-          "head_top": 271,
-          "generated_feet_roi": [
-            415,
-            1090,
-            510,
-            1150
-          ],
-          "generated_foot_bounds": [
-            419,
-            1090,
-            510,
-            1144
-          ],
-          "uniform_scale": 0.06872852233676977,
-          "resampled_size": [
-            64,
-            60
-          ],
-          "registration_offset": [
-            22,
-            16
-          ],
-          "output_foot_roi": [
-            35,
-            72,
-            42,
-            76
-          ],
-          "target_foot_anchor": [
-            38,
-            76
-          ],
-          "registered_foot_anchor": [
-            38.5,
-            76
-          ],
-          "foot_delta": [
-            0.5,
-            0
-          ],
-          "visible_bounds": [
-            22,
-            16,
-            86,
-            76
-          ],
+          "path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-idle/frame-001.png",
+          "output_path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-idle/frame-001.png",
+          "revision": "pegasus-knight-complete-v1-20261023",
           "size": [
             96,
             96
           ],
-          "bytes": 8189,
-          "sha256": "5b0ba697e86c022ea07d4ee8fe3880a5ea9f09e0b179f6f9542fa45b2bc99694",
+          "bytes": 1556,
+          "sha256": "6abd833503325f5cf9a2a8545cb9f469c2fc36bd7a02c15e0aff5513ba3d86db"
+        },
+        {
           "source_index": 2,
+          "source_frame": 2,
           "output_index": 2,
-          "output_path": "idle-frames/frame-002.png",
-          "native_hoof_roi": [
-            9,
-            18,
-            10,
-            19
-          ],
-          "native_hoof_bounds": [
-            9,
-            18,
-            10,
-            19
-          ],
-          "source_visible_bounds": [
-            4,
-            4,
-            20,
-            20
-          ],
-          "registration_scope": "Selected visible front hoof endpoint only; rounding error is not a claim that all limbs/joints match pixel-for-pixel.",
-          "native_hoof_semantics": "Colored hoof-end pixel, excludes broad black base/shadow and excludes occluded diagonal spear.",
-          "weapon_endpoint_correction": "source/spear-end-patch-qa.json",
-          "weapon_semantics": "Blunt cap upper/upper-right; steel blade lower/lower-left, with native rear-view occlusion.",
-          "imagegen_endpoint_patch": {
-            "path": "idle-frames/frame-002.png",
-            "before": "source/spear-end-patches/idle-frames-002-before.png",
-            "before_sha256": "cda608d5baa66be4fcc53da706e671e06205c3971fcd5661e777977cb7c43fb7",
-            "after_sha256": "5b0ba697e86c022ea07d4ee8fe3880a5ea9f09e0b179f6f9542fa45b2bc99694",
-            "changed_pixels": 159,
-            "outside_endpoint_masks_rgba_exact": true,
-            "patches": [
-              {
-                "roi": [
-                  61,
-                  19,
-                  74,
-                  32
-                ],
-                "imagegen_component": "diagcap",
-                "source_component_roi": [
-                  125,
-                  694,
-                  547,
-                  1115
-                ],
-                "uniform_width": 11,
-                "resampled_size": [
-                  11,
-                  11
-                ],
-                "paste_xy": [
-                  61,
-                  20
-                ],
-                "diagonal_sum_max": null,
-                "preserve_existing_body_alpha_ge16": false
-              },
-              {
-                "roi": [
-                  23,
-                  50,
-                  33,
-                  61
-                ],
-                "imagegen_component": "diagblade",
-                "source_component_roi": [
-                  785,
-                  699,
-                  1175,
-                  1112
-                ],
-                "uniform_width": 9,
-                "resampled_size": [
-                  9,
-                  10
-                ],
-                "paste_xy": [
-                  23,
-                  50
-                ],
-                "diagonal_sum_max": 85,
-                "preserve_existing_body_alpha_ge16": false
-              }
-            ]
-          }
-        },
-        {
-          "source_frame": 3,
-          "representative_frame": 1,
-          "kind": "native_exact_pixel_alias",
-          "path": "idle-frames/frame-003.png",
-          "generated_source": "source/idle-001-generated-v1.png",
-          "generated_cell": [
-            0,
-            0,
-            1254,
-            1254
-          ],
-          "generated_content_bounds": [
-            226,
-            284,
-            1139,
-            1143
-          ],
-          "head_top": 284,
-          "generated_feet_roi": [
-            415,
-            1090,
-            510,
-            1150
-          ],
-          "generated_foot_bounds": [
-            420,
-            1090,
-            510,
-            1143
-          ],
-          "uniform_scale": 0.06984866123399301,
-          "resampled_size": [
-            64,
-            60
-          ],
-          "registration_offset": [
-            22,
-            16
-          ],
-          "output_foot_roi": [
-            35,
-            72,
-            42,
-            76
-          ],
-          "target_foot_anchor": [
-            38,
-            76
-          ],
-          "registered_foot_anchor": [
-            38.5,
-            76
-          ],
-          "foot_delta": [
-            0.5,
-            0
-          ],
-          "visible_bounds": [
-            22,
-            16,
-            86,
-            76
-          ],
+          "path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-idle/frame-002.png",
+          "output_path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-idle/frame-002.png",
+          "revision": "pegasus-knight-complete-v1-20261023",
           "size": [
             96,
             96
           ],
-          "bytes": 8637,
-          "sha256": "91c20d914e9296d3300a9c13a2eb9187778e1037d2dbad71b3e5171f52649f4b",
+          "bytes": 1569,
+          "sha256": "fb5da8e73fc6aa4a01b5f9559c79fc873901ff98eb5b5129873404a67c866d38"
+        },
+        {
           "source_index": 3,
+          "source_frame": 3,
           "output_index": 3,
-          "output_path": "idle-frames/frame-003.png",
-          "native_hoof_roi": [
-            9,
-            18,
-            10,
-            19
-          ],
-          "native_hoof_bounds": [
-            9,
-            18,
-            10,
-            19
-          ],
-          "source_visible_bounds": [
-            4,
-            4,
-            20,
-            20
-          ],
-          "registration_scope": "Selected visible front hoof endpoint only; rounding error is not a claim that all limbs/joints match pixel-for-pixel.",
-          "native_hoof_semantics": "Colored hoof-end pixel, excludes broad black base/shadow and excludes occluded diagonal spear.",
-          "weapon_endpoint_correction": "source/spear-end-patch-qa.json",
-          "weapon_semantics": "Blunt cap upper/upper-right; steel blade lower/lower-left, with native rear-view occlusion."
-        },
-        {
-          "source_frame": 4,
-          "representative_frame": 0,
-          "kind": "native_exact_pixel_alias",
-          "path": "idle-frames/frame-004.png",
-          "generated_source": "source/idle-000-generated-v4.png",
-          "generated_cell": [
-            0,
-            0,
-            1254,
-            1254
-          ],
-          "generated_content_bounds": [
-            243,
-            330,
-            1150,
-            1169
-          ],
-          "head_top": 330,
-          "generated_feet_roi": [
-            450,
-            1025,
-            535,
-            1078
-          ],
-          "generated_foot_bounds": [
-            450,
-            1025,
-            532,
-            1071
-          ],
-          "uniform_scale": 0.07557354925775979,
-          "resampled_size": [
-            69,
-            64
-          ],
-          "registration_offset": [
-            15,
-            15
-          ],
-          "output_foot_roi": [
-            31,
-            68,
-            37,
-            72
-          ],
-          "target_foot_anchor": [
-            34,
-            72
-          ],
-          "registered_foot_anchor": [
-            34.0,
-            72
-          ],
-          "foot_delta": [
-            0.0,
-            0
-          ],
-          "visible_bounds": [
-            15,
-            15,
-            84,
-            79
-          ],
+          "path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-idle/frame-003.png",
+          "output_path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-idle/frame-003.png",
+          "revision": "pegasus-knight-complete-v1-20261023",
           "size": [
             96,
             96
           ],
-          "bytes": 9985,
-          "sha256": "c1561157b29a0af53089822bbe6fbfe430f495676e84d3cb885c47ff1d9c1a82",
+          "bytes": 1556,
+          "sha256": "6abd833503325f5cf9a2a8545cb9f469c2fc36bd7a02c15e0aff5513ba3d86db"
+        },
+        {
           "source_index": 4,
+          "source_frame": 4,
           "output_index": 4,
-          "output_path": "idle-frames/frame-004.png",
-          "native_hoof_roi": [
-            8,
-            17,
-            9,
-            18
-          ],
-          "native_hoof_bounds": [
-            8,
-            17,
-            9,
-            18
-          ],
-          "source_visible_bounds": [
-            4,
-            4,
-            20,
-            20
-          ],
-          "registration_scope": "Selected visible front hoof endpoint only; rounding error is not a claim that all limbs/joints match pixel-for-pixel.",
-          "native_hoof_semantics": "Colored hoof-end pixel, excludes broad black base/shadow and excludes occluded diagonal spear.",
-          "weapon_endpoint_correction": "source/spear-end-patch-qa.json",
-          "weapon_semantics": "Blunt cap upper/upper-right; steel blade lower/lower-left, with native rear-view occlusion."
-        },
-        {
-          "source_frame": 5,
-          "representative_frame": 1,
-          "kind": "native_exact_pixel_alias",
-          "path": "idle-frames/frame-005.png",
-          "generated_source": "source/idle-001-generated-v1.png",
-          "generated_cell": [
-            0,
-            0,
-            1254,
-            1254
-          ],
-          "generated_content_bounds": [
-            226,
-            284,
-            1139,
-            1143
-          ],
-          "head_top": 284,
-          "generated_feet_roi": [
-            415,
-            1090,
-            510,
-            1150
-          ],
-          "generated_foot_bounds": [
-            420,
-            1090,
-            510,
-            1143
-          ],
-          "uniform_scale": 0.06984866123399301,
-          "resampled_size": [
-            64,
-            60
-          ],
-          "registration_offset": [
-            22,
-            16
-          ],
-          "output_foot_roi": [
-            35,
-            72,
-            42,
-            76
-          ],
-          "target_foot_anchor": [
-            38,
-            76
-          ],
-          "registered_foot_anchor": [
-            38.5,
-            76
-          ],
-          "foot_delta": [
-            0.5,
-            0
-          ],
-          "visible_bounds": [
-            22,
-            16,
-            86,
-            76
-          ],
+          "path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-idle/frame-004.png",
+          "output_path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-idle/frame-004.png",
+          "revision": "pegasus-knight-complete-v1-20261023",
           "size": [
             96,
             96
           ],
-          "bytes": 8637,
-          "sha256": "91c20d914e9296d3300a9c13a2eb9187778e1037d2dbad71b3e5171f52649f4b",
+          "bytes": 1648,
+          "sha256": "de5451a49619ced1ec4f4ecf34075329a5168eb464f3a951c070e6ff6ecc08d6"
+        },
+        {
           "source_index": 5,
+          "source_frame": 5,
           "output_index": 5,
-          "output_path": "idle-frames/frame-005.png",
-          "native_hoof_roi": [
-            9,
-            18,
-            10,
-            19
+          "path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-idle/frame-005.png",
+          "output_path": "../../../pegasus-knight-complete-v1-20261023/ally/tactical-idle/frame-005.png",
+          "revision": "pegasus-knight-complete-v1-20261023",
+          "size": [
+            96,
+            96
           ],
-          "native_hoof_bounds": [
-            9,
-            18,
-            10,
-            19
-          ],
-          "source_visible_bounds": [
-            4,
-            4,
-            20,
-            20
-          ],
-          "registration_scope": "Selected visible front hoof endpoint only; rounding error is not a claim that all limbs/joints match pixel-for-pixel.",
-          "native_hoof_semantics": "Colored hoof-end pixel, excludes broad black base/shadow and excludes occluded diagonal spear.",
-          "weapon_endpoint_correction": "source/spear-end-patch-qa.json",
-          "weapon_semantics": "Blunt cap upper/upper-right; steel blade lower/lower-left, with native rear-view occlusion."
+          "bytes": 1556,
+          "sha256": "6abd833503325f5cf9a2a8545cb9f469c2fc36bd7a02c15e0aff5513ba3d86db"
         }
       ],
       "directions": {
@@ -2937,7 +481,7 @@
         ]
       },
       "output_atlas_bytes": 26668,
-      "review_status": "parent_visual_review_passed",
+      "review_status": "pending_user_visual_acceptance",
       "native_alias_groups": [
         [
           0,
@@ -2952,11 +496,82 @@
           2
         ]
       ],
-      "parent_visual_review_passed": true
+      "revision": "pegasus-knight-complete-v1-20261023",
+      "status": "review_candidate",
+      "review_note": "盟军天马：沿用原作逐帧扑翼、收腿、前刺和投枪姿势／循环／节奏；地图固定骑手头部锚点消除整体位移。弓箭手蓝白四色加一种柔和红色，保留肤色和眼睛，头发纯色、衣甲哑光。敌方按用户选择暂缓。",
+      "motion_review": {
+        "fixed_head_anchors": [
+          {
+            "label": "idle",
+            "slot": 0,
+            "source_head_anchor": [
+              43,
+              16
+            ],
+            "fixed_head_anchor": [
+              48,
+              17
+            ],
+            "translation": [
+              5,
+              1
+            ],
+            "projection_not_translated": false,
+            "clipped_pixels": 0
+          },
+          {
+            "label": "idle",
+            "slot": 1,
+            "source_head_anchor": [
+              48,
+              17
+            ],
+            "fixed_head_anchor": [
+              48,
+              17
+            ],
+            "translation": [
+              0,
+              0
+            ],
+            "projection_not_translated": false,
+            "clipped_pixels": 0
+          },
+          {
+            "label": "idle",
+            "slot": 2,
+            "source_head_anchor": [
+              49,
+              17
+            ],
+            "fixed_head_anchor": [
+              48,
+              17
+            ],
+            "translation": [
+              -1,
+              0
+            ],
+            "projection_not_translated": false,
+            "clipped_pixels": 0
+          }
+        ],
+        "pose_shape_transforms": "whole connected body integer translation only; native projection is not moved",
+        "native_timing_unchanged": true
+      }
     }
   ],
-  "status": "complete_art_review_passed",
+  "status": "review_candidate",
   "qa_report": "../qa-report.json",
-  "parent_visual_review_passed": true,
-  "parent_visual_review_note": "Root passed complete battle, static idle and verified native tactical four directions, including corrected weapon endpoints on dark/light backgrounds."
+  "parent_visual_review_note": "Root passed complete battle, static idle and verified native tactical four directions, including corrected weapon endpoints on dark/light backgrounds.",
+  "revision": "pegasus-knight-complete-v1-20261023",
+  "modified_by": "codex",
+  "review_note": "盟军天马：沿用原作逐帧扑翼、收腿、前刺和投枪姿势／循环／节奏；地图固定骑手头部锚点消除整体位移。弓箭手蓝白四色加一种柔和红色，保留肤色和眼睛，头发纯色、衣甲哑光。敌方按用户选择暂缓。",
+  "palette": [
+    "172638",
+    "3976b5",
+    "e4e1c8",
+    "dda77d",
+    "b96369"
+  ]
 }

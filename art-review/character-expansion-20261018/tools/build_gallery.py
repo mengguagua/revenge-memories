@@ -264,6 +264,7 @@ def build():
           'frameErrors': frame_errors, 'referenceArtAliases':art_aliases, 'links': []}
         if revised_effects: profile['revisedEffects'] = revised_effects
         if mapping.get('review_frame_sources'):profile['reviewFrameSources']=mapping['review_frame_sources']
+        if mapping.get('review_frame_labels'):profile['reviewFrameLabels']=mapping['review_frame_labels']
         review_timeline = read(safe_path(mapping_path.parent,mapping['review_timeline'])) if mapping.get('review_timeline') else {}
         for effect_key,meta in review_timeline.get('effects',{}).items():
             if effect_key in effects:raise ValueError('Review effect ID collision: '+effect_key)

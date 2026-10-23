@@ -1,0 +1,2387 @@
+{
+  "revision": "bow-knight-complete-v1-20261023",
+  "palette": {
+    "ally": [
+      "172638",
+      "3976b5",
+      "e4e1c8",
+      "dda77d",
+      "8c6b45",
+      "889cab"
+    ],
+    "enemy": [
+      "172638",
+      "4f4f7d",
+      "bbc1d6",
+      "dda77d",
+      "8c6b45",
+      "7c87a3"
+    ]
+  },
+  "assets": [
+    {
+      "path": "bow-knight-complete-v1-20261023/source/map-greatbow-indexed.png",
+      "size": [
+        14,
+        70
+      ],
+      "bytes": 986,
+      "sha256": "5b0628ae1032be8ed57063039b48f18c1a223e501075743a79b6b658a743874d",
+      "purpose": "complete ImageGen greatbow, matte three-material limb drawing and native one-pixel string"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/flying-arrow.png",
+      "size": [
+        64,
+        16
+      ],
+      "bytes": 883,
+      "sha256": "ab3101321f8f2b191aa88c8c25d981b1f86918715c0d3d4a2cc0f720bf5547d4",
+      "purpose": "native large-arrow footprint in the confirmed ImageGen wood/ivory materials; source material master sniper-arrow-natural-v3-20261023/source/natural-arrow-master.png"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/tactical-walk/frame-000.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1495,
+      "sha256": "d85fc585c794b12b0ba3f6925372ef9353944baca8e76559d06f4ed0444c03e1",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/tactical-walk/frame-001.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1468,
+      "sha256": "89a498687cf8e15f30289dfdeb593d01b8ded99f8d66eaade74c9b8a451ee879",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/tactical-walk/frame-002.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1698,
+      "sha256": "a1aeb618a130256aae1c19bd99c116dab6d9ca3b31a948848df9f20bbb5363da",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/tactical-walk/frame-003.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1686,
+      "sha256": "15bb12d485f636434f8846946425c5e7850c2d19290e258310f4978d1c8214df",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/tactical-walk/frame-004.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1559,
+      "sha256": "18813cb501734682851a67b3c4c6ff0de104788c6105df8691241b795bf1b2c4",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/tactical-walk/frame-005.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1590,
+      "sha256": "313aadeb8c41ecdd24e6c06296ceb54354954f81ee629bd0792a43cae9421946",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/tactical-walk/frame-006.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1696,
+      "sha256": "d19fc5111940157bab038465ecbbcf52699c7c944142176479fb557badf3b61d",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/tactical-walk/frame-007.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1688,
+      "sha256": "bda2b7947d8d1d2dbd7adfd3d0cc9f34393aaf237709b85087e2d5084162328c",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/tactical-walk-atlas.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 5235,
+      "sha256": "0aa5dc5e74c969d4a14d88a769b1126be10e2a62146d6d948b139fde67e43dae",
+      "purpose": "native map slot order"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/tactical-idle/frame-000.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1672,
+      "sha256": "bbd67fca7117759cca5d088efd194a2a97aca472a11307e23b784b20a4656abd",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/tactical-idle/frame-001.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1662,
+      "sha256": "c41b49aca3d20b9788322bd9ed794b5e06738b747b6a2b32d5f96ea3cf49a9bc",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/tactical-idle/frame-002.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1663,
+      "sha256": "bbdd7cc39d1043c5093fc59ae8cdcecea7041333d2c198459944fdd2f7af7113",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/tactical-idle/frame-003.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1662,
+      "sha256": "c41b49aca3d20b9788322bd9ed794b5e06738b747b6a2b32d5f96ea3cf49a9bc",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/tactical-idle/frame-004.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1672,
+      "sha256": "bbd67fca7117759cca5d088efd194a2a97aca472a11307e23b784b20a4656abd",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/tactical-idle/frame-005.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1662,
+      "sha256": "c41b49aca3d20b9788322bd9ed794b5e06738b747b6a2b32d5f96ea3cf49a9bc",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/tactical-idle-atlas.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 2626,
+      "sha256": "e94df0366caa6259a3731dacd6b88b3a54020a19e87ebd10d423e249a80b3b4d",
+      "purpose": "native map slot order"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/battle/frame-001.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 3698,
+      "sha256": "24672cb590ec21b621b53f7abb83dfe497a692b5aac9fca99cb8a789b9bd09ac",
+      "purpose": "faction-native complete mounted shooting pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/battle/frame-013.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 3616,
+      "sha256": "c8493334e74ac313b2a6f8dfd46104b4aa0a0a94174392767084884a7f00f482",
+      "purpose": "faction-native complete mounted shooting pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/battle/frame-014.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 3729,
+      "sha256": "fd233d6bb006ecafbbb0567a301c734565d8b9c5a3e8030857ecb8ddc684ee7a",
+      "purpose": "faction-native complete mounted shooting pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/battle/frame-015.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 3763,
+      "sha256": "6f7387feae6354d7f0cffca1b59b2dc10be813f936ed698a737a85d66a89eac9",
+      "purpose": "faction-native complete mounted shooting pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/battle/frame-016.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 3610,
+      "sha256": "fd2c7273e7b0da7e87faac861650c69384ac56532c0db85b9975d1f5d3726360",
+      "purpose": "faction-native complete mounted shooting pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/battle/frame-017.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 3670,
+      "sha256": "e0c88b5b051074913eebfaf2f5c9e39d40c3820a0adcad3728c2a79d0fd22a25",
+      "purpose": "faction-native complete mounted shooting pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/battle/frame-018.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 3730,
+      "sha256": "bfef25527139a1a8571813db8dc6745dc64b9ce5b3c2597c116912fc6c5bcf68",
+      "purpose": "faction-native complete mounted shooting pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally/battle-atlas.png",
+      "size": [
+        2240,
+        256
+      ],
+      "bytes": 19201,
+      "sha256": "63f712c0182eae76dae32a9fe9061c9582d6846f15287683b8f1bcb938f970b3",
+      "purpose": "all required native mounted archer poses"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-maps-dark.png",
+      "size": [
+        1280,
+        896
+      ],
+      "bytes": 28137,
+      "sha256": "8199c101b857a01c367d16d289a18a3af9aa39843559c44c41c59e0d2a9dfc65",
+      "purpose": "full pose board; measured label and figure spacing"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-maps-light.png",
+      "size": [
+        1280,
+        896
+      ],
+      "bytes": 28053,
+      "sha256": "ab450ac7036086e9de4782ef2302a9ebea94686d74374fcdd2833a234d283f4b",
+      "purpose": "full pose board; measured label and figure spacing"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-battle-dark.png",
+      "size": [
+        1560,
+        716
+      ],
+      "bytes": 49396,
+      "sha256": "c702251a4a99982f1b10416b7500054f607277e11be0ff04a56d1cda3137cbd5",
+      "purpose": "full pose board; measured label and figure spacing"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-battle-light.png",
+      "size": [
+        1560,
+        716
+      ],
+      "bytes": 49691,
+      "sha256": "59d9dd0875479a0db92baaaf200fce720a3fa261f5b5203dcc7889595a19f164",
+      "purpose": "full pose board; measured label and figure spacing"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/tactical-walk/frame-000.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1495,
+      "sha256": "750661c88ab71651d74004474e90f8fd77c09c5d54fe3b6a3f656ffd56d437a5",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/tactical-walk/frame-001.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1468,
+      "sha256": "3ea953476c1050bef1a8628fde8309d317799ea2ea04ad0b6a640a1628fc6a4f",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/tactical-walk/frame-002.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1698,
+      "sha256": "24fa92217357349da685b98414f67276d1c31b4d3484aca95f8d4eba9a485dd6",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/tactical-walk/frame-003.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1686,
+      "sha256": "e62fec5ca0b0d14e15b04566fdc5aedb4d9c7ee3e0e928bfe938e1085c1087cd",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/tactical-walk/frame-004.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1559,
+      "sha256": "228ceafcd7f9d0fbb268a11b978d4cc0e344b9dbce7024e590f785d20821fdc9",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/tactical-walk/frame-005.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1590,
+      "sha256": "d63e634e58dffe05267b0bed2f85a546b52efec1f04d4dfb21cf010e7005f313",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/tactical-walk/frame-006.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1696,
+      "sha256": "7bc1af6b06ce0c9b5c64656a92688e164caecc31a987456d85c56c17b3df75d7",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/tactical-walk/frame-007.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1688,
+      "sha256": "dd58a676db2b7d8bed89ac145d573327e064665a784435715bac785d2e469481",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/tactical-walk-atlas.png",
+      "size": [
+        1024,
+        96
+      ],
+      "bytes": 5235,
+      "sha256": "42759921c635c674b2cf9798bbd490c7129ac9b59324b3b825a60ff3c4fa7601",
+      "purpose": "native map slot order"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/tactical-idle/frame-000.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1672,
+      "sha256": "b50255fe7e225ff394170ceb2e6e07b48c4f42c7d570dd1acea3c1b4abf17669",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/tactical-idle/frame-001.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1662,
+      "sha256": "fdb655df28f34fc0ea8a17ac15531a73a95b544d07d3d363c06df5f4c6db990a",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/tactical-idle/frame-002.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1663,
+      "sha256": "30e0db74b913246a331251c6aaecaf5b8137b88c29548ba2e0377dcf291b8624",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/tactical-idle/frame-003.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1662,
+      "sha256": "fdb655df28f34fc0ea8a17ac15531a73a95b544d07d3d363c06df5f4c6db990a",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/tactical-idle/frame-004.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1672,
+      "sha256": "b50255fe7e225ff394170ceb2e6e07b48c4f42c7d570dd1acea3c1b4abf17669",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/tactical-idle/frame-005.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1662,
+      "sha256": "fdb655df28f34fc0ea8a17ac15531a73a95b544d07d3d363c06df5f4c6db990a",
+      "purpose": "new six-material native-slot map pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/tactical-idle-atlas.png",
+      "size": [
+        576,
+        96
+      ],
+      "bytes": 2626,
+      "sha256": "3915d1d4b65e78055f785cff6c32a050d4bc67f4ed96378f04800d28dd41cf70",
+      "purpose": "native map slot order"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/battle/frame-001.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 3829,
+      "sha256": "77cff72a90c68494c96d74ff800fc83715602563f34c0e8b89eed7569c7651de",
+      "purpose": "faction-native complete mounted shooting pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/battle/frame-005.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 3891,
+      "sha256": "ab882b3edcdadb11c4062617936ec0cff90620374f20c9523a080ff43a04d7d9",
+      "purpose": "faction-native complete mounted shooting pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/battle/frame-006.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 3849,
+      "sha256": "f0c6b99f362f54e77c3c530e9fb0af1dfb32e57b2e118b68621d7b7aef3c058d",
+      "purpose": "faction-native complete mounted shooting pose"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy/battle-atlas.png",
+      "size": [
+        960,
+        256
+      ],
+      "bytes": 9275,
+      "sha256": "c0fd99da61f56133964b274a9ef29e02bc007b59236d6737524b079f6ce172af",
+      "purpose": "all required native mounted archer poses"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy-maps-dark.png",
+      "size": [
+        1280,
+        896
+      ],
+      "bytes": 28300,
+      "sha256": "6c1b48f9459df265f75d96069ff2d854d5967096e9558d583b12bfd99922e368",
+      "purpose": "full pose board; measured label and figure spacing"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy-maps-light.png",
+      "size": [
+        1280,
+        896
+      ],
+      "bytes": 28195,
+      "sha256": "0dde57144ef0a81efb8eb8c936f29a62a2e47b92107cc7e1f40c1e1fb8fa6e1c",
+      "purpose": "full pose board; measured label and figure spacing"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy-battle-dark.png",
+      "size": [
+        1560,
+        386
+      ],
+      "bytes": 26009,
+      "sha256": "2ad08f8c5aaabf30dead421db74e78ae24f4b8846132bd228cca3ce1cf5568a9",
+      "purpose": "full pose board; measured label and figure spacing"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy-battle-light.png",
+      "size": [
+        1560,
+        386
+      ],
+      "bytes": 26166,
+      "sha256": "075305637a57d33a84fbd42949c860dd308016ca217fca54911fcfa881b328e4",
+      "purpose": "full pose board; measured label and figure spacing"
+    }
+  ],
+  "whole_pose_registrations": [
+    {
+      "source": "map-idle-master.png",
+      "source_sha256": "74fb459f3d3cd17a7a37d22cd7530a5e945475fe174cb03a241488aa5b3e4778",
+      "source_bounds": [
+        120,
+        100,
+        685,
+        701
+      ],
+      "opaque_pixels": 214082,
+      "head": [
+        219.5,
+        134.5
+      ],
+      "face_box": [
+        193,
+        109,
+        246,
+        160
+      ],
+      "hair_region": [
+        161,
+        45,
+        278,
+        160
+      ],
+      "label": "idle-0",
+      "registration_landmark": "head",
+      "target": [
+        43,
+        28
+      ],
+      "scale": 0.11134903640256959,
+      "dimensions": [
+        63,
+        67
+      ],
+      "translation": [
+        19,
+        13
+      ],
+      "clipped_pixels": 0,
+      "removed_resampling_specks": 0,
+      "method": "whole drawn pose, uniform scale and integer translation"
+    },
+    {
+      "source": "map-idle-master.png",
+      "source_sha256": "74fb459f3d3cd17a7a37d22cd7530a5e945475fe174cb03a241488aa5b3e4778",
+      "source_bounds": [
+        802,
+        100,
+        1357,
+        701
+      ],
+      "opaque_pixels": 214527,
+      "head": [
+        214.0,
+        134.5
+      ],
+      "face_box": [
+        188,
+        109,
+        240,
+        160
+      ],
+      "hair_region": [
+        157,
+        45,
+        271,
+        160
+      ],
+      "label": "idle-1",
+      "registration_landmark": "head",
+      "target": [
+        43,
+        28
+      ],
+      "scale": 0.11134903640256959,
+      "dimensions": [
+        62,
+        67
+      ],
+      "translation": [
+        19,
+        13
+      ],
+      "clipped_pixels": 0,
+      "removed_resampling_specks": 0,
+      "method": "whole drawn pose, uniform scale and integer translation"
+    },
+    {
+      "source": "map-idle-master.png",
+      "source_sha256": "74fb459f3d3cd17a7a37d22cd7530a5e945475fe174cb03a241488aa5b3e4778",
+      "source_bounds": [
+        1516,
+        100,
+        2065,
+        701
+      ],
+      "opaque_pixels": 210318,
+      "head": [
+        219.0,
+        134.0
+      ],
+      "face_box": [
+        193,
+        108,
+        245,
+        160
+      ],
+      "hair_region": [
+        162,
+        43,
+        276,
+        160
+      ],
+      "label": "idle-2",
+      "registration_landmark": "head",
+      "target": [
+        43,
+        28
+      ],
+      "scale": 0.11134903640256959,
+      "dimensions": [
+        61,
+        67
+      ],
+      "translation": [
+        19,
+        13
+      ],
+      "clipped_pixels": 0,
+      "removed_resampling_specks": 0,
+      "method": "whole drawn pose, uniform scale and integer translation"
+    },
+    {
+      "source": "map-front-back-master.png",
+      "source_sha256": "c369d939667db57a891437943d0cf03a2e4756f60d25dcbb5623027349a3a1d5",
+      "source_bounds": [
+        304,
+        21,
+        585,
+        558
+      ],
+      "opaque_pixels": 88485,
+      "head": [
+        140,
+        124
+      ],
+      "face_box": [],
+      "hair_region": [
+        72,
+        58,
+        220,
+        175
+      ],
+      "head_note": "rear helmet/hair center; skin component is the bow hand",
+      "label": "walk-0",
+      "registration_landmark": "head",
+      "target": [
+        64,
+        34
+      ],
+      "scale": 0.14527845036319612,
+      "dimensions": [
+        41,
+        78
+      ],
+      "translation": [
+        44,
+        16
+      ],
+      "clipped_pixels": 0,
+      "removed_resampling_specks": 0,
+      "method": "whole drawn pose, uniform scale and integer translation"
+    },
+    {
+      "source": "map-front-back-master.png",
+      "source_sha256": "c369d939667db57a891437943d0cf03a2e4756f60d25dcbb5623027349a3a1d5",
+      "source_bounds": [
+        816,
+        31,
+        1102,
+        525
+      ],
+      "opaque_pixels": 84929,
+      "head": [
+        141,
+        121
+      ],
+      "face_box": [],
+      "hair_region": [
+        74,
+        55,
+        222,
+        173
+      ],
+      "head_note": "rear helmet/hair center; skin component is the bow hand",
+      "label": "walk-1",
+      "registration_landmark": "head",
+      "target": [
+        64,
+        34
+      ],
+      "scale": 0.14527845036319612,
+      "dimensions": [
+        42,
+        72
+      ],
+      "translation": [
+        43,
+        16
+      ],
+      "clipped_pixels": 0,
+      "removed_resampling_specks": 0,
+      "method": "whole drawn pose, uniform scale and integer translation"
+    },
+    {
+      "source": "map-front-back-master.png",
+      "source_sha256": "c369d939667db57a891437943d0cf03a2e4756f60d25dcbb5623027349a3a1d5",
+      "source_bounds": [
+        289,
+        589,
+        589,
+        1073
+      ],
+      "opaque_pixels": 90506,
+      "head": [
+        147.5,
+        135.5
+      ],
+      "face_box": [
+        115,
+        118,
+        180,
+        153
+      ],
+      "hair_region": [
+        76,
+        74,
+        219,
+        153
+      ],
+      "label": "walk-4",
+      "registration_landmark": "head",
+      "target": [
+        64,
+        34
+      ],
+      "scale": 0.15170670037926676,
+      "dimensions": [
+        46,
+        73
+      ],
+      "translation": [
+        41,
+        14
+      ],
+      "clipped_pixels": 0,
+      "removed_resampling_specks": 0,
+      "method": "whole drawn pose, uniform scale and integer translation"
+    },
+    {
+      "source": "map-front-back-master.png",
+      "source_sha256": "c369d939667db57a891437943d0cf03a2e4756f60d25dcbb5623027349a3a1d5",
+      "source_bounds": [
+        804,
+        589,
+        1108,
+        1120
+      ],
+      "opaque_pixels": 99153,
+      "head": [
+        146.5,
+        135.5
+      ],
+      "face_box": [
+        115,
+        118,
+        178,
+        153
+      ],
+      "hair_region": [
+        77,
+        74,
+        216,
+        153
+      ],
+      "label": "walk-5",
+      "registration_landmark": "head",
+      "target": [
+        64,
+        34
+      ],
+      "scale": 0.15170670037926676,
+      "dimensions": [
+        46,
+        81
+      ],
+      "translation": [
+        42,
+        13
+      ],
+      "clipped_pixels": 0,
+      "removed_resampling_specks": 0,
+      "method": "whole drawn pose, uniform scale and integer translation"
+    },
+    {
+      "source": "battle-prepare-master.png",
+      "source_sha256": "7e83628d81a9e89305bb9acb546e3cc7196e6f56db71e05fff025c01cff25e16",
+      "source_bounds": [
+        225,
+        128,
+        648,
+        600
+      ],
+      "opaque_pixels": 126649,
+      "head": [
+        190.0,
+        79.5
+      ],
+      "face_box": [
+        171,
+        60,
+        209,
+        99
+      ],
+      "hair_region": [
+        148,
+        11,
+        232,
+        99
+      ],
+      "label": "ally-battle-1",
+      "registration_landmark": "head",
+      "target": [
+        212,
+        104
+      ],
+      "scale": 0.38471337579617837,
+      "dimensions": [
+        163,
+        182
+      ],
+      "translation": [
+        139,
+        73
+      ],
+      "clipped_pixels": 0,
+      "removed_resampling_specks": 0,
+      "method": "whole drawn pose, uniform scale and integer translation"
+    },
+    {
+      "source": "battle-prepare-master.png",
+      "source_sha256": "7e83628d81a9e89305bb9acb546e3cc7196e6f56db71e05fff025c01cff25e16",
+      "source_bounds": [
+        824,
+        127,
+        1246,
+        600
+      ],
+      "opaque_pixels": 124955,
+      "head": [
+        168.0,
+        80.5
+      ],
+      "face_box": [
+        149,
+        61,
+        187,
+        100
+      ],
+      "hair_region": [
+        126,
+        12,
+        210,
+        100
+      ],
+      "label": "ally-battle-13",
+      "registration_landmark": "head",
+      "target": [
+        212,
+        104
+      ],
+      "scale": 0.38471337579617837,
+      "dimensions": [
+        162,
+        182
+      ],
+      "translation": [
+        148,
+        73
+      ],
+      "clipped_pixels": 0,
+      "removed_resampling_specks": 0,
+      "method": "whole drawn pose, uniform scale and integer translation"
+    },
+    {
+      "source": "battle-prepare-master.png",
+      "source_sha256": "7e83628d81a9e89305bb9acb546e3cc7196e6f56db71e05fff025c01cff25e16",
+      "source_bounds": [
+        186,
+        696,
+        653,
+        1158
+      ],
+      "opaque_pixels": 128353,
+      "head": [
+        232.0,
+        80.0
+      ],
+      "face_box": [
+        214,
+        61,
+        250,
+        99
+      ],
+      "hair_region": [
+        192,
+        14,
+        272,
+        99
+      ],
+      "label": "ally-battle-14",
+      "registration_landmark": "head",
+      "target": [
+        212,
+        104
+      ],
+      "scale": 0.39528795811518325,
+      "dimensions": [
+        185,
+        183
+      ],
+      "translation": [
+        120,
+        72
+      ],
+      "clipped_pixels": 0,
+      "removed_resampling_specks": 0,
+      "method": "whole drawn pose, uniform scale and integer translation"
+    },
+    {
+      "source": "battle-prepare-master.png",
+      "source_sha256": "7e83628d81a9e89305bb9acb546e3cc7196e6f56db71e05fff025c01cff25e16",
+      "source_bounds": [
+        824,
+        624,
+        1251,
+        1158
+      ],
+      "opaque_pixels": 130930,
+      "head": [
+        179.5,
+        152.0
+      ],
+      "face_box": [
+        161,
+        133,
+        198,
+        171
+      ],
+      "hair_region": [
+        139,
+        86,
+        220,
+        171
+      ],
+      "label": "ally-battle-15",
+      "registration_landmark": "head",
+      "target": [
+        212,
+        104
+      ],
+      "scale": 0.39528795811518325,
+      "dimensions": [
+        169,
+        211
+      ],
+      "translation": [
+        141,
+        44
+      ],
+      "clipped_pixels": 0,
+      "removed_resampling_specks": 0,
+      "method": "whole drawn pose, uniform scale and integer translation"
+    },
+    {
+      "source": "battle-release-master.png",
+      "source_sha256": "9f0765c2de046b039ceb8aa7a9a26d278935c86f8c51bdb8ba58629f09a160ea",
+      "source_bounds": [
+        210,
+        18,
+        663,
+        689
+      ],
+      "opaque_pixels": 184095,
+      "head": [
+        199.5,
+        193.0
+      ],
+      "face_box": [
+        177,
+        170,
+        222,
+        216
+      ],
+      "hair_region": [
+        150,
+        112,
+        249,
+        216
+      ],
+      "label": "ally-battle-16",
+      "registration_landmark": "head",
+      "target": [
+        212,
+        104
+      ],
+      "scale": 0.3158995815899582,
+      "dimensions": [
+        143,
+        212
+      ],
+      "translation": [
+        149,
+        43
+      ],
+      "clipped_pixels": 0,
+      "removed_resampling_specks": 0,
+      "method": "whole drawn pose, uniform scale and integer translation"
+    },
+    {
+      "source": "battle-release-master.png",
+      "source_sha256": "9f0765c2de046b039ceb8aa7a9a26d278935c86f8c51bdb8ba58629f09a160ea",
+      "source_bounds": [
+        853,
+        39,
+        1357,
+        689
+      ],
+      "opaque_pixels": 190010,
+      "head": [
+        267.0,
+        172.0
+      ],
+      "face_box": [
+        244,
+        149,
+        290,
+        195
+      ],
+      "hair_region": [
+        216,
+        92,
+        318,
+        195
+      ],
+      "label": "ally-battle-17",
+      "registration_landmark": "head",
+      "target": [
+        212,
+        104
+      ],
+      "scale": 0.3158995815899582,
+      "dimensions": [
+        159,
+        205
+      ],
+      "translation": [
+        128,
+        50
+      ],
+      "clipped_pixels": 0,
+      "removed_resampling_specks": 0,
+      "method": "whole drawn pose, uniform scale and integer translation"
+    },
+    {
+      "source": "battle-release-master.png",
+      "source_sha256": "9f0765c2de046b039ceb8aa7a9a26d278935c86f8c51bdb8ba58629f09a160ea",
+      "source_bounds": [
+        1637,
+        16,
+        2113,
+        689
+      ],
+      "opaque_pixels": 187519,
+      "head": [
+        204.0,
+        194.5
+      ],
+      "face_box": [
+        181,
+        171,
+        227,
+        218
+      ],
+      "hair_region": [
+        153,
+        112,
+        255,
+        218
+      ],
+      "label": "ally-battle-18",
+      "registration_landmark": "head",
+      "target": [
+        212,
+        104
+      ],
+      "scale": 0.3155694879832811,
+      "dimensions": [
+        150,
+        212
+      ],
+      "translation": [
+        148,
+        43
+      ],
+      "clipped_pixels": 0,
+      "removed_resampling_specks": 0,
+      "method": "whole drawn pose, uniform scale and integer translation"
+    },
+    {
+      "source": "enemy-battle-master.png",
+      "source_sha256": "affa1d30359bb54915c285b4366eaa7003aaf4b689aed37c5e94409c2282e24e",
+      "source_bounds": [
+        247,
+        34,
+        711,
+        678
+      ],
+      "opaque_pixels": 158727,
+      "head": [
+        206.0,
+        204.0
+      ],
+      "face_box": [
+        185,
+        182,
+        227,
+        226
+      ],
+      "hair_region": [
+        160,
+        127,
+        252,
+        226
+      ],
+      "label": "enemy-battle-1",
+      "registration_landmark": "head",
+      "target": [
+        180,
+        104
+      ],
+      "scale": 0.3431818181818182,
+      "dimensions": [
+        159,
+        221
+      ],
+      "translation": [
+        109,
+        34
+      ],
+      "clipped_pixels": 0,
+      "removed_resampling_specks": 0,
+      "method": "whole drawn pose, uniform scale and integer translation"
+    },
+    {
+      "source": "enemy-battle-master.png",
+      "source_sha256": "affa1d30359bb54915c285b4366eaa7003aaf4b689aed37c5e94409c2282e24e",
+      "source_bounds": [
+        847,
+        59,
+        1359,
+        678
+      ],
+      "opaque_pixels": 160929,
+      "head": [
+        254.0,
+        179.0
+      ],
+      "face_box": [
+        233,
+        157,
+        275,
+        201
+      ],
+      "hair_region": [
+        208,
+        102,
+        300,
+        201
+      ],
+      "label": "enemy-battle-5",
+      "registration_landmark": "head",
+      "target": [
+        180,
+        104
+      ],
+      "scale": 0.3431818181818182,
+      "dimensions": [
+        176,
+        212
+      ],
+      "translation": [
+        93,
+        43
+      ],
+      "clipped_pixels": 0,
+      "removed_resampling_specks": 0,
+      "method": "whole drawn pose, uniform scale and integer translation"
+    },
+    {
+      "source": "enemy-battle-master.png",
+      "source_sha256": "affa1d30359bb54915c285b4366eaa7003aaf4b689aed37c5e94409c2282e24e",
+      "source_bounds": [
+        1532,
+        30,
+        2003,
+        678
+      ],
+      "opaque_pixels": 163602,
+      "head": [
+        216.0,
+        208.0
+      ],
+      "face_box": [
+        195,
+        186,
+        237,
+        230
+      ],
+      "hair_region": [
+        170,
+        131,
+        262,
+        230
+      ],
+      "label": "enemy-battle-6",
+      "registration_landmark": "head",
+      "target": [
+        180,
+        104
+      ],
+      "scale": 0.3431818181818182,
+      "dimensions": [
+        162,
+        222
+      ],
+      "translation": [
+        106,
+        33
+      ],
+      "clipped_pixels": 0,
+      "removed_resampling_specks": 0,
+      "method": "whole drawn pose, uniform scale and integer translation"
+    }
+  ],
+  "fixed_map_regions": {
+    "idle-connected-rider-and-horse-body": {
+      "source_pose": 0,
+      "shared_poses": [
+        0,
+        1,
+        2
+      ],
+      "complete_upper_body_region": [
+        0,
+        0,
+        96,
+        56
+      ],
+      "global_translation": [
+        0,
+        0
+      ]
+    },
+    "walk-connected-upper-body-[0, 1]": {
+      "source_pose": 0,
+      "shared_poses": [
+        0,
+        1
+      ],
+      "complete_upper_body_region": [
+        0,
+        0,
+        128,
+        68
+      ],
+      "global_translation": [
+        0,
+        0
+      ]
+    },
+    "walk-connected-upper-body-[4, 5]": {
+      "source_pose": 4,
+      "shared_poses": [
+        4,
+        5
+      ],
+      "complete_upper_body_region": [
+        0,
+        0,
+        128,
+        68
+      ],
+      "global_translation": [
+        0,
+        0
+      ]
+    }
+  },
+  "rider_skin_material_regions": [
+    {
+      "label": "idle-0",
+      "rider_skin_regions": [
+        [
+          39,
+          23,
+          48,
+          32
+        ],
+        [
+          63,
+          37,
+          69,
+          44
+        ]
+      ],
+      "removed_peach_tinted_armor_pixels": 24
+    },
+    {
+      "label": "idle-1",
+      "rider_skin_regions": [
+        [
+          39,
+          23,
+          48,
+          32
+        ],
+        [
+          63,
+          37,
+          69,
+          44
+        ]
+      ],
+      "removed_peach_tinted_armor_pixels": 24
+    },
+    {
+      "label": "idle-2",
+      "rider_skin_regions": [
+        [
+          39,
+          23,
+          48,
+          32
+        ],
+        [
+          63,
+          37,
+          69,
+          44
+        ]
+      ],
+      "removed_peach_tinted_armor_pixels": 26
+    },
+    {
+      "label": "walk-0",
+      "rider_skin_regions": [
+        [
+          49,
+          43,
+          56,
+          51
+        ],
+        [
+          58,
+          36,
+          63,
+          41
+        ]
+      ],
+      "removed_peach_tinted_armor_pixels": 11
+    },
+    {
+      "label": "walk-1",
+      "rider_skin_regions": [
+        [
+          49,
+          43,
+          56,
+          51
+        ],
+        [
+          58,
+          36,
+          63,
+          41
+        ]
+      ],
+      "removed_peach_tinted_armor_pixels": 12
+    },
+    {
+      "label": "walk-4",
+      "rider_skin_regions": [
+        [
+          58,
+          30,
+          70,
+          39
+        ],
+        [
+          50,
+          43,
+          57,
+          51
+        ],
+        [
+          74,
+          41,
+          81,
+          50
+        ]
+      ],
+      "removed_peach_tinted_armor_pixels": 50
+    },
+    {
+      "label": "walk-5",
+      "rider_skin_regions": [
+        [
+          58,
+          30,
+          70,
+          39
+        ],
+        [
+          50,
+          43,
+          57,
+          51
+        ],
+        [
+          74,
+          41,
+          81,
+          50
+        ]
+      ],
+      "removed_peach_tinted_armor_pixels": 54
+    },
+    {
+      "label": "ally-battle-1",
+      "rider_skin_regions": [
+        [
+          205,
+          96,
+          220,
+          111
+        ],
+        [
+          231,
+          133,
+          245,
+          142
+        ],
+        [
+          219,
+          143,
+          228,
+          151
+        ]
+      ],
+      "removed_peach_tinted_armor_pixels": 118
+    },
+    {
+      "label": "ally-battle-13",
+      "rider_skin_regions": [
+        [
+          205,
+          96,
+          220,
+          111
+        ],
+        [
+          234,
+          133,
+          247,
+          143
+        ],
+        [
+          226,
+          144,
+          235,
+          152
+        ]
+      ],
+      "removed_peach_tinted_armor_pixels": 210
+    },
+    {
+      "label": "ally-battle-14",
+      "rider_skin_regions": [
+        [
+          205,
+          96,
+          219,
+          111
+        ],
+        [
+          213,
+          127,
+          224,
+          136
+        ],
+        [
+          158,
+          127,
+          167,
+          135
+        ]
+      ],
+      "removed_peach_tinted_armor_pixels": 260
+    },
+    {
+      "label": "ally-battle-15",
+      "rider_skin_regions": [
+        [
+          205,
+          97,
+          219,
+          112
+        ],
+        [
+          215,
+          123,
+          226,
+          133
+        ],
+        [
+          166,
+          119,
+          176,
+          129
+        ]
+      ],
+      "removed_peach_tinted_armor_pixels": 256
+    },
+    {
+      "label": "ally-battle-16",
+      "rider_skin_regions": [
+        [
+          205,
+          97,
+          219,
+          111
+        ],
+        [
+          156,
+          112,
+          166,
+          124
+        ],
+        [
+          216,
+          121,
+          226,
+          131
+        ]
+      ],
+      "removed_peach_tinted_armor_pixels": 162
+    },
+    {
+      "label": "ally-battle-17",
+      "rider_skin_regions": [
+        [
+          205,
+          97,
+          219,
+          112
+        ],
+        [
+          149,
+          111,
+          159,
+          123
+        ],
+        [
+          235,
+          107,
+          245,
+          117
+        ]
+      ],
+      "removed_peach_tinted_armor_pixels": 180
+    },
+    {
+      "label": "ally-battle-18",
+      "rider_skin_regions": [
+        [
+          205,
+          97,
+          220,
+          112
+        ],
+        [
+          235,
+          103,
+          250,
+          117
+        ],
+        [
+          163,
+          114,
+          174,
+          125
+        ]
+      ],
+      "removed_peach_tinted_armor_pixels": 170
+    },
+    {
+      "label": "enemy-battle-1",
+      "rider_skin_regions": [
+        [
+          172,
+          96,
+          187,
+          112
+        ],
+        [
+          140,
+          109,
+          149,
+          120
+        ],
+        [
+          187,
+          119,
+          196,
+          127
+        ]
+      ],
+      "removed_peach_tinted_armor_pixels": 218
+    },
+    {
+      "label": "enemy-battle-5",
+      "rider_skin_regions": [
+        [
+          173,
+          97,
+          188,
+          112
+        ],
+        [
+          124,
+          108,
+          134,
+          120
+        ],
+        [
+          198,
+          107,
+          209,
+          117
+        ]
+      ],
+      "removed_peach_tinted_armor_pixels": 354
+    },
+    {
+      "label": "enemy-battle-6",
+      "rider_skin_regions": [
+        [
+          173,
+          97,
+          188,
+          112
+        ],
+        [
+          200,
+          105,
+          214,
+          121
+        ],
+        [
+          135,
+          110,
+          146,
+          121
+        ]
+      ],
+      "removed_peach_tinted_armor_pixels": 314
+    }
+  ],
+  "complete_greatbow_registration": [
+    {
+      "source": "source/map-greatbow-master.png",
+      "source_fill_bounds": [
+        404,
+        50,
+        654,
+        1486
+      ],
+      "indexed_size": [
+        14,
+        70
+      ],
+      "grip": [
+        9.0,
+        35.0
+      ],
+      "complete_upper_and_lower_limb": true
+    },
+    {
+      "label": "idle-0",
+      "grip_target": [
+        65.5,
+        41
+      ],
+      "weapon_height": 70,
+      "translation": [
+        56,
+        6
+      ],
+      "uniform_scale": 1.0,
+      "hand_region_preserved": [
+        63,
+        37,
+        69,
+        44
+      ]
+    },
+    {
+      "label": "idle-1",
+      "grip_target": [
+        65.5,
+        41
+      ],
+      "weapon_height": 70,
+      "translation": [
+        56,
+        6
+      ],
+      "uniform_scale": 1.0,
+      "hand_region_preserved": [
+        63,
+        37,
+        69,
+        44
+      ]
+    },
+    {
+      "label": "idle-2",
+      "grip_target": [
+        65.5,
+        41
+      ],
+      "weapon_height": 70,
+      "translation": [
+        56,
+        6
+      ],
+      "uniform_scale": 1.0,
+      "hand_region_preserved": [
+        63,
+        37,
+        69,
+        44
+      ]
+    },
+    {
+      "label": "walk-4",
+      "grip_target": [
+        77,
+        45
+      ],
+      "weapon_height": 76,
+      "translation": [
+        67,
+        7
+      ],
+      "uniform_scale": 1.0857142857142856,
+      "hand_region_preserved": [
+        74,
+        41,
+        81,
+        49
+      ]
+    },
+    {
+      "label": "walk-5",
+      "grip_target": [
+        77,
+        45
+      ],
+      "weapon_height": 76,
+      "translation": [
+        67,
+        7
+      ],
+      "uniform_scale": 1.0857142857142856,
+      "hand_region_preserved": [
+        74,
+        41,
+        81,
+        49
+      ]
+    }
+  ],
+  "runtime_integrated": false,
+  "user_visual_acceptance": "pending",
+  "offline_playback_captures": [
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-class_20_ally_bow-flight.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        2376,
+        840
+      ],
+      "bytes": 30576,
+      "sha256": "19e8d4d03074d1ff4bc1be59eb03dc4750cf79130b224a671ec949b898f15470"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-class_20_ally_bow-pose-01.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1800,
+        808
+      ],
+      "bytes": 28831,
+      "sha256": "98cdcf7dad1cff988483579ba25b064d0dd0d556ced3585476ecbbad8e0fc394"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-class_20_ally_bow-pose-13.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1800,
+        808
+      ],
+      "bytes": 29191,
+      "sha256": "9ec1003f1fa5d82fe151a7f1d76f83d128e4357d21ca95406d347a61b382d7c0"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-class_20_ally_bow-pose-14.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1800,
+        808
+      ],
+      "bytes": 29341,
+      "sha256": "7470c72bf74f2d0dd94cb17eadd53d69e3bcb724a0fb563610956fb6b2591351"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-class_20_ally_bow-pose-15.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1800,
+        808
+      ],
+      "bytes": 29852,
+      "sha256": "88287ca84c91ab98b4d3a6f7d284658c5159251edd7f88aee0ce578ffe43eb70"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-class_20_ally_bow-pose-16.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1800,
+        808
+      ],
+      "bytes": 29264,
+      "sha256": "0abf3bd8a6159d7d4fefa00dab8d7410f5861380f449c2d2d590d5e39889ed02"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-class_20_ally_bow-pose-17.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1800,
+        808
+      ],
+      "bytes": 29060,
+      "sha256": "d513bfb225a7aafd6dd88516377ff0d7eff13a5a4cccf7dfe2fbd82c86b157d5"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-class_20_ally_bow-pose-18.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1800,
+        808
+      ],
+      "bytes": 29731,
+      "sha256": "692904ae907699a1e079df4c2fa3f81e0ae53c1950513e7c4abb0dc7c4769858"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-class_20_ally_silver_bow-flight.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        2376,
+        840
+      ],
+      "bytes": 29867,
+      "sha256": "eb06596e3459f66486f3a70dc70648198d36186081a290ac8b46404dfec805a7"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-class_20_ally_silver_bow-pose-01.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1800,
+        808
+      ],
+      "bytes": 28834,
+      "sha256": "bd432f0f81f6058d0bb53578a16790fa6a7b5106ea0711996dc380b0ca01d3d1"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-class_20_ally_silver_bow-pose-13.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1800,
+        808
+      ],
+      "bytes": 29199,
+      "sha256": "39d4a5c7fac2ff6cda20cc440ff3e33c0728e5d097c96c3c2398b82eee305911"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-class_20_ally_silver_bow-pose-14.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1800,
+        808
+      ],
+      "bytes": 28981,
+      "sha256": "60c970ae00765190256388dfbe21ff99f17c9919450a138a1be47097d2f77df3"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-class_20_ally_silver_bow-pose-15.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1800,
+        808
+      ],
+      "bytes": 29745,
+      "sha256": "da8c73432e481936ddd472604037a352f89b9dbdc3c12d3a514b8414270a6587"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-class_20_ally_silver_bow-pose-16.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1800,
+        808
+      ],
+      "bytes": 28787,
+      "sha256": "6cde51af6982b468a2253f0b4cbd142f5e101df2331cf37f2b21ac0ccf4ada4e"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-class_20_ally_silver_bow-pose-17.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1800,
+        808
+      ],
+      "bytes": 29180,
+      "sha256": "99664686a334ed07d882b7e32afbe50a2840b5f2bb39f1ed378c2278760c4667"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-class_20_ally_silver_bow-pose-18.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1800,
+        808
+      ],
+      "bytes": 29646,
+      "sha256": "a95cb3ceb5c65b5b3642a9feb70961f08667880fbf433765bea4db83046445ea"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-idle-cycle-phase-00.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 20811,
+      "sha256": "5929643ae12d7da892b6009170de9f66418edf6211a1aba955c26d59a41696c6"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-idle-cycle-phase-14.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 21299,
+      "sha256": "3b80c31e7a145bf92b931464d3a6eede137c46cddbcf1db583baf02a4916a798"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-idle-cycle-phase-22.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 21382,
+      "sha256": "ed961fdf92c50ba16a95139b7f974a8584f9f263c1f9dc393381a315fe95ef6f"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-walk-down-phase-00.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 16863,
+      "sha256": "be056451158dc6afe47161adcc52eddad243e8754538efe0fefb29af029a62df"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-walk-down-phase-16.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 17363,
+      "sha256": "7f7fffb31d0af844d7257bdfb79ef20c5ee10578703182f4e9dde928185a5f9c"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-walk-left-phase-00.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 17366,
+      "sha256": "4f63f8788be771b47ba14e663394f9e27a110368692a1f636225592f9aad6a9f"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-walk-left-phase-16.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 17626,
+      "sha256": "2f1cd40889f377ebfad75ae791768e6bb06329b333eacfa649b04cbbeb7633be"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-walk-right-phase-00.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 17457,
+      "sha256": "fd4c10e1bde5b53b8c34d08d851feb017e4b8d50c4daf91ede7df0110511e791"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-walk-right-phase-16.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 17711,
+      "sha256": "728c3da359c776953664316fe57e2910c8ab5b5d1916f43d3942157b1b515dd3"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-walk-up-phase-00.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 16488,
+      "sha256": "e6883ee3a42d586b422b93400599856ebd44698c762bfcf55e6fb321f7b0986e"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/ally-walk-up-phase-16.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 16745,
+      "sha256": "462493eaabfbfe3d834d36f85a2f2795427be7f28c69fec430e617fae9ca587a"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy-class_20_enemy_bow-flight.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        2376,
+        840
+      ],
+      "bytes": 29623,
+      "sha256": "14377083d4f156ba22c4790f20230c548aa4bd9c70b09b4e5462eef58533f1a7"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy-class_20_enemy_bow-pose-01.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1800,
+        808
+      ],
+      "bytes": 28087,
+      "sha256": "e94cd049814fa4e56e557226d6cf2e60655b15f9eb3ed4a7d80b012b767f2a20"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy-class_20_enemy_bow-pose-05.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1800,
+        808
+      ],
+      "bytes": 29599,
+      "sha256": "da2d5a002f1f9fdd67059e10bb35afe194109fd83237e1f54bd0b0e9bcd8e4fa"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy-class_20_enemy_bow-pose-06.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1800,
+        808
+      ],
+      "bytes": 29105,
+      "sha256": "06cf5d78f3d5221065697358da2f9e4d8361456cc09cec94c2449c641632684c"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy-idle-cycle-phase-00.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 20967,
+      "sha256": "5b7191f3048ff20724314910004fc6c47bdd169a923c33a873b79223937e4644"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy-idle-cycle-phase-14.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 21463,
+      "sha256": "f928e7aba620cae9ced6c87454067f6ea7d58bfa645e2dc7ecaee22ef433a733"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy-idle-cycle-phase-22.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 21556,
+      "sha256": "992892acae117a1883603f11da5f4b8b34719677697ca42ee290eeee10999981"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy-walk-down-phase-00.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 17023,
+      "sha256": "e4aec7d9f24f1c53e78825ca262de11d9ccdbb72d047ae5775deef345411050e"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy-walk-down-phase-16.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 17537,
+      "sha256": "658bc5db901d64a4ae1f570d61031d07edc504d51e1b9127fbac57d01ad3cb6d"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy-walk-left-phase-00.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 17540,
+      "sha256": "7daeb1648236a312dc7f726d1f8a4de2d25f18dd38b821ef440aa295ddc3d46f"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy-walk-left-phase-16.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 17820,
+      "sha256": "052fb4f51197dd8e5122567087731f87ea9508be827dd475be1b40ccba0ec078"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy-walk-right-phase-00.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 17634,
+      "sha256": "fc024e23980987c25c93bd315e1279c20204484a932025f3fc55ba2ce812db0b"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy-walk-right-phase-16.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 17866,
+      "sha256": "855ce516c7b4af0812a084043d4360a21a639a7a66905f708a7b607db93db33e"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy-walk-up-phase-00.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 16635,
+      "sha256": "95e5b33a5cead24ce946c534d65498af289996803d53015f48e50d6d7d312b85"
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/enemy-walk-up-phase-16.png",
+      "purpose": "native/redraw synchronized pose inspection",
+      "dimensions": [
+        1096,
+        520
+      ],
+      "bytes": 16900,
+      "sha256": "ddb36b842c1198d616a2d63d0d7224f4385bf422e53afeefac4b5529052eed69"
+    }
+  ],
+  "retained_generated_sources": [
+    {
+      "path": "bow-knight-complete-v1-20261023/source/battle-prepare-first-master.png",
+      "purpose": "original ImageGen source retained offline, not runtime",
+      "dimensions": [
+        1346,
+        1168
+      ],
+      "bytes": 1040306
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/source/battle-prepare-master.png",
+      "purpose": "original ImageGen source retained offline, not runtime",
+      "dimensions": [
+        1347,
+        1168
+      ],
+      "bytes": 1046026
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/source/battle-release-first-master.png",
+      "purpose": "original ImageGen source retained offline, not runtime",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "bytes": 1032590
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/source/battle-release-master.png",
+      "purpose": "original ImageGen source retained offline, not runtime",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "bytes": 1035694
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/source/design-master.png",
+      "purpose": "original ImageGen source retained offline, not runtime",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1107977
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/source/enemy-battle-master.png",
+      "purpose": "original ImageGen source retained offline, not runtime",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "bytes": 954697
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/source/map-front-back-master.png",
+      "purpose": "original ImageGen source retained offline, not runtime",
+      "dimensions": [
+        1381,
+        1139
+      ],
+      "bytes": 761666
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/source/map-greatbow-master.png",
+      "purpose": "original ImageGen source retained offline, not runtime",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 886626
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/source/map-idle-first-master.png",
+      "purpose": "original ImageGen source retained offline, not runtime",
+      "dimensions": [
+        2094,
+        751
+      ],
+      "bytes": 1115415
+    },
+    {
+      "path": "bow-knight-complete-v1-20261023/source/map-idle-master.png",
+      "purpose": "original ImageGen source retained offline, not runtime",
+      "dimensions": [
+        2095,
+        751
+      ],
+      "bytes": 1103751
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "passed": true,
+  "frozen": true,
+  "maps": {
+    "F21": "1ab8e4827a3a5dbc5edbf9790ee6bbd8a96410294e39961b9d24ab6c8f3debaa",
+    "F22": "b5b54b7fdbc4577cae6851c6e77886a782b737c22620e007f88ddbf65d44fc7d",
+    "S21": "5470ff170b965d990ea96a7ac46ebaae65efa7ecb91e71a88ff4583e9eb0ac2d"
+  },
+  "rounds": [
+    {
+      "label": "round1-ships-hold",
+      "inputs": 2388,
+      "battles": [
+        {
+          "code": "F21",
+          "turns": 10,
+          "outcome": "victory",
+          "evacuated": [],
+          "source_saves_modified": false
+        },
+        {
+          "code": "F22",
+          "turns": 30,
+          "outcome": "victory",
+          "evacuated": [
+            "prisoners_0",
+            "prisoners_1",
+            "prisoners_2",
+            "lord"
+          ],
+          "source_saves_modified": false
+        },
+        {
+          "code": "S21",
+          "turns": 9,
+          "outcome": "victory",
+          "evacuated": [
+            "patients0",
+            "patients1"
+          ],
+          "source_saves_modified": false
+        }
+      ]
+    },
+    {
+      "label": "round2-ships-hold",
+      "inputs": 2337,
+      "battles": [
+        {
+          "code": "F21",
+          "turns": 10,
+          "outcome": "victory",
+          "evacuated": [],
+          "source_saves_modified": false
+        },
+        {
+          "code": "F22",
+          "turns": 40,
+          "outcome": "victory",
+          "evacuated": [
+            "prisoners_0",
+            "prisoners_1",
+            "prisoners_2",
+            "lord"
+          ],
+          "source_saves_modified": false
+        },
+        {
+          "code": "S21",
+          "turns": 12,
+          "outcome": "victory",
+          "evacuated": [
+            "patients0",
+            "patients1"
+          ],
+          "source_saves_modified": false
+        }
+      ]
+    }
+  ],
+  "total_inputs": 4725,
+  "failed_attempts": [
+    {
+      "path": "play/round1-ships/round1-ships-play.json",
+      "failure": "F22 hero advanced across gangplank before the support line; defeated in turn4. F21 and S21 in that attempt succeeded. No map or unit changes made to overcome it."
+    }
+  ],
+  "play_policy": "F22 guard near gangplank/own deck until active pursuers are cleared, then advance. Normal inputs only, no stats/RNG edits. Two final rounds use same strategy and frozen current maps.",
+  "gameplay_exact": true,
+  "animations_unchanged": true,
+  "new_native_screenshots": 4,
+  "material_revision": "0.10.12-environment"
+}

@@ -1,0 +1,1138 @@
+{
+  "class_id": 20,
+  "name": "弓骑士",
+  "source_assets": [
+    {
+      "side": "ally",
+      "kind": "idle",
+      "path": "source-input/legacy-assets/assets/original/graphics/map_units/class_20_ally.png",
+      "sha256": "1f6db7a5c66d6ab845e20d21502e7cacf966d168077d806f6784b10ce8625811",
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "side": "ally",
+      "kind": "walk",
+      "path": "source-input/corrected-tactical-walk/class-20-ally.png",
+      "sha256": "82f6121d6b8c8f9a4d84e2c07c4f9a652465b424943d84eb7e498e27c500087c",
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "side": "ally",
+      "kind": "battle",
+      "path": "source-input/original-motion/class-20.png",
+      "sha256": "2e8d4dc45fe4f918812588a22b1495230ddb81364769aefaf515db9eb62c9dff",
+      "poses": [
+        1,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ]
+    },
+    {
+      "side": "enemy",
+      "kind": "idle",
+      "path": "source-input/legacy-assets/assets/original/graphics/map_units/class_20_enemy.png",
+      "sha256": "e8041ec5cba65e4504837db40fe386087ad3337b64632b4d8d60ea4c67cc224f",
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "side": "enemy",
+      "kind": "walk",
+      "path": "source-input/corrected-tactical-walk/class-20-enemy.png",
+      "sha256": "d44b8484a0a7f169060b43fbb38e86bc98acdd1d4a4c4d927aee268f958bc976",
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "side": "enemy",
+      "kind": "battle",
+      "path": "source-input/enemy-motion/class-20-enemy.png",
+      "sha256": "473a60301148d7e5dbfd9dfe2737784ce6bd39d686721ced878012b579af7708",
+      "poses": [
+        1,
+        5,
+        6
+      ]
+    }
+  ],
+  "native_timelines": [
+    {
+      "side": "ally",
+      "key": "class_20_ally_bow",
+      "ticks": 270,
+      "contact_tick": 189,
+      "program": "L05B332",
+      "pose_runs": [
+        {
+          "frame": 1,
+          "start": 0,
+          "ticks": 18
+        },
+        {
+          "frame": 13,
+          "start": 18,
+          "ticks": 16
+        },
+        {
+          "frame": 14,
+          "start": 34,
+          "ticks": 32
+        },
+        {
+          "frame": 15,
+          "start": 66,
+          "ticks": 2
+        },
+        {
+          "frame": 16,
+          "start": 68,
+          "ticks": 53
+        },
+        {
+          "frame": 17,
+          "start": 121,
+          "ticks": 53
+        },
+        {
+          "frame": 18,
+          "start": 174,
+          "ticks": 44
+        },
+        {
+          "frame": 16,
+          "start": 218,
+          "ticks": 3
+        },
+        {
+          "frame": 15,
+          "start": 221,
+          "ticks": 3
+        },
+        {
+          "frame": 14,
+          "start": 224,
+          "ticks": 3
+        },
+        {
+          "frame": 13,
+          "start": 227,
+          "ticks": 24
+        },
+        {
+          "frame": 1,
+          "start": 251,
+          "ticks": 19
+        }
+      ]
+    },
+    {
+      "side": "ally",
+      "key": "class_20_ally_bow_vs_heavy",
+      "ticks": 270,
+      "contact_tick": 189,
+      "program": "L05B332",
+      "pose_runs": [
+        {
+          "frame": 1,
+          "start": 0,
+          "ticks": 18
+        },
+        {
+          "frame": 13,
+          "start": 18,
+          "ticks": 16
+        },
+        {
+          "frame": 14,
+          "start": 34,
+          "ticks": 32
+        },
+        {
+          "frame": 15,
+          "start": 66,
+          "ticks": 2
+        },
+        {
+          "frame": 16,
+          "start": 68,
+          "ticks": 53
+        },
+        {
+          "frame": 17,
+          "start": 121,
+          "ticks": 53
+        },
+        {
+          "frame": 18,
+          "start": 174,
+          "ticks": 44
+        },
+        {
+          "frame": 16,
+          "start": 218,
+          "ticks": 3
+        },
+        {
+          "frame": 15,
+          "start": 221,
+          "ticks": 3
+        },
+        {
+          "frame": 14,
+          "start": 224,
+          "ticks": 3
+        },
+        {
+          "frame": 13,
+          "start": 227,
+          "ticks": 24
+        },
+        {
+          "frame": 1,
+          "start": 251,
+          "ticks": 19
+        }
+      ]
+    },
+    {
+      "side": "ally",
+      "key": "class_20_ally_bow_far_ally",
+      "ticks": 272,
+      "contact_tick": 191,
+      "program": "L05B332",
+      "pose_runs": [
+        {
+          "frame": 1,
+          "start": 0,
+          "ticks": 18
+        },
+        {
+          "frame": 13,
+          "start": 18,
+          "ticks": 16
+        },
+        {
+          "frame": 14,
+          "start": 34,
+          "ticks": 32
+        },
+        {
+          "frame": 15,
+          "start": 66,
+          "ticks": 2
+        },
+        {
+          "frame": 16,
+          "start": 68,
+          "ticks": 53
+        },
+        {
+          "frame": 17,
+          "start": 121,
+          "ticks": 53
+        },
+        {
+          "frame": 18,
+          "start": 174,
+          "ticks": 46
+        },
+        {
+          "frame": 16,
+          "start": 220,
+          "ticks": 3
+        },
+        {
+          "frame": 15,
+          "start": 223,
+          "ticks": 3
+        },
+        {
+          "frame": 14,
+          "start": 226,
+          "ticks": 3
+        },
+        {
+          "frame": 13,
+          "start": 229,
+          "ticks": 24
+        },
+        {
+          "frame": 1,
+          "start": 253,
+          "ticks": 19
+        }
+      ]
+    },
+    {
+      "side": "ally",
+      "key": "class_20_ally_bow_far_ally_vs_heavy",
+      "ticks": 273,
+      "contact_tick": 192,
+      "program": "L05B332",
+      "pose_runs": [
+        {
+          "frame": 1,
+          "start": 0,
+          "ticks": 18
+        },
+        {
+          "frame": 13,
+          "start": 18,
+          "ticks": 16
+        },
+        {
+          "frame": 14,
+          "start": 34,
+          "ticks": 32
+        },
+        {
+          "frame": 15,
+          "start": 66,
+          "ticks": 2
+        },
+        {
+          "frame": 16,
+          "start": 68,
+          "ticks": 53
+        },
+        {
+          "frame": 17,
+          "start": 121,
+          "ticks": 53
+        },
+        {
+          "frame": 18,
+          "start": 174,
+          "ticks": 47
+        },
+        {
+          "frame": 16,
+          "start": 221,
+          "ticks": 3
+        },
+        {
+          "frame": 15,
+          "start": 224,
+          "ticks": 3
+        },
+        {
+          "frame": 14,
+          "start": 227,
+          "ticks": 3
+        },
+        {
+          "frame": 13,
+          "start": 230,
+          "ticks": 24
+        },
+        {
+          "frame": 1,
+          "start": 254,
+          "ticks": 19
+        }
+      ]
+    },
+    {
+      "side": "ally",
+      "key": "class_20_ally_bow_far_enemy",
+      "ticks": 272,
+      "contact_tick": 191,
+      "program": "L05B332",
+      "pose_runs": [
+        {
+          "frame": 1,
+          "start": 0,
+          "ticks": 18
+        },
+        {
+          "frame": 13,
+          "start": 18,
+          "ticks": 16
+        },
+        {
+          "frame": 14,
+          "start": 34,
+          "ticks": 32
+        },
+        {
+          "frame": 15,
+          "start": 66,
+          "ticks": 2
+        },
+        {
+          "frame": 16,
+          "start": 68,
+          "ticks": 53
+        },
+        {
+          "frame": 17,
+          "start": 121,
+          "ticks": 53
+        },
+        {
+          "frame": 18,
+          "start": 174,
+          "ticks": 46
+        },
+        {
+          "frame": 16,
+          "start": 220,
+          "ticks": 3
+        },
+        {
+          "frame": 15,
+          "start": 223,
+          "ticks": 3
+        },
+        {
+          "frame": 14,
+          "start": 226,
+          "ticks": 3
+        },
+        {
+          "frame": 13,
+          "start": 229,
+          "ticks": 24
+        },
+        {
+          "frame": 1,
+          "start": 253,
+          "ticks": 19
+        }
+      ]
+    },
+    {
+      "side": "ally",
+      "key": "class_20_ally_bow_far_enemy_vs_heavy",
+      "ticks": 270,
+      "contact_tick": 189,
+      "program": "L05B332",
+      "pose_runs": [
+        {
+          "frame": 1,
+          "start": 0,
+          "ticks": 18
+        },
+        {
+          "frame": 13,
+          "start": 18,
+          "ticks": 16
+        },
+        {
+          "frame": 14,
+          "start": 34,
+          "ticks": 32
+        },
+        {
+          "frame": 15,
+          "start": 66,
+          "ticks": 2
+        },
+        {
+          "frame": 16,
+          "start": 68,
+          "ticks": 53
+        },
+        {
+          "frame": 17,
+          "start": 121,
+          "ticks": 53
+        },
+        {
+          "frame": 18,
+          "start": 174,
+          "ticks": 44
+        },
+        {
+          "frame": 16,
+          "start": 218,
+          "ticks": 3
+        },
+        {
+          "frame": 15,
+          "start": 221,
+          "ticks": 3
+        },
+        {
+          "frame": 14,
+          "start": 224,
+          "ticks": 3
+        },
+        {
+          "frame": 13,
+          "start": 227,
+          "ticks": 24
+        },
+        {
+          "frame": 1,
+          "start": 251,
+          "ticks": 19
+        }
+      ]
+    },
+    {
+      "side": "ally",
+      "key": "class_20_ally_silver_bow",
+      "ticks": 246,
+      "contact_tick": 190,
+      "program": "L05B3FB",
+      "pose_runs": [
+        {
+          "frame": 1,
+          "start": 0,
+          "ticks": 18
+        },
+        {
+          "frame": 13,
+          "start": 18,
+          "ticks": 16
+        },
+        {
+          "frame": 14,
+          "start": 34,
+          "ticks": 32
+        },
+        {
+          "frame": 15,
+          "start": 66,
+          "ticks": 2
+        },
+        {
+          "frame": 16,
+          "start": 68,
+          "ticks": 53
+        },
+        {
+          "frame": 17,
+          "start": 121,
+          "ticks": 53
+        },
+        {
+          "frame": 18,
+          "start": 174,
+          "ticks": 20
+        },
+        {
+          "frame": 16,
+          "start": 194,
+          "ticks": 3
+        },
+        {
+          "frame": 15,
+          "start": 197,
+          "ticks": 3
+        },
+        {
+          "frame": 14,
+          "start": 200,
+          "ticks": 3
+        },
+        {
+          "frame": 13,
+          "start": 203,
+          "ticks": 24
+        },
+        {
+          "frame": 1,
+          "start": 227,
+          "ticks": 19
+        }
+      ]
+    },
+    {
+      "side": "ally",
+      "key": "class_20_ally_silver_bow_vs_heavy",
+      "ticks": 246,
+      "contact_tick": 190,
+      "program": "L05B3FB",
+      "pose_runs": [
+        {
+          "frame": 1,
+          "start": 0,
+          "ticks": 18
+        },
+        {
+          "frame": 13,
+          "start": 18,
+          "ticks": 16
+        },
+        {
+          "frame": 14,
+          "start": 34,
+          "ticks": 32
+        },
+        {
+          "frame": 15,
+          "start": 66,
+          "ticks": 2
+        },
+        {
+          "frame": 16,
+          "start": 68,
+          "ticks": 53
+        },
+        {
+          "frame": 17,
+          "start": 121,
+          "ticks": 53
+        },
+        {
+          "frame": 18,
+          "start": 174,
+          "ticks": 20
+        },
+        {
+          "frame": 16,
+          "start": 194,
+          "ticks": 3
+        },
+        {
+          "frame": 15,
+          "start": 197,
+          "ticks": 3
+        },
+        {
+          "frame": 14,
+          "start": 200,
+          "ticks": 3
+        },
+        {
+          "frame": 13,
+          "start": 203,
+          "ticks": 24
+        },
+        {
+          "frame": 1,
+          "start": 227,
+          "ticks": 19
+        }
+      ]
+    },
+    {
+      "side": "ally",
+      "key": "class_20_ally_silver_bow_far_ally",
+      "ticks": 248,
+      "contact_tick": 192,
+      "program": "L05B3FB",
+      "pose_runs": [
+        {
+          "frame": 1,
+          "start": 0,
+          "ticks": 18
+        },
+        {
+          "frame": 13,
+          "start": 18,
+          "ticks": 16
+        },
+        {
+          "frame": 14,
+          "start": 34,
+          "ticks": 32
+        },
+        {
+          "frame": 15,
+          "start": 66,
+          "ticks": 2
+        },
+        {
+          "frame": 16,
+          "start": 68,
+          "ticks": 53
+        },
+        {
+          "frame": 17,
+          "start": 121,
+          "ticks": 53
+        },
+        {
+          "frame": 18,
+          "start": 174,
+          "ticks": 22
+        },
+        {
+          "frame": 16,
+          "start": 196,
+          "ticks": 3
+        },
+        {
+          "frame": 15,
+          "start": 199,
+          "ticks": 3
+        },
+        {
+          "frame": 14,
+          "start": 202,
+          "ticks": 3
+        },
+        {
+          "frame": 13,
+          "start": 205,
+          "ticks": 24
+        },
+        {
+          "frame": 1,
+          "start": 229,
+          "ticks": 19
+        }
+      ]
+    },
+    {
+      "side": "ally",
+      "key": "class_20_ally_silver_bow_far_ally_vs_heavy",
+      "ticks": 249,
+      "contact_tick": 193,
+      "program": "L05B3FB",
+      "pose_runs": [
+        {
+          "frame": 1,
+          "start": 0,
+          "ticks": 18
+        },
+        {
+          "frame": 13,
+          "start": 18,
+          "ticks": 16
+        },
+        {
+          "frame": 14,
+          "start": 34,
+          "ticks": 32
+        },
+        {
+          "frame": 15,
+          "start": 66,
+          "ticks": 2
+        },
+        {
+          "frame": 16,
+          "start": 68,
+          "ticks": 53
+        },
+        {
+          "frame": 17,
+          "start": 121,
+          "ticks": 53
+        },
+        {
+          "frame": 18,
+          "start": 174,
+          "ticks": 23
+        },
+        {
+          "frame": 16,
+          "start": 197,
+          "ticks": 3
+        },
+        {
+          "frame": 15,
+          "start": 200,
+          "ticks": 3
+        },
+        {
+          "frame": 14,
+          "start": 203,
+          "ticks": 3
+        },
+        {
+          "frame": 13,
+          "start": 206,
+          "ticks": 24
+        },
+        {
+          "frame": 1,
+          "start": 230,
+          "ticks": 19
+        }
+      ]
+    },
+    {
+      "side": "ally",
+      "key": "class_20_ally_silver_bow_far_enemy",
+      "ticks": 248,
+      "contact_tick": 192,
+      "program": "L05B3FB",
+      "pose_runs": [
+        {
+          "frame": 1,
+          "start": 0,
+          "ticks": 18
+        },
+        {
+          "frame": 13,
+          "start": 18,
+          "ticks": 16
+        },
+        {
+          "frame": 14,
+          "start": 34,
+          "ticks": 32
+        },
+        {
+          "frame": 15,
+          "start": 66,
+          "ticks": 2
+        },
+        {
+          "frame": 16,
+          "start": 68,
+          "ticks": 53
+        },
+        {
+          "frame": 17,
+          "start": 121,
+          "ticks": 53
+        },
+        {
+          "frame": 18,
+          "start": 174,
+          "ticks": 22
+        },
+        {
+          "frame": 16,
+          "start": 196,
+          "ticks": 3
+        },
+        {
+          "frame": 15,
+          "start": 199,
+          "ticks": 3
+        },
+        {
+          "frame": 14,
+          "start": 202,
+          "ticks": 3
+        },
+        {
+          "frame": 13,
+          "start": 205,
+          "ticks": 24
+        },
+        {
+          "frame": 1,
+          "start": 229,
+          "ticks": 19
+        }
+      ]
+    },
+    {
+      "side": "ally",
+      "key": "class_20_ally_silver_bow_far_enemy_vs_heavy",
+      "ticks": 246,
+      "contact_tick": 190,
+      "program": "L05B3FB",
+      "pose_runs": [
+        {
+          "frame": 1,
+          "start": 0,
+          "ticks": 18
+        },
+        {
+          "frame": 13,
+          "start": 18,
+          "ticks": 16
+        },
+        {
+          "frame": 14,
+          "start": 34,
+          "ticks": 32
+        },
+        {
+          "frame": 15,
+          "start": 66,
+          "ticks": 2
+        },
+        {
+          "frame": 16,
+          "start": 68,
+          "ticks": 53
+        },
+        {
+          "frame": 17,
+          "start": 121,
+          "ticks": 53
+        },
+        {
+          "frame": 18,
+          "start": 174,
+          "ticks": 20
+        },
+        {
+          "frame": 16,
+          "start": 194,
+          "ticks": 3
+        },
+        {
+          "frame": 15,
+          "start": 197,
+          "ticks": 3
+        },
+        {
+          "frame": 14,
+          "start": 200,
+          "ticks": 3
+        },
+        {
+          "frame": 13,
+          "start": 203,
+          "ticks": 24
+        },
+        {
+          "frame": 1,
+          "start": 227,
+          "ticks": 19
+        }
+      ]
+    },
+    {
+      "side": "enemy",
+      "key": "class_20_enemy_bow",
+      "ticks": 138,
+      "contact_tick": 106,
+      "program": "L05B351",
+      "pose_runs": [
+        {
+          "frame": 1,
+          "start": 0,
+          "ticks": 42
+        },
+        {
+          "frame": 5,
+          "start": 42,
+          "ticks": 51
+        },
+        {
+          "frame": 6,
+          "start": 93,
+          "ticks": 26
+        },
+        {
+          "frame": 1,
+          "start": 119,
+          "ticks": 19
+        }
+      ]
+    },
+    {
+      "side": "enemy",
+      "key": "class_20_enemy_bow_vs_heavy",
+      "ticks": 138,
+      "contact_tick": 106,
+      "program": "L05B351",
+      "pose_runs": [
+        {
+          "frame": 1,
+          "start": 0,
+          "ticks": 42
+        },
+        {
+          "frame": 5,
+          "start": 42,
+          "ticks": 51
+        },
+        {
+          "frame": 6,
+          "start": 93,
+          "ticks": 26
+        },
+        {
+          "frame": 1,
+          "start": 119,
+          "ticks": 19
+        }
+      ]
+    },
+    {
+      "side": "enemy",
+      "key": "class_20_enemy_bow_far_ally",
+      "ticks": 140,
+      "contact_tick": 108,
+      "program": "L05B351",
+      "pose_runs": [
+        {
+          "frame": 1,
+          "start": 0,
+          "ticks": 42
+        },
+        {
+          "frame": 5,
+          "start": 42,
+          "ticks": 51
+        },
+        {
+          "frame": 6,
+          "start": 93,
+          "ticks": 28
+        },
+        {
+          "frame": 1,
+          "start": 121,
+          "ticks": 19
+        }
+      ]
+    },
+    {
+      "side": "enemy",
+      "key": "class_20_enemy_bow_far_ally_vs_heavy",
+      "ticks": 138,
+      "contact_tick": 106,
+      "program": "L05B351",
+      "pose_runs": [
+        {
+          "frame": 1,
+          "start": 0,
+          "ticks": 42
+        },
+        {
+          "frame": 5,
+          "start": 42,
+          "ticks": 51
+        },
+        {
+          "frame": 6,
+          "start": 93,
+          "ticks": 26
+        },
+        {
+          "frame": 1,
+          "start": 119,
+          "ticks": 19
+        }
+      ]
+    },
+    {
+      "side": "enemy",
+      "key": "class_20_enemy_bow_far_enemy",
+      "ticks": 140,
+      "contact_tick": 108,
+      "program": "L05B351",
+      "pose_runs": [
+        {
+          "frame": 1,
+          "start": 0,
+          "ticks": 42
+        },
+        {
+          "frame": 5,
+          "start": 42,
+          "ticks": 51
+        },
+        {
+          "frame": 6,
+          "start": 93,
+          "ticks": 28
+        },
+        {
+          "frame": 1,
+          "start": 121,
+          "ticks": 19
+        }
+      ]
+    },
+    {
+      "side": "enemy",
+      "key": "class_20_enemy_bow_far_enemy_vs_heavy",
+      "ticks": 141,
+      "contact_tick": 109,
+      "program": "L05B351",
+      "pose_runs": [
+        {
+          "frame": 1,
+          "start": 0,
+          "ticks": 42
+        },
+        {
+          "frame": 5,
+          "start": 42,
+          "ticks": 51
+        },
+        {
+          "frame": 6,
+          "start": 93,
+          "ticks": 29
+        },
+        {
+          "frame": 1,
+          "start": 122,
+          "ticks": 19
+        }
+      ]
+    }
+  ],
+  "map_idle": {
+    "slots": [
+      0,
+      1,
+      2,
+      1
+    ],
+    "ticks": [
+      14,
+      8,
+      14,
+      8
+    ]
+  },
+  "map_walk": {
+    "up": [
+      0,
+      1
+    ],
+    "right": [
+      2,
+      3
+    ],
+    "down": [
+      4,
+      5
+    ],
+    "left": [
+      6,
+      7
+    ],
+    "ticks": [
+      16,
+      16
+    ]
+  },
+  "side_walk_idle_whole_pose_aliases": {
+    "left6": "idle0 plus [4,4] logical pixels",
+    "left7": "idle2 plus [4,4] logical pixels",
+    "right2_3": "exact full-sprite horizontal mirrors of left6_7"
+  },
+  "runtime_integrated": false
+}
