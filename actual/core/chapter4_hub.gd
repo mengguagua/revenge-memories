@@ -25,7 +25,7 @@ static func action(h,key:String) -> void:
   "fourth_well_report":g.flags.F41_confirmed=true;await pages(h,["居民：南北井台的水够这一批人转移。古道路线已抄成几份，就算向导不在，也能沿标记找到观测台。", "艾琳：留一份在井台。不要让后来的人再空走一趟。"])
   "fourth_obs_report":await pages(h,["技术员：停用步骤已经发给西队。祭所坐标在这份副本上，穿过亡潮沼泽就能到。", "艾琳：母亲没能验证完的部分，我们继续查。不能只因为她相信这条路，就让别人冒同样的险。"])
   "fourth_marsh_report":g.flags.F43_confirmed=true;await pages(h,["船团医者：居民已按实际获救名单交接，船分批运送，不占正式成员的物品槽。", "舵手：古道连接沉没祭所。西南孤岛还有两组病人等待接应。"])
-  "fourth_s42":g.flags.S42_invited=true;await pages(h,["舵手：赛琳留在沼泽孤岛守着两组病人。支路从这里分开，船可以在西南木台靠岸。"])
+  "fourth_s42":g.flags.S42_invited=true;await pages(h,["舵手：赛琳留在沼泽孤岛守着两组病人。支路从这里分开，船可以在西南木台靠岸。", "舵手：岛上守船人还保管着雾中护航用的定潮枪。先把病人安置好，他会把旧枪交给继续守路的人。"])
   "fourth_island_verify":
    var first=not g.flags.get("chapter4_promoted_eileen",false)
    Rules.promote_hero(g,"eileen")
@@ -34,12 +34,14 @@ static func action(h,key:String) -> void:
     text.append_array(["旁白：艾琳进阶为引光剑使，基础移动提升至5，按最低基底补足属性与抗性。等级、经验、当前生命和原有法术训练保留。", "旁白：术法精熟使已学攻击法术每次减耗1生命，正费用最低为1；辅助法术费用不变。试验不代替同伴救治。"])
    else:text.append("旁白：艾琳已掌握地方循环的调节步骤。原有法术训练保留，试验不代替同伴救治。")
    await pages(h,text)
+   await deliver_light_sword(h)
   "fourth_d42":
    if g.flags.get("D42_done",false):await pages(h,["信使：两岸验证已完成。最后一份救治材料已送往H10会合营站，和早期剩余份额一起使用。"]);return
    if not g.flags.get("west_tower_safe",false):await pages(h,["信使：祭所的局部试验已成功，但还缺西塔安全停用的回信。切到西队，回北境日塔控制室确认，不必重打。"]);return
    if not g.flags.get("island_loop_safe",false):return
    var text=[("莉莎" if g.speaker_alive("莉莎") else "地方技术员")+"：日塔那边停了。这里的灯还亮着。", "艾琳：再看一会儿。别急着把船叫回来。", ("米蕾" if g.speaker_alive("米蕾") else "船团医者")+"：岸边的人已经看见了。有人在问，今晚能不能住在自己家里。", "艾琳：先让修塔的人检查。等他们说可以，我们再去告诉大家。", "技术员：两岸的读数稳定，居民可以回到已经检查过的房屋。", "运输人员：最后一份救治材料送往会合营站。伤者会与我们一起转移，不会被留在这里。"]
    await pages(h,text);g.flags.D42_done=true;Rules.promote_hero(g,"eileen");g.ensure_treatment_sources()
+   await deliver_light_sword(h)
   "fourth_black_report":await pages(h,["村民：完整名册已经存档。凯尔先执行迁徙、后违令救人的前后记录都留下了。" if g.flags.get("S41_register_saved",false) else "村民：名册没能保住。在场者的证言会留下，已经烧毁的内容不能假装仍然完整。", "胡纳普：我还是想知道他最后看见了什么。但不能只记我愿意相信的那一面。"])
   "fourth_celine":
    if g.party.has("celine"):await pages(h,["赛琳：地方医者会接手病人。我跟船团走，先把照护安排写清楚。"]);return
@@ -64,7 +66,7 @@ static func action(h,key:String) -> void:
    if not Rules.missing(g).is_empty():await action(h,"fourth_progress");return
    var unfinished=[]
    if not g.stage_cleared(411):unfinished.append("黑钟村名册")
-   if not g.stage_cleared(412):unfinished.append("沼泽孤岛救援")
+   if not g.stage_cleared(412):unfinished.append("沼泽孤岛救援（定潮枪尚未取得）")
    if not unfinished.is_empty():await pages(h,["信使：尚未完成："+"、".join(unfinished)+"。可先返回支路，再确认本章收束。"])
    ui._open_menu("fourth_end",["继续整备","确认第四章收束"],["close","hub:fourth_finish"],Vector2(36,88))
   "fourth_finish":
@@ -76,6 +78,10 @@ static func action(h,key:String) -> void:
     if g.party.has(id) and not g.is_dying(g.roster[id]) and int(g.flags.get("fourth_strength_uses",0))<3:
      g.roster[id].strength=mini(40,int(g.roster[id].strength)+1);g.flags.fourth_strength_uses=int(g.flags.get("fourth_strength_uses",0))+1
      await pages(h,["旁白："+str(g.roster[id].name_zh)+"力量提升1。祭所剩余"+str(3-int(g.flags.fourth_strength_uses))+"次。"])
+
+static func deliver_light_sword(h) -> void:
+ var g=h.ui.game
+ if g.Armaments.claim(g,17,false):await h.ui.play_pages(g.Armaments.delivery_pages(17),"hub","")
 
 static func relations(h) -> void:
  var g=h.ui.game;var text=[]

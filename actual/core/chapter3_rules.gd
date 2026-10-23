@@ -67,9 +67,10 @@ static func initialize(g) -> void:
 	g.flags.quest.transport_index=0;g.flags.quest.transport_stopped=false;g.flags.quest.german_decision=""
 
 static func before_lines(g) -> String:
-	if g.stage_id==303:return str(g.battle_data.before)
-	if g.stage_id==312:return str(g.battle_data.before)
-	return str(g.battle_data.before)
+	var text = str(g.battle_data.before)
+	if g.stage_id==303:text+="／工匠：工房里还收着被押走的旧军械。先守住码头、取回记录，战后我们会一件件认领。"
+	if g.stage_id==306:text+="／术士：工房里封存着看守者征用的旧魔剑。先救人、稳住阵台，再整理兵器。"
+	return text
 
 static func lines(g,text: String,key: String="") -> void:
 	var pages=[]

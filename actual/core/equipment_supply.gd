@@ -1,6 +1,7 @@
 extends RefCounted
 ## Adapted campaign supply. Deterministic grants never depend on enemy loot.
 const Items = preload("res://core/item_rules.gd")
+const Armaments = preload("res://core/story_armaments.gd")
 static var _data: Dictionary = {}
 
 static func data() -> Dictionary:
@@ -8,6 +9,7 @@ static func data() -> Dictionary:
 	return _data
 
 static func award_clear(game, stage: int, announce: bool = true) -> void:
+	Armaments.award_clear(game,stage,announce)
 	var rewards: Array = data().clear_rewards.get(str(stage), [])
 	var taken: Dictionary = game.flags.get("equipment_clear_rewards", {})
 	if rewards.is_empty() or taken.get(str(stage), false): return

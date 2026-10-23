@@ -40,6 +40,7 @@ static func rare_drop(enemy: Dictionary, chapter: int, cumulative_count: int, fi
 	if int(enemy.get("item_id", 0)) > 0 or bool(enemy.get("no_drop", false)): return 0
 	var source_id := int(enemy.get("source_enemy_character_id", enemy.get("character_id", enemy.get("name_id", 0))))
 	for entry in data().rare_drops:
+		if Items.is_story_armament(int(entry.item_id)):continue
 		if source_id == int(entry.character_id) and first_roll < int(entry.roll_threshold) and second_roll < int(entry.roll_threshold):
 			return int(entry.item_id)
 	return 0

@@ -550,6 +550,10 @@ static func _campaign_story(value: Variant) -> bool:
 	return true
 
 static func _campaign_flags(game, flags: Dictionary, stage: Dictionary) -> bool:
+	if flags.has("story_armaments_claimed"):
+		if not flags.story_armaments_claimed is Dictionary:return false
+		for key in flags.story_armaments_claimed:
+			if not key is String or not Items.armaments().items.has(key) or not flags.story_armaments_claimed[key] is bool:return false
 	if flags.has("ending_pages"):
 		if not flags.ending_pages is Array or flags.ending_pages.is_empty() or flags.ending_pages.size()>200:return false
 		for page in flags.ending_pages:

@@ -47,7 +47,7 @@ static func compare(unit: Dictionary,target_id: int,classes: Dictionary) -> Dict
 	var compatible=Items.can_use(after,target_id);var reason="适配 · 可装备"
 	if not compatible:
 		reason="不适配 · 当前职业无法使用"
-		if target_id in [17,18]:reason="不适配 · 仅胡纳普可使用"
+		if target_id in [17,18]:reason="不适配 · 仅"+str(Items.item(target_id).personal_name_zh)+"可使用"
 		elif int(unit.class_id)==6 and target_id in [4,7]:reason="不适配 · 士兵无法使用该枪"
 	return {"compatible":compatible,"can_equip":compatible,"reason":reason,"target_id":target_id,"held_id":int(unit.get("item_id",0)),
 		"name":str(unit.name_zh),"class_name":profession_name(unit,classes),"current_name":held_name(unit),"target_name":str(Items.item(target_id).get("name_zh","未知装备")),
@@ -60,6 +60,7 @@ static func description(unit: Dictionary) -> String:
 	var actor=automatic(unit);var id=int(actor.get("item_id",0));var item=Items.item(id);var notes: Array[String]=[]
 	if id<=0:return "使用职业默认武器。"
 	if not Items.can_use(actor,id):return "当前角色无法使用，此武器不提供加成。"
+	if item.has("story_description"):notes.append(str(item.story_description))
 	match id:
 		14:notes.append("近身攻击可能反噬自身。")
 		15:notes.append("魔法攻击力固定15，按目标魔防结算。")

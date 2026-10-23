@@ -3,13 +3,26 @@ extends RefCounted
 ## All methods return new values and do not mutate the caller's unit.
 
 static var _rules: Dictionary = {}
+static var _armaments: Dictionary = {}
 const HeroProfessions = preload("res://core/hero_professions.gd")
+
+static func armaments() -> Dictionary:
+	if _armaments.is_empty():_armaments=JSON.parse_string(FileAccess.get_file_as_string("res://data/story_armaments.json"))
+	return _armaments
+
+static func is_story_armament(item_id: int) -> bool:
+	return armaments().items.has(str(item_id))
 
 static func data() -> Dictionary:
 	if _rules.is_empty():
 		_rules = _integer_tables(JSON.parse_string(FileAccess.get_file_as_string("res://data/legacy/rules_full.json")))
 		# Confirmed display name; the original spell ID, cost and effect stay.
 		_rules.items[31].name_zh = "鬼火"
+		# Adapted display/ownership metadata overlays source IDs and numeric rules.
+		for key in armaments().items:
+			var spec: Dictionary=armaments().items[key]
+			for field in ["name_zh","personal_character_id","personal_name_zh","story_description"]:
+				if spec.has(field):_rules.items[int(key)][field]=spec[field]
 		# Campaign additions have separate provenance; never renumber source IDs.
 		var additions = JSON.parse_string(FileAccess.get_file_as_string("res://data/equipment_progression.json"))
 		for entry in _integer_tables(additions).items:
@@ -52,7 +65,7 @@ static func can_use(unit: Dictionary, item_id: int) -> bool:
 	if cid == 6 and item_id in [4, 7]:
 		return false
 	if item_id in [17, 18]:
-		return int(unit.get("character_id", 1 if str(unit.get("id", "")) == "alm" else 0)) == 1
+		return not _enemy(unit) and int(unit.get("character_id", 1 if str(unit.get("id", "")) == "alm" else 0)) == int(item(item_id).get("personal_character_id",1))
 	if item_id >= 23 and int(unit.get("hp", 0)) <= cost_for(unit,item_id):
 		return false
 	if item_id <= 1:

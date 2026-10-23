@@ -12,6 +12,7 @@ const RefugeeTactics = preload("res://core/refugee_tactics.gd")
 const Journals = preload("res://core/journey_slots.gd")
 const EquipmentComparison = preload("res://core/equipment_comparison.gd")
 const HeroProfessions = preload("res://core/hero_professions.gd")
+const Armaments = preload("res://core/story_armaments.gd")
 const CAMPAIGN_ID := "revenge-memories-1"
 const SAVE_FIELDS := ["chapter","route","parties","route_positions","previous_world_node","convoy","hub_id","hub_position","battle_return","battle_settled","story_events","stage_id","world_node","cleared_stages","roster","battle_start_snapshot","victory_rewards","flags","party","mode","units","phase","turn","rng_state","frame_counter","kills","selected_id","cursor","move_origin","battle_outcome"]
 var campaign: Dictionary

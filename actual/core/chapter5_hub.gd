@@ -14,7 +14,7 @@ static func action(h,key:String) -> void:
    await Prior.pages(h,["照护者：获救组别和遇难者分别登记。赫兰留在这里交代命令、协助照护，未加入出阵队伍。","胡纳普：通往登天桥的路已经标好。"])
   "fifth_west_report":await Prior.pages(h,["守卫：西门已经打开。另一队从祭所底层与日宫下层进入东门。两队分别到达前庭后，再确认出阵。"])
   "fifth_repair_report":await Prior.pages(h,["技术员：地方循环已稳定。日宫下层的东门阵仍有守军，沿北廊过去就能找到。"])
-  "fifth_east_report","fifth_archive_invite":await Prior.pages(h,["记录官：旧书库在日宫下层的侧路。前庭确认两军合流出发以后，这条支路会关闭。","艾琳：先决定是否查阅记录，再带两队去前庭。"])
+  "fifth_east_report","fifth_archive_invite":await Prior.pages(h,["记录官：旧书库在日宫下层的侧路。前庭确认两军合流出发以后，这条支路会关闭。", "记录官：那里还封存着曾保护撤离队伍的镇关枪。记录交接后，会把它交给继续守路的人。" if not g.Armaments.claimed(g,7) else "记录官：镇关枪已经交付。记录与兵器的去向都已登记。", "艾琳：先决定是否查阅记录，再带两队去前庭。"])
   "fifth_archive_report":await Prior.pages(h,["记录官：救援与失败都留在记录里。这份档案不会替强迁、拒绝救船和清洗开脱。"])
   "fifth_prepare":open_selection(h)
   "fifth_ready":
@@ -25,7 +25,7 @@ static func action(h,key:String) -> void:
    if int(g.route_positions.alm)!=15 or int(g.route_positions.celica)!=15:
     await Prior.pages(h,["守卫：两队都要先到前庭。按S切换另一队，完成对应门阵并沿地图道路抵达。"]);return
    if not g.flags.chapter5_ready.alm or not g.flags.chapter5_ready.celica:ui._notice("请先分别确认两队出阵名册",6);return
-   await Prior.pages(h,["守卫：确认后，两队合流前往前庭，旧书库支路将关闭。"+("记录已经取回。" if g.stage_cleared(511) else "旧书库尚未探索；可以现在返回日宫下层。")])
+   await Prior.pages(h,["守卫：确认后，两队合流前往前庭，旧书库支路将关闭。", "守卫：记录已经取回。" if g.stage_cleared(511) else "守卫：旧书库尚未探索，镇关枪尚未取得。现在可以返回日宫下层。"])
    ui._open_menu("fifth_merge",["返回整理","确认合流出发"],["close","hub:fifth_confirm_merge"],Vector2(24,96))
   "fifth_confirm_merge":
    if g.ChapterFive.merge(g):h.enter_room("H55",true);ui._notice("两军已合流；南口返回地图进入战场",6)
