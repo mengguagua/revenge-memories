@@ -56,4 +56,8 @@ CAMPAIGN_CAPTURE_LOG=/private/tmp/map-catalog-render.log bash actual/tools/captu
 2026-10-23 · 当前修订0.10.11：第一章M12—M15与S12完成寒地一致性修正，目录同步7张第一章当前原生图与同版地形记录。M11原图、S11地下矿道和其余章节保持；雪只用于室外，清扫土路、室内石地、木桥及开放流水仍清楚区分。五图说明优先采用本轮气候复查，另外35图继续采用此前材质复查结论。见[第一章寒地一致性对照](../../actual/reports/chapter1-climate-20261022/index.html)与[据点实机前后对照](../../actual/reports/chapter1-climate-20261022/side/hubs/index.html)。世界与据点冬景只在第一章日返前启用。
 
 
-2026-10-23 · 当前修订0.10.12：第二章F21/F22/S21船舱与木甲板、F25室内牢室及门槛、S22海洞裸岩地面完成修正；F23与F25按剧情延续黑昼冷暗环境。F24和F26材质检查后保持。目录同步8张第二章最终原生场景与同版地形记录，第一章寒地说明继续有效。见[第二章环境前后对照](../../actual/reports/chapter2-environment-20261023/index.html)与[据点室内外材质对照](../../actual/reports/chapter2-environment-20261023/hubs/index.html)。第二章最新独立应用为[Chapter2-Environment](../../actual/dist/RevengeMemories-Chapter2-Environment-20261023.app)。
+2026-10-23 · 当前修订0.10.13：第二章F21/F22/S21船舱与木甲板、F25室内牢室及门槛、S22海洞裸岩地面完成修正；F23与F25按剧情延续黑昼冷暗环境。F24和F26材质检查后保持。目录同步8张第二章最终原生场景与同版地形记录，第一章寒地说明继续有效。见[第二章环境前后对照](../../actual/reports/chapter2-environment-20261023/index.html)与[据点室内外材质对照](../../actual/reports/chapter2-environment-20261023/hubs/index.html)。第二章最新独立应用为[Chapter2-Environment](../../actual/dist/RevengeMemories-Chapter2-Environment-20261023.app)。
+
+2026-10-23：第三章环境与室内外材质修订已合入当前40图；第一、二章环境修订保留。第三章前后对照见 ../../actual/reports/chapter3-environment-20261023/index.html 。世界冬景按故事时间保留到第二章日返事件前，第三章西部转暖、东部延续黑昼。
+
+2026-10-23：第四章环境与室内外材质修订0.10.14已合入当前40图；第一至第三章修订保留。当前对照见 ../../actual/reports/chapter4-environment-20261023/index.html 。

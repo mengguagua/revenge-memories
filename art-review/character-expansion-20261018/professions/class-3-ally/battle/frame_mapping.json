@@ -85,8 +85,8 @@
         320,
         384
       ],
-      "bytes": 4281,
-      "sha256": "f785c1ebfcaabe0b60d86af7e533a591d36ebc4e3ba616e54aca2b18a2270d1b"
+      "bytes": 4284,
+      "sha256": "d3c36f3dee8d95c1de244ac614f6db3103fef9395cada1c7cd76a25cb3c0e2d0"
     },
     {
       "source_frame": 1,
@@ -95,8 +95,8 @@
         320,
         384
       ],
-      "bytes": 4101,
-      "sha256": "3ca82d07a8a25328cc0a86a6f74849787a30cc8bde9b0876dc36d1f948f0357b"
+      "bytes": 4110,
+      "sha256": "f9d7a9d08699bd3cf328593cd838c92b3ea6b76964e7fb51c8684e35fca6abe1"
     },
     {
       "source_frame": 2,
@@ -115,8 +115,8 @@
         320,
         384
       ],
-      "bytes": 3477,
-      "sha256": "9a03aeb1dd68b057e34640bf10c3b24c3b206e6f4e71e8c4e45116d3c817ab2d"
+      "bytes": 3491,
+      "sha256": "966b57dafa80f4ed3d16adfe2d3273179ab46481f6e758a372ea2143fa0bbbf5"
     },
     {
       "source_frame": 4,
@@ -135,8 +135,8 @@
         320,
         384
       ],
-      "bytes": 4200,
-      "sha256": "267aab637c64b358fc5dd80a971dea2c50dfdbd9126f4da5a0e26a185f428a56"
+      "bytes": 4211,
+      "sha256": "35742582886eac54818c44fe628728781ad7c5fcf690ac3755fc47e4478c3df1"
     },
     {
       "source_frame": 6,
@@ -145,8 +145,8 @@
         320,
         384
       ],
-      "bytes": 4261,
-      "sha256": "9c229327989114aa084a3c61634baee56fb14724b78eda5b4c5dbbeb4bcf26f4"
+      "bytes": 4274,
+      "sha256": "0455ba8c97a717463d170fbc4a5eccc8a08c1c3e3519442d3731b31bd51cc632"
     },
     {
       "source_frame": 7,
@@ -155,8 +155,8 @@
         320,
         384
       ],
-      "bytes": 4347,
-      "sha256": "f8efb35a5454a7e677e01d1f8836d75c23772641c3221cfc6c090aebaf52c473"
+      "bytes": 4344,
+      "sha256": "d1cdf40ab20a735b971d04dfce5a7de19d6bb216990ac900acb9116523faac99"
     },
     {
       "source_frame": 16,
@@ -165,8 +165,8 @@
         320,
         384
       ],
-      "bytes": 4281,
-      "sha256": "f785c1ebfcaabe0b60d86af7e533a591d36ebc4e3ba616e54aca2b18a2270d1b"
+      "bytes": 4284,
+      "sha256": "d3c36f3dee8d95c1de244ac614f6db3103fef9395cada1c7cd76a25cb3c0e2d0"
     },
     {
       "source_frame": 33,
@@ -175,8 +175,8 @@
         320,
         384
       ],
-      "bytes": 4281,
-      "sha256": "f785c1ebfcaabe0b60d86af7e533a591d36ebc4e3ba616e54aca2b18a2270d1b"
+      "bytes": 4284,
+      "sha256": "d3c36f3dee8d95c1de244ac614f6db3103fef9395cada1c7cd76a25cb3c0e2d0"
     },
     {
       "source_frame": 34,
@@ -185,8 +185,8 @@
         320,
         384
       ],
-      "bytes": 4353,
-      "sha256": "82210e66d79961deee0e861802bfc47e06c4d6e101b3ea804add3af210624803"
+      "bytes": 4354,
+      "sha256": "1ebabfaa3eba378c32209e8cd8dfcf2f096bc83ac659cc4aba9c027c9b26be7a"
     },
     {
       "source_frame": 35,
@@ -195,8 +195,8 @@
         320,
         384
       ],
-      "bytes": 4327,
-      "sha256": "631948c99395f1c2244345e80021f22d575b7fc73068f79c02d27934580d271c"
+      "bytes": 4340,
+      "sha256": "5d205695735af6b7ad1bdae040eae975e7b817648bfc8e0a446b7467b472735f"
     }
   ],
   "batches": [
@@ -207,7 +207,7 @@
     }
   ],
   "runtime_integrated": false,
-  "art_mode": "Built-in ImageGen. Technical crop/uniform scale/rigid registration only; no programmatic art drawing.",
+  "art_mode": "existing native-registered ImageGen anatomy; five flat material assignment, no silhouette deformation",
   "output_atlas": "../../../pegasus-knight-complete-v1-20261023/ally/battle-atlas.png",
   "output_atlas_order": [
     0,
@@ -223,10 +223,9 @@
     34,
     35
   ],
-  "output_atlas_bytes": 549464,
+  "output_atlas_bytes": 31814,
   "registration_scope": "Foot XY error measures only each explicitly selected native hoof anchor after uniform scaling and rigid translation, not every limb or joint. Other limbs, feathers and spear poses are separately inspected visually.",
-  "qa_report": "../qa-report.json",
-  "parent_visual_review_note": "Root passed complete battle, static idle and verified native tactical four directions, including corrected weapon endpoints on dark/light backgrounds.",
+  "qa_report": "../../../pegasus-knight-complete-v1-20261023/verification.json",
   "revision": "pegasus-knight-complete-v1-20261023",
   "modified_by": "codex",
   "review_note": "盟军天马：沿用原作逐帧扑翼、收腿、前刺和投枪姿势／循环／节奏；地图固定骑手头部锚点消除整体位移。弓箭手蓝白四色加一种柔和红色，保留肤色和眼睛，头发纯色、衣甲哑光。敌方按用户选择暂缓。",

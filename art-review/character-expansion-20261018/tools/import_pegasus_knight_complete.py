@@ -51,7 +51,11 @@ def recolor(im,label):
             hue,sat,val=colorsys.rgb_to_hsv(*(v/255 for v in p[:3]))
             hair_warm=(hue<.055 and sat>.35)or((hue<.14 or hue>.96)and sat>.64)
             red_hair=hb[0]-1<=x<hb[2]+1 and hb[1]-1<=y<hb[3]+1 and hair_warm
-            if label in['tactical-walk-0','tactical-walk-1']and hb[0]<=x<hb[2]and hb[1]<=y<hb[3]:hair_region=True
+            if label in['tactical-walk-0','tactical-walk-1']:
+                back_box=[54,11,71,35]if label.endswith('-0')else[57,11,74,35]
+                if back_box[0]<=x<back_box[2]and back_box[1]<=y<back_box[3]:
+                    if ((hue<.14 or hue>.96)and sat>.30)or(y<25 and sat<.45 and val>.4):hair_region=True
+            if label.startswith('battle-')and hb[2]-2<=x<hb[2]+20 and hb[1]<=y<hb[1]+24 and hair_warm:red_hair=True
             skin_ok=hb[0]-im.width*.045<=x<hb[2]+im.width*.045 and hb[1]+(hb[3]-hb[1])*.35<=y<hb[3]+im.height*.22
             q.putpixel((x,y),(*matte(p[:3],hair_region or red_hair,skin_ok),255))
     REG.append({'label':label,'hair_bounds':hb,'source_sha256':__import__('hashlib').sha256(im.tobytes()).hexdigest(),'alpha_preserved_at_threshold_128':True})
@@ -121,14 +125,19 @@ def publish_mappings(b,maps,battle,projectile_path):
             p=OUT/f'ally/{kind}/frame-{i:03}.png';path='../../../'+str(p.relative_to(ROOT));atlas.alpha_composite(im,(i*w,0))
             records.append({'source_index':i,'source_frame':i,'output_index':i,'path':path,'output_path':path,'revision':REV,'size':[w,h],'bytes':p.stat().st_size,'sha256':file_hash(p)})
         scene.update(revision=REV,status='review_candidate',frame_mapping=records,output_atlas=save(atlas,f'ally/{kind}-atlas.png','native slot order, five matte materials'),review_status='pending_user_visual_acceptance',review_note=note,motion_review={'fixed_head_anchors':[x for x in STABLE if x['label']==('idle'if kind=='tactical-idle'else 'up')or(kind=='tactical-walk'and x['label']in['down','left'])],'pose_shape_transforms':'whole connected body integer translation only; native projection is not moved','native_timing_unchanged':True})
+        scene['output_atlas_bytes']=(OUT/f'ally/{kind}-atlas.png').stat().st_size
         scene.pop('parent_visual_review_passed',None)
     m.pop('parent_visual_review_passed',None)
+    m.pop('parent_visual_review_note',None);m['qa_report']='../../../'+REV+'/verification.json'
     write(ROOT/'professions/class-3-ally/maps/frame_mapping.json',m)
     m=copy.deepcopy(b['ally_battle']);m.update(revision=REV,status='review_candidate',modified_by='codex',review_note=note,palette=HEX,runtime_integrated=False,display_class_name='天马骑士')
     order=sorted(battle);atlas=Image.new('RGBA',(len(order)*320,384));records=[];paths={}
     for n,i in enumerate(order):
         p=OUT/f'ally/battle/frame-{i:03}.png';path='../../../'+str(p.relative_to(ROOT));paths[str(i)]=path;atlas.alpha_composite(battle[i],(n*320,0));records.append({'source_frame':i,'path':path,'size':[320,384],'bytes':p.stat().st_size,'sha256':file_hash(p)})
     m.update(frame_mapping=paths,records=records,output_atlas=save(atlas,'ally/battle-atlas.png','all required native OAM/background slots'),output_atlas_order=order,effect_overrides={'3d558f7aa86343':projectile_path},batches=[{'id':'蓝白／纯色红发全姿态','review':'../../../'+REV+'/ally-battle-light.png','status':'review_candidate'}])
+    m['output_atlas_bytes']=(OUT/'ally/battle-atlas.png').stat().st_size
+    m['art_mode']='existing native-registered ImageGen anatomy; five flat material assignment, no silhouette deformation'
+    m['qa_report']='../../../'+REV+'/verification.json';m.pop('parent_visual_review_note',None)
     m.pop('parent_visual_review_passed',None)
     write(ROOT/'professions/class-3-ally/battle/frame_mapping.json',m)
     write(OUT/'mapping-drafts.json',{'maps':json.loads((ROOT/'professions/class-3-ally/maps/frame_mapping.json').read_text()),'battle':m})

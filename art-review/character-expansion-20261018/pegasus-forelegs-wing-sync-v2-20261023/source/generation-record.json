@@ -1,0 +1,20 @@
+{
+  "tool": "built-in image_gen",
+  "mode": "precise-object-edit",
+  "sources": [
+    {
+      "input": "idle-three-edit.png",
+      "output": "idle-legs-master.png",
+      "prompt": "只为三帧侧面天马补全另一只前腿，保留姿势、中心、骑手、长枪、双翼及五色哑光风格。首帧另一腿下垂，另两帧另一前腿向前折起并露出蹄子。",
+      "production_use": "only selected added foreleg patches, existing foreground retained"
+    },
+    {
+      "input": "down4-edit.png",
+      "output": "down-wing-master.png",
+      "prompt": "只移除原向下左翼，补成与现有右翼同高同角度抬起的左翼，双翼同步。长枪在左翼前方，骑手、马身、头发、腿、投影和构图不变。透明背景、同样五色像素风。",
+      "production_use": "only outer left raised wing, all other pixels retained"
+    }
+  ],
+  "originals_retained": true,
+  "runtime_sources": false
+}

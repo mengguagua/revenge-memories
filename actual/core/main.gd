@@ -9,6 +9,8 @@ const EquipmentScreen = preload("res://core/equipment_screen.gd")
 const HubCaption = preload("res://core/hub_caption_layout.gd")
 const OVERVIEW_IMAGE = preload("res://assets/world_tiles/formal-world-overview.png")
 var chapter_one_world_climate: Dictionary = {}
+var chapter_three_world_environment: Dictionary = {}
+var chapter_four_world_environment: Dictionary = {}
 var overview_zoom := 1
 var overview_center := Vector2(0.5,0.5)
 var overview_mouse_drag := false
@@ -704,7 +706,18 @@ func _world_uses_winter() -> bool:
 	# retained in the save, but the western season follows this story time.
 	return _first_chapter_winter() or (game.chapter==2 and not _second_chapter_blackday())
 
+func _fourth_world_environment_active() -> bool:
+	# Chapter five follows immediately: changing chapters does not thaw the highlands
+	# or undo the already verified local protection. The finale has its own sky state.
+	return game.chapter==4 or (game.chapter==5 and game.flags.get("chapter4_complete",false) and not game.flags.get("campaign_complete",false))
+
 func _world_visual_data() -> Dictionary:
+	if _fourth_world_environment_active():
+		if chapter_four_world_environment.is_empty():chapter_four_world_environment=GameState.read_json("res://data/chapter4_world_environment.json")
+		return chapter_four_world_environment
+	if game.chapter==3:
+		if chapter_three_world_environment.is_empty():chapter_three_world_environment=GameState.read_json("res://data/chapter3_world_environment.json")
+		return chapter_three_world_environment
 	if not _world_uses_winter():return world
 	if chapter_one_world_climate.is_empty():
 		chapter_one_world_climate=GameState.read_json("res://data/chapter1_world_climate.json")
@@ -714,8 +727,11 @@ func _world_visual_data() -> Dictionary:
 func _second_chapter_blackday() -> bool:
 	return game.chapter==2 and bool(game.flags.get("F22_confirmed",false))
 
+func _world_has_eastern_blackday() -> bool:
+	return _second_chapter_blackday() or game.chapter==3 or _fourth_world_environment_active()
+
 func _second_chapter_world_tint(at: Vector2) -> Color:
-	if not _second_chapter_blackday():return Color.WHITE
+	if not _world_has_eastern_blackday():return Color.WHITE
 	# The old western passage lies outside the dimmed islands, beyond the local veil.
 	var west_edge=lerpf(42.0,30.0,clampf((at.y-42.0)/8.0,0.0,1.0))
 	var strength=smoothstep(west_edge,west_edge+3.0,at.x)*smoothstep(29.0,32.0,at.y)
@@ -723,7 +739,16 @@ func _second_chapter_world_tint(at: Vector2) -> Color:
 	var beacon=1.0-smoothstep(2.0,7.0,at.distance_to(Vector2(51,42)))
 	var harbor=1.0-smoothstep(2.0,6.0,at.distance_to(Vector2(49,34)))
 	tint=tint.lerp(Color(.66,.72,.84),beacon).lerp(Color(.75,.8,.9),harbor)
-	return Color.WHITE.lerp(tint,strength)
+	var result=Color.WHITE.lerp(tint,strength)
+	if game.chapter==3 or _fourth_world_environment_active():
+		# The present-day eastern salt routes remain outside western protection.
+		var salt_strength=smoothstep(31.5,35.5,at.x)*smoothstep(7.0 if _fourth_world_environment_active() else 14.0,11.0 if _fourth_world_environment_active() else 20.0,at.y)*(1.0-smoothstep(33.0,39.0,at.y))
+		result=result.lerp(Color(.80,.84,.92),salt_strength)
+	if _fourth_world_environment_active() and game.flags.get("island_loop_safe",false):
+		# Only the repaired shrine and nearby islands recover; the wider blackday remains.
+		var radius=6.0 if game.flags.get("D42_done",false) else 3.0
+		result=result.lerp(Color.WHITE,1.0-smoothstep(radius-1.5,radius,at.distance_to(Vector2(44,15))))
+	return result
 
 func _draw_second_chapter_world_cell(atlas: Texture2D,id: int,origin: Vector2,cell: Vector2) -> void:
 	var corners=[Vector2.ZERO,Vector2.RIGHT,Vector2.ONE,Vector2.DOWN]
@@ -751,6 +776,10 @@ func _draw_second_chapter_world(visual: Dictionary,origin: Vector2,skip_cells: D
 		_draw_nature_props([prop],origin,_second_chapter_world_tint(cell))
 
 func _world_overview_texture() -> Texture2D:
+	if _fourth_world_environment_active():
+		var phase="verified" if game.flags.get("D42_done",false) else "trial" if game.flags.get("island_loop_safe",false) else "before"
+		return _tex("res://assets/chapter4-environment-20261023/world/overview-"+phase+".png")
+	if game.chapter==3:return _tex(str(_world_visual_data().overview))
 	if _world_uses_winter():return _tex(str(_world_visual_data().overview))
 	if _second_chapter_blackday():return _tex("res://assets/chapter2-environment-20261023/world/overview-blackday.png")
 	return OVERVIEW_IMAGE
@@ -769,7 +798,7 @@ func _draw_world() -> void:
 		for node in world.nodes.values():
 			if node.get("symbol","")=="camp" and actor_cell==Vector2i(node.position[0],node.position[1]):occupied_camps[actor_cell]=true
 	var visual=_world_visual_data()
-	if _second_chapter_blackday():_draw_second_chapter_world(visual,origin,occupied_camps)
+	if _world_has_eastern_blackday():_draw_second_chapter_world(visual,origin,occupied_camps)
 	else:
 		_draw_layers(visual.layers.slice(0,visual.layers.size()-1),32,_tex(visual.atlas),origin)
 		_draw_layers([visual.layers.back()],32,_tex(visual.atlas),origin,Color.WHITE,occupied_camps)
@@ -1014,6 +1043,22 @@ func _terrain_name(cell: Vector2i) -> String:
 		if obj.get("kind","")=="control" and cell==Vector2i(obj.position[0],obj.position[1]):
 			return str(obj.get("name_zh","道路哨卡"))+("已控制" if game.flags.quest.objects.get(str(obj.id),false) else "待控制")
 		if not obj.get("optional",false) and cell==Vector2i(obj.position[0],obj.position[1]):return str(obj.label)
+	if game.chapter==3 and game.category(cell) in [0,6,8]:
+		var ground=str(game.battle_data.visual_ground[cell.y][cell.x])
+		if game.battle_data.code=="F33" and cell.x>=6 and cell.x<=10 and cell.y>=13 and cell.y<=17:return "室内石地"
+		if ground=="a":return "盐地"
+		if ground=="c" and str(game.battle_data.code) in ["S31","S32"]:return "室内石地"
+		if ground=="s":return "船体甲板" if game.battle_data.code=="F31" and cell.x<7 else "木栈道"
+		if ground=="=" or ground=="b":return "室外石铺"
+		if ground=="p" or ground==",":return "土路"
+		if ground==".":return "草地"
+	if game.chapter==4 and game.category(cell) in [0,6,8]:
+		var ground=str(game.battle_data.visual_ground[cell.y][cell.x])
+		if ground in ["=","b"]:return "室外石铺"
+		if ground=="u":return "露天石台"
+		if ground in ["p",","]:return "土路"
+		if ground=="s":return "木栈道"
+		if ground==".":return "草质干地" if game.stage_id in [407,412] else "草地"
 	if game.stage_id>=400:
 		var material=str(game.battle_data.logic_grid[cell.y]).substr(cell.x,1)
 		if material=="n":return "雪地"

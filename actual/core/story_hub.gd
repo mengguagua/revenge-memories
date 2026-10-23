@@ -24,11 +24,15 @@ var east_shore_cache: Dictionary={}
 var chapter1_climate: Dictionary={}
 var climate_layout_cache: Dictionary={}
 var chapter2_environment: Dictionary={}
+var chapter3_environment: Dictionary={}
+var chapter4_environment: Dictionary={}
 
 func _init(owner) -> void:
 	ui=owner
 	chapter1_climate=ui.GameState.read_json("res://data/chapter1_hub_climate.json")
 	chapter2_environment=ui.GameState.read_json("res://data/chapter2_hub_environment.json")
+	chapter3_environment=ui.GameState.read_json("res://data/chapter3_hub_environment.json")
+	chapter4_environment=ui.GameState.read_json("res://data/chapter4_hub_environment.json")
 	var data=ui.GameState.read_json("res://data/chapter2_hubs.json")
 	chapter2_rooms=data.get("rooms",{});east_materials=data.get("materials",{})
 	var third=ui.GameState.read_json("res://data/chapter3_hubs.json")
@@ -358,6 +362,8 @@ func draw() -> void:
 		if ui._draw_natural_grove(room,str(d.name),ORIGIN,d.rect):continue
 		var path=str(d.get("sprite_path","res://assets/battle_tiles/modules/"+str(d.name)+".png"))
 		if not winter.is_empty():path=str(chapter1_climate.get("scenery_paths",{}).get(str(d.name),path))
+		if ui.game.chapter==3:path=str(chapter3_environment.get("rooms",{}).get(room,{}).get("scenery_paths",{}).get(path,path))
+		if ui.game.chapter==4:path=str(chapter4_environment.get("rooms",{}).get(room,{}).get("scenery_paths",{}).get(path,path))
 		ui.draw_texture(ui._tex(path),ORIGIN+Vector2(d.rect.position)*16,_east_environment_tint())
 	for o in objects:
 		var at=Vector2(o.position[0],o.position[1])*16+ORIGIN
@@ -434,6 +440,14 @@ func _east_exit_allowed() -> bool:
 	return true
 
 func _east_environment_tint() -> Color:
+	if ui.game.chapter==4 and chapter4_environment.get("rooms",{}).has(room):
+		if room=="H48" and ui.game.flags.get("island_loop_safe",false):return Color.WHITE
+		if room=="H47" and ui.game.flags.get("D42_done",false):return Color.WHITE
+		var fourth_tint=chapter4_environment.rooms[room].get("tint",[1.0,1.0,1.0])
+		return Color(fourth_tint[0],fourth_tint[1],fourth_tint[2])
+	if ui.game.chapter==3 and chapter3_environment.get("rooms",{}).has(room):
+		var third_tint=chapter3_environment.rooms[room].get("tint",[1.0,1.0,1.0])
+		return Color(third_tint[0],third_tint[1],third_tint[2])
 	if ui.game.chapter==2 and ui.game.flags.get("F22_confirmed",false) and room in ["H21","H22","H23"]:
 		return Color(.82,.86,.94)
 	var tint=east_data.get("environment_tint",[1.0,1.0,1.0])
@@ -443,12 +457,16 @@ func _draw_east_floor(atlas: Texture2D) -> void:
 	var visible: Rect2=ui._visible_native_rect()
 	var tint=_east_environment_tint()
 	var environment: Dictionary=chapter2_environment.get("rooms",{}).get(room,{}) if ui.game.chapter==2 else {}
-	var background=str(east_data.get("biome_override","sea"))
+	if ui.game.chapter==3:environment=chapter3_environment.get("rooms",{}).get(room,{})
+	if ui.game.chapter==4:environment=chapter4_environment.get("rooms",{}).get(room,{})
+	var environment_atlas=chapter3_environment.get("atlas","") if ui.game.chapter==3 else chapter2_environment.get("atlas","")
+	if ui.game.chapter==4:environment_atlas=environment.get("source_atlas",chapter4_environment.get("atlas",""))
+	var background=str(environment.get("background",east_data.get("biome_override","sea")))
 	for y in range(floori((visible.position.y-ORIGIN.y)/16),ceili((visible.end.y-ORIGIN.y)/16)):
 		for x in range(floori((visible.position.x-ORIGIN.x)/16),ceili((visible.end.x-ORIGIN.x)/16)):
 			var variant=posmod((x*73856093)^(y*19349663),4)
 			var id=int(ui.battle_pack.base[background][variant])
-			ui.draw_texture_rect_region(atlas,Rect2(Vector2(x,y)*16+ORIGIN,Vector2(16,16)),Rect2(id%32*16,id/32*16,16,16),tint)
+			ui.draw_texture_rect_region(atlas,Rect2(Vector2(x,y)*16+ORIGIN,Vector2(16,16)),Rect2(id%32*16,id/32*16,16,16),tint*Color(float(environment.get("background_darkness",1.0)),float(environment.get("background_darkness",1.0)),float(environment.get("background_darkness",1.0))))
 	for y in range(9):
 		for x in range(14):
 			var mark=str(east_data.floor[y])[x]
@@ -457,7 +475,7 @@ func _draw_east_floor(atlas: Texture2D) -> void:
 			var variant=posmod((x*73856093)^(y*19349663)^((x+y*17)>>2),4)
 			var id=int(ui.battle_pack.base[material][variant])
 			if not environment.is_empty():
-				ui._draw_atlas_cell(ui._tex(str(chapter2_environment.atlas)),int(environment.tiles[y][x]),Vector2(x,y)*16+ORIGIN,tint)
+				ui._draw_atlas_cell(ui._tex(str(environment_atlas)),int(environment.tiles[y][x]),Vector2(x,y)*16+ORIGIN,tint)
 			else:
 				ui.draw_texture_rect_region(atlas,Rect2(Vector2(x,y)*16+ORIGIN,Vector2(16,16)),Rect2(id%32*16,id/32*16,16,16),tint)
 			if background=="sea" and mark not in ["=","c"]:
@@ -465,6 +483,15 @@ func _draw_east_floor(atlas: Texture2D) -> void:
 				if mask!=255:ui.draw_texture(_east_shore_overlay(atlas,mask),Vector2(x,y)*16+ORIGIN,tint)
 	for prop in environment.get("props",[]):
 		ui.draw_texture(ui._tex(str(prop.path)),ORIGIN+Vector2(prop.position[0],prop.position[1]),tint)
+	# The boundary is outside the original walkable room. The original south exit remains open.
+	var frame=environment.get("wall_frame",{})
+	if not frame.is_empty():
+		var wall_atlas=ui._tex(str(environment_atlas))
+		for x in range(-1,15):
+			ui._draw_atlas_cell(wall_atlas,int(frame.north[posmod(x,frame.north.size())]),ORIGIN+Vector2(x,-1)*16,tint)
+			if x!=6:ui._draw_atlas_cell(wall_atlas,int(frame.north[posmod(x,frame.north.size())]),ORIGIN+Vector2(x,9)*16,tint)
+		for y in range(9):
+			for x in [-1,14]:ui._draw_atlas_cell(wall_atlas,int(frame.west[y%frame.west.size()]),ORIGIN+Vector2(x,y)*16,tint)
 
 	if background=="cobble":ui._draw_hub_surroundings("P00",ORIGIN)
 
