@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_17",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_17.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_17.ogg"
+  ],
+  "hashes": [
+    "791ea2a2129a2a05007ce9ac545657004f276ca6961ddb74760fc4bd9eb6c162",
+    "46c454f0cc4b39454f0bc349cb52734b1d4566225325a6ebd94e53d40a9785e7"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "8b17ce4d24b84d65a665fda0",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    8574,
+    29084
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "The first sound has a repetitive, mechanical quality with a sharp attack and a fast decay. It's loud and has a sparse, textured sound. The second sound is a one-shot with a lo-fi, analog vibe. It has a longer release and a more mellow, warm tone. The two sounds are very different in timbre, attack, and decay.",
+  "generation_tokens": 73,
+  "generation_tps": 38.57510565236366,
+  "wall_seconds": 2.017,
+  "peak_memory_bytes": 7027507842,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

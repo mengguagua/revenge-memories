@@ -1,0 +1,19 @@
+{
+  "checks": [
+    "seed first UI journal",
+    "rotate first UI recovery copy",
+    "valid recovery copy enables Continue on homepage",
+    "normal confirm opens slot picker with visible recovery record",
+    "normal slot confirmation restores exactly the recovery checkpoint",
+    "successful recovery has explicit player feedback",
+    "reading the backup leaves primary bytes intact",
+    "first normal save after recovery succeeds",
+    "first normal save retains damaged original"
+  ],
+  "failures": [],
+  "isolated_directory": "/private/tmp/revenge-save-ui-405318",
+  "layouts": [],
+  "passed": true,
+  "scope": "Actual homepage and slot input plus native 256/364px layouts; no device touch or install.",
+  "visual": false
+}

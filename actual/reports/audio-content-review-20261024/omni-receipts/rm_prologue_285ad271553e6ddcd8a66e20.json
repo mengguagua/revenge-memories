@@ -1,0 +1,76 @@
+{
+  "id": "rm_prologue",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_prologue.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/opening.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_prologue.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_prologue_scene.wav",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is tail 6 seconds then head 6 seconds, with the loop join at 6 seconds; assess rhythmic/harmonic continuity and distracting loudness changes there. Audio 4 is the current game-gain offline mix with interface or combat effects. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: P00序章；H27回到广场；H30接回现在; desired mood: 表面庆典、逐渐显出的不安",
+  "max_tokens": 340,
+  "key": "285ad271553e6ddcd8a66e20",
+  "source_sha256": [
+    "03a6eac00584a5db8c346d0c51ce0d5acaebb6cc963ade3915b6d209ee0adf7b",
+    "344cce790341669642511c212d3622c19a545ce87e4ede89d7cfdacea54b426d",
+    "03a6eac00584a5db8c346d0c51ce0d5acaebb6cc963ade3915b6d209ee0adf7b",
+    "3140f922ff877a9319a63611570d3c6cb9682e4b56b79d5af4a35b28f147e790"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/03a6eac00584a5db8c346d0c51ce0d5acaebb6cc963ade3915b6d209ee0adf7b.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/344cce790341669642511c212d3622c19a545ce87e4ede89d7cfdacea54b426d.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/03a6eac00584a5db8c346d0c51ce0d5acaebb6cc963ade3915b6d209ee0adf7b.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/3140f922ff877a9319a63611570d3c6cb9682e4b56b79d5af4a35b28f147e790.wav"
+  ],
+  "audio_input_samples": [
+    698182,
+    240000,
+    192000,
+    80800
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "5bf3708256fe662aa40c10032d203122efeeb430e8ffad7f1c97ca8817924487",
+    "623d5fc7915fdae853c730031e8d7dea4b9e203331ac7c3760dc224275f90cc6",
+    "787580f2ae5ddf094f10095001901313718112f4a36bde813b6e6a37ca112207",
+    "341c87a120f91ae150d2ac6a13b21d7dfa53914d54e5718b6674e6cb524dce01"
+  ],
+  "response": "Audio 1 features a synthesized chiptune melody with a bright, slightly tinny timbre. The energy is initially upbeat and celebratory, but the melody gradually introduces dissonant harmonies and descending phrases, creating a subtle undercurrent of unease beneath the festive surface. The melodic development is linear and repetitive, lacking dynamic variation, which maintains a hypnotic, almost unsettling consistency. There are no vocals or speech, and the audio is clean with no noticeable defects. The loop is seamless, with no abrupt transitions or loudness changes, preserving the intended mood of surface-level festivity masking underlying tension.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 124,
+    "prompt_tokens": 1275,
+    "total_tokens": 1399,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 1247,
+    "prompt_ms": 4194.261,
+    "prompt_per_token_ms": 3.363481154771452,
+    "prompt_per_second": 297.31101617185954,
+    "predicted_n": 124,
+    "predicted_ms": 2063.092,
+    "predicted_per_token_ms": 16.773105691056912,
+    "predicted_per_second": 59.619251104652626
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 6.49,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

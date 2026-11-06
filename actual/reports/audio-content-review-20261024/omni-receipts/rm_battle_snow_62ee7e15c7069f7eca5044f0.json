@@ -1,0 +1,76 @@
+{
+  "id": "rm_battle_snow",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_snow.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/music_70.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_snow.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_battle_snow_scene.mp3",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is tail 6 seconds then head 6 seconds, with the loop join at 6 seconds; assess rhythmic/harmonic continuity and distracting loudness changes there. Audio 4 is the current game-gain offline mix with interface or combat effects. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: M11/M12/M13/S11/S12; desired mood: 第一次作战、护送与开路",
+  "max_tokens": 340,
+  "key": "62ee7e15c7069f7eca5044f0",
+  "source_sha256": [
+    "2e62aa045476827e3320bc546040ba495ddb60a3e5146d7ce32a7634f0f64a32",
+    "5e07fca8ed4ae0d8f930bbf3c28c21d6b6b6dc1dfa21c00b4f495633900443d5",
+    "2e62aa045476827e3320bc546040ba495ddb60a3e5146d7ce32a7634f0f64a32",
+    "7cbbb788f0476dcbf68f687c2d4c87fdcc90bc3368debc9da4393780a8dfe795"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "audio_input_samples": [
+    614401,
+    240000,
+    192000,
+    44800
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "4aa48f1d30e15897f664e0cfa6741a7221950bf8d90727233593135ee04932eb",
+    "55791d16376a503cca9bda011eb7bc9280aa229fadcd8a960678b4dbd3b5f028",
+    "e42c1982366270f1ca82e58e656ff49e0d1788fce61596aff1d474dab3d6597c",
+    "93febeb9ac882a1348d49734e9e4a71019fed637264ab9e6d09bf13423cdae6a"
+  ],
+  "response": "Audio 1 features a smooth jazz ensemble with a walking double bass, light swing drums, and a mellow electric guitar melody. The mood is relaxed and sophisticated, with a steady, unhurried tempo. The music is clean, with no speech or defects. The melodic development is simple and repetitive, creating a calm, atmospheric backdrop.\n\nAudio 2 is a chiptune track with a clear, sparse texture. It uses synthesized square waves and simple arpeggios, typical of retro game music. The melody is distinct and functional, providing a nostalgic, minimalistic feel.\n\nAudio 3 shows a seamless loop between the tail and head sections. The rhythm and harmony continue without disruption, and there are no distracting loudness changes at the join.\n\nAudio 4 includes game interface sounds layered over the music. The effects are sharp and prominent, partially masking the music. The music, in turn, does not obscure essential feedback cues. The balance is functional but could be improved for clarity.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 201,
+    "prompt_tokens": 1167,
+    "total_tokens": 1368,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 1139,
+    "prompt_ms": 6025.243,
+    "prompt_per_token_ms": 5.289941176470588,
+    "prompt_per_second": 189.0380188815621,
+    "predicted_n": 201,
+    "predicted_ms": 4814.611,
+    "predicted_per_token_ms": 24.073055,
+    "predicted_per_second": 41.540219967926795
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 18.286,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/2e62aa045476827e3320bc546040ba495ddb60a3e5146d7ce32a7634f0f64a32.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/5e07fca8ed4ae0d8f930bbf3c28c21d6b6b6dc1dfa21c00b4f495633900443d5.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/2e62aa045476827e3320bc546040ba495ddb60a3e5146d7ce32a7634f0f64a32.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/7cbbb788f0476dcbf68f687c2d4c87fdcc90bc3368debc9da4393780a8dfe795.mp3"
+  ]
+}

@@ -1,0 +1,2254 @@
+{
+  "professions/class-18-ally/maps/frame_mapping.json": {
+    "schema_version": 1,
+    "width_height_scale": 4,
+    "character_id": "class-18-ally",
+    "actor_id": "class-18-ally",
+    "class_id": 18,
+    "source_side": "ally",
+    "display_name": "盟军疗愈师",
+    "display_class_name": "疗愈师",
+    "revision": "healer-saint-complete-v1-20261023",
+    "status": "review_candidate",
+    "runtime_integrated": false,
+    "palette": [
+      "172638",
+      "3976b5",
+      "e4e1c8",
+      "dda77d",
+      "78a99b"
+    ],
+    "review_note": "疗愈师：沿用女法师蓝白、深蓝与肤色，仅增加柔和玉绿，减少红灰。纯色头发、哑光衣袍。地图固定完整头颈及躯干，保留原作袍摆与交替步态、连续阴影。细杖举手施法。原作程序、总时长与唯一结算保持；职业样板不代表所有同职业角色解锁全部法术。",
+    "scenarios": [
+      {
+        "id": "tactical-walk",
+        "source_frame_size": [
+          32,
+          24
+        ],
+        "source_anchor": [
+          16,
+          24
+        ],
+        "output_frame_size": [
+          128,
+          96
+        ],
+        "output_anchor": [
+          64,
+          96
+        ],
+        "logical_render_scale": 0.25,
+        "default_facing": "right",
+        "directions": {
+          "up": [
+            0,
+            1
+          ],
+          "right": [
+            2,
+            3
+          ],
+          "down": [
+            4,
+            5
+          ],
+          "left": [
+            6,
+            7
+          ]
+        },
+        "direction_mirror_x": {},
+        "timing": {
+          "native_fps": 60.0988,
+          "frame_ticks": 16,
+          "cycle_ticks": 32,
+          "phase_source": "$36 & $10 selects phase; L0BB62C",
+          "movement_pixels_per_tick": 1,
+          "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+        },
+        "native_actor_origin": [
+          16,
+          16
+        ],
+        "source_atlas": "../../../source-input/corrected-tactical-walk/class-18-ally.png",
+        "revision": "healer-saint-complete-v1-20261023",
+        "status": "review_candidate",
+        "display_name": "盟军疗愈师",
+        "review_note": "疗愈师：沿用女法师蓝白、深蓝与肤色，仅增加柔和玉绿，减少红灰。纯色头发、哑光衣袍。地图固定完整头颈及躯干，保留原作袍摆与交替步态、连续阴影。细杖举手施法。原作程序、总时长与唯一结算保持；职业样板不代表所有同职业角色解锁全部法术。",
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "output_index": 0,
+            "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-000.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-000.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1378,
+            "sha256": "644b582a8edc27fd92c42a30ca57ddeed0eae12eb374f342e2d76551eaa03acc"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "output_index": 1,
+            "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-001.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-001.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1367,
+            "sha256": "5f805ed83dfe536600754ad9c661547262afcc5cb05628c851bc2d03355f149e"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "output_index": 2,
+            "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-002.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-002.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1497,
+            "sha256": "d7ae6ae6a42e6cea1a60e1cc52db33ce7aed69d425d4de58372dfedb358d0dfd"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "output_index": 3,
+            "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-003.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-003.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1477,
+            "sha256": "d8b62e6b6807c725a817b773f31fcb05585e451b340062a813213d6a217ecdd1"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "output_index": 4,
+            "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-004.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-004.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1509,
+            "sha256": "2762619b6492fdc89f3e8aa62c5b9ee4fa967e3964c929ca52d6bc4027afc69d"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "output_index": 5,
+            "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-005.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-005.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1501,
+            "sha256": "f62ec4c10e68bbe82fae74f57519a1d77e5d6ed1323c85c8da799197791c630b"
+          },
+          {
+            "source_index": 6,
+            "source_frame": 6,
+            "output_index": 6,
+            "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-006.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-006.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1488,
+            "sha256": "fcc2d0b7747f7f150eb990ef5e0a3d8565fa8c28813b47c24dec58e7ef8e3904"
+          },
+          {
+            "source_index": 7,
+            "source_frame": 7,
+            "output_index": 7,
+            "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-007.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-007.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1467,
+            "sha256": "b075c011ce578e38cd3a82bbe7ce3874c0e936225a56a565e748f8a3390b0bc2"
+          }
+        ],
+        "motion_review": "../../../healer-saint-complete-v1-20261023/README.md",
+        "source_aliases": {
+          "0": 0,
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5,
+          "6": 6,
+          "7": 7
+        },
+        "ground_shadow": {
+          "path": "gold-knight-walk-v3-20261020/ground-shadow.png",
+          "size": [
+            10,
+            1.5
+          ],
+          "offset": [
+            0,
+            -1
+          ],
+          "alpha": 0.3
+        },
+        "source_audit": {
+          "class_id": 18,
+          "source_side": "ally",
+          "status": "verified_native_tactical",
+          "scope": "required_source",
+          "source_atlas": "class-18-ally.png",
+          "source_frame_size": [
+            32,
+            24
+          ],
+          "source_columns": 8,
+          "source_frame_count": 8,
+          "source_anchor": [
+            16,
+            24
+          ],
+          "native_actor_origin": [
+            16,
+            16
+          ],
+          "anchor_note": "Rendering anchor is native actor origin+[0,8] matching map tile base; not inferred anatomical foot or wing tip. Native OAM Y adds hardware+1.",
+          "source_palette": [
+            15,
+            32,
+            34,
+            15
+          ],
+          "palette_evidence": "bank006:L06852C PPU palette payload sprite palette0(ally)/3(enemy), not BG palette.",
+          "source_chr": 27,
+          "frame_mapping": [
+            {
+              "direction": "up",
+              "direction_code": 0,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 25,
+              "source_frame_address": "L0887AE",
+              "oam": [
+                [
+                  63,
+                  162,
+                  0,
+                  64
+                ],
+                [
+                  71,
+                  130,
+                  0,
+                  56
+                ],
+                [
+                  71,
+                  131,
+                  0,
+                  64
+                ],
+                [
+                  79,
+                  146,
+                  0,
+                  56
+                ],
+                [
+                  79,
+                  147,
+                  0,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 491,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB669",
+                "chr": "L0BB719",
+                "right_mirror_flag": "L0BB72F"
+              },
+              "source_slot": 0,
+              "source_alpha_bounds": [
+                9,
+                4,
+                23,
+                24
+              ],
+              "rgba_sha256": "550d5787160255006acd62fb2d96cd64cddc7b0b3d4b533d35b5f6b434ebb396"
+            },
+            {
+              "direction": "up",
+              "direction_code": 0,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 26,
+              "source_frame_address": "L0887B5",
+              "oam": [
+                [
+                  63,
+                  162,
+                  0,
+                  64
+                ],
+                [
+                  71,
+                  130,
+                  0,
+                  56
+                ],
+                [
+                  71,
+                  131,
+                  0,
+                  64
+                ],
+                [
+                  79,
+                  178,
+                  0,
+                  56
+                ],
+                [
+                  79,
+                  179,
+                  0,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 491,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB669",
+                "chr": "L0BB719",
+                "right_mirror_flag": "L0BB72F"
+              },
+              "source_slot": 1,
+              "source_alpha_bounds": [
+                9,
+                4,
+                23,
+                23
+              ],
+              "rgba_sha256": "3e7a23441688275310e462113a0544d7f38bf0d90115afd8f1e36068e8f77fc5"
+            },
+            {
+              "direction": "right",
+              "direction_code": 1,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 27,
+              "source_frame_address": "L0887BC",
+              "oam": [
+                [
+                  71,
+                  66,
+                  64,
+                  64
+                ],
+                [
+                  71,
+                  67,
+                  64,
+                  56
+                ],
+                [
+                  79,
+                  82,
+                  64,
+                  64
+                ],
+                [
+                  79,
+                  83,
+                  64,
+                  56
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 523,
+              "source_global_flip": true,
+              "lookup": {
+                "animation": "L0BB669",
+                "chr": "L0BB719",
+                "right_mirror_flag": "L0BB72F"
+              },
+              "source_slot": 2,
+              "source_alpha_bounds": [
+                8,
+                8,
+                24,
+                24
+              ],
+              "rgba_sha256": "10b3a7d5021731a7a7589a536cc33b3bcbced5165667e572936b4f822fc18a8a"
+            },
+            {
+              "direction": "right",
+              "direction_code": 1,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 28,
+              "source_frame_address": "L0887C2",
+              "oam": [
+                [
+                  71,
+                  66,
+                  64,
+                  64
+                ],
+                [
+                  71,
+                  67,
+                  64,
+                  56
+                ],
+                [
+                  79,
+                  114,
+                  64,
+                  64
+                ],
+                [
+                  79,
+                  115,
+                  64,
+                  56
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 523,
+              "source_global_flip": true,
+              "lookup": {
+                "animation": "L0BB669",
+                "chr": "L0BB719",
+                "right_mirror_flag": "L0BB72F"
+              },
+              "source_slot": 3,
+              "source_alpha_bounds": [
+                8,
+                8,
+                24,
+                24
+              ],
+              "rgba_sha256": "3f3defab5606f82b94669dd2f90f9a1268b47d0cfb249af9a3f3fbac7fda9e0f"
+            },
+            {
+              "direction": "down",
+              "direction_code": 2,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 29,
+              "source_frame_address": "L0887C8",
+              "oam": [
+                [
+                  71,
+                  2,
+                  0,
+                  56
+                ],
+                [
+                  71,
+                  3,
+                  0,
+                  64
+                ],
+                [
+                  79,
+                  50,
+                  0,
+                  56
+                ],
+                [
+                  79,
+                  51,
+                  0,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 447,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB669",
+                "chr": "L0BB719",
+                "right_mirror_flag": "L0BB72F"
+              },
+              "source_slot": 4,
+              "source_alpha_bounds": [
+                8,
+                8,
+                23,
+                24
+              ],
+              "rgba_sha256": "7e4d1787bd9a3998f0e78a14690160be40248413c57f92332b7eae1067186370"
+            },
+            {
+              "direction": "down",
+              "direction_code": 2,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 30,
+              "source_frame_address": "L0887CE",
+              "oam": [
+                [
+                  71,
+                  2,
+                  0,
+                  56
+                ],
+                [
+                  71,
+                  3,
+                  0,
+                  64
+                ],
+                [
+                  79,
+                  18,
+                  0,
+                  56
+                ],
+                [
+                  79,
+                  19,
+                  0,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 447,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB669",
+                "chr": "L0BB719",
+                "right_mirror_flag": "L0BB72F"
+              },
+              "source_slot": 5,
+              "source_alpha_bounds": [
+                8,
+                8,
+                23,
+                24
+              ],
+              "rgba_sha256": "becd6ba0d0fa365a5cee1e8c12896a3e697440e13618cb476a44538443057add"
+            },
+            {
+              "direction": "left",
+              "direction_code": 3,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 27,
+              "source_frame_address": "L0887BC",
+              "oam": [
+                [
+                  71,
+                  66,
+                  0,
+                  56
+                ],
+                [
+                  71,
+                  67,
+                  0,
+                  64
+                ],
+                [
+                  79,
+                  82,
+                  0,
+                  56
+                ],
+                [
+                  79,
+                  83,
+                  0,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 447,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB669",
+                "chr": "L0BB719",
+                "right_mirror_flag": "L0BB72F"
+              },
+              "source_slot": 6,
+              "source_alpha_bounds": [
+                8,
+                8,
+                24,
+                24
+              ],
+              "rgba_sha256": "e678257829c66d7ddf9fb753c264b640500fc19f3f7cc61b34c0a96d6bc0a78c"
+            },
+            {
+              "direction": "left",
+              "direction_code": 3,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 28,
+              "source_frame_address": "L0887C2",
+              "oam": [
+                [
+                  71,
+                  66,
+                  0,
+                  56
+                ],
+                [
+                  71,
+                  67,
+                  0,
+                  64
+                ],
+                [
+                  79,
+                  114,
+                  0,
+                  56
+                ],
+                [
+                  79,
+                  115,
+                  0,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 447,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB669",
+                "chr": "L0BB719",
+                "right_mirror_flag": "L0BB72F"
+              },
+              "source_slot": 7,
+              "source_alpha_bounds": [
+                8,
+                8,
+                24,
+                24
+              ],
+              "rgba_sha256": "b9f673ea3a54e1a68e3158de364728fd402587b188ab223f4c7f501af5b02eff"
+            }
+          ],
+          "exact_pixel_aliases": {
+            "0": 0,
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 7
+          },
+          "unique_source_slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "directions": {
+            "up": [
+              0,
+              1
+            ],
+            "right": [
+              2,
+              3
+            ],
+            "down": [
+              4,
+              5
+            ],
+            "left": [
+              6,
+              7
+            ]
+          },
+          "direction_mirror_x": {},
+          "mirror_note": "Native whole-sprite right flip and individual tile flips are already applied by original CPU; do not apply an additional direction mirror.",
+          "timing": {
+            "native_fps": 60.0988,
+            "frame_ticks": 16,
+            "cycle_ticks": 32,
+            "phase_source": "$36 & $10 selects phase; L0BB62C",
+            "movement_pixels_per_tick": 1,
+            "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+          },
+          "old_frozen_source": "source-input/original-motion/original-walk-18.png",
+          "old_frozen_frame_rgba_matches_by_corrected_slot": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "old_reference_classification": "Old PNG is CHR26 combined with village OAM selected via L08A779; this is not the native tactical renderer. Native village initializes CHR30, so this hybrid is retained only as current-game frozen historical reference.",
+          "exact_mirror_aliases": {
+            "6": {
+              "source_slot": 2,
+              "transform": "horizontal-mirror-full-canvas",
+              "rgba_exact": true
+            },
+            "7": {
+              "source_slot": 3,
+              "transform": "horizontal-mirror-full-canvas",
+              "rgba_exact": true
+            }
+          },
+          "unique_art_source_slots_after_exact_mirror": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "old_frozen_tight_shape_matches": [],
+          "verified_static_idle_reuse": [],
+          "static_idle_source": "source-input/legacy-assets/assets/original/graphics/map_units/class_18_ally.png",
+          "overlay": "../../../source-input/corrected-tactical-walk/overlay.json"
+        },
+        "output_atlas": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk-atlas.png"
+      },
+      {
+        "id": "tactical-idle",
+        "source_frame_size": [
+          24,
+          24
+        ],
+        "source_anchor": [
+          12,
+          20
+        ],
+        "output_frame_size": [
+          96,
+          96
+        ],
+        "output_anchor": [
+          48,
+          80
+        ],
+        "logical_render_scale": 0.25,
+        "default_facing": "fixed",
+        "directions": {
+          "all": [
+            0,
+            1,
+            2,
+            1
+          ]
+        },
+        "direction_mirror_x": {},
+        "timing": {
+          "native_fps": 60.0988,
+          "cycle_frames": [
+            0,
+            1,
+            2,
+            1
+          ],
+          "frame_ticks": [
+            14,
+            8,
+            14,
+            8
+          ]
+        },
+        "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_18_ally.png",
+        "revision": "healer-saint-complete-v1-20261023",
+        "status": "review_candidate",
+        "display_name": "盟军疗愈师",
+        "review_note": "疗愈师：沿用女法师蓝白、深蓝与肤色，仅增加柔和玉绿，减少红灰。纯色头发、哑光衣袍。地图固定完整头颈及躯干，保留原作袍摆与交替步态、连续阴影。细杖举手施法。原作程序、总时长与唯一结算保持；职业样板不代表所有同职业角色解锁全部法术。",
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "output_index": 0,
+            "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-000.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-000.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1415,
+            "sha256": "b7ad4764188d10f5a854f9d6149868b44366fd5687e54b15bbc94d3fe3bb1295"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "output_index": 1,
+            "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-001.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-001.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1415,
+            "sha256": "b7ad4764188d10f5a854f9d6149868b44366fd5687e54b15bbc94d3fe3bb1295"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "output_index": 2,
+            "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-002.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-002.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1454,
+            "sha256": "a981ca85cadd7a9fefc32f2c7c0d1d114a2b7ff67e12d9109071a91b250c0c86"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "output_index": 3,
+            "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-003.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-003.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1415,
+            "sha256": "b7ad4764188d10f5a854f9d6149868b44366fd5687e54b15bbc94d3fe3bb1295"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "output_index": 4,
+            "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-004.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-004.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1415,
+            "sha256": "b7ad4764188d10f5a854f9d6149868b44366fd5687e54b15bbc94d3fe3bb1295"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "output_index": 5,
+            "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-005.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-005.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1415,
+            "sha256": "b7ad4764188d10f5a854f9d6149868b44366fd5687e54b15bbc94d3fe3bb1295"
+          }
+        ],
+        "motion_review": "../../../healer-saint-complete-v1-20261023/README.md",
+        "source_aliases": {
+          "0": 0,
+          "1": 0,
+          "2": 2,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        },
+        "ground_shadow": {
+          "path": "gold-knight-walk-v3-20261020/ground-shadow.png",
+          "size": [
+            10,
+            1.5
+          ],
+          "offset": [
+            0,
+            -2
+          ],
+          "alpha": 0.3
+        },
+        "output_atlas": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle-atlas.png"
+      }
+    ]
+  },
+  "professions/class-18-ally/battle/frame_mapping.json": {
+    "schema_version": 1,
+    "character_id": "class-18-ally",
+    "original_class_id": 18,
+    "source_side": "ally",
+    "display_name": "盟军疗愈师",
+    "display_class_name": "疗愈师",
+    "revision": "healer-saint-complete-v1-20261023",
+    "status": "review_candidate",
+    "runtime_integrated": false,
+    "review_note": "疗愈师：沿用女法师蓝白、深蓝与肤色，仅增加柔和玉绿，减少红灰。纯色头发、哑光衣袍。地图固定完整头颈及躯干，保留原作袍摆与交替步态、连续阴影。细杖举手施法。原作程序、总时长与唯一结算保持；职业样板不代表所有同职业角色解锁全部法术。",
+    "palette": [
+      "172638",
+      "3976b5",
+      "e4e1c8",
+      "dda77d",
+      "78a99b"
+    ],
+    "source_atlas": "../../../source-input/original-motion/class-18.png",
+    "source_frame_size": [
+      80,
+      64
+    ],
+    "source_anchor": [
+      40,
+      64
+    ],
+    "output_anchor": [
+      160,
+      256
+    ],
+    "output_frame_size": [
+      320,
+      256
+    ],
+    "source_idle_frame": 7,
+    "source_frame_count": 9,
+    "source_columns": 16,
+    "frame_mapping": {
+      "7": "../../../healer-saint-complete-v1-20261023/class-18/battle/frame-007.png",
+      "8": "../../../healer-saint-complete-v1-20261023/class-18/battle/frame-008.png"
+    },
+    "required_source_frames": [
+      7,
+      8
+    ],
+    "variant_keys": [
+      "class_18_ally_item_40",
+      "class_18_ally_item_40_vs_heavy",
+      "class_18_ally_item_40_far_ally",
+      "class_18_ally_item_40_far_ally_vs_heavy",
+      "class_18_ally_item_40_far_enemy",
+      "class_18_ally_item_40_far_enemy_vs_heavy",
+      "class_18_ally_item_41",
+      "class_18_ally_item_41_vs_heavy",
+      "class_18_ally_item_41_far_ally",
+      "class_18_ally_item_41_far_ally_vs_heavy",
+      "class_18_ally_item_41_far_enemy",
+      "class_18_ally_item_41_far_enemy_vs_heavy",
+      "class_18_ally_item_42",
+      "class_18_ally_item_42_vs_heavy",
+      "class_18_ally_item_42_far_ally",
+      "class_18_ally_item_42_far_ally_vs_heavy",
+      "class_18_ally_item_42_far_enemy",
+      "class_18_ally_item_42_far_enemy_vs_heavy",
+      "class_18_ally_item_43",
+      "class_18_ally_item_43_vs_heavy",
+      "class_18_ally_item_43_far_ally",
+      "class_18_ally_item_43_far_ally_vs_heavy",
+      "class_18_ally_item_43_far_enemy",
+      "class_18_ally_item_43_far_enemy_vs_heavy",
+      "class_18_ally_item_44",
+      "class_18_ally_item_44_vs_heavy",
+      "class_18_ally_item_44_far_ally",
+      "class_18_ally_item_44_far_ally_vs_heavy",
+      "class_18_ally_item_44_far_enemy",
+      "class_18_ally_item_44_far_enemy_vs_heavy"
+    ],
+    "output_atlas": "../../../healer-saint-complete-v1-20261023/class-18/battle-atlas.png",
+    "output_atlas_order": [
+      7,
+      8
+    ],
+    "batches": [
+      {
+        "id": "全姿势",
+        "review": "../../../healer-saint-complete-v1-20261023/class-18-battle-light.png",
+        "status": "review_candidate"
+      }
+    ],
+    "qa_report": "../../../healer-saint-complete-v1-20261023/verification.json",
+    "review_timeline": "../../../spellsword-jump-heal-v3-20261023/class-18-ally-motion.json",
+    "heal_effect_revision": "spellsword-jump-heal-v3-20261023",
+    "heal_qa_report": "../../../spellsword-jump-heal-v3-20261023/verification.json"
+  },
+  "professions/class-17-ally/maps/frame_mapping.json": {
+    "schema_version": 1,
+    "width_height_scale": 4,
+    "character_id": "class-17-ally",
+    "actor_id": "class-17-ally",
+    "class_id": 17,
+    "source_side": "ally",
+    "display_name": "盟军济世术师",
+    "display_class_name": "济世术师",
+    "revision": "healer-saint-complete-v1-20261023",
+    "status": "review_candidate",
+    "runtime_integrated": false,
+    "palette": [
+      "172638",
+      "3976b5",
+      "e4e1c8",
+      "dda77d",
+      "78a99b"
+    ],
+    "review_note": "济世术师：沿用女法师蓝白、深蓝与肤色，仅增加柔和玉绿，减少红灰。纯色头发、哑光衣袍。地图固定完整头颈及躯干，保留原作袍摆与交替步态、连续阴影。进阶双层白肩披、长披巾和细颈圆腹白宝瓶，另一臂按原作伸手、举臂、收回。原作程序、总时长与唯一结算保持；职业样板不代表所有同职业角色解锁全部法术。",
+    "scenarios": [
+      {
+        "id": "tactical-walk",
+        "source_frame_size": [
+          32,
+          24
+        ],
+        "source_anchor": [
+          16,
+          24
+        ],
+        "output_frame_size": [
+          128,
+          96
+        ],
+        "output_anchor": [
+          64,
+          96
+        ],
+        "logical_render_scale": 0.25,
+        "default_facing": "right",
+        "directions": {
+          "up": [
+            0,
+            1
+          ],
+          "right": [
+            2,
+            3
+          ],
+          "down": [
+            4,
+            5
+          ],
+          "left": [
+            6,
+            7
+          ]
+        },
+        "direction_mirror_x": {},
+        "timing": {
+          "native_fps": 60.0988,
+          "frame_ticks": 16,
+          "cycle_ticks": 32,
+          "phase_source": "$36 & $10 selects phase; L0BB62C",
+          "movement_pixels_per_tick": 1,
+          "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+        },
+        "native_actor_origin": [
+          16,
+          16
+        ],
+        "source_atlas": "../../../source-input/corrected-tactical-walk/class-17-ally.png",
+        "revision": "healer-saint-complete-v1-20261023",
+        "status": "review_candidate",
+        "display_name": "盟军济世术师",
+        "review_note": "济世术师：沿用女法师蓝白、深蓝与肤色，仅增加柔和玉绿，减少红灰。纯色头发、哑光衣袍。地图固定完整头颈及躯干，保留原作袍摆与交替步态、连续阴影。进阶双层白肩披、长披巾和细颈圆腹白宝瓶，另一臂按原作伸手、举臂、收回。原作程序、总时长与唯一结算保持；职业样板不代表所有同职业角色解锁全部法术。",
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "output_index": 0,
+            "path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-000.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-000.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1311,
+            "sha256": "27f3afbc6e97c597c057a3f5f7f9d8c8003fab4162e2022a946311ded1995ee6"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "output_index": 1,
+            "path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-001.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-001.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1311,
+            "sha256": "27f3afbc6e97c597c057a3f5f7f9d8c8003fab4162e2022a946311ded1995ee6"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "output_index": 2,
+            "path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-002.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-002.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1351,
+            "sha256": "f34ff19dd3c9abb302d675306a3616497508a7f91cb00b466de351745ff5e422"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "output_index": 3,
+            "path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-003.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-003.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1345,
+            "sha256": "47c814b601f5611f3219eb80c6f96a570eafb0edb26de87bd8a6bc87ca2e2712"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "output_index": 4,
+            "path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-004.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-004.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1420,
+            "sha256": "f9c96736e7b6d9ef67399d0351f709530ceac98df7660b84cf301a33d5f3e893"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "output_index": 5,
+            "path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-005.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-005.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1412,
+            "sha256": "a3d256d35b924efec1bec1373765d52e31aa9066fdcb9a54cf61077417f0f35a"
+          },
+          {
+            "source_index": 6,
+            "source_frame": 6,
+            "output_index": 6,
+            "path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-006.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-006.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1348,
+            "sha256": "c3e0d69027cc3fe220e9bcb2ce2cd16c737ba1e45d1e41fbfaf43ec89fe6b182"
+          },
+          {
+            "source_index": 7,
+            "source_frame": 7,
+            "output_index": 7,
+            "path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-007.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-007.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1338,
+            "sha256": "3f7a2823c82c0eac0ec2766c529bf398d189a68a7394b1642a908894c8b73f40"
+          }
+        ],
+        "motion_review": "../../../healer-saint-complete-v1-20261023/README.md",
+        "source_aliases": {
+          "0": 0,
+          "1": 0,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5,
+          "6": 6,
+          "7": 7
+        },
+        "ground_shadow": {
+          "path": "gold-knight-walk-v3-20261020/ground-shadow.png",
+          "size": [
+            10,
+            1.5
+          ],
+          "offset": [
+            0,
+            -1
+          ],
+          "alpha": 0.3
+        },
+        "source_audit": {
+          "class_id": 17,
+          "source_side": "ally",
+          "status": "verified_native_tactical",
+          "scope": "required_source",
+          "source_atlas": "class-17-ally.png",
+          "source_frame_size": [
+            32,
+            32
+          ],
+          "source_columns": 8,
+          "source_frame_count": 8,
+          "source_anchor": [
+            16,
+            24
+          ],
+          "native_actor_origin": [
+            16,
+            16
+          ],
+          "anchor_note": "Rendering anchor is native actor origin+[0,8] matching map tile base; not inferred anatomical foot or wing tip. Native OAM Y adds hardware+1.",
+          "source_palette": [
+            15,
+            32,
+            34,
+            15
+          ],
+          "palette_evidence": "bank006:L06852C PPU palette payload sprite palette0(ally)/3(enemy), not BG palette.",
+          "source_chr": 27,
+          "frame_mapping": [
+            {
+              "direction": "up",
+              "direction_code": 0,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 101,
+              "source_frame_address": "L08881E",
+              "oam": [
+                [
+                  71,
+                  160,
+                  0,
+                  56
+                ],
+                [
+                  71,
+                  161,
+                  0,
+                  64
+                ],
+                [
+                  79,
+                  176,
+                  0,
+                  56
+                ],
+                [
+                  79,
+                  177,
+                  0,
+                  64
+                ],
+                [
+                  87,
+                  98,
+                  0,
+                  56
+                ],
+                [
+                  87,
+                  99,
+                  0,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 526,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB669",
+                "chr": "L0BB719",
+                "right_mirror_flag": "L0BB72F"
+              },
+              "source_slot": 0,
+              "source_alpha_bounds": [
+                9,
+                8,
+                22,
+                28
+              ],
+              "rgba_sha256": "4403d4f446c03412fe90446d3ee25898f707b67e7efdca43b36a43398a921c70"
+            },
+            {
+              "direction": "up",
+              "direction_code": 0,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 102,
+              "source_frame_address": "L088826",
+              "oam": [
+                [
+                  71,
+                  128,
+                  0,
+                  56
+                ],
+                [
+                  71,
+                  129,
+                  0,
+                  64
+                ],
+                [
+                  79,
+                  144,
+                  0,
+                  56
+                ],
+                [
+                  79,
+                  145,
+                  0,
+                  64
+                ],
+                [
+                  87,
+                  34,
+                  0,
+                  56
+                ],
+                [
+                  87,
+                  35,
+                  0,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 526,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB669",
+                "chr": "L0BB719",
+                "right_mirror_flag": "L0BB72F"
+              },
+              "source_slot": 1,
+              "source_alpha_bounds": [
+                9,
+                8,
+                22,
+                28
+              ],
+              "rgba_sha256": "bbb8d83639d2d89d72f4c41cbef7a31312ff78b6635af1c2a8ac5eab8a2324a9"
+            },
+            {
+              "direction": "right",
+              "direction_code": 1,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 103,
+              "source_frame_address": "L08882E",
+              "oam": [
+                [
+                  71,
+                  96,
+                  64,
+                  64
+                ],
+                [
+                  71,
+                  97,
+                  64,
+                  56
+                ],
+                [
+                  79,
+                  112,
+                  64,
+                  64
+                ],
+                [
+                  79,
+                  113,
+                  64,
+                  56
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 514,
+              "source_global_flip": true,
+              "lookup": {
+                "animation": "L0BB669",
+                "chr": "L0BB719",
+                "right_mirror_flag": "L0BB72F"
+              },
+              "source_slot": 2,
+              "source_alpha_bounds": [
+                8,
+                8,
+                23,
+                24
+              ],
+              "rgba_sha256": "19b4d1be82b17768701b7cdedb17d39c5f13780fc56fc0abd86976c85363b03f"
+            },
+            {
+              "direction": "right",
+              "direction_code": 1,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 104,
+              "source_frame_address": "L088834",
+              "oam": [
+                [
+                  71,
+                  64,
+                  64,
+                  64
+                ],
+                [
+                  71,
+                  65,
+                  64,
+                  56
+                ],
+                [
+                  79,
+                  80,
+                  64,
+                  64
+                ],
+                [
+                  79,
+                  81,
+                  64,
+                  56
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 514,
+              "source_global_flip": true,
+              "lookup": {
+                "animation": "L0BB669",
+                "chr": "L0BB719",
+                "right_mirror_flag": "L0BB72F"
+              },
+              "source_slot": 3,
+              "source_alpha_bounds": [
+                8,
+                8,
+                23,
+                24
+              ],
+              "rgba_sha256": "f4417f1087766f065a77aa43a2317f020d75fe153be0f0bec886b8f0a20ded18"
+            },
+            {
+              "direction": "down",
+              "direction_code": 2,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 105,
+              "source_frame_address": "L08883A",
+              "oam": [
+                [
+                  71,
+                  32,
+                  0,
+                  56
+                ],
+                [
+                  71,
+                  33,
+                  0,
+                  64
+                ],
+                [
+                  79,
+                  48,
+                  0,
+                  56
+                ],
+                [
+                  79,
+                  49,
+                  0,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 438,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB669",
+                "chr": "L0BB719",
+                "right_mirror_flag": "L0BB72F"
+              },
+              "source_slot": 4,
+              "source_alpha_bounds": [
+                9,
+                8,
+                22,
+                24
+              ],
+              "rgba_sha256": "5d2abc433540b7d9f628ce79d8df84637fc043df03b2facf61dc755d31b26907"
+            },
+            {
+              "direction": "down",
+              "direction_code": 2,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 106,
+              "source_frame_address": "L088840",
+              "oam": [
+                [
+                  71,
+                  0,
+                  0,
+                  56
+                ],
+                [
+                  71,
+                  1,
+                  0,
+                  64
+                ],
+                [
+                  79,
+                  16,
+                  0,
+                  56
+                ],
+                [
+                  79,
+                  17,
+                  0,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 438,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB669",
+                "chr": "L0BB719",
+                "right_mirror_flag": "L0BB72F"
+              },
+              "source_slot": 5,
+              "source_alpha_bounds": [
+                9,
+                8,
+                22,
+                24
+              ],
+              "rgba_sha256": "412c0fff3b1dd21e95abe35a1875d1d4e1a62524d85d375075fa217d21439c78"
+            },
+            {
+              "direction": "left",
+              "direction_code": 3,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 103,
+              "source_frame_address": "L08882E",
+              "oam": [
+                [
+                  71,
+                  96,
+                  0,
+                  56
+                ],
+                [
+                  71,
+                  97,
+                  0,
+                  64
+                ],
+                [
+                  79,
+                  112,
+                  0,
+                  56
+                ],
+                [
+                  79,
+                  113,
+                  0,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 438,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB669",
+                "chr": "L0BB719",
+                "right_mirror_flag": "L0BB72F"
+              },
+              "source_slot": 6,
+              "source_alpha_bounds": [
+                9,
+                8,
+                24,
+                24
+              ],
+              "rgba_sha256": "f17d83075b1a2d942ef62d4185f893956862e96105ce084a0e8c1df586a301c4"
+            },
+            {
+              "direction": "left",
+              "direction_code": 3,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 104,
+              "source_frame_address": "L088834",
+              "oam": [
+                [
+                  71,
+                  64,
+                  0,
+                  56
+                ],
+                [
+                  71,
+                  65,
+                  0,
+                  64
+                ],
+                [
+                  79,
+                  80,
+                  0,
+                  56
+                ],
+                [
+                  79,
+                  81,
+                  0,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 438,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB669",
+                "chr": "L0BB719",
+                "right_mirror_flag": "L0BB72F"
+              },
+              "source_slot": 7,
+              "source_alpha_bounds": [
+                9,
+                8,
+                24,
+                24
+              ],
+              "rgba_sha256": "3bc910da2f34d7a0139b0fa930a5e444e47101029c4e461481c209783c596efa"
+            }
+          ],
+          "exact_pixel_aliases": {
+            "0": 0,
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 7
+          },
+          "unique_source_slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "directions": {
+            "up": [
+              0,
+              1
+            ],
+            "right": [
+              2,
+              3
+            ],
+            "down": [
+              4,
+              5
+            ],
+            "left": [
+              6,
+              7
+            ]
+          },
+          "direction_mirror_x": {},
+          "mirror_note": "Native whole-sprite right flip and individual tile flips are already applied by original CPU; do not apply an additional direction mirror.",
+          "timing": {
+            "native_fps": 60.0988,
+            "frame_ticks": 16,
+            "cycle_ticks": 32,
+            "phase_source": "$36 & $10 selects phase; L0BB62C",
+            "movement_pixels_per_tick": 1,
+            "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+          },
+          "old_frozen_source": "source-input/original-motion/original-walk-17.png",
+          "old_frozen_frame_rgba_matches_by_corrected_slot": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "old_reference_classification": "Old PNG is CHR26 combined with village OAM selected via L08A779; this is not the native tactical renderer. Native village initializes CHR30, so this hybrid is retained only as current-game frozen historical reference.",
+          "exact_mirror_aliases": {
+            "6": {
+              "source_slot": 2,
+              "transform": "horizontal-mirror-full-canvas",
+              "rgba_exact": true
+            },
+            "7": {
+              "source_slot": 3,
+              "transform": "horizontal-mirror-full-canvas",
+              "rgba_exact": true
+            }
+          },
+          "unique_art_source_slots_after_exact_mirror": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "old_frozen_tight_shape_matches": [],
+          "verified_static_idle_reuse": [],
+          "static_idle_source": "source-input/legacy-assets/assets/original/graphics/map_units/class_17_ally.png",
+          "overlay": "../../../source-input/corrected-tactical-walk/overlay.json"
+        },
+        "output_atlas": "../../../healer-saint-complete-v1-20261023/class-17/tactical-walk-atlas.png"
+      },
+      {
+        "id": "tactical-idle",
+        "source_frame_size": [
+          24,
+          24
+        ],
+        "source_anchor": [
+          12,
+          20
+        ],
+        "output_frame_size": [
+          96,
+          96
+        ],
+        "output_anchor": [
+          48,
+          80
+        ],
+        "logical_render_scale": 0.25,
+        "default_facing": "fixed",
+        "directions": {
+          "all": [
+            0,
+            1,
+            2,
+            1
+          ]
+        },
+        "direction_mirror_x": {},
+        "timing": {
+          "native_fps": 60.0988,
+          "cycle_frames": [
+            0,
+            1,
+            2,
+            1
+          ],
+          "frame_ticks": [
+            14,
+            8,
+            14,
+            8
+          ]
+        },
+        "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_17_ally.png",
+        "revision": "healer-saint-complete-v1-20261023",
+        "status": "review_candidate",
+        "display_name": "盟军济世术师",
+        "review_note": "济世术师：沿用女法师蓝白、深蓝与肤色，仅增加柔和玉绿，减少红灰。纯色头发、哑光衣袍。地图固定完整头颈及躯干，保留原作袍摆与交替步态、连续阴影。进阶双层白肩披、长披巾和细颈圆腹白宝瓶，另一臂按原作伸手、举臂、收回。原作程序、总时长与唯一结算保持；职业样板不代表所有同职业角色解锁全部法术。",
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "output_index": 0,
+            "path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-idle/frame-000.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-idle/frame-000.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1443,
+            "sha256": "2fe60fb25527829aa2f5f7aaef822eb3b4bf0aa954bfde9ee0e1bb30da7f7295"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "output_index": 1,
+            "path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-idle/frame-001.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-idle/frame-001.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1474,
+            "sha256": "844def12160055191aa3162497a7c64d34f9983fba4e608289e73124ec184c97"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "output_index": 2,
+            "path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-idle/frame-002.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-idle/frame-002.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1471,
+            "sha256": "e23489e95f4331d2ba313bab17787372e651485ae0b064449084e5007cce389b"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "output_index": 3,
+            "path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-idle/frame-003.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-idle/frame-003.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1474,
+            "sha256": "844def12160055191aa3162497a7c64d34f9983fba4e608289e73124ec184c97"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "output_index": 4,
+            "path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-idle/frame-004.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-idle/frame-004.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1443,
+            "sha256": "2fe60fb25527829aa2f5f7aaef822eb3b4bf0aa954bfde9ee0e1bb30da7f7295"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "output_index": 5,
+            "path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-idle/frame-005.png",
+            "output_path": "../../../healer-saint-complete-v1-20261023/class-17/tactical-idle/frame-005.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1474,
+            "sha256": "844def12160055191aa3162497a7c64d34f9983fba4e608289e73124ec184c97"
+          }
+        ],
+        "motion_review": "../../../healer-saint-complete-v1-20261023/README.md",
+        "source_aliases": {
+          "0": 0,
+          "1": 1,
+          "2": 2,
+          "3": 1,
+          "4": 0,
+          "5": 1
+        },
+        "ground_shadow": {
+          "path": "gold-knight-walk-v3-20261020/ground-shadow.png",
+          "size": [
+            10,
+            1.5
+          ],
+          "offset": [
+            0,
+            -2
+          ],
+          "alpha": 0.3
+        },
+        "output_atlas": "../../../healer-saint-complete-v1-20261023/class-17/tactical-idle-atlas.png"
+      }
+    ]
+  },
+  "professions/class-17-ally/battle/frame_mapping.json": {
+    "schema_version": 1,
+    "character_id": "class-17-ally",
+    "original_class_id": 17,
+    "source_side": "ally",
+    "display_name": "盟军济世术师",
+    "display_class_name": "济世术师",
+    "revision": "healer-saint-complete-v1-20261023",
+    "status": "review_candidate",
+    "runtime_integrated": false,
+    "review_note": "济世术师：沿用女法师蓝白、深蓝与肤色，仅增加柔和玉绿，减少红灰。纯色头发、哑光衣袍。地图固定完整头颈及躯干，保留原作袍摆与交替步态、连续阴影。进阶双层白肩披、长披巾和细颈圆腹白宝瓶，另一臂按原作伸手、举臂、收回。原作程序、总时长与唯一结算保持；职业样板不代表所有同职业角色解锁全部法术。",
+    "palette": [
+      "172638",
+      "3976b5",
+      "e4e1c8",
+      "dda77d",
+      "78a99b"
+    ],
+    "source_atlas": "../../../source-input/original-motion/class-17.png",
+    "source_frame_size": [
+      96,
+      64
+    ],
+    "source_anchor": [
+      48,
+      64
+    ],
+    "output_anchor": [
+      192,
+      256
+    ],
+    "output_frame_size": [
+      384,
+      256
+    ],
+    "source_idle_frame": 9,
+    "source_frame_count": 28,
+    "source_columns": 16,
+    "frame_mapping": {
+      "9": "../../../healer-saint-complete-v1-20261023/class-17/battle/frame-009.png",
+      "17": "../../../healer-saint-complete-v1-20261023/class-17/battle/frame-017.png",
+      "18": "../../../healer-saint-complete-v1-20261023/class-17/battle/frame-018.png",
+      "19": "../../../healer-saint-complete-v1-20261023/class-17/battle/frame-019.png",
+      "20": "../../../healer-saint-complete-v1-20261023/class-17/battle/frame-020.png",
+      "21": "../../../healer-saint-complete-v1-20261023/class-17/battle/frame-021.png",
+      "22": "../../../healer-saint-complete-v1-20261023/class-17/battle/frame-022.png",
+      "23": "../../../healer-saint-complete-v1-20261023/class-17/battle/frame-023.png",
+      "24": "../../../healer-saint-complete-v1-20261023/class-17/battle/frame-024.png",
+      "25": "../../../healer-saint-complete-v1-20261023/class-17/battle/frame-025.png",
+      "26": "../../../healer-saint-complete-v1-20261023/class-17/battle/frame-026.png",
+      "27": "../../../healer-saint-complete-v1-20261023/class-17/battle/frame-027.png"
+    },
+    "required_source_frames": [
+      9,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "variant_keys": [
+      "class_17_ally_item_23",
+      "class_17_ally_item_23_vs_heavy",
+      "class_17_ally_item_23_far_ally",
+      "class_17_ally_item_23_far_ally_vs_heavy",
+      "class_17_ally_item_23_far_enemy",
+      "class_17_ally_item_23_far_enemy_vs_heavy",
+      "class_17_ally_item_24",
+      "class_17_ally_item_24_vs_heavy",
+      "class_17_ally_item_24_far_ally",
+      "class_17_ally_item_24_far_ally_vs_heavy",
+      "class_17_ally_item_24_far_enemy",
+      "class_17_ally_item_24_far_enemy_vs_heavy",
+      "class_17_ally_item_25",
+      "class_17_ally_item_25_vs_heavy",
+      "class_17_ally_item_25_far_ally",
+      "class_17_ally_item_25_far_ally_vs_heavy",
+      "class_17_ally_item_25_far_enemy",
+      "class_17_ally_item_25_far_enemy_vs_heavy",
+      "class_17_ally_item_26",
+      "class_17_ally_item_26_vs_heavy",
+      "class_17_ally_item_26_far_ally",
+      "class_17_ally_item_26_far_ally_vs_heavy",
+      "class_17_ally_item_26_far_enemy",
+      "class_17_ally_item_26_far_enemy_vs_heavy",
+      "class_17_ally_item_27",
+      "class_17_ally_item_27_vs_heavy",
+      "class_17_ally_item_27_far_ally",
+      "class_17_ally_item_27_far_ally_vs_heavy",
+      "class_17_ally_item_27_far_enemy",
+      "class_17_ally_item_27_far_enemy_vs_heavy",
+      "class_17_ally_item_28",
+      "class_17_ally_item_28_vs_heavy",
+      "class_17_ally_item_28_far_ally",
+      "class_17_ally_item_28_far_ally_vs_heavy",
+      "class_17_ally_item_28_far_enemy",
+      "class_17_ally_item_28_far_enemy_vs_heavy",
+      "class_17_ally_item_29",
+      "class_17_ally_item_29_vs_heavy",
+      "class_17_ally_item_29_far_ally",
+      "class_17_ally_item_29_far_ally_vs_heavy",
+      "class_17_ally_item_29_far_enemy",
+      "class_17_ally_item_29_far_enemy_vs_heavy",
+      "class_17_ally_item_31",
+      "class_17_ally_item_31_vs_heavy",
+      "class_17_ally_item_31_far_ally",
+      "class_17_ally_item_31_far_ally_vs_heavy",
+      "class_17_ally_item_31_far_enemy",
+      "class_17_ally_item_31_far_enemy_vs_heavy",
+      "class_17_ally_item_32",
+      "class_17_ally_item_32_vs_heavy",
+      "class_17_ally_item_32_far_ally",
+      "class_17_ally_item_32_far_ally_vs_heavy",
+      "class_17_ally_item_32_far_enemy",
+      "class_17_ally_item_32_far_enemy_vs_heavy",
+      "class_17_ally_item_40",
+      "class_17_ally_item_40_vs_heavy",
+      "class_17_ally_item_40_far_ally",
+      "class_17_ally_item_40_far_ally_vs_heavy",
+      "class_17_ally_item_40_far_enemy",
+      "class_17_ally_item_40_far_enemy_vs_heavy",
+      "class_17_ally_item_41",
+      "class_17_ally_item_41_vs_heavy",
+      "class_17_ally_item_41_far_ally",
+      "class_17_ally_item_41_far_ally_vs_heavy",
+      "class_17_ally_item_41_far_enemy",
+      "class_17_ally_item_41_far_enemy_vs_heavy",
+      "class_17_ally_item_42",
+      "class_17_ally_item_42_vs_heavy",
+      "class_17_ally_item_42_far_ally",
+      "class_17_ally_item_42_far_ally_vs_heavy",
+      "class_17_ally_item_42_far_enemy",
+      "class_17_ally_item_42_far_enemy_vs_heavy",
+      "class_17_ally_item_43",
+      "class_17_ally_item_43_vs_heavy",
+      "class_17_ally_item_43_far_ally",
+      "class_17_ally_item_43_far_ally_vs_heavy",
+      "class_17_ally_item_43_far_enemy",
+      "class_17_ally_item_43_far_enemy_vs_heavy",
+      "class_17_ally_item_44",
+      "class_17_ally_item_44_vs_heavy",
+      "class_17_ally_item_44_far_ally",
+      "class_17_ally_item_44_far_ally_vs_heavy",
+      "class_17_ally_item_44_far_enemy",
+      "class_17_ally_item_44_far_enemy_vs_heavy"
+    ],
+    "output_atlas": "../../../healer-saint-complete-v1-20261023/class-17/battle-atlas.png",
+    "output_atlas_order": [
+      9,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "batches": [
+      {
+        "id": "全姿势",
+        "review": "../../../healer-saint-complete-v1-20261023/class-17-battle-light.png",
+        "status": "review_candidate"
+      }
+    ],
+    "qa_report": "../../../healer-saint-complete-v1-20261023/verification.json",
+    "review_timeline": "../../../healer-saint-complete-v1-20261023/saint-shared-motion.json",
+    "heal_effect_revision": "spellsword-jump-heal-v3-20261023",
+    "shared_spell_ids": [
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      31,
+      32
+    ]
+  }
+}

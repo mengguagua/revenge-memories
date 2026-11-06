@@ -1,0 +1,68 @@
+{
+  "id": "rm_jingle_victory",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_jingle_victory.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/music_93.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_jingle_victory_scene.mp3",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is the current game-gain offline mix, including the background pause and resume. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: 关卡胜利且结算首次完成；不用于每次击杀; desired mood: 完成任务、松一口气",
+  "max_tokens": 340,
+  "key": "098aae1cb7be677e2ab4177b",
+  "source_sha256": [
+    "0b3798ad9e03ecf265826a33119e9a3246b6b437d8b734448f8efcad7fa40e74",
+    "210dc354bbaeacdad62b51469ec150ff62933fecbaf94c2f13736e1fae1a9843",
+    "8967c0153a7bce078d4f6dbd888db0a6511fd49db6fd8fe3fa02ddf83f3e7fbd"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "audio_input_samples": [
+    99680,
+    240000,
+    131680
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "4e7d4fdea1812b95caeed24cbd643cecadab8e1548e3019a60b7464bead77667",
+    "d5c7e025d3d1cb9f9cbb0b5d7570cd80c6a746d78c5e6d69729843e27f446c11",
+    "3e98fc6f7c9784ccec63ac76227ac12bd0f5133ffed06270e19a07ce673d249f"
+  ],
+  "response": "Audio 1 features a smooth, sustained synth pad with a warm, slightly muffled timbre, creating a calm, reflective mood. The energy is low and static, with no melodic development—just a single chord progression. There is no speech or vocals. The sound is clean, with no audible defects.\n\nAudio 2 is a clear, sparse retro chiptune melody, serving as a reference for the original game’s texture. It is not copied in Audio 1.\n\nAudio 3 begins with a brief pause, then plays the same synth pad as Audio 1. The music is quiet and ambient, with no percussive or rhythmic elements. The background pause and resume are audible, suggesting a non-looping cue. The music does not mask essential feedback; instead, it provides a calm atmosphere that complements the scene. The mood aligns with completion and relief. No specific BPM or key can be determined.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 189,
+    "prompt_tokens": 614,
+    "total_tokens": 803,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 586,
+    "prompt_ms": 3124.527,
+    "prompt_per_token_ms": 5.331957337883959,
+    "prompt_per_second": 187.54838732390533,
+    "predicted_n": 189,
+    "predicted_ms": 4398.58,
+    "predicted_per_token_ms": 23.396702127659573,
+    "predicted_per_second": 42.741066435076775
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 7.611,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/0b3798ad9e03ecf265826a33119e9a3246b6b437d8b734448f8efcad7fa40e74.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/210dc354bbaeacdad62b51469ec150ff62933fecbaf94c2f13736e1fae1a9843.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/8967c0153a7bce078d4f6dbd888db0a6511fd49db6fd8fe3fa02ddf83f3e7fbd.mp3"
+  ]
+}

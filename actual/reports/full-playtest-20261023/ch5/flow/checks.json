@@ -1,0 +1,566 @@
+{
+  "checks": [
+    {
+      "label": "both actual preparation lists allow joint departure",
+      "passed": true
+    },
+    {
+      "label": "joint departure enters J53 through normal battle menu",
+      "passed": true
+    },
+    {
+      "label": "current J53 victory unlocks and enters J54",
+      "passed": true
+    },
+    {
+      "label": "completed current ending reloads at its saved conclusion",
+      "passed": true
+    },
+    {
+      "label": "source victory record unchanged: res://reports/full-playtest-20261023/ch5/current/current-after-502.json",
+      "passed": true
+    },
+    {
+      "label": "source victory record unchanged: res://reports/full-playtest-20261023/ch5/current/current-after-533.json",
+      "passed": true
+    },
+    {
+      "label": "source victory record unchanged: res://reports/full-playtest-20261023/ch5/current/current-ending-complete.json",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "inputs": 138,
+  "observed_content": [
+    {
+      "actions": [
+        "new:world",
+        "close"
+      ],
+      "context": "hub_exit",
+      "items": [
+        "离开据点",
+        "留下"
+      ],
+      "room": "H52",
+      "stage": "M52",
+      "view": "hub"
+    },
+    {
+      "actions": [
+        "new:hub",
+        "travel:13",
+        "travel:15",
+        "new:camp",
+        "new:switch"
+      ],
+      "context": "world_routes",
+      "items": [
+        "进入据点",
+        "前往王都",
+        "前往神宫前庭",
+        "部队整备",
+        "切换队伍"
+      ],
+      "room": "H52",
+      "stage": "M52",
+      "view": "world"
+    },
+    {
+      "actions": [
+        "new:hub",
+        "travel:14",
+        "new:camp",
+        "new:switch"
+      ],
+      "context": "world_routes",
+      "items": [
+        "进入据点",
+        "前往登天桥",
+        "部队整备",
+        "切换队伍"
+      ],
+      "room": "H52",
+      "stage": "M52",
+      "view": "world"
+    },
+    {
+      "actions": [
+        "hub:fifth_toggle_hunapu",
+        "hub:fifth_toggle_daan",
+        "hub:fifth_toggle_otto",
+        "hub:fifth_toggle_hervi",
+        "hub:fifth_toggle_lance",
+        "hub:fifth_toggle_german",
+        "hub:fifth_ready"
+      ],
+      "context": "fifth_selection",
+      "items": [
+        "出阵 · 胡纳普",
+        "出阵 · 达恩",
+        "出阵 · 奥托",
+        "出阵 · 赫维",
+        "出阵 · 兰斯",
+        "出阵 · 格曼",
+        "确认西队名单（6/10）"
+      ],
+      "room": "H55",
+      "stage": "M52",
+      "view": "hub"
+    },
+    {
+      "notice": "本队名单已确认；按S切换另一队确认",
+      "room": "H55",
+      "stage": "M52",
+      "view": "hub"
+    },
+    {
+      "actions": [
+        "new:world",
+        "close"
+      ],
+      "context": "hub_exit",
+      "items": [
+        "离开据点",
+        "留下"
+      ],
+      "notice": "本队名单已确认；按S切换另一队确认",
+      "room": "H55",
+      "stage": "M52",
+      "view": "hub"
+    },
+    {
+      "notice": "本队名单已确认；按S切换另一队确认",
+      "room": "H55",
+      "stage": "M52",
+      "view": "world"
+    },
+    {
+      "actions": [
+        "new:camp",
+        "new:switch",
+        "new:overview",
+        "new:save",
+        "title"
+      ],
+      "context": "world_system",
+      "items": [
+        "部队整备",
+        "切换队伍",
+        "世界全图",
+        "保存进度",
+        "返回标题"
+      ],
+      "notice": "本队名单已确认；按S切换另一队确认",
+      "room": "H55",
+      "stage": "M52",
+      "view": "world"
+    },
+    {
+      "notice": "已切换为东队 · 艾琳",
+      "room": "H56",
+      "stage": "S51",
+      "view": "world"
+    },
+    {
+      "actions": [
+        "new:hub",
+        "travel:30",
+        "new:camp",
+        "new:switch"
+      ],
+      "context": "world_routes",
+      "items": [
+        "进入据点",
+        "前往日宫下层",
+        "部队整备",
+        "切换队伍"
+      ],
+      "notice": "已切换为东队 · 艾琳",
+      "room": "H56",
+      "stage": "S51",
+      "view": "world"
+    },
+    {
+      "actions": [
+        "new:hub",
+        "travel:29",
+        "travel:15",
+        "travel:39",
+        "new:camp",
+        "new:switch"
+      ],
+      "context": "world_routes",
+      "items": [
+        "进入据点",
+        "前往沉没祭所",
+        "前往神宫前庭",
+        "前往神宫旧书库",
+        "部队整备",
+        "切换队伍"
+      ],
+      "notice": "已切换为东队 · 艾琳",
+      "room": "H56",
+      "stage": "S51",
+      "view": "world"
+    },
+    {
+      "notice": "已切换为东队 · 艾琳",
+      "room": "H55",
+      "stage": "S51",
+      "view": "hub"
+    },
+    {
+      "actions": [
+        "hub:fifth_toggle_eileen",
+        "hub:fifth_toggle_carlo",
+        "hub:fifth_toggle_lord",
+        "hub:fifth_toggle_roan",
+        "hub:fifth_toggle_shia",
+        "hub:fifth_toggle_noya",
+        "hub:fifth_toggle_celine",
+        "hub:fifth_ready"
+      ],
+      "context": "fifth_selection",
+      "items": [
+        "出阵 · 艾琳",
+        "出阵 · 卡洛",
+        "出阵 · 洛德",
+        "出阵 · 罗恩",
+        "出阵 · 希雅",
+        "出阵 · 诺娅",
+        "出阵 · 赛琳",
+        "确认东队名单（7/10）"
+      ],
+      "notice": "已切换为东队 · 艾琳",
+      "room": "H55",
+      "stage": "S51",
+      "view": "hub"
+    },
+    {
+      "notice": "本队名单已确认；按S切换另一队确认",
+      "room": "H55",
+      "stage": "S51",
+      "view": "hub"
+    },
+    {
+      "actions": [
+        "new:world",
+        "close"
+      ],
+      "context": "hub_exit",
+      "items": [
+        "离开据点",
+        "留下"
+      ],
+      "notice": "本队名单已确认；按S切换另一队确认",
+      "room": "H55",
+      "stage": "S51",
+      "view": "hub"
+    },
+    {
+      "notice": "本队名单已确认；按S切换另一队确认",
+      "room": "H55",
+      "stage": "S51",
+      "view": "world"
+    },
+    {
+      "actions": [
+        "new:hub",
+        "travel:30",
+        "new:camp",
+        "new:switch"
+      ],
+      "context": "world_routes",
+      "items": [
+        "进入据点",
+        "前往日宫下层",
+        "部队整备",
+        "切换队伍"
+      ],
+      "notice": "本队名单已确认；按S切换另一队确认",
+      "room": "H55",
+      "stage": "S51",
+      "view": "world"
+    },
+    {
+      "notice": "本队名单已确认；按S切换另一队确认",
+      "page": {
+        "speaker": "照护者",
+        "text": "伤情与未完成的约定都保留\n在名册里。有人还需要休\n养，不能替他们说出尚未说"
+      },
+      "room": "H55",
+      "stage": "S51",
+      "view": "plot"
+    },
+    {
+      "notice": "本队名单已确认；按S切换另一队确认",
+      "page": {
+        "speaker": "照护者",
+        "text": "过的话。"
+      },
+      "room": "H55",
+      "stage": "S51",
+      "view": "plot"
+    },
+    {
+      "notice": "本队名单已确认；按S切换另一队确认",
+      "page": {
+        "speaker": "守卫",
+        "text": "确认后，两队合流前往前\n庭，旧书库支路将关闭。"
+      },
+      "room": "H55",
+      "stage": "S51",
+      "view": "plot"
+    },
+    {
+      "notice": "本队名单已确认；按S切换另一队确认",
+      "page": {
+        "speaker": "守卫",
+        "text": "记录已经取回。"
+      },
+      "room": "H55",
+      "stage": "S51",
+      "view": "plot"
+    },
+    {
+      "notice": "本队名单已确认；按S切换另一队确认",
+      "page": {
+        "speaker": "守卫",
+        "text": "护途盾尚未取得；领取需M5\n1两处病房开门、两组伤兵存\n活撤离并胜利。合流后无法"
+      },
+      "room": "H55",
+      "stage": "S51",
+      "view": "plot"
+    },
+    {
+      "notice": "本队名单已确认；按S切换另一队确认",
+      "page": {
+        "speaker": "守卫",
+        "text": "补做。不影响主线。"
+      },
+      "room": "H55",
+      "stage": "S51",
+      "view": "plot"
+    },
+    {
+      "actions": [
+        "close",
+        "hub:fifth_confirm_merge"
+      ],
+      "context": "fifth_merge",
+      "items": [
+        "返回整理",
+        "确认合流出发"
+      ],
+      "notice": "本队名单已确认；按S切换另一队确认",
+      "room": "H55",
+      "stage": "S51",
+      "view": "hub"
+    },
+    {
+      "notice": "两军已合流；南口返回地图进入战场",
+      "room": "H55",
+      "stage": "J53",
+      "view": "hub"
+    },
+    {
+      "actions": [
+        "new:world",
+        "close"
+      ],
+      "context": "hub_exit",
+      "items": [
+        "离开据点",
+        "留下"
+      ],
+      "notice": "两军已合流；南口返回地图进入战场",
+      "room": "H55",
+      "stage": "J53",
+      "view": "hub"
+    },
+    {
+      "notice": "两军已合流；南口返回地图进入战场",
+      "room": "H55",
+      "stage": "J53",
+      "view": "world"
+    },
+    {
+      "actions": [
+        "new:battle",
+        "new:camp",
+        "new:switch"
+      ],
+      "context": "world_routes",
+      "items": [
+        "进入战场",
+        "部队整备",
+        "切换队伍"
+      ],
+      "notice": "两军已合流；南口返回地图进入战场",
+      "room": "H55",
+      "stage": "J53",
+      "view": "world"
+    },
+    {
+      "notice": "两军已合流；南口返回地图进入战场",
+      "page": {
+        "speaker": "胡纳普",
+        "text": "西侧入口通往左庭。"
+      },
+      "room": "H55",
+      "stage": "J53",
+      "view": "plot"
+    },
+    {
+      "notice": "两军已合流；南口返回地图进入战场",
+      "page": {
+        "speaker": "艾琳",
+        "text": "东侧也是。两翼门阵都确认\n后，沿中轴去神座。伤者留\n在整备处，两边的人一起接"
+      },
+      "room": "H55",
+      "stage": "J53",
+      "view": "plot"
+    },
+    {
+      "notice": "两军已合流；南口返回地图进入战场",
+      "page": {
+        "speaker": "艾琳",
+        "text": "应。"
+      },
+      "room": "H55",
+      "stage": "J53",
+      "view": "plot"
+    },
+    {
+      "notice": "两军已合流；南口返回地图进入战场",
+      "page": {
+        "speaker": "战场提示",
+        "text": "神宫近卫已换成剑豪，速度和抗性更\n高；他们守住原地，先处理两翼再接\n近。"
+      },
+      "room": "H55",
+      "stage": "J53",
+      "view": "plot"
+    },
+    {
+      "actions": [
+        "new:world",
+        "close"
+      ],
+      "context": "hub_exit",
+      "items": [
+        "离开据点",
+        "留下"
+      ],
+      "room": "H55",
+      "stage": "J53",
+      "view": "hub"
+    },
+    {
+      "actions": [
+        "new:hub",
+        "travel:16",
+        "new:camp",
+        "new:switch"
+      ],
+      "context": "world_routes",
+      "items": [
+        "进入据点",
+        "前往神座",
+        "部队整备",
+        "切换队伍"
+      ],
+      "room": "H55",
+      "stage": "J53",
+      "view": "world"
+    },
+    {
+      "actions": [
+        "new:battle",
+        "travel:15",
+        "new:camp",
+        "new:switch"
+      ],
+      "context": "world_routes",
+      "items": [
+        "进入战场",
+        "前往神宫前庭",
+        "部队整备",
+        "切换队伍"
+      ],
+      "room": "H55",
+      "stage": "J53",
+      "view": "world"
+    },
+    {
+      "page": {
+        "speaker": "乌库布·卡基",
+        "text": "我把你从裂缝里拉出来时，\n你一直抓着我的手。"
+      },
+      "room": "H55",
+      "stage": "J54",
+      "view": "plot"
+    },
+    {
+      "page": {
+        "speaker": "胡纳普",
+        "text": "我记得。凯尔也记得。"
+      },
+      "room": "H55",
+      "stage": "J54",
+      "view": "plot"
+    },
+    {
+      "page": {
+        "speaker": "乌库布·卡基",
+        "text": "你们本来都能留在我保护的\n地方。"
+      },
+      "room": "H55",
+      "stage": "J54",
+      "view": "plot"
+    },
+    {
+      "page": {
+        "speaker": "艾琳",
+        "text": "我们在那里也失去了家人。\n现在还有人等在岸边。"
+      },
+      "room": "H55",
+      "stage": "J54",
+      "view": "plot"
+    },
+    {
+      "page": {
+        "speaker": "乌库布·卡基",
+        "text": "回去。我会重新安排。"
+      },
+      "room": "H55",
+      "stage": "J54",
+      "view": "plot"
+    },
+    {
+      "page": {
+        "speaker": "战场提示",
+        "text": "普通武器与法术始终有效。实体半血后\n只增援一次，不会回复满血。"
+      },
+      "room": "H55",
+      "stage": "J54",
+      "view": "plot"
+    }
+  ],
+  "passed": true,
+  "scope": "Actual hub/menu progression from this audit's independent victory checkpoints. No repeated battles, no flags/stat/RNG edits; not a single continuous new-game campaign.",
+  "sources": [
+    {
+      "path": "res://reports/full-playtest-20261023/ch5/current/current-after-502.json",
+      "sha256": "42ea6d4110f57f1fe74f5d26e59269e28230baea1528a73ae9df996f8fb3c2da"
+    },
+    {
+      "path": "res://reports/full-playtest-20261023/ch5/current/current-after-533.json",
+      "sha256": "322536b1c8bfee8c2ddbe2cdc473ade37801586964512620684cccc3dd0e7df2"
+    },
+    {
+      "path": "res://reports/full-playtest-20261023/ch5/current/current-ending-complete.json",
+      "sha256": "d02a96fc72db1927e7ec8fa63305c0eb69b81179ad26f7bc58d883d5212b8654"
+    }
+  ]
+}

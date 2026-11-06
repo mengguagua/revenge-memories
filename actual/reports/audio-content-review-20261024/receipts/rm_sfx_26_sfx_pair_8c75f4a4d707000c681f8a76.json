@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_26",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_26.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_26.ogg"
+  ],
+  "hashes": [
+    "2d56c0fcf0a823d7f42c684e6ab21672e2f26e0d646bcdd14faed7149450b075",
+    "a2711ae90c4fe7a49f10b479e578bfb1f6bfe71ea7f8532eae993f770b8044a7"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "8c75f4a4d707000c681f8a76",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    128000,
+    128000
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "Audio 1: A repetitive, pulsating sound effect with a strange, space-like quality. Timbre is monotone, with little variation. Attack is sharp, with a sudden onset. Pitch is constant, showing little movement. Density is low, with a sparse, echoing quality. Decay is slow, lingering after the initial impact. Sound effect is futuristic, weird, and space-like.\nAudio 2: A similar, but different sound effect. It has the same qualities as the reference, but the attack is muffled, the pitch is slightly lower, the decay is faster, and the timbre is slightly more complex, with a subtle wobble. The overall effect is still strange and space-like, but it feels less abrupt and more integrated into the audio.",
+  "generation_tokens": 154,
+  "generation_tps": 33.80823790611765,
+  "wall_seconds": 4.879,
+  "peak_memory_bytes": 7517914846,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

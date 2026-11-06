@@ -1,0 +1,69 @@
+{
+  "id": "rm_battle_revenge",
+  "path": "source/audio-20261024/content-review/candidates/rm_battle_revenge.ogg",
+  "source_path": "source/audio-20261024/content-review/raw/rm_battle_revenge_2026102811_float.wav",
+  "master_path": "source/audio-20261024/content-review/masters/rm_battle_revenge_v3_float.wav",
+  "sha256": "5cdaab540a18dc26121a2984fc4c8b86d4175d6d5df4966d48921f72fb3c3667",
+  "bytes": 314805,
+  "source": {
+    "track_id": "rm_battle_revenge",
+    "seed": 2026102811,
+    "model": "local Stable Audio 3 sm-music/same-s",
+    "method": "owned-guide audio-conditioned generation",
+    "guide": {
+      "path": "source/audio-20261024/content-review/guides/rm_battle_revenge.wav",
+      "sha256": "aa88da2178c541d54a5b8f311bb81fa5b85180f29e11d9ed4181955dd4307da9",
+      "period_seconds": 27.826077097505667,
+      "period_frames": 1227130
+    },
+    "prompt": "TrackType: Music, VocalType: Instrumental. Original early-console 8-bit fantasy tactics soundtrack. Strict sparse four-channel chiptune: two warm pulse-wave melody and harmony voices, one rounded triangle bass voice, and quiet band-limited noise percussion. Dry direct electronic tone, clear monophonic lines, memorable NEW melody. Straight rhythm, no swing, no jazz, no reggae. No acoustic instruments, no piano, no guitar, no flute, no orchestral pad, no realistic drum kit, no voice or choir. 138 BPM. A firm, tense minor-key confrontation march. Anger held under control, decisive rhythmic drive, never relaxed jazz. Repeating complete eight-bar phrases, A A B A form, stable accompaniment, no introduction or fadeout.",
+    "seconds": 28.146077097505668,
+    "cfg": 2.0,
+    "steps": 8,
+    "dit_dtype": "fp32",
+    "sha256": "2ed57a465537d5be5527aecb7c70f7f3d4a636d565ed946a451c216b0a67bfac",
+    "source_format": "FLOAT WAV",
+    "offline": true,
+    "generation_wall_seconds": 3.4,
+    "raw_peak": 0.8727821707725525,
+    "raw_rms": 0.21861498057842255,
+    "post_guide": {
+      "path": "source/audio-20261024/content-review/guides/rm_battle_revenge_v3.wav",
+      "sha256": "61a882028080a92dadb9a383ab84db5eb6ae4d93fa9826dee1a25b865507ce83",
+      "reason": "leading-tone pickup resolves into loop tonic"
+    }
+  },
+  "editing": {
+    "method": "new sixteen-bar four-voice composition with local model texture and circular phase wrap",
+    "guide_mix": 0.85,
+    "model_mix": 0.15,
+    "bars": 16,
+    "guide_bpm": 138,
+    "period_frames": 1227130,
+    "period_seconds": 27.826077097505667,
+    "loop_offset_seconds": 0.0,
+    "model_wrap_seconds": 0.2
+  },
+  "gain_db": -2.66,
+  "target_integrated_lufs": -20,
+  "metrics": {
+    "seconds": 27.826077097505667,
+    "rms_dbfs": -22.92341256183196,
+    "sample_peak_dbfs": -8.819549138983673,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "interior_silence_longest_seconds": 0.0,
+    "silent_frame_fraction": 0.0,
+    "rms_10ms_p10_dbfs": -25.879077908445083,
+    "rms_10ms_p90_dbfs": -21.693510180211263,
+    "seam_max_sample_delta": 0.0035933104809373617,
+    "derivative_p99": 0.04145144671201706,
+    "seam_delta_over_derivative_p99": 0.08668721518700664,
+    "integrated_lufs": -19.96,
+    "true_peak_dbtp": -8.8,
+    "loudness_range_lu": 0.4
+  },
+  "errors": [],
+  "review_decision": "rejected",
+  "review_reason": "No clear comparative advantage; retain published V2."
+}

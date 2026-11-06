@@ -1,0 +1,555 @@
+{
+  "checks": [
+    {
+      "name": "standalone loaded",
+      "passed": true
+    },
+    {
+      "name": "slow never stacks",
+      "passed": true,
+      "detail": {
+        "body": 22,
+        "part": 10,
+        "friendHp": 14,
+        "slow": true,
+        "target": "body",
+        "humans": 1,
+        "x": 21,
+        "escaped": false,
+        "artBroken": false,
+        "artAction": "water-monkey-cannon"
+      }
+    },
+    {
+      "name": "slow expires after next action",
+      "passed": true,
+      "detail": {
+        "body": 22,
+        "part": 10,
+        "friendHp": 14,
+        "slow": false,
+        "target": "body",
+        "humans": 1,
+        "x": 21,
+        "escaped": false,
+        "artBroken": false,
+        "artAction": "water-monkey-cannon"
+      }
+    },
+    {
+      "name": "part broken without body damage",
+      "passed": true,
+      "detail": {
+        "body": 22,
+        "part": 0,
+        "friendHp": 24,
+        "slow": false,
+        "target": "part",
+        "humans": 1,
+        "x": 21,
+        "escaped": false,
+        "artBroken": true,
+        "artAction": "water-monkey-broken-idle"
+      }
+    },
+    {
+      "name": "broken cannon cannot attack at range",
+      "passed": true,
+      "detail": {
+        "body": 22,
+        "part": 0,
+        "friendHp": 24,
+        "slow": false,
+        "target": "part",
+        "humans": 1,
+        "x": 21,
+        "escaped": false,
+        "artBroken": true,
+        "artAction": "water-monkey-broken-idle"
+      }
+    },
+    {
+      "name": "broken ordinary attack still works",
+      "passed": true,
+      "detail": {
+        "body": 22,
+        "part": 0,
+        "friendHp": 22,
+        "slow": false,
+        "target": "part",
+        "humans": 1,
+        "x": 21,
+        "escaped": false,
+        "artBroken": true,
+        "artAction": "water-monkey-broken-melee"
+      }
+    },
+    {
+      "name": "animation false idle",
+      "passed": true,
+      "detail": "water-monkey-idle"
+    },
+    {
+      "name": "animation false melee",
+      "passed": true,
+      "detail": "water-monkey-melee"
+    },
+    {
+      "name": "animation false cannon",
+      "passed": true,
+      "detail": "water-monkey-cannon"
+    },
+    {
+      "name": "animation false hit",
+      "passed": true,
+      "detail": "water-monkey-hit"
+    },
+    {
+      "name": "animation false part-break",
+      "passed": true,
+      "detail": "water-monkey-part-break"
+    },
+    {
+      "name": "animation false defeat",
+      "passed": true,
+      "detail": "water-monkey-defeat"
+    },
+    {
+      "name": "animation false battle-run",
+      "passed": true,
+      "detail": "water-monkey-battle-run"
+    },
+    {
+      "name": "animation false map-idle",
+      "passed": true,
+      "detail": "water-monkey-map-idle"
+    },
+    {
+      "name": "animation false walk-up",
+      "passed": true,
+      "detail": "water-monkey-walk-up"
+    },
+    {
+      "name": "animation false walk-right",
+      "passed": true,
+      "detail": "water-monkey-walk-right"
+    },
+    {
+      "name": "animation false walk-down",
+      "passed": true,
+      "detail": "water-monkey-walk-down"
+    },
+    {
+      "name": "animation false walk-left",
+      "passed": true,
+      "detail": "water-monkey-walk-left"
+    },
+    {
+      "name": "animation false escape",
+      "passed": true,
+      "detail": "water-monkey-escape"
+    },
+    {
+      "name": "animation true idle",
+      "passed": true,
+      "detail": "water-monkey-broken-idle"
+    },
+    {
+      "name": "animation true melee",
+      "passed": true,
+      "detail": "water-monkey-broken-melee"
+    },
+    {
+      "name": "animation true hit",
+      "passed": true,
+      "detail": "water-monkey-broken-hit"
+    },
+    {
+      "name": "animation true defeat",
+      "passed": true,
+      "detail": "water-monkey-broken-defeat"
+    },
+    {
+      "name": "animation true battle-run",
+      "passed": true,
+      "detail": "water-monkey-broken-battle-run"
+    },
+    {
+      "name": "animation true map-idle",
+      "passed": true,
+      "detail": "water-monkey-broken-map-idle"
+    },
+    {
+      "name": "animation true walk-up",
+      "passed": true,
+      "detail": "water-monkey-broken-walk-up"
+    },
+    {
+      "name": "animation true walk-right",
+      "passed": true,
+      "detail": "water-monkey-broken-walk-right"
+    },
+    {
+      "name": "animation true walk-down",
+      "passed": true,
+      "detail": "water-monkey-broken-walk-down"
+    },
+    {
+      "name": "animation true walk-left",
+      "passed": true,
+      "detail": "water-monkey-broken-walk-left"
+    },
+    {
+      "name": "animation true escape",
+      "passed": true,
+      "detail": "water-monkey-broken-escape"
+    },
+    {
+      "name": "escape movement bonus applies once",
+      "passed": true,
+      "detail": {
+        "body": 22,
+        "part": 0,
+        "friendHp": 24,
+        "slow": false,
+        "target": "part",
+        "humans": 0,
+        "x": 21,
+        "escaped": false,
+        "artBroken": true,
+        "artAction": "water-monkey-broken-idle"
+      }
+    },
+    {
+      "name": "first escape turn moves eight cells",
+      "passed": true,
+      "detail": {
+        "body": 22,
+        "part": 0,
+        "friendHp": 24,
+        "slow": false,
+        "target": "part",
+        "humans": 0,
+        "x": 29,
+        "escaped": false,
+        "artBroken": true,
+        "artAction": "water-monkey-broken-escape"
+      }
+    },
+    {
+      "name": "edge arrival removes unit with zero kill experience",
+      "passed": true,
+      "detail": {
+        "body": 22,
+        "part": 0,
+        "friendHp": 24,
+        "slow": false,
+        "target": "part",
+        "humans": 0,
+        "x": 31,
+        "escaped": true,
+        "artBroken": true,
+        "artAction": "water-monkey-broken-escape"
+      }
+    },
+    {
+      "name": "body kill needs no part destruction and gets 1.5x",
+      "passed": true,
+      "detail": {
+        "body": 0,
+        "part": 10,
+        "friendHp": 24,
+        "slow": false,
+        "target": "body",
+        "humans": 1,
+        "x": 21,
+        "escaped": false,
+        "artBroken": false,
+        "artAction": "water-monkey-defeat"
+      }
+    },
+    {
+      "name": "mobile no viewport overflow",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "documentWidth": 390,
+        "bad": []
+      }
+    },
+    {
+      "name": "mobile text has enough room",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "documentWidth": 390,
+        "bad": []
+      }
+    },
+    {
+      "name": "main gallery loads broken action",
+      "passed": true
+    },
+    {
+      "name": "single closed history contains upper and later records",
+      "passed": true,
+      "detail": {
+        "count": 1,
+        "open": false,
+        "oldRecordsInside": true,
+        "selectorsInPlayer": true
+      }
+    },
+    {
+      "name": "new character design baseline is visibly rendered",
+      "passed": true,
+      "detail": 18589
+    },
+    {
+      "name": "history toggle works",
+      "passed": true
+    },
+    {
+      "name": "main mobile no horizontal overflow",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "width": 390
+      }
+    },
+    {
+      "name": "new action IDs unique",
+      "passed": true,
+      "detail": 25
+    },
+    {
+      "name": "all new gallery actions load",
+      "passed": true,
+      "detail": 25
+    },
+    {
+      "name": "both idle periods about three seconds",
+      "passed": true,
+      "detail": {
+        "idle": 2.995068121160489,
+        "brokenIdle": 2.995068121160489,
+        "melee": [
+          {
+            "frames": 219,
+            "contact": 82,
+            "minX": -88,
+            "start": [
+              0,
+              0
+            ],
+            "end": [
+              0,
+              0
+            ],
+            "companion": true
+          },
+          {
+            "frames": 219,
+            "contact": 82,
+            "minX": -88,
+            "start": [
+              0,
+              0
+            ],
+            "end": [
+              0,
+              0
+            ],
+            "companion": true
+          }
+        ],
+        "hits": [
+          {
+            "poses": 1,
+            "tints": [
+              0.35,
+              1
+            ],
+            "sound": 1
+          },
+          {
+            "poses": 1,
+            "tints": [
+              0.35,
+              1
+            ],
+            "sound": 1
+          }
+        ],
+        "water": [
+          [
+            52,
+            24
+          ],
+          [
+            52,
+            24
+          ],
+          [
+            42,
+            44
+          ],
+          [
+            46,
+            26
+          ],
+          [
+            24,
+            14
+          ]
+        ]
+      }
+    },
+    {
+      "name": "both melees approach hit and return to origin",
+      "passed": true,
+      "detail": [
+        {
+          "frames": 219,
+          "contact": 82,
+          "minX": -88,
+          "start": [
+            0,
+            0
+          ],
+          "end": [
+            0,
+            0
+          ],
+          "companion": true
+        },
+        {
+          "frames": 219,
+          "contact": 82,
+          "minX": -88,
+          "start": [
+            0,
+            0
+          ],
+          "end": [
+            0,
+            0
+          ],
+          "companion": true
+        }
+      ]
+    },
+    {
+      "name": "hit feedback uses one pose with flashing and hit sound",
+      "passed": true,
+      "detail": [
+        {
+          "poses": 1,
+          "tints": [
+            0.35,
+            1
+          ],
+          "sound": 1
+        },
+        {
+          "poses": 1,
+          "tints": [
+            0.35,
+            1
+          ],
+          "sound": 1
+        }
+      ]
+    },
+    {
+      "name": "water cannon is broad and visible",
+      "passed": true,
+      "detail": [
+        [
+          52,
+          24
+        ],
+        [
+          52,
+          24
+        ],
+        [
+          42,
+          44
+        ],
+        [
+          46,
+          26
+        ],
+        [
+          24,
+          14
+        ]
+      ]
+    },
+    {
+      "name": "hit sound opt-in control available",
+      "passed": true
+    },
+    {
+      "name": "sound toggle works",
+      "passed": true
+    },
+    {
+      "name": "existing soldier still loads",
+      "passed": true
+    },
+    {
+      "name": "no browser exceptions",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "source/review-desktop.png",
+    "source/review-broken-combat.png",
+    "source/review-mobile.png",
+    "source/main-broken-melee.png",
+    "source/main-history-closed.png",
+    "source/main-mobile.png",
+    "source/v2-melee-start.png",
+    "source/v2-melee-approach.png",
+    "source/v2-melee-contact.png",
+    "source/v2-melee-return.png",
+    "source/v2-melee-home.png",
+    "source/v2-broken-melee-contact.png",
+    "source/v2-water-flight.png",
+    "source/v2-water-impact.png",
+    "source/v2-hit-dark.png",
+    "source/v2-hit-normal.png"
+  ],
+  "date": "2026-11-04",
+  "surface": "headless Chrome only; no Godot or user window activated",
+  "animation_states": [
+    "water-monkey-idle",
+    "water-monkey-melee",
+    "water-monkey-cannon",
+    "water-monkey-hit",
+    "water-monkey-part-break",
+    "water-monkey-defeat",
+    "water-monkey-battle-run",
+    "water-monkey-map-idle",
+    "water-monkey-walk-up",
+    "water-monkey-walk-right",
+    "water-monkey-walk-down",
+    "water-monkey-walk-left",
+    "water-monkey-escape",
+    "water-monkey-broken-idle",
+    "water-monkey-broken-melee",
+    "water-monkey-broken-hit",
+    "water-monkey-broken-defeat",
+    "water-monkey-broken-battle-run",
+    "water-monkey-broken-map-idle",
+    "water-monkey-broken-walk-up",
+    "water-monkey-broken-walk-right",
+    "water-monkey-broken-walk-down",
+    "water-monkey-broken-walk-left",
+    "water-monkey-broken-escape"
+  ]
+}

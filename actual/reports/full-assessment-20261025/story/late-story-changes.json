@@ -1,0 +1,87 @@
+[
+  {
+    "path": "actual/core/chapter3_rules.gd",
+    "before": "格曼：我带部下放下武器。工房的人不该再被带走。",
+    "after": "格曼：我愿放下武器。工房的人不该再被带走。"
+  },
+  {
+    "path": "docs2/完整台词汇总.md",
+    "before": "格曼：我带部下放下武器。工房的人不该再被带走。",
+    "after": "格曼：我愿放下武器。工房的人不该再被带走。"
+  },
+  {
+    "path": "actual/core/chapter3_rules.gd",
+    "before": "格曼：堡主已败。我愿意带部下投降，请到工房前听我说。",
+    "after": "格曼：堡主已败。我愿意投降，请到工房前听我说。"
+  },
+  {
+    "path": "docs2/完整台词汇总.md",
+    "before": "格曼：堡主已败。我愿意带部下投降，请到工房前听我说。",
+    "after": "格曼：堡主已败。我愿意投降，请到工房前听我说。"
+  },
+  {
+    "path": "actual/core/chapter3_rules.gd",
+    "before": "312:\"艾琳：先安置居民。诺娅，你要把泄露船团位置的经过说清楚。\"",
+    "after": "312:\"艾琳：先安置居民。诺娅，你要把泄露船团位置的经过说清楚。\" if alive(g,\"noya\") else \"艾琳：先安置获救居民。诺娅未能获救，她留下的路线册和泄露船团位置的经过仍须如实登记。\""
+  },
+  {
+    "path": "actual/core/chapter4_rules.gd",
+    "before": "412:\"医者：两组病人已上船，地方医者会接手。到诊疗处与赛琳交谈，再决定是否同行。\"",
+    "after": "412:\"医者：两组病人已上船，地方医者会接手。到诊疗处与赛琳交谈，再决定是否同行。\" if alive(g,\"celine\") else \"医者：两组病人已上船。赛琳未能获救，由留守医者接手照护；请到诊疗处确认病人交接。\""
+  },
+  {
+    "path": "actual/core/chapter3_hub.gd",
+    "before": "按S打开菜单，可以切换队伍",
+    "after": "打开菜单，选择切换队伍"
+  },
+  {
+    "path": "actual/core/chapter3_hub.gd",
+    "before": "可以按S切队",
+    "after": "可以从菜单切换队伍"
+  },
+  {
+    "path": "actual/core/chapter4_hub.gd",
+    "before": "按S切到东队",
+    "after": "从菜单切到东队"
+  },
+  {
+    "path": "actual/core/chapter5_hub.gd",
+    "before": "按S切换另一队",
+    "after": "从菜单切换另一队"
+  },
+  {
+    "path": "actual/core/chapter5_rules.gd",
+    "before": "按S切换东队",
+    "after": "从菜单切换东队"
+  },
+  {
+    "path": "actual/data/stages/M33.json",
+    "field": "goal",
+    "before": "击败堡主并控制投送码头；格曼可投降，存活时不作为必须歼灭对象。",
+    "after": "控制投送码头、取得工房记录并击败堡主；格曼存活时须交涉，可接纳或只解除武装。"
+  },
+  {
+    "path": "actual/data/stages/M33.json",
+    "field": "during",
+    "before": "接近格曼且堡主败北：格曼请求带部下投降，玩家可接纳或只解除武装。",
+    "after": "堡主败北且格曼存活时：格曼请求投降，玩家可接纳或只解除武装；其他未投降守军仍会作战。"
+  },
+  {
+    "path": "actual/data/stages/S41.json",
+    "field": "goal",
+    "before": "击败焚毁队长；尽力保护名册，失去记录不阻断主线。",
+    "after": "击败焚毁队长，并保护尚存名册；若名册已焚毁，仍可完成本关。"
+  },
+  {
+    "path": "actual/data/stages/S32.json",
+    "field": "after",
+    "before": "诺娅请求参与救援；玩家可招募或只解除武装保护她。",
+    "after": "诺娅存活时可请求参与救援，玩家可招募或让她留在安置处；遇难时如实登记遗留路线册与责任。"
+  },
+  {
+    "path": "actual/data/stages/S42.json",
+    "field": "after",
+    "before": "赛琳在安置完成后选择是否远征。",
+    "after": "赛琳存活且病人安置完成后，可选择是否远征；若赛琳遇难，由留守医者完成交接。"
+  }
+]

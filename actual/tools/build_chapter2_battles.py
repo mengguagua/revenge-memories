@@ -7,6 +7,7 @@ from pathlib import Path
 from collections import deque
 import json, math, random, copy, subprocess, importlib.util
 from PIL import Image, ImageDraw
+from enemy_experience_data import apply_stage_experience
 R=Path(__file__).resolve().parents[1]; P=R.parent; OUT=R/'assets/chapter2'; REPORT=R/'reports/chapter2-battles'
 OUT.mkdir(exist_ok=True); REPORT.mkdir(parents=True,exist_ok=True)
 PLAN=json.loads((P/'docs2/规划索引.json').read_text()); PACK=json.loads((R/'assets/battle_tiles/battle-tiles.json').read_text())
@@ -18,7 +19,7 @@ OLD={'.':48,'f':172,'^':94,'d':242,'~':96,'#':196,'=':208,'s':191,'b':66,'+':218
 IDS={'F21':201,'F22':202,'F23':203,'F24':204,'F25':205,'F26':206,'S21':211,'S22':212}
 COUNTS={'F21':[(6,5),(12,2),(15,1)],'F22':[(6,5),(2,2),(12,2)],'F23':[(11,5),(3,3),(2,2)],'F24':[(3,3),(6,4),(12,2),(15,1)],'F25':[(6,4),(2,3),(12,3),(15,2),(3,2)],'F26':[(3,3),(6,4),(12,2),(15,2)],'S21':[(3,3),(11,3)],'S22':[(11,4),(3,2)]}
 CHARMAP={'eileen':('celica','艾琳'),'mireille':('genny','米蕾'),'lisa':('mae','莉莎'),'carlo':('saber','卡洛'),'lord':('valbar','洛德'),'roan':('atlas','罗恩'),'shia':('catria','希雅')}
-def write(path,data):path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+def write(path,data):path.write_text(json.dumps(apply_stage_experience(data),ensure_ascii=False,indent=2)+'\n')
 def opt(path):subprocess.run(['/opt/homebrew/bin/oxipng','-o','2','--quiet',str(path)],check=True)
 def line(a,b):
  x,y=a;out=[(x,y)]
@@ -385,6 +386,7 @@ def main():
     if grid[p[1]][p[0]]!='~':raise AssertionError(('boat path is not sea',p))
    event_boats=[{'id':'event_boat_'+str(i),'label':'居民船'+str(i+1),'hp':30,'max_hp':30,'path':[list(p) for p in boatpath],'path_index':0,'delay':i*2,'speed':3,'sprite_path':'res://assets/chapter2/modules/rowboat.png'} for i in range(2)]
   data={'schema_version':4,'id':IDS[code],'code':code,'name_zh':b['name'],'chapter':2,'route':'celica','node':next(n['numeric_id'] for n in WORLD['nodes'].values() if n['id']==b['node']),'map':{'width':w,'height':h,'tiles':[OLD[c] for row in grid for c in row]},'logic_grid':[''.join(row) for row in grid],'art_atlas':'res://assets/chapter2/chapter2-tiles.png','art_columns':32,'art_layers':layers,'art_modules':architecture,'natural_props':nature,'art_style_version':'chapter2-1','surroundings_biome':'sea' if not cave else 'rock','surroundings':'cave' if cave else 'sea','nature_layout':{'biome':'rock' if cave else 'sea','props':[]},'event_boat_sprite':'res://assets/chapter2/modules/rowboat.png','characters':chars,'player_positions':deploy,'enemies':enemies,'npc_units':npcs,'terrain':copy.deepcopy(json.loads((R/'data/stages/M11.json').read_text())['terrain']),'enemy_group_ids':[],'objects':objects,'reinforcements':rein,'reinforcement_turn':rein_turn,'exit':b['exit'],'boss_id':code+'_boss','targets':t,'goal':b['goal'],'cause':b['cause'],'before':b['before'],'during':b['during'],'after':b['after'],'absent_branch':b.get('absent_branch',''),'optional':b['optional'],'contract':b['interaction_contract'],'ai_and_timing':b['ai_and_timing'],'event_boats':event_boats,'production_anchors':{'deploy':deploy,'boss':b['boss'],'targets':t,'exit':b['exit'],'npc':a,'reinforcements':b['reinforcement_anchors']},'visual_notes':terrain_notes}
+  if code=='F25':data['enemies'].append({'id': 'F25_pseudo_titan_1', 'name_id': 0, 'character_id': 0, 'name_zh': '伪泰坦傀儡', 'class': 'pseudo_titan', 'class_id': 26, 'class_name_zh': '伪泰坦傀儡', 'unit_kind': 'mechanical_puppet', 'mechanical_model': 'pseudo_titan', 'level': 5, 'hp': 42, 'max_hp': 42, 'exp': 0, 'exp_value': 98, 'strength': 12, 'skill': 5, 'speed': 1, 'luck': 0, 'defence': 4, 'resistance': 2, 'move': 4, 'mechanical_base_move': 4, 'item_id': 0, 'position': [18, 9], 'side': 'enemy', 'acted': False, 'hidden': False, 'escaped': False, 'mechanical_retreating': False, 'no_drop': True, 'parts': {'protective_core': {'hp': 16, 'max_hp': 16, 'defence': 3, 'resistance': 2}}})
   data.update(dialogue_fixes.get(code,{}))
   refine_prison_geometry(data,mods)
   grid=[list(row) for row in data['logic_grid']]

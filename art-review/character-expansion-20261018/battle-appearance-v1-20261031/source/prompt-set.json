@@ -1,0 +1,24 @@
+{
+  "generator": "built-in image_gen; no CLI or paid API fallback",
+  "cavalry": {
+    "inputs": [
+      "source/cavalry-edit-target.png",
+      "source/swordmaster-palette.png"
+    ],
+    "final_prompt": "Edit the 5x2 cavalry pose sheet. Change only colors. Clearly white coat, pale cool blue-gray shadows, white mane and tail. Increase medium blue #3976b5 and ivory #e4e1c8 on the rider like the allied swordmaster; deep navy #172638 outlines. Preserve all cell positions, silhouettes, face, lance, tack, legs and tails; transparent background."
+  },
+  "archer": {
+    "inputs": [
+      "source/archer-edit-target.png",
+      "source/sniper-palette.png"
+    ],
+    "final_prompt": "Edit the registered three-pose archer sheet: upright empty bow, full draw with one arrow, post-release empty bow. Recolor BODY to allied sniper palette: medium blue #3976b5, ivory #e4e1c8, navy #172638, brown #8c6b45 and skin #dda77d. Replace fluffy brown hair with a very short dark navy flat-top crew cut (板寸), no bangs or headband. Preserve pose geometry, foot anchors, bow and arrow state. Transparent background."
+  },
+  "pegasus": {
+    "inputs": [
+      "source/pegasus-head-edit-target.png"
+    ],
+    "final_prompt": "The 4x3 sheet contains twelve head/shoulder crops of one female Pegasus rider. Correct only red hair. Same low-volume hairstyle and skull diameter, canonical row1 col1. Reduce inflated crowns and ponytails in row1 col2/col3 and row2 col1. Ponytails slender, same length and thickness as first cell. Preserve face position, eyes, circlet, armor, wings and horse. Flat matte coral #b96369 hair, navy #172638 outlines; transparency behind trimmed hair, exact pixel edges.",
+    "native_registration": "The generated first head is extracted as a common 1:1 native layer. Twelve original face centers drive translation only; alpha and body outside the registered head regions are preserved."
+  }
+}

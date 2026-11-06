@@ -1,0 +1,54 @@
+{
+  "id": "rm_sfx_16",
+  "kind": "final_scene_mix",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_sfx_16_new_context.wav"
+    }
+  ],
+  "asset_sha256": "35ea60b78513f6f544ab43b9ed2035e4376251ff33dc921684b642ab0d89a2c8",
+  "fixture_sha256": "91334443aad7b12706c1a40e8d444a01dadb2a11e1cf85ae2f969bf5c2293d71",
+  "prompt": "This is a final offline scene mix using the actual game gains and native event sequence. Describe only audible evidence. Check whether essential feedback attacks are clear, any intrusive click/distortion or excessive rumbling tail, and whether music continuity is distracted by the effects. Effects need not be as loud as music; a naturally masked quiet tail is not a failure. Report uncertainty and avoid inventing instruments/events. Under 90 words. Fixture context: 实际源动画请求序列（同一当前双声部规则）：class_11_ally_item_25；叠加当前配乐0.50／音效0.65",
+  "max_tokens": 170,
+  "key": "acc71eefdf204abfb38c743e",
+  "source_sha256": [
+    "91334443aad7b12706c1a40e8d444a01dadb2a11e1cf85ae2f969bf5c2293d71"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/91334443aad7b12706c1a40e8d444a01dadb2a11e1cf85ae2f969bf5c2293d71.wav"
+  ],
+  "audio_input_samples": [
+    135255
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "bfb0159d870c027d9e3bcf22f36e4fa600f665814873006c43592f3a1d540908"
+  ],
+  "response": "The audio features a chiptune-style melody with layered sound effects. Feedback attacks are clear and distinct. No intrusive clicks or distortion are present. A faint, natural tail follows each effect, not excessive. Music continuity remains intact; effects are well-masked by the background melody. The mix maintains balance, with sound effects audible but not overpowering. All elements align with the described source and sequence.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 81,
+    "prompt_tokens": 280,
+    "total_tokens": 361,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 252,
+    "prompt_ms": 836.092,
+    "prompt_per_token_ms": 3.3178253968253966,
+    "prompt_per_second": 301.4022380312215,
+    "predicted_n": 81,
+    "predicted_ms": 1337.721,
+    "predicted_per_token_ms": 16.7215125,
+    "predicted_per_second": 59.803202611007826
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 2.19,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

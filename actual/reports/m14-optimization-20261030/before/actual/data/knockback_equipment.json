@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": 67,
+      "name_zh": "拒阵枪",
+      "kind": "weapon",
+      "family": "lance",
+      "allowed_classes": [6, 2, 22],
+      "might": 3,
+      "weight": 3,
+      "hit": 85,
+      "critical": 0,
+      "effective": 0,
+      "hp_cost": 0,
+      "target_flags": 10,
+      "effect_kind": 0,
+      "action": "attack",
+      "base_weapon": 0,
+      "knockback": true,
+      "story_description": "士兵、重装兵、壁垒卫士可用。主动近战命中并造成伤害后，交战结束击退存活目标1格；反击不触发。障碍、占位或不可通行时不击退。",
+      "provenance": "Original design for the adapted campaign; deliberate heavy infantry displacement weapon."
+    }
+  ],
+  "rewards": {
+    "103": {
+      "item_id": 67,
+      "route": "alm",
+      "text": "劳工：押送所里这支拒阵枪留给你们。它能推开近身的敌人，替后面的人让出退路。／旁白：拒阵枪已收入西队行囊。士兵、重装兵、壁垒卫士可装备；主动近战造成伤害后，交战结束击退存活目标1格，身后受阻则不击退。"
+    },
+    "204": {
+      "item_id": 67,
+      "route": "celica",
+      "text": "守灯人：这支拒阵枪由步兵守住岸口时使用。带上它，但不要把人推到同伴要撤离的地方。／旁白：拒阵枪已收入东队行囊。士兵、重装兵、壁垒卫士可装备；主动近战造成伤害后，交战结束击退存活目标1格，身后受阻则不击退。"
+    }
+  },
+  "innate_elites": {
+    "303": ["M33_e1"],
+    "502": ["M52_boss"],
+    "533": ["J53_e2"]
+  }
+}

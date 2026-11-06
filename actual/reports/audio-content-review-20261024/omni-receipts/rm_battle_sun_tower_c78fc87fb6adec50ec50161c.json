@@ -1,0 +1,61 @@
+{
+  "id": "rm_battle_sun_tower",
+  "kind": "music_cadence_candidate",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_sun_tower.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/source/audio-20261024/content-review/candidates/rm_battle_sun_tower.ogg",
+      "seam": true
+    }
+  ],
+  "prompt": "These are two anonymous looping musical excerpts. Each consists of six seconds before a join and six after. Describe any obvious interruption, missing beat, sudden pitch leap, or unexpected level change at the join. Compare the musical arrival into the restart. Prefer 1, 2, or no clear difference, grounded in audio. Do not assume the later input is improved. Under 120 words.",
+  "max_tokens": 230,
+  "key": "c78fc87fb6adec50ec50161c",
+  "source_sha256": [
+    "888931f63728ee673e8ae1ffa5fc44080583279a689e852d0ac4f3483717a1dc",
+    "58792c2bfb5f7a32c47282db391807e1c6682be7165f592ed3e8e7b9f945eaa6"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/888931f63728ee673e8ae1ffa5fc44080583279a689e852d0ac4f3483717a1dc.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/58792c2bfb5f7a32c47282db391807e1c6682be7165f592ed3e8e7b9f945eaa6.ogg"
+  ],
+  "audio_input_samples": [
+    192000,
+    192000
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "2efe3ef3279a9fd26ebdf2953dae23ab12e55a406e92ae81298951c346447ad5",
+    "7d02f847b3136cfbb4173205334c4ed41c5e44ddcd0beb5d1d5e8fbdc6a4856b"
+  ],
+  "response": "No clear difference. Both excerpts are identical in musical content and structure. The join at six seconds is seamless, with no audible interruption, missing beat, pitch leap, or level change. The musical arrival into the restart is identical in both, as the loop is continuous and unbroken.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 58,
+    "prompt_tokens": 458,
+    "total_tokens": 516,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 430,
+    "prompt_ms": 1454.356,
+    "prompt_per_token_ms": 3.3822232558139533,
+    "prompt_per_second": 295.6635101721999,
+    "predicted_n": 58,
+    "predicted_ms": 901.735,
+    "predicted_per_token_ms": 15.819912280701754,
+    "predicted_per_second": 63.211475655264564
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 4.241,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

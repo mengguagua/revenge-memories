@@ -1,0 +1,68 @@
+{
+  "id": "rm_jingle_victory",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_jingle_victory.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/music_93.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_jingle_victory_scene.wav",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is the current game-gain offline mix, including the background pause and resume. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: 关卡胜利且结算首次完成；不用于每次击杀; desired mood: 完成任务、松一口气",
+  "max_tokens": 340,
+  "key": "7d37ef198b17475127c97598",
+  "source_sha256": [
+    "6b365068836eff46ea8f4bb2ed4d710976dac70014c927140a7537abdf18ba76",
+    "210dc354bbaeacdad62b51469ec150ff62933fecbaf94c2f13736e1fae1a9843",
+    "14946077df623a167b60baa89db1b0f89469f20d3f3506c95876c41825d6985d"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/6b365068836eff46ea8f4bb2ed4d710976dac70014c927140a7537abdf18ba76.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/210dc354bbaeacdad62b51469ec150ff62933fecbaf94c2f13736e1fae1a9843.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/14946077df623a167b60baa89db1b0f89469f20d3f3506c95876c41825d6985d.wav"
+  ],
+  "audio_input_samples": [
+    49280,
+    240000,
+    81280
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "239561d575d7cdcb9c75dfce7693557ed9344f461d548aea9ca2bc7e2c894deb",
+    "d5c7e025d3d1cb9f9cbb0b5d7570cd80c6a746d78c5e6d69729843e27f446c11",
+    "d8c4fc8acf55e1b748083c8602d3fe161f46879346c27d80febfb88b83ab4141"
+  ],
+  "response": "Audio 1: The cue features a bright, synthesized chime melody layered over a sustained, low-pitched pad. The timbre is clean and digital, with a slightly metallic quality to the chimes. The energy is moderate and calming, creating a mood of accomplishment and relief. The melody is simple and repetitive, with a gentle, ascending contour that suggests resolution. There is no speech or vocals. The audio is clear, with no noticeable defects. The overall impression is one of a successful completion of a task, with a sense of closure and satisfaction.\n\nAudio 2: This reference track has a clear, sparse retro texture. The sound is simple and direct, with a single melodic line and no background elements. The timbre is characteristic of early digital sound chips, with a slightly buzzy, square-wave quality. The energy is low, and the mood is neutral and functional. The melody is straightforward and unobtrusive.\n\nAudio 3: This mix includes the same chime melody as Audio 1 but with a noticeable background pause and resume. The music is present throughout, but the pause may mask essential feedback sounds. The music does not mask the feedback; rather, the feedback is masked by the music. The overall effect is that the music dominates the soundscape, potentially obscuring important game cues.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 267,
+    "prompt_tokens": 536,
+    "total_tokens": 803,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 508,
+    "prompt_ms": 1830.271,
+    "prompt_per_token_ms": 3.6028956692913385,
+    "prompt_per_second": 277.55452607837856,
+    "predicted_n": 267,
+    "predicted_ms": 4138.057,
+    "predicted_per_token_ms": 15.556605263157895,
+    "predicted_per_second": 64.28137650109701
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 8.13,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "rm_sfx_12",
+  "request": "12",
+  "path": "source/sfx-20261024/audio-guided/candidates/rm_sfx_12.ogg",
+  "sha256": "b4d5d2cdc4ef072099ffba3896a8f1db0ad49de9cfd0f361f6ac2d9a56e7dd55",
+  "bytes": 5377,
+  "source": {
+    "method": "reference-analysed pitch/envelope with new additive synthesis",
+    "reference_path": "actual/assets/original/audio/hp_tick.ogg",
+    "reference_sha256": "0e1a4896f31c7865f764b17dd6da5c7677d7214d14262e42b0cd1e2f7a55054e",
+    "source_path": "source/sfx-20261024/audio-guided/ui-synthesis/rm_sfx_12_float.wav",
+    "copied_pcm": false,
+    "oscillator": "sin(f) + 0.16 sin(3f) + 0.035 sin(5f)",
+    "frequency_range_hz": [
+      1507.32421875,
+      1722.65625
+    ]
+  },
+  "mastering": {
+    "gain_db": 3.805732274834888,
+    "target_active_rms_dbfs": -23.253,
+    "peak_ceiling_dbfs": -13.98
+  },
+  "metrics": {
+    "seconds": 0.11276643990929705,
+    "sample_rate": 44100,
+    "channels": 2,
+    "rms_dbfs": -25.519092720630763,
+    "active_rms_dbfs": -23.439065124932572,
+    "sample_peak_dbfs": -17.78714880381071,
+    "first_50ms_rms_dbfs": -24.502495319155276,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "leading_onset_seconds": 0.0,
+    "longest_internal_silence_seconds": 0.009977324263038548,
+    "last_10ms_rms_dbfs": -67.7667904644293,
+    "first_last_sample_delta": 0.0015016942052170634,
+    "lufs_note": "Integrated loudness is not meaningful for events shorter than 400ms; use active RMS and true peak.",
+    "integrated_lufs": null,
+    "true_peak_dbtp": -17.8
+  },
+  "review_decision": "selected",
+  "review_reason": "Matches final published review index."
+}

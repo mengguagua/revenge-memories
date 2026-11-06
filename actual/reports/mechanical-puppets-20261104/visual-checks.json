@@ -1,0 +1,1683 @@
+{
+	"checks": 66,
+	"errors": [],
+	"labels": [
+		"Real F21 checkpoint loads in actual controller",
+		"Actual F21 fresh deployment",
+		"Rendered 01-f21-deployment",
+		"Text safe areas 01-f21-deployment: []",
+		"Rendered 02-intact-status",
+		"Text safe areas 02-intact-status: []",
+		"Actual confirm opens body/part choice",
+		"Rendered 03-part-choice",
+		"Text safe areas 03-part-choice: []",
+		"Cancel part menu does not spend action or random state",
+		"Actual menu input selects back cannon",
+		"Rendered 04-part-preview",
+		"Text safe areas 04-part-preview: []",
+		"Battle preview displays selected part HP",
+		"Cycling targets clears stale part confirmation",
+		"Actual confirm commits only back-cannon damage",
+		"Actual part attack does not count kill",
+		"Rendered 05-broken-status",
+		"Text safe areas 05-broken-status: []",
+		"Real F21 checkpoint loads in actual controller",
+		"Actual F21 fresh deployment",
+		"Real combat plan for F21_water_monkey_1 distance 3",
+		"Runtime water flight frame selectable",
+		"Rendered 06-water-flight",
+		"Text safe areas 06-water-flight: []",
+		"Water flight uses actual loaded bitmap effect",
+		"Runtime water impact frame selectable",
+		"Rendered 07-water-impact",
+		"Text safe areas 07-water-impact: []",
+		"Real F21 checkpoint loads in actual controller",
+		"Actual F21 fresh deployment",
+		"Real combat plan for F21_water_monkey_1 distance 1",
+		"Runtime palm frame 35 broken=false",
+		"Rendered intact-palm-35",
+		"Text safe areas intact-palm-35: []",
+		"Runtime palm frame 82 broken=false",
+		"Rendered intact-palm-82",
+		"Text safe areas intact-palm-82: []",
+		"Runtime palm frame 190 broken=false",
+		"Rendered intact-palm-190",
+		"Text safe areas intact-palm-190: []",
+		"Rendered intact-hit-flash",
+		"Text safe areas intact-hit-flash: []",
+		"Real F21 checkpoint loads in actual controller",
+		"Actual F21 fresh deployment",
+		"Real combat plan for F21_water_monkey_1 distance 1",
+		"Runtime palm frame 35 broken=true",
+		"Rendered broken-palm-35",
+		"Text safe areas broken-palm-35: []",
+		"Runtime palm frame 82 broken=true",
+		"Rendered broken-palm-82",
+		"Text safe areas broken-palm-82: []",
+		"Runtime palm frame 190 broken=true",
+		"Rendered broken-palm-190",
+		"Text safe areas broken-palm-190: []",
+		"Rendered broken-hit-flash",
+		"Text safe areas broken-hit-flash: []",
+		"Real F21 checkpoint loads in actual controller",
+		"Actual F21 fresh deployment",
+		"Rendered 08-retreat-status",
+		"Text safe areas 08-retreat-status: []",
+		"Actual retreat status shows move8",
+		"Real F21 checkpoint loads in actual controller",
+		"Actual F21 fresh deployment",
+		"Rendered 09-narrow-status",
+		"Text safe areas 09-narrow-status: []"
+	],
+	"passed": true,
+	"scope": "Protected offscreen actual Godot controller and viewport. Controlled part attack and frame captures; not a full natural F21 victory or phone installation.",
+	"shots": [
+		{
+			"audit": {
+				"enemy_range": [],
+				"map_indicator": {
+					"fill": "original",
+					"outline": "000000",
+					"rect": "[P: (-99.0, 161.0), S: (12.0, 12.0)]"
+				},
+				"range_card_hidden": false,
+				"tactical_warnings": []
+			},
+			"file": "01-f21-deployment.png",
+			"layout_errors": [],
+			"preview": {},
+			"size": [
+				406,
+				240
+			]
+		},
+		{
+			"audit": {
+				"enemy_range": [],
+				"map_indicator": {
+					"fill": "original",
+					"outline": "000000",
+					"rect": "[P: (-99.0, 161.0), S: (12.0, 12.0)]"
+				},
+				"range_card_hidden": false,
+				"status_profession": "水猴傀儡",
+				"status_stats": {
+					"critical": 0,
+					"defence": 3,
+					"hit": 89,
+					"hp_cost": 0,
+					"luck": 0,
+					"move": 5,
+					"power": 5,
+					"range": 3,
+					"reach": "(1, 3)",
+					"resistance": 1,
+					"speed": 8
+				},
+				"status_unit": "F21_water_monkey_1",
+				"tactical_warnings": []
+			},
+			"file": "02-intact-status.png",
+			"layout_errors": [],
+			"preview": {},
+			"size": [
+				406,
+				240
+			]
+		},
+		{
+			"audit": {
+				"enemy_range": [],
+				"map_indicator": {
+					"fill": "original",
+					"outline": "000000",
+					"rect": "[P: (157.0, 85.0), S: (12.0, 12.0)]"
+				},
+				"range_card_hidden": false,
+				"status_profession": "水猴傀儡",
+				"status_stats": {
+					"critical": 0,
+					"defence": 3,
+					"hit": 89,
+					"hp_cost": 0,
+					"luck": 0,
+					"move": 5,
+					"power": 5,
+					"range": 3,
+					"reach": "(1, 3)",
+					"resistance": 1,
+					"speed": 8
+				},
+				"status_unit": "F21_water_monkey_1",
+				"tactical_warnings": []
+			},
+			"file": "03-part-choice.png",
+			"layout_errors": [],
+			"preview": {
+				"attacker_occluded": false,
+				"combatants": [
+					"[P: (119.25, 106.0), S: (28.0, 28.0)]",
+					"[P: (145.0, 94.0), S: (24.0, 28.0)]"
+				],
+				"combatants_protected": true,
+				"compact": true,
+				"factions": [
+					{
+						"bounds": "[P: (43.0, 144.0), S: (112.0, 70.0)]",
+						"side": "player",
+						"tint": "(0.7, 1.15, 2.1, 1.0)",
+						"unit": "eileen"
+					},
+					{
+						"bounds": "[P: (155.0, 144.0), S: (112.0, 70.0)]",
+						"side": "enemy",
+						"tint": "(2.8, 0.8, 0.8, 1.0)",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"focus": "[P: (145.0, 86.0), S: (36.0, 48.0)]",
+				"hp_cell_size": "(4.0, 4.0)",
+				"mechanical_target": {
+					"body_hp": 22,
+					"part": "body",
+					"part_hp": 10
+				},
+				"panel": "[P: (35.0, 136.0), S: (240.0, 86.0)]",
+				"stacked": false,
+				"text_font_px": 12,
+				"text_rows": [
+					{
+						"text": "生命52/52",
+						"unit": "eileen"
+					},
+					{
+						"text": "伤害42 命中72%",
+						"unit": "eileen"
+					},
+					{
+						"text": "必杀12%",
+						"unit": "eileen"
+					},
+					{
+						"text": "生命22/22",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "伤害4 命中76%",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "必杀0% 水炮",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"valid": true
+			},
+			"size": [
+				406,
+				240
+			]
+		},
+		{
+			"audit": {
+				"enemy_range": [],
+				"map_indicator": {
+					"fill": "original",
+					"outline": "000000",
+					"rect": "[P: (157.0, 85.0), S: (12.0, 12.0)]"
+				},
+				"range_card_hidden": false,
+				"status_profession": "水猴傀儡",
+				"status_stats": {
+					"critical": 0,
+					"defence": 3,
+					"hit": 89,
+					"hp_cost": 0,
+					"luck": 0,
+					"move": 5,
+					"power": 5,
+					"range": 3,
+					"reach": "(1, 3)",
+					"resistance": 1,
+					"speed": 8
+				},
+				"status_unit": "F21_water_monkey_1",
+				"tactical_warnings": []
+			},
+			"file": "04-part-preview.png",
+			"layout_errors": [],
+			"preview": {
+				"attacker_occluded": false,
+				"combatants": [
+					"[P: (119.25, 106.0), S: (28.0, 28.0)]",
+					"[P: (145.0, 94.0), S: (24.0, 28.0)]"
+				],
+				"combatants_protected": true,
+				"compact": true,
+				"factions": [
+					{
+						"bounds": "[P: (43.0, 144.0), S: (112.0, 70.0)]",
+						"side": "player",
+						"tint": "(0.7, 1.15, 2.1, 1.0)",
+						"unit": "eileen"
+					},
+					{
+						"bounds": "[P: (155.0, 144.0), S: (112.0, 70.0)]",
+						"side": "enemy",
+						"tint": "(2.8, 0.8, 0.8, 1.0)",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"focus": "[P: (145.0, 86.0), S: (36.0, 48.0)]",
+				"hp_cell_size": "(4.0, 4.0)",
+				"mechanical_target": {
+					"body_hp": 22,
+					"part": "back_cannon",
+					"part_hp": 10
+				},
+				"panel": "[P: (35.0, 136.0), S: (240.0, 86.0)]",
+				"stacked": false,
+				"text_font_px": 12,
+				"text_rows": [
+					{
+						"text": "生命52/52",
+						"unit": "eileen"
+					},
+					{
+						"text": "伤害42 命中72%",
+						"unit": "eileen"
+					},
+					{
+						"text": "必杀12%",
+						"unit": "eileen"
+					},
+					{
+						"text": "背炮10/10",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "伤害4 命中76%",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "必杀0% 水炮",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"valid": true
+			},
+			"size": [
+				406,
+				240
+			]
+		},
+		{
+			"audit": {
+				"enemy_range": [],
+				"exp_cells": {
+					"bounds": "[P: (49.0, 138.0), S: (150.0, 8.0)]",
+					"count": 50,
+					"points": 8
+				},
+				"map_indicator": {
+					"fill": "original",
+					"outline": "000000",
+					"rect": "[P: (157.0, 85.0), S: (12.0, 12.0)]"
+				},
+				"range_card_hidden": false,
+				"status_profession": "水猴傀儡",
+				"status_stats": {
+					"critical": 0,
+					"defence": 3,
+					"hit": 89,
+					"hp_cost": 0,
+					"luck": 0,
+					"move": 5,
+					"power": 5,
+					"range": 1,
+					"reach": "(1, 1)",
+					"resistance": 1,
+					"speed": 8
+				},
+				"status_unit": "F21_water_monkey_1",
+				"tactical_warnings": []
+			},
+			"file": "05-broken-status.png",
+			"layout_errors": [],
+			"preview": {
+				"attacker_occluded": false,
+				"combatants": [
+					"[P: (119.25, 106.0), S: (28.0, 28.0)]",
+					"[P: (145.0, 94.0), S: (24.0, 28.0)]"
+				],
+				"combatants_protected": true,
+				"compact": true,
+				"factions": [
+					{
+						"bounds": "[P: (43.0, 144.0), S: (112.0, 70.0)]",
+						"side": "player",
+						"tint": "(0.7, 1.15, 2.1, 1.0)",
+						"unit": "eileen"
+					},
+					{
+						"bounds": "[P: (155.0, 144.0), S: (112.0, 70.0)]",
+						"side": "enemy",
+						"tint": "(2.8, 0.8, 0.8, 1.0)",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"focus": "[P: (145.0, 86.0), S: (36.0, 48.0)]",
+				"hp_cell_size": "(4.0, 4.0)",
+				"mechanical_target": {
+					"body_hp": 22,
+					"part": "back_cannon",
+					"part_hp": 10
+				},
+				"panel": "[P: (35.0, 136.0), S: (240.0, 86.0)]",
+				"stacked": false,
+				"text_font_px": 12,
+				"text_rows": [
+					{
+						"text": "生命52/52",
+						"unit": "eileen"
+					},
+					{
+						"text": "伤害42 命中72%",
+						"unit": "eileen"
+					},
+					{
+						"text": "必杀12%",
+						"unit": "eileen"
+					},
+					{
+						"text": "背炮10/10",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "伤害4 命中76%",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "必杀0% 水炮",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"valid": true
+			},
+			"size": [
+				406,
+				240
+			]
+		},
+		{
+			"audit": {
+				"combat_weapons": {},
+				"enemy_range": [],
+				"exp_cells": {
+					"bounds": "[P: (49.0, 138.0), S: (150.0, 8.0)]",
+					"count": 50,
+					"points": 8
+				},
+				"map_indicator": {
+					"fill": "original",
+					"outline": "000000",
+					"rect": "[P: (157.0, 85.0), S: (12.0, 12.0)]"
+				},
+				"mechanical_part_hp": 10,
+				"range_card_hidden": false,
+				"status_profession": "水猴傀儡",
+				"status_stats": {
+					"critical": 0,
+					"defence": 3,
+					"hit": 89,
+					"hp_cost": 0,
+					"luck": 0,
+					"move": 5,
+					"power": 5,
+					"range": 1,
+					"reach": "(1, 1)",
+					"resistance": 1,
+					"speed": 8
+				},
+				"status_unit": "F21_water_monkey_1",
+				"tactical_warnings": []
+			},
+			"file": "06-water-flight.png",
+			"layout_errors": [],
+			"preview": {
+				"attacker_occluded": false,
+				"combatants": [
+					"[P: (119.25, 106.0), S: (28.0, 28.0)]",
+					"[P: (145.0, 94.0), S: (24.0, 28.0)]"
+				],
+				"combatants_protected": true,
+				"compact": true,
+				"factions": [
+					{
+						"bounds": "[P: (43.0, 144.0), S: (112.0, 70.0)]",
+						"side": "player",
+						"tint": "(0.7, 1.15, 2.1, 1.0)",
+						"unit": "eileen"
+					},
+					{
+						"bounds": "[P: (155.0, 144.0), S: (112.0, 70.0)]",
+						"side": "enemy",
+						"tint": "(2.8, 0.8, 0.8, 1.0)",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"focus": "[P: (145.0, 86.0), S: (36.0, 48.0)]",
+				"hp_cell_size": "(4.0, 4.0)",
+				"mechanical_target": {
+					"body_hp": 22,
+					"part": "back_cannon",
+					"part_hp": 10
+				},
+				"panel": "[P: (35.0, 136.0), S: (240.0, 86.0)]",
+				"stacked": false,
+				"text_font_px": 12,
+				"text_rows": [
+					{
+						"text": "生命52/52",
+						"unit": "eileen"
+					},
+					{
+						"text": "伤害42 命中72%",
+						"unit": "eileen"
+					},
+					{
+						"text": "必杀12%",
+						"unit": "eileen"
+					},
+					{
+						"text": "背炮10/10",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "伤害4 命中76%",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "必杀0% 水炮",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"valid": true
+			},
+			"size": [
+				406,
+				240
+			]
+		},
+		{
+			"audit": {
+				"combat_weapons": {},
+				"enemy_range": [],
+				"exp_cells": {
+					"bounds": "[P: (49.0, 138.0), S: (150.0, 8.0)]",
+					"count": 50,
+					"points": 8
+				},
+				"map_indicator": {
+					"fill": "original",
+					"outline": "000000",
+					"rect": "[P: (157.0, 85.0), S: (12.0, 12.0)]"
+				},
+				"mechanical_part_hp": 10,
+				"range_card_hidden": false,
+				"status_profession": "水猴傀儡",
+				"status_stats": {
+					"critical": 0,
+					"defence": 3,
+					"hit": 89,
+					"hp_cost": 0,
+					"luck": 0,
+					"move": 5,
+					"power": 5,
+					"range": 1,
+					"reach": "(1, 1)",
+					"resistance": 1,
+					"speed": 8
+				},
+				"status_unit": "F21_water_monkey_1",
+				"tactical_warnings": []
+			},
+			"file": "07-water-impact.png",
+			"layout_errors": [],
+			"preview": {
+				"attacker_occluded": false,
+				"combatants": [
+					"[P: (119.25, 106.0), S: (28.0, 28.0)]",
+					"[P: (145.0, 94.0), S: (24.0, 28.0)]"
+				],
+				"combatants_protected": true,
+				"compact": true,
+				"factions": [
+					{
+						"bounds": "[P: (43.0, 144.0), S: (112.0, 70.0)]",
+						"side": "player",
+						"tint": "(0.7, 1.15, 2.1, 1.0)",
+						"unit": "eileen"
+					},
+					{
+						"bounds": "[P: (155.0, 144.0), S: (112.0, 70.0)]",
+						"side": "enemy",
+						"tint": "(2.8, 0.8, 0.8, 1.0)",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"focus": "[P: (145.0, 86.0), S: (36.0, 48.0)]",
+				"hp_cell_size": "(4.0, 4.0)",
+				"mechanical_target": {
+					"body_hp": 22,
+					"part": "back_cannon",
+					"part_hp": 10
+				},
+				"panel": "[P: (35.0, 136.0), S: (240.0, 86.0)]",
+				"stacked": false,
+				"text_font_px": 12,
+				"text_rows": [
+					{
+						"text": "生命52/52",
+						"unit": "eileen"
+					},
+					{
+						"text": "伤害42 命中72%",
+						"unit": "eileen"
+					},
+					{
+						"text": "必杀12%",
+						"unit": "eileen"
+					},
+					{
+						"text": "背炮10/10",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "伤害4 命中76%",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "必杀0% 水炮",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"valid": true
+			},
+			"size": [
+				406,
+				240
+			]
+		},
+		{
+			"audit": {
+				"combat_weapons": {
+					"eileen": {
+						"bounds": "[P: (140.0, 166.0), S: (60.0, 12.0)]",
+						"font_px": 12,
+						"name": "铁剑",
+						"text": "反击：铁剑"
+					}
+				},
+				"enemy_range": [],
+				"exp_cells": {
+					"bounds": "[P: (49.0, 138.0), S: (150.0, 8.0)]",
+					"count": 50,
+					"points": 8
+				},
+				"map_indicator": {
+					"fill": "original",
+					"outline": "000000",
+					"rect": "[P: (157.0, 85.0), S: (12.0, 12.0)]"
+				},
+				"mechanical_part_hp": 10,
+				"range_card_hidden": false,
+				"status_profession": "水猴傀儡",
+				"status_stats": {
+					"critical": 0,
+					"defence": 3,
+					"hit": 89,
+					"hp_cost": 0,
+					"luck": 0,
+					"move": 5,
+					"power": 5,
+					"range": 1,
+					"reach": "(1, 1)",
+					"resistance": 1,
+					"speed": 8
+				},
+				"status_unit": "F21_water_monkey_1",
+				"tactical_warnings": []
+			},
+			"file": "intact-palm-35.png",
+			"layout_errors": [],
+			"preview": {
+				"attacker_occluded": false,
+				"combatants": [
+					"[P: (119.25, 106.0), S: (28.0, 28.0)]",
+					"[P: (145.0, 94.0), S: (24.0, 28.0)]"
+				],
+				"combatants_protected": true,
+				"compact": true,
+				"factions": [
+					{
+						"bounds": "[P: (43.0, 144.0), S: (112.0, 70.0)]",
+						"side": "player",
+						"tint": "(0.7, 1.15, 2.1, 1.0)",
+						"unit": "eileen"
+					},
+					{
+						"bounds": "[P: (155.0, 144.0), S: (112.0, 70.0)]",
+						"side": "enemy",
+						"tint": "(2.8, 0.8, 0.8, 1.0)",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"focus": "[P: (145.0, 86.0), S: (36.0, 48.0)]",
+				"hp_cell_size": "(4.0, 4.0)",
+				"mechanical_target": {
+					"body_hp": 22,
+					"part": "back_cannon",
+					"part_hp": 10
+				},
+				"panel": "[P: (35.0, 136.0), S: (240.0, 86.0)]",
+				"stacked": false,
+				"text_font_px": 12,
+				"text_rows": [
+					{
+						"text": "生命52/52",
+						"unit": "eileen"
+					},
+					{
+						"text": "伤害42 命中72%",
+						"unit": "eileen"
+					},
+					{
+						"text": "必杀12%",
+						"unit": "eileen"
+					},
+					{
+						"text": "背炮10/10",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "伤害4 命中76%",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "必杀0% 水炮",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"valid": true
+			},
+			"size": [
+				406,
+				240
+			]
+		},
+		{
+			"audit": {
+				"combat_weapons": {
+					"eileen": {
+						"bounds": "[P: (140.0, 166.0), S: (60.0, 12.0)]",
+						"font_px": 12,
+						"name": "铁剑",
+						"text": "反击：铁剑"
+					}
+				},
+				"enemy_range": [],
+				"exp_cells": {
+					"bounds": "[P: (49.0, 138.0), S: (150.0, 8.0)]",
+					"count": 50,
+					"points": 8
+				},
+				"map_indicator": {
+					"fill": "original",
+					"outline": "000000",
+					"rect": "[P: (157.0, 85.0), S: (12.0, 12.0)]"
+				},
+				"mechanical_part_hp": 10,
+				"range_card_hidden": false,
+				"status_profession": "水猴傀儡",
+				"status_stats": {
+					"critical": 0,
+					"defence": 3,
+					"hit": 89,
+					"hp_cost": 0,
+					"luck": 0,
+					"move": 5,
+					"power": 5,
+					"range": 1,
+					"reach": "(1, 1)",
+					"resistance": 1,
+					"speed": 8
+				},
+				"status_unit": "F21_water_monkey_1",
+				"tactical_warnings": []
+			},
+			"file": "intact-palm-82.png",
+			"layout_errors": [],
+			"preview": {
+				"attacker_occluded": false,
+				"combatants": [
+					"[P: (119.25, 106.0), S: (28.0, 28.0)]",
+					"[P: (145.0, 94.0), S: (24.0, 28.0)]"
+				],
+				"combatants_protected": true,
+				"compact": true,
+				"factions": [
+					{
+						"bounds": "[P: (43.0, 144.0), S: (112.0, 70.0)]",
+						"side": "player",
+						"tint": "(0.7, 1.15, 2.1, 1.0)",
+						"unit": "eileen"
+					},
+					{
+						"bounds": "[P: (155.0, 144.0), S: (112.0, 70.0)]",
+						"side": "enemy",
+						"tint": "(2.8, 0.8, 0.8, 1.0)",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"focus": "[P: (145.0, 86.0), S: (36.0, 48.0)]",
+				"hp_cell_size": "(4.0, 4.0)",
+				"mechanical_target": {
+					"body_hp": 22,
+					"part": "back_cannon",
+					"part_hp": 10
+				},
+				"panel": "[P: (35.0, 136.0), S: (240.0, 86.0)]",
+				"stacked": false,
+				"text_font_px": 12,
+				"text_rows": [
+					{
+						"text": "生命52/52",
+						"unit": "eileen"
+					},
+					{
+						"text": "伤害42 命中72%",
+						"unit": "eileen"
+					},
+					{
+						"text": "必杀12%",
+						"unit": "eileen"
+					},
+					{
+						"text": "背炮10/10",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "伤害4 命中76%",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "必杀0% 水炮",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"valid": true
+			},
+			"size": [
+				406,
+				240
+			]
+		},
+		{
+			"audit": {
+				"combat_weapons": {
+					"eileen": {
+						"bounds": "[P: (140.0, 166.0), S: (60.0, 12.0)]",
+						"font_px": 12,
+						"name": "铁剑",
+						"text": "反击：铁剑"
+					}
+				},
+				"enemy_range": [],
+				"exp_cells": {
+					"bounds": "[P: (49.0, 138.0), S: (150.0, 8.0)]",
+					"count": 50,
+					"points": 8
+				},
+				"map_indicator": {
+					"fill": "original",
+					"outline": "000000",
+					"rect": "[P: (157.0, 85.0), S: (12.0, 12.0)]"
+				},
+				"mechanical_part_hp": 10,
+				"range_card_hidden": false,
+				"status_profession": "水猴傀儡",
+				"status_stats": {
+					"critical": 0,
+					"defence": 3,
+					"hit": 89,
+					"hp_cost": 0,
+					"luck": 0,
+					"move": 5,
+					"power": 5,
+					"range": 1,
+					"reach": "(1, 1)",
+					"resistance": 1,
+					"speed": 8
+				},
+				"status_unit": "F21_water_monkey_1",
+				"tactical_warnings": []
+			},
+			"file": "intact-palm-190.png",
+			"layout_errors": [],
+			"preview": {
+				"attacker_occluded": false,
+				"combatants": [
+					"[P: (119.25, 106.0), S: (28.0, 28.0)]",
+					"[P: (145.0, 94.0), S: (24.0, 28.0)]"
+				],
+				"combatants_protected": true,
+				"compact": true,
+				"factions": [
+					{
+						"bounds": "[P: (43.0, 144.0), S: (112.0, 70.0)]",
+						"side": "player",
+						"tint": "(0.7, 1.15, 2.1, 1.0)",
+						"unit": "eileen"
+					},
+					{
+						"bounds": "[P: (155.0, 144.0), S: (112.0, 70.0)]",
+						"side": "enemy",
+						"tint": "(2.8, 0.8, 0.8, 1.0)",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"focus": "[P: (145.0, 86.0), S: (36.0, 48.0)]",
+				"hp_cell_size": "(4.0, 4.0)",
+				"mechanical_target": {
+					"body_hp": 22,
+					"part": "back_cannon",
+					"part_hp": 10
+				},
+				"panel": "[P: (35.0, 136.0), S: (240.0, 86.0)]",
+				"stacked": false,
+				"text_font_px": 12,
+				"text_rows": [
+					{
+						"text": "生命52/52",
+						"unit": "eileen"
+					},
+					{
+						"text": "伤害42 命中72%",
+						"unit": "eileen"
+					},
+					{
+						"text": "必杀12%",
+						"unit": "eileen"
+					},
+					{
+						"text": "背炮10/10",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "伤害4 命中76%",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "必杀0% 水炮",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"valid": true
+			},
+			"size": [
+				406,
+				240
+			]
+		},
+		{
+			"audit": {
+				"combat_weapons": {
+					"eileen": {
+						"bounds": "[P: (140.0, 166.0), S: (60.0, 12.0)]",
+						"font_px": 12,
+						"name": "铁剑",
+						"text": "反击：铁剑"
+					}
+				},
+				"enemy_range": [],
+				"exp_cells": {
+					"bounds": "[P: (49.0, 138.0), S: (150.0, 8.0)]",
+					"count": 50,
+					"points": 8
+				},
+				"map_indicator": {
+					"fill": "original",
+					"outline": "000000",
+					"rect": "[P: (157.0, 85.0), S: (12.0, 12.0)]"
+				},
+				"mechanical_part_hp": 10,
+				"range_card_hidden": false,
+				"status_profession": "水猴傀儡",
+				"status_stats": {
+					"critical": 0,
+					"defence": 3,
+					"hit": 89,
+					"hp_cost": 0,
+					"luck": 0,
+					"move": 5,
+					"power": 5,
+					"range": 1,
+					"reach": "(1, 1)",
+					"resistance": 1,
+					"speed": 8
+				},
+				"status_unit": "F21_water_monkey_1",
+				"tactical_warnings": []
+			},
+			"file": "intact-hit-flash.png",
+			"layout_errors": [],
+			"preview": {
+				"attacker_occluded": false,
+				"combatants": [
+					"[P: (119.25, 106.0), S: (28.0, 28.0)]",
+					"[P: (145.0, 94.0), S: (24.0, 28.0)]"
+				],
+				"combatants_protected": true,
+				"compact": true,
+				"factions": [
+					{
+						"bounds": "[P: (43.0, 144.0), S: (112.0, 70.0)]",
+						"side": "player",
+						"tint": "(0.7, 1.15, 2.1, 1.0)",
+						"unit": "eileen"
+					},
+					{
+						"bounds": "[P: (155.0, 144.0), S: (112.0, 70.0)]",
+						"side": "enemy",
+						"tint": "(2.8, 0.8, 0.8, 1.0)",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"focus": "[P: (145.0, 86.0), S: (36.0, 48.0)]",
+				"hp_cell_size": "(4.0, 4.0)",
+				"mechanical_target": {
+					"body_hp": 22,
+					"part": "back_cannon",
+					"part_hp": 10
+				},
+				"panel": "[P: (35.0, 136.0), S: (240.0, 86.0)]",
+				"stacked": false,
+				"text_font_px": 12,
+				"text_rows": [
+					{
+						"text": "生命52/52",
+						"unit": "eileen"
+					},
+					{
+						"text": "伤害42 命中72%",
+						"unit": "eileen"
+					},
+					{
+						"text": "必杀12%",
+						"unit": "eileen"
+					},
+					{
+						"text": "背炮10/10",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "伤害4 命中76%",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "必杀0% 水炮",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"valid": true
+			},
+			"size": [
+				406,
+				240
+			]
+		},
+		{
+			"audit": {
+				"combat_weapons": {
+					"eileen": {
+						"bounds": "[P: (140.0, 166.0), S: (60.0, 12.0)]",
+						"font_px": 12,
+						"name": "铁剑",
+						"text": "反击：铁剑"
+					}
+				},
+				"enemy_range": [],
+				"exp_cells": {
+					"bounds": "[P: (49.0, 138.0), S: (150.0, 8.0)]",
+					"count": 50,
+					"points": 8
+				},
+				"map_indicator": {
+					"fill": "original",
+					"outline": "000000",
+					"rect": "[P: (157.0, 85.0), S: (12.0, 12.0)]"
+				},
+				"mechanical_part_hp": 0,
+				"range_card_hidden": false,
+				"status_profession": "水猴傀儡",
+				"status_stats": {
+					"critical": 0,
+					"defence": 3,
+					"hit": 89,
+					"hp_cost": 0,
+					"luck": 0,
+					"move": 5,
+					"power": 5,
+					"range": 1,
+					"reach": "(1, 1)",
+					"resistance": 1,
+					"speed": 8
+				},
+				"status_unit": "F21_water_monkey_1",
+				"tactical_warnings": []
+			},
+			"file": "broken-palm-35.png",
+			"layout_errors": [],
+			"preview": {
+				"attacker_occluded": false,
+				"combatants": [
+					"[P: (119.25, 106.0), S: (28.0, 28.0)]",
+					"[P: (145.0, 94.0), S: (24.0, 28.0)]"
+				],
+				"combatants_protected": true,
+				"compact": true,
+				"factions": [
+					{
+						"bounds": "[P: (43.0, 144.0), S: (112.0, 70.0)]",
+						"side": "player",
+						"tint": "(0.7, 1.15, 2.1, 1.0)",
+						"unit": "eileen"
+					},
+					{
+						"bounds": "[P: (155.0, 144.0), S: (112.0, 70.0)]",
+						"side": "enemy",
+						"tint": "(2.8, 0.8, 0.8, 1.0)",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"focus": "[P: (145.0, 86.0), S: (36.0, 48.0)]",
+				"hp_cell_size": "(4.0, 4.0)",
+				"mechanical_target": {
+					"body_hp": 22,
+					"part": "back_cannon",
+					"part_hp": 10
+				},
+				"panel": "[P: (35.0, 136.0), S: (240.0, 86.0)]",
+				"stacked": false,
+				"text_font_px": 12,
+				"text_rows": [
+					{
+						"text": "生命52/52",
+						"unit": "eileen"
+					},
+					{
+						"text": "伤害42 命中72%",
+						"unit": "eileen"
+					},
+					{
+						"text": "必杀12%",
+						"unit": "eileen"
+					},
+					{
+						"text": "背炮10/10",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "伤害4 命中76%",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "必杀0% 水炮",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"valid": true
+			},
+			"size": [
+				406,
+				240
+			]
+		},
+		{
+			"audit": {
+				"combat_weapons": {
+					"eileen": {
+						"bounds": "[P: (140.0, 166.0), S: (60.0, 12.0)]",
+						"font_px": 12,
+						"name": "铁剑",
+						"text": "反击：铁剑"
+					}
+				},
+				"enemy_range": [],
+				"exp_cells": {
+					"bounds": "[P: (49.0, 138.0), S: (150.0, 8.0)]",
+					"count": 50,
+					"points": 8
+				},
+				"map_indicator": {
+					"fill": "original",
+					"outline": "000000",
+					"rect": "[P: (157.0, 85.0), S: (12.0, 12.0)]"
+				},
+				"mechanical_part_hp": 0,
+				"range_card_hidden": false,
+				"status_profession": "水猴傀儡",
+				"status_stats": {
+					"critical": 0,
+					"defence": 3,
+					"hit": 89,
+					"hp_cost": 0,
+					"luck": 0,
+					"move": 5,
+					"power": 5,
+					"range": 1,
+					"reach": "(1, 1)",
+					"resistance": 1,
+					"speed": 8
+				},
+				"status_unit": "F21_water_monkey_1",
+				"tactical_warnings": []
+			},
+			"file": "broken-palm-82.png",
+			"layout_errors": [],
+			"preview": {
+				"attacker_occluded": false,
+				"combatants": [
+					"[P: (119.25, 106.0), S: (28.0, 28.0)]",
+					"[P: (145.0, 94.0), S: (24.0, 28.0)]"
+				],
+				"combatants_protected": true,
+				"compact": true,
+				"factions": [
+					{
+						"bounds": "[P: (43.0, 144.0), S: (112.0, 70.0)]",
+						"side": "player",
+						"tint": "(0.7, 1.15, 2.1, 1.0)",
+						"unit": "eileen"
+					},
+					{
+						"bounds": "[P: (155.0, 144.0), S: (112.0, 70.0)]",
+						"side": "enemy",
+						"tint": "(2.8, 0.8, 0.8, 1.0)",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"focus": "[P: (145.0, 86.0), S: (36.0, 48.0)]",
+				"hp_cell_size": "(4.0, 4.0)",
+				"mechanical_target": {
+					"body_hp": 22,
+					"part": "back_cannon",
+					"part_hp": 10
+				},
+				"panel": "[P: (35.0, 136.0), S: (240.0, 86.0)]",
+				"stacked": false,
+				"text_font_px": 12,
+				"text_rows": [
+					{
+						"text": "生命52/52",
+						"unit": "eileen"
+					},
+					{
+						"text": "伤害42 命中72%",
+						"unit": "eileen"
+					},
+					{
+						"text": "必杀12%",
+						"unit": "eileen"
+					},
+					{
+						"text": "背炮10/10",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "伤害4 命中76%",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "必杀0% 水炮",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"valid": true
+			},
+			"size": [
+				406,
+				240
+			]
+		},
+		{
+			"audit": {
+				"combat_weapons": {
+					"eileen": {
+						"bounds": "[P: (140.0, 166.0), S: (60.0, 12.0)]",
+						"font_px": 12,
+						"name": "铁剑",
+						"text": "反击：铁剑"
+					}
+				},
+				"enemy_range": [],
+				"exp_cells": {
+					"bounds": "[P: (49.0, 138.0), S: (150.0, 8.0)]",
+					"count": 50,
+					"points": 8
+				},
+				"map_indicator": {
+					"fill": "original",
+					"outline": "000000",
+					"rect": "[P: (157.0, 85.0), S: (12.0, 12.0)]"
+				},
+				"mechanical_part_hp": 0,
+				"range_card_hidden": false,
+				"status_profession": "水猴傀儡",
+				"status_stats": {
+					"critical": 0,
+					"defence": 3,
+					"hit": 89,
+					"hp_cost": 0,
+					"luck": 0,
+					"move": 5,
+					"power": 5,
+					"range": 1,
+					"reach": "(1, 1)",
+					"resistance": 1,
+					"speed": 8
+				},
+				"status_unit": "F21_water_monkey_1",
+				"tactical_warnings": []
+			},
+			"file": "broken-palm-190.png",
+			"layout_errors": [],
+			"preview": {
+				"attacker_occluded": false,
+				"combatants": [
+					"[P: (119.25, 106.0), S: (28.0, 28.0)]",
+					"[P: (145.0, 94.0), S: (24.0, 28.0)]"
+				],
+				"combatants_protected": true,
+				"compact": true,
+				"factions": [
+					{
+						"bounds": "[P: (43.0, 144.0), S: (112.0, 70.0)]",
+						"side": "player",
+						"tint": "(0.7, 1.15, 2.1, 1.0)",
+						"unit": "eileen"
+					},
+					{
+						"bounds": "[P: (155.0, 144.0), S: (112.0, 70.0)]",
+						"side": "enemy",
+						"tint": "(2.8, 0.8, 0.8, 1.0)",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"focus": "[P: (145.0, 86.0), S: (36.0, 48.0)]",
+				"hp_cell_size": "(4.0, 4.0)",
+				"mechanical_target": {
+					"body_hp": 22,
+					"part": "back_cannon",
+					"part_hp": 10
+				},
+				"panel": "[P: (35.0, 136.0), S: (240.0, 86.0)]",
+				"stacked": false,
+				"text_font_px": 12,
+				"text_rows": [
+					{
+						"text": "生命52/52",
+						"unit": "eileen"
+					},
+					{
+						"text": "伤害42 命中72%",
+						"unit": "eileen"
+					},
+					{
+						"text": "必杀12%",
+						"unit": "eileen"
+					},
+					{
+						"text": "背炮10/10",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "伤害4 命中76%",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "必杀0% 水炮",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"valid": true
+			},
+			"size": [
+				406,
+				240
+			]
+		},
+		{
+			"audit": {
+				"combat_weapons": {
+					"eileen": {
+						"bounds": "[P: (140.0, 166.0), S: (60.0, 12.0)]",
+						"font_px": 12,
+						"name": "铁剑",
+						"text": "反击：铁剑"
+					}
+				},
+				"enemy_range": [],
+				"exp_cells": {
+					"bounds": "[P: (49.0, 138.0), S: (150.0, 8.0)]",
+					"count": 50,
+					"points": 8
+				},
+				"map_indicator": {
+					"fill": "original",
+					"outline": "000000",
+					"rect": "[P: (157.0, 85.0), S: (12.0, 12.0)]"
+				},
+				"mechanical_part_hp": 0,
+				"range_card_hidden": false,
+				"status_profession": "水猴傀儡",
+				"status_stats": {
+					"critical": 0,
+					"defence": 3,
+					"hit": 89,
+					"hp_cost": 0,
+					"luck": 0,
+					"move": 5,
+					"power": 5,
+					"range": 1,
+					"reach": "(1, 1)",
+					"resistance": 1,
+					"speed": 8
+				},
+				"status_unit": "F21_water_monkey_1",
+				"tactical_warnings": []
+			},
+			"file": "broken-hit-flash.png",
+			"layout_errors": [],
+			"preview": {
+				"attacker_occluded": false,
+				"combatants": [
+					"[P: (119.25, 106.0), S: (28.0, 28.0)]",
+					"[P: (145.0, 94.0), S: (24.0, 28.0)]"
+				],
+				"combatants_protected": true,
+				"compact": true,
+				"factions": [
+					{
+						"bounds": "[P: (43.0, 144.0), S: (112.0, 70.0)]",
+						"side": "player",
+						"tint": "(0.7, 1.15, 2.1, 1.0)",
+						"unit": "eileen"
+					},
+					{
+						"bounds": "[P: (155.0, 144.0), S: (112.0, 70.0)]",
+						"side": "enemy",
+						"tint": "(2.8, 0.8, 0.8, 1.0)",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"focus": "[P: (145.0, 86.0), S: (36.0, 48.0)]",
+				"hp_cell_size": "(4.0, 4.0)",
+				"mechanical_target": {
+					"body_hp": 22,
+					"part": "back_cannon",
+					"part_hp": 10
+				},
+				"panel": "[P: (35.0, 136.0), S: (240.0, 86.0)]",
+				"stacked": false,
+				"text_font_px": 12,
+				"text_rows": [
+					{
+						"text": "生命52/52",
+						"unit": "eileen"
+					},
+					{
+						"text": "伤害42 命中72%",
+						"unit": "eileen"
+					},
+					{
+						"text": "必杀12%",
+						"unit": "eileen"
+					},
+					{
+						"text": "背炮10/10",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "伤害4 命中76%",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "必杀0% 水炮",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"valid": true
+			},
+			"size": [
+				406,
+				240
+			]
+		},
+		{
+			"audit": {
+				"combat_weapons": {
+					"eileen": {
+						"bounds": "[P: (140.0, 166.0), S: (60.0, 12.0)]",
+						"font_px": 12,
+						"name": "铁剑",
+						"text": "反击：铁剑"
+					}
+				},
+				"enemy_range": [],
+				"exp_cells": {
+					"bounds": "[P: (49.0, 138.0), S: (150.0, 8.0)]",
+					"count": 50,
+					"points": 8
+				},
+				"map_indicator": {
+					"fill": "original",
+					"outline": "000000",
+					"rect": "[P: (157.0, 85.0), S: (12.0, 12.0)]"
+				},
+				"mechanical_part_hp": 0,
+				"range_card_hidden": false,
+				"status_profession": "水猴傀儡",
+				"status_stats": {
+					"critical": 0,
+					"defence": 3,
+					"hit": 89,
+					"hp_cost": 0,
+					"luck": 0,
+					"move": 8,
+					"power": 5,
+					"range": 1,
+					"reach": "(1, 1)",
+					"resistance": 1,
+					"speed": 8
+				},
+				"status_unit": "F21_water_monkey_1",
+				"tactical_warnings": []
+			},
+			"file": "08-retreat-status.png",
+			"layout_errors": [],
+			"preview": {
+				"attacker_occluded": false,
+				"combatants": [
+					"[P: (119.25, 106.0), S: (28.0, 28.0)]",
+					"[P: (145.0, 94.0), S: (24.0, 28.0)]"
+				],
+				"combatants_protected": true,
+				"compact": true,
+				"factions": [
+					{
+						"bounds": "[P: (43.0, 144.0), S: (112.0, 70.0)]",
+						"side": "player",
+						"tint": "(0.7, 1.15, 2.1, 1.0)",
+						"unit": "eileen"
+					},
+					{
+						"bounds": "[P: (155.0, 144.0), S: (112.0, 70.0)]",
+						"side": "enemy",
+						"tint": "(2.8, 0.8, 0.8, 1.0)",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"focus": "[P: (145.0, 86.0), S: (36.0, 48.0)]",
+				"hp_cell_size": "(4.0, 4.0)",
+				"mechanical_target": {
+					"body_hp": 22,
+					"part": "back_cannon",
+					"part_hp": 10
+				},
+				"panel": "[P: (35.0, 136.0), S: (240.0, 86.0)]",
+				"stacked": false,
+				"text_font_px": 12,
+				"text_rows": [
+					{
+						"text": "生命52/52",
+						"unit": "eileen"
+					},
+					{
+						"text": "伤害42 命中72%",
+						"unit": "eileen"
+					},
+					{
+						"text": "必杀12%",
+						"unit": "eileen"
+					},
+					{
+						"text": "背炮10/10",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "伤害4 命中76%",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "必杀0% 水炮",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"valid": true
+			},
+			"size": [
+				406,
+				240
+			]
+		},
+		{
+			"audit": {
+				"combat_weapons": {
+					"eileen": {
+						"bounds": "[P: (140.0, 166.0), S: (60.0, 12.0)]",
+						"font_px": 12,
+						"name": "铁剑",
+						"text": "反击：铁剑"
+					}
+				},
+				"enemy_range": [],
+				"exp_cells": {
+					"bounds": "[P: (49.0, 138.0), S: (150.0, 8.0)]",
+					"count": 50,
+					"points": 8
+				},
+				"map_indicator": {
+					"fill": "original",
+					"outline": "000000",
+					"rect": "[P: (157.0, 85.0), S: (12.0, 12.0)]"
+				},
+				"mechanical_part_hp": 0,
+				"range_card_hidden": false,
+				"status_profession": "水猴傀儡",
+				"status_stats": {
+					"critical": 0,
+					"defence": 3,
+					"hit": 89,
+					"hp_cost": 0,
+					"luck": 0,
+					"move": 5,
+					"power": 5,
+					"range": 3,
+					"reach": "(1, 3)",
+					"resistance": 1,
+					"speed": 8
+				},
+				"status_unit": "F21_water_monkey_1",
+				"tactical_warnings": []
+			},
+			"file": "09-narrow-status.png",
+			"layout_errors": [],
+			"preview": {
+				"attacker_occluded": false,
+				"combatants": [
+					"[P: (119.25, 106.0), S: (28.0, 28.0)]",
+					"[P: (145.0, 94.0), S: (24.0, 28.0)]"
+				],
+				"combatants_protected": true,
+				"compact": true,
+				"factions": [
+					{
+						"bounds": "[P: (43.0, 144.0), S: (112.0, 70.0)]",
+						"side": "player",
+						"tint": "(0.7, 1.15, 2.1, 1.0)",
+						"unit": "eileen"
+					},
+					{
+						"bounds": "[P: (155.0, 144.0), S: (112.0, 70.0)]",
+						"side": "enemy",
+						"tint": "(2.8, 0.8, 0.8, 1.0)",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"focus": "[P: (145.0, 86.0), S: (36.0, 48.0)]",
+				"hp_cell_size": "(4.0, 4.0)",
+				"mechanical_target": {
+					"body_hp": 22,
+					"part": "back_cannon",
+					"part_hp": 10
+				},
+				"panel": "[P: (35.0, 136.0), S: (240.0, 86.0)]",
+				"stacked": false,
+				"text_font_px": 12,
+				"text_rows": [
+					{
+						"text": "生命52/52",
+						"unit": "eileen"
+					},
+					{
+						"text": "伤害42 命中72%",
+						"unit": "eileen"
+					},
+					{
+						"text": "必杀12%",
+						"unit": "eileen"
+					},
+					{
+						"text": "背炮10/10",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "伤害4 命中76%",
+						"unit": "F21_water_monkey_1"
+					},
+					{
+						"text": "必杀0% 水炮",
+						"unit": "F21_water_monkey_1"
+					}
+				],
+				"valid": true
+			},
+			"size": [
+				256,
+				240
+			]
+		}
+	]
+}

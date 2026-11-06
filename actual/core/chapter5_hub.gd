@@ -9,6 +9,7 @@ static func action(h,key:String) -> void:
   elif g.party.has(id) and g.can_deploy(g.roster[id]) and selected.size()<10:selected.append(id);g.flags.chapter5_ready[g.route]=bool(g.flags.get("chapter5_merged",false))
   open_selection(h);return
  match key:
+  "fifth_shield_keeper":await g.Accessories.talk(h,53)
   "fifth_ward_report":
    g.flags.M51_confirmed=true
    await Prior.pages(h,["照护者：获救组别和遇难者分别登记。赫兰留在这里交代命令、协助照护，未加入出阵队伍。","胡纳普：通往登天桥的路已经标好。"])
@@ -18,14 +19,16 @@ static func action(h,key:String) -> void:
   "fifth_archive_report":await Prior.pages(h,["记录官：救援与失败都留在记录里。这份档案不会替强迁、拒绝救船和清洗开脱。"])
   "fifth_prepare":open_selection(h)
   "fifth_ready":
-   g.flags.chapter5_ready[g.route]=true;ui._notice("本队名单已确认；按S切换另一队确认",6)
+   g.flags.chapter5_ready[g.route]=true;ui._notice("本队名单已确认；从菜单切换另一队确认",6)
   "fifth_merge":
    if g.flags.get("chapter5_merged",false):
     await Prior.pages(h,["守卫：前庭已成为共同整备点。可切换两队分配各自行囊与剩余救治。" ,"守卫：沿北方道路前往神座。" if g.flags.get("final_access",false) else "守卫：从南口返回地图，进入前庭战场。"]);return
    if int(g.route_positions.alm)!=15 or int(g.route_positions.celica)!=15:
-    await Prior.pages(h,["守卫：两队都要先到前庭。按S切换另一队，完成对应门阵并沿地图道路抵达。"]);return
+    await Prior.pages(h,["守卫：两队都要先到前庭。从菜单切换另一队，完成对应门阵并沿地图道路抵达。"]);return
    if not g.flags.chapter5_ready.alm or not g.flags.chapter5_ready.celica:ui._notice("请先分别确认两队出阵名册",6);return
    await Prior.pages(h,["守卫：确认后，两队合流前往前庭，旧书库支路将关闭。", "守卫：记录已经取回。" if g.stage_cleared(511) else "守卫：旧书库尚未探索，镇关枪尚未取得。现在可以返回日宫下层。"])
+   var reminder=g.Accessories.closing_reminder(g,53)
+   if not reminder.is_empty():await Prior.pages(h,["守卫："+reminder])
    ui._open_menu("fifth_merge",["返回整理","确认合流出发"],["close","hub:fifth_confirm_merge"],Vector2(24,96))
   "fifth_confirm_merge":
    if g.ChapterFive.merge(g):h.enter_room("H55",true);ui._notice("两军已合流；南口返回地图进入战场",6)

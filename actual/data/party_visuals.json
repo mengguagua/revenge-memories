@@ -64410,42 +64410,54 @@
         }
       },
       "map": {
-        "path": "res://assets/party-0.7.0/civilian/map.png",
+        "path": "res://assets/reviewed-animation-20261018/professions-class-14-ally-maps-tactical-idle.png",
         "frame_size": [
           96,
           96
         ],
         "frames": 6,
+        "columns": 6,
         "anchor": [
           12,
           20
         ],
+        "native_density": 4,
+        "reviewed_profile": "professions-class-14-ally-maps-tactical-idle",
+        "source_oam_frame_count": 0,
+        "oam_flip_origin_offset": [
+          0,
+          0
+        ],
+        "original_motion": true,
+        "art_revision": "militia-idle-flat-archer-blue-v2-20261021",
         "tile_origin": [
           4,
           4
         ],
         "directions": {
+          "up": [
+            0,
+            0
+          ],
           "down": [
             0,
-            1
+            0
           ],
-          "up": [
-            2,
-            3
+          "left": [
+            0,
+            0
+          ],
+          "right": [
+            0,
+            0
           ],
           "side": [
-            4,
-            5
+            0,
+            0
           ]
         },
-        "class_id": 14,
-        "source_note": "Adjacent metatiles select player/enemy identity before blue/pink palette. CHR cycle preserves original shapes.",
-        "native_density": 4,
-        "logical_frame_size": [
-          24,
-          24
-        ],
-        "native_move_ticks": 16,
+        "default_facing": "right",
+        "static_facing": false,
         "native_cycle": [
           0,
           1,
@@ -64457,94 +64469,193 @@
           8,
           14,
           8
-        ],
-        "static_facing": true
+        ]
       },
       "hub": {
-        "path": "res://assets/party-0.7.0/civilian/hub.png",
+        "path": "res://assets/reviewed-animation-20261018/professions-class-14-ally-maps-tactical-walk.png",
         "frame_size": [
           128,
           96
         ],
-        "frames": 6,
+        "frames": 8,
+        "columns": 8,
         "anchor": [
           16,
           24
         ],
+        "native_density": 4,
+        "reviewed_profile": "professions-class-14-ally-maps-tactical-walk",
+        "source_oam_frame_count": 0,
+        "oam_flip_origin_offset": [
+          0,
+          0
+        ],
+        "original_motion": true,
+        "art_revision": "militia-side-bent-arm-v4-20261021",
         "tile_origin": [
           8,
           8
         ],
         "directions": {
-          "down": [
+          "up": [
             0,
             1
           ],
-          "up": [
+          "right": [
             2,
             3
           ],
-          "side": [
+          "down": [
             4,
             5
+          ],
+          "left": [
+            6,
+            7
+          ],
+          "side": [
+            2,
+            3
           ]
         },
         "default_facing": "right",
-        "sprite_id": 3,
-        "chr_bank": 30,
-        "native_density": 4,
-        "logical_frame_size": [
-          32,
-          24
-        ],
+        "static_facing": false,
+        "direction_cycles": {
+          "up": {
+            "frames": [
+              0,
+              1
+            ],
+            "ticks": [
+              16,
+              16
+            ]
+          },
+          "right": {
+            "frames": [
+              2,
+              3
+            ],
+            "ticks": [
+              16,
+              16
+            ]
+          },
+          "down": {
+            "frames": [
+              4,
+              5
+            ],
+            "ticks": [
+              16,
+              16
+            ]
+          },
+          "left": {
+            "frames": [
+              6,
+              7
+            ],
+            "ticks": [
+              16,
+              16
+            ]
+          }
+        },
         "native_move_ticks": 16
       },
       "map_move": {
+        "path": "res://assets/reviewed-animation-20261018/professions-class-14-ally-maps-tactical-walk.png",
         "frame_size": [
           128,
           96
         ],
-        "frames": 6,
+        "frames": 8,
+        "columns": 8,
         "anchor": [
           16,
           24
         ],
+        "native_density": 4,
+        "reviewed_profile": "professions-class-14-ally-maps-tactical-walk",
+        "source_oam_frame_count": 0,
+        "oam_flip_origin_offset": [
+          0,
+          0
+        ],
+        "original_motion": true,
+        "art_revision": "militia-side-bent-arm-v4-20261021",
         "tile_origin": [
           8,
           8
         ],
         "directions": {
-          "down": [
+          "up": [
             0,
             1
           ],
-          "up": [
+          "right": [
             2,
             3
           ],
-          "side": [
+          "down": [
             4,
             5
+          ],
+          "left": [
+            6,
+            7
+          ],
+          "side": [
+            2,
+            3
           ]
         },
         "default_facing": "right",
-        "native_move_ticks": 16,
-        "source_chr": 26,
-        "source_sprite_id": 48,
-        "source_oam": [
-          "L0AA371",
-          "L0AA382",
-          "L0AA371",
-          "L0AA382",
-          "L0AA371",
-          "L0AA382"
-        ],
-        "path": "res://assets/party-0.7.0/civilian/walk.png",
-        "native_density": 4,
-        "logical_frame_size": [
-          32,
-          24
-        ]
+        "static_facing": false,
+        "direction_cycles": {
+          "up": {
+            "frames": [
+              0,
+              1
+            ],
+            "ticks": [
+              16,
+              16
+            ]
+          },
+          "right": {
+            "frames": [
+              2,
+              3
+            ],
+            "ticks": [
+              16,
+              16
+            ]
+          },
+          "down": {
+            "frames": [
+              4,
+              5
+            ],
+            "ticks": [
+              16,
+              16
+            ]
+          },
+          "left": {
+            "frames": [
+              6,
+              7
+            ],
+            "ticks": [
+              16,
+              16
+            ]
+          }
+        },
+        "native_move_ticks": 16
       }
     }
   },

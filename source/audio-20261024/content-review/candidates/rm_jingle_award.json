@@ -1,0 +1,58 @@
+{
+  "id": "rm_jingle_award",
+  "path": "source/audio-20261024/content-review/candidates/rm_jingle_award.ogg",
+  "source_path": "source/audio-20261024/content-review/raw/rm_jingle_award_2026102827_float.wav",
+  "master_path": "source/audio-20261024/content-review/masters/rm_jingle_award_float.wav",
+  "sha256": "793388381ff8a9fdf31539a00c6dc2004c5e7b6ad7ea745a2eda8cfd30b32581",
+  "bytes": 36683,
+  "source": {
+    "track_id": "rm_jingle_award",
+    "seed": 2026102827,
+    "model": "local Stable Audio 3 sm-music/same-s",
+    "method": "owned-guide audio-conditioned generation",
+    "guide": {
+      "path": "source/audio-20261024/content-review/guides/rm_jingle_award.wav",
+      "sha256": "9a11fb1a5db022e1c74b79c1eef4e1fc9d16c6283131f887eb23e8f772d6d455",
+      "active_end_seconds": 2.4
+    },
+    "prompt": "TrackType: Music, VocalType: Instrumental. Original early-console 8-bit fantasy tactics soundtrack. Strict sparse four-channel chiptune: two warm pulse-wave melody and harmony voices, one rounded triangle bass voice, and quiet band-limited noise percussion. Dry direct electronic tone, clear monophonic lines, memorable NEW melody. Straight rhythm, no swing, no jazz, no reggae. No acoustic instruments, no piano, no guitar, no flute, no orchestral pad, no realistic drum kit, no voice or choir. a warm rising handover phrase with a resolved final tonic. Preserve the supplied new guide melody and its completed final cadence; one phrase followed by a short natural release, then silence.",
+    "seconds": 4.2,
+    "cfg": 2.0,
+    "steps": 8,
+    "dit_dtype": "fp32",
+    "sha256": "6088e0ce0ff6fdc4a1c27b23cd3a469e8bbbde9023b1ac89b83b59793bd3b92d",
+    "source_format": "FLOAT WAV",
+    "offline": true,
+    "generation_wall_seconds": 1.617,
+    "raw_peak": 0.5864167809486389,
+    "raw_rms": 0.07758292555809021
+  },
+  "editing": {
+    "method": "65% newly composed guide + 35% model texture; preserve completed cadence and short release",
+    "guide_mix": 0.65,
+    "model_mix": 0.35,
+    "active_end_seconds": 2.4
+  },
+  "gain_db": -5.43,
+  "target_integrated_lufs": -19,
+  "metrics": {
+    "seconds": 2.58,
+    "rms_dbfs": -21.934853630427497,
+    "sample_peak_dbfs": -9.75979266312131,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "interior_silence_longest_seconds": 0.1,
+    "silent_frame_fraction": 0.13565891472868216,
+    "rms_10ms_p10_dbfs": -68.20382274323796,
+    "rms_10ms_p90_dbfs": -19.09386842156911,
+    "seam_max_sample_delta": 0.0015361073892563581,
+    "derivative_p99": 0.025369422510266304,
+    "seam_delta_over_derivative_p99": 0.06054956074127182,
+    "integrated_lufs": -18.98,
+    "true_peak_dbtp": -9.76,
+    "loudness_range_lu": 0.0
+  },
+  "errors": [],
+  "review_decision": "selected",
+  "review_reason": "Matches final published review index."
+}

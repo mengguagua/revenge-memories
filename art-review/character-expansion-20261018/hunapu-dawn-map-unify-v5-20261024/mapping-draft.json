@@ -1,0 +1,841 @@
+{
+  "schema_version": 1,
+  "character_id": 1,
+  "actor_id": "hunapu",
+  "class_id": 21,
+  "source_side": "ally",
+  "display_name": "胡纳普",
+  "display_class_name": "破晓勇士",
+  "hero_profession": "dawn_warrior",
+  "revision": "hunapu-dawn-map-unify-v5-20261024",
+  "status": "review_candidate",
+  "runtime_integrated": false,
+  "palette": [
+    "172638",
+    "263c64",
+    "3976a8",
+    "a7d7e5",
+    "e4e5df",
+    "d7a27c",
+    "a6776a",
+    "205b96",
+    "b9c5d1",
+    "4366b9"
+  ],
+  "review_note": "破晓勇士地图修订：剧情背向抬膝与脚跟沿髋下收回，不外撇；手臂与腿反向摆动，肩、肘、躯干和衣摆连贯联动。整个人物完整重绘，仅校准头腰中心，不冻结上身或拼接腿部。战斗地图按原作槽位正面持械横移，脸和胸朝前，盾握在胸前前臂上；向右2/3窄步到跨步，向左6/7跨步到窄步。集中阴影及已完成的双剑、必杀火花保留。",
+  "scenarios": [
+    {
+      "id": "story",
+      "source_atlas": "../../hunapu/maps/reference/story-world-walk-source-atlas.png",
+      "original_source_path": "actual/assets/original/graphics/map_units/personal_01.png",
+      "source_frame_size": [
+        32,
+        24
+      ],
+      "source_anchor": [
+        16,
+        24
+      ],
+      "output_atlas": "../../hunapu-dawn-map-body-v3-20261024/story-atlas.png",
+      "output_frame_size": [
+        128,
+        96
+      ],
+      "output_anchor": [
+        64,
+        96
+      ],
+      "logical_render_scale": 0.25,
+      "output_atlas_bytes": 1761,
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "output_index": 0,
+          "path": "../../hunapu-dawn-gait-combo-v2-20261024/story/frame-000.png",
+          "output_path": "../../hunapu-dawn-gait-combo-v2-20261024/story/frame-000.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1534,
+          "sha256": "19f72e713c511f3353944cc26a8572466bd836f50e03d33bdac1360538fe1669"
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "output_index": 1,
+          "path": "../../hunapu-dawn-gait-combo-v2-20261024/story/frame-001.png",
+          "output_path": "../../hunapu-dawn-gait-combo-v2-20261024/story/frame-001.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1506,
+          "sha256": "6b0a5b1a89d8dec10921d9bd8e57cf1d2008ba5e7b0f30dc5b777bd25ced4695"
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "output_index": 2,
+          "path": "../../hunapu-dawn-map-body-v3-20261024/story/frame-002.png",
+          "output_path": "../../hunapu-dawn-map-body-v3-20261024/story/frame-002.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1400,
+          "sha256": "8e1fa02676fb60b82f17e356993cb01de78639621a049b80b1a04d9f422a592c"
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "output_index": 3,
+          "path": "../../hunapu-dawn-map-body-v3-20261024/story/frame-003.png",
+          "output_path": "../../hunapu-dawn-map-body-v3-20261024/story/frame-003.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1429,
+          "sha256": "308b087149cae602fde87c851a7fdc4ff62985d9344587378406556ea3d40839"
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "output_index": 4,
+          "path": "../../hunapu-dawn-map-body-v3-20261024/story/frame-004.png",
+          "output_path": "../../hunapu-dawn-map-body-v3-20261024/story/frame-004.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1387,
+          "sha256": "901cd21719ddaffea2ef841e2aa9d16f66cae46dbc2fd1faa165b82c6cb2c6b6"
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "output_index": 5,
+          "path": "../../hunapu-dawn-map-body-v3-20261024/story/frame-005.png",
+          "output_path": "../../hunapu-dawn-map-body-v3-20261024/story/frame-005.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1463,
+          "sha256": "875060afe1aae7e606c5628f94fe6573df6b8bb5d03f2e2e21f961eca2d62340"
+        }
+      ],
+      "directions": {
+        "down": [
+          0,
+          1
+        ],
+        "up": [
+          2,
+          3
+        ],
+        "right": [
+          4,
+          5
+        ],
+        "left": [
+          4,
+          5
+        ]
+      },
+      "direction_mirror_x": {
+        "left": true
+      },
+      "default_facing": "right",
+      "static_facing": false,
+      "timing": {
+        "native_fps": 60.0988,
+        "move_ticks_per_tile": 16,
+        "frame_ticks": 16,
+        "cycle_ticks": 32,
+        "phase": "continuous-clock",
+        "source_timing_evidence": [
+          "actual/core/story_hub.gd:315",
+          "actual/core/main.gd:592",
+          "actual/core/legacy_main.gd:1190"
+        ],
+        "timing_status": "verified 16 ticks per leg frame; 16 movement ticks per tile, phase does not reset per tile"
+      },
+      "idle": {
+        "kind": "hold-current-direction-first-frame",
+        "directions": {
+          "down": [
+            0
+          ],
+          "up": [
+            2
+          ],
+          "right": [
+            4
+          ],
+          "left": [
+            4
+          ]
+        }
+      },
+      "adaptation_note": "Travel sword sheathed; exact town/world character identity shared.",
+      "shared_artifact": "v3-story-world-identical-frames",
+      "explicit_left_frames": [
+        {
+          "path": "../../map-motion-review-v3/deliverables/story-04-left.png",
+          "source_index": 4,
+          "derived_from": "../../map-motion-review-v3/deliverables/story-04.png",
+          "transform": "horizontal-mirror-about-frame-center",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 754,
+          "sha256": "5cfcf795aacddd6b9a386c50dc02ec7d2251478113cc5e6517084379210d5dc0"
+        },
+        {
+          "path": "../../map-motion-review-v3/deliverables/story-05-left.png",
+          "source_index": 5,
+          "derived_from": "../../map-motion-review-v3/deliverables/story-05.png",
+          "transform": "horizontal-mirror-about-frame-center",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 772,
+          "sha256": "531a849678842f0baa186f35ebeee297e5e8f46dd9b5b410152329e14d14c8b6"
+        }
+      ],
+      "revision": "hunapu-dawn-map-body-v3-20261024",
+      "review_note": "破晓勇士地图修订：剧情背向抬膝与脚跟沿髋下收回，不外撇；手臂与腿反向摆动，肩、肘、躯干和衣摆连贯联动。整个人物完整重绘，仅校准头腰中心，不冻结上身或拼接腿部。战斗地图按原作槽位正面持械横移，脸和胸朝前，盾握在胸前前臂上；向右2/3窄步到跨步，向左6/7跨步到窄步。集中阴影及已完成的双剑、必杀火花保留。",
+      "art_review_status": "awaiting_user_review",
+      "palette": [
+        "#172638",
+        "#3976B5",
+        "#E4E1C8",
+        "#DDA77D"
+      ],
+      "preview_ground": "map-motion-review-v3/reference/grounds/story-P00-cobble.png",
+      "ground_shadow": {
+        "path": "hunapu-story-shadow-20261018/story-shadow.png",
+        "size": [
+          11,
+          3
+        ],
+        "offset": [
+          1,
+          -1
+        ],
+        "alpha": 0.38,
+        "kind": "continuous_compact_story_ground_shadow",
+        "source": "ImageGen compact pixel projection; continuous center beneath both walking phases."
+      },
+      "motion_review": "../../hunapu-dawn-map-body-v3-20261024/README.md",
+      "parent_visual_review_passed": false,
+      "preview_video": "../../demos/videos/hunapu-maps-story--walk-right.mp4",
+      "status": "review_candidate",
+      "display_name": "胡纳普"
+    },
+    {
+      "id": "world",
+      "source_atlas": "../../hunapu/maps/reference/story-world-walk-source-atlas.png",
+      "original_source_path": "actual/assets/original/graphics/map_units/personal_01.png",
+      "source_frame_size": [
+        32,
+        24
+      ],
+      "source_anchor": [
+        16,
+        24
+      ],
+      "output_atlas": "../../hunapu-dawn-map-body-v3-20261024/story-atlas.png",
+      "output_frame_size": [
+        128,
+        96
+      ],
+      "output_anchor": [
+        64,
+        96
+      ],
+      "logical_render_scale": 0.25,
+      "output_atlas_bytes": 1761,
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "output_index": 0,
+          "path": "../../hunapu-dawn-gait-combo-v2-20261024/story/frame-000.png",
+          "output_path": "../../hunapu-dawn-gait-combo-v2-20261024/story/frame-000.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1534,
+          "sha256": "19f72e713c511f3353944cc26a8572466bd836f50e03d33bdac1360538fe1669"
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "output_index": 1,
+          "path": "../../hunapu-dawn-gait-combo-v2-20261024/story/frame-001.png",
+          "output_path": "../../hunapu-dawn-gait-combo-v2-20261024/story/frame-001.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1506,
+          "sha256": "6b0a5b1a89d8dec10921d9bd8e57cf1d2008ba5e7b0f30dc5b777bd25ced4695"
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "output_index": 2,
+          "path": "../../hunapu-dawn-map-body-v3-20261024/story/frame-002.png",
+          "output_path": "../../hunapu-dawn-map-body-v3-20261024/story/frame-002.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1400,
+          "sha256": "8e1fa02676fb60b82f17e356993cb01de78639621a049b80b1a04d9f422a592c"
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "output_index": 3,
+          "path": "../../hunapu-dawn-map-body-v3-20261024/story/frame-003.png",
+          "output_path": "../../hunapu-dawn-map-body-v3-20261024/story/frame-003.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1429,
+          "sha256": "308b087149cae602fde87c851a7fdc4ff62985d9344587378406556ea3d40839"
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "output_index": 4,
+          "path": "../../hunapu-dawn-map-body-v3-20261024/story/frame-004.png",
+          "output_path": "../../hunapu-dawn-map-body-v3-20261024/story/frame-004.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1387,
+          "sha256": "901cd21719ddaffea2ef841e2aa9d16f66cae46dbc2fd1faa165b82c6cb2c6b6"
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "output_index": 5,
+          "path": "../../hunapu-dawn-map-body-v3-20261024/story/frame-005.png",
+          "output_path": "../../hunapu-dawn-map-body-v3-20261024/story/frame-005.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1463,
+          "sha256": "875060afe1aae7e606c5628f94fe6573df6b8bb5d03f2e2e21f961eca2d62340"
+        }
+      ],
+      "directions": {
+        "down": [
+          0,
+          1
+        ],
+        "up": [
+          2,
+          3
+        ],
+        "right": [
+          4,
+          5
+        ],
+        "left": [
+          4,
+          5
+        ]
+      },
+      "direction_mirror_x": {
+        "left": true
+      },
+      "default_facing": "right",
+      "static_facing": false,
+      "timing": {
+        "native_fps": 60.0988,
+        "move_ticks_per_tile": 16,
+        "frame_ticks": 16,
+        "cycle_ticks": 32,
+        "phase": "continuous-clock",
+        "source_timing_evidence": [
+          "actual/core/story_hub.gd:315",
+          "actual/core/main.gd:592",
+          "actual/core/legacy_main.gd:1190"
+        ],
+        "timing_status": "verified 16 ticks per leg frame; 16 movement ticks per tile, phase does not reset per tile"
+      },
+      "idle": {
+        "kind": "hold-current-direction-first-frame",
+        "directions": {
+          "down": [
+            0
+          ],
+          "up": [
+            2
+          ],
+          "right": [
+            4
+          ],
+          "left": [
+            4
+          ]
+        }
+      },
+      "adaptation_note": "Travel sword sheathed; exact town/world character identity shared.",
+      "shared_artifact": "v3-story-world-identical-frames",
+      "explicit_left_frames": [
+        {
+          "path": "../../map-motion-review-v3/deliverables/story-04-left.png",
+          "source_index": 4,
+          "derived_from": "../../map-motion-review-v3/deliverables/story-04.png",
+          "transform": "horizontal-mirror-about-frame-center",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 754,
+          "sha256": "5cfcf795aacddd6b9a386c50dc02ec7d2251478113cc5e6517084379210d5dc0"
+        },
+        {
+          "path": "../../map-motion-review-v3/deliverables/story-05-left.png",
+          "source_index": 5,
+          "derived_from": "../../map-motion-review-v3/deliverables/story-05.png",
+          "transform": "horizontal-mirror-about-frame-center",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 772,
+          "sha256": "531a849678842f0baa186f35ebeee297e5e8f46dd9b5b410152329e14d14c8b6"
+        }
+      ],
+      "palette": [
+        "#172638",
+        "#3976B5",
+        "#E4E1C8",
+        "#DDA77D"
+      ],
+      "ground_shadow": {
+        "path": "hunapu-story-shadow-20261018/story-shadow.png",
+        "size": [
+          11,
+          3
+        ],
+        "offset": [
+          1,
+          -1
+        ],
+        "alpha": 0.38,
+        "kind": "continuous_compact_story_ground_shadow",
+        "source": "ImageGen compact pixel projection; continuous center beneath both walking phases."
+      },
+      "revision": "hunapu-dawn-map-body-v3-20261024",
+      "review_note": "破晓勇士地图修订：剧情背向抬膝与脚跟沿髋下收回，不外撇；手臂与腿反向摆动，肩、肘、躯干和衣摆连贯联动。整个人物完整重绘，仅校准头腰中心，不冻结上身或拼接腿部。战斗地图按原作槽位正面持械横移，脸和胸朝前，盾握在胸前前臂上；向右2/3窄步到跨步，向左6/7跨步到窄步。集中阴影及已完成的双剑、必杀火花保留。",
+      "art_review_status": "awaiting_user_review",
+      "preview_ground": "map-motion-review-v3/reference/grounds/world-W02-route.png",
+      "motion_review": "../../hunapu-dawn-map-body-v3-20261024/README.md",
+      "parent_visual_review_passed": false,
+      "preview_video": "../../demos/videos/hunapu-maps-world--walk-right.mp4",
+      "shadow_revision": "hunapu-world-shadow-20261018",
+      "status": "review_candidate",
+      "display_name": "胡纳普"
+    },
+    {
+      "id": "tactical-walk",
+      "class_id": 21,
+      "source_side": "ally",
+      "character_id": 1,
+      "display_name": "胡纳普",
+      "source_atlas": "../../source-input/corrected-tactical-walk/class-21-ally.png",
+      "source_frame_size": [
+        32,
+        24
+      ],
+      "source_anchor": [
+        16,
+        24
+      ],
+      "source_columns": 8,
+      "output_atlas": "../../hunapu-dawn-map-unify-v5-20261024/tactical-walk-atlas.png",
+      "output_frame_size": [
+        128,
+        96
+      ],
+      "output_anchor": [
+        64,
+        96
+      ],
+      "logical_render_scale": 0.25,
+      "output_atlas_bytes": 6343,
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "output_index": 0,
+          "path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-walk/frame-000.png",
+          "output_path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-walk/frame-000.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1603,
+          "sha256": "d0fc70abd746411e67e40a706d4124e2784be05743a5f1b78e771a6c54fade47"
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "output_index": 1,
+          "path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-walk/frame-001.png",
+          "output_path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-walk/frame-001.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1592,
+          "sha256": "1e7dfd5133243856f7c90e37cc5517cb30f942b4e3d2b7c42f86515783469868"
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "output_index": 2,
+          "path": "../../hunapu-dawn-strafe-v4-20261024/tactical-walk/frame-002.png",
+          "output_path": "../../hunapu-dawn-strafe-v4-20261024/tactical-walk/frame-002.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1557,
+          "sha256": "e40514f8ffab7feae35640739c95e98c4f5972fd4bd6a55a780b36beea053bbe"
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "output_index": 3,
+          "path": "../../hunapu-dawn-strafe-v4-20261024/tactical-walk/frame-003.png",
+          "output_path": "../../hunapu-dawn-strafe-v4-20261024/tactical-walk/frame-003.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1664,
+          "sha256": "03dceff418e4ad54f8ac5391c4747e2871082d733b98540a5c4b98a3549154d4"
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "output_index": 4,
+          "path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-walk/frame-004.png",
+          "output_path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-walk/frame-004.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1650,
+          "sha256": "09ab01e1e6392c35154a663826042f52bdc9b86664ec4e8e3e4d517b7b986a90"
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "output_index": 5,
+          "path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-walk/frame-005.png",
+          "output_path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-walk/frame-005.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1617,
+          "sha256": "f78278c596c0ac2b19e67f9dea36227c56256a72e7c5383cb27f4a821c155285"
+        },
+        {
+          "source_index": 6,
+          "source_frame": 6,
+          "output_index": 6,
+          "path": "../../hunapu-dawn-strafe-v4-20261024/tactical-walk/frame-006.png",
+          "output_path": "../../hunapu-dawn-strafe-v4-20261024/tactical-walk/frame-006.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1670,
+          "sha256": "da0015529a5456eeb1a15aba23577547c9d26c72a284210fce924c70cb80426c"
+        },
+        {
+          "source_index": 7,
+          "source_frame": 7,
+          "output_index": 7,
+          "path": "../../hunapu-dawn-strafe-v4-20261024/tactical-walk/frame-007.png",
+          "output_path": "../../hunapu-dawn-strafe-v4-20261024/tactical-walk/frame-007.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1556,
+          "sha256": "4963ea9ae2cc8f3e146a8e07f702f9d107484e59cf9899a7b74abd5b576c94a1"
+        }
+      ],
+      "directions": {
+        "up": [
+          0,
+          1
+        ],
+        "right": [
+          2,
+          3
+        ],
+        "down": [
+          4,
+          5
+        ],
+        "left": [
+          6,
+          7
+        ]
+      },
+      "direction_mirror_x": {},
+      "static_facing": false,
+      "timing": {
+        "native_fps": 60.0988,
+        "frame_ticks": 16,
+        "cycle_ticks": 32,
+        "phase_source": "$36 & $10 selects phase; L0BB62C",
+        "movement_pixels_per_tick": 1,
+        "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+      },
+      "source_audit": {
+        "status": "verified_native_tactical",
+        "source_chr": 27,
+        "overlay": "../../source-input/corrected-tactical-walk/overlay.json",
+        "verification": "../../source-input/corrected-tactical-walk/verification.json",
+        "record_key": "class-21-ally",
+        "cpu_entry": "bank011:L0BB5B1",
+        "caller": "bank006:L06BA0A→bank11 dispatch3 L0BB59D",
+        "native_render": "bank015:L0FE80F with bank8/0589=0",
+        "hero_name_override": false,
+        "old_source_status": "Historical CHR26 plus village table hybrid, retained unchanged; not used as motion geometry."
+      },
+      "proven_mirror_pairs": [
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          2
+        ]
+      ],
+      "mirror_note": "Full native CPU mirroring already baked. Left phases cross:6=mirror3,7=mirror2. No additional runtime direction mirror.",
+      "parent_visual_review_passed": false,
+      "review_scope": "Root passed all four light boards; agent separately viewed all four dark boards and full transparent silhouettes.",
+      "qa_report": "native-walk-qa-report.json",
+      "revision": "hunapu-dawn-map-unify-v5-20261024",
+      "review_note": "以已确认左右横移为统一人物模型：相同纯色蓝发、脸型与头身比例、厚浅蓝肩胸甲、护臂与深蓝长靴、蓝芯银剑和小盾。向上／向下保留交替换腿、前后遮挡与原持械架势，待机保留斜举→平举→过顶的举剑循环，中心稳定。左右横移原图保持。",
+      "art_review_status": "awaiting_user_review",
+      "palette": [
+        "#172638",
+        "#3976B5",
+        "#E4E1C8",
+        "#DDA77D"
+      ],
+      "preview_ground": "map-motion-review-v3/reference/grounds/tactical-M11.png",
+      "ground_shadow": {
+        "path": "hunapu-story-shadow-20261018/story-shadow.png",
+        "size": [
+          8,
+          2
+        ],
+        "offset": [
+          0,
+          -0.75
+        ],
+        "alpha": 0.42,
+        "kind": "continuous_compact_centered_tactical_shadow",
+        "source": "Reuse continuous compact story projection; fixed under pelvis, no scattered peripheral pixels."
+      },
+      "motion_review": "../../hunapu-dawn-map-unify-v5-20261024/README.md",
+      "preview_video": "../../demos/videos/hunapu-maps-tactical-walk--walk-right.mp4",
+      "status": "review_candidate"
+    },
+    {
+      "id": "tactical-idle",
+      "source_atlas": "../../hunapu/maps/reference/tactical-idle-source-atlas.png",
+      "original_source_path": "actual/assets/original/graphics/map_units/class_21_ally.png",
+      "source_frame_size": [
+        24,
+        24
+      ],
+      "source_anchor": [
+        12,
+        20
+      ],
+      "output_atlas": "../../hunapu-dawn-map-unify-v5-20261024/tactical-idle-atlas.png",
+      "output_frame_size": [
+        96,
+        96
+      ],
+      "output_anchor": [
+        48,
+        80
+      ],
+      "logical_render_scale": 0.25,
+      "output_atlas_bytes": 3582,
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "output_index": 0,
+          "path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-000.png",
+          "output_path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-000.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 1621,
+          "sha256": "1c37f85ccd63b2c111a25c6ee9bda45648989f6a1d5da1ec526ab8146aa162d2"
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "output_index": 1,
+          "path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-001.png",
+          "output_path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-001.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 1609,
+          "sha256": "823d8ee3c44acaa5cb58c7c5d96e6f552f86631bac35567a2e06d48f0be27193"
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "output_index": 2,
+          "path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-002.png",
+          "output_path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-002.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 1682,
+          "sha256": "a2157182bd671a920c84e98e7c382c101beb1f47003862863398f11bebb7f6ea"
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "output_index": 3,
+          "path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-003.png",
+          "output_path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-003.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 1609,
+          "sha256": "823d8ee3c44acaa5cb58c7c5d96e6f552f86631bac35567a2e06d48f0be27193"
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "output_index": 4,
+          "path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-004.png",
+          "output_path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-004.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 1621,
+          "sha256": "1c37f85ccd63b2c111a25c6ee9bda45648989f6a1d5da1ec526ab8146aa162d2"
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "output_index": 5,
+          "path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-005.png",
+          "output_path": "../../hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-005.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 1609,
+          "sha256": "823d8ee3c44acaa5cb58c7c5d96e6f552f86631bac35567a2e06d48f0be27193"
+        }
+      ],
+      "directions": {
+        "all": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "direction_mirror_x": {},
+      "default_facing": "right",
+      "static_facing": true,
+      "timing": {
+        "native_fps": 60.0988,
+        "cycle_frames": [
+          0,
+          1,
+          2,
+          1
+        ],
+        "frame_ticks": [
+          14,
+          8,
+          14,
+          8
+        ]
+      },
+      "idle": {
+        "kind": "original-fixed-facing-cycle",
+        "frames": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "adaptation_note": "Preserved v2-size2 idle artwork and timing; ivory-rimmed blue shield; four-color palette.",
+      "revision": "hunapu-dawn-map-unify-v5-20261024",
+      "review_note": "以已确认左右横移为统一人物模型：相同纯色蓝发、脸型与头身比例、厚浅蓝肩胸甲、护臂与深蓝长靴、蓝芯银剑和小盾。向上／向下保留交替换腿、前后遮挡与原持械架势，待机保留斜举→平举→过顶的举剑循环，中心稳定。左右横移原图保持。",
+      "art_review_status": "awaiting_user_review",
+      "palette": [
+        "#172638",
+        "#3976B5",
+        "#E4E1C8",
+        "#DDA77D"
+      ],
+      "preview_ground": "map-motion-review-v3/reference/grounds/tactical-M11.png",
+      "ground_shadow": {
+        "path": "hunapu-story-shadow-20261018/story-shadow.png",
+        "size": [
+          8,
+          2
+        ],
+        "offset": [
+          0,
+          -0.75
+        ],
+        "alpha": 0.42,
+        "kind": "continuous_compact_centered_tactical_shadow",
+        "source": "Reuse continuous compact story projection; fixed under pelvis, no scattered peripheral pixels."
+      },
+      "motion_review": "../../hunapu-dawn-map-unify-v5-20261024/README.md",
+      "parent_visual_review_passed": false,
+      "preview_video": "../../demos/videos/hunapu-maps-tactical-idle--idle-cycle.mp4",
+      "status": "review_candidate",
+      "display_name": "胡纳普"
+    }
+  ]
+}

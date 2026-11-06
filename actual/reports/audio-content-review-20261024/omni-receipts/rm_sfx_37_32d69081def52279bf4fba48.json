@@ -1,0 +1,54 @@
+{
+  "id": "rm_sfx_37",
+  "kind": "final_scene_mix",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_sfx_37_new_context.wav"
+    }
+  ],
+  "asset_sha256": "a72fde35086887be8aad0f28f645537dfc0605bdec6a84948cad5e8d4ee93b6c",
+  "fixture_sha256": "367039e28f912075233119494644bcccc458275a68b2022a26156719712c8a73",
+  "prompt": "This is a final offline scene mix using the actual game gains and native event sequence. Describe only audible evidence. Check whether essential feedback attacks are clear, any intrusive click/distortion or excessive rumbling tail, and whether music continuity is distracted by the effects. Effects need not be as loud as music; a naturally masked quiet tail is not a failure. Report uncertainty and avoid inventing instruments/events. Under 90 words. Fixture context: 兼容备用：未检出当前调用，不增加猜测的游戏触发",
+  "max_tokens": 170,
+  "key": "32d69081def52279bf4fba48",
+  "source_sha256": [
+    "367039e28f912075233119494644bcccc458275a68b2022a26156719712c8a73"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/367039e28f912075233119494644bcccc458275a68b2022a26156719712c8a73.wav"
+  ],
+  "audio_input_samples": [
+    128000
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "78bb50d3b4c48967f901f7e0b8f1681509d602be2a3a72ab8253057dd6a1637e"
+  ],
+  "response": "The audio contains a sequence of rapid, high-pitched electronic beeps, consistent with in-game UI feedback. No intrusive clicks, distortion, or excessive rumbling tails are audible. The beeps are clear and distinct, with no masking by music or other effects. The sound events appear to be naturally masked by the game's ambient audio, with no evidence of music distraction. The sequence ends abruptly, suggesting a final event. No additional instruments or environmental sounds are present.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 95,
+    "prompt_tokens": 256,
+    "total_tokens": 351,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 228,
+    "prompt_ms": 716.804,
+    "prompt_per_token_ms": 3.143877192982456,
+    "prompt_per_second": 318.07858215076925,
+    "predicted_n": 95,
+    "predicted_ms": 1470.612,
+    "predicted_per_token_ms": 15.644808510638299,
+    "predicted_per_second": 63.91896706949215
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 2.205,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

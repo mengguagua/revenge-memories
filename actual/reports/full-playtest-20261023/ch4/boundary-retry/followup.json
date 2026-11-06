@@ -1,0 +1,90 @@
+{
+  "checkpoints": [
+    {
+      "name": "chapter-end",
+      "path": "res://reports/full-playtest-20261023/ch4/boundary-retry/boundary-retry-chapter-end.json",
+      "stage": 408,
+      "turn": 21,
+      "view": "chapter_end"
+    },
+    {
+      "name": "chapter5-start",
+      "path": "res://reports/full-playtest-20261023/ch4/boundary-retry/boundary-retry-chapter5-start.json",
+      "stage": 501,
+      "turn": 1,
+      "view": "world"
+    }
+  ],
+  "checks": [
+    {
+      "kind": "F44 promotion and light sword persisted; second conversation idempotent",
+      "light_swords": 1,
+      "passed": true,
+      "profession": "light_guide",
+      "source": "res://reports/full-playtest-20261023/ch4/current/current-after-408.json"
+    },
+    {
+      "chapter": 5,
+      "kind": "fourth-to-fifth chapter boundary",
+      "passed": true,
+      "source": "res://reports/full-playtest-20261023/ch4/current/current-after-408.json",
+      "view": "world"
+    }
+  ],
+  "content": [
+    {
+      "code": "F44",
+      "kind": "dialogue_or_objective",
+      "speaker": "地方技术员",
+      "stage": 408,
+      "text": "局部隔离试验已成功。三个\n调节点由留守工匠接手，不\n需要远征队一直站在那里。",
+      "turn": 21
+    },
+    {
+      "code": "F44",
+      "kind": "dialogue_or_objective",
+      "speaker": "艾琳",
+      "stage": 408,
+      "text": "先保护住这里的人。等西塔\n也安全停下，再读两岸的确\n认信。",
+      "turn": 21
+    },
+    {
+      "code": "F44",
+      "kind": "dialogue_or_objective",
+      "speaker": "旁白",
+      "stage": 408,
+      "text": "艾琳已掌握地方循环的调节步骤。原有\n法术训练保留，试验不代替同伴救治。",
+      "turn": 21
+    },
+    {
+      "code": "F44",
+      "kind": "dialogue_or_objective",
+      "speaker": "信使",
+      "stage": 408,
+      "text": "王都、日塔与祭所均已完\n成。两队可回营站整理物\n资，准备下一段路。",
+      "turn": 21
+    },
+    {
+      "code": "F44",
+      "kind": "dialogue_or_objective",
+      "speaker": "信使",
+      "stage": 408,
+      "text": "续愿戒尚未取得；领取需S4\n1保住名册、确认避难院并胜\n利。进入第五章后无法补",
+      "turn": 21
+    },
+    {
+      "code": "F44",
+      "kind": "dialogue_or_objective",
+      "speaker": "信使",
+      "stage": 408,
+      "text": "做。不影响主线。",
+      "turn": 21
+    }
+  ],
+  "failures": [],
+  "forced_victories": false,
+  "inputs": 55,
+  "passed": true,
+  "source_saves_modified": false,
+  "stat_edits": false
+}

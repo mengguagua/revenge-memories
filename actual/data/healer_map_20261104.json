@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "cases": {
+    "healer": {
+      "duration": 1.2,
+      "release": 0.3,
+      "impact": 0.58,
+      "actor": {
+        "path": "res://assets/healer-map-20261104/healer-cast.png",
+        "frame_size": [
+          128,
+          128
+        ],
+        "columns": 5,
+        "native_density": 4,
+        "tile_origin": [
+          7.3125,
+          12.0
+        ],
+        "timeline": [
+          [
+            0,
+            0
+          ],
+          [
+            0.04,
+            1
+          ],
+          [
+            0.14,
+            2
+          ],
+          [
+            0.3,
+            3
+          ],
+          [
+            0.72,
+            4
+          ]
+        ],
+        "flip": false,
+        "foot_pixels_unchanged": true,
+        "idle_pixels_unchanged": true,
+        "frames": 5
+      },
+      "fx": "res://assets/healer-map-20261104/healer-fx.png",
+      "fx_anchor": [
+        96,
+        161
+      ],
+      "sfx": "rm_sfx_21"
+    },
+    "saint": {
+      "duration": 1.4,
+      "release": 0.3,
+      "impact": 0.58,
+      "actor": {
+        "path": "res://assets/healer-map-20261104/saint-cast.png",
+        "frame_size": [
+          128,
+          128
+        ],
+        "columns": 5,
+        "native_density": 4,
+        "tile_origin": [
+          6.75,
+          10.0
+        ],
+        "timeline": [
+          [
+            0,
+            0
+          ],
+          [
+            0.04,
+            1
+          ],
+          [
+            0.14,
+            2
+          ],
+          [
+            0.3,
+            3
+          ],
+          [
+            0.72,
+            4
+          ]
+        ],
+        "flip": true,
+        "foot_pixels_unchanged": true,
+        "idle_pixels_unchanged": true,
+        "frames": 5
+      },
+      "fx": "res://assets/healer-map-20261104/saint-fx.png",
+      "fx_anchor": [
+        96,
+        161
+      ],
+      "sfx": "rm_sfx_21"
+    }
+  },
+  "buff": {
+    "name": "强身",
+    "physical_defence": 2,
+    "turns": 2,
+    "icon": "res://assets/healer-map-20261104/strong-body.png"
+  }
+}

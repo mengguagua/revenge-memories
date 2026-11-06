@@ -1,0 +1,672 @@
+{
+  "scope": "Production Godot phone scene and real MAP rules/renderer; directed fixture placements; fixed 30fps clock for export. Not iPhone footage; only temporary test journals.",
+  "fps": 30,
+  "game_sfx_gain": 0.65,
+  "background_music": false,
+  "sound_events": [
+    {
+      "contacts": [
+        "preview_enemy_0",
+        "preview_enemy_1",
+        "preview_enemy_2"
+      ],
+      "frame_start": 0,
+      "frames": 36,
+      "key": "hunapu_base",
+      "name": "破阵",
+      "seconds": 1.2,
+      "sounds": [
+        {
+          "key": "map_hunapu_base",
+          "time": 0.3
+        },
+        {
+          "key": "hit",
+          "time": 0.533333333333333
+        }
+      ],
+      "start_seconds": 0.0
+    },
+    {
+      "contacts": [
+        "preview_enemy_0",
+        "preview_enemy_1",
+        "preview_enemy_2",
+        "preview_enemy_3",
+        "preview_enemy_4"
+      ],
+      "frame_start": 36,
+      "frames": 41,
+      "key": "hunapu_advanced",
+      "name": "破晓·破阵",
+      "seconds": 1.36666666666667,
+      "sounds": [
+        {
+          "key": "map_hunapu_advanced",
+          "time": 0.3
+        },
+        {
+          "key": "hit",
+          "time": 0.533333333333333
+        }
+      ],
+      "start_seconds": 1.2
+    },
+    {
+      "contacts": [
+        "preview_enemy_0",
+        "preview_enemy_1",
+        "preview_enemy_2"
+      ],
+      "frame_start": 77,
+      "frames": 38,
+      "key": "eileen_base",
+      "name": "焰环",
+      "seconds": 1.26666666666667,
+      "sounds": [
+        {
+          "key": "rm_sfx_16",
+          "time": 0.3
+        },
+        {
+          "key": "map_eileen_base",
+          "time": 0.6
+        }
+      ],
+      "start_seconds": 2.56666666666667
+    },
+    {
+      "contacts": [
+        "preview_enemy_0",
+        "preview_enemy_1",
+        "preview_enemy_2",
+        "preview_enemy_3",
+        "preview_enemy_4"
+      ],
+      "frame_start": 115,
+      "frames": 44,
+      "key": "eileen_advanced",
+      "name": "引光·焰环",
+      "seconds": 1.46666666666667,
+      "sounds": [
+        {
+          "key": "rm_sfx_16",
+          "time": 0.3
+        },
+        {
+          "key": "map_eileen_advanced",
+          "time": 0.6
+        }
+      ],
+      "start_seconds": 3.83333333333333
+    },
+    {
+      "contacts": [
+        "preview_enemy_0",
+        "preview_enemy_1",
+        "preview_enemy_2",
+        "preview_enemy_3",
+        "preview_enemy_4"
+      ],
+      "frame_start": 159,
+      "frames": 33,
+      "key": "hunapu_bow",
+      "name": "破晓·破阵",
+      "seconds": 1.1,
+      "sounds": [
+        {
+          "key": "map_bow_draw",
+          "time": 0.1
+        },
+        {
+          "key": "map_hunapu_bow",
+          "time": 0.4
+        },
+        {
+          "key": "hit",
+          "time": 0.633333333333333
+        }
+      ],
+      "start_seconds": 5.3
+    }
+  ],
+  "files": [
+    {
+      "purpose": "production engine clip with SFX",
+      "file": "hunapu_base.mp4",
+      "bytes": 208548,
+      "seconds": 1.2,
+      "sha256": "173d73786081c0d87003e750c2c58dfdbe8ffa86ce6a31c9839cce9100fab74e"
+    },
+    {
+      "purpose": "nearest-neighbor review crop of the same engine clip",
+      "file": "hunapu_base-close.mp4",
+      "bytes": 248918,
+      "seconds": 1.2,
+      "sha256": "73dc483f7a54336e082b641edc38accb9f64abf55dca05bc341e1b1a78e4de40"
+    },
+    {
+      "purpose": "actual video frame poster",
+      "file": "hunapu_base-close.jpg",
+      "width": 920,
+      "height": 720,
+      "bytes": 179440,
+      "sha256": "029e13efd7d9a01af7761d2b6a22e60218ca2c734383ecb058c4474a303787a1"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "hunapu-base-menu.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 69416,
+      "sha256": "cd1578186faa48acb1794005060acd2778708415225150d2ffed6be435b2470d"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "hunapu-base-target-free.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 69623,
+      "sha256": "8a6e04599e2e34d1a015b750d1b6f809e57473734cd54e8200cee07360d5ec1c"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "hunapu-base-target-third.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 69861,
+      "sha256": "b2ebdadc418889de857a8701438888518b874021774572cc0400a06a6a5fe89e"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "hunapu-base-motion-11.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 81022,
+      "sha256": "a1a500198c1ed6d6577bad09b454d963c57e8bdc8f69561651023f46953c71b1"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "hunapu-base-motion-18.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 84462,
+      "sha256": "eb59ce0c9b047568a56b870a3bb1914fa02f6d7ff2816c8431f0efdce3d07c93"
+    },
+    {
+      "purpose": "production engine clip with SFX",
+      "file": "hunapu_advanced.mp4",
+      "bytes": 252672,
+      "seconds": 1.36666666666667,
+      "sha256": "12ea97421ebab41ec6f6284edda238bf169567cd3c4792ae8f5239693a1f359b"
+    },
+    {
+      "purpose": "nearest-neighbor review crop of the same engine clip",
+      "file": "hunapu_advanced-close.mp4",
+      "bytes": 340690,
+      "seconds": 1.36666666666667,
+      "sha256": "f0b5076f2eb586240de4cce6113be195660c05b1ea3fdc3f2a14fd7f554c2879"
+    },
+    {
+      "purpose": "actual video frame poster",
+      "file": "hunapu_advanced-close.jpg",
+      "width": 920,
+      "height": 720,
+      "bytes": 178452,
+      "sha256": "7b25bd013959c76cb46faff573357fd3808ac4ba0abd58ab6637cdc9ffebf12b"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "hunapu-advanced-menu.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 70230,
+      "sha256": "57cd41340c5dfdaf5eb96d09f3fd52e6445584994046b8ffba786013937842c8"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "hunapu-advanced-target-free.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 71535,
+      "sha256": "812acef6d362a8e932875f5035263b1ed9b151f8fcbff465bceec8306a13cf93"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "hunapu-advanced-target-third.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 71580,
+      "sha256": "56aba93edefdacfe9b12a26ad1d14f4069e66095cb2146cfec87019b3d4bf050"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "hunapu-advanced-motion-11.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 100111,
+      "sha256": "dcdf3b275488cbc4339a91b793492c2cee9e76df900686f5ef983bb5ed9609be"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "hunapu-advanced-motion-18.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 108736,
+      "sha256": "a81e4d07e2705acb702b698cd4a3519b5b147630439297a694c239e6e8d26869"
+    },
+    {
+      "purpose": "production engine clip with SFX",
+      "file": "eileen_base.mp4",
+      "bytes": 197469,
+      "seconds": 1.26666666666667,
+      "sha256": "64ba2b055573313a4f31cb3fa56ffa806c5db3bb0ba63bd814e20d977f652cef"
+    },
+    {
+      "purpose": "nearest-neighbor review crop of the same engine clip",
+      "file": "eileen_base-close.mp4",
+      "bytes": 232021,
+      "seconds": 1.26666666666667,
+      "sha256": "5a7b9e6661909f4d8b6c440b32d1e6e1df8a7d617062291254e85835f3d21ede"
+    },
+    {
+      "purpose": "actual video frame poster",
+      "file": "eileen_base-close.jpg",
+      "width": 920,
+      "height": 720,
+      "bytes": 156973,
+      "sha256": "86fbb2a9ad6681c7878bbb48d859a04c9060c9463b1eab33f682b84f2ca990fe"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "eileen-base-menu.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 63122,
+      "sha256": "e95f0b55923ae4f5a11968a12081ecf5bd652e9fde976d241f7c5ca5dcc504e3"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "eileen-base-target-free.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 63162,
+      "sha256": "848e3b167beb17d23a99cded291023fb2fe80f97745e5ddc8d52b91bc1695c8d"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "eileen-base-target-third.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 63708,
+      "sha256": "6d9aea6d0104402408f28029a24bd635b9a91efa1bfc01d86ec73f59a9481570"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "eileen-base-motion-11.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 62383,
+      "sha256": "2eb6c3961839e3ad40b7b9baaf2efe9630a2f3ea0d26bb34ef396433515bb05b"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "eileen-base-motion-18.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 75534,
+      "sha256": "895cc121dd869c2cc2e6175005b49d6c3c966d6a174f11ea0003db132c9d27ff"
+    },
+    {
+      "purpose": "production engine clip with SFX",
+      "file": "eileen_advanced.mp4",
+      "bytes": 220850,
+      "seconds": 1.46666666666667,
+      "sha256": "a28d24674d88b9195565ec0ad248a43cedf4539cabf14b1256aa7b175b55aa2b"
+    },
+    {
+      "purpose": "nearest-neighbor review crop of the same engine clip",
+      "file": "eileen_advanced-close.mp4",
+      "bytes": 295252,
+      "seconds": 1.46666666666667,
+      "sha256": "0c269277c11d84a1d6df7bbc4b3a9812b87355fc0ac04bde6c996498f93aa61e"
+    },
+    {
+      "purpose": "actual video frame poster",
+      "file": "eileen_advanced-close.jpg",
+      "width": 920,
+      "height": 720,
+      "bytes": 151837,
+      "sha256": "3f406e9d3613d29905c23f2d2ab78c5b051e8b6b3200ee495275e5edd2dab820"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "eileen-advanced-menu.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 64782,
+      "sha256": "222937f7d6e2ed2ed3360c663b37ad68a585ccdeca456c2d77795d4db197ef8c"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "eileen-advanced-target-free.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 65242,
+      "sha256": "05e2e9fa6e96c5c2ff4098104ed9164d5e1132f3db991d5203327af3c7464c39"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "eileen-advanced-target-third.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 65301,
+      "sha256": "8d19a7bc6f052b088203f6a480aeb331116a2c4428e10b20cb57783954616cd8"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "eileen-advanced-motion-11.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 66285,
+      "sha256": "46fe814647882351d8b3e8eff1d5a58a43127ec9982c6a83c2e86252b16e45be"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "eileen-advanced-motion-18.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 88629,
+      "sha256": "e04ad635f8941f7b905d4501be61d7dfed509b9b0596d690d25325e293ac1637"
+    },
+    {
+      "purpose": "production engine clip with SFX",
+      "file": "hunapu_bow.mp4",
+      "bytes": 205377,
+      "seconds": 1.1,
+      "sha256": "7f571e9edc15cb05c26c08851dc11ef74841e199a169a8b26b57efa3fbb0599d"
+    },
+    {
+      "purpose": "nearest-neighbor review crop of the same engine clip",
+      "file": "hunapu_bow-close.mp4",
+      "bytes": 221234,
+      "seconds": 1.1,
+      "sha256": "874632ffe546d3d071b750cab45eeab502b7ce5f2fe44fa0bedd25a5c4b47a57"
+    },
+    {
+      "purpose": "actual video frame poster",
+      "file": "hunapu_bow-close.jpg",
+      "width": 920,
+      "height": 720,
+      "bytes": 177967,
+      "sha256": "a70a04301f4159b7ba2240e83d7791c38adfef0564a42c44bc7cb2275e7469e1"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "hunapu-bow-menu.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 69791,
+      "sha256": "90c2116ab520b0036ea348c67c316cd94f487f8dfb55302c5d34d71f434d190c"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "hunapu-bow-target-free.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 71535,
+      "sha256": "812acef6d362a8e932875f5035263b1ed9b151f8fcbff465bceec8306a13cf93"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "hunapu-bow-target-third.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 71580,
+      "sha256": "56aba93edefdacfe9b12a26ad1d14f4069e66095cb2146cfec87019b3d4bf050"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "hunapu-bow-motion-11.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 74391,
+      "sha256": "b2687c67ab9d035bbc93ddee74f145f9bb76323c90d6be66b8325811a1cdb380"
+    },
+    {
+      "purpose": "production engine screenshot",
+      "file": "hunapu-bow-motion-18.png",
+      "width": 1280,
+      "height": 592,
+      "bytes": 72900,
+      "sha256": "d510cec5ad1972b59ea9b61b48ec09eb35cd2de45b670c6abdba5abd018c6178"
+    },
+    {
+      "purpose": "five-case production engine reel with SFX",
+      "file": "map-runtime-all.mp4",
+      "bytes": 1071372,
+      "seconds": 6.4,
+      "sha256": "da7de2a577b31853f10e8fa96b533ffe3f60b799789e1ed70157b18aa7f67f9f"
+    },
+    {
+      "purpose": "nearest-neighbor review crop of five-case reel",
+      "file": "map-runtime-all-close.mp4",
+      "bytes": 1440007,
+      "seconds": 6.4,
+      "sha256": "5389b15f81907491ec78f0bc53ae2e3499cebcf0cb9af535a087c23e5a9c8c4e"
+    }
+  ],
+  "audio": [
+    {
+      "key": "map_hunapu_base",
+      "id": "rm_map_hunapu_base",
+      "path": "res://assets/sfx/map-20261029/rm_map_hunapu_base.ogg",
+      "duration": 0.6,
+      "sample_rate": 44100,
+      "channels": 2,
+      "bytes": 10959,
+      "sha256": "5dde9aa38f2559b562113020336d3fb803f45addf75c402b6f7e357450fee514",
+      "peak_dbfs": -4.837950984155231,
+      "rms_dbfs": -22.010582305285777,
+      "trimmed_leading_seconds": 0.0,
+      "source": "source/map-20261029/audio/v2/hunapu_base-raw.wav",
+      "mix": {
+        "guide_fraction": 0.72,
+        "generated_texture_fraction": 0.28,
+        "one_attack_only": true
+      },
+      "source_metadata": {
+        "model": "local Stable Audio 3 sm-sfx/same-s",
+        "dit_dtype": "fp32",
+        "method": "original gesture guide conditioned generation",
+        "guide": "source/map-20261029/audio/v2/hunapu_base-guide.wav",
+        "guide_sha256": "09d1ca6f047cc9f21aa3680986de9ad6f10ac376f7d24110b200239026cb9b30",
+        "init_noise_level": 0.42,
+        "seed": 20261029030,
+        "steps": 8,
+        "cfg": 2.0,
+        "prompt": "TrackType: SFX. One compact fantasy steel sword slash: crisp metallic air sweep, dense short upper-mid whoosh and a little gritty armor scrape, forceful but restrained, one gesture, not a long cinematic explosion. Single isolated game sound effect, immediate onset then quick clean decay. No voices or music.",
+        "negative_prompt": "music, melody, beat, speech, voice, vocals, crowd, background ambience, multiple attacks, repeated event, long reverb, cinematic trailer, gunshot",
+        "offline": true,
+        "wall_seconds": 1.53,
+        "sha256": "79cc5e36a2a2015e9beb6a5d8f8a38f18ca18955497b22dab763a8547b1c3674"
+      }
+    },
+    {
+      "key": "map_hunapu_advanced",
+      "id": "rm_map_hunapu_advanced",
+      "path": "res://assets/sfx/map-20261029/rm_map_hunapu_advanced.ogg",
+      "duration": 0.78,
+      "sample_rate": 44100,
+      "channels": 2,
+      "bytes": 15085,
+      "sha256": "b3baede9e7d4f59454f0ca42a03be8f5a45ab694096197304d6cf2c94abe66e5",
+      "peak_dbfs": -5.186622149204982,
+      "rms_dbfs": -22.461714961620487,
+      "trimmed_leading_seconds": 0.0,
+      "source": "source/map-20261029/audio/v2/hunapu_advanced-raw.wav",
+      "mix": {
+        "guide_fraction": 0.72,
+        "generated_texture_fraction": 0.28,
+        "one_attack_only": true
+      },
+      "source_metadata": {
+        "model": "local Stable Audio 3 sm-sfx/same-s",
+        "dit_dtype": "fp32",
+        "method": "original gesture guide conditioned generation",
+        "guide": "source/map-20261029/audio/v2/hunapu_advanced-guide.wav",
+        "guide_sha256": "7aa5cf5f450d9454833d1e2266bf5017832a22ee9635e8f7f5c3d2c0f3a2d1c6",
+        "init_noise_level": 0.42,
+        "seed": 20261029031,
+        "steps": 8,
+        "cfg": 2.0,
+        "prompt": "TrackType: SFX. One powerful broad steel blade air slash: layered sharp silver metallic sweep over a strong wind rush and brief coarse armor-breaking crackle. Clearly wider and richer than a small sword slash. Dry, fast decay, no ringing musical note. Single isolated game sound effect, immediate onset then quick clean decay. No voices or music.",
+        "negative_prompt": "music, melody, beat, speech, voice, vocals, crowd, background ambience, multiple attacks, repeated event, long reverb, cinematic trailer, gunshot",
+        "offline": true,
+        "wall_seconds": 1.25,
+        "sha256": "1dfdbc3791488755777553770d2cccb47f3855d98166cc8c1d31a8782953ca32"
+      }
+    },
+    {
+      "key": "map_eileen_base",
+      "id": "rm_map_eileen_base",
+      "path": "res://assets/sfx/map-20261029/rm_map_eileen_base.ogg",
+      "duration": 0.72,
+      "sample_rate": 44100,
+      "channels": 2,
+      "bytes": 12763,
+      "sha256": "665e62a434b5c3b65bcc66e5428a0dab93dd4cde50ff4f8b48d96cabd6c398eb",
+      "peak_dbfs": -5.054261798199163,
+      "rms_dbfs": -24.022747283410943,
+      "trimmed_leading_seconds": 0.0,
+      "source": "source/map-20261029/audio/v2/eileen_base-raw.wav",
+      "mix": {
+        "guide_fraction": 0.72,
+        "generated_texture_fraction": 0.28,
+        "one_attack_only": true
+      },
+      "source_metadata": {
+        "model": "local Stable Audio 3 sm-sfx/same-s",
+        "dit_dtype": "fp32",
+        "method": "original gesture guide conditioned generation",
+        "guide": "source/map-20261029/audio/v2/eileen_base-guide.wav",
+        "guide_sha256": "b2d5af0cb82bebd8376bf8a4f60fd4f7360c33f0bdc47587d351a557e40736c3",
+        "init_noise_level": 0.42,
+        "seed": 20261029032,
+        "steps": 8,
+        "cfg": 2.0,
+        "prompt": "TrackType: SFX. One compact magical fire ring bursting outward: a quick bright flame ignition puff, dense fiery rushing body and short crackling decay. One clear burst, no continuous fireplace, no drums, no long rumble. Single isolated game sound effect, immediate onset then quick clean decay. No voices or music.",
+        "negative_prompt": "music, melody, beat, speech, voice, vocals, crowd, background ambience, multiple attacks, repeated event, long reverb, cinematic trailer, gunshot",
+        "offline": true,
+        "wall_seconds": 1.29,
+        "sha256": "c2ca0291064252e5052d04f6afbf1aedf4f21a59a38024ef01e1b312e52b1fcb"
+      }
+    },
+    {
+      "key": "map_eileen_advanced",
+      "id": "rm_map_eileen_advanced",
+      "path": "res://assets/sfx/map-20261029/rm_map_eileen_advanced.ogg",
+      "duration": 0.9,
+      "sample_rate": 44100,
+      "channels": 2,
+      "bytes": 15853,
+      "sha256": "5b5d950a01113108b99779ae8bd0f30ae6d9b066d96082510534207fd297ad24",
+      "peak_dbfs": -4.623666526912401,
+      "rms_dbfs": -23.46865236684751,
+      "trimmed_leading_seconds": 0.0,
+      "source": "source/map-20261029/audio/v2/eileen_advanced-raw.wav",
+      "mix": {
+        "guide_fraction": 0.72,
+        "generated_texture_fraction": 0.28,
+        "one_attack_only": true
+      },
+      "source_metadata": {
+        "model": "local Stable Audio 3 sm-sfx/same-s",
+        "dit_dtype": "fp32",
+        "method": "original gesture guide conditioned generation",
+        "guide": "source/map-20261029/audio/v2/eileen_advanced-guide.wav",
+        "guide_sha256": "0883b0bb0a58963c606ae9b67cea41d77066b7efd2a359c6dff1d1abad6969b0",
+        "init_noise_level": 0.42,
+        "seed": 20261029033,
+        "steps": 8,
+        "cfg": 2.0,
+        "prompt": "TrackType: SFX. One bright powerful magical fire pillar and outward flame ring explosion: sharply defined fiery ignition, full but controlled low-mid flame pressure, airy radiant shimmer and quick embers dying away. One burst, dry and compact, no bell melody, no sustained rumble. Single isolated game sound effect, immediate onset then quick clean decay. No voices or music.",
+        "negative_prompt": "music, melody, beat, speech, voice, vocals, crowd, background ambience, multiple attacks, repeated event, long reverb, cinematic trailer, gunshot",
+        "offline": true,
+        "wall_seconds": 1.24,
+        "sha256": "528012e95372f6e2659913ac8c2e834576f98760685efb6a8a408114a93ed73e"
+      }
+    },
+    {
+      "key": "map_hunapu_bow",
+      "id": "rm_map_hunapu_bow",
+      "path": "res://assets/sfx/map-20261029/rm_map_hunapu_bow.ogg",
+      "duration": 0.55,
+      "sample_rate": 44100,
+      "channels": 2,
+      "bytes": 11348,
+      "sha256": "db4d704b5351e3ea43782314c54294247c7fa641c6677d8e203da73373179278",
+      "peak_dbfs": -3.1861172919508594,
+      "rms_dbfs": -22.317209912870673,
+      "trimmed_leading_seconds": 0.0,
+      "source": "source/map-20261029/audio/v2/hunapu_bow-raw.wav",
+      "mix": {
+        "guide_fraction": 0.72,
+        "generated_texture_fraction": 0.28,
+        "one_attack_only": true
+      },
+      "source_metadata": {
+        "model": "local Stable Audio 3 sm-sfx/same-s",
+        "dit_dtype": "fp32",
+        "method": "original gesture guide conditioned generation",
+        "guide": "source/map-20261029/audio/v2/hunapu_bow-guide.wav",
+        "guide_sha256": "83dc3001f3d062e3be32d03302f18e703c528dbe52b7e613f3fbf75c4f79bd1b",
+        "init_noise_level": 0.42,
+        "seed": 20261029034,
+        "steps": 8,
+        "cfg": 2.0,
+        "prompt": "TrackType: SFX. One strong recurve bow string snapping forward and a swift arrow air hiss, tight dry elastic twang with a clean fast projectile whoosh. One shot only, clear and immediate, no sword metal, no gun, no bullet casing, no impact sequence. Single isolated game sound effect, immediate onset then quick clean decay. No voices or music.",
+        "negative_prompt": "music, melody, beat, speech, voice, vocals, crowd, background ambience, multiple attacks, repeated event, long reverb, cinematic trailer, gunshot",
+        "offline": true,
+        "wall_seconds": 1.25,
+        "sha256": "7685af2a026f3cba6d3dde44a2c600232e3c10e84a8c228845753ab5ecda75f0"
+      }
+    },
+    {
+      "key": "map_bow_draw",
+      "id": "rm_map_bow_draw",
+      "path": "res://assets/sfx/map-20261029/rm_map_bow_draw.ogg",
+      "duration": 0.28,
+      "sample_rate": 44100,
+      "channels": 2,
+      "bytes": 7735,
+      "sha256": "b499cd06cee46cbc0657a906a549ed6da8c049817b4a9bcc34f52e79c115bddb",
+      "peak_dbfs": -5.7860151500563,
+      "rms_dbfs": -20.305331567572253,
+      "trimmed_leading_seconds": 0.0,
+      "source": "source/map-20261029/audio/v2/bow_draw-raw.wav",
+      "mix": {
+        "guide_fraction": 0.72,
+        "generated_texture_fraction": 0.28,
+        "one_attack_only": true
+      },
+      "source_metadata": {
+        "model": "local Stable Audio 3 sm-sfx/same-s",
+        "dit_dtype": "fp32",
+        "method": "original gesture guide conditioned generation",
+        "guide": "source/map-20261029/audio/v2/bow_draw-guide.wav",
+        "guide_sha256": "cdf415a33efbda3caf996ef3906c31c3f1c63ab0c5f4593fbaff67fb0d7b192a",
+        "init_noise_level": 0.42,
+        "seed": 20261029035,
+        "steps": 8,
+        "cfg": 2.0,
+        "prompt": "TrackType: SFX. One very short restrained recurve bow draw: taut string tension rising and a quiet wooden limb creak, dry elastic friction, brief and clear. No release twang, no gun, no impact, no musical strings. Single isolated game sound effect, immediate onset then quick clean decay. No voices or music.",
+        "negative_prompt": "music, melody, beat, speech, voice, vocals, crowd, background ambience, multiple attacks, repeated event, long reverb, cinematic trailer, gunshot",
+        "offline": true,
+        "wall_seconds": 1.24,
+        "sha256": "d62ae70cea74ff18a2326a0fd0a182d3209b5332dfd016d99f9b47de6aba9844"
+      }
+    }
+  ],
+  "audio_export": "Same gameplay gain and recorded cue times. Clip endings have a 15ms fade; game audio tails never delay input."
+}

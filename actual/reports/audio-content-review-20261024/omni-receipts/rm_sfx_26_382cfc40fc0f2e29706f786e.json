@@ -1,0 +1,54 @@
+{
+  "id": "rm_sfx_26",
+  "kind": "final_scene_mix",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_sfx_26_new_context.wav"
+    }
+  ],
+  "asset_sha256": "5f11ea7651042429220f2bf45b02e5fe7338d77943d201ecb13dafead22f46fd",
+  "fixture_sha256": "7671d8585b62a7703eecb94798a72ee4cd1fe8d3f56bf83109388df54fd9e430",
+  "prompt": "This is a final offline scene mix using the actual game gains and native event sequence. Describe only audible evidence. Check whether essential feedback attacks are clear, any intrusive click/distortion or excessive rumbling tail, and whether music continuity is distracted by the effects. Effects need not be as loud as music; a naturally masked quiet tail is not a failure. Report uncertainty and avoid inventing instruments/events. Under 90 words. Fixture context: 实际源动画请求序列（同一当前双声部规则）：class_11_ally_item_32；叠加当前配乐0.50／音效0.65",
+  "max_tokens": 170,
+  "key": "382cfc40fc0f2e29706f786e",
+  "source_sha256": [
+    "7671d8585b62a7703eecb94798a72ee4cd1fe8d3f56bf83109388df54fd9e430"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/7671d8585b62a7703eecb94798a72ee4cd1fe8d3f56bf83109388df54fd9e430.wav"
+  ],
+  "audio_input_samples": [
+    113956
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "3d0d49d0c876c01d72ae1c4cda7aab303364d9a74e2a563c081c4bac583e335a"
+  ],
+  "response": "The audio features a synthesized melody with a retro, chiptune quality. A high-pitched, descending electronic sound effect occurs at 00:02, followed by a sharp, percussive click at 00:04. The music continues without interruption, maintaining a steady rhythm and volume. There is no noticeable distortion or intrusive noise. The effect is clearly audible but does not disrupt the musical continuity. The tail of the effect is brief and naturally masked by the music. No excessive rumbling is present.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 107,
+    "prompt_tokens": 267,
+    "total_tokens": 374,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 239,
+    "prompt_ms": 673.762,
+    "prompt_per_token_ms": 2.8190878661087866,
+    "prompt_per_second": 354.7246653862937,
+    "predicted_n": 107,
+    "predicted_ms": 1643.473,
+    "predicted_per_token_ms": 15.504462264150943,
+    "predicted_per_second": 64.49756095780096
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 2.334,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAP · 正式接入预览</title><link rel="stylesheet" href="runtime/runtime.css?v=2"></head>
+<body><main>
+<header><p class="eyebrow">REVENGE & MEMORIES / IN GAME</p><div class="heading"><h1>MAP 正式接入</h1><span class="badge">5种演出 · 同步音效</span></div><p class="lead">从选择范围到一次结算。保留已确认的地图造型与挥剑、拉弓动作，单次演出约1秒多。伤害数字改用低饱和砖红与深色细描边。</p><a class="back" href="index.html?v=map-runtime">查看已确认的美术设计 →</a></header>
+<section class="player" aria-label="正式引擎动画与音效预览">
+ <div class="player-top"><div><p class="eyebrow">正式游戏引擎画面 / 含音效</p><h2 id="title">五招连续预览</h2><p id="description">依次播放：破阵、破晓·破阵、焰环、引光·焰环、持弓破阵。</p></div><output id="duration">总计 6.40 秒</output></div>
+ <div class="stage"><video id="movie" controls playsinline preload="metadata" poster="runtime/hunapu_base-close.jpg?v=red-damage-20261102" src="runtime/map-runtime-all-close.mp4?v=red-damage-20261102"></video></div>
+ <div class="controls"><div class="control-group"><button id="replay" class="primary">有声重播</button><label>速度 <select id="speed"><option value="1">1× 正常</option><option value="0.5">0.5× 慢放</option></select></label><label class="toggle"><input id="loop" type="checkbox">循环</label></div><div class="control-group"><button id="close" aria-pressed="true">战场特写</button><button id="full" aria-pressed="false">完整画面</button></div></div>
+ <p class="note">点击播放后可听音效。特写由同一引擎画面等比例裁出；完整画面保留触屏操作区。视频采用演示摆位、30帧固定时钟导出，未录制iPhone。</p>
+</section>
+<nav class="cases" id="cases" aria-label="切换MAP招式"></nav>
+<section class="notes"><article><p class="eyebrow">01 / 节奏</p><h2>动作立即开始</h2><p>约0.04秒开始挥剑准备，弓版约0.06秒开始抬弓；不加黑屏、镜头切换或招式标题等待。特效收束后恢复操作，普通经验使用短提示。</p></article><article><p class="eyebrow">02 / 音效</p><h2>一招一套攻击声</h2><p>基础刀风、进阶破阵、基础火环、进阶火柱与弓弦放箭分别配音。挥剑、火种释放、命中按动画触发；多个目标不叠放多次主音效。</p></article><article><p class="eyebrow">03 / 结算</p><h2>数值与确认方案一致</h2><p>男女主每场分别免费1次，25%与40%最大HP代价各1次。剑弓共用男主次数；艾琳进阶中心格三档均额外+4。扣血、伤害与次数一起存档。</p></article></section>
+<details class="evidence"><summary>查看范围、代价和菜单的实际画面</summary><p class="note">选招后同步切换以下截图。第3次截图为满HP独立预览，显示40%向上取整代价及虚脱说明。</p><div class="screens"><a id="shot-menu" href="runtime/hunapu-base-menu.png" target="_blank" rel="noopener"><img src="runtime/hunapu-base-menu.png" alt="实际游戏MAP菜单"><span>行动菜单</span></a><a id="shot-free" href="runtime/hunapu-base-target-free.png" target="_blank" rel="noopener"><img src="runtime/hunapu-base-target-free.png" alt="第一次免费MAP的范围与伤害预览"><span>免费档范围</span></a><a id="shot-third" href="runtime/hunapu-base-target-third.png" target="_blank" rel="noopener"><img src="runtime/hunapu-base-target-third.png" alt="第三次MAP的HP代价与虚脱预览"><span>第三次代价</span></a></div></details>
+<details class="evidence"><summary>单独试听攻击音效</summary><p class="note">这里是单条原始音效；上方动画按游戏音量65%播放，并包含现有通用命中声或火种声。</p><div id="audio" class="audio-grid"></div></details>
+<details class="evidence"><summary>制作与检查记录</summary><p>6条新音效（5条攻击＋1条拉弓）由本地 Stable Audio 3 根据短攻击引导声生成纹理，再按单次动作包络混合。没有调用云端音频接口。</p><p>本地 Qwen2-Audio 与 Qwen3-Omni 已参与检查。校准中发现模型会将静音误报为音调，对短音效的音色判断不能作为合格证明。最终文件已检查波形、削波、时长、独立资源和事件同步；此处保留有声预览供听感验收，记录不冒称人工试听。</p><p>针对次数、代价、伤害、中心加成、友方安全、虚脱、存读档、菜单和音效加载执行专项检查；正式后台视口同时核对文字安全区。</p><div class="links"><a href="runtime/integration.json">接入与检查记录</a><a href="runtime/manifest.json">视频、截图和音效资源</a><a href="runtime/audio-review.json">音频识别与校准限制</a></div></details>
+<footer>2026.11.02 · 伤害数字可读性更新 · 已接入正式战斗代码 · 普通速度 1.10～1.45秒 · 升级、道具选择和剧情按原流程继续</footer>
+</main><script src="runtime/runtime.js?v=red-damage-20261102"></script></body></html>

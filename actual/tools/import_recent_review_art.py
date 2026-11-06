@@ -126,4 +126,7 @@ def main():
     (REPORT/'import.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps({k:v for k,v in report.items() if k not in ['inventory','effects']},ensure_ascii=False))
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+    main()
+    from build_runtime_animations import build as build_runtime
+    build_runtime()

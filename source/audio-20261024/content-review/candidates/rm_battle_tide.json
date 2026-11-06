@@ -1,0 +1,69 @@
+{
+  "id": "rm_battle_tide",
+  "path": "source/audio-20261024/content-review/candidates/rm_battle_tide.ogg",
+  "source_path": "source/audio-20261024/content-review/raw/rm_battle_tide_2026102810_float.wav",
+  "master_path": "source/audio-20261024/content-review/masters/rm_battle_tide_v2_float.wav",
+  "sha256": "fc419aaee95a6b647fa349bea63824f69e4ec830d3f260ac97b768370e5c1b88",
+  "bytes": 335365,
+  "source": {
+    "track_id": "rm_battle_tide",
+    "seed": 2026102810,
+    "model": "local Stable Audio 3 sm-music/same-s",
+    "method": "owned-guide audio-conditioned generation",
+    "guide": {
+      "path": "source/audio-20261024/content-review/guides/rm_battle_tide.wav",
+      "sha256": "f2ea3b3c8c4e442abc1ff4109b79e0bd553abd5fb9b4c1517c6235e074e3e473",
+      "period_seconds": 29.09090702947846,
+      "period_frames": 1282909
+    },
+    "prompt": "TrackType: Music, VocalType: Instrumental. Original early-console 8-bit fantasy tactics soundtrack. Strict sparse four-channel chiptune: two warm pulse-wave melody and harmony voices, one rounded triangle bass voice, and quiet band-limited noise percussion. Dry direct electronic tone, clear monophonic lines, memorable NEW melody. Straight rhythm, no swing, no jazz, no reggae. No acoustic instruments, no piano, no guitar, no flute, no orchestral pad, no realistic drum kit, no voice or choir. 132 BPM. A brisk nautical battle march for escorting ships and rescuing captives. Straight driving pulse, never reggae or a relaxed groove. Repeating complete eight-bar phrases, A A B A form, stable accompaniment, no introduction or fadeout.",
+    "seconds": 29.41090702947846,
+    "cfg": 2.0,
+    "steps": 8,
+    "dit_dtype": "fp32",
+    "sha256": "a71be80f3b4574260d03f53a52cb8dc253e1bda3b9b2c173a7d433e20b59a214",
+    "source_format": "FLOAT WAV",
+    "offline": true,
+    "generation_wall_seconds": 3.318,
+    "raw_peak": 0.8473873138427734,
+    "raw_rms": 0.2604406177997589,
+    "post_guide": {
+      "path": "source/audio-20261024/content-review/guides/rm_battle_tide_v2.wav",
+      "sha256": "65b40ba8e76c080428833d1d44c2607a0d85ee8af91621d69476af1ee15d3db7",
+      "reason": "clearer pulse duties, stronger march percussion and legato bass across phrase boundary"
+    }
+  },
+  "editing": {
+    "method": "new sixteen-bar four-voice composition with local model texture and circular phase wrap",
+    "guide_mix": 0.85,
+    "model_mix": 0.15,
+    "bars": 16,
+    "guide_bpm": 132,
+    "period_frames": 1282909,
+    "period_seconds": 29.09090702947846,
+    "loop_offset_seconds": 0.0,
+    "model_wrap_seconds": 0.2
+  },
+  "gain_db": -4.029999999999999,
+  "target_integrated_lufs": -20,
+  "metrics": {
+    "seconds": 29.09090702947846,
+    "rms_dbfs": -22.833663425310355,
+    "sample_peak_dbfs": -10.039382981895336,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "interior_silence_longest_seconds": 0.0,
+    "silent_frame_fraction": 0.0,
+    "rms_10ms_p10_dbfs": -25.65796608139431,
+    "rms_10ms_p90_dbfs": -21.56539273875267,
+    "seam_max_sample_delta": 0.018581626936793327,
+    "derivative_p99": 0.03939618170261383,
+    "seam_delta_over_derivative_p99": 0.471660606021636,
+    "integrated_lufs": -19.96,
+    "true_peak_dbtp": -9.98,
+    "loudness_range_lu": 0.4
+  },
+  "errors": [],
+  "review_decision": "selected",
+  "review_reason": "Matches final published review index."
+}

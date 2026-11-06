@@ -1,0 +1,76 @@
+{
+  "id": "rm_world_ch1",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_world_ch1.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/world_map.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_world_ch1.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_world_ch1_scene.mp3",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is tail 6 seconds then head 6 seconds, with the loop join at 6 seconds; assess rhythmic/harmonic continuity and distracting loudness changes there. Audio 4 is the current game-gain offline mix with interface or combat effects. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: 第一章世界地图; desired mood: 寒冷、启程、尚未散去的悲伤",
+  "max_tokens": 340,
+  "key": "29be8298b8a5c76c77cfd018",
+  "source_sha256": [
+    "f850970e45b1ba7c9669b7f294b2fbb31370dc68657bb50a4b35440ecc683eeb",
+    "753f63602f56a04e9c74edf1a9fccc2b94cdb77814aae60e3f3338e1c764f617",
+    "f850970e45b1ba7c9669b7f294b2fbb31370dc68657bb50a4b35440ecc683eeb",
+    "af4ed2cd6fe65a2689e3d29f1d39163897f577b2bcd3e56773908b12d7f05712"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "audio_input_samples": [
+    614400,
+    240000,
+    192000,
+    80800
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "5efe643d93e1abf3e784597c561eb45549efc38beb03330110694f390962df24",
+    "8ec028823e813cb6e66468f77ffa1851529c44f48a3189ffeca0009eec7aee52",
+    "e506bd076000030b03f16671ab46242c4d6de3937c58870f7a575e3375c73cef",
+    "551754f148f8fa7ae568bdd93c6411331137eb0f199a9f00f94740510b8b99a1"
+  ],
+  "response": "Audio 1: The music features a synthesized flute-like lead with a breathy, slightly melancholic timbre, supported by a simple, low-pitched synth bass and sparse electronic percussion. The melody is slow, repetitive, and minor-key, creating a cold, somber, and contemplative mood. There are no vocals or speech. The overall energy is low and static, with no significant development or dynamic shifts. The texture is thin and lacks harmonic depth, which may make it feel emotionally flat or underdeveloped for a \"world map\" scene.\n\nAudio 2: This is a clear, retro chiptune track with a simple, ascending arpeggiated melody. The timbre is bright and digital, with no ambient or atmospheric elements. It is sparse and functional, lacking the emotional weight or complexity of Audio 1.\n\nAudio 3: The loop at 6 seconds is seamless—no audible jump or disruption. The rhythm and harmony continue without change. The volume remains consistent; no distracting loudness shifts occur.\n\nAudio 4: No interface or combat effects are present. The music is clean and unobstructed, with no masking issues. The music itself is the dominant element, with no competing sounds.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 249,
+    "prompt_tokens": 1199,
+    "total_tokens": 1448,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 1171,
+    "prompt_ms": 5878.514,
+    "prompt_per_token_ms": 5.020080273270709,
+    "prompt_per_second": 199.2000019052434,
+    "predicted_n": 249,
+    "predicted_ms": 5936.056,
+    "predicted_per_token_ms": 23.935709677419354,
+    "predicted_per_second": 41.7785816036776
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 17.266,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/f850970e45b1ba7c9669b7f294b2fbb31370dc68657bb50a4b35440ecc683eeb.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/753f63602f56a04e9c74edf1a9fccc2b94cdb77814aae60e3f3338e1c764f617.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/f850970e45b1ba7c9669b7f294b2fbb31370dc68657bb50a4b35440ecc683eeb.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/af4ed2cd6fe65a2689e3d29f1d39163897f577b2bcd3e56773908b12d7f05712.mp3"
+  ]
+}

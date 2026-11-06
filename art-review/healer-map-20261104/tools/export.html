@@ -1,0 +1,3 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><base href="../"><title>愈护之环 · 效果图导出</title><style>body{margin:0;background:#0d171e}canvas{display:block;image-rendering:pixelated}</style></head><body><canvas id="export" width="1095" height="720" aria-label="愈护之环设计效果图"></canvas><script src="data.js"></script><script src="render.js"></script><script>
+(async()=>{const p=new URLSearchParams(location.search),j=HEAL_MAP_DATA.jobs[Number(p.get('job')||0)],c=document.querySelector('canvas'),left=Number(p.get('left')??2);await HEAL_RENDER.load();if(p.get('view')==='detail'){c.width=480;c.height=345;HEAL_RENDER.detailOnly(c,j,0,left);}else{HEAL_RENDER.scene(c,j,.68,0,left);}document.body.dataset.ready='true';})();
+</script></body></html>

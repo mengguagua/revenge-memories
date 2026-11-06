@@ -1,0 +1,11 @@
+{
+  "name": "revenge-memories-official-website",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "python3 tools/serve.py --port 4173",
+    "check": "node --check app.js && node tools/check.mjs",
+    "optimize": "python3 tools/optimize_static.py"
+  }
+}

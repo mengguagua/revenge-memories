@@ -1,0 +1,225 @@
+{
+  "passed": true,
+  "source": "../campaign-healing-control/ch1/report.json",
+  "source_sha256": "a1a60f866612a3b1622e89a2adcb81f200fd5ce528301d660a3252dafd3ff650",
+  "lineage": "Independent new-game control; never spliced into the formal continuous campaign.",
+  "victories": 7,
+  "defeats": 0,
+  "retries": 0,
+  "inputs": 5239,
+  "turns_total": 71,
+  "battles": [
+    {
+      "code": "M11",
+      "outcome": "victory",
+      "turns": 9,
+      "new_casualties": [],
+      "heals": []
+    },
+    {
+      "code": "M12",
+      "outcome": "victory",
+      "turns": 13,
+      "new_casualties": [],
+      "heals": []
+    },
+    {
+      "code": "M13",
+      "outcome": "victory",
+      "turns": 13,
+      "new_casualties": [
+        "fula"
+      ],
+      "heals": []
+    },
+    {
+      "code": "S11",
+      "outcome": "victory",
+      "turns": 12,
+      "new_casualties": [],
+      "heals": [
+        {
+          "unit": "fula",
+          "turn": 2,
+          "target": "lena"
+        }
+      ]
+    },
+    {
+      "code": "S12",
+      "outcome": "victory",
+      "turns": 11,
+      "new_casualties": [],
+      "heals": [
+        {
+          "unit": "fula",
+          "turn": 6,
+          "target": "lena"
+        },
+        {
+          "unit": "fula",
+          "turn": 7,
+          "target": "otto"
+        }
+      ]
+    },
+    {
+      "code": "M14",
+      "outcome": "victory",
+      "turns": 6,
+      "new_casualties": [],
+      "heals": [
+        {
+          "unit": "fula",
+          "turn": 5,
+          "target": "hervi"
+        }
+      ]
+    },
+    {
+      "code": "M15",
+      "outcome": "victory",
+      "turns": 7,
+      "new_casualties": [
+        "fula",
+        "beck",
+        "hervi"
+      ],
+      "heals": []
+    }
+  ],
+  "healing_actions": 4,
+  "preparation_operations": [
+    {
+      "after": 60,
+      "before": 59,
+      "kind": "ordinary equipment upgrade",
+      "stage": 101,
+      "unit": "hunapu"
+    },
+    {
+      "after": 2,
+      "before": 61,
+      "kind": "ordinary equipment upgrade",
+      "stage": 101,
+      "unit": "otto"
+    },
+    {
+      "after": 49,
+      "before": 60,
+      "kind": "ordinary equipment upgrade",
+      "stage": 102,
+      "unit": "hunapu"
+    },
+    {
+      "kind": "ordinary injury treatment",
+      "remaining": 0,
+      "unit": "fula"
+    },
+    {
+      "action": "hub:promote_daan_13",
+      "kind": "ordinary earned promotion",
+      "stage": 103
+    },
+    {
+      "after": 48,
+      "before": 63,
+      "kind": "ordinary equipment upgrade",
+      "stage": 103,
+      "unit": "daan"
+    },
+    {
+      "after": 65,
+      "before": 0,
+      "kind": "ordinary equipment upgrade",
+      "stage": 103,
+      "unit": "fula"
+    },
+    {
+      "after": 2,
+      "before": 62,
+      "kind": "ordinary equipment upgrade",
+      "stage": 111,
+      "unit": "lena"
+    }
+  ],
+  "western_roster": [
+    {
+      "id": "beck",
+      "name": "贝克",
+      "class_id": 12.0,
+      "level": 5.0,
+      "exp": 4,
+      "dying": true,
+      "treatment_count": 0.0
+    },
+    {
+      "id": "daan",
+      "name": "达恩",
+      "class_id": 13,
+      "level": 4,
+      "exp": 97,
+      "dying": false,
+      "treatment_count": 0.0
+    },
+    {
+      "id": "fula",
+      "name": "芙拉",
+      "class_id": 18.0,
+      "level": 1.0,
+      "exp": 68,
+      "dying": true,
+      "treatment_count": 1.0
+    },
+    {
+      "id": "hervi",
+      "name": "赫维",
+      "class_id": 15.0,
+      "level": 5.0,
+      "exp": 31,
+      "dying": true,
+      "treatment_count": 0.0
+    },
+    {
+      "id": "hunapu",
+      "name": "胡纳普",
+      "class_id": 21.0,
+      "level": 7.0,
+      "exp": 11,
+      "dying": false,
+      "treatment_count": 0.0
+    },
+    {
+      "id": "lance",
+      "name": "兰斯",
+      "class_id": 1.0,
+      "level": 7.0,
+      "exp": 3,
+      "dying": false,
+      "treatment_count": 0.0
+    },
+    {
+      "id": "lena",
+      "name": "蕾娜",
+      "class_id": 3.0,
+      "level": 4.0,
+      "exp": 1,
+      "dying": false,
+      "treatment_count": 0.0
+    },
+    {
+      "id": "otto",
+      "name": "奥托",
+      "class_id": 6.0,
+      "level": 7.0,
+      "exp": 53,
+      "dying": false,
+      "treatment_count": 0.0
+    }
+  ],
+  "limitations": [
+    "One automated policy/sample; not human skill or win-rate evidence.",
+    "Early casualty, later legal treatment and repeated injury are preserved.",
+    "Lance and Otto reached promotion eligibility only after M15 in this sample, so this run does not exercise an extra promotion return trip before M15."
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "rm_sfx_07",
+  "request": "07",
+  "path": "source/sfx-20261024/audio-guided/candidates/rm_sfx_07.ogg",
+  "sha256": "fe2e5f9b649449fde3a7f890588b2c9f880b4c9ebe796a55fd84120d0ffa8e02",
+  "bytes": 11930,
+  "source": {
+    "id": "rm_sfx_07",
+    "seed": 2026102607,
+    "model": "local Stable Audio 3 sm-sfx/same-s",
+    "method": "reference-conditioned audio-to-audio variation",
+    "reference_path": "actual/assets/original/audio/sfx_07.ogg",
+    "reference_sha256": "8953c6d518ac1e9c3b22ce2deee0c13285d1640216f7b5b49ead0d532079f3e4",
+    "reference_pcm_sha256": "ec1ddbc58433820a06011bc90de72e07758ecb81d2f1c2c8a0f2b0703932d08f",
+    "init_noise_level": 0.55,
+    "reference_input_gain_db": 10.289890901861956,
+    "prompt": "TrackType: SFX. A dry monophonic retro 8-bit game sound effect. Preserve the reference sound's electronic pitch contour, immediate attack, modulation speed and noise-pulse rhythm. A clearly defined pulse-wave or noise-channel effect, crisp upper-midrange, no muffled low drum or acoustic instrument. Create a variation in synthetic tone color, retaining the same sound gesture. No music, no vocal, no real-world ambience, no reverb. One compact event with immediate attack and short release, no additional impacts or repeated sequence.",
+    "cfg": 2.0,
+    "steps": 8,
+    "sha256": "816dff812a80c22f14d9423eccf23c1252b1e34c64f6e6a1f8b3db1cee200afb",
+    "seconds": 1.0,
+    "offline": true,
+    "generation_wall_seconds": 1.37,
+    "raw_peak": 1.0258063077926636,
+    "raw_rms": 0.11836113780736923
+  },
+  "mastering": {
+    "method": "preserve reference duration and 25ms-smoothed amplitude gesture; rounded edges; constant active-RMS gain",
+    "gain_db": 2.0404619754215823,
+    "target_active_rms_dbfs": -24.207,
+    "peak_ceiling_dbfs": -12.388,
+    "transient_shaping": {
+      "applied": true,
+      "method": "smooth tanh knee at 2.3 times 25ms local RMS",
+      "reason": "generated peak crest would otherwise hide the audible body under the reference peak budget"
+    }
+  },
+  "metrics": {
+    "seconds": 0.6812471655328798,
+    "sample_rate": 44100,
+    "channels": 2,
+    "rms_dbfs": -26.506641601044922,
+    "active_rms_dbfs": -24.396376035275114,
+    "sample_peak_dbfs": -12.772860930183231,
+    "first_50ms_rms_dbfs": -28.269726226989267,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "leading_onset_seconds": 0.004988662131519274,
+    "longest_internal_silence_seconds": 0.19954648526077096,
+    "last_10ms_rms_dbfs": -240.0,
+    "first_last_sample_delta": 0.0,
+    "lufs_note": "Measured gated integrated loudness",
+    "integrated_lufs": -22.8,
+    "true_peak_dbtp": -12.1
+  },
+  "review_decision": "selected",
+  "review_reason": "Matches final published review index."
+}

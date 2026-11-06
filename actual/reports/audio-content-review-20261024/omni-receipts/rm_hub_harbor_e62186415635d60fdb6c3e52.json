@@ -1,0 +1,76 @@
+{
+  "id": "rm_hub_harbor",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_hub_harbor.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/music_93.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_hub_harbor.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_hub_harbor_scene.mp3",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is tail 6 seconds then head 6 seconds, with the loop join at 6 seconds; assess rhythmic/harmonic continuity and distracting loudness changes there. Audio 4 is the current game-gain offline mix with interface or combat effects. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: H21/H22/H24/H26/H34/H37/H47; desired mood: 船团、引航与离港前的等待",
+  "max_tokens": 340,
+  "key": "e62186415635d60fdb6c3e52",
+  "source_sha256": [
+    "c91e1e90e75feee953b586be7fb0b93e586ec387047c8235219dc9aeb30474a3",
+    "210dc354bbaeacdad62b51469ec150ff62933fecbaf94c2f13736e1fae1a9843",
+    "c91e1e90e75feee953b586be7fb0b93e586ec387047c8235219dc9aeb30474a3",
+    "01617e677f773d58ba2d84aa0e48048d45c24a5e189f75dc4f9d076a292b4585"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "audio_input_samples": [
+    634882,
+    240000,
+    192000,
+    80800
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "065111f87c73a8a3c46aa09998a8a5719b9ce2cfa39708d02614c8f352a97b16",
+    "d5c7e025d3d1cb9f9cbb0b5d7570cd80c6a746d78c5e6d69729843e27f446c11",
+    "379413e40f03f1da9d795becc538919b9873d0b13733225aede267dfc99ed6f1",
+    "34056570b64d0b2a7ae553b115c756d9978a0f6fcd8b1c788938ad2f0945ab3f"
+  ],
+  "response": "Audio 1 features a gentle, plucked string melody (likely a koto or similar zither) with a soft, breathy flute playing a simple, repeating motif. The overall timbre is warm and slightly resonant, with a calm, contemplative mood. The melody is static, with no significant development, creating a sense of patient waiting. There are no vocals or speech. The audio is clean, with no noticeable defects.\n\nAudio 2 is a short, clear chiptune melody with a distinct retro video game texture. It is sparse and functional, serving as a reference for the original style.\n\nAudio 3 shows a seamless loop: the tail of Audio 1 connects smoothly to its head, with no rhythmic or harmonic discontinuity. The volume remains consistent, with no distracting loudness changes.\n\nAudio 4 is a mix of the music with interface sounds. The music is present but does not mask essential feedback sounds, nor do the effects obscure the music. The balance is appropriate for the intended scene.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 207,
+    "prompt_tokens": 1229,
+    "total_tokens": 1436,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 1201,
+    "prompt_ms": 6758.944,
+    "prompt_per_token_ms": 5.6277635303913405,
+    "prompt_per_second": 177.6904794595132,
+    "predicted_n": 207,
+    "predicted_ms": 4827.886,
+    "predicted_per_token_ms": 23.436339805825245,
+    "predicted_per_second": 42.66877884026259
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 19.282,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/c91e1e90e75feee953b586be7fb0b93e586ec387047c8235219dc9aeb30474a3.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/210dc354bbaeacdad62b51469ec150ff62933fecbaf94c2f13736e1fae1a9843.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/c91e1e90e75feee953b586be7fb0b93e586ec387047c8235219dc9aeb30474a3.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/01617e677f773d58ba2d84aa0e48048d45c24a5e189f75dc4f9d076a292b4585.mp3"
+  ]
+}

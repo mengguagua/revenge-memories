@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_23",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_23.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_23.ogg"
+  ],
+  "hashes": [
+    "8f060caf613a221404da2e3b56096a04ab667c4c6add00b95dacf1eeb6b95053",
+    "3bf5c945cf6edbbd3149485bc8a2620bd31cb68e37704beb89e75ac82c1bc401"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "7379dac0b54a9e7fefb5812f",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    128000,
+    128000
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "Audio 1 has a repeated, syncopated electronic sound effect. It has a sparse, unique, and slightly eerie quality. The sound effect is futuristic, minimal, and hypnotic. It's perfect for sci-fi, futuristic, or video game sounds.\nIn contrast, Audio 2 has a very generic, dull, and repetitive sound effect that lacks character. It's a one-note, high-pitched sound that's been repeated multiple times, creating a sense of monotony and dullness. It's perfect for background noise or to fill space.\nThe most obvious difference is the timbre. Audio 1 has a unique, syncopated, and slightly eerie quality, while Audio 2 is dull and repetitive. The attack is also different; Audio 1 has a sparse and unique sound, while Audio 2",
+  "generation_tokens": 165,
+  "generation_tps": 35.01778845154023,
+  "wall_seconds": 5.037,
+  "peak_memory_bytes": 7517914846,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

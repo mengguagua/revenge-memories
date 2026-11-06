@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_52",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_52.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_52.ogg"
+  ],
+  "hashes": [
+    "883f28d5814582d1260b15703758ee9b35f87b5e48d2a42b0961079728117bd7",
+    "76288b367e5104b64d0de6b2bd1b5cd95686e2bc39b53401b0f2bb3b9754252b"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "bfdbfcb76359e13d05b41b3d",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    53842,
+    54517
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "The reference sound is a sine wave with a constant frequency and a sharp attack. The replacement has a similar frequency but a longer attack and a slightly lower pitch. The sound is less dense and has a faster decay. The most noticeable difference is the attack time, which affects the intensity and urgency of the sound.",
+  "generation_tokens": 62,
+  "generation_tps": 30.81904857167,
+  "wall_seconds": 2.21,
+  "peak_memory_bytes": 7517914846,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

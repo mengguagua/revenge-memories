@@ -1,34 +1,51 @@
 extends RefCounted
-## Campaign ranged troops seek firing distance. Fixed exit guards stay at their post.
+## Campaign troops use their real weapon range; guards react to an actual threat.
 const Rules=preload("res://core/combat_rules.gd")
 
 static func action(game, unit: Dictionary, gather: bool=false) -> Dictionary:
 	if gather or unit.side!="enemy" or int(unit.hp)<=0 or unit.get("acted",false):return {}
-	var fixed=unit.get("behavior","")=="guard_exit"
-	if not fixed and int(unit.class_id) not in [12,13,20]:return {}
+	var guard=str(unit.get("behavior","")) in ["guard","guard_exit"]
+	var campaign_caster=str(unit.get("campaign_role",""))=="bounded_summoner"
+	if not guard and not campaign_caster and int(unit.class_id) not in [12,13,20]:return {}
 	var actor=unit.duplicate(true);actor.erase("weapon_index")
-	if fixed:actor.move=0
-	var graph=game.reachable(actor)
 	var opponents=game.living("player")
-	var result={"destination":game.pos(unit),"target":"","spell_id":-1,"support":false,"teleport":false,"reason":"hold_exit" if fixed else "seek_firing_position"}
+	var scripted_hold=unit.has("advance_after") and game.turn<int(unit.advance_after)
+	if guard:
+		# Only a committed friendly strike releases a sentry from its post.
+		# Proximity, previewing an attack and damage-free turns cannot lure it.
+		if not bool(unit.get("guard_alerted",false)) or scripted_hold:
+			return {"destination":game.pos(unit),"target":"","reason":"hold_post"}
+	var graph=game.reachable(actor)
+	var result={"destination":game.pos(unit),"target":"","spell_id":-1,"support":false,"teleport":false,"reason":"guard_alert" if bool(unit.get("guard_alerted",false)) else "hold_post" if guard else "seek_firing_position"}
 	var best=-INF
 	for cell in graph.costs:
 		if not game.can_stop(actor,cell):continue
 		for target in opponents:
-			var distance=absi(cell.x-game.pos(target).x)+absi(cell.y-game.pos(target).y)
-			if not Rules.can_attack(actor,distance) or Rules.attack_blocked(actor,target):continue
-			var stats=Rules.attack_stats(actor,target,game.terrain_avoid(game.pos(target)))
-			var score=float(stats.damage)*5+float(stats.hit)*0.05+game.terrain_avoid(cell)*0.1-float(graph.costs[cell])*.1
-			if not Rules.default_counter(target,distance).is_empty() and Rules.can_attack(Rules.default_counter(target,distance),distance):score-=3
-			if score>best:best=score;result.destination=cell;result.target=str(target.id)
-	if not str(result.target).is_empty() or fixed:return result
-	# A ranged troop's destination is an unoccupied firing tile, never the
-	# melee-only adjacent goal inherited from the original game AI.
+			var distance=_distance(cell,game.pos(target))
+			var attack=Rules.attack_context(actor,distance)
+			if not Rules.can_attack(attack,distance) or Rules.attack_blocked(attack,target):continue
+			var stats=Rules.attack_stats(attack,target,game.terrain_avoid(game.pos(target)))
+			var counter=Rules.default_counter(target,distance)
+			var sequence=Rules.strike_sequence(attack,counter,distance)
+			var damage=float(stats.damage)*float(stats.hit)/100.0*sequence.count("attacker")
+			var risk=0.0
+			if sequence.has("defender"):
+				var reply=Rules.attack_stats(counter,attack,game.terrain_avoid(cell))
+				risk=float(reply.damage)*float(reply.hit)/100.0*sequence.count("defender")
+			var score=damage*5.0-risk*2.0+game.terrain_avoid(cell)*0.1-float(graph.costs[cell])*.1
+			if damage>=int(target.hp):score+=30.0
+			if risk>=int(actor.hp):score-=40.0
+			if score>best:
+				best=score;result.destination=cell;result.target=str(target.id)
+				var weapon=Rules.weapon_index(attack)
+				result.spell_id=weapon if weapon>=23 and weapon<47 else -1
+	if not str(result.target).is_empty() or int(actor.move)<=0:return result
+	# Seek an unoccupied firing tile, not a melee-only adjacent destination.
 	var full=game.reachable(actor,true);var goal=game.pos(actor);var cost=INF
 	for cell in full.costs:
 		if float(full.costs[cell])>=cost or not game.can_stop(actor,cell):continue
 		for target in opponents:
-			var distance=absi(cell.x-game.pos(target).x)+absi(cell.y-game.pos(target).y)
+			var distance=_distance(cell,game.pos(target))
 			if Rules.can_attack(actor,distance) and not Rules.attack_blocked(actor,target):goal=cell;cost=float(full.costs[cell]);break
 	if goal==game.pos(actor):return result
 	var path=[goal]
@@ -38,3 +55,5 @@ static func action(game, unit: Dictionary, gather: bool=false) -> Dictionary:
 	for cell in path:
 		if graph.costs.has(cell) and game.can_stop(actor,cell):result.destination=cell
 	return result
+
+static func _distance(a:Vector2i,b:Vector2i)->int:return absi(a.x-b.x)+absi(a.y-b.y)

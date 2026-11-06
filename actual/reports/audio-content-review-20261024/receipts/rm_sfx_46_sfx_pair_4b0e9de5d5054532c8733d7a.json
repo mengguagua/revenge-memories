@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_46",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_46.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_46.ogg"
+  ],
+  "hashes": [
+    "9c2d3b14f12bee6c72b1cc106fb7e3a666561ec776a278f10fc99e35bed399bb",
+    "b01bde2afb1482e7e99ffc021e9622e9659d0752279eea4a2f5b80da28d04b19"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "4b0e9de5d5054532c8733d7a",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    14686,
+    8063
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "The first sound has a sharp, '4 on the floor' kick pattern with a short release, creating a sense of urgency. The second sound is a muffled, reverberant kick that sounds dull and less energetic. The most obvious difference is the timbre; the first sound is bright and clear, while the second sounds dull and muffled. The attack is also different; the first sound has a quick attack, while the second sound has a slower attack. There is also a noticeable pitch drop in the second sound. In terms of density, both sounds have a low density. The decay of the first sound is also faster than the second.",
+  "generation_tokens": 131,
+  "generation_tps": 47.20931473808786,
+  "wall_seconds": 2.896,
+  "peak_memory_bytes": 7517914846,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

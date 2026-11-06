@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-02",
+  "scope": "Small MAP damage number presentation change only",
+  "colors": {
+    "regular": "#D98F8C",
+    "center_bonus": "#E8AAA5",
+    "outline": "#38262D"
+  },
+  "outline": "one native pixel, cardinal neighbours",
+  "normal_number_hsv_saturation": 0.3548,
+  "center_number_hsv_saturation": 0.2888,
+  "visual_check": {
+    "cases": 5,
+    "passed": true,
+    "errors": [],
+    "background_guard": true,
+    "reviewed_backgrounds": [
+      "dark water",
+      "snow",
+      "sand/earth",
+      "blue blade effect",
+      "orange fire effect"
+    ]
+  },
+  "verification_scope": "Existing production viewport capture and visual inspection; no full gameplay regression for a color/outline change",
+  "preview": "runtime.html?v=red-damage-20261102",
+  "browser": {
+    "loaded": true,
+    "duration": 6.4,
+    "console_errors": [],
+    "evidence": "damage-color-browser-20261102.png"
+  }
+}

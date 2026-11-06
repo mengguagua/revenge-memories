@@ -1,0 +1,179 @@
+{
+  "checks": [
+    "healthy beacon occupier prioritizes control",
+    "wounded beacon occupier answers ranged fire with ordinary movement",
+    "leaving beacon immediately cancels occupation timer",
+    "burner fights after its arson objective is protected: 406",
+    "burner fights after its arson objective is protected: 411",
+    "old final-boss movement migrates without healing or moving it",
+    "movement migration does not stack",
+    "unknown custom boss movement survives migration",
+    "final boss closes a five-tile approach rather than inventing a five-tile counter",
+    "final-boss attack planner accepts only its true one/two-tile strike",
+    "planned combat uses existing body and bow profiles",
+    "civilian at range two alone cannot provoke a melee guard's pursuit",
+    "mere proximity outside melee reach does not activate a whole garrison",
+    "ranged warning uses real combat planner",
+    "actual ranged attack raises persistent alert",
+    "alerted guard does not reset when the attacker backs away",
+    "escort forecast includes a guard's ordinary movement",
+    "M15 commander keeps its scripted eighth-turn escape",
+    "authentic first-battle turn-four checkpoint loads",
+    "wounded armed refugee retreats from an exposed position",
+    "refugee retreat strictly reduces forecast enemy-phase damage",
+    "refugee retreat obeys ordinary movement and occupancy"
+  ],
+  "errors": [],
+  "observations": [
+    {
+      "from": [
+        16.0,
+        12.0
+      ],
+      "kind": "beacon_ranged_response",
+      "target": "probe_archer",
+      "to": "(15, 11)"
+    },
+    {
+      "combat_events": [
+        {
+          "damage": 13,
+          "hit": true,
+          "hp_after": 14,
+          "weapon_index": 22
+        }
+      ],
+      "counter_before": false,
+      "defeated": false,
+      "destination": [
+        24,
+        5
+      ],
+      "distance": 3,
+      "enemy": "F42_e1",
+      "guard_alerted": false,
+      "origin": [
+        24,
+        6
+      ],
+      "reacts": true,
+      "response_or_defeated": true,
+      "shooter": [
+        24,
+        3
+      ],
+      "special": "",
+      "spell_id": 31,
+      "stage": "F42",
+      "target": "probe_archer"
+    },
+    {
+      "combat_events": [
+        {
+          "damage": 10,
+          "hit": true,
+          "hp_after": 28,
+          "weapon_index": 22
+        }
+      ],
+      "counter_before": false,
+      "defeated": false,
+      "destination": [
+        22,
+        3
+      ],
+      "distance": 3,
+      "enemy": "S41_boss",
+      "guard_alerted": false,
+      "origin": [
+        22,
+        5
+      ],
+      "reacts": true,
+      "response_or_defeated": true,
+      "shooter": [
+        22,
+        2
+      ],
+      "special": "",
+      "spell_id": -1,
+      "stage": "S41",
+      "target": "probe_archer"
+    },
+    {
+      "combat_events": [
+        {
+          "damage": 9,
+          "hit": true,
+          "hp_after": 103,
+          "weapon_index": 22
+        },
+        {
+          "damage": 9,
+          "hit": true,
+          "hp_after": 94,
+          "weapon_index": 22
+        }
+      ],
+      "counter_before": false,
+      "defeated": false,
+      "destination": [
+        14,
+        7
+      ],
+      "distance": 5,
+      "enemy": "J54_boss",
+      "guard_alerted": true,
+      "origin": [
+        16,
+        8
+      ],
+      "reacts": true,
+      "response_or_defeated": true,
+      "shooter": [
+        13,
+        6
+      ],
+      "special": "",
+      "spell_id": -1,
+      "stage": "J54",
+      "target": "probe_archer"
+    },
+    {
+      "acted_reset_for_next_action_only": true,
+      "action": {
+        "destination": "(10, 11)",
+        "reason": "escort_disengage",
+        "risk_after": 7,
+        "risk_before": 10,
+        "target": ""
+      },
+      "hp": 2.0,
+      "id": "M11_refugees0",
+      "kind": "authentic_refugee_next_action",
+      "position": [
+        9.0,
+        10.0
+      ]
+    },
+    {
+      "acted_reset_for_next_action_only": true,
+      "action": {
+        "destination": "(8, 12)",
+        "reason": "escort_disengage",
+        "risk_after": 0,
+        "risk_before": 3,
+        "target": ""
+      },
+      "hp": 24.0,
+      "id": "M11_refugees1",
+      "kind": "authentic_refugee_next_action",
+      "position": [
+        9.0,
+        12.0
+      ]
+    }
+  ],
+  "passed": true,
+  "scope": "Controlled objective/HP/position fixtures and one real combat plan, not a natural stage-clear record."
+}

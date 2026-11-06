@@ -1,0 +1,76 @@
+{
+  "id": "rm_battle_tide",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_tide.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/music_77.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_tide.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_battle_tide_scene.wav",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is tail 6 seconds then head 6 seconds, with the loop join at 6 seconds; assess rhythmic/harmonic continuity and distracting loudness changes there. Audio 4 is the current game-gain offline mix with interface or combat effects. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: F21/F22/F23/S21/S22; desired mood: 护航、救俘、海面行动",
+  "max_tokens": 340,
+  "key": "c43150b283e4146c78cebb28",
+  "source_sha256": [
+    "fc419aaee95a6b647fa349bea63824f69e4ec830d3f260ac97b768370e5c1b88",
+    "aeec93fa2b63bea84f4bad00e167748119aab8d0f778fc24c38c2d5152c4b745",
+    "fc419aaee95a6b647fa349bea63824f69e4ec830d3f260ac97b768370e5c1b88",
+    "4f4dc4d6451456142e63ec3ed7c713d66371ecc7a515c79a5b41c482804bd3ca"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/fc419aaee95a6b647fa349bea63824f69e4ec830d3f260ac97b768370e5c1b88.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/aeec93fa2b63bea84f4bad00e167748119aab8d0f778fc24c38c2d5152c4b745.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/fc419aaee95a6b647fa349bea63824f69e4ec830d3f260ac97b768370e5c1b88.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/4f4dc4d6451456142e63ec3ed7c713d66371ecc7a515c79a5b41c482804bd3ca.wav"
+  ],
+  "audio_input_samples": [
+    465455,
+    240000,
+    192000,
+    56717
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "ffd3dd4ba5f9076b2164d17cb9f3d1055cfff6b395154986d6320fb34c39b541",
+    "52c349ea5e4f7d1c29f692026a5c5efd91be59fd16158163ee50c300b19f660b",
+    "52a1703dc08374a6c7df21644c4a2177c0298c7167be3b16754ec87b6e639226",
+    "86abb4ff7da925db9f8a60e1f1509d555078085312e475968de140616e38cdfb"
+  ],
+  "response": "Audio 1 features a synthesized chiptune melody with a clear, bright timbre. The music has a moderate, steady tempo and a determined, hopeful mood, suitable for a rescue or escort mission. The melody is simple and repetitive, with a clear harmonic progression that provides a sense of forward motion. There are no vocals or speech. The audio quality is clean, with no noticeable defects. The music maintains a consistent energy level throughout, creating a sense of ongoing action and purpose.\n\nAudio 2 provides a reference with a sparse, retro texture, but the actual game audio (Audio 1) is more developed and melodic.\n\nAudio 3 shows a seamless loop with no distracting loudness changes or rhythmic/harmonic discontinuities at the join point.\n\nAudio 4 contains a loud, abrupt sound effect that completely masks the music. This effect likely serves as a combat or interface cue, but it prevents the music from being heard during critical moments. The music is essential for maintaining the intended mood of escort and rescue operations, but the masking effect may hinder situational awareness.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 219,
+    "prompt_tokens": 1064,
+    "total_tokens": 1283,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 1036,
+    "prompt_ms": 3480.841,
+    "prompt_per_token_ms": 3.359885135135135,
+    "prompt_per_second": 297.62922236321623,
+    "predicted_n": 219,
+    "predicted_ms": 3435.044,
+    "predicted_per_token_ms": 15.75708256880734,
+    "predicted_per_second": 63.46352477581074
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 7.068,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

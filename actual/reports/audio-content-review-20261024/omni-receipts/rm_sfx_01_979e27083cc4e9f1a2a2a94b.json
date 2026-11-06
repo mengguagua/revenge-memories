@@ -1,0 +1,54 @@
+{
+  "id": "rm_sfx_01",
+  "kind": "final_scene_mix",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_sfx_01_new_context.wav"
+    }
+  ],
+  "asset_sha256": "4361bb7c217ca047060ad59896e30c93d5669ca183d2ba296d5069b1e3f9e805",
+  "fixture_sha256": "7bd02dde1a1594f0dc765e9835dfee8817851a526b2c5c7c231a297d7231f421",
+  "prompt": "This is a final offline scene mix using the actual game gains and native event sequence. Describe only audible evidence. Check whether essential feedback attacks are clear, any intrusive click/distortion or excessive rumbling tail, and whether music continuity is distracted by the effects. Effects need not be as loud as music; a naturally masked quiet tail is not a failure. Report uncertainty and avoid inventing instruments/events. Under 90 words. Fixture context: 实际源动画请求序列（同一当前双声部规则）：class_11_ally_item_24；叠加当前配乐0.50／音效0.65",
+  "max_tokens": 170,
+  "key": "979e27083cc4e9f1a2a2a94b",
+  "source_sha256": [
+    "7bd02dde1a1594f0dc765e9835dfee8817851a526b2c5c7c231a297d7231f421"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/7bd02dde1a1594f0dc765e9835dfee8817851a526b2c5c7c231a297d7231f421.wav"
+  ],
+  "audio_input_samples": [
+    55120
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "4e568328449d2361c5fda41846d8deb51f9fa4a7b017a0f72780610bf6a02d19"
+  ],
+  "response": "The audio features a layered mix of chiptune-style music and sharp, high-pitched sound effects. The effects are clear and distinct, with no intrusive clicks or distortion. A faint, natural tail follows each effect, not excessive or distracting. The music maintains continuity beneath the events, with no noticeable disruption. The balance between music (0.50) and effects (0.65) is stable, and the effects remain audible without overpowering. No additional instruments or events are present.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 101,
+    "prompt_tokens": 215,
+    "total_tokens": 316,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 187,
+    "prompt_ms": 573.722,
+    "prompt_per_token_ms": 3.068032085561497,
+    "prompt_per_second": 325.94183245544014,
+    "predicted_n": 101,
+    "predicted_ms": 1519.08,
+    "predicted_per_token_ms": 15.1908,
+    "predicted_per_second": 65.8293177449509
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 2.103,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

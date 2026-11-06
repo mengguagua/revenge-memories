@@ -4,6 +4,9 @@ extends RefCounted
 
 static var _rules: Dictionary = {}
 static var _armaments: Dictionary = {}
+static var _accessories: Dictionary = {}
+const Body = preload("res://core/innate_attacks.gd")
+const StrongBody=preload("res://core/strong_body.gd")
 const HeroProfessions = preload("res://core/hero_professions.gd")
 
 static func armaments() -> Dictionary:
@@ -13,31 +16,65 @@ static func armaments() -> Dictionary:
 static func is_story_armament(item_id: int) -> bool:
 	return armaments().items.has(str(item_id))
 
+static func accessories() -> Dictionary:
+	if _accessories.is_empty():_accessories=JSON.parse_string(FileAccess.get_file_as_string("res://data/story_accessories.json"))
+	return _accessories
+
+static func is_story_accessory(item_id: int) -> bool:
+	return accessories().items.has(str(item_id))
+
 static func data() -> Dictionary:
 	if _rules.is_empty():
 		_rules = _integer_tables(JSON.parse_string(FileAccess.get_file_as_string("res://data/legacy/rules_full.json")))
+		# Adapted balance stays separate from the extracted original tables.
+		var promotion_tuning=_integer_tables(JSON.parse_string(FileAccess.get_file_as_string("res://data/campaign_promotions_20261030.json")))
+		for cid in promotion_tuning.bases:
+			_rules.promotion_bases[cid].merge(promotion_tuning.bases[cid],true)
+		for change in promotion_tuning.levels:
+			for entry in _rules.promotions:
+				if entry.from_class==change.from_class and entry.to_class==change.to_class:entry.level=change.level
 		# Confirmed display name; the original spell ID, cost and effect stay.
 		_rules.items[31].name_zh = "鬼火"
 		# Adapted display/ownership metadata overlays source IDs and numeric rules.
-		for key in armaments().items:
-			var spec: Dictionary=armaments().items[key]
+		var adapted:Dictionary=armaments().items.duplicate(true)
+		adapted.merge(accessories().items)
+		for key in adapted:
+			var spec: Dictionary=adapted[key]
 			for field in ["name_zh","personal_character_id","personal_name_zh","story_description"]:
 				if spec.has(field):_rules.items[int(key)][field]=spec[field]
 		# Campaign additions have separate provenance; never renumber source IDs.
-		var additions = JSON.parse_string(FileAccess.get_file_as_string("res://data/equipment_progression.json"))
-		for entry in _integer_tables(additions).items:
+		var additions = _integer_tables(JSON.parse_string(FileAccess.get_file_as_string("res://data/equipment_progression.json")))
+		for id in additions.get("weapon_overrides",{}):
+			_rules.items[int(id)].merge(additions.weapon_overrides[id],true)
+		for entry in additions.items:
+			assert(int(entry.id) == _rules.items.size())
+			_rules.items.append(entry)
+		var tactics = _integer_tables(JSON.parse_string(FileAccess.get_file_as_string("res://data/knockback_equipment.json")))
+		for entry in tactics.items:
 			assert(int(entry.id) == _rules.items.size())
 			_rules.items.append(entry)
 	return _rules
 
 static func item(item_id: int) -> Dictionary:
+	if Body.PROFILES.has(item_id):return Body.profile(item_id)
 	var entries: Array = data().items
 	return entries[item_id].duplicate(true) if item_id >= 0 and item_id < entries.size() else {}
+
+static func inventory_groups(stored:Array)->Array:
+	# One row per item identity; actions still point at one actual copy.
+	var groups=[];var indices={}
+	for i in range(stored.size()):
+		var id=int(stored[i])
+		if indices.has(id):groups[indices[id]].count+=1
+		else:indices[id]=groups.size();groups.append({"id":id,"index":i,"count":1,"name":str(item(id).get("name_zh","道具"))})
+	for group in groups:group.label=group.name+("x%d"%group.count if group.count>1 else "")
+	return groups
 
 static func spell(spell_id: int) -> Dictionary:
 	return item(spell_id) if spell_id >= 23 and spell_id <= 46 else {}
 
 static func spells(unit: Dictionary) -> Array[int]:
+	if Body.is_body(unit):return []
 	var table_key := "enemy_spell_tables" if _enemy(unit) else "player_spell_tables"
 	var table: Array = data()[table_key].get(str(int(unit.get("class_id", 0))), [])
 	var bits := int(unit.get("magic_flags", unit.get("raw_magic_flags", 0)))
@@ -48,11 +85,15 @@ static func spells(unit: Dictionary) -> Array[int]:
 	return result
 
 static func can_use(unit: Dictionary, item_id: int) -> bool:
+	# Body attacks and recovered nest loot never grant held weapon compatibility.
+	if Body.is_body(unit):return item_id==0
 	# bank015 L0FF460-L0FF507: class restrictions, personal blades, HP gate.
 	if item_id < 0 or item_id >= data().items.size():
 		return false
 	if item_id >= 59:
 		var cid := int(unit.get("class_id", 0))
+		if item(item_id).has("allowed_classes"):
+			return item(item_id).allowed_classes.has(cid)
 		match str(item(item_id).get("family", "")):
 			"sword": return cid in [8, 9, 10, 11, 21, 14]
 			"lance": return cid in [1, 2, 3, 4, 5, 6, 7, 22]
@@ -80,6 +121,7 @@ static func can_use(unit: Dictionary, item_id: int) -> bool:
 
 static func weapon_profile(unit: Dictionary, weapon_id: int) -> Dictionary:
 	var profile := item(weapon_id)
+	if Body.is_body(unit):return profile
 	var held_id := int(unit.get("item_id", 0))
 	if held_id < 59 or not can_use(unit, held_id): return profile
 	var held := item(held_id)
@@ -94,6 +136,7 @@ static func weapon_profile(unit: Dictionary, weapon_id: int) -> Dictionary:
 	return profile
 
 static func cost(spell_id: int) -> int:
+	if Body.PROFILES.has(spell_id):return int(Body.profile(spell_id).hp_cost)
 	return int(item(spell_id).get("hp_cost", 0)) if spell_id >= 23 and spell_id < 48 else 0
 
 static func cost_for(unit: Dictionary, spell_id: int) -> int:
@@ -184,22 +227,28 @@ static func effective_against(weapon_id: int, defender: Dictionary, profile: Dic
 	return group > 0 and int(defender.get("class_id", 0)) in data().effectiveness_classes.get(str(group), [])
 
 static func physical_defence_bonus(unit: Dictionary, attacker: Dictionary = {}) -> int:
+	var bonus=StrongBody.bonus(unit)
+	if Body.is_body(unit):return Body.armour(unit)+bonus
 	var id := int(unit.get("item_id", 0))
 	if id == 51:
-		return 13 if int(attacker.get("class_id", 0)) in [3, 5, 11, 17, 18] else 0
-	return int({48: 3, 49: 5, 50: 7, 53: 13}.get(id, 0))
+		return (13 if int(attacker.get("class_id", 0)) in [3, 5, 11, 17, 18] else 0)+bonus
+	if is_story_accessory(id):return int(accessories().items[str(id)].get("physical_defence_bonus",0))+bonus
+	return int({48: 3, 49: 5, 50: 7}.get(id, 0))+bonus
 
 static func magic_defence(unit: Dictionary) -> int:
-	return int(unit.get("resistance", unit.get("magic_defence", 0))) + (13 if int(unit.get("item_id", 0)) == 53 else 0)
+	var bonus=int(accessories().items.get(str(int(unit.get("item_id",0))),{}).get("magic_defence_bonus",0))
+	return int(unit.get("resistance", unit.get("magic_defence", 0))) + bonus + Body.Mechanical.armour_bonus(unit)
 
 static func effective_luck(unit: Dictionary) -> int:
 	return 40 if int(unit.get("item_id", 0)) == 55 else int(unit.get("luck", 0))
 
 static func effective_speed(unit: Dictionary) -> int:
-	return 40 if int(unit.get("item_id", 0)) == 56 else int(unit.get("speed", 0))
+	var base=40 if int(unit.get("item_id", 0)) == 56 else int(unit.get("speed", 0))
+	return maxi(0,base-(1 if unit.get("water_slow",false) else 0))
 
 static func movement(unit: Dictionary) -> int:
-	return int(unit.get("move", 4)) + (5 if int(unit.get("item_id", 0)) == 56 else 0)
+	var amount=int(unit.get("move", 4)) + (5 if int(unit.get("item_id", 0)) == 56 else 0)
+	return maxi(1,amount-2) if int(unit.get("map_fatigue_until_turn",0))>0 or int(unit.get("map_move_penalty_until_turn",0))>0 else amount
 
 static func phase_effect(unit: Dictionary, tile_id: int, terrain_category: int = -1, adjacent_saint: bool = false) -> Dictionary:
 	# L03910F-L0391DA: recovery tile wins before poison processing.
@@ -212,7 +261,11 @@ static func phase_effect(unit: Dictionary, tile_id: int, terrain_category: int =
 	var damage := mini(5, maxi(0, hp - 1)) if tile_id != 218 and terrain_category == 16 and not immune else 0
 	var amount := 0
 	var enemy_duma := _enemy(unit) and int(unit.get("character_id", unit.get("source_id", 0))) == 167
-	if tile_id == 218 or (adjacent_saint and not _enemy(unit)) or cid == 19 or int(item(int(unit.get("item_id", 0))).get("effect_kind", 0)) == 10:
+	var held_id := int(unit.get("item_id", 0))
+	# Carrying an unusable weapon through trade does not activate its passive.
+	# Terrain, adjacent saints and innate class recovery remain independent.
+	var item_recovery := can_use(unit, held_id) and int(item(held_id).get("effect_kind", 0)) == 10
+	if tile_id == 218 or (adjacent_saint and not _enemy(unit)) or cid == 19 or item_recovery:
 		amount = 5
 	elif enemy_duma:
 		amount = 5 if hp >= 20 else 40

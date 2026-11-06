@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "character_id": "class-17-enemy",
+  "display_name": "敌方骸卫",
+  "display_class_name": "骸卫",
+  "original_class_id": 17,
+  "source_side": "enemy",
+  "source_atlas": "../../../source-input/enemy-motion/class-17-enemy.png",
+  "source_frame_size": [
+    96,
+    64
+  ],
+  "source_anchor": [
+    48,
+    64
+  ],
+  "output_frame_size": [
+    384,
+    256
+  ],
+  "source_idle_frame": 9,
+  "source_frame_count": 19,
+  "source_columns": 16,
+  "frame_mapping": {
+    "0": "../../../bone-guard-complete-v1-20261024/battle/frame-000.png",
+    "1": "../../../bone-guard-complete-v1-20261024/battle/frame-001.png",
+    "2": "../../../bone-guard-complete-v1-20261024/battle/frame-002.png",
+    "3": "../../../bone-guard-complete-v1-20261024/battle/frame-003.png",
+    "4": "../../../bone-guard-complete-v1-20261024/battle/frame-004.png",
+    "5": "../../../bone-guard-complete-v1-20261024/battle/frame-005.png",
+    "8": "../../../bone-guard-complete-v1-20261024/battle/frame-008.png",
+    "7": "../../../bone-guard-complete-v1-20261024/battle/frame-007.png",
+    "9": "../../../bone-guard-complete-v1-20261024/battle/frame-009.png",
+    "17": "../../../bone-guard-complete-v1-20261024/battle/frame-017.png",
+    "6": "../../../bone-guard-double-slash-v2-20261024/battle/frame-006.png"
+  },
+  "required_source_frames": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    8,
+    9,
+    17
+  ],
+  "variant_keys": [
+    "original_class_17_enemy_normal"
+  ],
+  "output_atlas": "../../../bone-guard-double-slash-v2-20261024/battle-atlas.png",
+  "revision": "bone-guard-complete-v1-20261024",
+  "status": "review_candidate",
+  "runtime_integrated": false,
+  "review_note": "骸卫：温和骨白与蓝紫色，骨骼、下颌、肋骨和骨盆清楚，包腕包腿哑光；地图持剑圆盾，战斗沿原作弯刃与后屈空手臂。固定地图头部和身体基准，保留原步态、遮挡、动作顺序及结算。",
+  "palette": [
+    "172638",
+    "d9d8c5",
+    "9b9eb4",
+    "57577f",
+    "343c5d",
+    "bac4d2",
+    "8f7b8d"
+  ],
+  "batches": [
+    {
+      "id": "骸卫完整姿势",
+      "review": "../../../bone-guard-complete-v1-20261024/battle-light.png",
+      "status": "review_candidate"
+    },
+    {
+      "id": "骸卫双刀衔接",
+      "review": "../../../bone-guard-double-slash-v2-20261024/phases-light.png",
+      "status": "review_candidate"
+    }
+  ],
+  "review_timeline": "../../../bone-guard-double-slash-v2-20261024/enemy-battle-motion.json",
+  "motion_revision": "bone-guard-double-slash-v2-20261024",
+  "review_frame_sources": {
+    "6": 8
+  },
+  "review_frame_labels": {
+    "6": "追加下劈 · 新过渡姿势"
+  }
+}

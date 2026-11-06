@@ -1,0 +1,14 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>箭头、职业与治疗经验 · 2026-10-27</title>
+<style>body{margin:0;background:#0d1922;color:#e7eef0;font:17px/1.7 system-ui,sans-serif}main{max-width:1100px;margin:36px auto;padding:0 24px 60px}h1{font-size:29px;line-height:1.4}p{max-width:950px}a{color:#9cd4e6}figure{margin:30px 0;background:#1c2d39;border-radius:12px;overflow:hidden}figcaption{padding:16px 22px}img{width:100%;height:auto;display:block}table{width:100%;border-collapse:collapse;margin:24px 0}th,td{text-align:left;padding:10px 18px;background:#1c2d39;border-bottom:1px solid #35505c}.status{background:#254034;padding:14px 20px;border-radius:12px}a:focus-visible{outline:none;box-shadow:0 0 0 5px #9cd4e640;border-radius:5px}</style>
+<main><p>2026-10-27 · 修改后运行画面</p><h1>地图箭头、当前职业与治疗经验</h1><p class="status">33项逻辑检查＋52项原生界面与流程检查通过</p>
+<p>地图箭头保留原来的米白色与放大尺寸，增加黑色外轮廓；我方详情补充当前职业；有效治疗可以获得经验并正常升级。南岗押送所本次保留敌军等级和通关奖励。</p>
+<p><a href="修改与经验分析.md">阅读完整修改与经验分析</a> · <a href="native-checks.json">原生验证</a> · <a href="actual-M13-experience.json">实际经验分配</a></p>
+<p>结论：只把普通敌人从1级改成2级，不会增加当前公式的经验。此前两次M13实测队伍合计490、448经验，主要问题是分配集中、治疗贡献没有直接经验，不宜再给全队统一加经验。</p>
+<table><thead><tr><th>胡纳普等级</th><th>击杀普通士兵</th><th>士兵仅改2级</th><th>击杀本关骑兵</th><th>通关</th></tr></thead><tbody><tr><td>5</td><td>13</td><td>13</td><td>70</td><td>7</td></tr><tr><td>6</td><td>11</td><td>11</td><td>60</td><td>6</td></tr></tbody></table>
+<p>本作新增治疗经验使用原职业／等级倍率、行动基础价值10：疗愈师1—2级每次10，5级7，6级6。FC原版白魔法不直接给经验，此处明确属于本作按用户要求新增的规则；群疗每次施法只结算一次，满血空放和被动回血不计入。</p>
+<figure><figcaption>雪地地图：地图箭头保留原像素形状，中心不变，放大并增加黑色外轮廓。</figcaption><img src="01-snow-map-pointer.png" alt="雪地地图箭头"></figure>
+<figure><figcaption>我方详情：姓名下显示当前职业。芙拉当前为“疗愈师”，转职后会跟随当前职业更新。</figcaption><img loading="lazy" src="02-fula-current-profession.png" alt="芙拉当前职业"></figure>
+<figure><figcaption>正常菜单恢复友方生命后获得10经验，确认后正常回到战场。</figcaption><img loading="lazy" src="03-healing-experience-10.png" alt="治疗获得经验"></figure>
+<figure><figcaption>治疗经验可以升级；本画面以95经验的边界条件检查成长与确认流程。</figcaption><img loading="lazy" src="04-healing-level-up.png" alt="治疗经验触发升级"></figure>
+<figure><figcaption>矿道地图：同一箭头在较暗地形中也保持可辨认。</figcaption><img loading="lazy" src="05-cave-map-pointer.png" alt="矿道地图箭头"></figure>
+<p>以上为Mac原生Godot后台运行截图，使用移动端界面布局。治疗检查使用隔离的伤情与经验边界条件，并通过正常输入播放动画与结算；本次未重复完整关卡试玩，未更新iPhone。</p></main></html>

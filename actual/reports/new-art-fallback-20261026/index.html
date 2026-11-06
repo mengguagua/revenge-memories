@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>新素材保底与导出隔离 · 2026-10-26</title>
+<style>
+:root{color-scheme:dark;--bg:#111923;--panel:#1b2735;--text:#edf1f5;--muted:#b2becb;--accent:#b8d7c4;--line:#344556}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.8 system-ui,-apple-system,"PingFang SC",sans-serif}
+main{width:min(1180px,100%);margin:auto;padding:44px 24px 64px}h1{font-size:clamp(26px,4vw,40px);line-height:1.35;margin:0 0 16px}h2{font-size:23px;margin:0 0 14px}h3{font-size:18px;margin:0 0 8px}p{margin:0 0 14px}a{color:#c7dff4;text-underline-offset:4px}a:focus-visible{outline:none;box-shadow:0 0 0 5px #b8d7c44d;border-radius:4px}
+.date,.muted{color:var(--muted)}.date{font-size:14px;letter-spacing:.08em;margin-bottom:12px}.lead{font-size:19px;max-width:900px}.ok{color:var(--accent)}section{background:var(--panel);padding:26px;border-radius:16px;margin-top:22px;box-shadow:0 10px 32px #0002}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:18px}.fact{padding:18px 20px;background:#13202b;border-radius:10px}.fact strong{display:block;font-size:27px;color:var(--accent);line-height:1.3;margin-bottom:6px}
+ul{margin:10px 0;padding-left:24px}li{margin:8px 0}table{width:100%;border-collapse:collapse;margin-top:12px}th,td{text-align:left;padding:14px 12px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--accent)}.scroll{overflow-x:auto}figure{margin:0;background:#111923;border-radius:10px;overflow:hidden}figure a{display:block}figure img{display:block;width:100%;height:auto}figcaption{padding:15px 17px;color:var(--muted);font-size:14px}figcaption strong{display:block;color:var(--text);font-size:16px;margin-bottom:3px}.links{display:flex;flex-wrap:wrap;gap:12px 24px}.note{padding-left:16px;border-left:3px solid #6a8c7b}.footer{margin-top:24px;font-size:14px;color:var(--muted)}code{overflow-wrap:anywhere;color:#d7dfe8}
+@media(max-width:600px){main{padding:28px 14px 42px}section{padding:20px 17px}th,td{padding:12px 8px}}
+</style>
+</head>
+<body><main>
+<div class="date">2026-10-26 · 本地源码与独立资源包检查</div>
+<h1>新素材保底与导出隔离</h1>
+<p class="note">后续更新：本页初版雷电已停用，当前按用户指定复用全动作对照里的现成改版雷电。<a href="../thunder-reuse-20261026/index.html">查看当前雷电运行效果</a>；本页截图与验证包保留当批次记录。</p>
+<p class="lead">角色、头像、窗口和特效加载失败时，改用本项目已有的新素材。原图目录及另存到其他目录的同像素副本，均从导出中排除。</p>
+<p class="muted">保留当前已确认的身体动作编排和配乐／音效。没有更新iPhone，没有改写玩家存档。本页记录技术修复与检查范围，不作“已无侵权风险”的法律结论。</p>
+<div class="grid">
+<div class="fact"><strong>557 张</strong>改名或复制后仍与原图像素完全相同的图片，加入导出排除。</div>
+<div class="fact"><strong>1,275 张</strong>最终运行索引引用的PNG逐项对比，未检出原图同像素匹配。</div>
+<div class="fact"><strong>886 条</strong>既有攻击选择路径回归通过，身体帧序与命中编排文件保持。</div>
+</div>
+
+<section>
+<h2>本次修改</h2>
+<div class="scroll"><table>
+<thead><tr><th>范围</th><th>现在的行为</th></tr></thead>
+<tbody>
+<tr><td>地图人物、据点人物</td><td>优先使用当前确认的新图；缺图时选择同职业的新图，再选择同阵营新图。未知普通NPC使用新村民形象。</td></tr>
+<tr><td>战斗身体</td><td>主素材正常时保持当前演出。备用图集与主图集帧编号不兼容时，只显示备用图集自己的待机姿态，避免乱帧；原有一次命中结算仍执行一次。</td></tr>
+<tr><td>头像</td><td>阻止回退到旧头像。诺娅暂用莉莎的新法师头像，赛琳暂用米蕾的新疗愈师头像；这是明确的同职业共用保底，尚非两人的独立新头像。</td></tr>
+<tr><td>窗口、字体、光标与血条</td><td>复用当前新窗口材质及已使用的授权字体；光标、血条采用本项目功能图形。旧位图索引不再是运行保底。</td></tr>
+<tr><td>攻击与地图特效</td><td>优先复用现有已确认的新特效，补绘电击与投枪。504种动作变体的3,726处特效绑定改指新素材；身体帧序、命中时刻与声音请求保持。</td></tr>
+<tr><td>导出</td><td>两个现有导出预设排除原图目录、旧图片索引及557张同像素副本。本地原始资料仍保留，运行路径禁止将其当作缺图备用。</td></tr>
+</tbody></table></div>
+<p class="muted">像素检查能发现直接复制、改名和不同PNG压缩方式保存的同图；不等于认定所有近似构图、描改或动作都已完成法律审查。</p>
+</section>
+
+<section>
+<h2>动作“相似”与来源依赖的区别</h2>
+<p>前次“动作仍依赖原作”的表述过宽。举剑、下劈、突刺、拉弓和受击等通用动作概念，并不会仅因多个游戏都使用而自动构成侵权。需要区分通用动作概念与某部作品中具体的画面、姿态序列和整段演出表达。美国版权局对思想／方法与具体表达作了这一原则区分。<a href="https://www.copyright.gov/help/faq/faq-protect.html">来源：美国版权局FAQ</a>。</p>
+<p>本项目仍有承接旧动作数据的帧序、坐标与时序信息；这是可核实的技术来源事实，不能直接换算成“动作相似即侵权”。本次没有以此为由重做所有身体动作，也没有改动已确认的动作编排。若后续判断具体演出是否属于改编，应逐条比较具有独创性的表达，不能只看角色换了形象或动作是否完全一样。我国著作权法第十三条也明确，改编作品的权利行使不得侵犯原作品著作权。<a href="https://www.ncac.gov.cn/xxfb/flfg/flfg_532/202103/t20210309_50530.html">来源：国家版权局《著作权法》</a>。</p>
+<p class="note">配乐与音效按本次要求保持，不因“风格接近”继续重制。本轮没有重新开展音乐旋律／录音来源的法律鉴定。</p>
+</section>
+
+<section>
+<h2>实际验证范围</h2>
+<div class="scroll"><table>
+<thead><tr><th>检查</th><th>结果及范围</th></tr></thead>
+<tbody>
+<tr><td>新素材与缺图故障</td><td class="ok">通过22,758项断言；覆盖56个登记场景（含40个正式战场及训练／测试场景）、1,793个角色条目、1,287项不同资源。主动模拟缺图，核对可见保底与单次命中结算。</td></tr>
+<tr><td>现有动作回归</td><td class="ok">既有535,775项检查通过，包含886条攻击选择、47个实际播放配置；其中3套进行定时播放检查。不是886场完整实玩。</td></tr>
+<tr><td>运行画面</td><td class="ok">11张1280×960引擎截图及相应内容安全区检查通过。采用不抢焦点的后台捕获；不是iPhone真机截图。</td></tr>
+<tr><td>隔离导出包</td><td class="ok">2,042项检查通过。在没有源码资源回退的独立目录挂载PCK，核对原图及557张副本缺席、新资源和首战正常加载。</td></tr>
+</tbody></table></div>
+<p class="muted">本轮未进行五章完整通关、iPhone触摸试玩或设备安装；没有以断言数量代替这些检查。仅生成独立验证资源包，未声称生成Steam发行包。</p>
+<div class="links">
+<a href="delivery.json">交付总记录</a><a href="fallback-checks.json">缺图检查</a><a href="motion-regression.json">动作回归</a><a href="visual-checks.json">画面检查</a><a href="package-checks.json">导出包检查</a><a href="effect-replacements.json">特效替换明细</a><a href="new-assets.json">新素材尺寸与体积</a>
+</div>
+</section>
+
+<section>
+<h2>运行画面</h2>
+<p class="muted">点图可查看原尺寸。全部为本次本地引擎运行截图；PNG仅作无损压缩。</p>
+<div class="grid">
+<figure><a href="01-hub-new-materials.png"><img loading="lazy" src="01-hub-new-materials.png" alt="据点内的新人物与窗口素材"></a><figcaption><strong>据点人物与窗口</strong>使用当前新人物、地图与窗口材质。</figcaption></figure>
+<figure><a href="02-battle-menu-new-panel.png"><img loading="lazy" src="02-battle-menu-new-panel.png" alt="战斗菜单的新窗口保底"></a><figcaption><strong>战斗菜单</strong>新窗口切角与字体安全区域。</figcaption></figure>
+<figure><a href="03-new-electric-effect.png"><img loading="lazy" src="03-new-electric-effect.png" alt="新电击特效命中防守方"></a><figcaption><strong>新电击</strong>电击落点锚定防守方，保留原结算时刻。</figcaption></figure>
+<figure><a href="04-new-arrow-effect.png"><img loading="lazy" src="04-new-arrow-effect.png" alt="新箭矢特效"></a><figcaption><strong>箭矢</strong>复用现有新箭矢素材。</figcaption></figure>
+<figure><a href="05-new-javelin-effect.png"><img loading="lazy" src="05-new-javelin-effect.png" alt="新投枪飞行特效"></a><figcaption><strong>新投枪</strong>独立补绘投枪，按攻击方向翻转。</figcaption></figure>
+<figure><a href="06-approved-fire-effect.png"><img loading="lazy" src="06-approved-fire-effect.png" alt="已确认的新火焰特效"></a><figcaption><strong>火焰</strong>复用当前已确认的新火焰特效。</figcaption></figure>
+<figure><a href="07-approved-wind-effect.png"><img loading="lazy" src="07-approved-wind-effect.png" alt="已确认的新风刃特效"></a><figcaption><strong>风刃</strong>复用当前已确认的新风刃特效。</figcaption></figure>
+<figure><a href="08-forced-missing-body.png"><img loading="lazy" src="08-forced-missing-body.png" alt="强制缺少主身体素材后显示新素材保底"></a><figcaption><strong>主动制造缺图</strong>备用新身体显示自己的待机姿态，不返回原图。</figcaption></figure>
+<figure><a href="09-portrait-noya.png"><img loading="lazy" src="09-portrait-noya.png" alt="诺娅暂用同职业新头像"></a><figcaption><strong>诺娅头像保底</strong>暂时共用莉莎的新法师头像。</figcaption></figure>
+<figure><a href="09-portrait-celine.png"><img loading="lazy" src="09-portrait-celine.png" alt="赛琳暂用同职业新头像"></a><figcaption><strong>赛琳头像保底</strong>暂时共用米蕾的新疗愈师头像。</figcaption></figure>
+<figure><a href="10-new-map-care.png"><img loading="lazy" src="10-new-map-care.png" alt="新地图治疗特效"></a><figcaption><strong>地图治疗</strong>治疗反馈改用本项目新素材。</figcaption></figure>
+</div>
+</section>
+<p class="footer">原始生成源图与制作记录单独保存在工程source目录，不作为超大运行纹理打入游戏。精确像素排除、新素材来源记录及包校验值见交付总记录与构建脚本。</p>
+</main></body></html>

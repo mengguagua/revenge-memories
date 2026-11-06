@@ -1,21 +1,26 @@
 {
   "schema_version": 1,
+  "width_height_scale": 4,
   "character_id": "class-18-ally",
   "actor_id": "class-18-ally",
-  "display_name": "修女（职业样板）",
   "class_id": 18,
   "source_side": "ally",
-  "status": "complete_art_review_passed",
-  "width_height_scale": 4,
+  "display_name": "盟军疗愈师",
+  "display_class_name": "疗愈师",
+  "revision": "healer-saint-complete-v1-20261023",
+  "status": "review_candidate",
   "runtime_integrated": false,
+  "palette": [
+    "172638",
+    "3976b5",
+    "e4e1c8",
+    "dda77d",
+    "78a99b"
+  ],
+  "review_note": "疗愈师：沿用女法师蓝白、深蓝与肤色，仅增加柔和玉绿，减少红灰。纯色头发、哑光衣袍。地图固定完整头颈及躯干，保留原作袍摆与交替步态、连续阴影。细杖举手施法。原作程序、总时长与唯一结算保持；职业样板不代表所有同职业角色解锁全部法术。",
   "scenarios": [
     {
       "id": "tactical-walk",
-      "class_id": 18,
-      "source_side": "ally",
-      "character_id": "class-18-ally",
-      "display_name": "修女（职业样板）",
-      "source_atlas": "reference/tactical-native-original.png",
       "source_frame_size": [
         32,
         24
@@ -24,7 +29,6 @@
         16,
         24
       ],
-      "output_atlas": "frames/tactical-native-walk.png",
       "output_frame_size": [
         128,
         96
@@ -34,410 +38,6 @@
         96
       ],
       "logical_render_scale": 0.25,
-      "frame_mapping": [
-        {
-          "source_index": 0,
-          "output_index": 0,
-          "source_frame": 0,
-          "output_path": "tactical-native-frames/frame-000.png",
-          "path": "tactical-native-frames/frame-000.png",
-          "direction": "up",
-          "phase": 0,
-          "size": [
-            128,
-            96
-          ],
-          "bytes": 5425,
-          "sha256": "a55eafaa4bbe778b1ed257929ba0a83bf938ba1dbd5dc8854aad9b57a25613a0",
-          "alpha_bounds": [
-            48,
-            19,
-            86,
-            96
-          ],
-          "registration": {
-            "slot": 0,
-            "raw": "up-v2.png",
-            "crop": [
-              250,
-              120,
-              760,
-              960
-            ],
-            "head_y": 289,
-            "body_anchor": [
-              450,
-              926
-            ],
-            "target_head_y": 32,
-            "target_body_anchor": [
-              64,
-              96
-            ],
-            "scale": 0.10047095761381476,
-            "resized_size": [
-              51,
-              84
-            ],
-            "paste": [
-              44,
-              15
-            ],
-            "alpha_bounds": [
-              48,
-              19,
-              86,
-              96
-            ],
-            "registration_basis": "Visible robe/body bottom and head. Staff excluded from body-size or placement calculation; no clamping."
-          }
-        },
-        {
-          "source_index": 1,
-          "output_index": 1,
-          "source_frame": 1,
-          "output_path": "tactical-native-frames/frame-001.png",
-          "path": "tactical-native-frames/frame-001.png",
-          "direction": "up",
-          "phase": 1,
-          "size": [
-            128,
-            96
-          ],
-          "bytes": 4736,
-          "sha256": "e68c2d8d97f7071126e76a8c391a82ba7bbb79d5d2d8c59332f7b9e4dd0998d4",
-          "alpha_bounds": [
-            47,
-            20,
-            83,
-            93
-          ],
-          "registration": {
-            "slot": 1,
-            "raw": "up-v2.png",
-            "crop": [
-              910,
-              120,
-              1410,
-              960
-            ],
-            "head_y": 289,
-            "body_anchor": [
-              1144,
-              915
-            ],
-            "target_head_y": 32,
-            "target_body_anchor": [
-              64,
-              92
-            ],
-            "scale": 0.09584664536741214,
-            "resized_size": [
-              48,
-              81
-            ],
-            "paste": [
-              42,
-              16
-            ],
-            "alpha_bounds": [
-              47,
-              20,
-              83,
-              93
-            ],
-            "registration_basis": "Visible robe/body bottom and head. Staff excluded from body-size or placement calculation; no clamping."
-          }
-        },
-        {
-          "source_index": 2,
-          "output_index": 2,
-          "source_frame": 2,
-          "output_path": "tactical-native-frames/frame-002.png",
-          "path": "tactical-native-frames/frame-002.png",
-          "direction": "right",
-          "phase": 0,
-          "size": [
-            128,
-            96
-          ],
-          "bytes": 6309,
-          "sha256": "b70286b07fe073a4daa0de148e4bb9550909f29b32cde2c142624a017f987530",
-          "alpha_bounds": [
-            33,
-            31,
-            82,
-            96
-          ],
-          "registration": {
-            "slot": 2,
-            "raw": "right-v2.png",
-            "crop": [
-              220,
-              100,
-              810,
-              850
-            ],
-            "head_y": 152,
-            "body_anchor": [
-              510,
-              809
-            ],
-            "target_head_y": 32,
-            "target_body_anchor": [
-              58,
-              96
-            ],
-            "scale": 0.0974124809741248,
-            "resized_size": [
-              57,
-              73
-            ],
-            "paste": [
-              30,
-              27
-            ],
-            "alpha_bounds": [
-              33,
-              31,
-              82,
-              96
-            ],
-            "registration_basis": "Visible robe/body bottom and head. Staff excluded from body-size or placement calculation; no clamping."
-          }
-        },
-        {
-          "source_index": 3,
-          "output_index": 3,
-          "source_frame": 3,
-          "output_path": "tactical-native-frames/frame-003.png",
-          "path": "tactical-native-frames/frame-003.png",
-          "direction": "right",
-          "phase": 1,
-          "size": [
-            128,
-            96
-          ],
-          "bytes": 6283,
-          "sha256": "cee0bbdbdd258c98e00a161bb76030c1942017960fdd765ef4e9b7099a158e15",
-          "alpha_bounds": [
-            34,
-            30,
-            82,
-            96
-          ],
-          "registration": {
-            "slot": 3,
-            "raw": "right-v2.png",
-            "crop": [
-              1030,
-              100,
-              1580,
-              850
-            ],
-            "head_y": 152,
-            "body_anchor": [
-              1300,
-              809
-            ],
-            "target_head_y": 32,
-            "target_body_anchor": [
-              58,
-              96
-            ],
-            "scale": 0.0974124809741248,
-            "resized_size": [
-              54,
-              73
-            ],
-            "paste": [
-              32,
-              27
-            ],
-            "alpha_bounds": [
-              34,
-              30,
-              82,
-              96
-            ],
-            "registration_basis": "Visible robe/body bottom and head. Staff excluded from body-size or placement calculation; no clamping."
-          }
-        },
-        {
-          "source_index": 4,
-          "output_index": 4,
-          "source_frame": 4,
-          "output_path": "tactical-native-frames/frame-004.png",
-          "path": "tactical-native-frames/frame-004.png",
-          "direction": "down",
-          "phase": 0,
-          "size": [
-            128,
-            96
-          ],
-          "bytes": 5733,
-          "sha256": "1db8d7a945e788a4a6ef28eee3e4a5d6b55c5070719056126ef293d9667de746",
-          "alpha_bounds": [
-            45,
-            32,
-            89,
-            92
-          ],
-          "registration": {
-            "slot": 4,
-            "raw": "down-v1.png",
-            "crop": [
-              250,
-              200,
-              750,
-              850
-            ],
-            "head_y": 234,
-            "body_anchor": [
-              480,
-              810
-            ],
-            "target_head_y": 32,
-            "target_body_anchor": [
-              66,
-              92
-            ],
-            "scale": 0.10416666666666667,
-            "resized_size": [
-              52,
-              68
-            ],
-            "paste": [
-              42,
-              28
-            ],
-            "alpha_bounds": [
-              45,
-              32,
-              89,
-              92
-            ],
-            "registration_basis": "Visible robe/body bottom and head. Staff excluded from body-size or placement calculation; no clamping."
-          }
-        },
-        {
-          "source_index": 5,
-          "output_index": 5,
-          "source_frame": 5,
-          "output_path": "tactical-native-frames/frame-005.png",
-          "path": "tactical-native-frames/frame-005.png",
-          "direction": "down",
-          "phase": 1,
-          "size": [
-            128,
-            96
-          ],
-          "bytes": 6234,
-          "sha256": "d11631b3710a967a48d7c70b0efc47bb7d5d2ac5f06f8244684d5d27847fcd61",
-          "alpha_bounds": [
-            44,
-            32,
-            87,
-            96
-          ],
-          "registration": {
-            "slot": 5,
-            "raw": "down-v1.png",
-            "crop": [
-              1030,
-              200,
-              1500,
-              850
-            ],
-            "head_y": 234,
-            "body_anchor": [
-              1266,
-              810
-            ],
-            "target_head_y": 32,
-            "target_body_anchor": [
-              66,
-              96
-            ],
-            "scale": 0.1111111111111111,
-            "resized_size": [
-              52,
-              72
-            ],
-            "paste": [
-              40,
-              28
-            ],
-            "alpha_bounds": [
-              44,
-              32,
-              87,
-              96
-            ],
-            "registration_basis": "Visible robe/body bottom and head. Staff excluded from body-size or placement calculation; no clamping."
-          }
-        },
-        {
-          "source_index": 6,
-          "output_index": 6,
-          "source_frame": 6,
-          "output_path": "tactical-native-frames/frame-006.png",
-          "path": "tactical-native-frames/frame-006.png",
-          "direction": "left",
-          "phase": 0,
-          "size": [
-            128,
-            96
-          ],
-          "bytes": 6341,
-          "sha256": "6a78ddc11b58df4b637f6570484b63cadb86772d5e94d97e16702c598920c8bb",
-          "alpha_bounds": [
-            46,
-            31,
-            95,
-            96
-          ],
-          "registration": {
-            "derived_from_source_slot": 2,
-            "transform": "horizontal mirror, entire128×96 canvas",
-            "native_rgba_proof": {
-              "source_slot": 2,
-              "transform": "horizontal-mirror-full-canvas",
-              "rgba_exact": true
-            }
-          }
-        },
-        {
-          "source_index": 7,
-          "output_index": 7,
-          "source_frame": 7,
-          "output_path": "tactical-native-frames/frame-007.png",
-          "path": "tactical-native-frames/frame-007.png",
-          "direction": "left",
-          "phase": 1,
-          "size": [
-            128,
-            96
-          ],
-          "bytes": 6299,
-          "sha256": "215c8f8b7683a58bdfd166cf7adb93a8be3e303357ceab34ec40ddc73556f7d8",
-          "alpha_bounds": [
-            46,
-            30,
-            94,
-            96
-          ],
-          "registration": {
-            "derived_from_source_slot": 3,
-            "transform": "horizontal mirror, entire128×96 canvas",
-            "native_rgba_proof": {
-              "source_slot": 3,
-              "transform": "horizontal-mirror-full-canvas",
-              "rgba_exact": true
-            }
-          }
-        }
-      ],
       "default_facing": "right",
       "directions": {
         "up": [
@@ -466,6 +66,122 @@
         "movement_pixels_per_tick": 1,
         "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
       },
+      "native_actor_origin": [
+        16,
+        16
+      ],
+      "source_atlas": "../../../source-input/corrected-tactical-walk/class-18-ally.png",
+      "revision": "healer-saint-complete-v1-20261023",
+      "status": "review_candidate",
+      "display_name": "盟军疗愈师",
+      "review_note": "疗愈师：沿用女法师蓝白、深蓝与肤色，仅增加柔和玉绿，减少红灰。纯色头发、哑光衣袍。地图固定完整头颈及躯干，保留原作袍摆与交替步态、连续阴影。细杖举手施法。原作程序、总时长与唯一结算保持；职业样板不代表所有同职业角色解锁全部法术。",
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "output_index": 0,
+          "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-000.png",
+          "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-000.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1378,
+          "sha256": "644b582a8edc27fd92c42a30ca57ddeed0eae12eb374f342e2d76551eaa03acc"
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "output_index": 1,
+          "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-001.png",
+          "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-001.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1367,
+          "sha256": "5f805ed83dfe536600754ad9c661547262afcc5cb05628c851bc2d03355f149e"
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "output_index": 2,
+          "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-002.png",
+          "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-002.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1497,
+          "sha256": "d7ae6ae6a42e6cea1a60e1cc52db33ce7aed69d425d4de58372dfedb358d0dfd"
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "output_index": 3,
+          "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-003.png",
+          "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-003.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1477,
+          "sha256": "d8b62e6b6807c725a817b773f31fcb05585e451b340062a813213d6a217ecdd1"
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "output_index": 4,
+          "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-004.png",
+          "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-004.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1509,
+          "sha256": "2762619b6492fdc89f3e8aa62c5b9ee4fa967e3964c929ca52d6bc4027afc69d"
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "output_index": 5,
+          "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-005.png",
+          "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-005.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1501,
+          "sha256": "f62ec4c10e68bbe82fae74f57519a1d77e5d6ed1323c85c8da799197791c630b"
+        },
+        {
+          "source_index": 6,
+          "source_frame": 6,
+          "output_index": 6,
+          "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-006.png",
+          "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-006.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1488,
+          "sha256": "fcc2d0b7747f7f150eb990ef5e0a3d8565fa8c28813b47c24dec58e7ef8e3904"
+        },
+        {
+          "source_index": 7,
+          "source_frame": 7,
+          "output_index": 7,
+          "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-007.png",
+          "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-007.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1467,
+          "sha256": "b075c011ce578e38cd3a82bbe7ce3874c0e936225a56a565e748f8a3390b0bc2"
+        }
+      ],
+      "motion_review": "../../../healer-saint-complete-v1-20261023/README.md",
       "source_aliases": {
         "0": 0,
         "1": 1,
@@ -476,29 +192,638 @@
         "6": 6,
         "7": 7
       },
-      "source_audit": {
-        "status": "verified_native_tactical",
-        "proof": "../../../source-input/corrected-tactical-walk/verification.json",
-        "overlay": "../../../source-input/corrected-tactical-walk/overlay.json",
-        "reference_key": "class-18-ally",
-        "local_reference": "reference/tactical-native-source.json",
-        "method": "Original CPU OAM+CHR capture, independently compared against original ROM frame/layout tables.",
-        "review": "Root visually accepted source/new full8-slot native-v2 dark/light boards."
+      "ground_shadow": {
+        "path": "gold-knight-walk-v3-20261020/ground-shadow.png",
+        "size": [
+          10,
+          1.5
+        ],
+        "offset": [
+          0,
+          -1
+        ],
+        "alpha": 0.3
       },
-      "source_reference_label": "原作校正参考（战术移动）",
-      "native_actor_origin": [
-        16,
-        16
-      ],
-      "registration_note": "source_anchor is tile projection base, not an inferred anatomical foot. New body placement uses visible robe/head; staff excluded. Native left/right images already include original flips."
+      "source_audit": {
+        "class_id": 18,
+        "source_side": "ally",
+        "status": "verified_native_tactical",
+        "scope": "required_source",
+        "source_atlas": "class-18-ally.png",
+        "source_frame_size": [
+          32,
+          24
+        ],
+        "source_columns": 8,
+        "source_frame_count": 8,
+        "source_anchor": [
+          16,
+          24
+        ],
+        "native_actor_origin": [
+          16,
+          16
+        ],
+        "anchor_note": "Rendering anchor is native actor origin+[0,8] matching map tile base; not inferred anatomical foot or wing tip. Native OAM Y adds hardware+1.",
+        "source_palette": [
+          15,
+          32,
+          34,
+          15
+        ],
+        "palette_evidence": "bank006:L06852C PPU palette payload sprite palette0(ally)/3(enemy), not BG palette.",
+        "source_chr": 27,
+        "frame_mapping": [
+          {
+            "direction": "up",
+            "direction_code": 0,
+            "phase": 0,
+            "clock_value": 0,
+            "frame_ticks": 16,
+            "source_chr": 27,
+            "source_frame_index": 25,
+            "source_frame_address": "L0887AE",
+            "oam": [
+              [
+                63,
+                162,
+                0,
+                64
+              ],
+              [
+                71,
+                130,
+                0,
+                56
+              ],
+              [
+                71,
+                131,
+                0,
+                64
+              ],
+              [
+                79,
+                146,
+                0,
+                56
+              ],
+              [
+                79,
+                147,
+                0,
+                64
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 27
+              },
+              {
+                "register": "0xc000",
+                "value": 27
+              }
+            ],
+            "cpu_instructions": 491,
+            "source_global_flip": false,
+            "lookup": {
+              "animation": "L0BB669",
+              "chr": "L0BB719",
+              "right_mirror_flag": "L0BB72F"
+            },
+            "source_slot": 0,
+            "source_alpha_bounds": [
+              9,
+              4,
+              23,
+              24
+            ],
+            "rgba_sha256": "550d5787160255006acd62fb2d96cd64cddc7b0b3d4b533d35b5f6b434ebb396"
+          },
+          {
+            "direction": "up",
+            "direction_code": 0,
+            "phase": 1,
+            "clock_value": 16,
+            "frame_ticks": 16,
+            "source_chr": 27,
+            "source_frame_index": 26,
+            "source_frame_address": "L0887B5",
+            "oam": [
+              [
+                63,
+                162,
+                0,
+                64
+              ],
+              [
+                71,
+                130,
+                0,
+                56
+              ],
+              [
+                71,
+                131,
+                0,
+                64
+              ],
+              [
+                79,
+                178,
+                0,
+                56
+              ],
+              [
+                79,
+                179,
+                0,
+                64
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 27
+              },
+              {
+                "register": "0xc000",
+                "value": 27
+              }
+            ],
+            "cpu_instructions": 491,
+            "source_global_flip": false,
+            "lookup": {
+              "animation": "L0BB669",
+              "chr": "L0BB719",
+              "right_mirror_flag": "L0BB72F"
+            },
+            "source_slot": 1,
+            "source_alpha_bounds": [
+              9,
+              4,
+              23,
+              23
+            ],
+            "rgba_sha256": "3e7a23441688275310e462113a0544d7f38bf0d90115afd8f1e36068e8f77fc5"
+          },
+          {
+            "direction": "right",
+            "direction_code": 1,
+            "phase": 0,
+            "clock_value": 0,
+            "frame_ticks": 16,
+            "source_chr": 27,
+            "source_frame_index": 27,
+            "source_frame_address": "L0887BC",
+            "oam": [
+              [
+                71,
+                66,
+                64,
+                64
+              ],
+              [
+                71,
+                67,
+                64,
+                56
+              ],
+              [
+                79,
+                82,
+                64,
+                64
+              ],
+              [
+                79,
+                83,
+                64,
+                56
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 27
+              },
+              {
+                "register": "0xc000",
+                "value": 27
+              }
+            ],
+            "cpu_instructions": 523,
+            "source_global_flip": true,
+            "lookup": {
+              "animation": "L0BB669",
+              "chr": "L0BB719",
+              "right_mirror_flag": "L0BB72F"
+            },
+            "source_slot": 2,
+            "source_alpha_bounds": [
+              8,
+              8,
+              24,
+              24
+            ],
+            "rgba_sha256": "10b3a7d5021731a7a7589a536cc33b3bcbced5165667e572936b4f822fc18a8a"
+          },
+          {
+            "direction": "right",
+            "direction_code": 1,
+            "phase": 1,
+            "clock_value": 16,
+            "frame_ticks": 16,
+            "source_chr": 27,
+            "source_frame_index": 28,
+            "source_frame_address": "L0887C2",
+            "oam": [
+              [
+                71,
+                66,
+                64,
+                64
+              ],
+              [
+                71,
+                67,
+                64,
+                56
+              ],
+              [
+                79,
+                114,
+                64,
+                64
+              ],
+              [
+                79,
+                115,
+                64,
+                56
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 27
+              },
+              {
+                "register": "0xc000",
+                "value": 27
+              }
+            ],
+            "cpu_instructions": 523,
+            "source_global_flip": true,
+            "lookup": {
+              "animation": "L0BB669",
+              "chr": "L0BB719",
+              "right_mirror_flag": "L0BB72F"
+            },
+            "source_slot": 3,
+            "source_alpha_bounds": [
+              8,
+              8,
+              24,
+              24
+            ],
+            "rgba_sha256": "3f3defab5606f82b94669dd2f90f9a1268b47d0cfb249af9a3f3fbac7fda9e0f"
+          },
+          {
+            "direction": "down",
+            "direction_code": 2,
+            "phase": 0,
+            "clock_value": 0,
+            "frame_ticks": 16,
+            "source_chr": 27,
+            "source_frame_index": 29,
+            "source_frame_address": "L0887C8",
+            "oam": [
+              [
+                71,
+                2,
+                0,
+                56
+              ],
+              [
+                71,
+                3,
+                0,
+                64
+              ],
+              [
+                79,
+                50,
+                0,
+                56
+              ],
+              [
+                79,
+                51,
+                0,
+                64
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 27
+              },
+              {
+                "register": "0xc000",
+                "value": 27
+              }
+            ],
+            "cpu_instructions": 447,
+            "source_global_flip": false,
+            "lookup": {
+              "animation": "L0BB669",
+              "chr": "L0BB719",
+              "right_mirror_flag": "L0BB72F"
+            },
+            "source_slot": 4,
+            "source_alpha_bounds": [
+              8,
+              8,
+              23,
+              24
+            ],
+            "rgba_sha256": "7e4d1787bd9a3998f0e78a14690160be40248413c57f92332b7eae1067186370"
+          },
+          {
+            "direction": "down",
+            "direction_code": 2,
+            "phase": 1,
+            "clock_value": 16,
+            "frame_ticks": 16,
+            "source_chr": 27,
+            "source_frame_index": 30,
+            "source_frame_address": "L0887CE",
+            "oam": [
+              [
+                71,
+                2,
+                0,
+                56
+              ],
+              [
+                71,
+                3,
+                0,
+                64
+              ],
+              [
+                79,
+                18,
+                0,
+                56
+              ],
+              [
+                79,
+                19,
+                0,
+                64
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 27
+              },
+              {
+                "register": "0xc000",
+                "value": 27
+              }
+            ],
+            "cpu_instructions": 447,
+            "source_global_flip": false,
+            "lookup": {
+              "animation": "L0BB669",
+              "chr": "L0BB719",
+              "right_mirror_flag": "L0BB72F"
+            },
+            "source_slot": 5,
+            "source_alpha_bounds": [
+              8,
+              8,
+              23,
+              24
+            ],
+            "rgba_sha256": "becd6ba0d0fa365a5cee1e8c12896a3e697440e13618cb476a44538443057add"
+          },
+          {
+            "direction": "left",
+            "direction_code": 3,
+            "phase": 0,
+            "clock_value": 0,
+            "frame_ticks": 16,
+            "source_chr": 27,
+            "source_frame_index": 27,
+            "source_frame_address": "L0887BC",
+            "oam": [
+              [
+                71,
+                66,
+                0,
+                56
+              ],
+              [
+                71,
+                67,
+                0,
+                64
+              ],
+              [
+                79,
+                82,
+                0,
+                56
+              ],
+              [
+                79,
+                83,
+                0,
+                64
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 27
+              },
+              {
+                "register": "0xc000",
+                "value": 27
+              }
+            ],
+            "cpu_instructions": 447,
+            "source_global_flip": false,
+            "lookup": {
+              "animation": "L0BB669",
+              "chr": "L0BB719",
+              "right_mirror_flag": "L0BB72F"
+            },
+            "source_slot": 6,
+            "source_alpha_bounds": [
+              8,
+              8,
+              24,
+              24
+            ],
+            "rgba_sha256": "e678257829c66d7ddf9fb753c264b640500fc19f3f7cc61b34c0a96d6bc0a78c"
+          },
+          {
+            "direction": "left",
+            "direction_code": 3,
+            "phase": 1,
+            "clock_value": 16,
+            "frame_ticks": 16,
+            "source_chr": 27,
+            "source_frame_index": 28,
+            "source_frame_address": "L0887C2",
+            "oam": [
+              [
+                71,
+                66,
+                0,
+                56
+              ],
+              [
+                71,
+                67,
+                0,
+                64
+              ],
+              [
+                79,
+                114,
+                0,
+                56
+              ],
+              [
+                79,
+                115,
+                0,
+                64
+              ]
+            ],
+            "chr_writes": [
+              {
+                "register": "0xb000",
+                "value": 27
+              },
+              {
+                "register": "0xc000",
+                "value": 27
+              }
+            ],
+            "cpu_instructions": 447,
+            "source_global_flip": false,
+            "lookup": {
+              "animation": "L0BB669",
+              "chr": "L0BB719",
+              "right_mirror_flag": "L0BB72F"
+            },
+            "source_slot": 7,
+            "source_alpha_bounds": [
+              8,
+              8,
+              24,
+              24
+            ],
+            "rgba_sha256": "b9f673ea3a54e1a68e3158de364728fd402587b188ab223f4c7f501af5b02eff"
+          }
+        ],
+        "exact_pixel_aliases": {
+          "0": 0,
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5,
+          "6": 6,
+          "7": 7
+        },
+        "unique_source_slots": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "directions": {
+          "up": [
+            0,
+            1
+          ],
+          "right": [
+            2,
+            3
+          ],
+          "down": [
+            4,
+            5
+          ],
+          "left": [
+            6,
+            7
+          ]
+        },
+        "direction_mirror_x": {},
+        "mirror_note": "Native whole-sprite right flip and individual tile flips are already applied by original CPU; do not apply an additional direction mirror.",
+        "timing": {
+          "native_fps": 60.0988,
+          "frame_ticks": 16,
+          "cycle_ticks": 32,
+          "phase_source": "$36 & $10 selects phase; L0BB62C",
+          "movement_pixels_per_tick": 1,
+          "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+        },
+        "old_frozen_source": "source-input/original-motion/original-walk-18.png",
+        "old_frozen_frame_rgba_matches_by_corrected_slot": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "old_reference_classification": "Old PNG is CHR26 combined with village OAM selected via L08A779; this is not the native tactical renderer. Native village initializes CHR30, so this hybrid is retained only as current-game frozen historical reference.",
+        "exact_mirror_aliases": {
+          "6": {
+            "source_slot": 2,
+            "transform": "horizontal-mirror-full-canvas",
+            "rgba_exact": true
+          },
+          "7": {
+            "source_slot": 3,
+            "transform": "horizontal-mirror-full-canvas",
+            "rgba_exact": true
+          }
+        },
+        "unique_art_source_slots_after_exact_mirror": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "old_frozen_tight_shape_matches": [],
+        "verified_static_idle_reuse": [],
+        "static_idle_source": "source-input/legacy-assets/assets/original/graphics/map_units/class_18_ally.png",
+        "overlay": "../../../source-input/corrected-tactical-walk/overlay.json"
+      },
+      "output_atlas": "../../../healer-saint-complete-v1-20261023/class-18/tactical-walk-atlas.png"
     },
     {
       "id": "tactical-idle",
-      "class_id": 18,
-      "source_side": "ally",
-      "character_id": "class-18-ally",
-      "display_name": "修女（职业样板）",
-      "source_atlas": "reference/original-idle-atlas.png",
       "source_frame_size": [
         24,
         24
@@ -507,7 +832,6 @@
         12,
         20
       ],
-      "output_atlas": "deliverables/tactical-idle.png",
       "output_frame_size": [
         96,
         96
@@ -517,423 +841,7 @@
         80
       ],
       "logical_render_scale": 0.25,
-      "frame_mapping": [
-        {
-          "source_index": 0,
-          "output_index": 0,
-          "source_frame": 0,
-          "canonical_frame": 0,
-          "output_path": "frames/idle-000.png",
-          "path": "frames/idle-000.png",
-          "direction": "fixed",
-          "source_registration": {
-            "id": "idle-000",
-            "raw": "map-v3-idle-reach.png",
-            "crop": [
-              60,
-              47,
-              712,
-              894
-            ],
-            "hood_y": 49,
-            "landmark": [
-              461.5,
-              891
-            ],
-            "target": [
-              56,
-              80
-            ],
-            "target_hood_y": 16,
-            "size": [
-              96,
-              96
-            ],
-            "kind": "continuous main robe hem, excludes staff base",
-            "scale_uniform": 0.07600950118764846,
-            "paste": [
-              25,
-              16
-            ],
-            "resampled_size": [
-              50,
-              64
-            ],
-            "registered_landmark": [
-              55.517814726840854,
-              80.1520190023753
-            ],
-            "alpha_bounds": [
-              25,
-              16,
-              75,
-              80
-            ],
-            "bytes": 6021,
-            "sha256": "febe9addb95c164dac5aaa6b510cb8224adc5177c40f1c3ac0b65bf5858ca09a",
-            "clamp_applied": false
-          },
-          "exact_source_alias": false,
-          "size": [
-            96,
-            96
-          ],
-          "bytes": 5921,
-          "sha256": "e8f3f109296a9e043d0f6181be6d1fe7f3df0d5453140fe6583579e0e32289f0",
-          "alpha_bounds": [
-            25,
-            16,
-            75,
-            80
-          ]
-        },
-        {
-          "source_index": 1,
-          "output_index": 1,
-          "source_frame": 1,
-          "canonical_frame": 0,
-          "output_path": "frames/idle-001.png",
-          "path": "frames/idle-001.png",
-          "direction": "fixed",
-          "source_registration": {
-            "id": "idle-000",
-            "raw": "map-v3-idle-reach.png",
-            "crop": [
-              60,
-              47,
-              712,
-              894
-            ],
-            "hood_y": 49,
-            "landmark": [
-              461.5,
-              891
-            ],
-            "target": [
-              56,
-              80
-            ],
-            "target_hood_y": 16,
-            "size": [
-              96,
-              96
-            ],
-            "kind": "continuous main robe hem, excludes staff base",
-            "scale_uniform": 0.07600950118764846,
-            "paste": [
-              25,
-              16
-            ],
-            "resampled_size": [
-              50,
-              64
-            ],
-            "registered_landmark": [
-              55.517814726840854,
-              80.1520190023753
-            ],
-            "alpha_bounds": [
-              25,
-              16,
-              75,
-              80
-            ],
-            "bytes": 6021,
-            "sha256": "febe9addb95c164dac5aaa6b510cb8224adc5177c40f1c3ac0b65bf5858ca09a",
-            "clamp_applied": false
-          },
-          "exact_source_alias": true,
-          "size": [
-            96,
-            96
-          ],
-          "bytes": 5921,
-          "sha256": "e8f3f109296a9e043d0f6181be6d1fe7f3df0d5453140fe6583579e0e32289f0",
-          "alpha_bounds": [
-            25,
-            16,
-            75,
-            80
-          ]
-        },
-        {
-          "source_index": 2,
-          "output_index": 2,
-          "source_frame": 2,
-          "canonical_frame": 2,
-          "output_path": "frames/idle-002.png",
-          "path": "frames/idle-002.png",
-          "direction": "fixed",
-          "source_registration": {
-            "id": "idle-002",
-            "raw": "map-v3-idle-reach.png",
-            "crop": [
-              923,
-              71,
-              1605,
-              895
-            ],
-            "hood_y": 73,
-            "landmark": [
-              1361,
-              892
-            ],
-            "target": [
-              56,
-              80
-            ],
-            "target_hood_y": 16,
-            "size": [
-              96,
-              96
-            ],
-            "kind": "continuous main robe hem, excludes staff base",
-            "scale_uniform": 0.07814407814407814,
-            "paste": [
-              22,
-              16
-            ],
-            "resampled_size": [
-              53,
-              64
-            ],
-            "registered_landmark": [
-              56.227106227106226,
-              80.15628815628816
-            ],
-            "alpha_bounds": [
-              22,
-              16,
-              75,
-              80
-            ],
-            "bytes": 6135,
-            "sha256": "f15e46e8ce12fe41ce7597eb07c0f8a52aecb8f2e9f7ac0ebfe7f0801aa78f00",
-            "clamp_applied": false
-          },
-          "exact_source_alias": false,
-          "size": [
-            96,
-            96
-          ],
-          "bytes": 6000,
-          "sha256": "1aab39c33b010943c8c8b6f7ea8d2b8b4bca13bc9192ae07d4380841164a8ccc",
-          "alpha_bounds": [
-            22,
-            16,
-            75,
-            80
-          ]
-        },
-        {
-          "source_index": 3,
-          "output_index": 3,
-          "source_frame": 3,
-          "canonical_frame": 0,
-          "output_path": "frames/idle-003.png",
-          "path": "frames/idle-003.png",
-          "direction": "fixed",
-          "source_registration": {
-            "id": "idle-000",
-            "raw": "map-v3-idle-reach.png",
-            "crop": [
-              60,
-              47,
-              712,
-              894
-            ],
-            "hood_y": 49,
-            "landmark": [
-              461.5,
-              891
-            ],
-            "target": [
-              56,
-              80
-            ],
-            "target_hood_y": 16,
-            "size": [
-              96,
-              96
-            ],
-            "kind": "continuous main robe hem, excludes staff base",
-            "scale_uniform": 0.07600950118764846,
-            "paste": [
-              25,
-              16
-            ],
-            "resampled_size": [
-              50,
-              64
-            ],
-            "registered_landmark": [
-              55.517814726840854,
-              80.1520190023753
-            ],
-            "alpha_bounds": [
-              25,
-              16,
-              75,
-              80
-            ],
-            "bytes": 6021,
-            "sha256": "febe9addb95c164dac5aaa6b510cb8224adc5177c40f1c3ac0b65bf5858ca09a",
-            "clamp_applied": false
-          },
-          "exact_source_alias": true,
-          "size": [
-            96,
-            96
-          ],
-          "bytes": 5921,
-          "sha256": "e8f3f109296a9e043d0f6181be6d1fe7f3df0d5453140fe6583579e0e32289f0",
-          "alpha_bounds": [
-            25,
-            16,
-            75,
-            80
-          ]
-        },
-        {
-          "source_index": 4,
-          "output_index": 4,
-          "source_frame": 4,
-          "canonical_frame": 0,
-          "output_path": "frames/idle-004.png",
-          "path": "frames/idle-004.png",
-          "direction": "fixed",
-          "source_registration": {
-            "id": "idle-000",
-            "raw": "map-v3-idle-reach.png",
-            "crop": [
-              60,
-              47,
-              712,
-              894
-            ],
-            "hood_y": 49,
-            "landmark": [
-              461.5,
-              891
-            ],
-            "target": [
-              56,
-              80
-            ],
-            "target_hood_y": 16,
-            "size": [
-              96,
-              96
-            ],
-            "kind": "continuous main robe hem, excludes staff base",
-            "scale_uniform": 0.07600950118764846,
-            "paste": [
-              25,
-              16
-            ],
-            "resampled_size": [
-              50,
-              64
-            ],
-            "registered_landmark": [
-              55.517814726840854,
-              80.1520190023753
-            ],
-            "alpha_bounds": [
-              25,
-              16,
-              75,
-              80
-            ],
-            "bytes": 6021,
-            "sha256": "febe9addb95c164dac5aaa6b510cb8224adc5177c40f1c3ac0b65bf5858ca09a",
-            "clamp_applied": false
-          },
-          "exact_source_alias": true,
-          "size": [
-            96,
-            96
-          ],
-          "bytes": 5921,
-          "sha256": "e8f3f109296a9e043d0f6181be6d1fe7f3df0d5453140fe6583579e0e32289f0",
-          "alpha_bounds": [
-            25,
-            16,
-            75,
-            80
-          ]
-        },
-        {
-          "source_index": 5,
-          "output_index": 5,
-          "source_frame": 5,
-          "canonical_frame": 0,
-          "output_path": "frames/idle-005.png",
-          "path": "frames/idle-005.png",
-          "direction": "fixed",
-          "source_registration": {
-            "id": "idle-000",
-            "raw": "map-v3-idle-reach.png",
-            "crop": [
-              60,
-              47,
-              712,
-              894
-            ],
-            "hood_y": 49,
-            "landmark": [
-              461.5,
-              891
-            ],
-            "target": [
-              56,
-              80
-            ],
-            "target_hood_y": 16,
-            "size": [
-              96,
-              96
-            ],
-            "kind": "continuous main robe hem, excludes staff base",
-            "scale_uniform": 0.07600950118764846,
-            "paste": [
-              25,
-              16
-            ],
-            "resampled_size": [
-              50,
-              64
-            ],
-            "registered_landmark": [
-              55.517814726840854,
-              80.1520190023753
-            ],
-            "alpha_bounds": [
-              25,
-              16,
-              75,
-              80
-            ],
-            "bytes": 6021,
-            "sha256": "febe9addb95c164dac5aaa6b510cb8224adc5177c40f1c3ac0b65bf5858ca09a",
-            "clamp_applied": false
-          },
-          "exact_source_alias": true,
-          "size": [
-            96,
-            96
-          ],
-          "bytes": 5921,
-          "sha256": "e8f3f109296a9e043d0f6181be6d1fe7f3df0d5453140fe6583579e0e32289f0",
-          "alpha_bounds": [
-            25,
-            16,
-            75,
-            80
-          ]
-        }
-      ],
-      "default_facing": "left",
+      "default_facing": "fixed",
       "directions": {
         "all": [
           0,
@@ -958,6 +866,92 @@
           8
         ]
       },
+      "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_18_ally.png",
+      "revision": "healer-saint-complete-v1-20261023",
+      "status": "review_candidate",
+      "display_name": "盟军疗愈师",
+      "review_note": "疗愈师：沿用女法师蓝白、深蓝与肤色，仅增加柔和玉绿，减少红灰。纯色头发、哑光衣袍。地图固定完整头颈及躯干，保留原作袍摆与交替步态、连续阴影。细杖举手施法。原作程序、总时长与唯一结算保持；职业样板不代表所有同职业角色解锁全部法术。",
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "output_index": 0,
+          "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-000.png",
+          "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-000.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 1415,
+          "sha256": "b7ad4764188d10f5a854f9d6149868b44366fd5687e54b15bbc94d3fe3bb1295"
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "output_index": 1,
+          "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-001.png",
+          "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-001.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 1415,
+          "sha256": "b7ad4764188d10f5a854f9d6149868b44366fd5687e54b15bbc94d3fe3bb1295"
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "output_index": 2,
+          "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-002.png",
+          "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-002.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 1454,
+          "sha256": "a981ca85cadd7a9fefc32f2c7c0d1d114a2b7ff67e12d9109071a91b250c0c86"
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "output_index": 3,
+          "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-003.png",
+          "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-003.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 1415,
+          "sha256": "b7ad4764188d10f5a854f9d6149868b44366fd5687e54b15bbc94d3fe3bb1295"
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "output_index": 4,
+          "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-004.png",
+          "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-004.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 1415,
+          "sha256": "b7ad4764188d10f5a854f9d6149868b44366fd5687e54b15bbc94d3fe3bb1295"
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "output_index": 5,
+          "path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-005.png",
+          "output_path": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-005.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 1415,
+          "sha256": "b7ad4764188d10f5a854f9d6149868b44366fd5687e54b15bbc94d3fe3bb1295"
+        }
+      ],
+      "motion_review": "../../../healer-saint-complete-v1-20261023/README.md",
       "source_aliases": {
         "0": 0,
         "1": 0,
@@ -965,8 +959,20 @@
         "3": 0,
         "4": 0,
         "5": 0
-      }
+      },
+      "ground_shadow": {
+        "path": "gold-knight-walk-v3-20261020/ground-shadow.png",
+        "size": [
+          10,
+          1.5
+        ],
+        "offset": [
+          0,
+          -2
+        ],
+        "alpha": 0.3
+      },
+      "output_atlas": "../../../healer-saint-complete-v1-20261023/class-18/tactical-idle-atlas.png"
     }
-  ],
-  "source_note": "Native tactical walking corrected from bank11:L0BB5B1; previous village-OAM/CHR26 hybrid retained in source/previous-map-frame_mapping.json. Static idle and battle unchanged."
+  ]
 }

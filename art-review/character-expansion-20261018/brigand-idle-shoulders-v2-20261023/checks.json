@@ -1,0 +1,217 @@
+{
+  "status": "structural_passed",
+  "checks": 32,
+  "neck": [
+    {
+      "frame": 0,
+      "connected_skin_pixels": 132,
+      "neck_row_widths": {
+        "40": 10,
+        "41": 9,
+        "42": 9,
+        "43": 7
+      }
+    },
+    {
+      "frame": 1,
+      "connected_skin_pixels": 133,
+      "neck_row_widths": {
+        "40": 9,
+        "41": 9,
+        "42": 9,
+        "43": 7
+      }
+    },
+    {
+      "frame": 2,
+      "connected_skin_pixels": 139,
+      "neck_row_widths": {
+        "40": 10,
+        "41": 10,
+        "42": 10,
+        "43": 8
+      }
+    }
+  ],
+  "registration": [
+    {
+      "source": "idle-shoulder-neck-master.png",
+      "bounds": [
+        172,
+        157,
+        579,
+        621
+      ],
+      "head": [
+        186.5,
+        114
+      ],
+      "hip": [
+        178.5,
+        272
+      ],
+      "target_head": [
+        48,
+        34
+      ],
+      "target_hip": [
+        47,
+        55
+      ],
+      "scale": 0.13142857142857142,
+      "alpha_threshold": 200,
+      "hair_box": [
+        88,
+        0,
+        284,
+        119
+      ],
+      "source_sha256": "12a1543a06e0eeffc5707b9e6f6ffe94990e7eff5679a2c644a39ad37649cbbc",
+      "registered_size": [
+        53,
+        61
+      ],
+      "translation": [
+        24,
+        19
+      ],
+      "actual_landmarks": {
+        "head": [
+          48.28624078624078,
+          33.98706896551724
+        ],
+        "hip": [
+          47.24447174447174,
+          54.758620689655174
+        ]
+      },
+      "clipped_pixels": 0,
+      "method": "uniform whole-pose scale and integer translation; no neck or shoulder patch"
+    },
+    {
+      "source": "idle-shoulder-neck-master.png",
+      "bounds": [
+        897,
+        158,
+        1303,
+        621
+      ],
+      "head": [
+        186.5,
+        113.5
+      ],
+      "hip": [
+        178.5,
+        271
+      ],
+      "target_head": [
+        48,
+        34
+      ],
+      "target_hip": [
+        47,
+        55
+      ],
+      "scale": 0.13161659513590845,
+      "alpha_threshold": 200,
+      "hair_box": [
+        88,
+        0,
+        284,
+        118
+      ],
+      "source_sha256": "12a1543a06e0eeffc5707b9e6f6ffe94990e7eff5679a2c644a39ad37649cbbc",
+      "registered_size": [
+        53,
+        61
+      ],
+      "translation": [
+        24,
+        19
+      ],
+      "actual_landmarks": {
+        "head": [
+          48.3460591133005,
+          33.953563714902806
+        ],
+        "hip": [
+          47.30172413793103,
+          54.704103671706264
+        ]
+      },
+      "clipped_pixels": 0,
+      "method": "uniform whole-pose scale and integer translation; no neck or shoulder patch"
+    },
+    {
+      "source": "idle-shoulder-neck-master.png",
+      "bounds": [
+        1597,
+        157,
+        1992,
+        621
+      ],
+      "head": [
+        177.5,
+        114
+      ],
+      "hip": [
+        170.5,
+        272
+      ],
+      "target_head": [
+        48,
+        34
+      ],
+      "target_hip": [
+        47,
+        55
+      ],
+      "scale": 0.13142857142857142,
+      "alpha_threshold": 200,
+      "hair_box": [
+        79,
+        0,
+        275,
+        119
+      ],
+      "source_sha256": "12a1543a06e0eeffc5707b9e6f6ffe94990e7eff5679a2c644a39ad37649cbbc",
+      "registered_size": [
+        52,
+        61
+      ],
+      "translation": [
+        25,
+        19
+      ],
+      "actual_landmarks": {
+        "head": [
+          48.36708860759494,
+          33.98706896551724
+        ],
+        "hip": [
+          47.44556962025317,
+          54.758620689655174
+        ]
+      },
+      "clipped_pixels": 0,
+      "method": "uniform whole-pose scale and integer translation; no neck or shoulder patch"
+    }
+  ],
+  "fixed_lower_body": {
+    "reference_pose": 0,
+    "box": [
+      0,
+      62,
+      96,
+      96
+    ],
+    "sha256": "6b89799c140e527fe1d1bd30d3ae7bf4e3cef1916a66c004012714bded385705",
+    "method": "same intact lower-body crop, no limb rearrangement"
+  },
+  "visual_review_required": [
+    "shoulder twist direction and amount",
+    "neck/collar seams",
+    "unbroken hands and axe"
+  ],
+  "runtime_integrated": false
+}

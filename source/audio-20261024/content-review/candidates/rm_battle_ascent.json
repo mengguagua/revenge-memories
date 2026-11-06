@@ -1,0 +1,69 @@
+{
+  "id": "rm_battle_ascent",
+  "path": "source/audio-20261024/content-review/candidates/rm_battle_ascent.ogg",
+  "source_path": "source/audio-20261024/content-review/raw/rm_battle_ascent_2026102816_float.wav",
+  "master_path": "source/audio-20261024/content-review/masters/rm_battle_ascent_v2_float.wav",
+  "sha256": "72923997d6be2fdbc5b52b76750ee8921174d4dee17342e045198bc0fc10bf15",
+  "bytes": 307882,
+  "source": {
+    "track_id": "rm_battle_ascent",
+    "seed": 2026102816,
+    "model": "local Stable Audio 3 sm-music/same-s",
+    "method": "owned-guide audio-conditioned generation",
+    "guide": {
+      "path": "source/audio-20261024/content-review/guides/rm_battle_ascent.wav",
+      "sha256": "deab58c3679768a0ba4fe4d8ac912fb4b185af66cb2ee251f2cc087abd3a77d1",
+      "period_seconds": 27.042244897959183,
+      "period_frames": 1192563
+    },
+    "prompt": "TrackType: Music, VocalType: Instrumental. Original early-console 8-bit fantasy tactics soundtrack. Strict sparse four-channel chiptune: two warm pulse-wave melody and harmony voices, one rounded triangle bass voice, and quiet band-limited noise percussion. Dry direct electronic tone, clear monophonic lines, memorable NEW melody. Straight rhythm, no swing, no jazz, no reggae. No acoustic instruments, no piano, no guitar, no flute, no orchestral pad, no realistic drum kit, no voice or choir. 142 BPM. A purposeful, energetic rescue march. Two original pulse melodies join in determined counterpoint as allies advance together. Repeating complete eight-bar phrases, A A B A form, stable accompaniment, no introduction or fadeout.",
+    "seconds": 27.362244897959183,
+    "cfg": 2.0,
+    "steps": 8,
+    "dit_dtype": "fp32",
+    "sha256": "67b5bad389018dd74710dd56c3ae5f2e078c69d07468b62f07d07349493560a5",
+    "source_format": "FLOAT WAV",
+    "offline": true,
+    "generation_wall_seconds": 3.287,
+    "raw_peak": 1.0319167375564575,
+    "raw_rms": 0.21312491595745087,
+    "post_guide": {
+      "path": "source/audio-20261024/content-review/guides/rm_battle_ascent_v2.wav",
+      "sha256": "7f69ee98a03fa15f139c8f96ede89c9842a0f1287b35d176a2102959b47409de",
+      "reason": "clearer pulse duties, stronger march percussion and legato bass across phrase boundary"
+    }
+  },
+  "editing": {
+    "method": "new sixteen-bar four-voice composition with local model texture and circular phase wrap",
+    "guide_mix": 0.85,
+    "model_mix": 0.15,
+    "bars": 16,
+    "guide_bpm": 142,
+    "period_frames": 1192563,
+    "period_seconds": 27.042244897959183,
+    "loop_offset_seconds": 0.0,
+    "model_wrap_seconds": 0.2
+  },
+  "gain_db": -3.8500000000000014,
+  "target_integrated_lufs": -20,
+  "metrics": {
+    "seconds": 27.042244897959183,
+    "rms_dbfs": -22.859996763987162,
+    "sample_peak_dbfs": -9.46116053814688,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "interior_silence_longest_seconds": 0.0,
+    "silent_frame_fraction": 0.0,
+    "rms_10ms_p10_dbfs": -26.135999879188528,
+    "rms_10ms_p90_dbfs": -21.628491343916746,
+    "seam_max_sample_delta": 0.027078036218881607,
+    "derivative_p99": 0.0398845337331295,
+    "seam_delta_over_derivative_p99": 0.6789106875377519,
+    "integrated_lufs": -19.96,
+    "true_peak_dbtp": -9.37,
+    "loudness_range_lu": 0.2
+  },
+  "errors": [],
+  "review_decision": "selected",
+  "review_reason": "Matches final published review index."
+}

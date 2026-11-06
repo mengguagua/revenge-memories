@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>补练解锁提示与收益规则 · 2026-11-01</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#101925;color:#e8edf3;font:16px/1.85 system-ui,-apple-system,sans-serif}main{max-width:1100px;margin:auto;padding:32px 24px 64px}h1{font-size:28px}h2{font-size:21px;color:#e5d4a5;margin-top:32px}a{color:#add8f4}.lead{background:#1d2d40;padding:18px 22px;border-radius:12px}.muted{color:#b5c3d2;font-size:14px}details{background:#1a283a;border-radius:10px;margin:16px 0;overflow:hidden}summary{padding:14px 20px;cursor:pointer;font-weight:600}img{display:block;width:100%;height:auto}blockquote{margin:12px 0;padding:12px 20px;background:#1a283a;border-radius:8px}@media(max-width:700px){main{padding:20px 14px}h1{font-size:23px}}
+</style>
+<main>
+<p class="muted">复仇与回忆 · 正式战役 actual · 2026-11-01</p>
+<h1>补练解锁提示与“收益与次数”</h1>
+<p class="lead">已接入本地源码：M13战后追加一次系统解锁提示；已通关M13的旧记录补看一次；补练菜单增加可反复阅读的“收益与次数”。没有安装或更新iPhone。</p>
+<h2>一次性解锁提示</h2>
+<p>新流程在M13战后故事对白之后显示，告知“菜单→部队整备→战术补练”，并说明成功每位未满级参训者60经验、每章每队最多成功2次，以及规则说明入口。</p>
+<p>已过M13的旧记录，在首次回到世界地图或据点且操作空闲时补看一次；正在战斗、播放剧情、移动、打开菜单或处理胜负时暂缓。提示记录随存档保存，中途关闭后续读当前提示页，读完不会再次弹出。更晚章节尚未开放补练或已经最终合军时，提示会说明相应开放条件，避免误报当前可进入。</p>
+<h2>补练菜单：收益与次数</h2>
+<p>菜单第一项为“收益与次数”，两种演习与返回整备入口保留。说明分两段，较窄布局自动分页；读完回到原世界地图或据点的补练菜单。额度用完后仍能阅读，不发经验、不消耗次数。</p>
+<blockquote>成功后，每位未满级参训者获得60经验，包括本场倒地者。演习中没有战斗经验，也没有掉落。</blockquote>
+<blockquote>每章每队最多成功2次，两种演习共用次数。失败、退出或重试不获经验、不扣次数；未用次数不结转。最终合军后不再开放。</blockquote>
+<h2>后台运行画面</h2>
+<p class="muted">以下为Godot后台手机布局渲染，不是真机截图；未显示窗口或抢占用户焦点。点击展开。</p>
+<details><summary>一次性解锁提示：入口</summary><img loading="lazy" src="unlock-page-1.png" alt="补练解锁入口提示"></details>
+<details><summary>一次性解锁提示：收益与次数</summary><img loading="lazy" src="unlock-page-2.png" alt="补练解锁收益和次数提示"></details>
+<details><summary>补练菜单新增“收益与次数”</summary><img loading="lazy" src="training-menu.png" alt="补练菜单"></details>
+<details><summary>规则说明：收益</summary><img loading="lazy" src="rules-reward.png" alt="收益说明"></details>
+<details><summary>规则说明：次数</summary><img loading="lazy" src="rules-quota.png" alt="次数说明"></details>
+<details><summary>额度用完仍可阅读</summary><img loading="lazy" src="rules-exhausted.png" alt="额度用完仍可阅读"></details>
+<details><summary>较窄手机布局：收益</summary><img loading="lazy" src="compact-rules-0.png" alt="较窄布局收益说明"></details>
+<details><summary>较窄手机布局：次数第一页</summary><img loading="lazy" src="compact-rules-1.png" alt="较窄布局次数说明第一页"></details>
+<details><summary>较窄手机布局：次数续页</summary><img loading="lazy" src="compact-rules-2.png" alt="较窄布局次数说明续页"></details>
+<h2>验证范围</h2>
+<p>46项无窗口定向检查、56项后台运行与布局检查通过，覆盖新M13结算顺序、旧记录补提示、提示存读档续读、不重复触发、菜单/战斗/已有对白暂缓、重复阅读规则、用完次数仍可阅读、世界与据点返回，以及两种手机尺寸的字形和背景安全区。</p>
+<p>本轮为提示与说明修改，没有调整经验、额度或战斗规则；未重新运行全战役，也未安装或更新iPhone。</p>
+<p><a href="logic.json">定向检查</a> · <a href="visual.json">后台布局检查</a> · <a href="image-sizes.json">图片尺寸与大小</a> · <a href="../../tests/training_guide_20261101.gd">验证脚本</a></p>
+</main></html>

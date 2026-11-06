@@ -61,7 +61,7 @@ func mouse_accept(point: Vector2) -> void:
 		return
 	var cell=Vector2i(floori((point.x-ORIGIN.x)/16),floori((point.y-ORIGIN.y)/16))
 	for o in objects:
-		if Vector2i(o.position[0],o.position[1])!=cell:continue
+		if not object_occupies(o,cell):continue
 		var delta=cell-ui.game.hub_position
 		if absi(delta.x)+absi(delta.y)==1:facing=delta;accept()
 		else:ui._notice("先走到对象旁边，再面对确认")
@@ -93,16 +93,17 @@ func enter_room(id: String,resuming: bool=false,checkpoint: bool=true) -> void:
 	match room:
 		"P00":
 			title="序章 · 海峡城庆典";hint="走向传光台，面对人物确认"
-			obj("guard",[4,4],"教团守卫","actor",0,"这里刚恢复日光。请沿着广场走到传光台。")
-			obj("prologue",[7,2],"赫兰","actor",4);obj("prologue",[10,3],"艾琳","actor",2)
-			obj("altar",[6,1],"传光台","sun_altar")
+			obj("guard",[4,5],"教团守卫","actor",0,"胡纳普，赫兰大人在传光台等你。")
+			obj("prologue",[9,2],"赫兰","actor",4);obj("prologue",[4,3],"艾琳","actor",2)
+			obj("altar",[8,1],"传光台","sun_altar")
+			obj("guard",[3,3],"教团守卫","actor",0);obj("guard",[5,3],"教团守卫","actor",0)
 		"H01":
 			title="半年前 · 雪原村";hint="墓前交谈后，向南离村"
 			obj("grave",[6,3],"凯尔的墓","grave");obj("otto",[3,4],"奥托","actor",5)
 			obj("daan",[10,5],"达恩","actor",21)
 		"H02":
 			title="丘堡粮站 · 战后";hint="确认分粮，再与芙拉交谈"
-			obj("grain",[6,3],"粮车","grain_wagon");obj("fula",[3,5],"芙拉","actor",14)
+			obj("grain",[6,3],"粮车","grain_wagon",0,"",Vector2i(2,1));obj("fula",[3,5],"芙拉","actor",14)
 			obj("crown",[10,3],"救济牌","aid_plaque")
 		"H03":
 			title="南岗押送所 · 战后";hint="查看军令，再到东侧教堂"
@@ -115,22 +116,31 @@ func enter_room(id: String,resuming: bool=false,checkpoint: bool=true) -> void:
 			obj("treatment",[4,6],"救治泉 · 西队剩余"+str(ui.game.treatment_remaining())+"份","well")
 		"H05":
 			title="旧塔外营 · 战后";hint="两处道路已受控制，继续北行"
-			obj("camp",[6,3],"投降兵","actor",5,"塔工还在内院。将军要带粮走，没有给他们留车。")
+			obj("camp",[6,3],"投降兵","actor",5,"修城墙的人还在堡里。")
 		"H06":
-			title="海峡城 · 旧塔内院";hint="安置伤者后，在日塔确认仪式"
-			obj("treat",[4,5],"伤者与医者","medicine_wagon")
+			title="海峡城 · 旧塔内院";hint="与女医者安置伤者，再到日塔确认仪式"
+			obj("treat",[6,5],"女医者","actor")
 			obj("ceremony",[7,2],"日返仪式","sun_altar")
 		"H07":
 			title="林路营地";hint="查看矿道和诊所的求助，再选道路"
 			obj("invite",[6,3],"村民","actor",7)
-			obj("camp",[10,5],"奥托","actor",5,"凯尔也是从这里护送流民。粮站在北面，那里还能找到军令的副本。")
+			obj("camp",[10,5],"村中老妇","actor",0,"凯尔把军粮分给了我们。科兰说他通敌，就把他杀了……那时谁也不敢站出来。")
 		"H08":
-			title="旧矿道 · 战后";hint="贝克存活时可交谈招募"
-			obj("beck",[6,3],"贝克","actor",20);obj("tools",[10,5],"矿工工具","crates")
+			title="旧矿道 · 战后"
+			if not ui.game.party.has("beck") and ui.game.speaker_alive("贝克"):
+				hint="与贝克交谈，邀请他同行";obj("beck",[6,3],"贝克","actor",20)
+			else:
+				hint="与获救矿工交谈，听听矿道里的遭遇";obj("mine_survivor",[6,3],"老矿工","actor",0)
+			obj("mine_apprentice",[9,3],"年轻矿工","actor",0);obj("tools",[10,5],"矿工工具","crates")
 		"H09":
-			title="林村诊所 · 战后";hint="请管理员接手医疗，再与赫维交谈"
+			title="林村诊所 · 医疗交接"
+			hint="药车尚未送达，请先护送药车" if not ui.game.stage_cleared(112) else "请与管理员核对药单，完成医疗交接" if not ui.game.flags.get("clinic_staffed",false) else "管理员已接手，可与赫维交谈邀请同行" if not ui.game.party.has("hervi") else "赫维已同行，管理员负责诊所照护"
 			obj("staff",[4,3],"管理员","actor",7);obj("hervi",[9,5],"赫维","actor",27)
+			if ui.game.stage_cleared(112):
+				obj("transport",[5,4],"运药员","actor",3)
+				obj("delivery",[7,3],"送达的药车","medicine_wagon")
 	for o in objects.duplicate():
+		if o.action=="hervi" and ui.game.flags.get("clinic_hervi_unavailable",false):objects.erase(o);continue
 		if o.action in ui.game.characters:
 			var u=ui.game.roster.get(o.action,{})
 			if bool(u.get("dead",false)):objects.erase(o)
@@ -145,30 +155,59 @@ func enter_room(id: String,resuming: bool=false,checkpoint: bool=true) -> void:
 		for module in ui.battle_pack.modules:
 			if module.name==entry[0]:
 				scenery.append({"name":entry[0],"rect":Rect2i(entry[1],entry[2],module.footprint[0],module.footprint[1])});break
+	if room=="H06":scenery.append({"name":"medicine_wagon","rect":Rect2i(4,5,2,1)})
 	if chapter2_rooms.has(room):_configure_east_room()
+	if room=="H04":
+		var positions={"cooperate":[8,3],"lance":[10,6],"shrine":[6,2],"treatment":[1,6]}
+		for o in objects:
+			if positions.has(o.action):o.position=positions[o.action]
+		scenery=[]
+		for rect in [Rect2i(1,0,12,3),Rect2i(3,4,3,1),Rect2i(3,5,3,1),Rect2i(8,4,3,1),Rect2i(8,5,3,1),Rect2i(1,7,5,1),Rect2i(8,7,5,1)]:
+			scenery.append({"name":"chapel_structure","rect":rect})
+
+	if room=="H04" and (scenery.any(func(d):return d.rect.has_point(ui.game.hub_position)) or objects.any(func(o):return object_occupies(o,ui.game.hub_position))):
+		ui.game.hub_position=Vector2i(6,7);render_position=Vector2(ui.game.hub_position)*16;motion_origin=render_position;motion_target=render_position
+
+	# A pre-fix journal may place the player inside the wagon's missing half.
+	# Move to an adjacent free tile once; keep the handover and party intact.
+	if room in ["H02","H06"] and (objects.any(func(o):return object_occupies(o,ui.game.hub_position)) or scenery.any(func(d):return d.rect.has_point(ui.game.hub_position))):
+		for offset in [Vector2i.DOWN,Vector2i.RIGHT,Vector2i.UP,Vector2i.LEFT]:
+			var next=ui.game.hub_position+offset
+			if next.x<1 or next.x>12 or next.y<1 or next.y>7:continue
+			if objects.any(func(o):return object_occupies(o,next)) or scenery.any(func(d):return d.rect.has_point(next)):continue
+			ui.game.hub_position=next;render_position=Vector2(next)*16;motion_origin=render_position;motion_target=render_position;break
 	ui.audio.play_music("village")
 	if checkpoint:ui.game.save_game()
 	ui.queue_redraw()
 
-func obj(action: String,at: Array,name: String,sprite: String,source: int=0,text: String="") -> void:
-	objects.append({"action":action,"position":at,"name":name,"sprite":sprite,"source":source,"text":text})
+func obj(action: String,at: Array,name: String,sprite: String,source: int=0,text: String="",footprint: Vector2i=Vector2i.ONE) -> void:
+	objects.append({"action":action,"position":at,"name":name,"sprite":sprite,"source":source,"text":text,"footprint":[footprint.x,footprint.y]})
+
+func object_occupies(object: Dictionary,cell: Vector2i) -> bool:
+	var size=object.get("footprint",[1,1])
+	return Rect2i(Vector2i(object.position[0],object.position[1]),Vector2i(size[0],size[1])).has_point(cell)
 
 func direction(d: Vector2i) -> void:
 	if ui.busy or motion_left>0.0:return
 	if not ui.menu_items.is_empty():
-		ui.menu_selected=posmod(ui.menu_selected+(d.x if d.x!=0 else d.y),ui.menu_items.size());return
+		ui._move_menu_selection(d.x if d.x!=0 else d.y);return
 	facing=d;var at=ui.game.hub_position+d
 	if at==Vector2i(6,8):
 		if not east_data.is_empty() and not _east_exit_allowed():return
 		if room=="P00":ui._notice("先到传光台，看看庆典发生了什么");return
 		if room=="H01" and not ui.game.flags.get("village_ready",false):ui._notice("先到凯尔墓前与达恩谈谈");return
-		if room=="H02" and not ui.game.flags.get("grain_shared",false):ui._notice("粮车还没确认分粮");return
+		if room=="H02" and not ui.game.flags.get("grain_shared",false):
+			await ui.play_pages([{"speaker":"胡纳普","text":"粮食还没分给村民。先去看看粮车。"}],"hub");return
 		if room=="H03" and not ui.game.flags.get("orders_collected",false):ui._notice("先查看军令箱");return
-		if room=="H04":enter_room("H03");return
+		if room=="H04":
+			enter_room("H03",false,false)
+			ui.game.hub_position=Vector2i(11,3);facing=Vector2i.DOWN
+			render_position=Vector2(ui.game.hub_position)*16;motion_origin=render_position;motion_target=render_position
+			ui.game.save_game();ui.queue_redraw();return
 		ui._open_menu("hub_exit",["离开据点","留下"],["new:world","close"],Vector2(48,88));return
 	if at.x<1 or at.x>12 or at.y<1 or at.y>7:return
 	if not east_data.is_empty() and not east_walkable(at):return
-	if objects.any(func(o):return Vector2i(o.position[0],o.position[1])==at):return
+	if objects.any(func(o):return object_occupies(o,at)):return
 	if scenery.any(func(d):return bool(d.get("blocking",true)) and d.rect.has_point(at)):return
 	motion_origin=Vector2(ui.game.hub_position)*16;motion_target=Vector2(at)*16
 	motion_left=0.0 if ui.instant_mode else STEP
@@ -181,11 +220,13 @@ func accept() -> void:
 		var a=str(ui.menu_actions[ui.menu_selected]);var context=ui.menu_context;ui._clear_menu();ui._menu_action(a,context);return
 	var target=ui.game.hub_position+facing
 	for o in objects:
-		if Vector2i(o.position[0],o.position[1])==target:action(str(o.action));return
+		if object_occupies(o,target):action(str(o.action));return
 	ui._notice("面对人物或物件，再按确认")
 
 func action(key: String) -> void:
 	var g=ui.game
+	if key in ["shrine","east_promotions","third_promotions"] or key.begins_with("promote_"):
+		ui.field_notes.open_promotions();return
 	if key=="treatment":
 		_open_treatment();return
 	if key.begins_with("treat_choose_"):
@@ -209,35 +250,62 @@ func action(key: String) -> void:
 		await _east_action(key);g.save_game();return
 	match key:
 		"prologue":
-			await ui.play_pages(g.campaign.scenes.D00+[{"speaker":"旁白","text":"胡纳普挡住法术。神幕显出倾斜的屋顶与撤离的船。她来自同一个世界的另一岸。"},{"speaker":"旁白","text":"半年前，西大陆。"}],"hub","prologue")
+			ui.prologue_scene.start();return
 		"grave":
 			if g.flags.get("village_ready",false):
-				var line="科兰已败。我还会回来，把你的名字刻完。" if g.flags.get("korlan_defeated",false) else "林路已清，我会继续寻找军令的证人。" if g.stage_cleared(101) else "我们先把林路上的居民送出去。"
+				var line="我还会回来。" if g.flags.get("korlan_defeated",false) else "哥，我们过了林路。我再找找见过那件事的人。" if g.stage_cleared(101) else "我去找科兰。等我回来，再把你的名字刻完。"
 				await ui.play_pages([{ "speaker":"胡纳普","text":line}],"hub");return
 			await ui.play_pages(g.campaign.scenes.D11,"hub","grave")
-		"otto":await ui.play_pages([{ "speaker":"奥托","text":"凯尔打开关卡，放走了老人和孩子。科兰以通敌罪处死他。这份军令，我愿作证。"}],"hub")
-		"daan":await ui.play_pages([{ "speaker":"达恩","text":"我带着弓。先把林路上的人送出去，再找科兰。"}],"hub")
+		"otto":await ui.play_pages([{"speaker":"奥托","text":"凯尔打开门，放走了老人和孩子。科兰以通敌罪处死他。"}],"hub")
+		"daan":
+			var scene="H01_DAAN_REPEAT" if g.flags.get("daan_companionship_seen",false) else "H01_DAAN_FIRST"
+			await ui.play_pages(g.campaign.scenes[scene],"hub","daan_companionship")
 		"grain":
+			if g.flags.get("grain_shared",false):
+				await ui.play_pages([{"speaker":"管理员","text":"粮车走了，给赫兰大人的信也送出去了。"}],"hub");return
 			g.flags.grain_shared=true
-			await ui.play_pages([{ "speaker":"胡纳普","text":"粮车按原名单送回雪原村。受伤的人先领。"},{"speaker":"管理员","text":"粮已经点清。这块救济牌刻着七羽日冠，和塔上的冠印一样。"}],"hub")
-		"crown":await ui.play_pages([{ "speaker":"管理员","text":"七羽日冠是乌库布·卡基的神印。粮还得装车，牌也会送到村里。"}],"hub")
+			await ui.play_pages([
+				{"speaker":"胡纳普","text":"这车照原来的名单送回雪原村。让伤者先领。"},
+				{"speaker":"管理员","text":"士兵运走了一些，剩下的都点过了。这是教团的救济牌。冠上的七根羽毛是太阳神的记号。"},
+				{"speaker":"管理员","text":"粮是赫兰大人拨的。是这一带教团的首领。你叫什么？我给他捎个信。"},
+				{"speaker":"胡纳普","text":"胡纳普。"}],"hub")
+		"crown":await ui.play_pages([{"speaker":"管理员","text":"七羽日冠是乌库布·卡基的神印。"}],"hub")
 		"orders":
 			g.flags.orders_collected=true
-			await ui.play_pages([{ "speaker":"胡纳普","text":"押送名单和凯尔的军令都在。先带劳工回去，再去教堂找赫兰。"}],"hub")
+			await ui.play_pages([
+				{"speaker":"胡纳普","text":"押送名单……还有我哥的军令。"},
+				{"speaker":"界面提示","text":"到南岗押送所东边的教堂找赫兰。"}],"hub")
 		"church":enter_room("H04")
 		"cooperate":
-			if g.flags.get("cooperation_done",false):await ui.play_pages([{ "speaker":"赫兰","text":"军令已交给记录官。你救下的人都会记得凯尔。"}],"hub")
+			if g.flags.get("cooperation_done",false):
+				await ui.play_pages([{"speaker":"赫兰","text":"凯尔的事，我已经交给记录官处理了，教团会歌颂他的正义。"}],"hub")
+			elif not g.flags.get("orders_collected",false):
+				ui._notice("先查看南岗押送所里的军令箱，再去找赫兰。")
 			else:
-				var pages=g.campaign.scenes.D12.duplicate(true)
-				pages.append({"speaker":"医者","text":"教堂留有一份泉液，可以救治一名濒死同伴。未用时会保留，每个人只能接受一次。"})
-				pages.append({"speaker":"医者","text":"濒死者仍随队接受照护，暂时不能出阵。泉液只能修复活人的伤损，不能救回凯尔。"})
-				await ui.play_pages(pages,"hub","cooperate")
+				await ui.play_pages(g.campaign.scenes.D12,"hub","cooperate")
 		"fula","lena","beck","hervi":
-			if g.party.has(key):await ui.play_pages([{ "speaker":g.characters[key].name_zh,"text":"我会与你同行。村里的人已经有人照顾。"}],"hub");return
-			if key=="fula" and not g.flags.get("grain_shared",false):ui._notice("芙拉希望先把粮送回村庄");return
-			if key=="hervi" and not g.flags.get("clinic_staffed",false):ui._notice("先请管理员接手诊所");return
+			if g.party.has(key):
+				var pages=g.campaign.scenes.H09_HERVI_JOINED if key=="hervi" else [{"speaker":g.characters[key].name_zh,"text":"与你们同行，是一个不错的选择。" if key=="fula" else "我会与你同行。"}]
+				await ui.play_pages(pages,"hub");return
+			if key=="fula" and not g.flags.get("grain_shared",false):
+				await ui.play_pages([{"speaker":"芙拉","text":"请先到那边的粮车，帮忙送回村里。"}],"hub");return
+			if key=="fula":
+				var text="伤者有村里的医者照看。让我跟你们走吧。" if g.stage_cleared(103) else "粮车走了，伤者也有人照看。你们路上缺个医者吧？"
+				await ui.play_pages([{"speaker":"芙拉","text":text}],"hub","fula_invite");return
+			if key=="hervi":
+				if not g.stage_cleared(112):ui._notice("先护送运药员，将药车送达诊所");return
+				if not g.flags.get("clinic_staffed",false):
+					await ui.play_pages(g.campaign.scenes.H09_HERVI_ON_DUTY,"hub");return
+				if not g.can_invite_hervi():ui._notice("赫维目前无法同行");return
+			if key in ["beck","hervi"]:
+				if not _companion_invitable(key):return
+				var prefix="H08_BECK_" if key=="beck" else "H09_HERVI_"
+				var scene=prefix+("REPEAT" if g.flags.get(key+"_invitation_seen",false) else "FIRST")
+				await ui.play_pages(g.campaign.scenes[scene],"hub","companion_invite:"+key);return
 			ui._open_menu("recruit",["邀请同行","暂不邀请"],["hub:recruit_"+key,"close"],Vector2(48,88))
-		"lance":await ui.play_pages([{ "speaker":"兰斯","text":"赫兰让我带你们进城。右边是骑兵营，我们可以分路推进。"}],"hub")
+		"lance":
+			var line="去海峡城要过旧塔外营。" if g.flags.get("cooperation_done",false) else "赫兰大人在里面。他在等押送所的消息。"
+			await ui.play_pages([{"speaker":"兰斯","text":line}],"hub")
 		"shrine":
 			var labels=[];var actions=[]
 			for id in g.party:
@@ -247,36 +315,96 @@ func action(key: String) -> void:
 					actions.append("hub:promote_"+str(id)+"_"+str(int(option.class_id)))
 			if labels.is_empty():ui._notice("尚无成员达到转职等级");return
 			ui._open_menu("promotion",labels,actions,Vector2(24,72))
-		"invite":await ui.play_pages([{ "speaker":"村民","text":"旧矿道里还有两队矿工。林村诊所的药车也被封路兵拦住了。两处支路都在这里分开。"},{"speaker":"村民","text":"它们可以先做，也可以之后回来；日返仪式举行前，请决定是否前往。"}],"hub")
-		"tools":await ui.play_pages([{ "speaker":"矿工","text":"工具不是开路的钥匙。你即使没有找到工具，也能继续追查科兰。"}],"hub")
-		"staff":g.flags.clinic_staffed=true;await ui.play_pages([{ "speaker":"管理员","text":"药车已经到诊所。我留下照顾病人，赫维可以与你们同行。"}],"hub")
-		"treat":g.flags.workers_treated=true;await ui.play_pages([{ "speaker":"医者","text":"内院的伤者已经安置。粮与药交给我们，你去塔上确认仪式吧。"}],"hub")
+		"invite":
+			var mine_line="矿工们都回来了。多亏了你们！" if g.stage_cleared(111) else "旧矿道塌了，矿工还在里面。贝克进去救人，路又被匪徒堵上了。求你们去看看。"
+			var clinic_line="药已经送到诊所。伤员们可算有救了。" if g.stage_cleared(112) else "送药去林村诊所的车被士兵拦在桥南了。赫维还等着药救人。"
+			await ui.play_pages([{"speaker":"村民","text":mine_line},{"speaker":"村民","text":clinic_line}],"hub")
+		"mine_survivor":
+			var pages=[{"speaker":"老矿工","text":"军队要的矿石越来越多。矿道都快塌了，他们还不许我们停工。"}]
+			pages.append({"speaker":"老矿工","text":"多亏你们和贝克，我们才活着出来。那小伙子，就拜托你们了。" if ui.game.party.has("beck") else "贝克没能回来……他是为了救我们啊。"})
+			await ui.play_pages(pages,"hub")
+		"mine_apprentice":await ui.play_pages([{"speaker":"年轻矿工","text":"多谢！我娘还在村里等我。我这就回去。"}],"hub")
+		"tools":await ui.play_pages([{"speaker":"年轻矿工","text":"工具也找回来了！谢谢你们，这些可都是吃饭的家伙啊。" if g.flags.get("tools_reward",false) else "有些工具还落在洞里。等大家歇一歇，我们自己去搬吧。"}],"hub")
+		"staff":
+			if room!="H09" or not g.stage_cleared(112):ui._notice("药车尚未送达，先完成护送");return
+			if g.flags.get("clinic_staffed",false):
+				await ui.play_pages([{"speaker":"管理员","text":"伤员有我照顾，你们安心。"}],"hub");return
+			var pages=[{"speaker":"运药员","text":"药车在门口。退热药在最上面。"},{"speaker":"管理员","text":"我去搬药。伤者也交给我吧。"}]
+			if not g.flags.get("clinic_hervi_unavailable",false) and g.speaker_alive("赫维"):
+				pages.append({"speaker":"赫维","text":"拜托你了。里屋有一位还没醒。"})
+			await ui.play_pages(pages,"hub","clinic_handover")
+		"transport":await ui.play_pages([{"speaker":"运药员","text":"那些士兵运药的车都拦。"}],"hub")
+		"delivery":await ui.play_pages([{"speaker":"管理员","text":"药放在这。哪间屋用完了，再来拿。"}],"hub")
+		"treat":g.flags.workers_treated=true;await ui.play_pages([{"speaker":"医者","text":"伤者安顿好了。伟大的日返仪式可以在堡里的塔上举行。"}],"hub")
 		"ceremony":
-			if g.flags.get("chapter1_complete",false):await ui.play_pages([{ "speaker":"赫兰","text":"日返已经完成。大家正为明日的庆典做准备。"}],"hub");return
+			if g.flags.get("chapter1_complete",false):await ui.play_pages([{"speaker":"赫兰","text":"大家正为明日的庆典做准备。"}],"hub");return
 			if not g.flags.get("workers_treated",false):ui._notice("先在内院安置获救的伤者");return
 			if not g.flags.get("chapter1_complete",false) and (not g.stage_cleared(111) or not g.stage_cleared(112)):
 				ui._open_menu("side_closure",["返回整备","举行日返"],["close","hub:ceremony_confirm"],Vector2(44,112));ui._notice("未完成支线将随仪式收束",6);return
 			action("ceremony_confirm")
 		"ceremony_confirm":
-			var pages=[{"speaker":"赫兰","text":"凯尔的军令已交给记录官。我会公布他的事。日塔可以恢复仪式了。"},{"speaker":"乌库布·卡基","text":"我救下这片土地。日光将重返西大陆，愿你们记住庇护的恩情。"},{"speaker":"胡纳普","text":"先把内院的人都带出来。"}]
-			if g.speaker_alive("达恩"):pages.append({"speaker":"达恩","text":"明日典礼后，一起回村里吧。凯尔的名字还没有刻完。"})
-			pages.append({"speaker":"胡纳普","text":"好，明日之后。"});await ui.play_pages(pages,"hub","ceremony")
+			var pages=[
+				{"speaker":"赫兰","text":"可以举行日返仪式了。"},
+				{"speaker":"乌库布·卡基","text":"我救下这片土地。日光将重返西大陆，愿你们记住庇护的恩情。"},
+				{"speaker":"胡纳普","text":"把内院的人都带出来。"}]
+			if g.speaker_alive("达恩"):
+				pages.append({"speaker":"达恩","text":"明天庆典结束，一起回雪原村吧。凯尔的名字还没刻完。"})
+				pages.append({"speaker":"胡纳普","text":"好。明天庆典结束就回去。"})
+			else:
+				pages.append({"speaker":"胡纳普","text":"等庆典结束，我就回雪原村把哥哥的名字刻完。"})
+			await ui.play_pages(pages,"hub","ceremony")
 		"camp","guard","altar":
-			var line="日塔正在准备仪式。"
+			var line="仪式还没开始。你可以过去。"
+			var speaker="村民" if key=="camp" else "教团守卫"
 			for o in objects:
-				if o.action==key and not str(o.text).is_empty():line=o.text
-			await ui.play_pages([{ "speaker":"村民" if key=="camp" else "教团守卫","text":line}],"hub")
+				if o.action==key and not str(o.text).is_empty():line=o.text;speaker=str(o.name)
+			await ui.play_pages([{ "speaker":speaker,"text":line}],"hub")
 		_:
+			if key.begins_with("decline_"):
+				var id=key.trim_prefix("decline_")
+				if _companion_invitable(id):await ui.play_pages(g.campaign.scenes["H08_BECK_DECLINE" if id=="beck" else "H09_HERVI_DECLINE"],"hub")
+				return
 			if key.begins_with("promote_"):
 				var parts=key.split("_");var result=g.promote_unit(parts[1],int(parts[2]))
 				ui._notice("转职完成" if result.get("valid",false) else "未满足转职条件");g.save_game();return
 			if key.begins_with("recruit_"):
-				var id=key.substr(8);g.recruit(id);await ui.play_pages([{ "speaker":g.characters[id].name_zh,"text":"我与你们同行。这里的居民仍由管理员照顾。"}],"hub")
+				var id=key.substr(8)
+				if id in ["beck","hervi"] and not _companion_invitable(id):return
+				if id=="hervi" and (room!="H09" or not g.can_invite_hervi()):ui._notice("先完成送药与诊所交接");return
+				g.recruit(id)
+				if not g.party.has(id):return
+				if id=="beck":enter_room("H08",true,false)
+				var pages=g.campaign.scenes["H08_BECK_ACCEPT" if id=="beck" else "H09_HERVI_ACCEPT"] if id in ["beck","hervi"] else [{"speaker":g.characters[id].name_zh,"text":"谁受伤我来医治。" if id=="fula" else "走吧。这儿有人照看，我也能放心。"}]
+				await ui.play_pages(pages,"hub")
+				if id=="hervi":enter_room("H09")
 	ui.game.save_game()
 
+func _companion_invitable(id: String) -> bool:
+	var g=ui.game
+	if g.party.has(id) or not g.speaker_alive(str(g.characters.get(id,{}).get("name_zh",""))):return false
+	return (room=="H08" and g.stage_cleared(111)) if id=="beck" else (room=="H09" and g.can_invite_hervi()) if id=="hervi" else false
+
 func finish_story(callback: String) -> void:
+	# The callback is saved with the dialogue, so resuming its final page still
+	# records the first conversation and restores the invitation choice.
+	if callback.begins_with("companion_invite:"):
+		var id=callback.trim_prefix("companion_invite:")
+		if _companion_invitable(id):
+			ui.game.flags[id+"_invitation_seen"]=true
+			ui._open_menu("recruit",["邀请同行","暂不邀请"],["hub:recruit_"+id,"hub:decline_"+id],Vector2(48,88))
+		return
+	if callback=="d00_next":ui.prologue_scene.dialogue_finished();return
+	if callback=="third_prologue":ui.prologue_scene.end_reprise()
 	if callback.begins_with("third_"):ThirdHub.finish(self,callback);return
 	match callback:
+		"daan_companionship":ui.game.flags.daan_companionship_seen=true
+		"fula_invite":
+			var member=ui.game.roster.get("fula",{});var npc=ui.game.find_unit("fula")
+			if room=="H02" and ui.game.flags.get("grain_shared",false) and not ui.game.party.has("fula") and not bool(member.get("dead",false)) and not ui.game.is_dying(member) and (npc.is_empty() or int(npc.hp)>0):
+				ui._open_menu("recruit",["邀请同行","暂不邀请"],["hub:recruit_fula","close"],Vector2(48,88))
+		"clinic_handover":
+			if room=="H09" and ui.game.stage_cleared(112):
+				ui.game.flags.clinic_staffed=true;enter_room("H09")
 		"prologue":ui.game.flags.prologue_done=true;ui.game.world_node=1;enter_room("H01")
 		"grave":ui.game.flags.village_ready=true
 		"cooperate":ui.game.flags.cooperation_done=true;ui.game.recruit("lance")
@@ -346,6 +474,13 @@ func _draw_winter_floor(visual: Dictionary) -> void:
 			ui._draw_atlas_cell(atlas,int(visual.tiles[y][x]),ORIGIN+Vector2(x,y)*16)
 
 func draw() -> void:
+	if room=="H04":_draw_chapel();return
+	if room=="P00":
+		ui.prologue_scene.draw_plaza(false)
+		var caption=hint
+		for o in objects:
+			if ui.game.hub_position+facing==Vector2i(o.position[0],o.position[1]):caption="确认:"+str(o.name)
+		ui._draw_hub_caption(title,caption);return
 	var material="snow" if room=="H01" else "cave" if room=="H08" else "cobble" if room in ["P00","H04","H06"] else "grass"
 	var atlas=ui._tex("res://assets/battle_tiles/battle-tiles.png")
 	var winter=winter_visual(room)
@@ -368,7 +503,14 @@ func draw() -> void:
 		if ui.game.chapter==4:path=str(chapter4_environment.get("rooms",{}).get(room,{}).get("scenery_paths",{}).get(path,path))
 		if ui.game.chapter==5:path=str(chapter5_environment.get("rooms",{}).get(room,{}).get("scenery_paths",{}).get(path,path))
 		ui.draw_texture(ui._tex(path),ORIGIN+Vector2(d.rect.position)*16,_east_environment_tint())
-	for o in objects:
+	# Sort by feet/ground anchor. Tall signs cover someone behind them;
+	# someone in front covers the sign. Collision remains on the ground.
+	if motion_left<=0.0:render_position=Vector2(ui.game.hub_position)*16
+	var layers=objects.duplicate()
+	layers.append({"sprite":"hub_player","position":[render_position.x/16,render_position.y/16]})
+	layers.sort_custom(func(a,b):return float(a.position[1])<float(b.position[1]))
+	for o in layers:
+		if o.sprite=="hub_player":_draw_player();continue
 		var at=Vector2(o.position[0],o.position[1])*16+ORIGIN
 		if o.sprite=="actor":
 			var sp: Dictionary=ui.graphics.village_sprites.get(str(int(o.source)),ui.graphics.village_sprites["1"])
@@ -376,20 +518,24 @@ func draw() -> void:
 			ui._draw_frame(sp,int(sp.directions.down[0]),at-Vector2(sp.tile_origin[0],sp.tile_origin[1]))
 		else:
 			var tex=ui._tex(str(o.get("sprite_path","res://assets/battle_tiles/modules/"+str(o.sprite)+".png")));ui.draw_texture(tex,at-Vector2(0,tex.get_height()-16),Color.WHITE if o.sprite in ["sun_altar","lit_brazier","ritual_lamp","well"] else _east_environment_tint())
-		if ui.game.hub_position+facing==Vector2i(o.position[0],o.position[1]):ui._draw_indicator("down",at+Vector2(4,-8))
+		if object_occupies(o,ui.game.hub_position+facing):ui._draw_map_indicator("down",at+Vector2(4,-8))
+	ui._draw_map_indicator("down",ORIGIN+Vector2(6,8)*16+Vector2(4,-2))
+	var text=hint
+	for o in objects:
+		if object_occupies(o,ui.game.hub_position+facing):text="确认:"+str(o.name)
+	ui._draw_hub_caption(title,text)
+
+func _draw_player() -> void:
 	var source_id="2" if ui.game.route=="celica" else "1"
 	var sp: Dictionary=ui.graphics.village_sprites[source_id]
 	if ui.has_method("_personal_hub_sprite"):sp=ui.call("_personal_hub_sprite",sp)
 	var direction="up" if facing.y<0 else "side" if facing.x!=0 else "down"
 	if motion_left<=0.0:render_position=Vector2(ui.game.hub_position)*16
 	var at=render_position+ORIGIN
-	var step=(int(clock*60.0988)>>4)&1 if motion_left>0.0 else 0
-	ui._draw_frame(sp,int(sp.directions[direction][step]),at-Vector2(sp.tile_origin[0],sp.tile_origin[1]),facing.x<0)
-	ui._draw_indicator("down",ORIGIN+Vector2(6,8)*16+Vector2(4,-2))
-	var text=hint
-	for o in objects:
-		if ui.game.hub_position+facing==Vector2i(o.position[0],o.position[1]):text="确认:"+str(o.name)
-	ui._draw_hub_caption(title,text)
+	if facing.x!=0 and sp.directions.has("left"):direction="left" if facing.x<0 else "right"
+	var travel=preload("res://core/reviewed_animations.gd")
+	var frame=travel.travel_frame(sp,direction,clock,motion_left>0.0)
+	ui._draw_frame(sp,frame,at-Vector2(sp.tile_origin[0],sp.tile_origin[1]),facing.x<0 and not sp.directions.has("left"))
 
 func _configure_east_room() -> void:
 	east_data=chapter2_rooms[room].duplicate(true)
@@ -533,6 +679,8 @@ func _east_pages(lines: Array,callback: String="") -> void:
 	await ui.play_pages(result,"hub",callback)
 
 func _east_action(key: String) -> void:
+	if key=="east_promotions" or key.begins_with("promote_"):
+		ui.field_notes.open_promotions();return
 	var g=ui.game
 	match key:
 		"east_departure":
@@ -540,7 +688,7 @@ func _east_action(key: String) -> void:
 				await _east_pages(["卡洛：船已整备好了。从南面的跳板下去，我们去找押送舰。"] if _east_alive("carlo") else ["船长：航线已经记下。船团会沿着灯线继续走。"]);return
 			await ui.play_pages(g.campaign.scenes.D21,"hub","east_departure")
 		"east_mireille":await _east_pages(["米蕾：岸边还有失散的人。我们走了以后，学舍的医者会留下来。", "艾琳：药和干净的布留给他们。我们的船也要留出伤者的位置。"])
-		"east_lisa":await _east_pages(["莉莎：残图只画到神幕外沿。完整那一张，母亲没有留在学舍。", "艾琳：先找那艘押送舰。也许还有认得她的船员。"])
+		"east_lisa":await _east_pages(["莉莎：残图只画到神幕外沿。完整那一张，你母亲没有留在学舍。", "艾琳：先找那艘押送舰。也许还有认得她的船员。"])
 		"east_chart_start":await _east_pages(["旁白：残图边缘写着薇娅的名字。两年前，她带着伤者出航，再也没有回来。", "艾琳：母亲教我读的灯线，现在还在海上。"])
 		"sea_route":
 			g.flags.F21_confirmed=true
@@ -666,8 +814,32 @@ func _east_relation() -> void:
 	var promised=bool(g.flags.get("carlo_promise_completed",false))
 	if promised and not g.flags.get("R05_promise_seen",false):
 		g.flags.R05_promise_seen=true;g.flags.seen_R05=true
-		await _east_pages(["希雅：军港的报酬已经结清。接下来的航路，你还会留下吗？","卡洛：海洞那个人和我一样，一直不敢回家属面前。我答应陪他把遗物送回去。","卡洛：这笔预支报酬先留给岛上修船。欠下的事，不能总让后面的人收拾。","希雅：那就先把岛民的船修好。我也不会把岛上的责任全交给别人。"])
+		await _east_pages(["希雅：海洞的承诺已经兑现。接下来的航路，你还会留下吗？","卡洛：海洞那个人和我一样，一直不敢回家属面前。我答应陪他把遗物送回去。","卡洛：这笔预支报酬先留给岛上修船。欠下的事，不能总让后面的人收拾。","希雅：那就先把岛民的船修好。我也不会把岛上的责任全交给别人。"])
 	elif not g.flags.get("seen_R05",false):
 		g.flags.seen_R05=true
 		await _east_pages(["希雅：你收了钱，就能在下一个港口离开吗？","卡洛：以前我就是这么想的。那天有人来讨债，我提前下了薇娅的船。","希雅：我的岛民也在这些船上。我得知道护卫会不会走。","卡洛：先把这一路护送完。报酬到了，也不等于我没有别的事要做。"])
 	else:await _east_pages(["希雅：岛上的船仍有人修。我会按约定去检查。","卡洛：我也会。船团还在等我们。"])
+
+func _draw_chapel() -> void:
+	ui.draw_rect(ui._visible_native_rect(),Color("15171d"))
+	# The east opening of the healing alcove meets walkable tile (2, 6).
+	ui.draw_texture_rect(ui._tex("res://assets/field-notes-20261030/chapel-open.webp"),Rect2(ORIGIN,Vector2(224,144)),false)
+	if motion_left<=0:render_position=Vector2(ui.game.hub_position)*16
+	var layers=objects.duplicate();layers.append({"sprite":"hub_player","position":[render_position.x/16,render_position.y/16]})
+	layers.sort_custom(func(a,b):return float(a.position[1])<float(b.position[1]))
+	for o in layers:
+		if o.sprite=="hub_player":_draw_player();continue
+		var at=ORIGIN+Vector2(o.position[0],o.position[1])*16
+		if o.sprite=="actor":
+			var sp=ui._party_hub_sprite(o,{})
+			ui._draw_frame(sp,int(sp.directions.down[0]),at-Vector2(sp.tile_origin[0],sp.tile_origin[1]))
+		elif o.action=="shrine":
+			ui.draw_texture_rect(ui._tex("res://assets/old-chapel-20261030/altar.png"),Rect2(at,Vector2(32,16)),false)
+		else:
+			var tex=ui._tex("res://assets/battle_tiles/modules/"+str(o.sprite)+".png")
+			ui.draw_texture(tex,at-Vector2(0,tex.get_height()-16))
+		if object_occupies(o,ui.game.hub_position+facing):ui._draw_map_indicator("down",at+Vector2(4,-12))
+	var caption="中央祭台：查看进阶条件；南门返回押送所"
+	for o in objects:
+		if object_occupies(o,ui.game.hub_position+facing):caption="确认："+str(o.name)
+	ui._draw_hub_caption(title,caption)

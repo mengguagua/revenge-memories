@@ -1,0 +1,98 @@
+{
+  "status": "passed",
+  "revision": "eileen-landing-v6-20261024",
+  "affected_actions": 1,
+  "changed_slots": [
+    30,
+    31,
+    11,
+    23
+  ],
+  "aliases": {
+    "30": "11",
+    "31": "11",
+    "23": "0"
+  },
+  "landing_phases": [
+    {
+      "phase": "bent",
+      "starts_displayed_frame": 247
+    },
+    {
+      "phase": "standing",
+      "starts_displayed_frame": 267
+    }
+  ],
+  "landing_complete_pose_pixels_fixed": true,
+  "one_bend_then_stand_without_reversal": true,
+  "common_ground_bottom": 256,
+  "bent_body_only_translated": [
+    0,
+    -2
+  ],
+  "limbs_and_weapon_not_rescaled": true,
+  "standing_pose_exactly_existing_idle": true,
+  "other_battle_slots_source_images_and_maps_preserved": true,
+  "all_native_frames_offsets_contacts_and_timing_exact": true,
+  "promoted_effect_definitions_unchanged": 140,
+  "decoded_videos": [
+    {
+      "path": "demos/videos/eileen-promoted-battle--original_class_11_normal.mp4",
+      "width": 2376,
+      "height": 840,
+      "duration": "5.191451",
+      "nb_read_frames": "312"
+    },
+    {
+      "path": "demos/videos/eileen-promoted-battle--original_class_11_normal--close.mp4",
+      "width": 1224,
+      "height": 584,
+      "duration": "5.191451",
+      "nb_read_frames": "312"
+    }
+  ],
+  "continuous_ticks": [
+    242,
+    245,
+    246,
+    251,
+    252,
+    257,
+    258,
+    265,
+    266,
+    291,
+    300,
+    301,
+    307,
+    311
+  ],
+  "page_links_checked": 637,
+  "runtime_integrated": false,
+  "browser_ui_checked": false,
+  "visual_acceptance": "offline_review_passed_user_acceptance_pending",
+  "offline_visual_review": {
+    "status": "passed",
+    "artifacts": [
+      {
+        "path": "eileen-landing-v6-20261024/landing-detail.png",
+        "sha256": "db2b4c2fd51f26c86c3d4613173c15ec6418dca2f0e61cfd8b2ffaa999c12d02"
+      },
+      {
+        "path": "eileen-landing-v6-20261024/landing-poses-dark.png",
+        "sha256": "62d77939bcbd15b62e7d6408ff4fd816362da166e8aeb467591b39108102ad9d"
+      },
+      {
+        "path": "eileen-landing-v6-20261024/decoded-landing.png",
+        "sha256": "b3947b4089486cf6982e7c658ec6f0589eaf4cc8bafae1d12cf9ab76ff23ccd8"
+      }
+    ],
+    "notes": [
+      "后跳第243帧至落地第247帧直接转入屈腿姿势；第247至266帧保持同一完整屈腿画帧，第267帧站直，没有先直腿再屈腿的反向切换。",
+      "落地缓冲和站立／待机脚底均为256；完整屈腿人物仅整体上移2像素，未缩放身体或腿脚。",
+      "身前持剑保持；第250、256、263、267和292帧导出视频解码抽查与连续姿势一致。",
+      "浅底连续细节、深底全姿势及视频抽帧的透明轮廓和文字间距已检查。"
+    ],
+    "browser_ui_checked": false
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "omni_control_long_tail",
+  "kind": "control",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-content-review-20261024/calibration/long_tail.wav"
+    }
+  ],
+  "prompt": "Describe only the sound actually audible. If silent, say silent. Under 50 words.",
+  "max_tokens": 100,
+  "key": "ff96997b6b405a71079bc121",
+  "source_sha256": [
+    "31b4413dbe8359a8cbf181e771581acf1a39e267591b86368a7f8604fdc28f95"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "audio_input_samples": [
+    576000
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "76bea00ed59a2392798211021781659b22ddea26d2afdaad361836cb4224c0a4"
+  ],
+  "response": "The audio begins with a loud, sustained hissing sound, like air escaping. This is followed by a long period of silence, then a single, clear, high-pitched electronic tone.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 39,
+    "prompt_tokens": 534,
+    "total_tokens": 573,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 506,
+    "prompt_ms": 2528.262,
+    "prompt_per_token_ms": 4.996565217391304,
+    "prompt_per_second": 200.13748575108116,
+    "predicted_n": 39,
+    "predicted_ms": 842.791,
+    "predicted_per_token_ms": 22.17871052631579,
+    "predicted_per_second": 45.08828404669722
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 3.432,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/31b4413dbe8359a8cbf181e771581acf1a39e267591b86368a7f8604fdc28f95.wav"
+  ]
+}

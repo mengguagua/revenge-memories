@@ -1,0 +1,60 @@
+{
+  "integrated": true,
+  "normal_speed_seconds": {
+    "hunapu_base": 1.2,
+    "hunapu_advanced": 1.35,
+    "eileen_base": 1.25,
+    "eileen_advanced": 1.45,
+    "hunapu_bow": 1.1
+  },
+  "measured_wall_seconds": [
+    {
+      "case": "hunapu_base",
+      "planned_seconds": 1.2,
+      "wall_seconds": 1.249036
+    },
+    {
+      "case": "hunapu_advanced",
+      "planned_seconds": 1.35,
+      "wall_seconds": 1.377679
+    },
+    {
+      "case": "eileen_base",
+      "planned_seconds": 1.25,
+      "wall_seconds": 1.263161
+    },
+    {
+      "case": "eileen_advanced",
+      "planned_seconds": 1.45,
+      "wall_seconds": 1.465241
+    },
+    {
+      "case": "hunapu_bow",
+      "planned_seconds": 1.1,
+      "wall_seconds": 1.133401
+    }
+  ],
+  "map_checks": {
+    "count": 228,
+    "passed": true
+  },
+  "existing_regressions": {
+    "hero_professions": 155,
+    "sound_effects": 264,
+    "combat_feedback": 33,
+    "touch_fast_forward": 39
+  },
+  "visual": {
+    "passed": true,
+    "errors": [],
+    "guard": true,
+    "scope": "Production Godot phone scene and real MAP rules/renderer; directed fixture placements; fixed 30fps clock for export. Not iPhone footage; only temporary test journals."
+  },
+  "exp_policy": "one normal encounter reward per action: maximum across hit enemies; no sum",
+  "save_policy": "whole action committed and saved before presentation; presentation never reapplies HP",
+  "no_leading_or_trailing_waits": true,
+  "audio": "six new local SA3 guide-conditioned SFX; five attacks + bow draw, matching event timings",
+  "audio_review": "local recognition completed; short-sound semantic calibration unreliable, see audio-review.json; human_listening=false",
+  "device_installation": false,
+  "full_campaign_regression": false
+}

@@ -1,0 +1,62 @@
+{
+  "id": "rm_battle_refuge",
+  "path": "source/audio-20261024/content-review/candidates/rm_battle_refuge.ogg",
+  "source_path": "source/audio-20261024/content-review/raw/rm_battle_refuge_2026102812_float.wav",
+  "master_path": "source/audio-20261024/content-review/masters/rm_battle_refuge_float.wav",
+  "sha256": "0cc338d4d2f4f8cb98cc44c222903f4210897743be71753b428f0c5ca0f04daa",
+  "bytes": 337841,
+  "source": {
+    "track_id": "rm_battle_refuge",
+    "seed": 2026102812,
+    "model": "local Stable Audio 3 sm-music/same-s",
+    "method": "owned-guide audio-conditioned generation",
+    "guide": {
+      "path": "source/audio-20261024/content-review/guides/rm_battle_refuge.wav",
+      "sha256": "ca9a49d4e8fbb40d98d21fcc74cdedf01f452615eeff4b20afb8e1b0e6c8847e",
+      "period_seconds": 30.0,
+      "period_frames": 1323000
+    },
+    "prompt": "TrackType: Music, VocalType: Instrumental. Original early-console 8-bit fantasy tactics soundtrack. Strict sparse four-channel chiptune: two warm pulse-wave melody and harmony voices, one rounded triangle bass voice, and quiet band-limited noise percussion. Dry direct electronic tone, clear monophonic lines, memorable NEW melody. Straight rhythm, no swing, no jazz, no reggae. No acoustic instruments, no piano, no guitar, no flute, no orchestral pad, no realistic drum kit, no voice or choir. 128 BPM. An urgent defensive minor-key battle theme for protecting an evacuation. Restless forward movement, clear short melodic calls. Repeating complete eight-bar phrases, A A B A form, stable accompaniment, no introduction or fadeout.",
+    "seconds": 30.32,
+    "cfg": 2.0,
+    "steps": 8,
+    "dit_dtype": "fp32",
+    "sha256": "7579aae462b5e2b6ebb2a4e8b7922904ba2c4e0e11ec61b509f0ea74b9839503",
+    "source_format": "FLOAT WAV",
+    "offline": true,
+    "generation_wall_seconds": 3.547,
+    "raw_peak": 0.9415037035942078,
+    "raw_rms": 0.2614453434944153
+  },
+  "editing": {
+    "method": "new sixteen-bar four-voice composition with local model texture and circular phase wrap",
+    "guide_mix": 0.85,
+    "model_mix": 0.15,
+    "bars": 16,
+    "guide_bpm": 128,
+    "period_frames": 1323000,
+    "period_seconds": 30.0,
+    "loop_offset_seconds": 0.0,
+    "model_wrap_seconds": 0.2
+  },
+  "gain_db": -9.29,
+  "target_integrated_lufs": -20,
+  "metrics": {
+    "seconds": 30.0,
+    "rms_dbfs": -22.543650434518263,
+    "sample_peak_dbfs": -13.700578804753647,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "interior_silence_longest_seconds": 0.05,
+    "silent_frame_fraction": 0.067,
+    "rms_10ms_p10_dbfs": -34.272153019957734,
+    "rms_10ms_p90_dbfs": -20.65971758195452,
+    "seam_max_sample_delta": 0.0017388969426974654,
+    "derivative_p99": 0.02351849526166916,
+    "seam_delta_over_derivative_p99": 0.07393742343420878,
+    "integrated_lufs": -19.96,
+    "true_peak_dbtp": -13.64,
+    "loudness_range_lu": 0.5
+  },
+  "errors": []
+}

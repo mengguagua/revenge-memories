@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_55",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_55.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_55.ogg"
+  ],
+  "hashes": [
+    "56486f994a85b42077e0088f003b30f061ec5bf365419a3555dddd33be188244",
+    "f76c62b81e4c71356f2fecdeb761d5496e640b24bb791da896c7757bfa8f95e7"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "ff053f7f73985bdedb9fdf0c",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    30832,
+    22376
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "The actual sounds are a pingpong ball bouncing and a clock ticking. The differences are: the pingpong ball has a lower pitch, a faster decay, and a more muffled sound. The clock ticking has a higher pitch, a slower decay, and a clearer, more distinct sound.",
+  "generation_tokens": 58,
+  "generation_tps": 33.34872327536584,
+  "wall_seconds": 1.894,
+  "peak_memory_bytes": 7517914846,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

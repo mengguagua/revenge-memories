@@ -1,0 +1,167 @@
+{
+  "status": "user_accepted_runtime_integrated",
+  "date": "2026-11-05",
+  "name": "伪泰坦傀儡",
+  "category": "机械傀儡",
+  "stats": {
+    "level": 5,
+    "hp": 42,
+    "strength": 12,
+    "skill": 5,
+    "speed": 1,
+    "luck": 0,
+    "defence_base": 4,
+    "resistance_base": 2,
+    "move": 4,
+    "escape_move": 7
+  },
+  "attack": {
+    "name": "重臂锤击",
+    "range": [
+      1,
+      1
+    ],
+    "might": 2,
+    "weight": 0,
+    "hit": 80,
+    "critical": 0,
+    "power": 14,
+    "attack_speed": 1,
+    "damage_type": "physical"
+  },
+  "part": {
+    "id": "protective_core",
+    "name": "防护核心",
+    "hp": 16,
+    "defence": 3,
+    "resistance": 2,
+    "body_defence_bonus": 10,
+    "body_resistance_bonus": 10,
+    "reflected_hp": 2,
+    "core_protects_itself": false,
+    "core_hit_reflects": false,
+    "overflow_to_body": false,
+    "broken_disables": [
+      "本体双防＋10",
+      "固定反伤2HP"
+    ],
+    "does_not_reduce": [
+      "本体攻击",
+      "本体移动",
+      "本体当前生命"
+    ]
+  },
+  "retaliation": {
+    "trigger": "核心有效时，本体每次被直接攻击后固定反伤2HP；未命中、命中0伤害均触发，不以命中或掉血为条件",
+    "core_hit": "攻击核心不触发反伤",
+    "fatal_body_hit": "致命攻击仍按攻击前核心状态反伤一次，双方可以同时倒下",
+    "fatal_attacker": "反伤能使攻击者生命归零；保留原有濒死／失败规则，不保底1HP",
+    "recursion": false,
+    "range": "射程外远程攻击本体仍受反伤；不另触发反击、必杀或再反伤",
+    "dot": "毒、场景持续伤害不触发；MAP对本体每名受击目标每次释放只触发一次，伤害不溢出核心",
+    "same_exchange": "首次击破核心立即取消后续本体防护与反伤；同次交锋追击固定原部位，核心已坏则取消，不改打本体"
+  },
+  "experience": {
+    "base_value": 70,
+    "enemy_level_value": 98,
+    "level_formula": "min(255,70+floor(70*(等级-1)/10))",
+    "mechanical_multiplier": 1.5,
+    "rounding": "普通战斗经验按原职业、等级及伤害公式计算，不提前封顶；机械傀儡再×1.5向上取整，全敌军单次战斗最终封顶180",
+    "not_fixed_reward": true,
+    "part_break_kill_bonus": false,
+    "escape_kill_experience": 0,
+    "cap": 180
+  },
+  "escape": {
+    "condition": "同阵营在场存活战斗单位全部为机械傀儡",
+    "move_bonus": 3,
+    "stackable": false,
+    "behavior": "本方回合优先沿合法路径撤离，到最近可达外缘消失；不主动攻击，仍可近身自卫",
+    "water_exception": false,
+    "victory": "不阻挡胜利；逃脱不计击杀、不发击败经验、不掉击杀战利品，已获伤害经验保留",
+    "f25_sample": {
+      "goal": [
+        17,
+        0
+      ],
+      "total_cost": 10,
+      "turns": 2,
+      "move_per_turn": 7,
+      "sea_movement": false
+    }
+  },
+  "deployment": {
+    "stage": "F25",
+    "stage_name": "潮狩军港",
+    "count": 1,
+    "position": [
+      18,
+      9
+    ],
+    "coordinates": "零起算；第19列第10行",
+    "enemy_count_before": 15,
+    "enemy_count_after": 16,
+    "kind": "新增非首领精英",
+    "preserve_objectives": true,
+    "reason": "军港主楼西南侧的宽通路，核心教学晚于F21水猴；可从侧路接近，不占箱子、牢门或裴萨位置。先破核心可降低正面消耗，也可绕行完成原目标。",
+    "later_chapters": [],
+    "unit_id": "F25_pseudo_titan_1"
+  },
+  "scope": {
+    "game_code_changed": true,
+    "actual_stage_changed": true,
+    "device_updated": false
+  },
+  "visuals": {
+    "battle_frame": [
+      96,
+      88
+    ],
+    "battle_body_height": 48,
+    "map_frame": [
+      64,
+      64
+    ],
+    "map_body_height": 48,
+    "native_density": 2,
+    "palette_target": "敌军蓝紫三档#343552/#5c5d95/#8b86bf，深色轮廓#1c2135，少量冷钢灰与核心青色；仅核心小铜环",
+    "mobile_priority": true,
+    "ordinary_hit": "固定姿势闪烁与音效，不增加后仰身体动画",
+    "head": "肩甲间嵌入式矩形感应块，单条横向感应窗，无人脸、面具、鼻嘴或下巴",
+    "style_reference": "catalog/visual-contract.md 的敌军配色约定；本轮移动端像素规范优先于旧四倍精细重绘口径",
+    "map_idle_cycle": {
+      "reference": "professions-class-6-enemy-maps-tactical-idle--idle-cycle",
+      "frames": [
+        0,
+        1,
+        2,
+        1
+      ],
+      "ticks": [
+        14,
+        8,
+        14,
+        8
+      ],
+      "period_ticks": 44,
+      "fps": 60.0988,
+      "period_seconds": 0.7321277629503418
+    },
+    "side_walking": "四相：近侧腿前跨→远侧腿经过→远侧腿前跨→近侧腿经过，完整／破损均双腿交替；左向为对称装备角色的整组右向完整镜像",
+    "motion_revision": "side-walk-v2-20261105"
+  },
+  "combat_profile": {
+    "unit_id": "pseudo_titan",
+    "card": "不适用：敌方固有攻击，不新增玩家卡牌",
+    "action": "重臂锤击",
+    "frames": 246,
+    "contact_tick": 100,
+    "effects_per_strike": 1
+  },
+  "runtime": {
+    "class_id": 26,
+    "innate_attack_id": 1009,
+    "art": "actual/data/pseudo_titan_art.json",
+    "report": "actual/reports/pseudo-titan-20261105/index.html"
+  }
+}

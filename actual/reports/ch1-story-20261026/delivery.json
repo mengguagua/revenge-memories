@@ -1,0 +1,214 @@
+{
+  "date": "2026-10-26",
+  "status": "completed-local-source",
+  "numeric_scope": "M12 enemies only",
+  "story_scope": [
+    "M11",
+    "M12",
+    "M13",
+    "M14",
+    "M15",
+    "S11",
+    "S12"
+  ],
+  "phone_updated": false,
+  "iphone_exported": false,
+  "domain_checks": 178,
+  "visual_checks": 385,
+  "dialogue_pages": 99,
+  "document_fragments_verified": 113,
+  "all_passed": true,
+  "ordinary_input_play": {
+    "stage": "M12",
+    "turns": 7,
+    "inputs": 549,
+    "outcome": "victory",
+    "return_view": "world",
+    "source": "res://reports/campaign/natural-M12-deployment-save.json",
+    "source_saves_modified": false,
+    "forced_victories": false,
+    "stat_edits": false,
+    "path": "actual/reports/full-playtest-20261023/ch1/story-M12-20261026/story-M12-20261026-play.json",
+    "stage_prose_refinements_after_play": "M12 cause and after text clarified; enemy stats, map, geometry and goals unchanged."
+  },
+  "changed_stage_keys": {
+    "M11": [
+      "before",
+      "during",
+      "after",
+      "absent_branch"
+    ],
+    "M12": [
+      "enemies",
+      "cause",
+      "before",
+      "during",
+      "after",
+      "absent_branch",
+      "combat_balance_revision",
+      "dialogue_require_speaker_alive"
+    ],
+    "M13": [
+      "before",
+      "during",
+      "after",
+      "absent_branch",
+      "dialogue_require_speaker_alive"
+    ],
+    "M14": [
+      "before",
+      "during",
+      "after",
+      "absent_branch",
+      "after_no_survivors"
+    ],
+    "M15": [
+      "before",
+      "after",
+      "absent_branch"
+    ],
+    "S11": [
+      "cause",
+      "before",
+      "during",
+      "after",
+      "absent_branch"
+    ],
+    "S12": [
+      "before",
+      "during",
+      "after",
+      "absent_branch"
+    ]
+  },
+  "files": {
+    "actual/data/stages/M11.json": {
+      "baseline_sha256": "cdd1ddbc95446e7e40ed5036e9ece21c28278d7e62a6477cca104233d32a23db",
+      "current_sha256": "23a806545b8de84e44aadf3acd51c1f2849b304d767c61445297c301222d8b2a"
+    },
+    "actual/data/stages/M12.json": {
+      "baseline_sha256": "525998dd2503d60486e74258d61e1bf5588a885bd21abe0f76e180e62786b9b3",
+      "current_sha256": "de95e080a6349565cb3b6d56c3459d1a21342353c2244b221d8b0fb23e195e88"
+    },
+    "actual/data/stages/M13.json": {
+      "baseline_sha256": "a301c2c9af5a50e894ac1d54a4b082acdb3a4e0106c0fb05381ac1b418c4b3ff",
+      "current_sha256": "c91be01eff0c968798a7d59336cee08f8cc3fdca9f5f0e7bed71884477c24bca"
+    },
+    "actual/data/stages/M14.json": {
+      "baseline_sha256": "967f93919c9b9f4d18dccbdb96b2b124782548e28df3f374189fa313a61cd07f",
+      "current_sha256": "213807075efe72fbd2c45bbe64c797421ba79323fb91079007d5b50fa65e4139"
+    },
+    "actual/data/stages/M15.json": {
+      "baseline_sha256": "10a365309fc1a1994a70ba0d9c222e5afc83e2bbedb9bd4b09af840f28c709f7",
+      "current_sha256": "a23797772d15445ade34a4f53f06dca3d7726008ccf7f5e70a37a9c34c0e9505"
+    },
+    "actual/data/stages/S11.json": {
+      "baseline_sha256": "7593679d30363229b60238e2536b4eeb08d24be8be2881fd2f899642928c9f66",
+      "current_sha256": "0fe246bd14f2d8bcfa3302a0468e95ecbc27a163315e521591099ce55ea1a9a5"
+    },
+    "actual/data/stages/S12.json": {
+      "baseline_sha256": "c717e9919dbb97b0582c0cfe220c9056eaec92edee0f2f4fca9e40ec6178f4e1",
+      "current_sha256": "f6ce921f89451ed5072545aaed5216569427a2727bbc6c04452165e4584fd23e"
+    },
+    "actual/data/enemy_balance_20261025.json": {
+      "baseline_sha256": "831db3d136c0e9a4fde1bbf3e35fbfca2111385849b8327f4dc0f171421b9e87",
+      "current_sha256": "9991efee9d096edff9c5ecb7fb881f42cefa8fe05adde90f8204befdc4a3312a"
+    },
+    "actual/core/enemy_balance.gd": {
+      "baseline_sha256": "9b34e1c6ac9b9a90a911231f48a8911be9ed07f0831f6ce92215e0a6a63dcfcd",
+      "current_sha256": "914ca36ff96ab133335378696411b6c857125c2b4026f41aeb8248d3d23d3dba"
+    },
+    "actual/core/portrait_library.gd": {
+      "baseline_sha256": "e150cefdd95d97f8967591eb723283b6553ca78bd17f9761c7bf1cddf5f93a73",
+      "current_sha256": "e41b3529d671d3893d4a025f1aade84526bbb9e07666f76ee932543ef2f3ebcc"
+    },
+    "actual/core/game_state.gd": {
+      "baseline_sha256": "e5d33cdabd4802bb4c68bba7a35964a5fcc9f77f724b291eab7ce07957e079ba",
+      "current_sha256": "32009165fc13b9de18d30f43707d7f22d7cbfe6425e489304e93e7fd59ffd0e9"
+    },
+    "actual/core/story_hub.gd": {
+      "baseline_sha256": "2069d3e8a711f59534db99b8bb151dd1f92725c7855ff65f7a2ed4ccc414925c",
+      "current_sha256": "0611a50e4ac2d3a88a07a9213ffe9f054dbc8bce924ddce593ae4cca9e68f39d"
+    },
+    "actual/data/portraits.json": {
+      "baseline_sha256": "5048fd7d9bee0492c1d251260e9d6f96a38f9f9c1407c3beddc8a80916300eee",
+      "current_sha256": "43b6200c984e06bfc9267cdfe177c1cebfb2c7eab7beafd8a0b76c28cafdde2a"
+    },
+    "docs2/完整故事剧情.md": {
+      "baseline_sha256": "3b5ffc29f19f0eb0145cf9cf38f2503f58971f9b04dfb649d0d8a4ce18e89408",
+      "current_sha256": "c820f480fb07d31bdf6bfe6bab926cb7c94958ca283dbda544cac4a6d4acb0f6"
+    },
+    "docs2/完整台词汇总.md": {
+      "baseline_sha256": "90e2a7dccf48b5035538f9ea2a1b0e3677a0b503ba9709e81f30a54526da6c86",
+      "current_sha256": "8425de01d3e27e6f1c00713df7da8c32c8ee68b603ba0d895a88eca9f194c471"
+    },
+    "docs2/完整游戏设定.md": {
+      "baseline_sha256": "3e57a5d0e3f677ec0646bd271bce85b1de3e2b798fd81b41fa14cf41e9728074",
+      "current_sha256": "238f9f4003cb8c17197f6826a384199e52d09b5daed2428901ab653693d32488"
+    }
+  },
+  "images": [
+    {
+      "path": "actual/assets/portraits-ch1-20261026/m12-commander.png",
+      "pixels": [
+        48,
+        48
+      ],
+      "bytes": 1277,
+      "sha256": "f370bc493453e3ebbb981995f66c5cb5cffa9acb20491b0e7937557fea8a7648",
+      "usage": "M12指挥官状态／对白画像",
+      "quality": "原生48×48像素；不透明蓝底与现有画像一致；无需透明边缘处理。"
+    },
+    {
+      "path": "actual/reports/ch1-story-20261026/M12-before-0.png",
+      "pixels": [
+        2556,
+        1179
+      ],
+      "bytes": 101066,
+      "sha256": "b76f33bf3db049c352e67e58a5b8ac7ec3666d416e89fdee7f8d0e93279f8fbf",
+      "usage": "后台手机比例运行截图",
+      "quality": "原始2556×1179尺寸保留，PNG无损压缩。"
+    },
+    {
+      "path": "actual/reports/ch1-story-20261026/M12-before-5.png",
+      "pixels": [
+        2556,
+        1179
+      ],
+      "bytes": 101337,
+      "sha256": "c3b525c1dd99f456e1d6cdf2b9e1a7b023a9c96b04cf14284efe7334a49625af",
+      "usage": "后台手机比例运行截图",
+      "quality": "原始2556×1179尺寸保留，PNG无损压缩。"
+    },
+    {
+      "path": "actual/reports/ch1-story-20261026/M12-before-11.png",
+      "pixels": [
+        2556,
+        1179
+      ],
+      "bytes": 97806,
+      "sha256": "e6766bafc08dcb62458a9b94be36a5443ea0e4f20bf5ee618f9ef5d4b05e4fa8",
+      "usage": "后台手机比例运行截图",
+      "quality": "原始2556×1179尺寸保留，PNG无损压缩。"
+    },
+    {
+      "path": "actual/reports/ch1-story-20261026/M12-commander-status.png",
+      "pixels": [
+        2556,
+        1179
+      ],
+      "bytes": 97427,
+      "sha256": "f9b7513a33901e8d6d54b5fe2eb203f381e18e0e026c6c94b11d8a1487c9c449",
+      "usage": "后台手机比例运行截图",
+      "quality": "原始2556×1179尺寸保留，PNG无损压缩。"
+    }
+  ],
+  "limits": [
+    "本轮未导出iPhone安装包，也未安装、更新或启动手机游戏。",
+    "运行画面为防抢焦点脚本生成的后台Godot视口；2556×1179，使用现有iPhone安全区。未执行真机触摸试玩。",
+    "七关完成了对白与布局检查；正常输入通关仅复测M12，使用既有历史部署队伍，不代表首周目或真人难度。",
+    "旧档迁移定向检查覆盖当前地图单位的伤势、死亡与重复读取，不代表所有历史地图版本。正在播放的已存对白保持原队列，后续事件使用新稿。",
+    "后台呈现脚本退出时有8个ObjectDB实例和2个资源未释放的清理提示；检查正常完成，进程退出码0，无脚本错误。"
+  ]
+}

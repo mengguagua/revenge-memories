@@ -1,0 +1,542 @@
+{
+  "maps": {
+    "schema_version": 1,
+    "width_height_scale": 4,
+    "character_id": "class-11-ally",
+    "actor_id": "class-11-ally",
+    "class_id": 11,
+    "source_side": "ally",
+    "display_name": "盟军女魔剑士",
+    "display_class_name": "女魔剑士",
+    "revision": "spellsword-complete-v1-20261023",
+    "status": "review_candidate",
+    "runtime_integrated": false,
+    "palette": [
+      "172638",
+      "3976b5",
+      "e4e1c8",
+      "dda77d",
+      "a9687a",
+      "a7d7e5"
+    ],
+    "review_note": "我方女魔剑士：女法师蓝白、深蓝、肤色及玫瑰腰带，少量冰蓝；分片短战衣、白色肩部防护与高束纯色长发加强进阶感。冰晶长剑依参考图统一尖刃、银白护手及完整握柄。地图固定头颈及身体基准；近身起跳转身落地斩、回位、雷剑与空手施法按原作独立程序，原结算和总时长保持。",
+    "scenarios": [
+      {
+        "id": "tactical-walk",
+        "source_frame_size": [
+          32,
+          24
+        ],
+        "source_anchor": [
+          16,
+          24
+        ],
+        "output_frame_size": [
+          128,
+          96
+        ],
+        "output_anchor": [
+          64,
+          96
+        ],
+        "logical_render_scale": 0.25,
+        "default_facing": "right",
+        "directions": {
+          "up": [
+            0,
+            1
+          ],
+          "right": [
+            2,
+            3
+          ],
+          "down": [
+            4,
+            5
+          ],
+          "left": [
+            6,
+            7
+          ]
+        },
+        "direction_mirror_x": {},
+        "timing": {
+          "native_fps": 60.0988,
+          "frame_ticks": 16,
+          "cycle_ticks": 32,
+          "phase_source": "$36 & $10 selects phase; L0BB62C",
+          "movement_pixels_per_tick": 1,
+          "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+        },
+        "source_aliases": {
+          "0": 0,
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5,
+          "6": 6,
+          "7": 7
+        },
+        "native_actor_origin": [
+          16,
+          16
+        ],
+        "source_atlas": "../../../source-input/corrected-tactical-walk/class-11-ally.png",
+        "revision": "spellsword-complete-v1-20261023",
+        "status": "review_candidate",
+        "display_name": "盟军女魔剑士",
+        "review_note": "我方女魔剑士：女法师蓝白、深蓝、肤色及玫瑰腰带，少量冰蓝；分片短战衣、白色肩部防护与高束纯色长发加强进阶感。冰晶长剑依参考图统一尖刃、银白护手及完整握柄。地图固定头颈及身体基准；近身起跳转身落地斩、回位、雷剑与空手施法按原作独立程序，原结算和总时长保持。",
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "output_index": 0,
+            "path": "../../../spellsword-complete-v1-20261023/ally/tactical-walk/frame-000.png",
+            "output_path": "../../../spellsword-complete-v1-20261023/ally/tactical-walk/frame-000.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1390,
+            "sha256": "7ec29ffdb80de3ecf6395198e6f8e573d9b138f4e39092f2165cab9a1197a003"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "output_index": 1,
+            "path": "../../../spellsword-complete-v1-20261023/ally/tactical-walk/frame-001.png",
+            "output_path": "../../../spellsword-complete-v1-20261023/ally/tactical-walk/frame-001.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1392,
+            "sha256": "8c6aa95a4db3800ac1934b228e050a3dd6a12ab6da39a208f46152b3ee004f6f"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "output_index": 2,
+            "path": "../../../spellsword-complete-v1-20261023/ally/tactical-walk/frame-002.png",
+            "output_path": "../../../spellsword-complete-v1-20261023/ally/tactical-walk/frame-002.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1486,
+            "sha256": "3fa097ba3be65d8566fe3ceb3e8a825e52241ef604ed4c1b2fcd92a71137d93d"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "output_index": 3,
+            "path": "../../../spellsword-complete-v1-20261023/ally/tactical-walk/frame-003.png",
+            "output_path": "../../../spellsword-complete-v1-20261023/ally/tactical-walk/frame-003.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1488,
+            "sha256": "71c1e7165efc5615d07d65c450412fde73bce2c2da8ddee305883f79e396934b"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "output_index": 4,
+            "path": "../../../spellsword-complete-v1-20261023/ally/tactical-walk/frame-004.png",
+            "output_path": "../../../spellsword-complete-v1-20261023/ally/tactical-walk/frame-004.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1481,
+            "sha256": "1ceb1bce4c96fdfb2c8ac1b0a58f79a1b519a9be6a14a5cc3270365636e13340"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "output_index": 5,
+            "path": "../../../spellsword-complete-v1-20261023/ally/tactical-walk/frame-005.png",
+            "output_path": "../../../spellsword-complete-v1-20261023/ally/tactical-walk/frame-005.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1480,
+            "sha256": "a6a4d0507a21575ca2d274b5a36516afff4bf26effc778db8929946183a8d2f9"
+          },
+          {
+            "source_index": 6,
+            "source_frame": 6,
+            "output_index": 6,
+            "path": "../../../spellsword-complete-v1-20261023/ally/tactical-walk/frame-006.png",
+            "output_path": "../../../spellsword-complete-v1-20261023/ally/tactical-walk/frame-006.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1471,
+            "sha256": "17a0937196b1e2f59f3f428b24fdc5389f3f9747c8d2806cdaab8e846706e40c"
+          },
+          {
+            "source_index": 7,
+            "source_frame": 7,
+            "output_index": 7,
+            "path": "../../../spellsword-complete-v1-20261023/ally/tactical-walk/frame-007.png",
+            "output_path": "../../../spellsword-complete-v1-20261023/ally/tactical-walk/frame-007.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1486,
+            "sha256": "4f10a3ca58ae89d54ee7bd630d631d626ac5cff1b04ebf6b14322c96b224caa0"
+          }
+        ],
+        "motion_review": "../../../spellsword-complete-v1-20261023/README.md",
+        "source_audit": {
+          "status": "verified_native_tactical",
+          "proof": "../../../source-input/corrected-tactical-walk/verification.json",
+          "overlay": "../../../source-input/corrected-tactical-walk/overlay.json",
+          "reference_key": "class-11-ally"
+        },
+        "output_atlas": "../../../spellsword-complete-v1-20261023/ally/tactical-walk-atlas.png"
+      },
+      {
+        "id": "tactical-idle",
+        "source_frame_size": [
+          24,
+          24
+        ],
+        "source_anchor": [
+          12,
+          20
+        ],
+        "output_frame_size": [
+          96,
+          96
+        ],
+        "output_anchor": [
+          48,
+          80
+        ],
+        "logical_render_scale": 0.25,
+        "default_facing": "fixed",
+        "directions": {
+          "all": [
+            0,
+            1,
+            2,
+            1
+          ]
+        },
+        "direction_mirror_x": {},
+        "timing": {
+          "native_fps": 60.0988,
+          "cycle_frames": [
+            0,
+            1,
+            2,
+            1
+          ],
+          "frame_ticks": [
+            14,
+            8,
+            14,
+            8
+          ]
+        },
+        "source_aliases": {
+          "0": 0,
+          "1": 1,
+          "2": 2,
+          "3": 1,
+          "4": 0,
+          "5": 1
+        },
+        "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_11_ally.png",
+        "revision": "spellsword-complete-v1-20261023",
+        "status": "review_candidate",
+        "display_name": "盟军女魔剑士",
+        "review_note": "我方女魔剑士：女法师蓝白、深蓝、肤色及玫瑰腰带，少量冰蓝；分片短战衣、白色肩部防护与高束纯色长发加强进阶感。冰晶长剑依参考图统一尖刃、银白护手及完整握柄。地图固定头颈及身体基准；近身起跳转身落地斩、回位、雷剑与空手施法按原作独立程序，原结算和总时长保持。",
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "output_index": 0,
+            "path": "../../../spellsword-complete-v1-20261023/ally/tactical-idle/frame-000.png",
+            "output_path": "../../../spellsword-complete-v1-20261023/ally/tactical-idle/frame-000.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1487,
+            "sha256": "9b824060fe0e54bfc3a68585049d8eb63ee8ac9afc500cc1a235a7399e31aa7a"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "output_index": 1,
+            "path": "../../../spellsword-complete-v1-20261023/ally/tactical-idle/frame-001.png",
+            "output_path": "../../../spellsword-complete-v1-20261023/ally/tactical-idle/frame-001.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1480,
+            "sha256": "831c12e123c90cf794df17fb1d7292ee84a3bead246be67cd227390b4fe937a0"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "output_index": 2,
+            "path": "../../../spellsword-complete-v1-20261023/ally/tactical-idle/frame-002.png",
+            "output_path": "../../../spellsword-complete-v1-20261023/ally/tactical-idle/frame-002.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1498,
+            "sha256": "91b7a6d1a1baaf5bb0ff6ed1ad457af0a9b283eec096fef17a5fae4255d2871f"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "output_index": 3,
+            "path": "../../../spellsword-complete-v1-20261023/ally/tactical-idle/frame-003.png",
+            "output_path": "../../../spellsword-complete-v1-20261023/ally/tactical-idle/frame-003.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1480,
+            "sha256": "831c12e123c90cf794df17fb1d7292ee84a3bead246be67cd227390b4fe937a0"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "output_index": 4,
+            "path": "../../../spellsword-complete-v1-20261023/ally/tactical-idle/frame-004.png",
+            "output_path": "../../../spellsword-complete-v1-20261023/ally/tactical-idle/frame-004.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1487,
+            "sha256": "9b824060fe0e54bfc3a68585049d8eb63ee8ac9afc500cc1a235a7399e31aa7a"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "output_index": 5,
+            "path": "../../../spellsword-complete-v1-20261023/ally/tactical-idle/frame-005.png",
+            "output_path": "../../../spellsword-complete-v1-20261023/ally/tactical-idle/frame-005.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1480,
+            "sha256": "831c12e123c90cf794df17fb1d7292ee84a3bead246be67cd227390b4fe937a0"
+          }
+        ],
+        "motion_review": "../../../spellsword-complete-v1-20261023/README.md",
+        "output_atlas": "../../../spellsword-complete-v1-20261023/ally/tactical-idle-atlas.png"
+      }
+    ]
+  },
+  "battle": {
+    "schema_version": 1,
+    "character_id": "class-11-ally",
+    "original_class_id": 11,
+    "source_side": "ally",
+    "display_name": "盟军女魔剑士",
+    "display_class_name": "女魔剑士",
+    "revision": "spellsword-complete-v1-20261023",
+    "status": "review_candidate",
+    "runtime_integrated": false,
+    "review_note": "我方女魔剑士：女法师蓝白、深蓝、肤色及玫瑰腰带，少量冰蓝；分片短战衣、白色肩部防护与高束纯色长发加强进阶感。冰晶长剑依参考图统一尖刃、银白护手及完整握柄。地图固定头颈及身体基准；近身起跳转身落地斩、回位、雷剑与空手施法按原作独立程序，原结算和总时长保持。",
+    "palette": [
+      "172638",
+      "3976b5",
+      "e4e1c8",
+      "dda77d",
+      "a9687a",
+      "a7d7e5"
+    ],
+    "output_frame_size": [
+      320,
+      288
+    ],
+    "source_idle_frame": 50,
+    "variant_keys": [
+      "original_class_11_normal",
+      "class_11_ally_levin",
+      "class_11_ally_levin_vs_heavy",
+      "class_11_ally_levin_far_ally",
+      "class_11_ally_levin_far_ally_vs_heavy",
+      "class_11_ally_levin_far_enemy",
+      "class_11_ally_levin_far_enemy_vs_heavy",
+      "class_11_ally_item_23",
+      "class_11_ally_item_23_vs_heavy",
+      "class_11_ally_item_23_far_ally",
+      "class_11_ally_item_23_far_ally_vs_heavy",
+      "class_11_ally_item_23_far_enemy",
+      "class_11_ally_item_23_far_enemy_vs_heavy",
+      "class_11_ally_item_24",
+      "class_11_ally_item_24_vs_heavy",
+      "class_11_ally_item_24_far_ally",
+      "class_11_ally_item_24_far_ally_vs_heavy",
+      "class_11_ally_item_24_far_enemy",
+      "class_11_ally_item_24_far_enemy_vs_heavy",
+      "class_11_ally_item_25",
+      "class_11_ally_item_25_vs_heavy",
+      "class_11_ally_item_25_far_ally",
+      "class_11_ally_item_25_far_ally_vs_heavy",
+      "class_11_ally_item_25_far_enemy",
+      "class_11_ally_item_25_far_enemy_vs_heavy",
+      "class_11_ally_item_26",
+      "class_11_ally_item_26_vs_heavy",
+      "class_11_ally_item_26_far_ally",
+      "class_11_ally_item_26_far_ally_vs_heavy",
+      "class_11_ally_item_26_far_enemy",
+      "class_11_ally_item_26_far_enemy_vs_heavy",
+      "class_11_ally_item_27",
+      "class_11_ally_item_27_vs_heavy",
+      "class_11_ally_item_27_far_ally",
+      "class_11_ally_item_27_far_ally_vs_heavy",
+      "class_11_ally_item_27_far_enemy",
+      "class_11_ally_item_27_far_enemy_vs_heavy",
+      "class_11_ally_item_28",
+      "class_11_ally_item_28_vs_heavy",
+      "class_11_ally_item_28_far_ally",
+      "class_11_ally_item_28_far_ally_vs_heavy",
+      "class_11_ally_item_28_far_enemy",
+      "class_11_ally_item_28_far_enemy_vs_heavy",
+      "class_11_ally_item_29",
+      "class_11_ally_item_29_vs_heavy",
+      "class_11_ally_item_29_far_ally",
+      "class_11_ally_item_29_far_ally_vs_heavy",
+      "class_11_ally_item_29_far_enemy",
+      "class_11_ally_item_29_far_enemy_vs_heavy",
+      "class_11_ally_item_31",
+      "class_11_ally_item_31_vs_heavy",
+      "class_11_ally_item_31_far_ally",
+      "class_11_ally_item_31_far_ally_vs_heavy",
+      "class_11_ally_item_31_far_enemy",
+      "class_11_ally_item_31_far_enemy_vs_heavy",
+      "class_11_ally_item_32",
+      "class_11_ally_item_32_vs_heavy",
+      "class_11_ally_item_32_far_ally",
+      "class_11_ally_item_32_far_ally_vs_heavy",
+      "class_11_ally_item_32_far_enemy",
+      "class_11_ally_item_32_far_enemy_vs_heavy",
+      "class_11_ally_item_40",
+      "class_11_ally_item_40_vs_heavy",
+      "class_11_ally_item_40_far_ally",
+      "class_11_ally_item_40_far_ally_vs_heavy",
+      "class_11_ally_item_40_far_enemy",
+      "class_11_ally_item_40_far_enemy_vs_heavy"
+    ],
+    "frame_mapping": {
+      "0": "../../../spellsword-complete-v1-20261023/ally/battle/frame-000.png",
+      "1": "../../../spellsword-complete-v1-20261023/ally/battle/frame-001.png",
+      "2": "../../../spellsword-complete-v1-20261023/ally/battle/frame-002.png",
+      "3": "../../../spellsword-complete-v1-20261023/ally/battle/frame-003.png",
+      "4": "../../../spellsword-complete-v1-20261023/ally/battle/frame-004.png",
+      "5": "../../../spellsword-complete-v1-20261023/ally/battle/frame-005.png",
+      "6": "../../../spellsword-complete-v1-20261023/ally/battle/frame-006.png",
+      "7": "../../../spellsword-complete-v1-20261023/ally/battle/frame-007.png",
+      "8": "../../../spellsword-complete-v1-20261023/ally/battle/frame-008.png",
+      "9": "../../../spellsword-complete-v1-20261023/ally/battle/frame-009.png",
+      "10": "../../../spellsword-complete-v1-20261023/ally/battle/frame-010.png",
+      "11": "../../../spellsword-complete-v1-20261023/ally/battle/frame-011.png",
+      "12": "../../../spellsword-complete-v1-20261023/ally/battle/frame-012.png",
+      "13": "../../../spellsword-complete-v1-20261023/ally/battle/frame-013.png",
+      "14": "../../../spellsword-complete-v1-20261023/ally/battle/frame-014.png",
+      "15": "../../../spellsword-complete-v1-20261023/ally/battle/frame-015.png",
+      "16": "../../../spellsword-complete-v1-20261023/ally/battle/frame-016.png",
+      "17": "../../../spellsword-complete-v1-20261023/ally/battle/frame-017.png",
+      "18": "../../../spellsword-complete-v1-20261023/ally/battle/frame-018.png",
+      "19": "../../../spellsword-complete-v1-20261023/ally/battle/frame-019.png",
+      "20": "../../../spellsword-complete-v1-20261023/ally/battle/frame-020.png",
+      "21": "../../../spellsword-complete-v1-20261023/ally/battle/frame-021.png",
+      "22": "../../../spellsword-complete-v1-20261023/ally/battle/frame-022.png",
+      "23": "../../../spellsword-complete-v1-20261023/ally/battle/frame-023.png",
+      "24": "../../../spellsword-complete-v1-20261023/ally/battle/frame-024.png",
+      "25": "../../../spellsword-complete-v1-20261023/ally/battle/frame-025.png",
+      "26": "../../../spellsword-complete-v1-20261023/ally/battle/frame-026.png",
+      "27": "../../../spellsword-complete-v1-20261023/ally/battle/frame-027.png",
+      "28": "../../../spellsword-complete-v1-20261023/ally/battle/frame-028.png",
+      "29": "../../../spellsword-complete-v1-20261023/ally/battle/frame-029.png",
+      "30": "../../../spellsword-complete-v1-20261023/ally/battle/frame-030.png",
+      "31": "../../../spellsword-complete-v1-20261023/ally/battle/frame-031.png",
+      "32": "../../../spellsword-complete-v1-20261023/ally/battle/frame-032.png",
+      "50": "../../../spellsword-complete-v1-20261023/ally/battle/frame-050.png",
+      "97": "../../../spellsword-complete-v1-20261023/ally/battle/frame-097.png",
+      "98": "../../../spellsword-complete-v1-20261023/ally/battle/frame-098.png",
+      "99": "../../../spellsword-complete-v1-20261023/ally/battle/frame-099.png",
+      "107": "../../../spellsword-complete-v1-20261023/ally/battle/frame-107.png",
+      "108": "../../../spellsword-complete-v1-20261023/ally/battle/frame-108.png",
+      "109": "../../../spellsword-complete-v1-20261023/ally/battle/frame-109.png",
+      "110": "../../../spellsword-complete-v1-20261023/ally/battle/frame-110.png",
+      "111": "../../../spellsword-complete-v1-20261023/ally/battle/frame-111.png",
+      "112": "../../../spellsword-complete-v1-20261023/ally/battle/frame-112.png",
+      "113": "../../../spellsword-complete-v1-20261023/ally/battle/frame-113.png"
+    },
+    "output_atlas": "../../../spellsword-complete-v1-20261023/ally/battle-atlas.png",
+    "output_atlas_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      50,
+      97,
+      98,
+      99,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113
+    ],
+    "batches": [
+      {
+        "id": "完整战斗姿势",
+        "review": "../../../spellsword-complete-v1-20261023/ally-battle-light.png",
+        "status": "review_candidate"
+      }
+    ],
+    "qa_report": "../../../spellsword-complete-v1-20261023/verification.json"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_07",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_07.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_07.ogg"
+  ],
+  "hashes": [
+    "8953c6d518ac1e9c3b22ce2deee0c13285d1640216f7b5b49ead0d532079f3e4",
+    "181f4a03396737400ea29805bcb504e8b3d02614800eb9428cbb4bf8a2330a0c"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "2fbb0df79947a4c2da4c4019",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    10900,
+    33552
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "Audio 1: A single, sharp, '4 on the floor' kick with a short release. Audio 2: A slow, pulsating, '4 on the floor' kick with a long release. The first sound has a sharp attack and a fast decay, while the second sound has a slower attack and a longer decay. The second sound also has a more complex, pulsating rhythm.",
+  "generation_tokens": 81,
+  "generation_tps": 40.36698339521759,
+  "wall_seconds": 2.147,
+  "peak_memory_bytes": 7027507842,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

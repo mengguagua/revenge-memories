@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>战后人物与入队反馈 · 2026-10-25</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,"PingFang SC",sans-serif;background:#0d1720;color:#e7eeea}*{box-sizing:border-box}body{max-width:1200px;margin:auto;padding:28px 20px 70px}h1{font-size:28px;line-height:1.5}h2{font-size:21px;margin-top:36px}p,li{line-height:1.85;color:#c3d0d1}a{color:#9ed9ce}a:focus-visible,button:focus-visible,audio:focus-visible{outline:none;box-shadow:0 0 0 5px #9ed9ce55}article,figure,.cue{background:#18262f;border-radius:14px;padding:20px;margin:0 0 20px}figure{padding:0;overflow:hidden}figcaption{padding:18px;line-height:1.7}figure img{display:block;width:100%;height:auto}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.grid article{text-align:center;padding:20px 12px}.pair{display:flex;justify-content:center;align-items:end;gap:20px;padding:22px 8px;background:#22343a;border-radius:10px}.pair img{image-rendering:pixelated;object-fit:contain}.body{width:96px;height:96px}.face{width:96px;height:96px}.note{font-size:14px;color:#a6b9b8}audio{width:100%;margin:12px 0}h3{margin:10px 0}nav{display:flex;gap:20px;flex-wrap:wrap;margin:22px 0}nav a{padding:8px 0}@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){body{padding:18px 12px}.grid{grid-template-columns:1fr}h1{font-size:24px}}
+</style>
+<h1>战后人物与入队反馈</h1>
+<p>2026-10-25 · 台词修订版。战后村民、矿工和诊所对白已按“外传”的简短、直白口吻重写。4个平民身份各有专属正面待机图与对话头像；贝克入队后由获救矿工接替。未更新iPhone。</p>
+<nav><a href="#characters">人物与头像</a><a href="#music">两秒入队音乐</a><a href="#screens">运行画面</a><a href="README.md">修改依据与验证记录</a></nav>
+<h2 id="characters">4组新人物 · 正面待机与配套头像</h2>
+<p>静止人物只使用一张待机图，未接入行走动画。人物图在地图显示为24×24逻辑画幅，头像48×48；下方放大便于对照身份。</p>
+<div class="grid">
+<article><h3>村民男子</h3><p class="note">绿帽与围巾 · H07</p><div class="pair"><img class="body" alt="村民男子正面待机" src="../../assets/postbattle-npcs-20261025/village_man-idle.png"><img class="face" alt="村民男子头像" src="../../assets/postbattle-npcs-20261025/village_man-portrait.png"></div></article>
+<article><h3>村中老妇</h3><p class="note">紫红头巾与披肩 · H07</p><div class="pair"><img class="body" alt="村中老妇正面待机" src="../../assets/postbattle-npcs-20261025/village_elder_woman-idle.png"><img class="face" alt="村中老妇头像" src="../../assets/postbattle-npcs-20261025/village_elder_woman-portrait.png"></div></article>
+<article><h3>老矿工</h3><p class="note">矿帽与灰围裙 · H08</p><div class="pair"><img class="body" alt="老矿工正面待机" src="../../assets/postbattle-npcs-20261025/miner_foreman-idle.png"><img class="face" alt="老矿工头像" src="../../assets/postbattle-npcs-20261025/miner_foreman-portrait.png"></div></article>
+<article><h3>年轻女矿工</h3><p class="note">蓝头巾与长辫 · H08</p><div class="pair"><img class="body" alt="年轻矿工正面待机" src="../../assets/postbattle-npcs-20261025/miner_young_woman-idle.png"><img class="face" alt="年轻矿工头像" src="../../assets/postbattle-npcs-20261025/miner_young_woman-portrait.png"></div></article>
+</div>
+<p class="note">内置图像工具生成 → 切图 → 最近邻缩放 → 无损优化。原始图留在隔离源目录。<a href="prompts.json">完整提示词</a> · <a href="assets.json">尺寸、字节数与哈希</a></p>
+<h2 id="music">《同行的新约》 · 两秒入队音乐</h2>
+<div class="cue"><p>真正邀请成功时播放一次，暂停当前BGM；两秒结束后从原位置续播。取消、失败、重复邀请及读取存档不会播放，音乐静音时也不会播放。</p><audio controls preload="metadata" src="../../assets/music/20261025/rm_jingle_recruit.ogg">浏览器不支持播放音频。</audio><p class="note">新写旋律＋本地离线Stable Audio 3音色层；无歌词，非循环，2.000秒。已检查解码、电平、淡出及Godot触发／恢复；本轮没有人工听审结论。<a href="audio-checks.json">音频检查</a></p></div>
+<h2 id="screens">5张后台运行画面</h2>
+<p>使用2556×1179横屏和iPhone16安全区参数。49项无窗口定向检查通过，后台画面文字与按钮安全区域检查通过。当前使用既有S11胜利检查点验证战后流程，没有重复进行整章测试。</p>
+<p>本次仅刷新4张对白有变化的画面；按钮排序画面沿用。村民直接说消息或请求，矿工说明遭遇，贝克用两句话答应同行；去掉刻意抒情和公文用语。<a href="README.md#台词修订">台词修改依据与例子</a> · <a href="dialogue-checks.json">本次快速检查</a></p>
+<figure><figcaption>攻击位于掩护上方；右侧为菜单、切换我方、确认、返回、状态。</figcaption><img loading="lazy" src="01-battle-controls.png" alt="战斗菜单和右侧按钮排序"></figure>
+<figure><figcaption>村民男子：救援完成后讲获救者的近况；场景中两名村民均使用新图。</figcaption><img loading="lazy" src="02-village-man.png" alt="村民男子战后对白与新头像"></figure>
+<figure><figcaption>村中老妇：凯尔给村民分粮，却被科兰以通敌罪杀害；村民想替他说话，却不敢出面。</figcaption><img loading="lazy" src="03-village-elder.png" alt="村中老妇专属头像和对白"></figure>
+<figure><figcaption>贝克入队并重载存档后：老矿工接替原位置，说明军队催逼开矿的遭遇。</figcaption><img loading="lazy" src="04-mine-foreman.png" alt="贝克入队后老矿工接替位置"></figure>
+<figure><figcaption>年轻矿工：谢过救命之恩，急着回村告诉母亲自己平安。</figcaption><img loading="lazy" src="05-young-miner.png" alt="年轻矿工专属头像和对白"></figure>
+<p><a href="README.md">完整修改依据</a> · <a href="checks.json">定向检查</a> · <a href="visual-checks.json">后台运行检查</a></p>
+</html>

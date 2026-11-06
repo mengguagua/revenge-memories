@@ -1,0 +1,56 @@
+{
+  "id": "rm_sfx_42",
+  "request": "42",
+  "path": "source/sfx-20261024/audio-guided/candidates/rm_sfx_42.ogg",
+  "sha256": "bb045500d3972ac2651f1a8bf090863318790a7ac993aa5de8c9aec2b25722b8",
+  "bytes": 130589,
+  "source": {
+    "id": "rm_sfx_42",
+    "seed": 2026102666,
+    "model": "local Stable Audio 3 sm-sfx/same-s",
+    "method": "reference-conditioned audio-to-audio variation",
+    "reference_path": "actual/assets/original/audio/sfx_42.ogg",
+    "reference_sha256": "c4bc96d68c7125a8d5f6bb3cb0c391005d138a2577850e7c715551c7f119edd5",
+    "reference_pcm_sha256": "48da12ffc50316128884af543c90003f7da57abaf33b1397a04715d2d65b77e3",
+    "init_noise_level": 0.55,
+    "reference_input_gain_db": 7.479228964717733,
+    "prompt": "TrackType: SFX. A dry monophonic retro 8-bit game sound effect. Preserve the reference sound's electronic pitch contour, immediate attack, modulation speed and noise-pulse rhythm. A clearly defined pulse-wave or noise-channel effect, crisp upper-midrange, no muffled low drum or acoustic instrument. Create a variation in synthetic tone color, retaining the same sound gesture. No music, no vocal, no real-world ambience, no reverb. Continuous electronic modulation until stopped, stable presence from the opening, no musical beat.",
+    "cfg": 1.5,
+    "steps": 8,
+    "sha256": "05835264d540e7a95ded44e2846a50d1434815cf1ce93fe19f490c51e4b6662a",
+    "seconds": 8.2,
+    "offline": true,
+    "generation_wall_seconds": 1.956,
+    "raw_peak": 0.556594729423523,
+    "raw_rms": 0.10660747438669205
+  },
+  "mastering": {
+    "method": "preserve reference duration and 25ms-smoothed amplitude gesture; rounded edges; constant active-RMS gain",
+    "gain_db": -0.5914037279587774,
+    "target_active_rms_dbfs": -23.384,
+    "peak_ceiling_dbfs": -9.577,
+    "transient_shaping": {
+      "applied": false
+    }
+  },
+  "metrics": {
+    "seconds": 8.0,
+    "sample_rate": 44100,
+    "channels": 2,
+    "rms_dbfs": -24.2433097209554,
+    "active_rms_dbfs": -24.241585995974418,
+    "sample_peak_dbfs": -9.728677332580729,
+    "first_50ms_rms_dbfs": -25.206277152593508,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "leading_onset_seconds": 0.0,
+    "longest_internal_silence_seconds": 0.0,
+    "last_10ms_rms_dbfs": -37.44546149688062,
+    "first_last_sample_delta": 0.018204117193818092,
+    "lufs_note": "Measured gated integrated loudness",
+    "integrated_lufs": -17.9,
+    "true_peak_dbtp": -9.6
+  },
+  "review_decision": "selected",
+  "review_reason": "Matches final published review index."
+}

@@ -1,0 +1,57 @@
+{
+  "id": "rm_sfx_40",
+  "request": "40",
+  "path": "source/sfx-20261024/audio-guided/candidates/rm_sfx_40.ogg",
+  "sha256": "a974ae26bcb516915d10e1eaded1862c519d50e376eaefa964db37bf4b17f0b1",
+  "bytes": 34783,
+  "source": {
+    "id": "rm_sfx_40",
+    "seed": 2026102664,
+    "model": "local Stable Audio 3 sm-sfx/same-s",
+    "method": "reference-conditioned audio-to-audio variation",
+    "reference_path": "actual/assets/original/audio/sfx_40.ogg",
+    "reference_sha256": "cff0a66c07f8f881dd71afb35f08c612511e701f0640d603484cfa23aec18f94",
+    "reference_pcm_sha256": "cdec0b2695c200c30df3e1ef231a23b90744bf50448f2fbd1e767cd7d1f279ce",
+    "init_noise_level": 0.55,
+    "reference_input_gain_db": 8.449265678647858,
+    "prompt": "TrackType: SFX. A dry monophonic retro 8-bit game sound effect. Preserve the reference sound's electronic pitch contour, immediate attack, modulation speed and noise-pulse rhythm. A clearly defined pulse-wave or noise-channel effect, crisp upper-midrange, no muffled low drum or acoustic instrument. Create a variation in synthetic tone color, retaining the same sound gesture. No music, no vocal, no real-world ambience, no reverb. One compact event with immediate attack and short release, no additional impacts or repeated sequence.",
+    "cfg": 1.5,
+    "steps": 8,
+    "sha256": "b78129cf2059d5151d72f470f86bdb762c9b38e297223cf68f9b2e949bc24367",
+    "seconds": 1.6807029478458049,
+    "offline": true,
+    "dit_dtype": "fp32",
+    "generation_wall_seconds": 1.456,
+    "raw_peak": 24.9953670501709,
+    "raw_rms": 5.587209224700928
+  },
+  "mastering": {
+    "method": "preserve reference duration and 25ms-smoothed amplitude gesture; rounded edges; constant active-RMS gain",
+    "gain_db": 1.3439518881459218,
+    "target_active_rms_dbfs": -22.0,
+    "peak_ceiling_dbfs": -10.547,
+    "transient_shaping": {
+      "applied": true,
+      "method": "smooth tanh knee at 2.3 times 25ms local RMS",
+      "reason": "generated peak crest would otherwise hide the audible body under the reference peak budget"
+    }
+  },
+  "metrics": {
+    "seconds": 1.480702947845805,
+    "sample_rate": 44100,
+    "channels": 2,
+    "rms_dbfs": -22.906466375312174,
+    "active_rms_dbfs": -22.543266307947817,
+    "sample_peak_dbfs": -9.547510587031077,
+    "first_50ms_rms_dbfs": -18.51576061561691,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "leading_onset_seconds": 0.0,
+    "longest_internal_silence_seconds": 0.05986394557823129,
+    "last_10ms_rms_dbfs": -240.0,
+    "first_last_sample_delta": 0.006546860095113516,
+    "lufs_note": "Measured gated integrated loudness",
+    "integrated_lufs": -17.4,
+    "true_peak_dbtp": -9.5
+  }
+}

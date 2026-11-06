@@ -1,0 +1,69 @@
+{
+  "id": "omni_blind_swapped_hit",
+  "kind": "bias_control",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/hit.ogg",
+      "repeat_short": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/source/sfx-20261024/audio-guided/candidates/rm_sfx_03.ogg",
+      "repeat_short": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_03.ogg",
+      "repeat_short": true
+    }
+  ],
+  "prompt": "Audio 1 is a reference. Audio 2 and Audio 3 are anonymous replacement sounds in random order. Describe the audible differences between 2 and 3, or explicitly say they sound the same if no difference is audible. Which is closer to the reference in electronic timbre, attack and pitch gesture? Do not infer quality from order. Under 110 words.",
+  "max_tokens": 220,
+  "key": "0f712b5009cc8f8c02de672e",
+  "source_sha256": [
+    "73e68e3ad36e0ac989ea2915f4127d1eb1a8915e7aeb8d845b474cb9b15cf040",
+    "562a377240051a3b6d1734cfa251d57449755fc3f739b9b7142b885a64020c71",
+    "e3951491cfb2aeed93510918d054b0869d82ce79c4d91fd7bb7f14f5473c38e1"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "audio_input_samples": [
+    10857,
+    10857,
+    12053
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "c22caa9f015b1662a6dbc84304db044620d77f58430ff9e1e2e952657188cbbe",
+    "17ee09865a648e7ee430ceae4a81db5679aee6b3b200ee7440a5ca1a42d64a25",
+    "8238bcbc2d0028b38ad93709b245b91c53f56d9529fd661e6d6ddaaa9335dbb6"
+  ],
+  "response": "Audio 2 is a sharp, high-pitched electronic zap. Audio 3 is a low, resonant thud. The zap (2) is closer to the reference in electronic timbre and attack. The reference also has a high pitch, matching the zap's pitch gesture. The thud (3) differs in timbre, attack, and pitch.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 74,
+    "prompt_tokens": 161,
+    "total_tokens": 235,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 133,
+    "prompt_ms": 1106.265,
+    "prompt_per_token_ms": 8.317781954887218,
+    "prompt_per_second": 120.2243585397712,
+    "predicted_n": 74,
+    "predicted_ms": 1482.522,
+    "predicted_per_token_ms": 20.308520547945204,
+    "predicted_per_second": 49.24041599382674
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 2.627,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/73e68e3ad36e0ac989ea2915f4127d1eb1a8915e7aeb8d845b474cb9b15cf040.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/562a377240051a3b6d1734cfa251d57449755fc3f739b9b7142b885a64020c71.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/e3951491cfb2aeed93510918d054b0869d82ce79c4d91fd7bb7f14f5473c38e1.ogg"
+  ]
+}

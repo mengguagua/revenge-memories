@@ -1,0 +1,121 @@
+--- actual/reports/healing-speed-menu-20261027/before/legacy_main.gd	2026-10-27 23:55:44
++++ actual/core/legacy_main.gd	2026-10-27 23:56:14
+@@ -1083,6 +1083,15 @@
+ 		var allies = game.living(str(caster.side)).filter(func(unit): return str(unit.id) != caster_id)
+ 		target_id = str(allies[0].id) if not allies.is_empty() else caster_id
+ 	var target = game.find_unit(target_id)
++	# Every actually healed ally gets its own HP feedback, including Fortify.
++	# Gameplay HP/cost/EXP were already committed by use_support; only animate
++	# their receipt here, never apply the heal again at contact.
++	var healing = str(result.action) in ["recover", "physic", "fortify"]
++	var recipients: Array = []
++	if healing:
++		for change in result.changed:
++			if int(change.after)>int(change.before):recipients.append(change)
++	if recipients.is_empty():recipients.append({"id":target_id,"before":int(previous.get(target_id,target.hp)),"after":int(target.hp)})
+ 	combat = {"attacker": caster_id, "defender": target_id, "distance": 1, "initiative_side": caster.side, "support": true}
+ 	combat_poses.clear()
+ 	combat_offsets.clear()
+@@ -1096,9 +1105,22 @@
+ 	battle_animation.reset()
+ 	view = "combat"
+ 	audio.play_combat(caster, target, false, true, game.stage_id == 62)
+-	await battle_animation.play({"attacker": caster_id, "defender": target_id, "weapon_index": spell_id, "visual_only": true,
+-		"hit": true, "critical": false, "damage": 0, "hp_before": int(previous.get(target_id, target.hp)), "hp_after": int(target.hp),
+-		"source_hp_before": int(previous[caster_id]), "source_hp_after": int(result.get("source_hp_after_support",caster.hp)), "hp_cost": Items.cost(spell_id)})
++	var source_after = int(result.get("source_hp_after_support",caster.hp))
++	for i in range(recipients.size()):
++		var change: Dictionary = recipients[i]
++		target_id = str(change.id)
++		target = game.find_unit(target_id)
++		combat.defender = target_id
++		combat.healed_amount = maxi(0,int(change.after)-int(change.before)) if healing else 0
++		combat_hp[target_id] = int(change.before)
++		combat_poses[target_id] = int(_battle_sprite(target).sequences.idle[0])
++		combat_offsets[target_id] = Vector2.ZERO
++		combat_fades[target_id] = 1.0
++		battle_animation.reset()
++		await battle_animation.play({"attacker": caster_id, "defender": target_id, "weapon_index": spell_id, "visual_only": true,
++			"hit": true, "critical": false, "damage": 0, "hp_before": int(change.before), "hp_after": int(change.after),
++			"source_hp_before": int(previous[caster_id]) if i==0 else source_after, "source_hp_after": source_after,
++			"hp_cost": maxi(0,int(previous[caster_id])-source_after) if i==0 else 0})
+ 	view = "battle"
+ 	ui_mode = "inspect"
+ 	busy = false
+@@ -1306,8 +1328,15 @@
+ 	if not bool(event.get("visual_only", false)):
+ 		game.commit_strike(event)
+ 	if bool(event.get("visual_only", false)):
+-		combat_message = str(Items.spell(int(event.get("weapon_index", 40))).get("name_zh", ""))
++		var recovered = maxi(0,int(event.hp_after)-int(event.hp_before))
++		combat_message = "恢复 +%d" % recovered if recovered>0 else str(Items.spell(int(event.get("weapon_index", 40))).get("name_zh", ""))
++		for hp in range(int(event.hp_before)+1,int(event.hp_after)+1):
++			combat_hp[target_id] = hp
++			audio.play_sfx("hp_tick")
++			queue_redraw()
++			await _wait(0.05)
+ 		combat_hp[target_id] = int(event.hp_after)
++		queue_redraw()
+ 		await _wait(0.3)
+ 		return
+ 	if not bool(event.hit):
+@@ -2139,7 +2168,7 @@
+ 	_draw_health(int(unit.hp), int(unit.max_hp), Vector2(96, 88), "ally" if unit.get("side", "player") == "player" else "enemy")
+ 	var equipped=StatusStats.stats(unit)
+ 	presentation_audit.status_stats=equipped;presentation_audit.status_unit=str(unit.id)
+-	var stats = [["攻击", equipped.power], ["技巧", int(unit.skill)], ["攻速", equipped.speed], ["幸运", equipped.luck], ["物防", equipped.defence], ["魔防", equipped.resistance], ["移动", equipped.move], ["射程", StatusStats.range_name(equipped.reach)]]
++	var stats = [["攻击", equipped.power], ["技巧", int(unit.skill)], ["速度", equipped.speed], ["幸运", equipped.luck], ["物防", equipped.defence], ["魔防", equipped.resistance], ["移动", equipped.move], ["射程", StatusStats.range_name(equipped.reach)]]
+ 	var dying := game.is_dying(unit)
+ 	var care_layout := unit.has("dying")
+ 	for i in range(stats.size()):
+@@ -2200,11 +2229,14 @@
+ 		var shown_defence = int(incoming.get("defender_defence", unit.defence))
+ 		var defence_label = "魔防" if bool(incoming.get("magic",false)) else "物防"
+ 		# Keep the original red/blue bitmap panel and replace embedded labels.
+-		var background = Color8(181, 49, 32) if i == 0 else Color8(21, 95, 217)
++		var allied_panel = i == 1 or bool(combat.get("support",false))
++		var background = Color8(21, 95, 217) if allied_panel else Color8(181, 49, 32)
+ 		draw_rect(Rect2(x - 4, 176, 112, 56), background)
+-		_draw_health(int(combat_hp.get(str(unit.id), unit.hp)), int(unit.max_hp), Vector2(x, 180), "enemy" if i == 0 else "ally")
++		_draw_health(int(combat_hp.get(str(unit.id), unit.hp)), int(unit.max_hp), Vector2(x, 180), "ally" if allied_panel else "enemy")
+ 		if bool(combat.get("support", false)):
+ 			_text("支援魔法", Vector2(x, 202))
++			if str(unit.id)==str(combat.defender) and int(combat.get("healed_amount",0))>0:
++				_text("恢复 +%d" % int(combat.healed_amount),Vector2(x,218),Color(.65,1,.65))
+ 		elif bool(stats.get("blocked", false)):
+ 			_text("攻击无效", Vector2(x, 202))
+ 			_text(defence_label + str(shown_defence), Vector2(x, 218))
+--- actual/reports/healing-speed-menu-20261027/before/main.gd	2026-10-27 23:55:44
++++ actual/core/main.gd	2026-10-27 23:55:44
+@@ -423,6 +423,11 @@
+ 		menu_items.append("战术说明");menu_actions.append("tactics:unit_info")
+ 	var options=game.interactions_for(game.find_unit(game.selected_id))
+ 	for o in options:menu_items.push_front(str(o.label));menu_actions.push_front("interact:"+str(o.id))
++	var wait_index=menu_actions.find("wait")
++	if wait_index>0:
++		var wait_label=menu_items[wait_index]
++		menu_items.remove_at(wait_index);menu_actions.remove_at(wait_index)
++		menu_items.push_front(wait_label);menu_actions.push_front("wait")
+ 
+ func _open_system_menu() -> void:
+ 	if equipment_screen!=null and equipment_screen.active():return
+@@ -1582,7 +1587,7 @@
+ 	var equipped=StatusStats.stats(unit)
+ 	presentation_audit.status_stats=equipped;presentation_audit.status_unit=str(unit.id)
+ 	var stats = [["攻击",equipped.power],["技巧",int(unit.skill)],
+-		["攻速",equipped.speed],["幸运",equipped.luck],
++		["速度",equipped.speed],["幸运",equipped.luck],
+ 		["物防",equipped.defence],["魔防",equipped.resistance],
+ 		["移动",equipped.move],["训练" if advanced else "射程",int(unit.get("magic_level",0)) if advanced else StatusStats.range_name(equipped.reach)]]
+ 	for i in range(stats.size()):
+--- actual/reports/healing-speed-menu-20261027/before/equipment_comparison.gd	2026-10-27 23:55:44
++++ actual/core/equipment_comparison.gd	2026-10-27 23:55:44
+@@ -37,7 +37,7 @@
+ static func compare(unit: Dictionary,target_id: int,classes: Dictionary) -> Dictionary:
+ 	var after=automatic(unit);after.item_id=target_id
+ 	var before_stats=stats(unit);var after_stats=stats(after);var rows=[]
+-	for spec in [["攻击力","power"],["命中基础","hit"],["必杀","critical"],["攻速","speed"],["物防","defence"],["魔防","resistance"],["幸运","luck"],["移动","move"],["射程","range"]]:
++	for spec in [["攻击力","power"],["命中基础","hit"],["必杀","critical"],["速度","speed"],["物防","defence"],["魔防","resistance"],["幸运","luck"],["移动","move"],["射程","range"]]:
+ 		var key=str(spec[1]);var old_value=int(before_stats[key]);var new_value=int(after_stats[key]);var delta=new_value-old_value
+ 		var suffix="%" if key in ["hit","critical"] else ""
+ 		var old_text=str(old_value)+suffix;var new_text=str(new_value)+suffix

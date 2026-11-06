@@ -1,0 +1,59 @@
+{
+  "id": "rm_sfx_61",
+  "request": "61",
+  "path": "source/sfx-20261024/audio-guided/candidates/rm_sfx_61.ogg",
+  "sha256": "2d039868382b27e9e02b1de13a5039327159ace62e8b166a52fd855423c81fc8",
+  "bytes": 12313,
+  "source": {
+    "id": "rm_sfx_61",
+    "seed": 2026102697,
+    "model": "local Stable Audio 3 sm-sfx/same-s",
+    "method": "reference-conditioned audio-to-audio variation",
+    "reference_path": "actual/assets/original/audio/sfx_61.ogg",
+    "reference_sha256": "3cb9031069b24fc993f8a0df2e6c034dce1068a2faf5320fc1675f7e64d700b7",
+    "reference_pcm_sha256": "c28c37c480ad5f4987237cd77956bb76adc10e0ca71e0df3b6dd3dbb129b34e1",
+    "init_noise_level": 0.55,
+    "reference_input_gain_db": 10.235822494787074,
+    "prompt": "TrackType: SFX. A dry monophonic retro 8-bit game sound effect. Preserve the reference sound's electronic pitch contour, immediate attack, modulation speed and noise-pulse rhythm. A clearly defined pulse-wave or noise-channel effect, crisp upper-midrange, no muffled low drum or acoustic instrument. Create a variation in synthetic tone color, retaining the same sound gesture. No music, no vocal, no real-world ambience, no reverb. One compact event with immediate attack and short release, no additional impacts or repeated sequence.",
+    "cfg": 1.5,
+    "steps": 8,
+    "sha256": "a74401660a20b3f3ca7a5cb55a697a296e7ad2dec803dd3ff83f7cc65af89d2f",
+    "seconds": 1.1071428571428572,
+    "offline": true,
+    "dit_dtype": "fp32",
+    "generation_wall_seconds": 1.27,
+    "raw_peak": 23.415964126586914,
+    "raw_rms": 4.873411178588867
+  },
+  "mastering": {
+    "method": "preserve reference duration and 25ms-smoothed amplitude gesture; rounded edges; constant active-RMS gain",
+    "gain_db": 2.2641525568315366,
+    "target_active_rms_dbfs": -22.0,
+    "peak_ceiling_dbfs": -12.334,
+    "transient_shaping": {
+      "applied": true,
+      "method": "smooth tanh knee at 2.3 times 25ms local RMS",
+      "reason": "generated peak crest would otherwise hide the audible body under the reference peak budget"
+    }
+  },
+  "metrics": {
+    "seconds": 0.9071428571428571,
+    "sample_rate": 44100,
+    "channels": 2,
+    "rms_dbfs": -28.30374829982324,
+    "active_rms_dbfs": -23.903109353781787,
+    "sample_peak_dbfs": -11.26524626427833,
+    "first_50ms_rms_dbfs": -24.120522109406537,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "leading_onset_seconds": 0.0,
+    "longest_internal_silence_seconds": 0.10975056689342404,
+    "last_10ms_rms_dbfs": -240.0,
+    "first_last_sample_delta": 0.0042971353977918625,
+    "lufs_note": "Measured gated integrated loudness",
+    "integrated_lufs": -22.6,
+    "true_peak_dbtp": -10.5
+  },
+  "review_decision": "rejected",
+  "review_reason": "Candidate did not establish a reliable benefit over the retained version."
+}

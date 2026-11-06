@@ -1,0 +1,729 @@
+{
+  "checkpoints": [
+    {
+      "name": "D33-council",
+      "path": "res://reports/full-playtest-20261023/ch3/followup/followup-D33-council.json",
+      "stage": 306,
+      "turn": 1,
+      "view": "hub"
+    },
+    {
+      "name": "chapter-end",
+      "path": "res://reports/full-playtest-20261023/ch3/followup/followup-chapter-end.json",
+      "stage": 306,
+      "turn": 1,
+      "view": "chapter_end"
+    },
+    {
+      "name": "chapter4-start",
+      "path": "res://reports/full-playtest-20261023/ch3/followup/followup-chapter4-start.json",
+      "stage": 401,
+      "turn": 1,
+      "view": "world"
+    }
+  ],
+  "checks": [
+    {
+      "code": "M31",
+      "kind": "current objective menu",
+      "notes": [
+        "先打开东侧拘押院南门，保护两名被拘押者沿街撤到西门。两人都须存活撤离。",
+        "第4敌方回合，追兵从东南巷口进入。可移开路障，打通仓房间的近路。"
+      ],
+      "source": "res://reports/full-playtest-20261023/ch3/current/current-M31-entry.json",
+      "status": [
+        "救出被拘押者并撤至西门；击败追捕队长。不得攻击平民。",
+        "拘押居民撤离：0/2。西门在西侧绿旗处；必须救出两名被拘押者并击败队长。",
+        "打开拘押院门：未完成"
+      ],
+      "view_after": "battle"
+    },
+    {
+      "code": "M32",
+      "kind": "current objective menu",
+      "notes": [
+        "运输车从第6己方回合开始北撤，每轮一格。控制任一运输站或打开车锁即可让它停车。",
+        "两处运输站和车锁都须确认，再击败护送长。保护车上工匠，运输车损毁或逃出北口都会失败。"
+      ],
+      "source": "res://reports/full-playtest-20261023/ch3/current/current-M32-entry.json",
+      "status": [
+        "占领两处运输站并击败护送长；救出车上的工匠。运输车逃出北口则失败。",
+        "运输车第6己方回合起北撤，每轮一格。控制任一运输站或打开车锁可停车；两站与车锁均需确认。车逃出北口或损毁即失败。",
+        "控制西运输站：未完成",
+        "控制北运输站：未完成",
+        "打开运输车锁：未完成"
+      ],
+      "view_after": "battle"
+    },
+    {
+      "code": "M33",
+      "kind": "current objective menu",
+      "notes": [
+        "正面可走南门，西侧小门可绕到内庭；东南港门通向投送码头和工房。",
+        "击败堡主后，可到格曼身旁交涉。接受投降或只解除武装均可；不必杀死格曼。"
+      ],
+      "source": "res://reports/full-playtest-20261023/ch3/current/current-M33-entry.json",
+      "status": [
+        "击败堡主并控制投送码头；格曼可投降，存活时不作为必须歼灭对象。",
+        "格曼：堡主败北后可邻接交涉；接受投降或只解除武装",
+        "控制投送码头：未完成",
+        "取工房投送记录：未完成"
+      ],
+      "view_after": "battle"
+    },
+    {
+      "code": "F31",
+      "kind": "current objective menu",
+      "notes": [
+        "分别打开南北两处拘留院，保护伤者沿仓街返回西南接应船。先清除撤离路上的守军。",
+        "两扇门都须打开，并接回全部存活伤者、击败队长。两组伤者全灭则失败。"
+      ],
+      "source": "res://reports/full-playtest-20261023/ch3/current/current-F31-entry.json",
+      "status": [
+        "保护两组船上伤者回到己方船，并击败扣船队长；伤者全灭失败。",
+        "南北两组伤者各自记录。解除两处封锁后，让存活伤者全部抵达西南己方船；全灭失败。",
+        "解除扣船所封锁：未完成",
+        "打开停泊通道：未完成"
+      ],
+      "view_after": "battle"
+    },
+    {
+      "code": "F32",
+      "kind": "current objective menu",
+      "notes": [
+        "西侧旧井干道较安全；东侧盐盘较短，但会同时接近弓手和术士。优先保护向导。",
+        "向导须撤到北方出口。若向导遇难，到南侧向导住屋前取路线册，仍可继续任务。"
+      ],
+      "source": "res://reports/full-playtest-20261023/ch3/current/current-F32-entry.json",
+      "status": [
+        "击败封路神官并护送向导至出口；不要求踏遍沙地。",
+        "向导仍在路上。"
+      ],
+      "view_after": "battle"
+    },
+    {
+      "code": "F33",
+      "kind": "current objective menu",
+      "notes": [
+        "两名设施术士被困在南侧工房内。先清除门前威胁，再打开工房门；两人都须存活。",
+        "从两侧维修桥进入水院，确认中央阵台，并到西北记录屋南门取得档案，再击败神官。"
+      ],
+      "source": "res://reports/full-playtest-20261023/ch3/current/current-F33-entry.json",
+      "status": [
+        "击败控制神官，保护两名维持设施的术士，并取得调节记录。",
+        "两名术士必须存活。打开工房、复制记录、稳定阵台，再击败神官。",
+        "打开术士工房：未完成",
+        "复制调节记录：未完成",
+        "稳定控制阵台：未完成"
+      ],
+      "view_after": "battle"
+    },
+    {
+      "code": "S31",
+      "kind": "current objective menu",
+      "notes": [
+        "两组家庭分别被关在北侧围院中，两扇南门都须打开；至少一组家庭存活。",
+        "可以从西侧住户巷或东侧山路接近牢门。蕾娜可尝试劝降旧部，不需要她出阵也能完成。"
+      ],
+      "source": "res://reports/full-playtest-20261023/ch3/current/current-S31-entry.json",
+      "status": [
+        "击败狱卒首领，释放两组家庭；至少一组存活。",
+        "两扇牢门分别开启，至少一组家庭存活。蕾娜可以邻接劝降部分旧部。",
+        "打开牢门：未完成",
+        "打开牢门：未完成"
+      ],
+      "view_after": "battle"
+    },
+    {
+      "code": "S32",
+      "kind": "current objective menu",
+      "notes": [
+        "分别打开西侧术士营房和东侧居民营房，再击败营长。开门前先清除门前威胁。",
+        "诺娅、弟弟和居民的遭遇分别保留。战后回营地交谈，决定是否邀请诺娅同行。"
+      ],
+      "source": "res://reports/full-playtest-20261023/ch3/current/current-S32-entry.json",
+      "status": [
+        "击败营长，打开术士与居民营房；诺娅及弟弟分别记录生死。",
+        "两间营房都须打开。诺娅和弟弟的生死分别记录，战后到安置处交谈。",
+        "打开术士营房：未完成",
+        "打开居民营房：未完成"
+      ],
+      "view_after": "battle"
+    },
+    {
+      "chapter": 4,
+      "kind": "third-to-fourth chapter boundary",
+      "passed": true,
+      "source": "res://reports/full-playtest-20261023/ch3/current/current-after-303.json",
+      "view": "world"
+    }
+  ],
+  "content": [
+    {
+      "code": "M31",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 301,
+      "text": "救出被拘押者并撤至西门；击败追捕队\n长。不得攻击平民。出口有旗标。S菜单\n可定位出口与首领。",
+      "turn": 1
+    },
+    {
+      "code": "M31",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 301,
+      "text": "救出被拘押者并撤至西门；击败追捕队\n长。不得攻击平民。",
+      "turn": 1
+    },
+    {
+      "code": "M31",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 301,
+      "text": "拘押居民撤离：0/2。西门在西侧绿旗\n处；必须救出两名被拘押者并击败队\n长。",
+      "turn": 1
+    },
+    {
+      "code": "M31",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 301,
+      "text": "打开拘押院门：未完成",
+      "turn": 1
+    },
+    {
+      "code": "M31",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 301,
+      "text": "先打开东侧拘押院南门，保护两名被拘\n押者沿街撤到西门。两人都须存活撤\n离。",
+      "turn": 1
+    },
+    {
+      "code": "M31",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 301,
+      "text": "第4敌方回合，追兵从东南巷口进入。可\n移开路障，打通仓房间的近路。",
+      "turn": 1
+    },
+    {
+      "code": "M32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 302,
+      "text": "占领两处运输站并击败护送长；救出车\n上的工匠。运输车逃出北口则失败。出\n口有旗标。S菜单可定位出口与首领。",
+      "turn": 1
+    },
+    {
+      "code": "M32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 302,
+      "text": "占领两处运输站并击败护送长；救出车\n上的工匠。运输车逃出北口则失败。",
+      "turn": 1
+    },
+    {
+      "code": "M32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 302,
+      "text": "运输车第6己方回合起北撤，每轮一格。\n控制任一运输站或打开车锁可停车；两\n站与车锁均需确认。车逃出北口或损毁",
+      "turn": 1
+    },
+    {
+      "code": "M32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 302,
+      "text": "即失败。",
+      "turn": 1
+    },
+    {
+      "code": "M32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 302,
+      "text": "控制西运输站：未完成",
+      "turn": 1
+    },
+    {
+      "code": "M32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 302,
+      "text": "控制北运输站：未完成",
+      "turn": 1
+    },
+    {
+      "code": "M32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 302,
+      "text": "打开运输车锁：未完成",
+      "turn": 1
+    },
+    {
+      "code": "M32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 302,
+      "text": "运输车从第6己方回合开始北撤，每轮一\n格。控制任一运输站或打开车锁即可让\n它停车。",
+      "turn": 1
+    },
+    {
+      "code": "M32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 302,
+      "text": "两处运输站和车锁都须确认，再击败护\n送长。保护车上工匠，运输车损毁或逃\n出北口都会失败。",
+      "turn": 1
+    },
+    {
+      "code": "M33",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 303,
+      "text": "击败堡主并控制投送码头；格曼可投\n降，存活时不作为必须歼灭对象。首领\n有橙色旗标。S菜单可定位首领。",
+      "turn": 1
+    },
+    {
+      "code": "M33",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 303,
+      "text": "击败堡主并控制投送码头；格曼可投\n降，存活时不作为必须歼灭对象。",
+      "turn": 1
+    },
+    {
+      "code": "M33",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 303,
+      "text": "格曼：堡主败北后可邻接交涉；接受投\n降或只解除武装",
+      "turn": 1
+    },
+    {
+      "code": "M33",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 303,
+      "text": "控制投送码头：未完成",
+      "turn": 1
+    },
+    {
+      "code": "M33",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 303,
+      "text": "取工房投送记录：未完成",
+      "turn": 1
+    },
+    {
+      "code": "M33",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 303,
+      "text": "正面可走南门，西侧小门可绕到内庭；\n东南港门通向投送码头和工房。",
+      "turn": 1
+    },
+    {
+      "code": "M33",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 303,
+      "text": "击败堡主后，可到格曼身旁交涉。接受\n投降或只解除武装均可；不必杀死格\n曼。",
+      "turn": 1
+    },
+    {
+      "code": "F31",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 304,
+      "text": "保护两组船上伤者回到己方船，并击败\n扣船队长；伤者全灭失败。出口有旗\n标。S菜单可定位出口与首领。",
+      "turn": 1
+    },
+    {
+      "code": "F31",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 304,
+      "text": "保护两组船上伤者回到己方船，并击败\n扣船队长；伤者全灭失败。",
+      "turn": 1
+    },
+    {
+      "code": "F31",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 304,
+      "text": "南北两组伤者各自记录。解除两处封锁\n后，让存活伤者全部抵达西南己方船；\n全灭失败。",
+      "turn": 1
+    },
+    {
+      "code": "F31",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 304,
+      "text": "解除扣船所封锁：未完成",
+      "turn": 1
+    },
+    {
+      "code": "F31",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 304,
+      "text": "打开停泊通道：未完成",
+      "turn": 1
+    },
+    {
+      "code": "F31",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 304,
+      "text": "分别打开南北两处拘留院，保护伤者沿\n仓街返回西南接应船。先清除撤离路上\n的守军。",
+      "turn": 1
+    },
+    {
+      "code": "F31",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 304,
+      "text": "两扇门都须打开，并接回全部存活伤\n者、击败队长。两组伤者全灭则失败。",
+      "turn": 1
+    },
+    {
+      "code": "F32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 305,
+      "text": "击败封路神官并护送向导至出口；不要\n求踏遍沙地。出口有旗标。S菜单可定位\n出口与首领。",
+      "turn": 1
+    },
+    {
+      "code": "F32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 305,
+      "text": "击败封路神官并护送向导至出口；不要\n求踏遍沙地。",
+      "turn": 1
+    },
+    {
+      "code": "F32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 305,
+      "text": "向导仍在路上。",
+      "turn": 1
+    },
+    {
+      "code": "F32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 305,
+      "text": "西侧旧井干道较安全；东侧盐盘较短，\n但会同时接近弓手和术士。优先保护向\n导。",
+      "turn": 1
+    },
+    {
+      "code": "F32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 305,
+      "text": "向导须撤到北方出口。若向导遇难，到\n南侧向导住屋前取路线册，仍可继续任\n务。",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 306,
+      "text": "击败控制神官，保护两名维持设施的术\n士，并取得调节记录。首领有橙色旗\n标。S菜单可定位首领。",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 306,
+      "text": "击败控制神官，保护两名维持设施的术\n士，并取得调节记录。",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 306,
+      "text": "两名术士必须存活。打开工房、复制记\n录、稳定阵台，再击败神官。",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 306,
+      "text": "打开术士工房：未完成",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 306,
+      "text": "复制调节记录：未完成",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 306,
+      "text": "稳定控制阵台：未完成",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 306,
+      "text": "两名设施术士被困在南侧工房内。先清\n除门前威胁，再打开工房门；两人都须\n存活。",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 306,
+      "text": "从两侧维修桥进入水院，确认中央阵\n台，并到西北记录屋南门取得档案，再\n击败神官。",
+      "turn": 1
+    },
+    {
+      "code": "S31",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 311,
+      "text": "击败狱卒首领，释放两组家庭；至少一\n组存活。首领有橙色旗标。S菜单可定位\n首领。",
+      "turn": 1
+    },
+    {
+      "code": "S31",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 311,
+      "text": "击败狱卒首领，释放两组家庭；至少一\n组存活。",
+      "turn": 1
+    },
+    {
+      "code": "S31",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 311,
+      "text": "两扇牢门分别开启，至少一组家庭存\n活。蕾娜可以邻接劝降部分旧部。",
+      "turn": 1
+    },
+    {
+      "code": "S31",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 311,
+      "text": "打开牢门：未完成",
+      "turn": 1
+    },
+    {
+      "code": "S31",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 311,
+      "text": "两组家庭分别被关在北侧围院中，两扇\n南门都须打开；至少一组家庭存活。",
+      "turn": 1
+    },
+    {
+      "code": "S31",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 311,
+      "text": "可以从西侧住户巷或东侧山路接近牢\n门。蕾娜可尝试劝降旧部，不需要她出\n阵也能完成。",
+      "turn": 1
+    },
+    {
+      "code": "S32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 312,
+      "text": "击败营长，打开术士与居民营房；诺娅\n及弟弟分别记录生死。首领有橙色旗\n标。S菜单可定位首领。",
+      "turn": 1
+    },
+    {
+      "code": "S32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 312,
+      "text": "击败营长，打开术士与居民营房；诺娅\n及弟弟分别记录生死。",
+      "turn": 1
+    },
+    {
+      "code": "S32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 312,
+      "text": "两间营房都须打开。诺娅和弟弟的生死\n分别记录，战后到安置处交谈。",
+      "turn": 1
+    },
+    {
+      "code": "S32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 312,
+      "text": "打开术士营房：未完成",
+      "turn": 1
+    },
+    {
+      "code": "S32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 312,
+      "text": "打开居民营房：未完成",
+      "turn": 1
+    },
+    {
+      "code": "S32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 312,
+      "text": "分别打开西侧术士营房和东侧居民营\n房，再击败营长。开门前先清除门前威\n胁。",
+      "turn": 1
+    },
+    {
+      "code": "S32",
+      "kind": "dialogue_or_objective",
+      "speaker": "战场提示",
+      "stage": 312,
+      "text": "诺娅、弟弟和居民的遭遇分别保留。战\n后回营地交谈，决定是否邀请诺娅同\n行。",
+      "turn": 1
+    },
+    {
+      "code": "M33",
+      "kind": "dialogue_or_objective",
+      "speaker": "信使",
+      "stage": 303,
+      "text": "另一队尚未到营站。可以按S\n切队，沿短渡把他们带来。\n会谈需要两队都在场。",
+      "turn": 15
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "工匠",
+      "stage": 306,
+      "text": "石堡的投送记录与提炼院的\n调节记录相符。断裂以前，\n各地地脉会互相调节，不必",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "工匠",
+      "stage": 306,
+      "text": "把所有庇护集中在神幕。",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "术士",
+      "stage": 306,
+      "text": "现在的土地已经依赖日塔。\n还要找到完整观测记录，验\n证停用办法，不能直接拆",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "术士",
+      "stage": 306,
+      "text": "塔。",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "艾琳",
+      "stage": 306,
+      "text": "这是观测台的位置。拿到完\n整记录，我就送信回来。",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "胡纳普",
+      "stage": 306,
+      "text": "日塔还在给北面的村庄供\n光。我不能现在拆掉它。",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "艾琳",
+      "stage": 306,
+      "text": "我知道了。要是不能安全停\n用，我会告诉你。",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "胡纳普",
+      "stage": 306,
+      "text": "那里的守军也会看见你。别\n只带几个术士过去。",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "艾琳",
+      "stage": 306,
+      "text": "船长已经安排好护卫。你也\n把医者留在能照顾到人的地\n方。",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "医者",
+      "stage": 306,
+      "text": "营站收到一份救治泉液。教\n堂和灯屋尚未使用的份额也\n已运来，今后两队共用。每",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "医者",
+      "stage": 306,
+      "text": "人仍只能接受一次救治。",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "旁白",
+      "stage": 306,
+      "text": "营站成为共同补给与传信处。下一步，\n西队护住北境村庄，东队寻找安全停用\n的观测记录。",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "格曼",
+      "stage": 306,
+      "text": "投降以后，我还能离开吗？",
+      "turn": 1
+    },
+    {
+      "code": "F33",
+      "kind": "dialogue_or_objective",
+      "speaker": "奥托",
+      "stage": 306,
+      "text": "先把你参与过的押送记录交\n出来。我执行过的封路，也\n会登记。",
+      "turn": 1
+    }
+  ],
+  "failures": [],
+  "forced_victories": false,
+  "inputs": 248,
+  "passed": true,
+  "source_saves_modified": false,
+  "stat_edits": false
+}

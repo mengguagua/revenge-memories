@@ -1,0 +1,68 @@
+{
+  "id": "rm_jingle_award",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_jingle_award.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/music_82.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_jingle_award_scene.mp3",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is the current game-gain offline mix, including the background pause and resume. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: 兵装/饰品交付、招募或进阶的通用确认；82/84/B6兼容; desired mood: 被托付、珍重",
+  "max_tokens": 340,
+  "key": "cdfe7b17656d6562fd1f8b3f",
+  "source_sha256": [
+    "970fbec8226ee8c7c51d6f0a4c636973b108b4f26a3e55fb744ccbe1aeff05b2",
+    "bf176c36e6b21b85dc002b195a5fd1b4dbe4dea55bb78521382bf98af1ae34cd",
+    "9023d57feadb6352a8d2725d2159474c11b73994e9c67991719b479ccefe5f80"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "audio_input_samples": [
+    90720,
+    28220,
+    122720
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "a8c481eb14c6ba3473a2815e64e4cbfd85ff9d6eeadd85cd1f0f5e47b5a903d4",
+    "5f389c9ba128b08d5f9360bbd6a4c1e009ee263d994e2f9ec37979efeebb130b",
+    "e1f884e16b3485096504a6d63dd64271f61d61a8490cf50ae0ff38f1bd8b4302"
+  ],
+  "response": "Audio 1: A gentle, plucked string melody (possibly harp or kalimba) plays over soft, sustained synth pads. The timbre is warm and slightly metallic, with a slow, steady rhythm. The mood is calm, reflective, and slightly melancholic. There is no speech or vocals. The music is clean, with no audible defects. The melodic development is minimal, focusing on repetition and gentle variation. The overall energy is low, creating a sense of quiet reverence.\n\nAudio 2: A single, sustained, high-pitched electronic tone. The timbre is pure and synthetic, with no harmonic complexity. It is sparse and functional, lacking melodic or rhythmic development. The mood is neutral, serving as a clear, unobtrusive alert.\n\nAudio 3: The music from Audio 1 plays, then cuts abruptly to silence, then resumes. The pause is clean and immediate. The music is not masked by effects; instead, the silence emphasizes the music’s presence. The music itself is not intrusive, allowing essential feedback (like UI sounds) to remain audible. The pause may disrupt the emotional flow but does not obscure critical audio cues.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 239,
+    "prompt_tokens": 418,
+    "total_tokens": 657,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 390,
+    "prompt_ms": 2441.935,
+    "prompt_per_token_ms": 6.261371794871795,
+    "prompt_per_second": 159.70941077465207,
+    "predicted_n": 239,
+    "predicted_ms": 5170.926,
+    "predicted_per_token_ms": 21.726579831932774,
+    "predicted_per_second": 46.026572416623246
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 12.986,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/970fbec8226ee8c7c51d6f0a4c636973b108b4f26a3e55fb744ccbe1aeff05b2.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/bf176c36e6b21b85dc002b195a5fd1b4dbe4dea55bb78521382bf98af1ae34cd.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/9023d57feadb6352a8d2725d2159474c11b73994e9c67991719b479ccefe5f80.mp3"
+  ]
+}

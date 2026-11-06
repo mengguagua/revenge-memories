@@ -1,0 +1,54 @@
+{
+  "id": "rm_sfx_53",
+  "kind": "final_scene_mix",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_sfx_53_new_context.wav"
+    }
+  ],
+  "asset_sha256": "4834c477967cfb7e8c4fe5d85f4670b744f5c43567fb6688bece97db693849d3",
+  "fixture_sha256": "e192fb3bef96e224f2f72049a3f9c09bbf589a8ce62259920a27fc222d41534f",
+  "prompt": "This is a final offline scene mix using the actual game gains and native event sequence. Describe only audible evidence. Check whether essential feedback attacks are clear, any intrusive click/distortion or excessive rumbling tail, and whether music continuity is distracted by the effects. Effects need not be as loud as music; a naturally masked quiet tail is not a failure. Report uncertainty and avoid inventing instruments/events. Under 90 words. Fixture context: 实际源动画请求序列（同一当前双声部规则）：class_11_ally_item_28；叠加当前配乐0.50／音效0.65 The arrow-rain prelude is deliberately quiet and lasts only three native ticks (about 50ms) before contact replaces it; do not expect the full four-second isolated texture.",
+  "max_tokens": 170,
+  "key": "7a6ae73a73ff32495e94e9b5",
+  "source_sha256": [
+    "e192fb3bef96e224f2f72049a3f9c09bbf589a8ce62259920a27fc222d41534f"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/e192fb3bef96e224f2f72049a3f9c09bbf589a8ce62259920a27fc222d41534f.wav"
+  ],
+  "audio_input_samples": [
+    114755
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "d7246203f7e15487ceeae4ec47e94db80c28b730db386ea633b2c578ed8a59af"
+  ],
+  "response": "The arrow-rain prelude is faint and brief, lasting approximately 50ms before being replaced by a sharper impact. Feedback attacks are clear and distinct. No intrusive clicks, distortion, or excessive rumbling tails are audible. Music maintains continuity without being distracted by the effects. The mix balances the 0.50 music and 0.65 sound effect levels as specified.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 79,
+    "prompt_tokens": 304,
+    "total_tokens": 383,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 276,
+    "prompt_ms": 810.752,
+    "prompt_per_token_ms": 2.9375072463768115,
+    "prompt_per_second": 340.42469213766975,
+    "predicted_n": 79,
+    "predicted_ms": 1229.825,
+    "predicted_per_token_ms": 15.76698717948718,
+    "predicted_per_second": 63.4236578374972
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 2.06,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

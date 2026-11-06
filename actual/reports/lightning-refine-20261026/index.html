@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>雷电细化 · 前后对照</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#111923;color:#edf1f4;font:16px/1.8 system-ui,-apple-system,"PingFang SC",sans-serif}main{max-width:1200px;margin:auto;padding:40px 24px 56px}h1{font-size:clamp(26px,4vw,38px);line-height:1.35;margin:8px 0 20px}h2{font-size:22px;margin:0 0 16px}p{margin:0 0 14px}.muted{color:#b2bec9}.tag{color:#b8d2c4;font-size:14px}section{padding:24px;background:#1b2735;border-radius:16px;margin-top:24px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}figure{margin:0;background:#111923;border-radius:10px;overflow:hidden}img{display:block;width:100%;height:auto}figcaption{padding:14px 18px;color:#b2bec9}figcaption strong{display:block;color:#edf1f4;font-size:18px}a{color:#c5dff2;text-underline-offset:4px}a:focus-visible{outline:none;box-shadow:0 0 0 5px #b8d2c44d;border-radius:4px}.links{display:flex;flex-wrap:wrap;gap:10px 24px}code{overflow-wrap:anywhere}.path{font-size:14px}.full{margin-top:18px}@media(max-width:700px){main{padding:24px 14px 40px}.grid{grid-template-columns:1fr}section{padding:19px 16px}}
+</style></head><body><main>
+<div class="tag">2026-10-26 · 雷电素材更新</div>
+<h1>细线雷电，低饱和灰蓝与淡银白</h1>
+<p><strong>此版本已停用。</strong>按用户指定，当前已复用全动作对照中的现成改版雷电。<a href="../thunder-reuse-20261026/index.html">查看当前版本</a>；下方保留当批次制作记录。</p>
+<p>重新绘制主干和分支，去掉原来的宽厚辉光与大块落点爆光，保留细小火花。人物轮廓和武器仍能清楚看见。</p>
+<p class="muted">已接入当前本地源码。72种雷电演出的504处纹理引用统一更新；只修改雷电图片路径，播放帧序、命中时机、伤害与音频保持。未导出新应用或更新iPhone。</p>
+<section>
+<h2>同一播放帧的运行对照</h2>
+<div class="grid">
+<figure><a href="01-before-contact.png"><img src="01-before-contact.png" alt="修改前的粗雷电"></a><figcaption><strong>修改前</strong>主干和辉光偏粗，落点爆光占据较大面积。</figcaption></figure>
+<figure><a href="02-after-contact.png"><img src="02-after-contact.png" alt="修改后的细线低饱和雷电"></a><figcaption><strong>修改后</strong>细线状放电，落点缩为小火花，颜色更克制。</figcaption></figure>
+</div>
+<p class="muted full">两图使用相同角色、画面尺寸和播放帧，仅替换雷电纹理。以下为其他代表性播放阶段与反向远程演出。全部是Godot后台渲染，非手机真机截图。</p>
+<div class="grid">
+<figure><a href="03-phase-lightning-3.png"><img loading="lazy" src="03-phase-lightning-3.png" alt="细雷电主干与分支"></a><figcaption><strong>放电阶段</strong>分支与主干均收细，保留清楚的线条。</figcaption></figure>
+<figure><a href="03-phase-lightning-5.png"><img loading="lazy" src="03-phase-lightning-5.png" alt="雷电消退阶段"></a><figcaption><strong>消退阶段</strong>收为稀疏的下段电弧。</figcaption></figure>
+<figure><a href="04-enemy-ranged-contact.png"><img loading="lazy" src="04-enemy-ranged-contact.png" alt="敌方从另一侧释放远程雷电"></a><figcaption><strong>另一侧与远程</strong>核对翻转后形态与实际目标上的显示。</figcaption></figure>
+</div>
+</section>
+<section>
+<h2>八阶段素材与透明边缘</h2>
+<p class="muted">每帧192×192，最大17,022字节。新素材在深、浅背景上检查边缘与完整轮廓；运行画面同时核对人物遮挡和文字安全区域。</p>
+<figure><a href="frames-dark.png"><img loading="lazy" src="frames-dark.png" alt="八阶段雷电在深色背景上的检查"></a><figcaption>深色背景 · 透明素材检查</figcaption></figure>
+<figure class="full"><a href="frames-light.png"><img loading="lazy" src="frames-light.png" alt="八阶段雷电在浅色背景上的检查"></a><figcaption>浅色背景 · 透明素材检查</figcaption></figure>
+</section>
+<section>
+<h2>验证与素材记录</h2>
+<p>五张后台运行画面的布局检查通过，72种演出绑定的资源路径均可加载。新旧数据除雷电纹理路径外逐项一致。本轮是素材调整，未重复执行五章通关。</p>
+<div class="links"><a href="visual-checks.json">运行检查</a><a href="bindings.json">绑定变更</a><a href="assets.json">尺寸与透明边缘记录</a><a href="provenance.json">生成方式与完整提示词</a></div>
+<p class="path full">运行素材：<code>actual/assets/lightning-refine-20261026/lightning-0.png … lightning-7.png</code><br>原始源图：<code>source/lightning-refine-20261026/lightning-source.png</code>。使用内置imagegen生成，ImageMagick规则切图与缩放，oxipng无损压缩；原始源图保留。</p>
+</section>
+</main></body></html>

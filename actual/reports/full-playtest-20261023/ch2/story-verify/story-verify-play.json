@@ -1,0 +1,526 @@
+{
+  "battles": [
+    {
+      "chapter": 2.0,
+      "code": "F24",
+      "failures": [],
+      "outcome": "victory",
+      "scope": "Normal post-victory hub replay only, no repeated battle",
+      "source": "res://reports/full-playtest-20261023/ch2/audit/audit-F24-victory.json",
+      "source_sha256": "10afedce4855a2f2c99d53fe655083d8b1cbde09689b02edd569aaee520b1761",
+      "view": "world"
+    },
+    {
+      "chapter": 3.0,
+      "code": "F26",
+      "failures": [],
+      "outcome": "victory",
+      "scope": "Normal post-victory hub replay only, no repeated battle",
+      "source": "res://reports/full-playtest-20261023/ch2/audit/audit-F26-victory.json",
+      "source_sha256": "33f9a92d2e0141f403f8ef22029c0220ea66d20dd2005573793ca41b9ce54fa7",
+      "view": "hub"
+    }
+  ],
+  "checkpoints": [
+    {
+      "name": "after-204",
+      "path": "res://reports/full-playtest-20261023/ch2/story-verify/story-verify-after-204.json",
+      "stage": 204.0,
+      "turn": 16.0,
+      "view": "hub"
+    },
+    {
+      "name": "chapter-end",
+      "path": "res://reports/full-playtest-20261023/ch2/story-verify/story-verify-chapter-end.json",
+      "stage": 206.0,
+      "turn": 16.0,
+      "view": "chapter_end"
+    },
+    {
+      "name": "after-206",
+      "path": "res://reports/full-playtest-20261023/ch2/story-verify/story-verify-after-206.json",
+      "stage": 206.0,
+      "turn": 16.0,
+      "view": "chapter_end"
+    },
+    {
+      "name": "chapter3-start",
+      "path": "res://reports/full-playtest-20261023/ch2/story-verify/story-verify-chapter3-start.json",
+      "stage": 301.0,
+      "turn": 1.0,
+      "view": "hub"
+    }
+  ],
+  "entry_only": false,
+  "failures": [],
+  "forced_victories": false,
+  "native_graphics": false,
+  "observed_texts": [
+    {
+      "actions": [
+        "continue_world",
+        "retry",
+        "title"
+      ],
+      "items": [
+        "继续前进",
+        "重试本关",
+        "返回标题"
+      ],
+      "menu_context": "result",
+      "stage": 204.0,
+      "view": "victory"
+    },
+    {
+      "actions": [
+        "new:hub",
+        "travel:20",
+        "new:camp"
+      ],
+      "items": [
+        "进入据点",
+        "前往礁岛",
+        "部队整备"
+      ],
+      "menu_context": "world_routes",
+      "stage": 204.0,
+      "view": "world"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        152.0,
+        48.0
+      ],
+      "speaker": "留守骑士",
+      "stage": 204.0,
+      "text": "伤者已经进屋，航灯和岛上\n的船都有人照看。军港的航\n线也已经确认。",
+      "text_pixels": [
+        144.0,
+        44.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        152.0,
+        48.0
+      ],
+      "speaker": "艾琳",
+      "stage": 204.0,
+      "text": "留足撤离用的船。我们只带\n已经准备好的这一队。",
+      "text_pixels": [
+        144.0,
+        28.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        152.0,
+        48.0
+      ],
+      "speaker": "地方医者",
+      "stage": 204.0,
+      "text": "灯屋还留有一份救治泉液，\n可以救治一名濒死同伴；每\n人只能接受一次，未用时会",
+      "text_pixels": [
+        144.0,
+        44.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        152.0,
+        48.0
+      ],
+      "speaker": "地方医者",
+      "stage": 204.0,
+      "text": "保留。",
+      "text_pixels": [
+        36.0,
+        12.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        152.0,
+        48.0
+      ],
+      "speaker": "地方医者",
+      "stage": 204.0,
+      "text": "由我来主持救治。泉液只能\n修复活人的伤损，已经遇难\n的人无法救回。",
+      "text_pixels": [
+        144.0,
+        44.0
+      ],
+      "view": "plot"
+    },
+    {
+      "actions": [
+        "hub:east_recruit_shia",
+        "close"
+      ],
+      "items": [
+        "邀请同行",
+        "暂不邀请"
+      ],
+      "menu_context": "recruit",
+      "stage": 204.0,
+      "view": "hub"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        152.0,
+        48.0
+      ],
+      "speaker": "希雅",
+      "stage": 204.0,
+      "text": "留守的人够了。我与你去军\n港，但岛上的船不能全带\n走。",
+      "text_pixels": [
+        144.0,
+        44.0
+      ],
+      "view": "plot"
+    },
+    {
+      "actions": [
+        "hub:east_spring_eileen",
+        "hub:east_spring_carlo",
+        "hub:east_spring_lord",
+        "hub:east_spring_roan",
+        "hub:east_spring_shia"
+      ],
+      "items": [
+        "艾琳 抗性+1",
+        "卡洛 抗性+1",
+        "洛德 抗性+1",
+        "罗恩 抗性+1",
+        "希雅 抗性+1"
+      ],
+      "menu_context": "east_spring",
+      "stage": 204.0,
+      "view": "hub"
+    },
+    {
+      "actions": [
+        "hub:east_promotions",
+        "hub:east_magic_info",
+        "close"
+      ],
+      "items": [
+        "职业进阶",
+        "法术与训练",
+        "离开"
+      ],
+      "menu_context": "east_training",
+      "stage": 204.0,
+      "view": "hub"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        152.0,
+        48.0
+      ],
+      "speaker": "学舍导师",
+      "stage": 204.0,
+      "text": "个人法术随着训练学会。职\n业进阶保留已学法术和训练\n计数，不是从头学习。",
+      "text_pixels": [
+        144.0,
+        44.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        152.0,
+        48.0
+      ],
+      "speaker": "学舍导师",
+      "stage": 204.0,
+      "text": "施法会消耗生命。请在部队\n整备查看法术与装备，先给\n施法者留出安全的位置。",
+      "text_pixels": [
+        144.0,
+        44.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        152.0,
+        48.0
+      ],
+      "speaker": "希雅",
+      "stage": 204.0,
+      "text": "海洞的承诺已经兑现。接下\n来的航路，你还会留下吗？",
+      "text_pixels": [
+        144.0,
+        28.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        152.0,
+        48.0
+      ],
+      "speaker": "卡洛",
+      "stage": 204.0,
+      "text": "海洞那个人和我一样，一直\n不敢回家属面前。我答应陪\n他把遗物送回去。",
+      "text_pixels": [
+        144.0,
+        44.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        152.0,
+        48.0
+      ],
+      "speaker": "卡洛",
+      "stage": 204.0,
+      "text": "这笔预支报酬先留给岛上修\n船。欠下的事，不能总让后\n面的人收拾。",
+      "text_pixels": [
+        144.0,
+        44.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        152.0,
+        48.0
+      ],
+      "speaker": "希雅",
+      "stage": 204.0,
+      "text": "那就先把岛民的船修好。我\n也不会把岛上的责任全交给\n别人。",
+      "text_pixels": [
+        144.0,
+        44.0
+      ],
+      "view": "plot"
+    },
+    {
+      "actions": [
+        "new:world",
+        "close"
+      ],
+      "items": [
+        "离开据点",
+        "留下"
+      ],
+      "menu_context": "hub_exit",
+      "stage": 204.0,
+      "view": "hub"
+    },
+    {
+      "actions": [
+        "continue_world",
+        "retry",
+        "title"
+      ],
+      "items": [
+        "继续前进",
+        "重试本关",
+        "返回标题"
+      ],
+      "menu_context": "result",
+      "stage": 206.0,
+      "view": "victory"
+    },
+    {
+      "actions": [
+        "new:hub",
+        "travel:22",
+        "new:camp"
+      ],
+      "items": [
+        "进入据点",
+        "前往潮狩军港",
+        "部队整备"
+      ],
+      "menu_context": "world_routes",
+      "stage": 206.0,
+      "view": "world"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        152.0,
+        48.0
+      ],
+      "speaker": "船长",
+      "stage": 206.0,
+      "text": "至少这一队船抵达了西岸。\n伤者还在等靠岸的命令。",
+      "text_pixels": [
+        144.0,
+        28.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        152.0,
+        48.0
+      ],
+      "speaker": "艾琳",
+      "stage": 206.0,
+      "text": "别把船开回去。我去广场见\n他们。",
+      "text_pixels": [
+        144.0,
+        28.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        212.0,
+        48.0
+      ],
+      "speaker": "旁白",
+      "stage": 206.0,
+      "text": "船团终于抵达海峡城。广场正在为西大\n陆的日返举行庆典，船上的伤者仍在等\n候靠岸。",
+      "text_pixels": [
+        204.0,
+        44.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        152.0,
+        48.0
+      ],
+      "speaker": "教团守卫",
+      "stage": 206.0,
+      "text": "传光设施不得接近。破坏封\n印的人，带到台前。",
+      "text_pixels": [
+        144.0,
+        28.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        152.0,
+        48.0
+      ],
+      "speaker": "艾琳",
+      "stage": 206.0,
+      "text": "海上还有人。现在把船拖回\n去，他们没有地方停。",
+      "text_pixels": [
+        144.0,
+        28.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        152.0,
+        48.0
+      ],
+      "speaker": "赫兰",
+      "stage": 206.0,
+      "text": "先将她拘押。仪式结束后再\n安排船团。",
+      "text_pixels": [
+        144.0,
+        28.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        212.0,
+        48.0
+      ],
+      "speaker": "旁白",
+      "stage": 206.0,
+      "text": "艾琳在告示上看见了胡纳普的名字。那\n枚旧绳结仍系在她手上。",
+      "text_pixels": [
+        204.0,
+        28.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        152.0,
+        48.0
+      ],
+      "speaker": "艾琳",
+      "stage": 206.0,
+      "text": "胡纳普……你真的在这里？",
+      "text_pixels": [
+        144.0,
+        12.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        212.0,
+        48.0
+      ],
+      "speaker": "旁白",
+      "stage": 206.0,
+      "text": "广场的钟声响起。她被押到传光台前，\n故事回到庆典上的那一刻。",
+      "text_pixels": [
+        204.0,
+        28.0
+      ],
+      "view": "plot"
+    },
+    {
+      "actions": [
+        "new:chapter3",
+        "new:world",
+        "new:save",
+        "title"
+      ],
+      "items": [
+        "开始第三章",
+        "返回世界地图",
+        "保存进度",
+        "返回标题"
+      ],
+      "menu_context": "chapter_end",
+      "stage": 206.0,
+      "view": "chapter_end"
+    }
+  ],
+  "passed": true,
+  "route_trace": [],
+  "runtime_ending_checks": [
+    {
+      "code": "F26",
+      "kind": "runtime ending source check; completed battle not replayed",
+      "text": "舵手：居民船已经抵达西岸泊位，等候海峡城准许入港。／艾琳：先稳住船队。我去海峡城，争取让伤者上岸。"
+    }
+  ],
+  "scope": "Independent genuine deployment checkpoints, ordinary return-to-preparation and current-map reentry, actual input battles and post-battle hub actions; no live attributes, RNG, positions or win conditions edited.",
+  "screenshots": [],
+  "source_saves_modified": false,
+  "stat_edits": false,
+  "total_inputs": 104.0
+}

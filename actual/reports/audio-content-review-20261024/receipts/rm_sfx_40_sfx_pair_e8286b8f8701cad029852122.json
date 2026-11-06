@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_40",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_40.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_40.ogg"
+  ],
+  "hashes": [
+    "cff0a66c07f8f881dd71afb35f08c612511e701f0640d603484cfa23aec18f94",
+    "a21796c83fd62933a205c5913692931a2d2cc566a21643c4895a49fac1418fa5"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "e8286b8f8701cad029852122",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    23692,
+    23467
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "The first sound has a sharp, high-pitched down sweep, followed by silence. The second is a short, sharp down sweep that ends on a lower note. Both have quick decay. The first sound is sparsely textured, while the second has more density. The first has no attack, the second has a slight attack.",
+  "generation_tokens": 67,
+  "generation_tps": 37.07493013283699,
+  "wall_seconds": 1.963,
+  "peak_memory_bytes": 7517914846,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

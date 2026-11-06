@@ -1,0 +1,637 @@
+{
+  "status": "passed",
+  "revision": "healer-saint-complete-v1-20261023",
+  "gallery_profiles": 115,
+  "gallery_ready_actions": 1209,
+  "current_profession_actions": 140,
+  "healer_actions": 43,
+  "saint_actions": 97,
+  "new_actions": 97,
+  "new_profiles": 3,
+  "native_battle_variants": 114,
+  "existing_actions_unchanged": 967,
+  "existing_actions_label_only": 88,
+  "label_only_actions": [
+    "professions-class-15-enemy-maps-tactical-walk--walk-up",
+    "professions-class-15-enemy-maps-tactical-walk--idle-up",
+    "professions-class-15-enemy-maps-tactical-walk--walk-right",
+    "professions-class-15-enemy-maps-tactical-walk--idle-right",
+    "professions-class-15-enemy-maps-tactical-walk--walk-down",
+    "professions-class-15-enemy-maps-tactical-walk--idle-down",
+    "professions-class-15-enemy-maps-tactical-walk--walk-left",
+    "professions-class-15-enemy-maps-tactical-walk--idle-left",
+    "professions-class-15-enemy-maps-tactical-idle--idle-cycle",
+    "professions-class-16-enemy-battle--class_16_enemy_item_23",
+    "professions-class-16-enemy-battle--class_16_enemy_item_23_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_23_far_ally",
+    "professions-class-16-enemy-battle--class_16_enemy_item_23_far_ally_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_23_far_enemy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_23_far_enemy_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_24",
+    "professions-class-16-enemy-battle--class_16_enemy_item_24_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_24_far_ally",
+    "professions-class-16-enemy-battle--class_16_enemy_item_24_far_ally_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_24_far_enemy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_24_far_enemy_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_25",
+    "professions-class-16-enemy-battle--class_16_enemy_item_25_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_25_far_ally",
+    "professions-class-16-enemy-battle--class_16_enemy_item_25_far_ally_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_25_far_enemy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_25_far_enemy_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_26",
+    "professions-class-16-enemy-battle--class_16_enemy_item_26_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_26_far_ally",
+    "professions-class-16-enemy-battle--class_16_enemy_item_26_far_ally_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_26_far_enemy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_26_far_enemy_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_27",
+    "professions-class-16-enemy-battle--class_16_enemy_item_27_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_27_far_ally",
+    "professions-class-16-enemy-battle--class_16_enemy_item_27_far_ally_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_27_far_enemy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_27_far_enemy_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_28",
+    "professions-class-16-enemy-battle--class_16_enemy_item_28_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_28_far_ally",
+    "professions-class-16-enemy-battle--class_16_enemy_item_28_far_ally_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_28_far_enemy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_28_far_enemy_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_29",
+    "professions-class-16-enemy-battle--class_16_enemy_item_29_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_29_far_ally",
+    "professions-class-16-enemy-battle--class_16_enemy_item_29_far_ally_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_29_far_enemy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_29_far_enemy_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_31",
+    "professions-class-16-enemy-battle--class_16_enemy_item_31_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_31_far_ally",
+    "professions-class-16-enemy-battle--class_16_enemy_item_31_far_ally_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_31_far_enemy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_31_far_enemy_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_32",
+    "professions-class-16-enemy-battle--class_16_enemy_item_32_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_32_far_ally",
+    "professions-class-16-enemy-battle--class_16_enemy_item_32_far_ally_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_32_far_enemy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_32_far_enemy_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_33",
+    "professions-class-16-enemy-battle--class_16_enemy_item_33_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_33_far_ally",
+    "professions-class-16-enemy-battle--class_16_enemy_item_33_far_ally_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_33_far_enemy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_33_far_enemy_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_34",
+    "professions-class-16-enemy-battle--class_16_enemy_item_34_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_34_far_ally",
+    "professions-class-16-enemy-battle--class_16_enemy_item_34_far_ally_vs_heavy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_34_far_enemy",
+    "professions-class-16-enemy-battle--class_16_enemy_item_34_far_enemy_vs_heavy",
+    "professions-class-16-enemy-battle--reaction-idle",
+    "professions-class-16-enemy-battle--reaction-miss",
+    "professions-class-16-enemy-battle--reaction-hit",
+    "professions-class-16-enemy-battle--reaction-exit",
+    "professions-class-16-enemy-maps-tactical-walk--walk-up",
+    "professions-class-16-enemy-maps-tactical-walk--idle-up",
+    "professions-class-16-enemy-maps-tactical-walk--walk-right",
+    "professions-class-16-enemy-maps-tactical-walk--idle-right",
+    "professions-class-16-enemy-maps-tactical-walk--walk-down",
+    "professions-class-16-enemy-maps-tactical-walk--idle-down",
+    "professions-class-16-enemy-maps-tactical-walk--walk-left",
+    "professions-class-16-enemy-maps-tactical-walk--idle-left",
+    "professions-class-16-enemy-maps-tactical-idle--idle-cycle"
+  ],
+  "all_prior_effect_metadata_unchanged": true,
+  "shared_attack_spell_variants": 54,
+  "green_heal_variants": 6,
+  "healer_green_heal_preserved": true,
+  "native_frames_timing_origins_contact_rows_exact": true,
+  "source_assets_unchanged": true,
+  "map_complete_upper_body_fixed": true,
+  "map_shadow_continuous": true,
+  "sprite_count": 42,
+  "sprite_max_bytes": 2794,
+  "assets": [
+    {
+      "path": "healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-000.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1415,
+      "sha256": "b7ad4764188d10f5a854f9d6149868b44366fd5687e54b15bbc94d3fe3bb1295",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-001.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1415,
+      "sha256": "b7ad4764188d10f5a854f9d6149868b44366fd5687e54b15bbc94d3fe3bb1295",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-002.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1454,
+      "sha256": "a981ca85cadd7a9fefc32f2c7c0d1d114a2b7ff67e12d9109071a91b250c0c86",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-003.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1415,
+      "sha256": "b7ad4764188d10f5a854f9d6149868b44366fd5687e54b15bbc94d3fe3bb1295",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-004.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1415,
+      "sha256": "b7ad4764188d10f5a854f9d6149868b44366fd5687e54b15bbc94d3fe3bb1295",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-18/tactical-idle/frame-005.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1415,
+      "sha256": "b7ad4764188d10f5a854f9d6149868b44366fd5687e54b15bbc94d3fe3bb1295",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-000.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1378,
+      "sha256": "644b582a8edc27fd92c42a30ca57ddeed0eae12eb374f342e2d76551eaa03acc",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-001.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1367,
+      "sha256": "5f805ed83dfe536600754ad9c661547262afcc5cb05628c851bc2d03355f149e",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-002.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1497,
+      "sha256": "d7ae6ae6a42e6cea1a60e1cc52db33ce7aed69d425d4de58372dfedb358d0dfd",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-003.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1477,
+      "sha256": "d8b62e6b6807c725a817b773f31fcb05585e451b340062a813213d6a217ecdd1",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-004.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1509,
+      "sha256": "2762619b6492fdc89f3e8aa62c5b9ee4fa967e3964c929ca52d6bc4027afc69d",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-005.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1501,
+      "sha256": "f62ec4c10e68bbe82fae74f57519a1d77e5d6ed1323c85c8da799197791c630b",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-006.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1488,
+      "sha256": "fcc2d0b7747f7f150eb990ef5e0a3d8565fa8c28813b47c24dec58e7ef8e3904",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-18/tactical-walk/frame-007.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1467,
+      "sha256": "b075c011ce578e38cd3a82bbe7ce3874c0e936225a56a565e748f8a3390b0bc2",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-18/battle/frame-007.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 2308,
+      "sha256": "ecbb3a16dfbe49915bba0a87f05f6fd4832205cf1b15b69fa949e4f88746ef72",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-18/battle/frame-008.png",
+      "size": [
+        320,
+        256
+      ],
+      "bytes": 2375,
+      "sha256": "e4ec623219e10c25d12456b85300883a26a1921f0ca592f1b79195deb8b5fdc4",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/tactical-idle/frame-000.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1443,
+      "sha256": "2fe60fb25527829aa2f5f7aaef822eb3b4bf0aa954bfde9ee0e1bb30da7f7295",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/tactical-idle/frame-001.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1474,
+      "sha256": "844def12160055191aa3162497a7c64d34f9983fba4e608289e73124ec184c97",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/tactical-idle/frame-002.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1471,
+      "sha256": "e23489e95f4331d2ba313bab17787372e651485ae0b064449084e5007cce389b",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/tactical-idle/frame-003.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1474,
+      "sha256": "844def12160055191aa3162497a7c64d34f9983fba4e608289e73124ec184c97",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/tactical-idle/frame-004.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1443,
+      "sha256": "2fe60fb25527829aa2f5f7aaef822eb3b4bf0aa954bfde9ee0e1bb30da7f7295",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/tactical-idle/frame-005.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1474,
+      "sha256": "844def12160055191aa3162497a7c64d34f9983fba4e608289e73124ec184c97",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-000.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1311,
+      "sha256": "27f3afbc6e97c597c057a3f5f7f9d8c8003fab4162e2022a946311ded1995ee6",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-001.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1311,
+      "sha256": "27f3afbc6e97c597c057a3f5f7f9d8c8003fab4162e2022a946311ded1995ee6",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-002.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1351,
+      "sha256": "f34ff19dd3c9abb302d675306a3616497508a7f91cb00b466de351745ff5e422",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-003.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1345,
+      "sha256": "47c814b601f5611f3219eb80c6f96a570eafb0edb26de87bd8a6bc87ca2e2712",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-004.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1420,
+      "sha256": "f9c96736e7b6d9ef67399d0351f709530ceac98df7660b84cf301a33d5f3e893",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-005.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1412,
+      "sha256": "a3d256d35b924efec1bec1373765d52e31aa9066fdcb9a54cf61077417f0f35a",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-006.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1348,
+      "sha256": "c3e0d69027cc3fe220e9bcb2ce2cd16c737ba1e45d1e41fbfaf43ec89fe6b182",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/tactical-walk/frame-007.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1338,
+      "sha256": "3f7a2823c82c0eac0ec2766c529bf398d189a68a7394b1642a908894c8b73f40",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/battle/frame-009.png",
+      "size": [
+        384,
+        256
+      ],
+      "bytes": 2543,
+      "sha256": "c96c65b9e7e8122c97a7d74732bdc311b76ccb438632ea843c68d0bbba2965f2",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/battle/frame-017.png",
+      "size": [
+        384,
+        256
+      ],
+      "bytes": 2673,
+      "sha256": "955195c44cb46dad5a59e720059977aca358c5a2ea206d0c125a7bf47f3d2837",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/battle/frame-018.png",
+      "size": [
+        384,
+        256
+      ],
+      "bytes": 2668,
+      "sha256": "fcd0f9b83ffebdb83300b352b5984ba8aff31abb522c2a6af9f7583a4e7325ef",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/battle/frame-019.png",
+      "size": [
+        384,
+        256
+      ],
+      "bytes": 2762,
+      "sha256": "3325a466d9fd3f248511dbea71e0b1dcb1180cd446e020ed4008df592bc3b9c6",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/battle/frame-020.png",
+      "size": [
+        384,
+        256
+      ],
+      "bytes": 2720,
+      "sha256": "0359f661a47e36ec0e0690483a9dede7ab8f3d37838f2594628246e758e975e4",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/battle/frame-021.png",
+      "size": [
+        384,
+        256
+      ],
+      "bytes": 2671,
+      "sha256": "2bffe65c0af37d60db0d118a8f1fa9333a06798dc96c78d3e20682865bd76f5f",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/battle/frame-022.png",
+      "size": [
+        384,
+        256
+      ],
+      "bytes": 2741,
+      "sha256": "1946edb319dd6792efbad770aaa3a24151faddffa0b2c841ac6bd3c2b8236015",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/battle/frame-023.png",
+      "size": [
+        384,
+        256
+      ],
+      "bytes": 2709,
+      "sha256": "55f3d6a8ca2f52dcc74eb19c7e7279b9e1c75a9e8eb3de6a97621dbc8fc20230",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/battle/frame-024.png",
+      "size": [
+        384,
+        256
+      ],
+      "bytes": 2712,
+      "sha256": "eb9e47ecbfbe2fb8f3d29957d8b29abeafd78cffdaac4ba56e04f9708b5d607b",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/battle/frame-025.png",
+      "size": [
+        384,
+        256
+      ],
+      "bytes": 2794,
+      "sha256": "37a3b42e5955d9be2399d6b29de182898ee07aa954fd29508c01e6424d5c3830",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/battle/frame-026.png",
+      "size": [
+        384,
+        256
+      ],
+      "bytes": 2679,
+      "sha256": "f4b12d0bad8f469985fa1b357489445da115d335f63fd55489ba1a8b7a207ffb",
+      "connected_components": 1
+    },
+    {
+      "path": "healer-saint-complete-v1-20261023/class-17/battle/frame-027.png",
+      "size": [
+        384,
+        256
+      ],
+      "bytes": 2688,
+      "sha256": "7ff0182a41466288b5407e40d083295bb51a1f0563801317fec0b2af77a81ac9",
+      "connected_components": 1
+    }
+  ],
+  "runtime_integrated": false,
+  "browser_ui_checked": false,
+  "user_visual_acceptance": "pending",
+  "decoded_videos": 63,
+  "offline_captures": [
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_23-000-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_23-000-light.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_23-035-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_23-035-light.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_23-036-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_23-036-light.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_23-090-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_23-090-light.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_28-000-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_28-000-light.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_28-036-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_28-036-light.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_28-038-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_28-038-light.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_28-307-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_28-307-light.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_40-000-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_40-000-light.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_40-036-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_40-036-light.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_40-086-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_40-086-light.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_40-098-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_40-098-light.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_40-116-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_40-116-light.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_40-133-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-class_17_ally_item_40-133-light.png",
+    "healer-saint-complete-v1-20261023/class-17-walk-up-000-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-walk-up-000-light.png",
+    "healer-saint-complete-v1-20261023/class-17-walk-up-016-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-walk-up-016-light.png",
+    "healer-saint-complete-v1-20261023/class-17-walk-right-000-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-walk-right-000-light.png",
+    "healer-saint-complete-v1-20261023/class-17-walk-right-016-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-walk-right-016-light.png",
+    "healer-saint-complete-v1-20261023/class-17-walk-down-000-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-walk-down-000-light.png",
+    "healer-saint-complete-v1-20261023/class-17-walk-down-016-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-walk-down-016-light.png",
+    "healer-saint-complete-v1-20261023/class-17-walk-left-000-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-walk-left-000-light.png",
+    "healer-saint-complete-v1-20261023/class-17-walk-left-016-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-walk-left-016-light.png",
+    "healer-saint-complete-v1-20261023/class-17-idle-cycle-000-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-idle-cycle-000-light.png",
+    "healer-saint-complete-v1-20261023/class-17-idle-cycle-014-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-idle-cycle-014-light.png",
+    "healer-saint-complete-v1-20261023/class-17-idle-cycle-022-dark.png",
+    "healer-saint-complete-v1-20261023/class-17-idle-cycle-022-light.png",
+    "healer-saint-complete-v1-20261023/class-18-class_18_ally_item_40-000-dark.png",
+    "healer-saint-complete-v1-20261023/class-18-class_18_ally_item_40-000-light.png",
+    "healer-saint-complete-v1-20261023/class-18-class_18_ally_item_40-036-dark.png",
+    "healer-saint-complete-v1-20261023/class-18-class_18_ally_item_40-036-light.png",
+    "healer-saint-complete-v1-20261023/class-18-class_18_ally_item_40-072-dark.png",
+    "healer-saint-complete-v1-20261023/class-18-class_18_ally_item_40-072-light.png",
+    "healer-saint-complete-v1-20261023/class-18-class_18_ally_item_40-084-dark.png",
+    "healer-saint-complete-v1-20261023/class-18-class_18_ally_item_40-084-light.png",
+    "healer-saint-complete-v1-20261023/class-18-class_18_ally_item_40-102-dark.png",
+    "healer-saint-complete-v1-20261023/class-18-class_18_ally_item_40-102-light.png",
+    "healer-saint-complete-v1-20261023/class-18-class_18_ally_item_40-119-dark.png",
+    "healer-saint-complete-v1-20261023/class-18-class_18_ally_item_40-119-light.png",
+    "healer-saint-complete-v1-20261023/class-18-walk-up-000-dark.png",
+    "healer-saint-complete-v1-20261023/class-18-walk-up-000-light.png",
+    "healer-saint-complete-v1-20261023/class-18-walk-up-016-dark.png",
+    "healer-saint-complete-v1-20261023/class-18-walk-up-016-light.png",
+    "healer-saint-complete-v1-20261023/class-18-walk-right-000-dark.png",
+    "healer-saint-complete-v1-20261023/class-18-walk-right-000-light.png",
+    "healer-saint-complete-v1-20261023/class-18-walk-right-016-dark.png",
+    "healer-saint-complete-v1-20261023/class-18-walk-right-016-light.png",
+    "healer-saint-complete-v1-20261023/class-18-walk-down-000-dark.png",
+    "healer-saint-complete-v1-20261023/class-18-walk-down-000-light.png",
+    "healer-saint-complete-v1-20261023/class-18-walk-down-016-dark.png",
+    "healer-saint-complete-v1-20261023/class-18-walk-down-016-light.png",
+    "healer-saint-complete-v1-20261023/class-18-walk-left-000-dark.png",
+    "healer-saint-complete-v1-20261023/class-18-walk-left-000-light.png",
+    "healer-saint-complete-v1-20261023/class-18-walk-left-016-dark.png",
+    "healer-saint-complete-v1-20261023/class-18-walk-left-016-light.png",
+    "healer-saint-complete-v1-20261023/class-18-idle-cycle-000-dark.png",
+    "healer-saint-complete-v1-20261023/class-18-idle-cycle-000-light.png",
+    "healer-saint-complete-v1-20261023/class-18-idle-cycle-014-dark.png",
+    "healer-saint-complete-v1-20261023/class-18-idle-cycle-014-light.png",
+    "healer-saint-complete-v1-20261023/class-18-idle-cycle-022-dark.png",
+    "healer-saint-complete-v1-20261023/class-18-idle-cycle-022-light.png"
+  ],
+  "page_action_links_checked": 505,
+  "page_unique_ids": true,
+  "profession_catalog_rows": 24,
+  "exclusive_hero_jobs_separate": true,
+  "image_inventory_count": 381,
+  "other_pending_action_links": [
+    "professions-class-14-enemy-maps-tactical-idle--idle-cycle",
+    "professions-class-14-enemy-maps-tactical-walk--walk-up",
+    "professions-class-14-enemy-battle--original_class_14_enemy_normal"
+  ],
+  "page_text_safe_area_checked": "Static table padding and wrapping; measured centered offline export captions. Browser rendering not tested."
+}

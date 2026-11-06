@@ -97,20 +97,35 @@ def apply_class_display_names(profiles, classes, overrides):
     # The former review-only label 枪兵 is the same class as campaign 士兵 (6).
     # Normalize old mappings too, so rebuilding an older art revision stays named correctly.
     review_aliases={'6':('枪兵',)}
+    enemy_aliases={'3':('石像鬼',),'5':('龙僵尸',),'11':('僵尸',),
+      '14':('山贼',),'15':('咒法师','妖术师'),'16':('移形术师','魔女'),
+      '17':('骷髅',),'18':('魔眼',),'19':('召魔师','祈祷师')}
     source_classes={str(row['class_id']):row for row in classes['classes']}
     for profile in profiles:
         cid=str(profile['classId']);enemy=profile.get('side')=='enemy'
         name_key='enemy_name_zh' if enemy else 'name_zh'
         source=source_classes[cid]
         old_name=source['enemy_source_name'] if enemy else source['name']
+        if (profile.get('heroProfession'),profile['actor']) in [('light_guide','eileen'),('dawn_warrior','hunapu')]:
+            profile['sourceClassName']=old_name
+            continue
         new_name=overrides.get(cid,{}).get(name_key) or (old_name if cid in review_aliases else None)
         if not new_name:continue
+        legacy_actor=profile['actorName']
         for alias in (old_name,)+review_aliases.get(cid,()):
+            legacy_actor=legacy_actor.replace(alias,new_name)
+        aliases=(old_name,)+review_aliases.get(cid,())+(enemy_aliases.get(cid,()) if enemy else ())
+        for alias in aliases:
             profile['actorName']=profile['actorName'].replace(alias,new_name)
             profile['reviewNote']=profile.get('reviewNote','').replace(alias,new_name)
+        # Same numbered enemy jobs are independent identities. Remove obsolete
+        # paired ally labels in generic profession exemplars, never named heroes.
+        if enemy and profile['id'].startswith('professions-class-'+cid+'-enemy-'):
+            profile['actorName']='敌方'+new_name
         profile['className']=new_name
         profile['sourceClassName']=old_name
-        profile['displayNameRevision']='infantry-profession-names-20261022' if cid in review_aliases else 'profession-names-20261020'
+        profile['displayNameRevision']=('profession-catalog-sync-20261023' if profile['actorName']!=legacy_actor else
+          'infantry-profession-names-20261022' if cid in review_aliases else 'profession-names-20261020')
 
 def map_bundle(mapping_path, mapping, actors, class_names, enemy_names):
     profiles, actions = [], []
@@ -145,6 +160,7 @@ def map_bundle(mapping_path, mapping, actors, class_names, enemy_names):
           'sourceFrameCount':columns*(source_atlas_size[1]//source_size[1]),'anchor':scenario['source_anchor'],
           'sourceOamCutoff':0,'flipOriginOffset':[0,0],'outputFrameSize':scenario['output_frame_size'],
           'newFrames':frames,'frameErrors':errors,'sourceReviewPending': context=='tactical-walk' and scenario.get('source_audit',{}).get('status')!='verified_native_tactical','sourceReviewNote':'参考来源复核中：旧参考混用了场景动作表与图块银行，暂停作为战斗地图对照。','links':[{'label':'四倍重绘图集','href':relative(safe_path(mapping_path.parent,scenario['output_atlas']))}]})
+        if mapping.get('hero_profession'):profiles[-1]['heroProfession']=mapping['hero_profession']
         for source_key,profile_key in [('review_frame_sources','reviewFrameSources'),('review_frame_labels','reviewFrameLabels')]:
             if scenario.get(source_key):profiles[-1][profile_key]=scenario[source_key]
         timing=scenario['timing'];fps=timing.get('native_fps',FPS)
@@ -262,6 +278,7 @@ def build():
           'anchor': body['anchor'], 'sourceOamCutoff': body['source_oam_frame_count'],
           'flipOriginOffset': [16, 0], 'outputFrameSize': expected, 'newFrames': frames,
           'frameErrors': frame_errors, 'referenceArtAliases':art_aliases, 'links': []}
+        if mapping.get('hero_profession'):profile['heroProfession']=mapping['hero_profession']
         if revised_effects: profile['revisedEffects'] = revised_effects
         if mapping.get('review_frame_sources'):profile['reviewFrameSources']=mapping['review_frame_sources']
         if mapping.get('review_frame_labels'):profile['reviewFrameLabels']=mapping['review_frame_labels']
@@ -276,7 +293,7 @@ def build():
                 f = safe_path(mapping_path.parent, batch['review'])
                 if f.exists(): profile['links'].append({'label': batch['id'] + ' 姿势对照', 'href': relative(f)})
         profiles.append(profile)
-        if actor_id == 'hunapu': keys = [r['key'] for r in audit['compiled_attack_variants']]
+        if actor_id == 'hunapu' and 'variant_keys' not in mapping: keys = [r['key'] for r in audit['compiled_attack_variants']]
         else: keys = mapping.get('variant_keys', [k for k,v in selected_motion['variants'].items() if str(v['source_class_id']) == cid])
         for key in keys:
             if key not in selected_motion['variants']:
@@ -297,6 +314,11 @@ def build():
                 if revision['source_frames_sha256']!=base_hash:raise ValueError('Review timeline source changed: '+key)
                 if len(revision['frames'])!=len(action['frames']):raise ValueError('Review timeline length mismatch: '+key)
                 action['revisedFrames']=revision['frames']
+                if revision.get('close_camera'):
+                    camera=revision['close_camera']
+                    if len(camera.get('offset',[]))!=2 or len(camera.get('size',[]))!=2 or any(n<=0 for n in camera['size']):
+                        raise ValueError('Invalid review close camera: '+key)
+                    action['_reviewCloseCamera']=camera
                 if revision.get('tail_frames'):
                     # Explicit review-only endings extend playback without editing
                     # the frozen source sequence or moving its contact tick.
@@ -316,6 +338,10 @@ def build():
     # Optional context bundles make additional map/class catalogs independent of this builder.
     for bundle_path in sorted(ROOT.glob('**/gallery_bundle.json')):
         bundle = read(bundle_path)
+        for key, meta in bundle.get('effects', {}).items():
+            if key in effects and effects[key] != meta:
+                raise ValueError('Context bundle effect conflicts with existing source: '+key)
+            effects[key] = meta
         for profile in bundle.get('profiles', []):
             profile = dict(profile)
             profile.setdefault('contextName', '地图')
@@ -346,7 +372,7 @@ def build():
             action['revision']=profile['revision']
             action['modifiedBy']=profile.get('modifiedBy')
             action['notes']+=' 本次修改记录：'+profile['revision']+'。 '+('修改人：'+profile['modifiedBy']+'。 'if profile.get('modifiedBy')else'')+profile.get('reviewNote','')
-        if action['context']=='battle':action['closeCamera']=close_camera(profile,action)
+        if action['context']=='battle':action['closeCamera']=action.pop('_reviewCloseCamera',None)or close_camera(profile,action)
         if action['context']=='battle' and effect_ids:
             # Include complete frozen effect textures, even when their top lies beyond the native field.
             minimum_y=-32

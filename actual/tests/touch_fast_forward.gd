@@ -9,7 +9,9 @@ class ObservedAnimation extends "res://core/battle_animation.gd":
 		graphic.original_motion=original_clock
 		return graphic
 	func _source_frame(event:Dictionary,frame:Dictionary,tick:int,sounds:bool)->void:
-		ticks.append(tick)
+		# Target reaction snapshots use this helper with sounds=false; they are
+		# not ticks in the attacker's running source program.
+		if sounds:ticks.append(tick)
 		super._source_frame(event,frame,tick,sounds)
 var ui
 var viewport

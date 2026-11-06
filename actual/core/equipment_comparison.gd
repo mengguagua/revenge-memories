@@ -12,11 +12,10 @@ static func automatic(unit: Dictionary) -> Dictionary:
 	var actor=unit.duplicate(true);actor.erase("weapon_index");actor.erase("triangle_attack");return actor
 
 static func attack_name(unit: Dictionary) -> String:
-	var actor=automatic(unit);var index=Rules.weapon_index(actor)
-	if index==0:return "普通枪" if int(actor.class_id) in [1,2,3,4,5,6,7,22] else "普通剑"
-	return str(Items.item(index).get("name_zh","无法攻击"))
+	return Rules.weapon_name(automatic(unit))
 
 static func held_name(unit: Dictionary) -> String:
+	if Rules.Body.is_body(unit):return attack_name(unit)+"（固有）"
 	var id=int(unit.get("item_id",0))
 	if id<=0:return attack_name(unit)+"（默认）"
 	var item=Items.item(id);var label=str(item.get("name_zh","未知装备"))
@@ -30,13 +29,13 @@ static func stats(unit: Dictionary) -> Dictionary:
 	var power=15 if index==15 else int(actor.strength)+int(profile.get("might",0))
 	if not forecast.can_attack:power=0
 	return {"power":power,"hit":int(forecast.hit) if forecast.can_attack else 0,"critical":int(forecast.critical) if forecast.can_attack else 0,
-		"speed":Rules.attack_speed(actor),"defence":int(actor.defence)+Items.physical_defence_bonus(actor),"resistance":Items.magic_defence(actor),
+		"speed":Rules.attack_speed(actor),"defence":Rules._defence(actor)+Items.physical_defence_bonus(actor),"resistance":Items.magic_defence(actor),
 		"luck":Items.effective_luck(actor),"move":Items.movement(actor),"range":reach.y,"reach":reach,"hp_cost":Rules.magic_cost(actor)}
 
 static func compare(unit: Dictionary,target_id: int,classes: Dictionary) -> Dictionary:
 	var after=automatic(unit);after.item_id=target_id
 	var before_stats=stats(unit);var after_stats=stats(after);var rows=[]
-	for spec in [["攻击力","power"],["命中基础","hit"],["必杀","critical"],["攻速","speed"],["物防","defence"],["魔防","resistance"],["幸运","luck"],["移动","move"],["射程","range"]]:
+	for spec in [["攻击力","power"],["命中基础","hit"],["必杀","critical"],["速度","speed"],["物防","defence"],["魔防","resistance"],["幸运","luck"],["移动","move"],["射程","range"]]:
 		var key=str(spec[1]);var old_value=int(before_stats[key]);var new_value=int(after_stats[key]);var delta=new_value-old_value
 		var suffix="%" if key in ["hit","critical"] else ""
 		var old_text=str(old_value)+suffix;var new_text=str(new_value)+suffix
@@ -57,6 +56,7 @@ static func range_name(reach: Vector2i) -> String:
 	return "无" if reach.y==0 else str(reach.x) if reach.x==reach.y else "%d-%d"%[reach.x,reach.y]
 
 static func description(unit: Dictionary) -> String:
+	if Rules.Body.is_body(unit):return Rules.Body.description(unit)
 	var actor=automatic(unit);var id=int(actor.get("item_id",0));var item=Items.item(id);var notes: Array[String]=[]
 	if id<=0:return "使用职业默认武器。"
 	if not Items.can_use(actor,id):return "当前角色无法使用，此武器不提供加成。"
@@ -66,8 +66,10 @@ static func description(unit: Dictionary) -> String:
 		15:notes.append("魔法攻击力固定15，按目标魔防结算。")
 		51:notes.append("仅对魔物的物理攻击增加13物防。")
 		52:notes.append("敌方法术命中率为10%。")
-		53:notes.append("增加13物防与13魔防。")
-		55:notes.append("幸运固定40，升级属性增长量加倍。")
+		53:
+			var bonuses:Dictionary=Items.accessories().items[str(id)]
+			notes.append("增加%d物防与%d魔防。"%[int(bonuses.physical_defence_bonus),int(bonuses.magic_defence_bonus)])
+		55:notes.append("有效幸运取40；升级成功增长由+1变+2，不保证每项增长。取下后恢复实际幸运。")
 		56:notes.append("速度固定40，移动增加5。")
 		57:notes.append("使用攻击法术时，射程可达5格。")
 		58:notes.append("当前生命不高于一半时，必杀为100%。")

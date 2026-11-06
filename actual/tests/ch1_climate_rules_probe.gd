@@ -140,15 +140,15 @@ func test_six_layouts()->void:
   records.append({"code":code,"width":g.battle_data.map.width,"height":g.battle_data.map.height,"closed_connected":closed.size(),"opened_connected":opened.size()})
  info.six_layouts=records
 func test_grain()->void:
- var g=setup("M12",102);check(int(g.battle_data.burner_departure_turn)==7,"M12 unchanged seventh-turn departure")
- var burner=g.units.filter(func(u):return u.get("burner",false))[0];g.units=[burner];g.turn=6;var before=State.pos(burner);var a=g.ai_action(burner)
- check(a.destination==before,"M12 burner holds through turn six")
- g.turn=7;a=g.ai_action(burner);check(a.destination!=before,"M12 burner departs turn seven toward targets zero")
- g=setup("M12",102);burner=g.units.filter(func(u):return u.get("burner",false))[0];g.turn=7;burner.position=g.battle_data.targets[0].duplicate();g.mark_wait(burner.id)
+ var g=setup("M12",102);check(int(g.battle_data.burner_departure_turn)==6,"M12 departure follows the approved turn-six dialogue")
+ var burner=g.units.filter(func(u):return u.get("burner",false))[0];g.units=[burner];g.turn=5;var before=State.pos(burner);var a=g.ai_action(burner)
+ check(a.destination==before,"M12 burner holds through turn five")
+ g.turn=6;a=g.ai_action(burner);check(a.destination!=before,"M12 burner departs turn six toward targets zero")
+ g=setup("M12",102);burner=g.units.filter(func(u):return u.get("burner",false))[0];g.turn=6;burner.position=g.battle_data.targets[0].duplicate();g.mark_wait(burner.id)
  check(g.flags.quest.burn_streak==1 and g.battle_outcome=="","M12 first consecutive ignition warns without loss")
- burner.position=[burner.position[0]-1,burner.position[1]];g.turn=8;g.mark_wait(burner.id);check(g.flags.quest.burn_streak==0,"M12 leaving warehouse breaks fire streak")
- burner.position=g.battle_data.targets[0].duplicate();g.turn=9;g.mark_wait(burner.id);check(g.flags.quest.burn_streak==1 and g.battle_outcome=="","M12 renewed first ignition remains recoverable")
- g.turn=10;g.mark_wait(burner.id);check(g.flags.quest.burn_streak==2 and g.battle_outcome=="defeat","M12 second consecutive ignition fails")
+ burner.position=[burner.position[0]-1,burner.position[1]];g.turn=7;g.mark_wait(burner.id);check(g.flags.quest.burn_streak==0,"M12 leaving warehouse breaks fire streak")
+ burner.position=g.battle_data.targets[0].duplicate();g.turn=8;g.mark_wait(burner.id);check(g.flags.quest.burn_streak==1 and g.battle_outcome=="","M12 renewed first ignition remains recoverable")
+ g.turn=9;g.mark_wait(burner.id);check(g.flags.quest.burn_streak==2 and g.battle_outcome=="defeat","M12 second consecutive ignition fails")
  g=setup("M12",102);g.find_unit(g.battle_data.boss_id).hp=0;check(g.check_outcome()=="","M12 boss alone insufficient");interact_named(g,"M12_occupy_0");check(g.check_outcome()=="victory","M12 boss plus occupation wins")
  g=setup("M12",102);interact_named(g,"M12_occupy_0");check(g.check_outcome()=="","M12 occupation alone insufficient");g.find_unit(g.battle_data.boss_id).hp=0;check(g.check_outcome()=="victory","M12 occupation then boss wins")
 func test_prison()->void:

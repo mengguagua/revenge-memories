@@ -1,0 +1,78 @@
+{
+  "id": "rm_sfx_17",
+  "kind": "sfx_candidate_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_17.ogg",
+      "repeat_short": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/source/sfx-20261024/audio-guided/candidates/rm_sfx_17.ogg",
+      "repeat_short": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_17.ogg",
+      "repeat_short": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/source/sfx-20261024/audio-guided/scene-candidates/rm_sfx_17.mp3",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Audio 1 is a reference sound effect. Audio 2 and Audio 3 are anonymous replacement sounds in randomized order. Short one-shots may be repeated four times with gaps for analysis. Audio 4, if present, is one replacement in the actual game-gain offline scene mix; assess that mix separately, never compare it as an isolated replacement. Describe audible timbre, attack, pitch/modulation gesture and decay of 1, 2 and 3. Which replacement better preserves distinctive clear retro electronic feedback? Identify any dull thud, unwanted music/voice or unrelated sound. If 2 and 3 sound the same, say so. For 4, check whether the essential attack is audible; a tail under music alone is not a failure. Give final isolated preference 2, 3, neither or uncertain, with concrete audible evidence. Do not infer quality from ordering. Under 180 words. Function context: 已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+  "max_tokens": 320,
+  "candidate_input": 2,
+  "key": "7a4d3d48e09a5481ec4ebba3",
+  "source_sha256": [
+    "791ea2a2129a2a05007ce9ac545657004f276ca6961ddb74760fc4bd9eb6c162",
+    "6b5bd7e597ac224abda1b10078a488005cee451b6400917fd7ba817d5c5f6066",
+    "46c454f0cc4b39454f0bc349cb52734b1d4566225325a6ebd94e53d40a9785e7",
+    "2638289b8084d6a6e6d5f9a255bbb8ffb83c4fe73ebe378d9519d533d8a9db8c"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "audio_input_samples": [
+    8574,
+    8574,
+    29084,
+    8574
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "3face4d534c6a73370be9a7b369523473adad3070ef7c645e6ad267a3f47f425",
+    "a3f1a506e6696baa87597f3ea0f3c4c84d8f2d0615d914a4e6236747f4759388",
+    "d26b333c73fde97063aaa52f62be77c684faeeb03a530a1c689d9d577b1f0bfe",
+    "8956c5c5d34c2608566bf721387867ddc50eb1476a0cf1cbb95de4b546700827"
+  ],
+  "response": "**Audio 1 (reference):**  \nBright, metallic, high-pitched electronic beep. Sharp attack, brief decay. Clear, distinct retro feedback timbre.\n\n**Audio 2:**  \nAbrupt, low-mid thud with dull attack. No clear pitch or modulation. Sustained low-frequency tail. Lacks high-frequency clarity. Sounds like a muffled impact or low-quality synth. **Dull thud** present.\n\n**Audio 3:**  \nRhythmic, low-pitched electronic pulse. Each hit has a sharp attack and quick decay. Pitch modulates slightly downward. Timbre is synthetic but retains clarity. **Distinctive retro electronic feedback** preserved.\n\n**Audio 4:**  \nNot present in analysis. Cannot assess.\n\n**Comparison:**  \nAudio 2 and 3 differ. Audio 3 better preserves retro electronic feedback with clear attack and modulation. Audio 2 is dull and lacks pitch definition.\n\n**Final isolated preference:** **3** — retains sharp attack, pitch modulation, and retro timbre.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 210,
+    "prompt_tokens": 329,
+    "total_tokens": 539,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 301,
+    "prompt_ms": 2117.793,
+    "prompt_per_token_ms": 7.035857142857143,
+    "prompt_per_second": 142.12909382550606,
+    "predicted_n": 210,
+    "predicted_ms": 4778.879,
+    "predicted_per_token_ms": 22.86544976076555,
+    "predicted_per_second": 43.73410584365078
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 18.604,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/791ea2a2129a2a05007ce9ac545657004f276ca6961ddb74760fc4bd9eb6c162.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/6b5bd7e597ac224abda1b10078a488005cee451b6400917fd7ba817d5c5f6066.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/46c454f0cc4b39454f0bc349cb52734b1d4566225325a6ebd94e53d40a9785e7.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/2638289b8084d6a6e6d5f9a255bbb8ffb83c4fe73ebe378d9519d533d8a9db8c.mp3"
+  ]
+}

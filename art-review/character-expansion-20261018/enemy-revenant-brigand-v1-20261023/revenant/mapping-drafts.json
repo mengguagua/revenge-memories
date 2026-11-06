@@ -1,0 +1,1271 @@
+{
+  "professions/class-11-enemy/maps/frame_mapping.json": {
+    "schema_version": 1,
+    "revision": "enemy-revenant-brigand-v1-20261023",
+    "character_id": "class-11-enemy",
+    "actor_id": "class-11-enemy",
+    "display_name": "敌方蚀躯",
+    "display_class_name": "蚀躯",
+    "class_id": 11,
+    "source_side": "enemy",
+    "status": "review_candidate",
+    "runtime_integrated": false,
+    "review_note": "蚀躯完整姿态重绘；蓝紫六色、冷灰紫皮肤与纯色发块。原动作与时序保持，注册按头颈/腰胯点，无额外整体抖动。 原生脚位终核：上行0左支撑/1右支撑，下行4右支撑/5左支撑；完整新图已对应归位，原16tick不变。",
+    "scenarios": [
+      {
+        "id": "tactical-idle",
+        "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_11_enemy.png",
+        "source_frame_size": [
+          24,
+          24
+        ],
+        "source_anchor": [
+          12,
+          20
+        ],
+        "source_frame_count": 6,
+        "static_facing": true,
+        "directions": {
+          "all": [
+            0,
+            1,
+            2,
+            1
+          ]
+        },
+        "timing": {
+          "native_fps": 60.0988,
+          "cycle_frames": [
+            0,
+            1,
+            2,
+            1
+          ],
+          "frame_ticks": [
+            14,
+            8,
+            14,
+            8
+          ],
+          "cycle_ticks": 44
+        },
+        "output_frame_size": [
+          96,
+          96
+        ],
+        "output_anchor": [
+          48,
+          80
+        ],
+        "logical_render_scale": 0.25,
+        "status": "review_candidate",
+        "revision": "enemy-revenant-brigand-v1-20261023",
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "output_index": 0,
+            "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-idle/frame-000.png",
+            "output_path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-idle/frame-000.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1494,
+            "sha256": "9e579812256e05890740adfb14df817edbb8908278444fad85a85338025652bd",
+            "revision": "enemy-revenant-brigand-v1-20261023",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "output_index": 1,
+            "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-idle/frame-001.png",
+            "output_path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-idle/frame-001.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1498,
+            "sha256": "91124abc0a6538979b4c81bb9990bf9a1dd010f91aca47dcf410e332b4bc3ba7",
+            "revision": "enemy-revenant-brigand-v1-20261023",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "output_index": 2,
+            "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-idle/frame-002.png",
+            "output_path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-idle/frame-002.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1449,
+            "sha256": "697153f8b43d747f481e823e11af85dc7ab0dc30c607141203f8533ea72afe93",
+            "revision": "enemy-revenant-brigand-v1-20261023",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "output_index": 3,
+            "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-idle/frame-003.png",
+            "output_path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-idle/frame-003.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1498,
+            "sha256": "91124abc0a6538979b4c81bb9990bf9a1dd010f91aca47dcf410e332b4bc3ba7",
+            "revision": "enemy-revenant-brigand-v1-20261023",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "output_index": 4,
+            "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-idle/frame-004.png",
+            "output_path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-idle/frame-004.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1494,
+            "sha256": "9e579812256e05890740adfb14df817edbb8908278444fad85a85338025652bd",
+            "revision": "enemy-revenant-brigand-v1-20261023",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "output_index": 5,
+            "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-idle/frame-005.png",
+            "output_path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-idle/frame-005.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1498,
+            "sha256": "91124abc0a6538979b4c81bb9990bf9a1dd010f91aca47dcf410e332b4bc3ba7",
+            "revision": "enemy-revenant-brigand-v1-20261023",
+            "art_status": "review_candidate"
+          }
+        ],
+        "output_atlas": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-idle-atlas.png"
+      },
+      {
+        "id": "tactical-walk",
+        "source_atlas": "../../../source-input/corrected-tactical-walk/class-11-enemy.png",
+        "source_frame_size": [
+          32,
+          24
+        ],
+        "source_anchor": [
+          16,
+          24
+        ],
+        "source_frame_count": 8,
+        "directions": {
+          "up": [
+            0,
+            1
+          ],
+          "right": [
+            2,
+            3
+          ],
+          "down": [
+            4,
+            5
+          ],
+          "left": [
+            6,
+            7
+          ]
+        },
+        "direction_mirror_x": {},
+        "timing": {
+          "native_fps": 60.0988,
+          "frame_ticks": 16,
+          "cycle_ticks": 32
+        },
+        "source_audit": {
+          "class_id": 11,
+          "source_side": "enemy",
+          "status": "verified_native_tactical",
+          "scope": "required_source",
+          "source_atlas": "class-11-enemy.png",
+          "source_frame_size": [
+            32,
+            24
+          ],
+          "source_columns": 8,
+          "source_frame_count": 8,
+          "source_anchor": [
+            16,
+            24
+          ],
+          "native_actor_origin": [
+            16,
+            16
+          ],
+          "anchor_note": "Rendering anchor is native actor origin+[0,8] matching map tile base; not inferred anatomical foot or wing tip. Native OAM Y adds hardware+1.",
+          "source_palette": [
+            15,
+            54,
+            37,
+            15
+          ],
+          "palette_evidence": "bank006:L06852C PPU palette payload sprite palette0(ally)/3(enemy), not BG palette.",
+          "source_chr": 27,
+          "frame_mapping": [
+            {
+              "direction": "up",
+              "direction_code": 0,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 161,
+              "source_frame_address": "L088B4A",
+              "oam": [
+                [
+                  71,
+                  236,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  237,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  238,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  239,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 391,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 0,
+              "source_alpha_bounds": [
+                9,
+                8,
+                23,
+                24
+              ],
+              "rgba_sha256": "d3152390ba73a697be68350f19ec26f49d9faeedcc7667ca8c0196bdffad4842"
+            },
+            {
+              "direction": "up",
+              "direction_code": 0,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 162,
+              "source_frame_address": "L088B50",
+              "oam": [
+                [
+                  71,
+                  234,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  235,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  250,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  251,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 391,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 1,
+              "source_alpha_bounds": [
+                8,
+                8,
+                22,
+                24
+              ],
+              "rgba_sha256": "e590bae737b25efede2a31e2a044518500bf350e30a6bc5ab7d89d4c18692c06"
+            },
+            {
+              "direction": "right",
+              "direction_code": 1,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 163,
+              "source_frame_address": "L088B56",
+              "oam": [
+                [
+                  71,
+                  228,
+                  67,
+                  64
+                ],
+                [
+                  71,
+                  229,
+                  67,
+                  56
+                ],
+                [
+                  79,
+                  230,
+                  67,
+                  64
+                ],
+                [
+                  79,
+                  231,
+                  67,
+                  56
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 468,
+              "source_global_flip": true,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 2,
+              "source_alpha_bounds": [
+                8,
+                8,
+                23,
+                24
+              ],
+              "rgba_sha256": "5bab13a8ce050ebfc2ec7fb570b95a51eb24332b5cc1a1e206147aeec29b8103"
+            },
+            {
+              "direction": "right",
+              "direction_code": 1,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 164,
+              "source_frame_address": "L088B5C",
+              "oam": [
+                [
+                  71,
+                  224,
+                  67,
+                  64
+                ],
+                [
+                  71,
+                  225,
+                  67,
+                  56
+                ],
+                [
+                  79,
+                  226,
+                  67,
+                  64
+                ],
+                [
+                  79,
+                  227,
+                  67,
+                  56
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 468,
+              "source_global_flip": true,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 3,
+              "source_alpha_bounds": [
+                8,
+                8,
+                23,
+                24
+              ],
+              "rgba_sha256": "166e1c101ed112344a3e3e86f308bff05411d220ece2d1dc0a40956eb302e162"
+            },
+            {
+              "direction": "down",
+              "direction_code": 2,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 165,
+              "source_frame_address": "L088B62",
+              "oam": [
+                [
+                  71,
+                  204,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  205,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  220,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  221,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 391,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 4,
+              "source_alpha_bounds": [
+                8,
+                8,
+                22,
+                24
+              ],
+              "rgba_sha256": "051671e4acb6bfc4a0fc91a0bd3bc5885c8e629b82225244a5f6156a6a5e8e4d"
+            },
+            {
+              "direction": "down",
+              "direction_code": 2,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 166,
+              "source_frame_address": "L088B68",
+              "oam": [
+                [
+                  71,
+                  198,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  199,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  214,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  215,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 391,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 5,
+              "source_alpha_bounds": [
+                9,
+                8,
+                23,
+                24
+              ],
+              "rgba_sha256": "9099dc8f004b5e8f5105c1575b8dd5be68ccc544243f5198454a7301c00fe00f"
+            },
+            {
+              "direction": "left",
+              "direction_code": 3,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 163,
+              "source_frame_address": "L088B56",
+              "oam": [
+                [
+                  71,
+                  228,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  229,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  230,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  231,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 391,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 6,
+              "source_alpha_bounds": [
+                9,
+                8,
+                24,
+                24
+              ],
+              "rgba_sha256": "9a3c5de0877c19ce39ed52640961464231d9d327968755ac7f5f5af384ca4a2c"
+            },
+            {
+              "direction": "left",
+              "direction_code": 3,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 164,
+              "source_frame_address": "L088B5C",
+              "oam": [
+                [
+                  71,
+                  224,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  225,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  226,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  227,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 391,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 7,
+              "source_alpha_bounds": [
+                9,
+                8,
+                24,
+                24
+              ],
+              "rgba_sha256": "997b85e25b0ecf2de39e8e23de70629943498c020bd27beecbf57f0f5454255c"
+            }
+          ],
+          "exact_pixel_aliases": {
+            "0": 0,
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 7
+          },
+          "unique_source_slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "directions": {
+            "up": [
+              0,
+              1
+            ],
+            "right": [
+              2,
+              3
+            ],
+            "down": [
+              4,
+              5
+            ],
+            "left": [
+              6,
+              7
+            ]
+          },
+          "direction_mirror_x": {},
+          "mirror_note": "Native whole-sprite right flip and individual tile flips are already applied by original CPU; do not apply an additional direction mirror.",
+          "timing": {
+            "native_fps": 60.0988,
+            "frame_ticks": 16,
+            "cycle_ticks": 32,
+            "phase_source": "$36 & $10 selects phase; L0BB62C",
+            "movement_pixels_per_tick": 1,
+            "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+          },
+          "old_frozen_source": "source-input/original-motion/original-walk-11.png",
+          "old_frozen_frame_rgba_matches_by_corrected_slot": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "old_reference_classification": "Old PNG is CHR26 combined with village OAM selected via L08A779; this is not the native tactical renderer. Native village initializes CHR30, so this hybrid is retained only as current-game frozen historical reference.",
+          "exact_mirror_aliases": {
+            "6": {
+              "source_slot": 2,
+              "transform": "horizontal-mirror-full-canvas",
+              "rgba_exact": true
+            },
+            "7": {
+              "source_slot": 3,
+              "transform": "horizontal-mirror-full-canvas",
+              "rgba_exact": true
+            }
+          },
+          "unique_art_source_slots_after_exact_mirror": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "old_frozen_tight_shape_matches": [],
+          "verified_static_idle_reuse": [],
+          "static_idle_source": "source-input/legacy-assets/assets/original/graphics/map_units/class_11_enemy.png"
+        },
+        "output_frame_size": [
+          128,
+          96
+        ],
+        "output_anchor": [
+          64,
+          96
+        ],
+        "logical_render_scale": 0.25,
+        "status": "review_candidate",
+        "revision": "enemy-revenant-brigand-v1-20261023",
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "output_index": 0,
+            "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-walk/frame-000.png",
+            "output_path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-walk/frame-000.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1329,
+            "sha256": "2b3bbc5cc9ccf1009f5cd0d8198e10270c6e8b2609b85eb34a97a20463f60107",
+            "revision": "enemy-revenant-brigand-v1-20261023",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "output_index": 1,
+            "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-walk/frame-001.png",
+            "output_path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-walk/frame-001.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1381,
+            "sha256": "26d6e8ea1067303ce34f2d32f92e05519573c35ca1ea2ad2e6c8424e3f17264b",
+            "revision": "enemy-revenant-brigand-v1-20261023",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "output_index": 2,
+            "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-walk/frame-002.png",
+            "output_path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-walk/frame-002.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1389,
+            "sha256": "204d702a5cd49ea1aeeb6823de1324f415f0cefb1b23d427d3a406789498bede",
+            "revision": "enemy-revenant-brigand-v1-20261023",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "output_index": 3,
+            "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-walk/frame-003.png",
+            "output_path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-walk/frame-003.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1327,
+            "sha256": "be1ebcca8703c40ed7670c6dea2fd3d795b82e270783d4a90b6b2dbd6a0867b8",
+            "revision": "enemy-revenant-brigand-v1-20261023",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "output_index": 4,
+            "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-walk/frame-004.png",
+            "output_path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-walk/frame-004.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1440,
+            "sha256": "ce87a9f98f620b352d6edbd5f4051ad2551619603c627bd7317e0c7c80b44cfd",
+            "revision": "enemy-revenant-brigand-v1-20261023",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "output_index": 5,
+            "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-walk/frame-005.png",
+            "output_path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-walk/frame-005.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1429,
+            "sha256": "419f7bf8f170aedb87cca85258ae60265b205e267ee5fc6ee4d63765193281bf",
+            "revision": "enemy-revenant-brigand-v1-20261023",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 6,
+            "source_frame": 6,
+            "output_index": 6,
+            "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-walk/frame-006.png",
+            "output_path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-walk/frame-006.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1382,
+            "sha256": "434a6345c1a6aa3c656011e58059312779514d5d37b590bc92ca6deecce46a09",
+            "revision": "enemy-revenant-brigand-v1-20261023",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 7,
+            "source_frame": 7,
+            "output_index": 7,
+            "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-walk/frame-007.png",
+            "output_path": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-walk/frame-007.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1328,
+            "sha256": "73ca2a9d6deabb45bec600341e08230b4ca522722998d1673fe7705ae3296f72",
+            "revision": "enemy-revenant-brigand-v1-20261023",
+            "art_status": "review_candidate"
+          }
+        ],
+        "output_atlas": "../../../enemy-revenant-brigand-v1-20261023/revenant/tactical-walk-atlas.png",
+        "motion_review": {
+          "native_foot_phase": "../../../enemy-revenant-brigand-v1-20261023/revenant/native-foot-phase-checks.json",
+          "head_hip_registration": "../../../enemy-revenant-brigand-v1-20261023/revenant/map-registration-checks.json",
+          "source_timing_modified": false,
+          "complete_pose_assignment": {
+            "0": "generated-up-phase1",
+            "1": "generated-up-phase0",
+            "4": "generated-down-phase1",
+            "5": "generated-down-phase0"
+          }
+        }
+      }
+    ]
+  },
+  "professions/class-11-enemy/battle/frame_mapping.json": {
+    "schema_version": 1,
+    "character_id": "class-11-enemy",
+    "display_name": "敌方蚀躯",
+    "display_class_name": "蚀躯",
+    "original_class_id": 11,
+    "source_side": "enemy",
+    "source_atlas": "../../../source-input/enemy-motion/class-11-enemy.png",
+    "source_frame_size": [
+      80,
+      72
+    ],
+    "output_frame_size": [
+      320,
+      288
+    ],
+    "source_anchor": [
+      40,
+      64
+    ],
+    "output_anchor": [
+      160,
+      256
+    ],
+    "source_columns": 16,
+    "source_oam_frame_count": 50,
+    "source_idle_frame": 83,
+    "source_frame_count": 101,
+    "frame_mapping": {
+      "33": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-033.png",
+      "34": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-034.png",
+      "35": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-035.png",
+      "36": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-036.png",
+      "37": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-037.png",
+      "38": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-038.png",
+      "39": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-039.png",
+      "40": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-040.png",
+      "41": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-041.png",
+      "42": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-042.png",
+      "43": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-043.png",
+      "44": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-044.png",
+      "45": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-045.png",
+      "46": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-046.png",
+      "47": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-047.png",
+      "48": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-048.png",
+      "49": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-049.png",
+      "83": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-083.png",
+      "98": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-098.png"
+    },
+    "canonical_frames": [
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      83
+    ],
+    "required_source_frames": [
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      83,
+      98
+    ],
+    "variant_keys": [
+      "original_class_11_enemy_normal"
+    ],
+    "records": [
+      {
+        "source_frame": 33,
+        "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-033.png",
+        "bytes": 2775,
+        "sha256": "90a14909d6c817eeca56e502d1346f1c45e77b3d79b28340a2fa1f8d3daa9bd0",
+        "size": [
+          320,
+          288
+        ]
+      },
+      {
+        "source_frame": 34,
+        "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-034.png",
+        "bytes": 2892,
+        "sha256": "f912fe0a74d01ab38cb11925e7b416173a4ffa562ed18227f399749bebc2f4d5",
+        "size": [
+          320,
+          288
+        ]
+      },
+      {
+        "source_frame": 35,
+        "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-035.png",
+        "bytes": 2773,
+        "sha256": "d0c1359da9245cb92e03d1368389b273e086d9c0c11d61fd3c7446001ec3cf04",
+        "size": [
+          320,
+          288
+        ]
+      },
+      {
+        "source_frame": 36,
+        "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-036.png",
+        "bytes": 2609,
+        "sha256": "b207e8b738100a20489e501538134b23a3a09e87ad0ba561db00b9a49f0e0cb3",
+        "size": [
+          320,
+          288
+        ]
+      },
+      {
+        "source_frame": 37,
+        "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-037.png",
+        "bytes": 2388,
+        "sha256": "411d7d51c0bc496d8b97f48ceaf4316af4f41f4b72d4e7da30d9edccffd70dc3",
+        "size": [
+          320,
+          288
+        ]
+      },
+      {
+        "source_frame": 38,
+        "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-038.png",
+        "bytes": 2096,
+        "sha256": "d7d5b26bf03953530081d058e85d34b2ce474b41d53ba4c3db375c44a9029164",
+        "size": [
+          320,
+          288
+        ]
+      },
+      {
+        "source_frame": 39,
+        "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-039.png",
+        "bytes": 1726,
+        "sha256": "5dd96f397c31ece7bb8ca2f3efff19c67c0a157ed177b2464daeb06d392fbdfd",
+        "size": [
+          320,
+          288
+        ]
+      },
+      {
+        "source_frame": 40,
+        "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-040.png",
+        "bytes": 1370,
+        "sha256": "d22e026cf8a026ca48dce21a5f4d70fce4d8dde15796c3ce617612603b57ad4c",
+        "size": [
+          320,
+          288
+        ]
+      },
+      {
+        "source_frame": 41,
+        "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-041.png",
+        "bytes": 1158,
+        "sha256": "bb1441ffb5d8fd84a2db0495ce034fd871dc6c610f0026f4496688c7076d00e7",
+        "size": [
+          320,
+          288
+        ]
+      },
+      {
+        "source_frame": 42,
+        "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-042.png",
+        "bytes": 1000,
+        "sha256": "af2a180b05fec9eeca47e680d71cc1a465b5b210acb11795aa7fc2ae82742f0d",
+        "size": [
+          320,
+          288
+        ]
+      },
+      {
+        "source_frame": 43,
+        "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-043.png",
+        "bytes": 2752,
+        "sha256": "0820dd985081ed0f3065d41deea57061a43ebae2c498e512647add5672d9c891",
+        "size": [
+          320,
+          288
+        ]
+      },
+      {
+        "source_frame": 44,
+        "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-044.png",
+        "bytes": 2810,
+        "sha256": "2876bd54c79751183298ed8590f7b1f22509c048f51d10dddd8d97b2f042aeb6",
+        "size": [
+          320,
+          288
+        ]
+      },
+      {
+        "source_frame": 45,
+        "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-045.png",
+        "bytes": 2913,
+        "sha256": "67b75f279bbd91d9ec21d5b0e84731c7894a47cfb2dc5eeb091c01834a0f26a3",
+        "size": [
+          320,
+          288
+        ]
+      },
+      {
+        "source_frame": 46,
+        "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-046.png",
+        "bytes": 2790,
+        "sha256": "e15d797333091009267b9cb3746240d8106498d982ccfc5816f843a9115044b6",
+        "size": [
+          320,
+          288
+        ]
+      },
+      {
+        "source_frame": 47,
+        "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-047.png",
+        "bytes": 3075,
+        "sha256": "38d44af8c654ac5f7826d8d15947f99a112edffb8bc50991d68bacda06acc3f3",
+        "size": [
+          320,
+          288
+        ]
+      },
+      {
+        "source_frame": 48,
+        "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-048.png",
+        "bytes": 2873,
+        "sha256": "873d9c4d0bc62f0ed5ddbd7ebac083edcbd6454ad940e8f81c07e2ef6bbd5681",
+        "size": [
+          320,
+          288
+        ]
+      },
+      {
+        "source_frame": 49,
+        "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-049.png",
+        "bytes": 962,
+        "sha256": "15b5e7b4ecd19fdb9b6c1c6a2eb55bd7f1ffce0451afde87a54ca501b90cfe93",
+        "size": [
+          320,
+          288
+        ]
+      },
+      {
+        "source_frame": 83,
+        "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-083.png",
+        "bytes": 2777,
+        "sha256": "96f704b04c778d62f5bbd3b9507af3aad7d03adc7b3c0d90808e1430ec378afb",
+        "size": [
+          320,
+          288
+        ]
+      },
+      {
+        "source_frame": 98,
+        "path": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle/frame-098.png",
+        "bytes": 2777,
+        "sha256": "96f704b04c778d62f5bbd3b9507af3aad7d03adc7b3c0d90808e1430ec378afb",
+        "size": [
+          320,
+          288
+        ]
+      }
+    ],
+    "output_atlas_frame_order": [
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      83,
+      98
+    ],
+    "output_atlas": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle-atlas.png",
+    "status": "review_candidate",
+    "revision": "enemy-revenant-brigand-v1-20261023",
+    "runtime_integrated": false,
+    "palette": [
+      "172638",
+      "4f4f7d",
+      "bbc1d6",
+      "aaa6bc",
+      "373e64",
+      "a394b1"
+    ],
+    "review_note": "原下沉/消失/重现/抬臂/挥击/回位的472tick逐帧保留；接触tick274，不新增打击。47叠55像素原生弧，49透明，83/98按BG位置复用33。",
+    "batches": [
+      {
+        "id": "full-pose-review",
+        "review": "../../../enemy-revenant-brigand-v1-20261023/revenant/battle-dark.png",
+        "status": "review_candidate"
+      }
+    ]
+  }
+}

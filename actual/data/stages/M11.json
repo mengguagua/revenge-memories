@@ -322,7 +322,7 @@
       48,
       48,
       48,
-      48,
+      218,
       48,
       48,
       48,
@@ -1728,7 +1728,7 @@
     "~ss~~~~~~npppnnnnnnnnn",
     "nssppppppppppnnnnnnnnn",
     "nppppppppppppnnnnnnnnn",
-    "nppppppppppppfffnnnnnn",
+    "nppptppppppppfffnnnnnn",
     "npppppnnnfffffffffnnnn",
     "ppppppnnfffffffffffnnn",
     "ppppppnffffffffffffffn"
@@ -2456,7 +2456,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 2,
-      "exp_value": 100,
+      "exp_value": 110,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -2525,7 +2525,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 50,
+      "exp_value": 35,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -2592,7 +2592,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 50,
+      "exp_value": 35,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -2659,7 +2659,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 50,
+      "exp_value": 35,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -2726,7 +2726,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 50,
+      "exp_value": 35,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -2793,7 +2793,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 63,
-      "exp_value": 50,
+      "exp_value": 35,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -2861,7 +2861,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 50,
+      "exp_value": 35,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -2928,7 +2928,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 50,
+      "exp_value": 35,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -2995,7 +2995,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 50,
+      "exp_value": 35,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -3062,7 +3062,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 50,
+      "exp_value": 35,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -4169,7 +4169,7 @@
       "door_visual": "native_building_art",
       "show_indicator": false,
       "optional": true,
-      "dialogue": "村民：雪桥两头的树林可以掩护伤员。绕林的小路通向村北，别让护送者落单。",
+      "dialogue": "村民：只看人进征调营，没见人离开。",
       "reward_item": 48,
       "building": "snow_cottage"
     }
@@ -4196,7 +4196,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 50,
+      "exp_value": 35,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -4262,7 +4262,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 50,
+      "exp_value": 35,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -4322,13 +4322,19 @@
   ],
   "goal": "护送两组流民抵达东北旗标出口；击败出口前的追击队长。流民任一组全灭则失败。",
   "cause": "科兰押送兵把凯尔放走的居民重新赶回雪原；胡纳普先完成兄长没完成的护送。",
-  "before": "达恩：流民在前面。东北的旗标就是出口。／奥托：追击队长守着最后那道隘口，必须先把他打退。／胡纳普：先清桥边的追兵，别让弓手拖住他们。",
-  "during": "奥托：前面那条小路能走。别让他们绕回营地。",
-  "after": "居民：凯尔也是从这里带我们走的。／奥托：粮站在北面，那里还能找到凯尔军令的副本。／胡纳普：先安置伤者。接下来去丘堡粮站。／战场提示：主线：前往丘堡粮站。／战场提示：可选支线：旧矿道救援、林村诊所送药。可先做，也可稍后返回。",
-  "absent_branch": "达恩亡：胡纳普直接要求护送居民；奥托亡：固定村民指出林边小路与凯尔军令。删除同伴私人回忆，不给替代者虚构旧关系。",
+  "before": "胡纳普：穿过这条林路，就到丘堡粮站了？／奥托：往前就到了。科兰的兵来过粮站，那儿能打听到消息。／达恩：等等！桥边那几个，是今早离村的人。／居民：求你们了，让孩子留下。／士兵：将军有令。老人孩子都带走。／胡纳普：达恩，护住他们。我先拦下追兵。／战场提示：护送两组流民离开，抵达东北旗标，并击败出口前的追击队长。／战场提示：部分场地停留后，下次己方阶段开始可恢复5生命。",
+  "dialogue_fallbacks": {
+    "达恩": {
+      "达恩：等等！桥边那几个，是今早离村的人。": "",
+      "胡纳普：达恩，护住他们。我先拦下追兵。": "胡纳普：我们去把桥边的人接过来。／村民：我也来帮忙。"
+    }
+  },
+  "during": "奥托：桥边清开了。",
+  "after": "居民：多谢你们。／胡纳普：先回雪原村。路上避着点军队。／战场提示：主线前往丘堡粮站；旧矿道救援、林村诊所送药为可选支线，可稍后返回。",
+  "absent_branch": "正式同伴濒死时由固定村民提供道路消息，不借其身份讲私人往事；原伤情保持。",
   "optional": false,
   "contract": "两组流民抵达后一次写入救援；劳工被护送不会占正式名册。",
-  "ai_and_timing": "流民每次移动3格，本回合能接敌时主动攻击，否则沿安全路线撤离；弓手主动寻找射击位置。追击队长固守出口唯一入口。第3回合预警、第4敌回合一次增援。",
+  "ai_and_timing": "流民每次移动3格，有正式队员近旁掩护且预计安全时可主动支援；受威胁时选择更低承伤落点，清路后继续撤离。弓手主动寻找射击位置；追击队长在出口警戒，正式队员进入其武器射程或攻击后会出击。第3回合预警、第4敌回合一次增援。",
   "natural_props": [
     {
       "key": "snow_tall",
@@ -5019,12 +5025,20 @@
         144,
         32
       ]
+    },
+    {
+      "path": "res://assets/battlefield-0.3.0/modules/tactical_fort.png",
+      "position": [
+        64,
+        224
+      ]
     }
   ],
   "tactical_notes": [
-    "东北旗标是流民出口；S菜单可定位出口和追击队长。",
-    "追击队长携带铁枪，数值高于普通士兵，守在唯一入口。",
-    "首战胜利追加60经验训练奖励，能正常升级并学习法术；濒死者不领取。"
+    "两组流民都要存活并抵达东北旗标，且必须击败出口前的追击队长。可在 S 菜单定位出口和队长。",
+    "追击队长持铁枪，战力高于普通士兵。先让战斗成员开路，再接应流民通过。",
+    "首战胜利可获得60经验训练奖励；濒死成员不能领取。",
+    "南侧林路救护哨可驻守回血：站在哨所格，下次己方阶段开始恢复5生命。不会立即恢复，也不能救起濒死成员。"
   ],
   "tactical_review_version": "0.5.0",
   "river_layout": {
@@ -5053,7 +5067,18 @@
     ],
     "revision": "0.5.0"
   },
-  "building_sites": [],
+  "building_sites": [
+    {
+      "position": [
+        4,
+        14
+      ],
+      "label": "林路救护哨",
+      "occupiable": true,
+      "avoid": 40,
+      "phase_heal": 5
+    }
+  ],
   "visual_ground": [
     "nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",
     "nnnfffffffnnnnnnnnnnnnnnnnnnnnnnnnnn",
@@ -5154,5 +5179,15 @@
   },
   "equipment_revision": "0.3.9",
   "escort_move": 3,
-  "clear_training_exp": 60
+  "clear_training_exp": 60,
+  "recovery_sites": [
+    {
+      "position": [
+        4,
+        14
+      ],
+      "label": "林路救护哨",
+      "phase_heal": 5
+    }
+  ]
 }

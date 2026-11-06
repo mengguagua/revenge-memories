@@ -1,0 +1,1100 @@
+{
+  "maps": {
+    "schema_version": 1,
+    "width_height_scale": 4,
+    "scenarios": [
+      {
+        "id": "tactical-idle",
+        "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_19_enemy.png",
+        "source_frame_size": [
+          24,
+          24
+        ],
+        "source_anchor": [
+          12,
+          20
+        ],
+        "source_frame_count": 6,
+        "output_frame_size": [
+          96,
+          96
+        ],
+        "output_anchor": [
+          48,
+          80
+        ],
+        "logical_render_scale": 0.25,
+        "class_id": 19,
+        "source_side": "enemy",
+        "character_id": "class-19-enemy",
+        "display_name": "敌方驭魔师",
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "output_index": 0,
+            "canonical_frame": 0,
+            "path": "../../../summoner-complete-v1-20261024/tactical-idle/frame-000.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1583,
+            "sha256": "2a3a73de8d131a8c5a17fe02d807f3232bddf36ce7a66877a8252cb1a3ecdd39",
+            "revision": "summoner-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "output_index": 1,
+            "canonical_frame": 1,
+            "path": "../../../summoner-complete-v1-20261024/tactical-idle/frame-001.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1575,
+            "sha256": "4d715cf599d9ead62856b01b096ab5a0137536db3118e428ca7e18740cc790b8",
+            "revision": "summoner-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "output_index": 2,
+            "canonical_frame": 2,
+            "path": "../../../summoner-complete-v1-20261024/tactical-idle/frame-002.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1545,
+            "sha256": "0406b242e2c7523ee0b5fb11a3b26c6b906ef4610a84c58ca64ac722655531b7",
+            "revision": "summoner-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "output_index": 3,
+            "canonical_frame": 1,
+            "path": "../../../summoner-complete-v1-20261024/tactical-idle/frame-003.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1575,
+            "sha256": "4d715cf599d9ead62856b01b096ab5a0137536db3118e428ca7e18740cc790b8",
+            "revision": "summoner-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "output_index": 4,
+            "canonical_frame": 0,
+            "path": "../../../summoner-complete-v1-20261024/tactical-idle/frame-004.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1583,
+            "sha256": "2a3a73de8d131a8c5a17fe02d807f3232bddf36ce7a66877a8252cb1a3ecdd39",
+            "revision": "summoner-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "output_index": 5,
+            "canonical_frame": 1,
+            "path": "../../../summoner-complete-v1-20261024/tactical-idle/frame-005.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1575,
+            "sha256": "4d715cf599d9ead62856b01b096ab5a0137536db3118e428ca7e18740cc790b8",
+            "revision": "summoner-complete-v1-20261024",
+            "art_status": "review_candidate"
+          }
+        ],
+        "output_atlas": "../../../summoner-complete-v1-20261024/tactical-idle-atlas.png",
+        "revision": "summoner-complete-v1-20261024",
+        "review_note": "驭魔师：蓝紫哑光兜帽长袍，淡紫内衬，暖肤色露前臂；头发被兜帽覆盖，无高光。地图固定头部和腰部基准，保留手臂、衣摆、脚步相位与前后遮挡。战斗沿原作三姿势及全部原时序；法术目录仅作美术参考。",
+        "required_drawn_frames": [
+          0,
+          1,
+          2
+        ],
+        "static_facing": true,
+        "directions": {
+          "all": [
+            0,
+            1,
+            2,
+            1
+          ]
+        },
+        "source_aliases": {
+          "0": 0,
+          "1": 1,
+          "2": 2,
+          "3": 1,
+          "4": 0,
+          "5": 1
+        },
+        "timing": {
+          "native_fps": 60.0988,
+          "cycle_frames": [
+            0,
+            1,
+            2,
+            1
+          ],
+          "frame_ticks": [
+            14,
+            8,
+            14,
+            8
+          ],
+          "cycle_ticks": 44
+        }
+      },
+      {
+        "id": "tactical-walk",
+        "source_atlas": "../../../source-input/corrected-tactical-walk/class-19-enemy.png",
+        "source_frame_size": [
+          32,
+          24
+        ],
+        "source_anchor": [
+          16,
+          24
+        ],
+        "source_frame_count": 8,
+        "output_frame_size": [
+          128,
+          96
+        ],
+        "output_anchor": [
+          64,
+          96
+        ],
+        "logical_render_scale": 0.25,
+        "class_id": 19,
+        "source_side": "enemy",
+        "character_id": "class-19-enemy",
+        "display_name": "敌方驭魔师",
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "output_index": 0,
+            "canonical_frame": 0,
+            "path": "../../../summoner-complete-v1-20261024/tactical-walk/frame-000.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1566,
+            "sha256": "ab4f8add68aac9b9343955d8f96234cf627fcdb9bbd93a094f50673f0a102d96",
+            "revision": "summoner-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "output_index": 1,
+            "canonical_frame": 1,
+            "path": "../../../summoner-complete-v1-20261024/tactical-walk/frame-001.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1544,
+            "sha256": "9873b6bffadf92f583fcdd2a133aed58823bcb894980670a1c975ee566cbce6e",
+            "revision": "summoner-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "output_index": 2,
+            "canonical_frame": 2,
+            "path": "../../../summoner-complete-v1-20261024/tactical-walk/frame-002.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1468,
+            "sha256": "ad9b5d5b3c0705b4b6807ec57f976414c2ab09d6790763f9a1a6e65e277add4f",
+            "revision": "summoner-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "output_index": 3,
+            "canonical_frame": 3,
+            "path": "../../../summoner-complete-v1-20261024/tactical-walk/frame-003.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1487,
+            "sha256": "1661fe4a1a734f27209e71ff1f4c892888eb135613100ee5355a1f0c5de01a2b",
+            "revision": "summoner-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "output_index": 4,
+            "canonical_frame": 4,
+            "path": "../../../summoner-complete-v1-20261024/tactical-walk/frame-004.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1612,
+            "sha256": "dcaf4d9779b91713e4049a782438a3f3b7e7ecccba79f1741ff15fc84a526e1d",
+            "revision": "summoner-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "output_index": 5,
+            "canonical_frame": 5,
+            "path": "../../../summoner-complete-v1-20261024/tactical-walk/frame-005.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1555,
+            "sha256": "ff0bc0481917ee86be5839568c08deaff3092abdd6a38e1429d56a7b798166c3",
+            "revision": "summoner-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 6,
+            "source_frame": 6,
+            "output_index": 6,
+            "canonical_frame": 6,
+            "path": "../../../summoner-complete-v1-20261024/tactical-walk/frame-006.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1466,
+            "sha256": "d8a3dea4f5546a3baad158a74357aa39dd9cedb0011765e9ad4bbecba0398a32",
+            "revision": "summoner-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 7,
+            "source_frame": 7,
+            "output_index": 7,
+            "canonical_frame": 7,
+            "path": "../../../summoner-complete-v1-20261024/tactical-walk/frame-007.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1487,
+            "sha256": "c5620d771fad9484c725a1842f47341c8e3a5399e0efc5d1898f596e7fa786a8",
+            "revision": "summoner-complete-v1-20261024",
+            "art_status": "review_candidate"
+          }
+        ],
+        "output_atlas": "../../../summoner-complete-v1-20261024/tactical-walk-atlas.png",
+        "revision": "summoner-complete-v1-20261024",
+        "review_note": "驭魔师：蓝紫哑光兜帽长袍，淡紫内衬，暖肤色露前臂；头发被兜帽覆盖，无高光。地图固定头部和腰部基准，保留手臂、衣摆、脚步相位与前后遮挡。战斗沿原作三姿势及全部原时序；法术目录仅作美术参考。",
+        "required_drawn_frames": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "directions": {
+          "up": [
+            0,
+            1
+          ],
+          "right": [
+            2,
+            3
+          ],
+          "down": [
+            4,
+            5
+          ],
+          "left": [
+            6,
+            7
+          ]
+        },
+        "direction_mirror_x": {},
+        "timing": {
+          "native_fps": 60.0988,
+          "frame_ticks": 16,
+          "cycle_ticks": 32
+        },
+        "source_audit": {
+          "class_id": 19,
+          "source_side": "enemy",
+          "status": "verified_native_tactical",
+          "scope": "native CPU phase verified, art review only",
+          "source_atlas": "class-19-enemy.png",
+          "source_frame_size": [
+            32,
+            24
+          ],
+          "source_columns": 8,
+          "source_frame_count": 8,
+          "source_anchor": [
+            16,
+            24
+          ],
+          "native_actor_origin": [
+            16,
+            16
+          ],
+          "anchor_note": "Rendering anchor is native actor origin+[0,8] matching map tile base; not inferred anatomical foot or wing tip. Native OAM Y adds hardware+1.",
+          "source_palette": [
+            15,
+            54,
+            37,
+            15
+          ],
+          "palette_evidence": "bank006:L06852C PPU palette payload sprite palette0(ally)/3(enemy), not BG palette.",
+          "source_chr": 27,
+          "frame_mapping": [
+            {
+              "direction": "up",
+              "direction_code": 0,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 149,
+              "source_frame_address": "L088B02",
+              "oam": [
+                [
+                  71,
+                  110,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  110,
+                  67,
+                  64
+                ],
+                [
+                  79,
+                  126,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  127,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 463,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 0,
+              "source_alpha_bounds": [
+                9,
+                8,
+                23,
+                24
+              ],
+              "rgba_sha256": "bc6ae16b742ae30f5c37fa889b61bf9e1d5f6b6f420cbb70b521743af1f8baa6"
+            },
+            {
+              "direction": "up",
+              "direction_code": 0,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 150,
+              "source_frame_address": "L088B08",
+              "oam": [
+                [
+                  71,
+                  111,
+                  67,
+                  56
+                ],
+                [
+                  71,
+                  111,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  127,
+                  67,
+                  56
+                ],
+                [
+                  79,
+                  126,
+                  67,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 463,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 1,
+              "source_alpha_bounds": [
+                8,
+                8,
+                24,
+                24
+              ],
+              "rgba_sha256": "2862ad5bdd48d693aca93bb6cba343b2b8b02a083e626667ca8846927521827e"
+            },
+            {
+              "direction": "right",
+              "direction_code": 1,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 151,
+              "source_frame_address": "L088B0E",
+              "oam": [
+                [
+                  71,
+                  78,
+                  67,
+                  64
+                ],
+                [
+                  71,
+                  79,
+                  67,
+                  56
+                ],
+                [
+                  79,
+                  94,
+                  67,
+                  64
+                ],
+                [
+                  79,
+                  95,
+                  67,
+                  56
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 540,
+              "source_global_flip": true,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 2,
+              "source_alpha_bounds": [
+                10,
+                8,
+                23,
+                24
+              ],
+              "rgba_sha256": "161a4c3f2f0aa33c1d0088803b574c86e36504a26622062d57729d61c389a6d0"
+            },
+            {
+              "direction": "right",
+              "direction_code": 1,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 152,
+              "source_frame_address": "L088B14",
+              "oam": [
+                [
+                  71,
+                  46,
+                  67,
+                  64
+                ],
+                [
+                  71,
+                  47,
+                  67,
+                  56
+                ],
+                [
+                  79,
+                  62,
+                  67,
+                  64
+                ],
+                [
+                  79,
+                  63,
+                  67,
+                  56
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 540,
+              "source_global_flip": true,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 3,
+              "source_alpha_bounds": [
+                10,
+                8,
+                24,
+                24
+              ],
+              "rgba_sha256": "750e89d5e450465e63a61fcda13bd31c5059359cf3836ddb9e4697bc5e44d19b"
+            },
+            {
+              "direction": "down",
+              "direction_code": 2,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 153,
+              "source_frame_address": "L088B1A",
+              "oam": [
+                [
+                  71,
+                  15,
+                  67,
+                  56
+                ],
+                [
+                  71,
+                  15,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  31,
+                  67,
+                  56
+                ],
+                [
+                  79,
+                  31,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 463,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 4,
+              "source_alpha_bounds": [
+                8,
+                8,
+                24,
+                24
+              ],
+              "rgba_sha256": "8d77a3a99126eadaf88d7478a830a5e44ad7a01555fd2e438c46c26c9ce90a01"
+            },
+            {
+              "direction": "down",
+              "direction_code": 2,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 154,
+              "source_frame_address": "L088B20",
+              "oam": [
+                [
+                  71,
+                  14,
+                  67,
+                  56
+                ],
+                [
+                  71,
+                  14,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  30,
+                  67,
+                  56
+                ],
+                [
+                  79,
+                  30,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 463,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 5,
+              "source_alpha_bounds": [
+                9,
+                8,
+                23,
+                24
+              ],
+              "rgba_sha256": "310e3e81fe0c9dc9066e6cc1e912c39c297a28e947db3a2acc74730a472dffdb"
+            },
+            {
+              "direction": "left",
+              "direction_code": 3,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 151,
+              "source_frame_address": "L088B0E",
+              "oam": [
+                [
+                  71,
+                  78,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  79,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  94,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  95,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 463,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 6,
+              "source_alpha_bounds": [
+                9,
+                8,
+                22,
+                24
+              ],
+              "rgba_sha256": "a33c86d30e790de28cc670e6bb039d5459822e6fe5b8866c7d406006610733e6"
+            },
+            {
+              "direction": "left",
+              "direction_code": 3,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 152,
+              "source_frame_address": "L088B14",
+              "oam": [
+                [
+                  71,
+                  46,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  47,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  62,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  63,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 463,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 7,
+              "source_alpha_bounds": [
+                8,
+                8,
+                22,
+                24
+              ],
+              "rgba_sha256": "b9165bd56f2108a9e1cbb7aa9fa15025d9ded1b8fdb70b6cd1c4b33ffb2c0178"
+            }
+          ],
+          "exact_pixel_aliases": {
+            "0": 0,
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 7
+          },
+          "unique_source_slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "directions": {
+            "up": [
+              0,
+              1
+            ],
+            "right": [
+              2,
+              3
+            ],
+            "down": [
+              4,
+              5
+            ],
+            "left": [
+              6,
+              7
+            ]
+          },
+          "direction_mirror_x": {},
+          "mirror_note": "Native whole-sprite right flip and individual tile flips are already applied by original CPU; do not apply an additional direction mirror.",
+          "timing": {
+            "native_fps": 60.0988,
+            "frame_ticks": 16,
+            "cycle_ticks": 32,
+            "phase_source": "$36 & $10 selects phase; L0BB62C",
+            "movement_pixels_per_tick": 1,
+            "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+          },
+          "old_frozen_source": "source-input/original-motion/original-walk-19.png",
+          "old_frozen_frame_rgba_matches_by_corrected_slot": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "old_reference_classification": "Old PNG is CHR26 combined with village OAM selected via L08A779; this is not the native tactical renderer. Native village initializes CHR30, so this hybrid is retained only as current-game frozen historical reference.",
+          "exact_mirror_aliases": {
+            "6": {
+              "source_slot": 2,
+              "transform": "horizontal-mirror-full-canvas",
+              "rgba_exact": true
+            },
+            "7": {
+              "source_slot": 3,
+              "transform": "horizontal-mirror-full-canvas",
+              "rgba_exact": true
+            }
+          },
+          "unique_art_source_slots_after_exact_mirror": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "old_frozen_tight_shape_matches": [],
+          "verified_static_idle_reuse": [],
+          "static_idle_source": "source-input/legacy-assets/assets/original/graphics/map_units/class_19_enemy.png",
+          "native_record_status": "native_cpu_reference",
+          "review_evidence": "../../../summoner-complete-v1-20261024/source/source-walk-verification.json"
+        }
+      }
+    ],
+    "character_id": "class-19-enemy",
+    "display_name": "敌方驭魔师",
+    "display_class_name": "驭魔师",
+    "class_id": 19,
+    "original_class_id": 19,
+    "source_side": "enemy",
+    "revision": "summoner-complete-v1-20261024",
+    "status": "review_candidate",
+    "runtime_integrated": false,
+    "review_note": "驭魔师：蓝紫哑光兜帽长袍，淡紫内衬，暖肤色露前臂；头发被兜帽覆盖，无高光。地图固定头部和腰部基准，保留手臂、衣摆、脚步相位与前后遮挡。战斗沿原作三姿势及全部原时序；法术目录仅作美术参考。",
+    "palette": [
+      "172638",
+      "353e60",
+      "55567d",
+      "aaa4bf",
+      "d7a481",
+      "a77d73",
+      "26344d"
+    ]
+  },
+  "battle": {
+    "schema_version": 1,
+    "character_id": "class-19-enemy",
+    "display_name": "敌方驭魔师",
+    "display_class_name": "驭魔师",
+    "original_class_id": 19,
+    "source_side": "enemy",
+    "source_atlas": "../../../source-input/enemy-motion/class-19-enemy.png",
+    "source_frame_size": [
+      80,
+      64
+    ],
+    "source_anchor": [
+      40,
+      64
+    ],
+    "output_frame_size": [
+      320,
+      256
+    ],
+    "source_idle_frame": 0,
+    "source_frame_count": 6,
+    "source_columns": 16,
+    "frame_mapping": {
+      "0": "../../../summoner-complete-v1-20261024/battle/frame-000.png",
+      "4": "../../../summoner-complete-v1-20261024/battle/frame-004.png",
+      "5": "../../../summoner-complete-v1-20261024/battle/frame-005.png"
+    },
+    "required_source_frames": [
+      0,
+      4,
+      5
+    ],
+    "variant_keys": [
+      "class_19_enemy_item_23",
+      "class_19_enemy_item_23_vs_heavy",
+      "class_19_enemy_item_23_far_ally",
+      "class_19_enemy_item_23_far_ally_vs_heavy",
+      "class_19_enemy_item_23_far_enemy",
+      "class_19_enemy_item_23_far_enemy_vs_heavy",
+      "class_19_enemy_item_24",
+      "class_19_enemy_item_24_vs_heavy",
+      "class_19_enemy_item_24_far_ally",
+      "class_19_enemy_item_24_far_ally_vs_heavy",
+      "class_19_enemy_item_24_far_enemy",
+      "class_19_enemy_item_24_far_enemy_vs_heavy",
+      "class_19_enemy_item_25",
+      "class_19_enemy_item_25_vs_heavy",
+      "class_19_enemy_item_25_far_ally",
+      "class_19_enemy_item_25_far_ally_vs_heavy",
+      "class_19_enemy_item_25_far_enemy",
+      "class_19_enemy_item_25_far_enemy_vs_heavy",
+      "class_19_enemy_item_26",
+      "class_19_enemy_item_26_vs_heavy",
+      "class_19_enemy_item_26_far_ally",
+      "class_19_enemy_item_26_far_ally_vs_heavy",
+      "class_19_enemy_item_26_far_enemy",
+      "class_19_enemy_item_26_far_enemy_vs_heavy",
+      "class_19_enemy_item_27",
+      "class_19_enemy_item_27_vs_heavy",
+      "class_19_enemy_item_27_far_ally",
+      "class_19_enemy_item_27_far_ally_vs_heavy",
+      "class_19_enemy_item_27_far_enemy",
+      "class_19_enemy_item_27_far_enemy_vs_heavy",
+      "class_19_enemy_item_28",
+      "class_19_enemy_item_28_vs_heavy",
+      "class_19_enemy_item_28_far_ally",
+      "class_19_enemy_item_28_far_ally_vs_heavy",
+      "class_19_enemy_item_28_far_enemy",
+      "class_19_enemy_item_28_far_enemy_vs_heavy",
+      "class_19_enemy_item_29",
+      "class_19_enemy_item_29_vs_heavy",
+      "class_19_enemy_item_29_far_ally",
+      "class_19_enemy_item_29_far_ally_vs_heavy",
+      "class_19_enemy_item_29_far_enemy",
+      "class_19_enemy_item_29_far_enemy_vs_heavy",
+      "class_19_enemy_item_31",
+      "class_19_enemy_item_31_vs_heavy",
+      "class_19_enemy_item_31_far_ally",
+      "class_19_enemy_item_31_far_ally_vs_heavy",
+      "class_19_enemy_item_31_far_enemy",
+      "class_19_enemy_item_31_far_enemy_vs_heavy",
+      "class_19_enemy_item_32",
+      "class_19_enemy_item_32_vs_heavy",
+      "class_19_enemy_item_32_far_ally",
+      "class_19_enemy_item_32_far_ally_vs_heavy",
+      "class_19_enemy_item_32_far_enemy",
+      "class_19_enemy_item_32_far_enemy_vs_heavy",
+      "class_19_enemy_item_33",
+      "class_19_enemy_item_33_vs_heavy",
+      "class_19_enemy_item_33_far_ally",
+      "class_19_enemy_item_33_far_ally_vs_heavy",
+      "class_19_enemy_item_33_far_enemy",
+      "class_19_enemy_item_33_far_enemy_vs_heavy",
+      "class_19_enemy_item_34",
+      "class_19_enemy_item_34_vs_heavy",
+      "class_19_enemy_item_34_far_ally",
+      "class_19_enemy_item_34_far_ally_vs_heavy",
+      "class_19_enemy_item_34_far_enemy",
+      "class_19_enemy_item_34_far_enemy_vs_heavy"
+    ],
+    "output_atlas": "../../../summoner-complete-v1-20261024/battle-atlas.png",
+    "revision": "summoner-complete-v1-20261024",
+    "review_timeline": "../../../summoner-complete-v1-20261024/enemy-motion.json",
+    "status": "review_candidate",
+    "runtime_integrated": false,
+    "review_note": "驭魔师：蓝紫哑光兜帽长袍，淡紫内衬，暖肤色露前臂；头发被兜帽覆盖，无高光。地图固定头部和腰部基准，保留手臂、衣摆、脚步相位与前后遮挡。战斗沿原作三姿势及全部原时序；法术目录仅作美术参考。",
+    "palette": [
+      "172638",
+      "353e60",
+      "55567d",
+      "aaa4bf",
+      "d7a481",
+      "a77d73",
+      "26344d"
+    ],
+    "batches": [
+      {
+        "id": "驭魔师完整姿势",
+        "review": "../../../summoner-complete-v1-20261024/battle-light.png",
+        "status": "review_candidate"
+      }
+    ]
+  }
+}

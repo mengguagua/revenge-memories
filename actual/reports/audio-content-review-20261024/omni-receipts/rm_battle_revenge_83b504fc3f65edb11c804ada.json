@@ -1,0 +1,76 @@
+{
+  "id": "rm_battle_revenge",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_revenge.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/music_76.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_revenge.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_battle_revenge_scene.wav",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is tail 6 seconds then head 6 seconds, with the loop join at 6 seconds; assess rhythmic/harmonic continuity and distracting loudness changes there. Audio 4 is the current game-gain offline mix with interface or combat effects. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: M14/M15/F25; desired mood: 直面科兰与裴萨、愤怒受责任约束",
+  "max_tokens": 340,
+  "key": "83b504fc3f65edb11c804ada",
+  "source_sha256": [
+    "32e672f211c8410f32092577bebfac0c94925d8f9d758e78b8684c34209fc87f",
+    "7f628eb5024e7a1f0db7114d30412be1a75294cda9dddea0efe33bdb31a537de",
+    "32e672f211c8410f32092577bebfac0c94925d8f9d758e78b8684c34209fc87f",
+    "b4d0c455406ba05183e636e59c8bbe4c303c4665358e967f17c591a7e5cdf1a3"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/32e672f211c8410f32092577bebfac0c94925d8f9d758e78b8684c34209fc87f.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/7f628eb5024e7a1f0db7114d30412be1a75294cda9dddea0efe33bdb31a537de.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/32e672f211c8410f32092577bebfac0c94925d8f9d758e78b8684c34209fc87f.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/b4d0c455406ba05183e636e59c8bbe4c303c4665358e967f17c591a7e5cdf1a3.wav"
+  ],
+  "audio_input_samples": [
+    445218,
+    240000,
+    192001,
+    44800
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "bf1df9e498efc1b776695977ae74344409a8177c757983abf55ce2f876fb8cee",
+    "dd4c6f60cc9540737c2388e8671df0411400a92c7201e26ed7a988580cb75895",
+    "caa4cd2d2f4eb078224f621881d8a11017b2e502ca3707353955820d16695449",
+    "7374f267d4997494d369b6c43109a9450c3ada463e4cad0b7d6c46e7390e13db"
+  ],
+  "response": "Audio 1 features a synthesized chiptune melody with a clear, bright timbre. The energy is moderate and consistent, creating a tense, focused mood. The melody is repetitive with subtle variations, suggesting a loop designed for prolonged listening. No vocals or speech are present. The audio quality is clean, with no noticeable defects. The melodic development is minimal, emphasizing persistence over complexity.\n\nAudio 2 provides a reference with a sparse, retro texture. Its clarity and simplicity contrast with Audio 1’s denser arrangement.\n\nAudio 3 shows a seamless loop at the 6-second join, with rhythmic and harmonic continuity maintained. Loudness remains stable, avoiding distracting changes.\n\nAudio 4 introduces sharp interface or combat effects layered over the music. These effects are loud and brief, momentarily masking the music. The music does not obscure essential feedback; instead, the effects dominate during key actions. The balance suggests intentional prioritization of feedback over musical immersion.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 192,
+    "prompt_tokens": 1022,
+    "total_tokens": 1214,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 994,
+    "prompt_ms": 3431.616,
+    "prompt_per_token_ms": 3.4523299798792757,
+    "prompt_per_second": 289.65944907588727,
+    "predicted_n": 192,
+    "predicted_ms": 3121.614,
+    "predicted_per_token_ms": 16.34352879581152,
+    "predicted_per_second": 61.1862965760661
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 8.307,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

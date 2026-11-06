@@ -1,0 +1,76 @@
+{
+  "id": "rm_battle_sun_tower",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_sun_tower.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/music_76.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_sun_tower.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_battle_sun_tower_scene.wav",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is tail 6 seconds then head 6 seconds, with the loop join at 6 seconds; assess rhythmic/harmonic continuity and distracting loudness changes there. Audio 4 is the current game-gain offline mix with interface or combat effects. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: M42/M43/M44; desired mood: 旧同袍、日塔、王都门前的抉择",
+  "max_tokens": 340,
+  "key": "8f8145b41871158f859404bd",
+  "source_sha256": [
+    "79408c2884b88e8b9577cad901dab9b5fe596a13ba7f3981a37706fbe3c2d7e9",
+    "7f628eb5024e7a1f0db7114d30412be1a75294cda9dddea0efe33bdb31a537de",
+    "79408c2884b88e8b9577cad901dab9b5fe596a13ba7f3981a37706fbe3c2d7e9",
+    "164bdc84eaab912d08386118e82f6b754ce29e704dfe871ef2a5905a332df403"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/79408c2884b88e8b9577cad901dab9b5fe596a13ba7f3981a37706fbe3c2d7e9.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/7f628eb5024e7a1f0db7114d30412be1a75294cda9dddea0efe33bdb31a537de.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/79408c2884b88e8b9577cad901dab9b5fe596a13ba7f3981a37706fbe3c2d7e9.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/164bdc84eaab912d08386118e82f6b754ce29e704dfe871ef2a5905a332df403.wav"
+  ],
+  "audio_input_samples": [
+    451765,
+    240000,
+    192000,
+    44800
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "4d4542d4277481afe285727f2cc6df451c01d122f4b7af44497fa78bffe04023",
+    "dd4c6f60cc9540737c2388e8671df0411400a92c7201e26ed7a988580cb75895",
+    "ef57f588f96ca5c040151311d8fff4ef92d57beacc4bc334123a6eb7ade09760",
+    "48ae32127529143ad03d1b0a7c8d4c48e4de3e6d20b42e11394a99b48fab2aa2"
+  ],
+  "response": "Audio 1 features a synthesized chiptune melody with a clear, bright timbre. The music has a moderate, steady tempo and a nostalgic, slightly melancholic mood. The melodic development is simple and repetitive, creating a contemplative atmosphere. There are no vocals or speech. The audio quality is clean, with no noticeable defects. The music is appropriate for a scene of reflection or decision-making, such as a moment of choice before entering a city or facing a significant event.\n\nAudio 2 is a reference track with a sparse, retro texture. It is not a direct copy of Audio 1 but shares a similar chiptune style.\n\nAudio 3 shows a loop with a clear join at the 6-second mark. The rhythmic and harmonic continuity is maintained, with no distracting loudness changes. The loop is seamless and consistent.\n\nAudio 4 includes a chiptune melody with added interface or combat effects. The effects do not mask the music, and the music does not obscure essential feedback. The mix is balanced, allowing both elements to be heard clearly.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 217,
+    "prompt_tokens": 1035,
+    "total_tokens": 1252,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 1007,
+    "prompt_ms": 3547.058,
+    "prompt_per_token_ms": 3.5224011916583913,
+    "prompt_per_second": 283.89724667597767,
+    "predicted_n": 217,
+    "predicted_ms": 3749.491,
+    "predicted_per_token_ms": 17.35875462962963,
+    "predicted_per_second": 57.60781930133984
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 9.386,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

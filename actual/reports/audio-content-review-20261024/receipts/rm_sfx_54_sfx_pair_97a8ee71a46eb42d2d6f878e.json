@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_54",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_54.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_54.ogg"
+  ],
+  "hashes": [
+    "b09362fd7de8d7b3633343e20d7f592a98498910f59306a5dc75ea6656cd4074",
+    "47546de70997670e6c1fda18e3fc065a141dad21a35d55dad3a12a924c8fce3e"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "97a8ee71a46eb42d2d6f878e",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    20440,
+    22080
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "The first sound is a beep, short and sharp, with a fast decay. The second is a thump, which sounds more like an impact than a sound effect, and has a longer decay. The main difference is the timbre; the beep is higher pitched and more digital sounding, while the thump has a more organic, heavy feel.",
+  "generation_tokens": 70,
+  "generation_tps": 38.025747048549185,
+  "wall_seconds": 1.976,
+  "peak_memory_bytes": 7517914846,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

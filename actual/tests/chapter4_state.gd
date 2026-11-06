@@ -62,10 +62,10 @@ func run():
  g=base();g.flags.transfer_cut=true;g.flags.F43_confirmed=true;g.route="celica";g.party=g.parties.celica.duplicate();g.world_node=29;g.route_positions.celica=29;g.start_battle(408)
  check(g.flags.quest.transfer_cut_snapshot and g.battle_data.reinforcements.is_empty(),"cut snapshot removes announced wave at entry")
  g.save_game();loaded.save_path=g.save_path;check(loaded.load_game() and loaded.battle_data.reinforcements.is_empty(),"cut snapshot remains removed after load")
- g=fixture(405);var e=g.find_unit("F41_e1");e.position=[5,6];g.phase="player";g.turn=2;g.ChapterFour.after_phase(g)
+ g=fixture(405);var e=g.find_unit("F41_e1");var north_well=g.battle_data.objects.filter(func(o):return o.id=="well_n")[0].position.duplicate();e.position=north_well.duplicate();g.phase="player";g.turn=2;g.ChapterFour.after_phase(g)
  check(g.flags.quest.wells.well_n,"one arrival does not lose well")
  g.turn=3;g.ChapterFour.after_phase(g);check(not g.flags.quest.wells.well_n and g.check_outcome()=="","one lost well does not fail")
- e.position=[7,6];g.find_unit("eileen").position=[5,6];g.phase="enemy";g.ChapterFour.after_phase(g);check(g.flags.quest.wells.well_n,"standing back on well recaptures")
+ e.position=[north_well[0]+2,north_well[1]];g.find_unit("eileen").position=north_well.duplicate();g.phase="enemy";g.ChapterFour.after_phase(g);check(g.flags.quest.wells.well_n,"standing back on well recaptures")
  g.flags.quest.wells={"well_n":false,"well_s":false};check(g.check_outcome()=="defeat","both wells lost fails")
  for id in [406,411]:
   g=fixture(id);var burner=g.units.filter(func(u):return u.get("ch4_burner",false))[0];burner.position=g.battle_data.burn_target;g.turn=int(g.battle_data.burn_start)

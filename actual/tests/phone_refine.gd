@@ -50,14 +50,14 @@ func run():
 	ui.game.slot_directory="/private/tmp/revenge-phone-refine/slots";ui.game.save_path="/private/tmp/revenge-phone-refine/working.json";ui.journey.refresh()
 	check(phone.game_view.size_2d_override==Vector2i(364,240) and phone.pixel_scale==4,"iPhone asymmetric rails retain integer 4x display")
 	check(phone.game_rect.position.x==642,"content moves right by 176 physical pixels")
-	check(button(KEY_LEFT).rect.size==Vector2(36,36),"direction keys enlarged from32x34 to36x36")
-	check(button(KEY_RIGHT).rect.position.x-button(KEY_LEFT).rect.end.x==36,"left/right key gap increased from4 to36 logical pixels")
+	check(button(KEY_LEFT).rect.size==Vector2(43,43),"direction keys enlarged by about20percent with whole-pixel art")
+	check(button(KEY_RIGHT).rect.position.x-button(KEY_LEFT).rect.end.x==27,"left/right inner gap is reduced to27 logical pixels")
 	check(phone._button_at((point(KEY_LEFT)+point(KEY_RIGHT))/2)==0,"center gap is a neutral area and cannot trigger either direction")
 	var direction_center=(point(KEY_LEFT)+point(KEY_RIGHT))/2
 	for direction in phone.DIRECTION_KEYS:
-		check(is_equal_approx(point(direction).distance_to(direction_center),36*phone.pixel_scale),"all four directions equally distant from center "+str(direction))
+		check(is_equal_approx(point(direction).distance_to(direction_center),(43 if direction in [KEY_UP,KEY_DOWN] else 35)*phone.pixel_scale),"direction spacing stays symmetric without corner overlap "+str(direction))
 	var cross=button(KEY_UP).rect.merge(button(KEY_DOWN).rect).merge(button(KEY_LEFT).rect).merge(button(KEY_RIGHT).rect)
-	check(cross.size==Vector2(108,108),"equal cross has square108x108 outer bounds")
+	check(cross.size==Vector2(113,129),"larger keys retain the116px rail without overlapping corners")
 	await capture("01-title-controls")
 	ui.game.new_game();ui.game.world_node=2;ui.game.start_battle(101);ui.game.story_events.clear();ui.view="battle";ui.ui_mode="inspect";ui.busy=false;ui.batch_running=false;ui.notice_time=0;ui.phase_time=0
 	ui.game.cursor=ui.game.pos(ui.game.find_unit("hunapu"));ui._focus_battle(ui.game.cursor,true);ui._clear_menu();phone._sync_controls()

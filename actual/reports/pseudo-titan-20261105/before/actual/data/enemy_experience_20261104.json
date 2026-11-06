@@ -1,0 +1,331 @@
+{
+  "revision": 1,
+  "formula": "min(255, B + floor(B * (level - 1) / 10))",
+  "class_bases": {
+    "1": {
+      "name": "骑兵",
+      "tier": 1,
+      "base": 40
+    },
+    "2": {
+      "name": "重装兵",
+      "tier": 2,
+      "base": 60
+    },
+    "3": {
+      "name": "石翼兽",
+      "tier": 1,
+      "base": 50
+    },
+    "4": {
+      "name": "骑士",
+      "tier": 2,
+      "base": 60
+    },
+    "5": {
+      "name": "骸翼兽",
+      "tier": 2,
+      "base": 60
+    },
+    "6": {
+      "name": "士兵",
+      "tier": 1,
+      "base": 35
+    },
+    "7": {
+      "name": "大骑士",
+      "tier": 3,
+      "base": 70
+    },
+    "8": {
+      "name": "佣兵",
+      "tier": 1,
+      "base": 35
+    },
+    "9": {
+      "name": "剑士",
+      "tier": 2,
+      "base": 55
+    },
+    "10": {
+      "name": "剑豪",
+      "tier": 3,
+      "base": 75
+    },
+    "11": {
+      "name": "蚀躯",
+      "tier": 1,
+      "base": 30
+    },
+    "12": {
+      "name": "弓箭手",
+      "tier": 1,
+      "base": 35
+    },
+    "13": {
+      "name": "狙击手",
+      "tier": 2,
+      "base": 55
+    },
+    "14": {
+      "name": "断路匪",
+      "tier": 1,
+      "base": 35
+    },
+    "15": {
+      "name": "执令术师",
+      "tier": 1,
+      "base": 50
+    },
+    "16": {
+      "name": "隙行术师",
+      "tier": 2,
+      "base": 60
+    },
+    "17": {
+      "name": "骸卫",
+      "tier": 2,
+      "base": 50
+    },
+    "18": {
+      "name": "裂目兽",
+      "tier": 2,
+      "base": 60
+    },
+    "19": {
+      "name": "驭魔师",
+      "tier": 3,
+      "base": 75
+    },
+    "20": {
+      "name": "弓骑士",
+      "tier": 3,
+      "base": 75
+    },
+    "21": {
+      "name": "神躯",
+      "tier": 0,
+      "base": 100
+    },
+    "22": {
+      "name": "壁垒卫士",
+      "tier": 3,
+      "base": 75
+    },
+    "23": {
+      "name": "勇者",
+      "tier": 3,
+      "base": 75
+    },
+    "25": {
+      "name": "水猴傀儡",
+      "tier": 1,
+      "base": 50
+    }
+  },
+  "bosses": {
+    "101": {
+      "code": "M11",
+      "unit_id": "M11_boss",
+      "base": 85
+    },
+    "102": {
+      "code": "M12",
+      "unit_id": "M12_boss",
+      "base": 80
+    },
+    "103": {
+      "code": "M13",
+      "unit_id": "M13_boss",
+      "base": 85
+    },
+    "104": {
+      "code": "M14",
+      "unit_id": "M14_boss",
+      "base": 90
+    },
+    "105": {
+      "code": "M15",
+      "unit_id": "M15_boss",
+      "base": 95
+    },
+    "111": {
+      "code": "S11",
+      "unit_id": "S11_boss",
+      "base": 90
+    },
+    "112": {
+      "code": "S12",
+      "unit_id": "S12_boss",
+      "base": 80
+    },
+    "201": {
+      "code": "F21",
+      "unit_id": "F21_boss",
+      "base": 80
+    },
+    "202": {
+      "code": "F22",
+      "unit_id": "F22_boss",
+      "base": 85
+    },
+    "203": {
+      "code": "F23",
+      "unit_id": "F23_boss",
+      "base": 85
+    },
+    "204": {
+      "code": "F24",
+      "unit_id": "F24_boss",
+      "base": 85
+    },
+    "205": {
+      "code": "F25",
+      "unit_id": "F25_boss",
+      "base": 90
+    },
+    "206": {
+      "code": "F26",
+      "unit_id": "F26_boss",
+      "base": 85
+    },
+    "211": {
+      "code": "S21",
+      "unit_id": "S21_boss",
+      "base": 90
+    },
+    "212": {
+      "code": "S22",
+      "unit_id": "S22_boss",
+      "base": 85
+    },
+    "301": {
+      "code": "M31",
+      "unit_id": "M31_boss",
+      "base": 85
+    },
+    "302": {
+      "code": "M32",
+      "unit_id": "M32_boss",
+      "base": 90
+    },
+    "303": {
+      "code": "M33",
+      "unit_id": "M33_boss",
+      "base": 95
+    },
+    "304": {
+      "code": "F31",
+      "unit_id": "F31_boss",
+      "base": 85
+    },
+    "305": {
+      "code": "F32",
+      "unit_id": "F32_boss",
+      "base": 90
+    },
+    "306": {
+      "code": "F33",
+      "unit_id": "F33_boss",
+      "base": 95
+    },
+    "311": {
+      "code": "S31",
+      "unit_id": "S31_boss",
+      "base": 85
+    },
+    "312": {
+      "code": "S32",
+      "unit_id": "S32_boss",
+      "base": 85
+    },
+    "401": {
+      "code": "M41",
+      "unit_id": "M41_boss",
+      "base": 90
+    },
+    "402": {
+      "code": "M42",
+      "unit_id": "M42_boss",
+      "base": 90
+    },
+    "403": {
+      "code": "M43",
+      "unit_id": "M43_boss",
+      "base": 90
+    },
+    "404": {
+      "code": "M44",
+      "unit_id": "M44_boss",
+      "base": 90
+    },
+    "405": {
+      "code": "F41",
+      "unit_id": "F41_boss",
+      "base": 90
+    },
+    "406": {
+      "code": "F42",
+      "unit_id": "F42_boss",
+      "base": 95
+    },
+    "407": {
+      "code": "F43",
+      "unit_id": "F43_boss",
+      "base": 95
+    },
+    "408": {
+      "code": "F44",
+      "unit_id": "F44_boss",
+      "base": 90
+    },
+    "411": {
+      "code": "S41",
+      "unit_id": "S41_boss",
+      "base": 90
+    },
+    "412": {
+      "code": "S42",
+      "unit_id": "S42_boss",
+      "base": 90
+    },
+    "501": {
+      "code": "M51",
+      "unit_id": "M51_boss",
+      "base": 95
+    },
+    "502": {
+      "code": "M52",
+      "unit_id": "M52_boss",
+      "base": 95
+    },
+    "503": {
+      "code": "F51",
+      "unit_id": "F51_boss",
+      "base": 95
+    },
+    "504": {
+      "code": "F52",
+      "unit_id": "F52_boss",
+      "base": 95
+    },
+    "511": {
+      "code": "S51",
+      "unit_id": "S51_boss",
+      "base": 95
+    },
+    "533": {
+      "code": "J53",
+      "unit_id": "J53_boss",
+      "base": 95
+    },
+    "534": {
+      "code": "J54",
+      "unit_id": "J54_boss",
+      "base": 100
+    }
+  },
+  "reserved_unimplemented": [
+    24
+  ]
+}

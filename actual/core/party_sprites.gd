@@ -1,6 +1,10 @@
 extends RefCounted
 ## Campaign actors share class bodies; only Eileen has a personal body profile.
+const CampaignArt=preload("res://core/campaign_art.gd")
 const Reviewed = preload("res://core/reviewed_animations.gd")
+const Body = preload("res://core/innate_attacks.gd")
+const MechanicalArt=preload("res://core/mechanical_art.gd")
+static var body_art: Dictionary={}
 static var cache: Dictionary={}
 static func data() -> Dictionary:
 	if cache.is_empty() and FileAccess.file_exists("res://data/party_visuals.json"):
@@ -20,9 +24,14 @@ static func class_key(actor: Dictionary) -> String:
 	if cid==21 and bool(actor.get("promoted",actor.get("alm_promoted",false))):return "23"
 	return str(cid)
 static func sprite(kind: String,actor: Dictionary,chapter: int=0) -> Dictionary:
+	if Body.Mechanical.is_puppet(actor):return MechanicalArt.battle(actor) if kind=="battle" else MechanicalArt.map_sprite(kind,actor)
 	var reviewed = Reviewed.map_sprite(kind, actor)
-	if not reviewed.is_empty(): return reviewed
-	if not applies(actor):return {}
+	if CampaignArt.valid(reviewed): return reviewed
+	if kind in ["map","map_move"] and Body.is_body(actor) and int(actor.class_id) in [3,5,21]:
+		if body_art.is_empty():body_art=JSON.parse_string(FileAccess.get_file_as_string("res://data/innate_attack_art.json"))
+		var art:Dictionary=body_art.get(str(int(actor.class_id)),{}).get("map",{}).duplicate(true)
+		return art if CampaignArt.valid(art) else CampaignArt.map_sprite(kind,actor)
+	if not applies(actor):return CampaignArt.battle(actor) if kind=="battle" else CampaignArt.map_sprite(kind,actor)
 	var profiles=data().get("classes",{})
 	var actor_id=str(actor.get("id",""))
 	if chapter==1 and (actor_id in data().get("chapter1_actor_ids",[]) or actor_id in data().get("chapter1_npc_ids",[])) and (not data().has("chapter1_review_actor_ids") or actor_id in data().chapter1_review_actor_ids):
@@ -35,7 +44,8 @@ static func sprite(kind: String,actor: Dictionary,chapter: int=0) -> Dictionary:
 		var personal: Dictionary=data().get("actor_maps",{}).get(actor_id,{}).get(class_key(actor),{})
 		value=personal.get("hub" if kind=="world" else kind,value)
 		if kind=="world" and personal.is_empty():value=profiles.get(class_key(actor),{}).get("hub",value)
-	return value.duplicate(false) if not value.is_empty() and ResourceLoader.exists(str(value.path)) else {}
+	return value.duplicate(false) if CampaignArt.valid(value) else CampaignArt.battle(actor) if kind=="battle" else CampaignArt.map_sprite(kind,actor)
 static func battle(actor: Dictionary,original: Dictionary,chapter: int=0) -> Dictionary:
 	var result=sprite("battle",actor,chapter)
-	return original if result.is_empty() else result
+	if not CampaignArt.valid(result):return CampaignArt.battle(actor)
+	var merged=original.duplicate(false);merged.merge(result,true);return merged

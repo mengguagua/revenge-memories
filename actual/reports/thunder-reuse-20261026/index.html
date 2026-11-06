@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>复用现成改版雷电</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#111923;color:#edf1f4;font:16px/1.8 system-ui,-apple-system,"PingFang SC",sans-serif}main{max-width:1200px;margin:auto;padding:36px 24px 56px}h1{font-size:clamp(26px,4vw,38px);line-height:1.4;margin:8px 0 18px}h2{font-size:22px;margin:0 0 14px}p{margin:0 0 14px}.muted{color:#b3becb}.tag{color:#b9d4c5;font-size:14px}section{margin-top:24px;padding:24px;background:#1b2735;border-radius:16px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}figure{margin:0;background:#111923;border-radius:10px;overflow:hidden}img{display:block;width:100%;height:auto}figcaption{padding:14px 18px;color:#b3becb}figcaption strong{display:block;color:#edf1f4;font-size:18px}a{color:#c7def2;text-underline-offset:4px}a:focus-visible{outline:none;box-shadow:0 0 0 5px #b9d4c54d;border-radius:4px}.links{display:flex;flex-wrap:wrap;gap:10px 22px}.full{margin-top:18px}code{overflow-wrap:anywhere}.small{font-size:14px}@media(max-width:700px){main{padding:24px 14px 40px}section{padding:18px 16px}.grid{grid-template-columns:1fr}}
+</style></head><body><main>
+<div class="tag">2026-10-26 · 按指定素材复用</div>
+<h1>改用全动作对照里现成的雷电</h1>
+<p>复用图中已有的灰蓝色雷电、地面冲击与分叉素材，保留配色和形状。上一批新画的细线雷电已退出运行引用，本轮没有生成或重绘雷电。</p>
+<p class="muted">雷电法术原本已使用这套现成素材；本轮将雷电剑的备用特效也统一改为复用它，并让法术特效在普通战斗窗口内等比适配，避免超出顶部。人物动作、伤害、命中时机与音频保持。未更新iPhone。</p>
+<section><h2>雷电剑备用特效：同一播放帧对照</h2><div class="grid">
+<figure><a href="01-before-generated.png"><img src="01-before-generated.png" alt="已停用的新画细线版本"></a><figcaption><strong>上一批版本 · 已停用</strong>仅保留历史对照。</figcaption></figure>
+<figure><a href="02-reused-existing.png"><img src="02-reused-existing.png" alt="复用现成雷电与落地效果"></a><figcaption><strong>当前版本 · 复用现成素材</strong>单股落雷与地面冲击按原有落地点对齐，保持图像比例。</figcaption></figure>
+</div></section>
+<section><h2>图中法术版与另一侧施放</h2><div class="grid">
+<figure><a href="04-mage-thunder-impact.png"><img loading="lazy" src="04-mage-thunder-impact.png" alt="术法师使用现成雷电落地素材"></a><figcaption><strong>雷电法术 · 落地</strong>使用原有改版图片，等比适配普通战斗画面。</figcaption></figure>
+<figure><a href="05-mage-thunder-branch.png"><img loading="lazy" src="05-mage-thunder-branch.png" alt="现成雷电的落地分叉阶段"></a><figcaption><strong>雷电法术 · 后续电弧</strong>保留原有冲击、分叉和消退时间线。</figcaption></figure>
+<figure><a href="03-enemy-ranged.png"><img loading="lazy" src="03-enemy-ranged.png" alt="另一侧远程雷电剑使用相同素材"></a><figcaption><strong>另一侧与远程</strong>统一复用相同素材。</figcaption></figure>
+</div></section>
+<section><h2>复用范围与检查</h2>
+<p>雷电剑72种演出的504处保底引用统一更新；60条雷电法术时间线及身体素材保持。现成16张法术特效仅调整等比显示参数，未改图片颜色。落雷与地面素材按固定落地点组合，新增运行组合图320×960、6,586字节；没有另画图案或新增颜色。</p>
+<p>资源加载、无新画雷电运行引用、非目标数据一致性检查通过，五张后台运行截图与文字安全区检查通过。截图为Godot后台渲染，非iPhone真机；本轮未执行五章完整通关。</p>
+<div class="links"><a href="reuse-checks.json">素材来源与复用检查</a><a href="visual-checks.json">运行检查</a><a href="../../../art-review/character-expansion-20261018/index.html">原有「角色重绘 · 全动作对照」</a></div>
+<p class="muted small full">现成素材批次：<code>thunder-ground-impact-v1-20261024</code>。运行继续引用已接入的<code>actual/assets/character-art-sync-20261024/effects/</code>，地面组合图位于<code>actual/assets/thunder-reuse-20261026/bolt-ground.png</code>。原始素材保留。</p>
+</section></main></body></html>

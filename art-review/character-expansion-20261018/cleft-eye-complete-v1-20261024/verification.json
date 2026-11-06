@@ -1,0 +1,114 @@
+{
+  "passed": true,
+  "checks": 2778,
+  "profiles": 3,
+  "actions": 14,
+  "native_attack_ticks": 240,
+  "contact_tick": 83,
+  "native_actor_rows_exact": true,
+  "fixed_core_measurements": [
+    {
+      "direction": "tactical-idle",
+      "fixed_regions": [
+        [
+          25,
+          12,
+          72,
+          24
+        ],
+        [
+          25,
+          24,
+          35,
+          58
+        ],
+        [
+          64,
+          24,
+          72,
+          58
+        ],
+        [
+          35,
+          54,
+          64,
+          58
+        ]
+      ],
+      "fixed_core_drift_pixels": 0,
+      "gaze_and_tail_change_inside_fixed_shell": true,
+      "fixed_complete_shell_alpha": true
+    },
+    {
+      "direction": "up",
+      "fixed_regions": [
+        [
+          40,
+          33,
+          89,
+          80
+        ]
+      ],
+      "fixed_core_drift_pixels": 0,
+      "gaze_and_tail_change_inside_fixed_shell": true
+    },
+    {
+      "direction": "right",
+      "fixed_regions": [
+        [
+          42,
+          39,
+          89,
+          89
+        ]
+      ],
+      "fixed_core_drift_pixels": 0,
+      "gaze_and_tail_change_inside_fixed_shell": true
+    },
+    {
+      "direction": "down",
+      "fixed_regions": [],
+      "fixed_core_drift_pixels": 0,
+      "gaze_and_tail_change_inside_fixed_shell": true,
+      "fixed_shell_alpha_and_two_pixel_rim": true,
+      "fixed_shell_bounds": [
+        36,
+        40,
+        94,
+        86
+      ]
+    },
+    {
+      "direction": "left",
+      "fixed_regions": [
+        [
+          39,
+          39,
+          86,
+          89
+        ]
+      ],
+      "fixed_core_drift_pixels": 0,
+      "gaze_and_tail_change_inside_fixed_shell": true
+    }
+  ],
+  "native_walk_mirror_aliases_exact": true,
+  "native_oam_and_bg_registration_preserved": true,
+  "gaze_sequence": [
+    0,
+    1,
+    3,
+    2,
+    0
+  ],
+  "tail_sequence": [
+    4,
+    5,
+    6,
+    0
+  ],
+  "attack_visual": "single forward collision, no beam or additional magic",
+  "errors": [],
+  "runtime_integrated": false,
+  "user_acceptance": "pending"
+}

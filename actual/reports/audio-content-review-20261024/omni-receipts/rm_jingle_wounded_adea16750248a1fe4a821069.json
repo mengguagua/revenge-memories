@@ -1,0 +1,68 @@
+{
+  "id": "rm_jingle_wounded",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_jingle_wounded.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/unit_death.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_jingle_wounded_scene.wav",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is the current game-gain offline mix, including the background pause and resume. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: 正式同伴濒死90；战败提示；不用死亡葬礼语义; desired mood: 关切、短促停顿、不宣告死亡",
+  "max_tokens": 340,
+  "key": "adea16750248a1fe4a821069",
+  "source_sha256": [
+    "57268288ccea0fafac00f45ef5977caaa59256d02931687a57e5bfd700173bf4",
+    "f77d33da1a866fb2faa45b2b4fbe91e19bef8a061a8e3702966f6b9235e21b70",
+    "22e56ad1690351e3407ca332b6f5ed6d6d3eb4a1fbc1fccfa3515188df57871a"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/57268288ccea0fafac00f45ef5977caaa59256d02931687a57e5bfd700173bf4.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/f77d33da1a866fb2faa45b2b4fbe91e19bef8a061a8e3702966f6b9235e21b70.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/22e56ad1690351e3407ca332b6f5ed6d6d3eb4a1fbc1fccfa3515188df57871a.wav"
+  ],
+  "audio_input_samples": [
+    44480,
+    33076,
+    76480
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "c195dfb83caa4c7c32b904f0c6d66f0449951611e3a905d2840bc3df7f6cdea6",
+    "cb0b51389a3297d8794e2991df020469d571173e246abcadac3edbccdb031bda",
+    "73ae15bcce7fb1ec10d9404883866d4469a3374117d85c245953e135de9ac172"
+  ],
+  "response": "Audio 1: A single, sustained, slightly detuned synth chord with a soft, muffled timbre. The sound is low in energy, creating a somber, unresolved mood. No melody develops; it's static and minimal. No speech or defects are audible. The chord fades in and out, suggesting a pause or transition.\n\nAudio 2: A sharp, clear, square-wave synth tone—typical of retro chiptune. It's brief and isolated, serving as a reference for the original game’s sparse, functional texture.\n\nAudio 3: The same synth chord from Audio 1 is layered with a faint, low-frequency hum. The background pause and resume are abrupt, with no musical continuity. The hum may mask subtle audio cues, but the chord itself remains prominent. The effect is not musical but functional—possibly signaling a system state. The mood is tense and unresolved, fitting the intended scene of a companion near death. The lack of melodic development or resolution supports the \"not yet dead\" context. No vocals or speech are present.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 216,
+    "prompt_tokens": 352,
+    "total_tokens": 568,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 324,
+    "prompt_ms": 1320.211,
+    "prompt_per_token_ms": 4.074725308641975,
+    "prompt_per_second": 245.41531618809418,
+    "predicted_n": 216,
+    "predicted_ms": 3371.922,
+    "predicted_per_token_ms": 15.683358139534883,
+    "predicted_per_second": 63.761854515021405
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 6.351,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

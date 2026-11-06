@@ -1,0 +1,10 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>战斗反馈 · 双防、装备与矿道</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#14212a;color:#e8e5d9;font:16px/1.8 system-ui,sans-serif}main{max-width:1320px;margin:auto;padding:28px}h1{line-height:1.4;font-size:28px}h2{font-size:21px;margin:0 0 10px}p{color:#c3d1cf}a{color:#bbdfca}article,section{padding:22px;margin:24px 0;border-radius:14px;background:#20313a;box-shadow:0 4px 18px #0002}img{display:block;max-width:100%;height:auto;image-rendering:pixelated;border-radius:7px}:focus-visible{outline:none;box-shadow:0 0 0 4px #8bafa766}@media(max-width:680px){main{padding:16px}article,section{padding:16px}h1{font-size:24px}}</style>
+<main><h1>战斗反馈 · 双防、装备与矿道</h1>
+<p>S12指挥官力量9→11、物防4→6；装备状态与实际结算统一；贝克随矿工推进，盗匪采用正确的新版职业。</p>
+<p><a href="README.md">五项修改依据与测试范围（MD）</a> · <a href="40关强度与修改表.md">40关强度及50个单位修改表（MD）</a> · <a href="play-summary.json">六关操作结果</a> · <a href="checks.json">定向检查</a></p>
+<section><h2>数值调整与测试结果</h2><p>共分析40关的同期历史队伍，调整第一章六关50名敌军。首战保留教学难度，第二至第五章保留当前强度。S11五名匪徒力量7→9；其中三名原本误用22号重装职业，已改成14号断路匪。</p><p>六张调整地图均通过正常操作：S11 11回合、S12 10回合、M12 8回合、M13 13回合、M14 4回合、M15 10回合。M15本次新增奥托、赫维濒死，难度变化已单列。33项定向检查、7项呈现检查通过。</p><p>仅以下三张不同场景画面。使用独立夹具与iPhone 16尺寸后台视口，未访问或更新iPhone；不是新增真机截图。</p></section>
+<article><h2>状态数值包括当前装备，分列物防与魔防</h2><p>裸物防6＋皮盾3＝物防9；个人魔防2保持。攻击计入武器／适配法器，攻速扣除重量，幸运与移动计入相应戒指。进阶人物采用相同计算。</p><img src="01-status-equipment.png" alt="奥托携带皮盾，状态显示物防9与魔防2" loading="lazy"></article>
+<article><h2>盗匪恢复正确职业与新版形象</h2><p>S11_e1—e5统一为14号断路匪；地图与战斗小像均使用已验收的新图。保留原位置、数量、生命和物防，力量7→9，修正前三名遗留的重装抗性。</p><img src="02-bandit-profession.png" alt="矿道中的断路匪使用轻装新版形象，摆脱旧重装职业错配" loading="lazy"></article>
+<article><h2>贝克随矿工推进，安全时提供弓援</h2><p>修复旧witness标记导致的固定站位。贝克招募前自动行动，矿工移动后跟进，安全时射击；战后存活仍需玩家邀请。他不替代两组矿工的撤离目标。</p><img src="03-beck-duty.png" alt="贝克角色卡显示随矿工推进、安全弓援" loading="lazy"></article>
+<p>物防／魔防结算原本已独立。本次补显示与标签，普通魔法仍为力量＋法术威力－目标魔防，限制1～60。详见<a href="README.md">原作来源、特殊规则和修改边界</a>。</p></main></html>

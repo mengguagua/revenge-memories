@@ -1,0 +1,54 @@
+{
+  "id": "rm_battle_refuge",
+  "kind": "final_scene_mix",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_battle_refuge_scene.wav"
+    }
+  ],
+  "asset_sha256": "d0b6a736817d9993d029ae8f0ee37ae8c9c97846c5d2b9f8d87ba71314d53779",
+  "fixture_sha256": "e015a77655ad311c93d6e6d2428106f629b2e91e941bd2880cbcb295d559868c",
+  "prompt": "This is a final offline scene mix using the actual game gains and native event sequence. Describe only audible evidence. Check whether essential feedback attacks are clear, any intrusive click/distortion or excessive rumbling tail, and whether music continuity is distracted by the effects. Effects need not be as loud as music; a naturally masked quiet tail is not a failure. Report uncertainty and avoid inventing instruments/events. Under 90 words. Fixture context: 按当前双声部与实际请求时序合成：火球脉冲；不是实机录音",
+  "max_tokens": 170,
+  "key": "9c899a262e62026b1126682b",
+  "source_sha256": [
+    "e015a77655ad311c93d6e6d2428106f629b2e91e941bd2880cbcb295d559868c"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/e015a77655ad311c93d6e6d2428106f629b2e91e941bd2880cbcb295d559868c.wav"
+  ],
+  "audio_input_samples": [
+    56717
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "5ef8fea7a871afa309e9b9cab61f832f4fdb3e713951790a606d0a084cf03e40"
+  ],
+  "response": "A synthesized chime sequence plays, followed by a rapid, high-pitched electronic pulse. The pulse has a sharp attack and a brief, clean tail with no distortion or intrusive clicks. A low-frequency rumble is present but does not interfere with the main events. The pulse is clearly audible over the background music, which maintains continuity without being distracted. The overall mix is clean, with no evidence of clipping or artifacts.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 85,
+    "prompt_tokens": 197,
+    "total_tokens": 282,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 169,
+    "prompt_ms": 504.322,
+    "prompt_per_token_ms": 2.984153846153846,
+    "prompt_per_second": 335.10336649997424,
+    "predicted_n": 85,
+    "predicted_ms": 1288.926,
+    "predicted_per_token_ms": 15.344357142857142,
+    "predicted_per_second": 65.1705373310803
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 8.283,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

@@ -1,0 +1,92 @@
+{
+  "scope": "独立预览；所有武器动作仍只显示一次命中与一次既有伤害结算",
+  "sources": [
+    {
+      "title": "CRI Middleware · Elemental Weapons",
+      "url": "https://blog.criware.com/index.php/2023/12/09/elemental-weapons/",
+      "used_for": "挥击、刃击与元素声分别制作，按视觉命中时刻叠加。"
+    },
+    {
+      "title": "BOOM Library · Medieval Weapons Construction Kit 数据表",
+      "url": "https://www.boomlibrary.com/metadata/00_Medieval_Weapons_CK_Metadata.pdf",
+      "used_for": "拉弓、放箭、箭矢掠过和不同目标的命中分开；入肉以软目标刺入的紧实湿声为设计依据。未下载或复用该音效库。"
+    },
+    {
+      "title": "Stability AI · Stable Audio 3 Prompt Guide",
+      "url": "https://kb.stability.ai/knowledge-base/stable-audio-3-prompt-guide",
+      "used_for": "提示词明确声源、动作、时长与录音质感；音乐分别指定节奏、乐器、能量和编配。"
+    }
+  ],
+  "decisions": {
+    "slash": "短促高频破风＋干净金属瞬态，收短尾音，不拉成长呼啸。",
+    "bow": "拉弓／松弦／末段掠空分别短触发，命中加入可辨认的软组织刺入声。",
+    "thunder": "单次尖锐炸响＋低频冲击＋短余雷；不是连续静电噪声。",
+    "music": "男女主各一首原创快节奏纯音乐；男主吉他和重鼓，女主快速弦乐与摇滚；攻击瞬态期间压低配乐。"
+  },
+  "duration_changes": [
+    {
+      "key": "slash_light",
+      "previous_seconds": 0.6,
+      "new_seconds": 0.23
+    },
+    {
+      "key": "slash_heavy",
+      "previous_seconds": 0.78,
+      "new_seconds": 0.29
+    },
+    {
+      "key": "sword_hit",
+      "previous_seconds": 0.58,
+      "new_seconds": 0.19
+    },
+    {
+      "key": "bow_draw",
+      "previous_seconds": 0.8,
+      "new_seconds": 0.18
+    },
+    {
+      "key": "bow_release",
+      "previous_seconds": 0.48,
+      "new_seconds": 0.12
+    },
+    {
+      "key": "bow_release_heavy",
+      "previous_seconds": 0.62,
+      "new_seconds": 0.15
+    },
+    {
+      "key": "arrow_flight",
+      "previous_seconds": 0.66,
+      "new_seconds": 0.17
+    },
+    {
+      "key": "arrow_hit",
+      "previous_seconds": 0.38,
+      "new_seconds": 0.23
+    },
+    {
+      "key": "flame_blade",
+      "previous_seconds": 0.9,
+      "new_seconds": 0.38
+    },
+    {
+      "key": "flame_burst",
+      "previous_seconds": 1.0,
+      "new_seconds": 0.72
+    },
+    {
+      "key": "thunder_hit",
+      "previous_seconds": 0.95,
+      "new_seconds": 0.9
+    },
+    {
+      "key": "thunder_hit_advanced",
+      "previous_seconds": 1.2,
+      "new_seconds": 1.12
+    }
+  ],
+  "music": "music.json",
+  "mixes": "audio-mixes.json",
+  "human_listening": false,
+  "review": "本地模型自动审听只作辅助，最终听感由用户在 HTML 试听确认。"
+}

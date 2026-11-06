@@ -1,0 +1,54 @@
+{
+  "id": "rm_sfx_12",
+  "kind": "final_scene_mix",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_sfx_12_new_context.wav"
+    }
+  ],
+  "asset_sha256": "b4d5d2cdc4ef072099ffba3896a8f1db0ad49de9cfd0f361f6ac2d9a56e7dd55",
+  "fixture_sha256": "ff06ecd40cd37a7131b11568bee0709059ad6ff80a2b55f598c8fbee2969c768",
+  "prompt": "This is a final offline scene mix using the actual game gains and native event sequence. Describe only audible evidence. Check whether essential feedback attacks are clear, any intrusive click/distortion or excessive rumbling tail, and whether music continuity is distracted by the effects. Effects need not be as loud as music; a naturally masked quiet tail is not a failure. Report uncertainty and avoid inventing instruments/events. Under 90 words. Fixture context: 菜单每100ms连移示例，间隔0.4秒后为实际源战斗与HP刻度；含当前配乐",
+  "max_tokens": 170,
+  "key": "d7f4d2a946cf74959aad0a53",
+  "source_sha256": [
+    "ff06ecd40cd37a7131b11568bee0709059ad6ff80a2b55f598c8fbee2969c768"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/ff06ecd40cd37a7131b11568bee0709059ad6ff80a2b55f598c8fbee2969c768.wav"
+  ],
+  "audio_input_samples": [
+    95917
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "e0074066b258bd14b7f20f4a6a88d344307bba99ba3d7f3a9b6ecf58ef22ada2"
+  ],
+  "response": "A sequence of high-pitched, synthesized chimes plays in a repeating pattern, each lasting about 100ms with a 400ms pause between. These are followed by a single, sharp electronic 'zap' sound. The background features a continuous, low-volume ambient music loop. The chimes are clear and distinct, with no distortion or intrusive clicks. The 'zap' is brief and does not disrupt the music. The music remains uninterrupted and undistracted by the effects. The overall mix is clean, with no excessive rumbling tails.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 114,
+    "prompt_tokens": 233,
+    "total_tokens": 347,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 205,
+    "prompt_ms": 567.123,
+    "prompt_per_token_ms": 2.7664536585365855,
+    "prompt_per_second": 361.47361330787146,
+    "predicted_n": 114,
+    "predicted_ms": 1722.459,
+    "predicted_per_token_ms": 15.243,
+    "predicted_per_second": 65.603883749918
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 2.307,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

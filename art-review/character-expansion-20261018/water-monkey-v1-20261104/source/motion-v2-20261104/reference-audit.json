@@ -1,0 +1,70 @@
+{
+  "revision": "water-monkey-motion-v2-20261104",
+  "scope": "V2参考核对；确认后已接入实际运行工程",
+  "soldier_melee": {
+    "source": "actual runtime reviewed soldier ordinary attack; gallery source action professions-class-6-ally-battle--original_class_6_normal",
+    "frames": 219,
+    "fps": 60.0988,
+    "contact_tick": 82,
+    "source_displacement": 72,
+    "water_monkey_displacement": 88,
+    "reason": "Empty palm has shorter reach than the soldier spear; retain approach/strike/recovery/return phases and align contact with visible defender."
+  },
+  "hit_feedback": {
+    "evidence": [
+      {
+        "file": "actual/core/legacy_main.gd",
+        "line": 1355,
+        "meaning": "Normal hit sets hit feedback to 0.5s, plays hit SFX, dispatches hit reaction, then counts HP down."
+      },
+      {
+        "file": "actual/core/battle_animation.gd",
+        "line": 356,
+        "meaning": "Damage feedback dims the same actor silhouette; source reaction also records tint/shake."
+      },
+      {
+        "file": "art-review/character-expansion-20261018/gallery-data.js",
+        "action": "professions-class-6-ally-battle--reaction-hit",
+        "meaning": "28 frames, only source pose 12; tint alternates 0.35/1, source horizontal displacements 3,1,2,1,...; no sequential body recoil poses."
+      }
+    ],
+    "conclusion": "A fixed pose with brightness flashing, small displacement and sound is the correct ordinary-damage treatment. Earlier water-monkey flinch poses are no longer used for ordinary hit feedback.",
+    "sound": "Existing rm_sfx_03.ogg reused in review as assets/hit.ogg; user-controlled, default muted."
+  },
+  "scale": {
+    "battle_frame": [
+      56,
+      64
+    ],
+    "foot_anchor": [
+      28,
+      60
+    ],
+    "target_soldier_logical_height": 32,
+    "water_monkey_body_height_target": 32,
+    "cannon_may_extend_above_head": true,
+    "rule": "Same ground line, no action-dependent global zoom or resizing in full-scene comparison."
+  },
+  "idle": {
+    "before_ticks": 48,
+    "after_ticks": 180,
+    "fps": 60.0988,
+    "period_seconds": 2.995068121160489,
+    "walking_unchanged": true
+  },
+  "water": {
+    "source": "source/motion-v2-20261104/water-original.png",
+    "display_flight_frame": [
+      52,
+      24
+    ],
+    "display_impact_frame": [
+      42,
+      44
+    ],
+    "one_contact": true,
+    "old_tiny_baked_droplet_pose_removed": true,
+    "rejected": "Earlier tight-margin effect atlas was rejected and deleted with user authorization on 2026-11-04; mixed source sheets containing approved poses remain isolated."
+  },
+  "game_code_changed": true
+}

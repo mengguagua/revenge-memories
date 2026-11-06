@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_45",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_45.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_45.ogg"
+  ],
+  "hashes": [
+    "a25f950992b2f6e35e13606a75776b7148b99e01e067b3afab73141859dc19ef",
+    "b70a88c42950e87080968cd79e44cc685e8e249d8f1fdadac5f2f92be3483912"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "564181522fc19cc30d625c7f",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    10852,
+    33552
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "The reference sound is a punchy, percussive toms roll with a short release. The replacement has a muffled, dull sound, less punch, and a longer release. The most obvious difference is the timbre, which sounds dull and muffled compared to the reference's bright and crisp sound. The attack is also less pronounced, and the pitch movement is minimal. The density is similar, as both have a low-quality, mono recording. The decay is also similar, with both sounds fading away quickly.",
+  "generation_tokens": 104,
+  "generation_tps": 42.61891035060623,
+  "wall_seconds": 2.607,
+  "peak_memory_bytes": 7517914846,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

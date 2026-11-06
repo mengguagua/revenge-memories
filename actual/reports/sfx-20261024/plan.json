@@ -1,0 +1,4557 @@
+{
+  "schema": 1,
+  "created_date": "2026-10-24",
+  "status": "source_audited_original_sfx_plan",
+  "scope": "仅音效替换；不更改音乐、不变更游戏结算、不操作或更新iPhone。",
+  "model": "local sm-sfx offline MLX",
+  "counts": {
+    "new_unique_effects": 41,
+    "old_physical_paths": 42,
+    "source_sfx_requests": 41,
+    "named_aliases": 9,
+    "disabled_effects": 0,
+    "manual_stop_effects": 10,
+    "control_requests": 15,
+    "ignored_music_requests": 5,
+    "unchanged_music_requests": 35,
+    "disabled_named_aliases": 2,
+    "previously_disabled_requests_now_verified": 2
+  },
+  "deduplication": {
+    "request_12": "menu_move与hp_tick的源请求都是0x12，两个物理OGG字节相同，只生成一个rm_sfx_12。",
+    "hash_verified": true
+  },
+  "source_revision": ".reference/fe2-source-956365ef (local read-only ASM); source commit 956365ef33c63751e7afd03f05e600d7728549da",
+  "tracks": [
+    {
+      "id": "rm_sfx_12",
+      "title": "移动选择与生命刻度",
+      "request": "12",
+      "source_request": "0x12",
+      "category": "ui_tick",
+      "role": "menu_move与hp_tick共享0x12，合并成一个新资源",
+      "semantic_confidence": "named_or_extracted_binding",
+      "old_paths": [
+        "res://assets/original/audio/hp_tick.ogg",
+        "res://assets/original/audio/menu_move.ogg"
+      ],
+      "named_aliases": [
+        "menu_move",
+        "hp_tick"
+      ],
+      "original_duration_seconds": 0.219161,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.12,
+      "max_duration_seconds": 0.24,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_verified",
+      "current_runtime_reference_count": 11,
+      "actual_references": [
+        {
+          "file": "actual/core/legacy_main.gd",
+          "line": 148,
+          "named_alias": "hp_tick",
+          "code": "audio.play_sfx(\"hp_tick\")"
+        },
+        {
+          "file": "actual/core/legacy_main.gd",
+          "line": 233,
+          "named_alias": "menu_move",
+          "code": "audio.play_sfx(\"menu_move\")"
+        },
+        {
+          "file": "actual/core/legacy_main.gd",
+          "line": 238,
+          "named_alias": "menu_move",
+          "code": "audio.play_sfx(\"menu_move\")"
+        },
+        {
+          "file": "actual/core/legacy_main.gd",
+          "line": 269,
+          "named_alias": "menu_move",
+          "code": "audio.play_sfx(\"menu_move\")"
+        },
+        {
+          "file": "actual/core/legacy_main.gd",
+          "line": 284,
+          "named_alias": "menu_move",
+          "code": "audio.play_sfx(\"menu_move\")"
+        },
+        {
+          "file": "actual/core/legacy_main.gd",
+          "line": 869,
+          "named_alias": "menu_move",
+          "code": "audio.play_sfx(\"menu_move\")"
+        },
+        {
+          "file": "actual/core/legacy_main.gd",
+          "line": 890,
+          "named_alias": "menu_move",
+          "code": "audio.play_sfx(\"menu_move\")"
+        },
+        {
+          "file": "actual/core/legacy_main.gd",
+          "line": 1289,
+          "named_alias": "hp_tick",
+          "code": "audio.play_sfx(\"hp_tick\")"
+        }
+      ],
+      "full_usage_index": "usage-index.json#12",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "12",
+          "evidence": "bank005 L0599F4: HP decrement tick; same request as menu movement"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank005.asm",
+          "line": 3712,
+          "label": "L0599D0",
+          "packed_write": "LDA #4; STA $06D1",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank015.asm",
+          "line": 8876,
+          "label": "L0FF56C",
+          "packed_write": "LDA #4; STA $06D1",
+          "kind": "asm_direct_packed_write"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. One very short soft dry electronic tick, rounded attack, muted woody-pulse timbre, clear but unobtrusive. Designed for rapidly repeated menu selection and numeric meter updates. No sequence, no melody, no ringing.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102518,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-analysed pitch/envelope with new additive synthesis"
+    },
+    {
+      "id": "rm_sfx_03",
+      "title": "命中与弓击短音",
+      "request": "03",
+      "source_request": "0x03",
+      "category": "combat_hit",
+      "role": "普通伤害命中；弓时间轴及地图受击反馈也共享该请求",
+      "semantic_confidence": "named_or_extracted_binding",
+      "old_paths": [
+        "res://assets/original/audio/hit.ogg"
+      ],
+      "named_aliases": [
+        "hit"
+      ],
+      "original_duration_seconds": 0.678526,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.52,
+      "max_duration_seconds": 0.85,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_verified",
+      "current_runtime_reference_count": 80,
+      "actual_references": [
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_12_ally_bow",
+          "ticks": [
+            43
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 0,
+          "source_item_name": "普通武器",
+          "source_program_id": 11,
+          "source_effect_id": 0,
+          "source_class_id": 12,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_12_ally_bow_vs_heavy",
+          "ticks": [
+            43
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 0,
+          "source_item_name": "普通武器",
+          "source_program_id": 11,
+          "source_effect_id": 0,
+          "source_class_id": 12,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_12_ally_bow_far_ally",
+          "ticks": [
+            43
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 0,
+          "source_item_name": "普通武器",
+          "source_program_id": 11,
+          "source_effect_id": 0,
+          "source_class_id": 12,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_12_ally_bow_far_ally_vs_heavy",
+          "ticks": [
+            43
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 0,
+          "source_item_name": "普通武器",
+          "source_program_id": 11,
+          "source_effect_id": 0,
+          "source_class_id": 12,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_12_ally_bow_far_enemy",
+          "ticks": [
+            43
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 0,
+          "source_item_name": "普通武器",
+          "source_program_id": 11,
+          "source_effect_id": 0,
+          "source_class_id": 12,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_12_ally_bow_far_enemy_vs_heavy",
+          "ticks": [
+            43
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 0,
+          "source_item_name": "普通武器",
+          "source_program_id": 11,
+          "source_effect_id": 0,
+          "source_class_id": 12,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_12_enemy_bow",
+          "ticks": [
+            43
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 0,
+          "source_item_name": "普通武器",
+          "source_program_id": 11,
+          "source_effect_id": 0,
+          "source_class_id": 12,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_12_enemy_bow_vs_heavy",
+          "ticks": [
+            43
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 0,
+          "source_item_name": "普通武器",
+          "source_program_id": 11,
+          "source_effect_id": 0,
+          "source_class_id": 12,
+          "next_stop_tick": null
+        }
+      ],
+      "full_usage_index": "usage-index.json#03",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "03",
+          "evidence": "bank005 L059C3E normal damage -> $04A6=29; bank000 L00BED0 stops SFX, L00BED9 requests $03"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank005.asm",
+          "line": 4086,
+          "label": "L059C8C",
+          "packed_write": "LDA #8; STA $06D0",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank000.asm",
+          "line": 4776,
+          "label": "L00BE1B",
+          "packed_write": "LDA #8; STA $06D0",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank000.asm",
+          "line": 4811,
+          "label": "L00BE53",
+          "packed_write": "LDA #8; STA $06D0",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank000.asm",
+          "line": 4817,
+          "label": "L00BE5F",
+          "packed_write": "LDA #8; STA $06D0",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank000.asm",
+          "line": 4899,
+          "label": "L00BED9",
+          "packed_write": "LDA #8; STA $06D0",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "kind": "extracted_runtime_timeline",
+          "file": "actual/data/legacy/full_animation_effects.json / m11_party_motion.json / reviewed_animations.json / full_map_effects.json",
+          "note": "使用证据见actual_references；只能证明请求出现在该时间轴，不能把旧attack/death别名解释为已审核。"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [
+          {
+            "file": "actual/data/legacy/full_map_effects.json",
+            "map_program": "9",
+            "end_sound_request": "30",
+            "source": {
+              "pose": "L0FD996",
+              "timers": "L0FD99C",
+              "oam": "bank008 L0881C2",
+              "palette": "L068734",
+              "duration": "L068FF6/L06B569; timer35 decreases every10 frames in L0FC336"
+            },
+            "native_play_ticks": 20,
+            "runtime_call": "actual/core/map_effects.gd:98; stop at :110"
+          }
+        ],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. One crisp stylized physical hit: a short woody impact blended with a light metallic tick and a rounded low-mid thump, retro tactical game character, clean fast decay. One hit only, no combo, no blood, no voice.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102503,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-conditioned audio-to-audio variation"
+    },
+    {
+      "id": "rm_sfx_01",
+      "title": "雷电与雷剑脉冲",
+      "request": "01",
+      "source_request": "0x01",
+      "category": "magic_lightning",
+      "role": "雷电/雷之剑时间轴逐次脉冲，非整段雷暴",
+      "semantic_confidence": "named_or_extracted_binding",
+      "old_paths": [
+        "res://assets/original/audio/sfx_01.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 0.681882,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.3,
+      "max_duration_seconds": 0.7,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 210,
+      "actual_references": [
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_24",
+          "ticks": [
+            43,
+            45,
+            47,
+            49,
+            51,
+            53,
+            55,
+            57,
+            59,
+            61,
+            63,
+            65,
+            67,
+            69,
+            71,
+            73
+          ],
+          "count": 16,
+          "frame_rate": 60.0988,
+          "source_item_id": 24,
+          "source_item_name": "雷电",
+          "source_program_id": 29,
+          "source_effect_id": 10,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_24_vs_heavy",
+          "ticks": [
+            43,
+            45,
+            47,
+            49,
+            51,
+            53,
+            55,
+            57,
+            59,
+            61,
+            63,
+            65,
+            67,
+            69,
+            71,
+            73
+          ],
+          "count": 16,
+          "frame_rate": 60.0988,
+          "source_item_id": 24,
+          "source_item_name": "雷电",
+          "source_program_id": 29,
+          "source_effect_id": 10,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_24_far_ally",
+          "ticks": [
+            43,
+            45,
+            47,
+            49,
+            51,
+            53,
+            55,
+            57,
+            59,
+            61,
+            63,
+            65,
+            67,
+            69,
+            71,
+            73
+          ],
+          "count": 16,
+          "frame_rate": 60.0988,
+          "source_item_id": 24,
+          "source_item_name": "雷电",
+          "source_program_id": 29,
+          "source_effect_id": 10,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_24_far_ally_vs_heavy",
+          "ticks": [
+            43,
+            45,
+            47,
+            49,
+            51,
+            53,
+            55,
+            57,
+            59,
+            61,
+            63,
+            65,
+            67,
+            69,
+            71,
+            73
+          ],
+          "count": 16,
+          "frame_rate": 60.0988,
+          "source_item_id": 24,
+          "source_item_name": "雷电",
+          "source_program_id": 29,
+          "source_effect_id": 10,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_24_far_enemy",
+          "ticks": [
+            43,
+            45,
+            47,
+            49,
+            51,
+            53,
+            55,
+            57,
+            59,
+            61,
+            63,
+            65,
+            67,
+            69,
+            71,
+            73
+          ],
+          "count": 16,
+          "frame_rate": 60.0988,
+          "source_item_id": 24,
+          "source_item_name": "雷电",
+          "source_program_id": 29,
+          "source_effect_id": 10,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_24_far_enemy_vs_heavy",
+          "ticks": [
+            43,
+            45,
+            47,
+            49,
+            51,
+            53,
+            55,
+            57,
+            59,
+            61,
+            63,
+            65,
+            67,
+            69,
+            71,
+            73
+          ],
+          "count": 16,
+          "frame_rate": 60.0988,
+          "source_item_id": 24,
+          "source_item_name": "雷电",
+          "source_program_id": 29,
+          "source_effect_id": 10,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_15_ally_item_24",
+          "ticks": [
+            39,
+            41,
+            43,
+            45,
+            47,
+            49,
+            51,
+            53,
+            55,
+            57,
+            59,
+            61,
+            63,
+            65,
+            67,
+            69
+          ],
+          "count": 16,
+          "frame_rate": 60.0988,
+          "source_item_id": 24,
+          "source_item_name": "雷电",
+          "source_program_id": 27,
+          "source_effect_id": 10,
+          "source_class_id": 15,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_15_ally_item_24_vs_heavy",
+          "ticks": [
+            39,
+            41,
+            43,
+            45,
+            47,
+            49,
+            51,
+            53,
+            55,
+            57,
+            59,
+            61,
+            63,
+            65,
+            67,
+            69
+          ],
+          "count": 16,
+          "frame_rate": 60.0988,
+          "source_item_id": 24,
+          "source_item_name": "雷电",
+          "source_program_id": 27,
+          "source_effect_id": 10,
+          "source_class_id": 15,
+          "next_stop_tick": null
+        }
+      ],
+      "full_usage_index": "usage-index.json#01",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "01",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank005.asm",
+          "line": 4717,
+          "label": "L05A129",
+          "packed_write": "LDA #2; STA $06D0",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank000.asm",
+          "line": 4727,
+          "label": "L00BDCE",
+          "packed_write": "LDA #2; STA $06D0",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank000.asm",
+          "line": 4755,
+          "label": "L00BDFD",
+          "packed_write": "LDA #2; STA $06D0",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank000.asm",
+          "line": 4770,
+          "label": "L00BE0B",
+          "packed_write": "LDA #2; STA $06D0",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "kind": "extracted_runtime_timeline",
+          "file": "actual/data/legacy/full_animation_effects.json / m11_party_motion.json / reviewed_animations.json / full_map_effects.json",
+          "note": "使用证据见actual_references；只能证明请求出现在该时间轴，不能把旧attack/death别名解释为已审核。"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single compact electric crack with a coarse retro pulse edge and tiny sparkling decay. Dry, focused midrange, less than half a second, no long thunder rumble. It will be retriggered by an animation, so make one pulse only.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102501,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-conditioned audio-to-audio variation"
+    },
+    {
+      "id": "rm_sfx_02",
+      "title": "兼容备用音02",
+      "request": "02",
+      "source_request": "0x02",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_02.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 0.660454,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.66,
+      "max_duration_seconds": 0.81,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#02",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "02",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single neutral retro synthetic compatibility sound lasting about 0.66 seconds: a compact filtered-noise and rounded pulse gesture, dry onset, distinct but restrained short decay. Do not imply a particular weapon, character or gameplay result. No repeating sequence.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102502,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-conditioned audio-to-audio variation"
+    },
+    {
+      "id": "rm_sfx_04",
+      "title": "兼容备用音04",
+      "request": "04",
+      "source_request": "0x04",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_04.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 0.411451,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.41,
+      "max_duration_seconds": 0.56,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#04",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "04",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single neutral retro synthetic compatibility sound lasting about 0.41 seconds: a compact filtered-noise and rounded pulse gesture, dry onset, distinct but restrained short decay. Do not imply a particular weapon, character or gameplay result. No repeating sequence.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102504
+    },
+    {
+      "id": "rm_sfx_05",
+      "title": "兼容备用音05",
+      "request": "05",
+      "source_request": "0x05",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_05.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 0.877937,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.88,
+      "max_duration_seconds": 1.03,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#05",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "05",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single neutral retro synthetic compatibility sound lasting about 0.88 seconds: a compact filtered-noise and rounded pulse gesture, dry onset, distinct but restrained short decay. Do not imply a particular weapon, character or gameplay result. No repeating sequence.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102505,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-conditioned audio-to-audio variation"
+    },
+    {
+      "id": "rm_sfx_06",
+      "title": "火球与高能冲击脉冲",
+      "request": "06",
+      "source_request": "0x06",
+      "category": "magic_fire",
+      "role": "火球/诸神黄昏；银弓特效时间轴也调用",
+      "semantic_confidence": "named_or_extracted_binding",
+      "old_paths": [
+        "res://assets/original/audio/sfx_06.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 0.419683,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.32,
+      "max_duration_seconds": 0.75,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 204,
+      "actual_references": [
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_23",
+          "ticks": [
+            39,
+            47,
+            55,
+            63,
+            71,
+            79,
+            87,
+            95
+          ],
+          "count": 8,
+          "frame_rate": 60.0988,
+          "source_item_id": 23,
+          "source_item_name": "火球",
+          "source_program_id": 29,
+          "source_effect_id": 6,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_23_vs_heavy",
+          "ticks": [
+            39,
+            47,
+            55,
+            63,
+            71,
+            79,
+            87,
+            95
+          ],
+          "count": 8,
+          "frame_rate": 60.0988,
+          "source_item_id": 23,
+          "source_item_name": "火球",
+          "source_program_id": 29,
+          "source_effect_id": 6,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_23_far_ally",
+          "ticks": [
+            39,
+            47,
+            55,
+            63,
+            71,
+            79,
+            87,
+            95
+          ],
+          "count": 8,
+          "frame_rate": 60.0988,
+          "source_item_id": 23,
+          "source_item_name": "火球",
+          "source_program_id": 29,
+          "source_effect_id": 6,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_23_far_ally_vs_heavy",
+          "ticks": [
+            39,
+            47,
+            55,
+            63,
+            71,
+            79,
+            87,
+            95
+          ],
+          "count": 8,
+          "frame_rate": 60.0988,
+          "source_item_id": 23,
+          "source_item_name": "火球",
+          "source_program_id": 29,
+          "source_effect_id": 6,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_23_far_enemy",
+          "ticks": [
+            39,
+            47,
+            55,
+            63,
+            71,
+            79,
+            87,
+            95
+          ],
+          "count": 8,
+          "frame_rate": 60.0988,
+          "source_item_id": 23,
+          "source_item_name": "火球",
+          "source_program_id": 29,
+          "source_effect_id": 6,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_23_far_enemy_vs_heavy",
+          "ticks": [
+            39,
+            47,
+            55,
+            63,
+            71,
+            79,
+            87,
+            95
+          ],
+          "count": 8,
+          "frame_rate": 60.0988,
+          "source_item_id": 23,
+          "source_item_name": "火球",
+          "source_program_id": 29,
+          "source_effect_id": 6,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_25",
+          "ticks": [
+            35,
+            133,
+            143,
+            155,
+            166,
+            179
+          ],
+          "count": 6,
+          "frame_rate": 60.0988,
+          "source_item_id": 25,
+          "source_item_name": "诸神黄昏",
+          "source_program_id": 29,
+          "source_effect_id": 9,
+          "source_class_id": 11,
+          "next_stop_tick": 285
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_25_vs_heavy",
+          "ticks": [
+            35,
+            133,
+            143,
+            155,
+            166,
+            179
+          ],
+          "count": 6,
+          "frame_rate": 60.0988,
+          "source_item_id": 25,
+          "source_item_name": "诸神黄昏",
+          "source_program_id": 29,
+          "source_effect_id": 9,
+          "source_class_id": 11,
+          "next_stop_tick": 286
+        }
+      ],
+      "full_usage_index": "usage-index.json#06",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "06",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank005.asm",
+          "line": 6117,
+          "label": "L05AC0F",
+          "packed_write": "LDA #64; STA $06D0",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank005.asm",
+          "line": 6164,
+          "label": "L05AC80",
+          "packed_write": "LDA #64; STA $06D0",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank000.asm",
+          "line": 4744,
+          "label": "L00BDE6",
+          "packed_write": "LDA #64; STA $06D0",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "kind": "extracted_runtime_timeline",
+          "file": "actual/data/legacy/full_animation_effects.json / m11_party_motion.json / reviewed_animations.json / full_map_effects.json",
+          "note": "使用证据见actual_references；只能证明请求出现在该时间轴，不能把旧attack/death别名解释为已审核。"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_11_ally_item_25",
+            "ticks": [
+              35,
+              133,
+              143,
+              155,
+              166,
+              179
+            ],
+            "count": 6,
+            "frame_rate": 60.0988,
+            "source_item_id": 25,
+            "source_item_name": "诸神黄昏",
+            "source_program_id": 29,
+            "source_effect_id": 9,
+            "source_class_id": 11,
+            "next_stop_tick": 285
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_11_ally_item_25_vs_heavy",
+            "ticks": [
+              35,
+              133,
+              143,
+              155,
+              166,
+              179
+            ],
+            "count": 6,
+            "frame_rate": 60.0988,
+            "source_item_id": 25,
+            "source_item_name": "诸神黄昏",
+            "source_program_id": 29,
+            "source_effect_id": 9,
+            "source_class_id": 11,
+            "next_stop_tick": 286
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_11_ally_item_25_far_ally",
+            "ticks": [
+              35,
+              133,
+              143,
+              155,
+              166,
+              179
+            ],
+            "count": 6,
+            "frame_rate": 60.0988,
+            "source_item_id": 25,
+            "source_item_name": "诸神黄昏",
+            "source_program_id": 29,
+            "source_effect_id": 9,
+            "source_class_id": 11,
+            "next_stop_tick": 290
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_11_ally_item_25_far_ally_vs_heavy",
+            "ticks": [
+              35,
+              133,
+              143,
+              155,
+              166,
+              179
+            ],
+            "count": 6,
+            "frame_rate": 60.0988,
+            "source_item_id": 25,
+            "source_item_name": "诸神黄昏",
+            "source_program_id": 29,
+            "source_effect_id": 9,
+            "source_class_id": 11,
+            "next_stop_tick": 292
+          }
+        ],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. One short stylized fiery energy puff, a quick warm filtered-noise flare with a compact crackling edge, clean rapid decay, retro tactical game effect. Single pulse only, designed for animation-controlled repeated requests, not a sustained fire ambience.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102506,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-analysed pitch/envelope with new additive and band-limited noise synthesis"
+    },
+    {
+      "id": "rm_sfx_07",
+      "title": "兼容备用音07",
+      "request": "07",
+      "source_request": "0x07",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_07.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 0.681247,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.68,
+      "max_duration_seconds": 0.83,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#07",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "07",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single neutral retro synthetic compatibility sound lasting about 0.68 seconds: a compact filtered-noise and rounded pulse gesture, dry onset, distinct but restrained short decay. Do not imply a particular weapon, character or gameplay result. No repeating sequence.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102507,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-conditioned audio-to-audio variation"
+    },
+    {
+      "id": "rm_sfx_10",
+      "title": "确认",
+      "request": "10",
+      "source_request": "0x10",
+      "category": "ui_confirm",
+      "role": "菜单确认",
+      "semantic_confidence": "named_or_extracted_binding",
+      "old_paths": [
+        "res://assets/original/audio/menu_confirm.ogg"
+      ],
+      "named_aliases": [
+        "menu_confirm"
+      ],
+      "original_duration_seconds": 0.298549,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.22,
+      "max_duration_seconds": 0.4,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_verified",
+      "current_runtime_reference_count": 4,
+      "actual_references": [
+        {
+          "file": "actual/core/legacy_main.gd",
+          "line": 310,
+          "named_alias": "menu_confirm",
+          "code": "audio.play_sfx(\"menu_confirm\")"
+        },
+        {
+          "file": "actual/core/legacy_main.gd",
+          "line": 317,
+          "named_alias": "menu_confirm",
+          "code": "audio.play_sfx(\"menu_confirm\")"
+        },
+        {
+          "file": "actual/core/legacy_main.gd",
+          "line": 561,
+          "named_alias": "menu_confirm",
+          "code": "audio.play_sfx(\"menu_confirm\")"
+        },
+        {
+          "file": "actual/core/legacy_main.gd",
+          "line": 662,
+          "named_alias": "menu_confirm",
+          "code": "audio.play_sfx(\"menu_confirm\")"
+        }
+      ],
+      "full_usage_index": "usage-index.json#10",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "10",
+          "evidence": "bank015 L0FF572"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank015.asm",
+          "line": 8881,
+          "label": "L0FF572",
+          "packed_write": "LDA #1; STA $06D1",
+          "kind": "asm_direct_packed_write"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single friendly dry retro interface confirm sound, two very brief rounded electronic ticks rising slightly, no melodic phrase, no ringing tail. Soft but legible on a small phone speaker.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102516
+    },
+    {
+      "id": "rm_sfx_11",
+      "title": "兼容提示11",
+      "request": "11",
+      "source_request": "0x11",
+      "category": "compatibility_ui",
+      "role": "原作菜单服务L0FF584有请求；当前实际调用未检出，不指认为战斗效果",
+      "semantic_confidence": "compatibility_or_disabled",
+      "old_paths": [
+        "res://assets/original/audio/sfx_11.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 0.284127,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.25,
+      "max_duration_seconds": 0.45,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#11",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "11",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank011.asm",
+          "line": 4780,
+          "label": "L0BA437",
+          "packed_write": "LDA #2; STA $06D1",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank015.asm",
+          "line": 8896,
+          "label": "L0FF584",
+          "packed_write": "LDA #2; STA $06D1",
+          "kind": "asm_direct_packed_write"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A compact dry neutral retro interface notification: one hollow electronic tap with a tiny upward resonance, short clean decay, not a melody.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102517
+    },
+    {
+      "id": "rm_sfx_13",
+      "title": "返回取消",
+      "request": "13",
+      "source_request": "0x13",
+      "category": "ui_cancel",
+      "role": "菜单返回/取消",
+      "semantic_confidence": "named_or_extracted_binding",
+      "old_paths": [
+        "res://assets/original/audio/menu_cancel.ogg"
+      ],
+      "named_aliases": [
+        "menu_cancel"
+      ],
+      "original_duration_seconds": 0.156281,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.12,
+      "max_duration_seconds": 0.24,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_verified",
+      "current_runtime_reference_count": 4,
+      "actual_references": [
+        {
+          "file": "actual/core/legacy_main.gd",
+          "line": 409,
+          "named_alias": "menu_cancel",
+          "code": "audio.play_sfx(\"menu_cancel\")"
+        },
+        {
+          "file": "actual/core/legacy_main.gd",
+          "line": 432,
+          "named_alias": "menu_cancel",
+          "code": "audio.play_sfx(\"menu_cancel\")"
+        },
+        {
+          "file": "actual/core/journey_screen.gd",
+          "line": 67,
+          "named_alias": "menu_cancel",
+          "code": "ui.audio.play_sfx(\"menu_cancel\")"
+        },
+        {
+          "file": "actual/core/equipment_screen.gd",
+          "line": 71,
+          "named_alias": "menu_cancel",
+          "code": "ui.audio.play_sfx(\"menu_cancel\")"
+        }
+      ],
+      "full_usage_index": "usage-index.json#13",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "13",
+          "evidence": "bank015 L0FF578"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank015.asm",
+          "line": 8886,
+          "label": "L0FF578",
+          "packed_write": "LDA #8; STA $06D1",
+          "kind": "asm_direct_packed_write"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single soft descending retro interface click, slightly lower and duller than a confirmation click, very short dry finish. No melody or extra clicks.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102519,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-analysed pitch/envelope with new additive synthesis"
+    },
+    {
+      "id": "rm_sfx_15",
+      "title": "兼容备用音15",
+      "request": "15",
+      "source_request": "0x15",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_15.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 0.67941,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.68,
+      "max_duration_seconds": 0.83,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#15",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "15",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank000.asm",
+          "line": 4906,
+          "label": "L00BEE4",
+          "packed_write": "LDA #32; STA $06D1",
+          "kind": "asm_direct_packed_write"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single neutral retro synthetic compatibility sound lasting about 0.68 seconds: a compact filtered-noise and rounded pulse gesture, dry onset, distinct but restrained short decay. Do not imply a particular weapon, character or gameplay result. No repeating sequence.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102521,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-conditioned audio-to-audio variation"
+    },
+    {
+      "id": "rm_sfx_16",
+      "title": "投枪与高能破空",
+      "request": "16",
+      "source_request": "0x16",
+      "category": "combat_projectile",
+      "role": "投枪/诸神黄昏共用请求",
+      "semantic_confidence": "named_or_extracted_binding",
+      "old_paths": [
+        "res://assets/original/audio/sfx_16.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 1.199252,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.65,
+      "max_duration_seconds": 1.25,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 276,
+      "actual_references": [
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_25",
+          "ticks": [
+            123,
+            130,
+            142,
+            153,
+            166
+          ],
+          "count": 5,
+          "frame_rate": 60.0988,
+          "source_item_id": 25,
+          "source_item_name": "诸神黄昏",
+          "source_program_id": 29,
+          "source_effect_id": 9,
+          "source_class_id": 11,
+          "next_stop_tick": 285
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_25_vs_heavy",
+          "ticks": [
+            123,
+            130,
+            142,
+            153,
+            166
+          ],
+          "count": 5,
+          "frame_rate": 60.0988,
+          "source_item_id": 25,
+          "source_item_name": "诸神黄昏",
+          "source_program_id": 29,
+          "source_effect_id": 9,
+          "source_class_id": 11,
+          "next_stop_tick": 286
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_25_far_ally",
+          "ticks": [
+            123,
+            130,
+            142,
+            153,
+            166
+          ],
+          "count": 5,
+          "frame_rate": 60.0988,
+          "source_item_id": 25,
+          "source_item_name": "诸神黄昏",
+          "source_program_id": 29,
+          "source_effect_id": 9,
+          "source_class_id": 11,
+          "next_stop_tick": 290
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_25_far_ally_vs_heavy",
+          "ticks": [
+            123,
+            130,
+            142,
+            153,
+            166
+          ],
+          "count": 5,
+          "frame_rate": 60.0988,
+          "source_item_id": 25,
+          "source_item_name": "诸神黄昏",
+          "source_program_id": 29,
+          "source_effect_id": 9,
+          "source_class_id": 11,
+          "next_stop_tick": 292
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_25_far_enemy",
+          "ticks": [
+            123,
+            130,
+            142,
+            153,
+            166
+          ],
+          "count": 5,
+          "frame_rate": 60.0988,
+          "source_item_id": 25,
+          "source_item_name": "诸神黄昏",
+          "source_program_id": 29,
+          "source_effect_id": 9,
+          "source_class_id": 11,
+          "next_stop_tick": 290
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_25_far_enemy_vs_heavy",
+          "ticks": [
+            123,
+            130,
+            142,
+            153,
+            166
+          ],
+          "count": 5,
+          "frame_rate": 60.0988,
+          "source_item_id": 25,
+          "source_item_name": "诸神黄昏",
+          "source_program_id": 29,
+          "source_effect_id": 9,
+          "source_class_id": 11,
+          "next_stop_tick": 286
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_15_ally_item_25",
+          "ticks": [
+            119,
+            126,
+            138,
+            149,
+            162
+          ],
+          "count": 5,
+          "frame_rate": 60.0988,
+          "source_item_id": 25,
+          "source_item_name": "诸神黄昏",
+          "source_program_id": 27,
+          "source_effect_id": 9,
+          "source_class_id": 15,
+          "next_stop_tick": 281
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_15_ally_item_25_vs_heavy",
+          "ticks": [
+            119,
+            126,
+            138,
+            149,
+            162
+          ],
+          "count": 5,
+          "frame_rate": 60.0988,
+          "source_item_id": 25,
+          "source_item_name": "诸神黄昏",
+          "source_program_id": 27,
+          "source_effect_id": 9,
+          "source_class_id": 15,
+          "next_stop_tick": 282
+        }
+      ],
+      "full_usage_index": "usage-index.json#16",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "16",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank005.asm",
+          "line": 6176,
+          "label": "L05ACA5",
+          "packed_write": "LDA #64; STA $06D1",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank000.asm",
+          "line": 4825,
+          "label": "L00BE68",
+          "packed_write": "LDA #64; STA $06D1",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "kind": "extracted_runtime_timeline",
+          "file": "actual/data/legacy/full_animation_effects.json / m11_party_motion.json / reviewed_animations.json / full_map_effects.json",
+          "note": "使用证据见actual_references；只能证明请求出现在该时间轴，不能把旧attack/death别名解释为已审核。"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_11_ally_item_25",
+            "ticks": [
+              123,
+              130,
+              142,
+              153,
+              166
+            ],
+            "count": 5,
+            "frame_rate": 60.0988,
+            "source_item_id": 25,
+            "source_item_name": "诸神黄昏",
+            "source_program_id": 29,
+            "source_effect_id": 9,
+            "source_class_id": 11,
+            "next_stop_tick": 285
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_11_ally_item_25_vs_heavy",
+            "ticks": [
+              123,
+              130,
+              142,
+              153,
+              166
+            ],
+            "count": 5,
+            "frame_rate": 60.0988,
+            "source_item_id": 25,
+            "source_item_name": "诸神黄昏",
+            "source_program_id": 29,
+            "source_effect_id": 9,
+            "source_class_id": 11,
+            "next_stop_tick": 286
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_11_ally_item_25_far_ally",
+            "ticks": [
+              123,
+              130,
+              142,
+              153,
+              166
+            ],
+            "count": 5,
+            "frame_rate": 60.0988,
+            "source_item_id": 25,
+            "source_item_name": "诸神黄昏",
+            "source_program_id": 29,
+            "source_effect_id": 9,
+            "source_class_id": 11,
+            "next_stop_tick": 290
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_11_ally_item_25_far_ally_vs_heavy",
+            "ticks": [
+              123,
+              130,
+              142,
+              153,
+              166
+            ],
+            "count": 5,
+            "frame_rate": 60.0988,
+            "source_item_id": 25,
+            "source_item_name": "诸神黄昏",
+            "source_program_id": 29,
+            "source_effect_id": 9,
+            "source_class_id": 11,
+            "next_stop_tick": 292
+          }
+        ],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single focused projectile whoosh with a soft synthetic grit edge and a small airy snap at the end. Fast movement, clear low-mid body, restrained top end, no impact explosion, no sequence or voice.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102522,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-analysed pitch/envelope with new additive and band-limited noise synthesis"
+    },
+    {
+      "id": "rm_sfx_17",
+      "title": "兼容备用音17",
+      "request": "17",
+      "source_request": "0x17",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_17.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 0.535873,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.54,
+      "max_duration_seconds": 0.69,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#17",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "17",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank006.asm",
+          "line": 2592,
+          "label": "L06971E",
+          "packed_write": "LDA #128; STA $06D1",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank006.asm",
+          "line": 3759,
+          "label": "L069FA4",
+          "packed_write": "LDA #128; STA $06D1",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank007.asm",
+          "line": 4590,
+          "label": "L07A382",
+          "packed_write": "LDA #128; STA $06D1",
+          "kind": "asm_direct_packed_write"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single neutral retro synthetic compatibility sound lasting about 0.54 seconds: a compact filtered-noise and rounded pulse gesture, dry onset, distinct but restrained short decay. Do not imply a particular weapon, character or gameplay result. No repeating sequence.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102523
+    },
+    {
+      "id": "rm_sfx_21",
+      "title": "风刃与恢复起音",
+      "request": "21",
+      "source_request": "0x21",
+      "category": "magic_wind_heal",
+      "role": "已确认风刃与恢复/远程恢复/全体恢复程序起音；不是通用挥击",
+      "semantic_confidence": "source_program_verified",
+      "old_paths": [
+        "res://assets/original/audio/attack.ogg"
+      ],
+      "named_aliases": [
+        "attack"
+      ],
+      "original_duration_seconds": 1.220658,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 1.15,
+      "max_duration_seconds": 1.5,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "pending",
+      "current_runtime_reference_count": 228,
+      "actual_references": [
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_27",
+          "ticks": [
+            35
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 27,
+          "source_item_name": "风刃",
+          "source_program_id": 29,
+          "source_effect_id": 16,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_27_vs_heavy",
+          "ticks": [
+            35
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 27,
+          "source_item_name": "风刃",
+          "source_program_id": 29,
+          "source_effect_id": 16,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_27_far_ally",
+          "ticks": [
+            35
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 27,
+          "source_item_name": "风刃",
+          "source_program_id": 29,
+          "source_effect_id": 16,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_27_far_ally_vs_heavy",
+          "ticks": [
+            35
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 27,
+          "source_item_name": "风刃",
+          "source_program_id": 29,
+          "source_effect_id": 16,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_27_far_enemy",
+          "ticks": [
+            35
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 27,
+          "source_item_name": "风刃",
+          "source_program_id": 29,
+          "source_effect_id": 16,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_27_far_enemy_vs_heavy",
+          "ticks": [
+            35
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 27,
+          "source_item_name": "风刃",
+          "source_program_id": 29,
+          "source_effect_id": 16,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_15_ally_item_27",
+          "ticks": [
+            35
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 27,
+          "source_item_name": "风刃",
+          "source_program_id": 27,
+          "source_effect_id": 16,
+          "source_class_id": 15,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_15_ally_item_27_vs_heavy",
+          "ticks": [
+            35
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 27,
+          "source_item_name": "风刃",
+          "source_program_id": 27,
+          "source_effect_id": 16,
+          "source_class_id": 15,
+          "next_stop_tick": null
+        }
+      ],
+      "full_usage_index": "usage-index.json#21",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "21",
+          "evidence": "Original driver effect 0x21; swing mapping pending animation opcode check"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank000.asm",
+          "line": 4886,
+          "label": "L00BEC5",
+          "packed_write": "LDA #2; STA $06D2",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "kind": "extracted_runtime_timeline",
+          "file": "actual/data/legacy/full_animation_effects.json / m11_party_motion.json / reviewed_animations.json / full_map_effects.json",
+          "note": "使用证据见actual_references；只能证明请求出现在该时间轴，不能把旧attack/death别名解释为已审核。"
+        },
+        {
+          "kind": "confirmed_semantics_reaudit",
+          "evidence": "恢复effect5 L05BB2D含1B1B、风刃effect16 L05BB8A含1B1C，经L05A601写04A6=27/28，bank000 L00BEC5写06D2=2；提取时间轴同样记录21。",
+          "details": "evidence-21-53.md"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. One restrained synthetic airy sweep with a rounded pulse shimmer and clean decay, a neutral retro game compatibility effect. No weapon identification, no impact, no melody or voice.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102533,
+      "original_default_enabled": false,
+      "activation_policy": "request及canonical按已核对动画启用；误名泛用alias attack 保持禁用，不新增调用。",
+      "evidence_report": "evidence-21-53.md",
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-analysed pitch/envelope with new additive and band-limited noise synthesis"
+    },
+    {
+      "id": "rm_sfx_22",
+      "title": "兼容备用音22",
+      "request": "22",
+      "source_request": "0x22",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_22.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 0.468027,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.47,
+      "max_duration_seconds": 0.62,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#22",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "22",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single neutral retro synthetic compatibility sound lasting about 0.47 seconds: a compact filtered-noise and rounded pulse gesture, dry onset, distinct but restrained short decay. Do not imply a particular weapon, character or gameplay result. No repeating sequence.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102534,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-conditioned audio-to-audio variation"
+    },
+    {
+      "id": "rm_sfx_23",
+      "title": "传送与显形能量",
+      "request": "23",
+      "source_request": "0x23",
+      "category": "magic_transport",
+      "role": "战斗传送；地图出现/消失与召唤显形，多程序以30停止",
+      "semantic_confidence": "named_or_extracted_binding",
+      "old_paths": [
+        "res://assets/original/audio/sfx_23.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 8.0,
+      "generation_seconds": 9.5,
+      "target_duration_seconds": 8.0,
+      "max_duration_seconds": 8.0,
+      "loop": false,
+      "manual_stop": true,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 51,
+      "actual_references": [
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_17_ally_item_43",
+          "ticks": [
+            36
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 43,
+          "source_item_name": "传送",
+          "source_program_id": 52,
+          "source_effect_id": 24,
+          "source_class_id": 17,
+          "next_stop_tick": 68
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_17_ally_item_43_vs_heavy",
+          "ticks": [
+            36
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 43,
+          "source_item_name": "传送",
+          "source_program_id": 52,
+          "source_effect_id": 24,
+          "source_class_id": 17,
+          "next_stop_tick": 68
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_17_ally_item_43_far_ally",
+          "ticks": [
+            36
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 43,
+          "source_item_name": "传送",
+          "source_program_id": 52,
+          "source_effect_id": 24,
+          "source_class_id": 17,
+          "next_stop_tick": 68
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_17_ally_item_43_far_ally_vs_heavy",
+          "ticks": [
+            36
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 43,
+          "source_item_name": "传送",
+          "source_program_id": 52,
+          "source_effect_id": 24,
+          "source_class_id": 17,
+          "next_stop_tick": 68
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_17_ally_item_43_far_enemy",
+          "ticks": [
+            36
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 43,
+          "source_item_name": "传送",
+          "source_program_id": 52,
+          "source_effect_id": 24,
+          "source_class_id": 17,
+          "next_stop_tick": 68
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_17_ally_item_43_far_enemy_vs_heavy",
+          "ticks": [
+            36
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 43,
+          "source_item_name": "传送",
+          "source_program_id": 52,
+          "source_effect_id": 24,
+          "source_class_id": 17,
+          "next_stop_tick": 68
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_18_ally_item_43",
+          "ticks": [
+            21
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 43,
+          "source_item_name": "传送",
+          "source_program_id": 23,
+          "source_effect_id": 24,
+          "source_class_id": 18,
+          "next_stop_tick": 53
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_18_ally_item_43_vs_heavy",
+          "ticks": [
+            21
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 43,
+          "source_item_name": "传送",
+          "source_program_id": 23,
+          "source_effect_id": 24,
+          "source_class_id": 18,
+          "next_stop_tick": 53
+        }
+      ],
+      "full_usage_index": "usage-index.json#23",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "23",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank000.asm",
+          "line": 4783,
+          "label": "L00BE23",
+          "packed_write": "LDA #8; STA $06D2",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "kind": "extracted_runtime_timeline",
+          "file": "actual/data/legacy/full_animation_effects.json / m11_party_motion.json / reviewed_animations.json / full_map_effects.json",
+          "note": "使用证据见actual_references；只能证明请求出现在该时间轴，不能把旧attack/death别名解释为已审核。"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": true,
+        "verified_stop_examples": [
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_17_ally_item_43",
+            "ticks": [
+              36
+            ],
+            "count": 1,
+            "frame_rate": 60.0988,
+            "source_item_id": 43,
+            "source_item_name": "传送",
+            "source_program_id": 52,
+            "source_effect_id": 24,
+            "source_class_id": 17,
+            "next_stop_tick": 68
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_17_ally_item_43_vs_heavy",
+            "ticks": [
+              36
+            ],
+            "count": 1,
+            "frame_rate": 60.0988,
+            "source_item_id": 43,
+            "source_item_name": "传送",
+            "source_program_id": 52,
+            "source_effect_id": 24,
+            "source_class_id": 17,
+            "next_stop_tick": 68
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_17_ally_item_43_far_ally",
+            "ticks": [
+              36
+            ],
+            "count": 1,
+            "frame_rate": 60.0988,
+            "source_item_id": 43,
+            "source_item_name": "传送",
+            "source_program_id": 52,
+            "source_effect_id": 24,
+            "source_class_id": 17,
+            "next_stop_tick": 68
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_17_ally_item_43_far_ally_vs_heavy",
+            "ticks": [
+              36
+            ],
+            "count": 1,
+            "frame_rate": 60.0988,
+            "source_item_id": 43,
+            "source_item_name": "传送",
+            "source_program_id": 52,
+            "source_effect_id": 24,
+            "source_class_id": 17,
+            "next_stop_tick": 68
+          }
+        ],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A finite eight-second steady magical transport texture for a retro tactical game: softly rippling filtered pulse and fine airy shimmer, consistent midrange energy, no musical notes or rhythm. Fast gentle onset, even body that can be stopped by the game, short natural end. No voice, no choir.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102535,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-conditioned audio-to-audio variation"
+    },
+    {
+      "id": "rm_sfx_25",
+      "title": "对话翻页",
+      "request": "25",
+      "source_request": "0x25",
+      "category": "ui_dialogue",
+      "role": "原作文字推进/现行对白确认",
+      "semantic_confidence": "named_or_extracted_binding",
+      "old_paths": [
+        "res://assets/original/audio/dialogue.ogg"
+      ],
+      "named_aliases": [
+        "dialogue"
+      ],
+      "original_duration_seconds": 0.157664,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.1,
+      "max_duration_seconds": 0.22,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_verified",
+      "current_runtime_reference_count": 1,
+      "actual_references": [
+        {
+          "file": "actual/core/legacy_main.gd",
+          "line": 536,
+          "named_alias": "dialogue",
+          "code": "audio.play_sfx(\"dialogue\")"
+        }
+      ],
+      "full_usage_index": "usage-index.json#25",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "25",
+          "evidence": "bank010 L0A8816 text advance"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank005.asm",
+          "line": 655,
+          "label": "L05847A",
+          "packed_write": "LDA #32; STA $06D2",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank010.asm",
+          "line": 1002,
+          "label": "L0A87FB",
+          "packed_write": "LDA #32; STA $06D2",
+          "kind": "asm_direct_packed_write"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. One tiny soft paper-like electronic tick for advancing a dialogue page, dry muted attack, no actual paper rustle sequence, no ringing, no speech, no musical notes.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102537,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-analysed pitch/envelope with new additive synthesis"
+    },
+    {
+      "id": "rm_sfx_26",
+      "title": "黏液与异形能量",
+      "request": "26",
+      "source_request": "0x26",
+      "category": "magic_sustained",
+      "role": "史莱姆、触手/眼光/眼球等原作特效共用；正常时间轴后发30",
+      "semantic_confidence": "named_or_extracted_binding",
+      "old_paths": [
+        "res://assets/original/audio/sfx_26.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 8.0,
+      "generation_seconds": 9.5,
+      "target_duration_seconds": 8.0,
+      "max_duration_seconds": 8.0,
+      "loop": false,
+      "manual_stop": true,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 120,
+      "actual_references": [
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_32",
+          "ticks": [
+            156
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 32,
+          "source_item_name": "史莱姆",
+          "source_program_id": 29,
+          "source_effect_id": 20,
+          "source_class_id": 11,
+          "next_stop_tick": 252
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_32_vs_heavy",
+          "ticks": [
+            156
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 32,
+          "source_item_name": "史莱姆",
+          "source_program_id": 29,
+          "source_effect_id": 20,
+          "source_class_id": 11,
+          "next_stop_tick": 252
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_32_far_ally",
+          "ticks": [
+            156
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 32,
+          "source_item_name": "史莱姆",
+          "source_program_id": 29,
+          "source_effect_id": 20,
+          "source_class_id": 11,
+          "next_stop_tick": 252
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_32_far_ally_vs_heavy",
+          "ticks": [
+            156
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 32,
+          "source_item_name": "史莱姆",
+          "source_program_id": 29,
+          "source_effect_id": 20,
+          "source_class_id": 11,
+          "next_stop_tick": 252
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_32_far_enemy",
+          "ticks": [
+            156
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 32,
+          "source_item_name": "史莱姆",
+          "source_program_id": 29,
+          "source_effect_id": 20,
+          "source_class_id": 11,
+          "next_stop_tick": 252
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_32_far_enemy_vs_heavy",
+          "ticks": [
+            156
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 32,
+          "source_item_name": "史莱姆",
+          "source_program_id": 29,
+          "source_effect_id": 20,
+          "source_class_id": 11,
+          "next_stop_tick": 252
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_15_ally_item_32",
+          "ticks": [
+            152
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 32,
+          "source_item_name": "史莱姆",
+          "source_program_id": 27,
+          "source_effect_id": 20,
+          "source_class_id": 15,
+          "next_stop_tick": 248
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_15_ally_item_32_vs_heavy",
+          "ticks": [
+            152
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 32,
+          "source_item_name": "史莱姆",
+          "source_program_id": 27,
+          "source_effect_id": 20,
+          "source_class_id": 15,
+          "next_stop_tick": 248
+        }
+      ],
+      "full_usage_index": "usage-index.json#26",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "26",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank000.asm",
+          "line": 4847,
+          "label": "L00BE89",
+          "packed_write": "LDA #64; STA $06D2",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "kind": "extracted_runtime_timeline",
+          "file": "actual/data/legacy/full_animation_effects.json / m11_party_motion.json / reviewed_animations.json / full_map_effects.json",
+          "note": "使用证据见actual_references；只能证明请求出现在该时间轴，不能把旧attack/death别名解释为已审核。"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": true,
+        "verified_stop_examples": [
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_11_ally_item_32",
+            "ticks": [
+              156
+            ],
+            "count": 1,
+            "frame_rate": 60.0988,
+            "source_item_id": 32,
+            "source_item_name": "史莱姆",
+            "source_program_id": 29,
+            "source_effect_id": 20,
+            "source_class_id": 11,
+            "next_stop_tick": 252
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_11_ally_item_32_vs_heavy",
+            "ticks": [
+              156
+            ],
+            "count": 1,
+            "frame_rate": 60.0988,
+            "source_item_id": 32,
+            "source_item_name": "史莱姆",
+            "source_program_id": 29,
+            "source_effect_id": 20,
+            "source_class_id": 11,
+            "next_stop_tick": 252
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_11_ally_item_32_far_ally",
+            "ticks": [
+              156
+            ],
+            "count": 1,
+            "frame_rate": 60.0988,
+            "source_item_id": 32,
+            "source_item_name": "史莱姆",
+            "source_program_id": 29,
+            "source_effect_id": 20,
+            "source_class_id": 11,
+            "next_stop_tick": 252
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_11_ally_item_32_far_ally_vs_heavy",
+            "ticks": [
+              156
+            ],
+            "count": 1,
+            "frame_rate": 60.0988,
+            "source_item_id": 32,
+            "source_item_name": "史莱姆",
+            "source_program_id": 29,
+            "source_effect_id": 20,
+            "source_class_id": 11,
+            "next_stop_tick": 252
+          }
+        ],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A finite eight-second dense but quiet magical viscosity texture: smooth bubbly filtered noise with rounded low-mid pulses, retro synthetic character, stable energy with no repeating beat. No creature voice, no music, no harsh wet gore. Designed to be stopped by an animation.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102538,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-analysed pitch/envelope with new additive and band-limited noise synthesis"
+    },
+    {
+      "id": "rm_sfx_27",
+      "title": "死亡法术短冲击",
+      "request": "27",
+      "source_request": "0x27",
+      "category": "magic_dark",
+      "role": "item33死亡法术；不是角色死亡/濒死提示",
+      "semantic_confidence": "named_or_extracted_binding",
+      "old_paths": [
+        "res://assets/original/audio/sfx_27.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 0.552993,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.52,
+      "max_duration_seconds": 0.8,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 24,
+      "actual_references": [
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_15_enemy_item_33",
+          "ticks": [
+            37
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 33,
+          "source_item_name": "死亡",
+          "source_program_id": 35,
+          "source_effect_id": 21,
+          "source_class_id": 15,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_15_enemy_item_33_vs_heavy",
+          "ticks": [
+            37
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 33,
+          "source_item_name": "死亡",
+          "source_program_id": 35,
+          "source_effect_id": 21,
+          "source_class_id": 15,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_15_enemy_item_33_far_ally",
+          "ticks": [
+            37
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 33,
+          "source_item_name": "死亡",
+          "source_program_id": 35,
+          "source_effect_id": 21,
+          "source_class_id": 15,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_15_enemy_item_33_far_ally_vs_heavy",
+          "ticks": [
+            37
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 33,
+          "source_item_name": "死亡",
+          "source_program_id": 35,
+          "source_effect_id": 21,
+          "source_class_id": 15,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_15_enemy_item_33_far_enemy",
+          "ticks": [
+            37
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 33,
+          "source_item_name": "死亡",
+          "source_program_id": 35,
+          "source_effect_id": 21,
+          "source_class_id": 15,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_15_enemy_item_33_far_enemy_vs_heavy",
+          "ticks": [
+            37
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 33,
+          "source_item_name": "死亡",
+          "source_program_id": 35,
+          "source_effect_id": 21,
+          "source_class_id": 15,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_16_enemy_item_33",
+          "ticks": [
+            37
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 33,
+          "source_item_name": "死亡",
+          "source_program_id": 27,
+          "source_effect_id": 21,
+          "source_class_id": 16,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_16_enemy_item_33_vs_heavy",
+          "ticks": [
+            37
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 33,
+          "source_item_name": "死亡",
+          "source_program_id": 27,
+          "source_effect_id": 21,
+          "source_class_id": 16,
+          "next_stop_tick": null
+        }
+      ],
+      "full_usage_index": "usage-index.json#27",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "27",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank005.asm",
+          "line": 5971,
+          "label": "L05AABC",
+          "packed_write": "LDA #128; STA $06D2",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "kind": "extracted_runtime_timeline",
+          "file": "actual/data/legacy/full_animation_effects.json / m11_party_motion.json / reviewed_animations.json / full_map_effects.json",
+          "note": "使用证据见actual_references；只能证明请求出现在该时间轴，不能把旧attack/death别名解释为已审核。"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. One short ominous magical snap with a low-mid hollow knock and a wispy filtered-noise decay, retro tactical spell effect. Brief and focused, no scream, no choir, no death dialogue, no music.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102539,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-analysed pitch/envelope with new additive and band-limited noise synthesis"
+    },
+    {
+      "id": "rm_sfx_31",
+      "title": "兼容备用音31",
+      "request": "31",
+      "source_request": "0x31",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_31.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 1.191111,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 1.19,
+      "max_duration_seconds": 1.34,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#31",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "31",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single neutral retro synthetic compatibility sound lasting about 1.19 seconds: a compact filtered-noise and rounded pulse gesture, dry onset, distinct but restrained short decay. Do not imply a particular weapon, character or gameplay result. No repeating sequence.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102549,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-conditioned audio-to-audio variation"
+    },
+    {
+      "id": "rm_sfx_32",
+      "title": "兼容备用音32",
+      "request": "32",
+      "source_request": "0x32",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_32.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 8.0,
+      "generation_seconds": 9.5,
+      "target_duration_seconds": 8.0,
+      "max_duration_seconds": 8.0,
+      "loop": false,
+      "manual_stop": true,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#32",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "32",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": true,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A finite eight-second neutral synthetic compatibility texture, softly filtered coarse pulse and noise, stable low-mid energy and restrained treble. Fast gentle onset, even body, a short clean end. No rhythmic beat, no implied combat action.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102550,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-conditioned audio-to-audio variation"
+    },
+    {
+      "id": "rm_sfx_33",
+      "title": "兼容备用音33",
+      "request": "33",
+      "source_request": "0x33",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_33.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 8.0,
+      "generation_seconds": 9.5,
+      "target_duration_seconds": 8.0,
+      "max_duration_seconds": 8.0,
+      "loop": false,
+      "manual_stop": true,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#33",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "33",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": true,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A finite eight-second neutral synthetic compatibility texture, softly filtered coarse pulse and noise, stable low-mid energy and restrained treble. Fast gentle onset, even body, a short clean end. No rhythmic beat, no implied combat action.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102551,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-conditioned audio-to-audio variation"
+    },
+    {
+      "id": "rm_sfx_36",
+      "title": "兼容备用音36",
+      "request": "36",
+      "source_request": "0x36",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_36.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 8.0,
+      "generation_seconds": 9.5,
+      "target_duration_seconds": 8.0,
+      "max_duration_seconds": 8.0,
+      "loop": false,
+      "manual_stop": true,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#36",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "36",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": true,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A finite eight-second neutral synthetic compatibility texture, softly filtered coarse pulse and noise, stable low-mid energy and restrained treble. Fast gentle onset, even body, a short clean end. No rhythmic beat, no implied combat action.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102554,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-analysed pitch/envelope with new additive and band-limited noise synthesis"
+    },
+    {
+      "id": "rm_sfx_37",
+      "title": "兼容备用音37",
+      "request": "37",
+      "source_request": "0x37",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_37.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 8.0,
+      "generation_seconds": 9.5,
+      "target_duration_seconds": 8.0,
+      "max_duration_seconds": 8.0,
+      "loop": false,
+      "manual_stop": true,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#37",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "37",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": true,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A finite eight-second neutral synthetic compatibility texture, softly filtered coarse pulse and noise, stable low-mid energy and restrained treble. Fast gentle onset, even body, a short clean end. No rhythmic beat, no implied combat action.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102555,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-conditioned audio-to-audio variation"
+    },
+    {
+      "id": "rm_sfx_40",
+      "title": "圣光箭雨与吸取脉冲",
+      "request": "40",
+      "source_request": "0x40",
+      "category": "magic_energy",
+      "role": "圣光、箭雨、吸血时间轴共享请求",
+      "semantic_confidence": "named_or_extracted_binding",
+      "old_paths": [
+        "res://assets/original/audio/sfx_40.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 1.480703,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.7,
+      "max_duration_seconds": 1.5,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 222,
+      "actual_references": [
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_26",
+          "ticks": [
+            35
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 26,
+          "source_item_name": "圣光",
+          "source_program_id": 29,
+          "source_effect_id": 18,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_26_vs_heavy",
+          "ticks": [
+            35
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 26,
+          "source_item_name": "圣光",
+          "source_program_id": 29,
+          "source_effect_id": 18,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_26_far_ally",
+          "ticks": [
+            35
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 26,
+          "source_item_name": "圣光",
+          "source_program_id": 29,
+          "source_effect_id": 18,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_26_far_ally_vs_heavy",
+          "ticks": [
+            35
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 26,
+          "source_item_name": "圣光",
+          "source_program_id": 29,
+          "source_effect_id": 18,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_26_far_enemy",
+          "ticks": [
+            35
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 26,
+          "source_item_name": "圣光",
+          "source_program_id": 29,
+          "source_effect_id": 18,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_26_far_enemy_vs_heavy",
+          "ticks": [
+            35
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 26,
+          "source_item_name": "圣光",
+          "source_program_id": 29,
+          "source_effect_id": 18,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_28",
+          "ticks": [
+            42,
+            126,
+            138,
+            152,
+            159,
+            171,
+            187,
+            192,
+            204,
+            222,
+            225,
+            237,
+            257,
+            258,
+            270,
+            291,
+            292
+          ],
+          "count": 17,
+          "frame_rate": 60.0988,
+          "source_item_id": 28,
+          "source_item_name": "箭雨",
+          "source_program_id": 29,
+          "source_effect_id": 17,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_28_vs_heavy",
+          "ticks": [
+            42,
+            127,
+            139,
+            153,
+            161,
+            173,
+            189,
+            195,
+            207,
+            225,
+            229,
+            241,
+            261,
+            263,
+            275,
+            297
+          ],
+          "count": 16,
+          "frame_rate": 60.0988,
+          "source_item_id": 28,
+          "source_item_name": "箭雨",
+          "source_program_id": 29,
+          "source_effect_id": 17,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        }
+      ],
+      "full_usage_index": "usage-index.json#40",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "40",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank005.asm",
+          "line": 5449,
+          "label": "L05A6E9",
+          "packed_write": "LDA #1; STA $06D4",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank005.asm",
+          "line": 5523,
+          "label": "L05A77B",
+          "packed_write": "LDA #1; STA $06D4",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank005.asm",
+          "line": 5744,
+          "label": "L05A934",
+          "packed_write": "LDA #1; STA $06D4",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank000.asm",
+          "line": 4750,
+          "label": "L00BDF6",
+          "packed_write": "LDA #1; STA $06D4",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "kind": "extracted_runtime_timeline",
+          "file": "actual/data/legacy/full_animation_effects.json / m11_party_motion.json / reviewed_animations.json / full_map_effects.json",
+          "note": "使用证据见actual_references；只能证明请求出现在该时间轴，不能把旧attack/death别名解释为已审核。"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_19_ally_item_28",
+            "ticks": [
+              102,
+              182,
+              194,
+              208,
+              215,
+              227,
+              243,
+              248,
+              260,
+              278,
+              281,
+              293,
+              313,
+              314,
+              326,
+              347,
+              348
+            ],
+            "count": 17,
+            "frame_rate": 60.0988,
+            "source_item_id": 28,
+            "source_item_name": "箭雨",
+            "source_program_id": 47,
+            "source_effect_id": 17,
+            "source_class_id": 19,
+            "next_stop_tick": 446
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_19_ally_item_28_vs_heavy",
+            "ticks": [
+              102,
+              183,
+              195,
+              209,
+              217,
+              229,
+              245,
+              251,
+              263,
+              281,
+              285,
+              297,
+              317,
+              319,
+              331,
+              353
+            ],
+            "count": 16,
+            "frame_rate": 60.0988,
+            "source_item_id": 28,
+            "source_item_name": "箭雨",
+            "source_program_id": 47,
+            "source_effect_id": 17,
+            "source_class_id": 19,
+            "next_stop_tick": 451
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_19_ally_item_28_far_ally",
+            "ticks": [
+              102,
+              186,
+              198,
+              213,
+              223,
+              235,
+              253,
+              260,
+              272,
+              293,
+              297,
+              309,
+              333,
+              334,
+              346,
+              371,
+              373
+            ],
+            "count": 17,
+            "frame_rate": 60.0988,
+            "source_item_id": 28,
+            "source_item_name": "箭雨",
+            "source_program_id": 47,
+            "source_effect_id": 17,
+            "source_class_id": 19,
+            "next_stop_tick": 471
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_19_ally_item_28_far_ally_vs_heavy",
+            "ticks": [
+              102,
+              187,
+              199,
+              214,
+              225,
+              237,
+              255,
+              263,
+              275,
+              296,
+              301,
+              313,
+              337,
+              339,
+              351,
+              377,
+              378
+            ],
+            "count": 17,
+            "frame_rate": 60.0988,
+            "source_item_id": 28,
+            "source_item_name": "箭雨",
+            "source_program_id": 47,
+            "source_effect_id": 17,
+            "source_class_id": 19,
+            "next_stop_tick": 476
+          }
+        ],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. One clean luminous energy sweep, a rounded synthetic swish with a light glassy edge and short soft tail. Retro tactical game magic, focused midrange, no melody or chimes forming a tune. Single event only, may repeat according to animation timing.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102564,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "existing model pitch sweep retained; local crest and body-level correction"
+    },
+    {
+      "id": "rm_sfx_41",
+      "title": "兼容备用音41",
+      "request": "41",
+      "source_request": "0x41",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_41.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 8.0,
+      "generation_seconds": 9.5,
+      "target_duration_seconds": 8.0,
+      "max_duration_seconds": 8.0,
+      "loop": false,
+      "manual_stop": true,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#41",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "41",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": true,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A finite eight-second neutral synthetic compatibility texture, softly filtered coarse pulse and noise, stable low-mid energy and restrained treble. Fast gentle onset, even body, a short clean end. No rhythmic beat, no implied combat action.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102565,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-analysed pitch/envelope with new additive and band-limited noise synthesis"
+    },
+    {
+      "id": "rm_sfx_42",
+      "title": "兼容备用音42",
+      "request": "42",
+      "source_request": "0x42",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_42.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 8.0,
+      "generation_seconds": 9.5,
+      "target_duration_seconds": 8.0,
+      "max_duration_seconds": 8.0,
+      "loop": false,
+      "manual_stop": true,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#42",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "42",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank000.asm",
+          "line": 4840,
+          "label": "L00BE83",
+          "packed_write": "LDA #4; STA $06D4",
+          "kind": "asm_direct_packed_write"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": true,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A finite eight-second neutral synthetic compatibility texture, softly filtered coarse pulse and noise, stable low-mid energy and restrained treble. Fast gentle onset, even body, a short clean end. No rhythmic beat, no implied combat action.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102566,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-conditioned audio-to-audio variation"
+    },
+    {
+      "id": "rm_sfx_43",
+      "title": "闪避与无伤反馈",
+      "request": "43",
+      "source_request": "0x43",
+      "category": "combat_miss",
+      "role": "未命中或零伤害",
+      "semantic_confidence": "named_or_extracted_binding",
+      "old_paths": [
+        "res://assets/original/audio/miss.ogg"
+      ],
+      "named_aliases": [
+        "miss"
+      ],
+      "original_duration_seconds": 0.345397,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.25,
+      "max_duration_seconds": 0.45,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_verified",
+      "current_runtime_reference_count": 1,
+      "actual_references": [
+        {
+          "file": "actual/core/legacy_main.gd",
+          "line": 1271,
+          "named_alias": "miss",
+          "code": "audio.play_sfx(\"miss\")"
+        }
+      ],
+      "full_usage_index": "usage-index.json#43",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "43",
+          "evidence": "bank005 L059C18/L059C69: missed attack or zero damage"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank005.asm",
+          "line": 4018,
+          "label": "L059C18",
+          "packed_write": "LDA #8; STA $06D4",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank005.asm",
+          "line": 4057,
+          "label": "L059C69",
+          "packed_write": "LDA #8; STA $06D4",
+          "kind": "asm_direct_packed_write"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. One quick light evasive swish with a muted dry clink, clearly softer and thinner than a damaging hit. Compact retro game effect, no heavy impact, no musical tone sequence, no voice.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102567,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-conditioned audio-to-audio variation"
+    },
+    {
+      "id": "rm_sfx_44",
+      "title": "兼容备用音44",
+      "request": "44",
+      "source_request": "0x44",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_44.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 0.551519,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.55,
+      "max_duration_seconds": 0.7,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#44",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "44",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single neutral retro synthetic compatibility sound lasting about 0.55 seconds: a compact filtered-noise and rounded pulse gesture, dry onset, distinct but restrained short decay. Do not imply a particular weapon, character or gameplay result. No repeating sequence.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102568,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-conditioned audio-to-audio variation"
+    },
+    {
+      "id": "rm_sfx_45",
+      "title": "兼容备用音45",
+      "request": "45",
+      "source_request": "0x45",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_45.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 0.678209,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.68,
+      "max_duration_seconds": 0.83,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#45",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "45",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single neutral retro synthetic compatibility sound lasting about 0.68 seconds: a compact filtered-noise and rounded pulse gesture, dry onset, distinct but restrained short decay. Do not imply a particular weapon, character or gameplay result. No repeating sequence.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102569,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-conditioned audio-to-audio variation"
+    },
+    {
+      "id": "rm_sfx_46",
+      "title": "兼容备用音46",
+      "request": "46",
+      "source_request": "0x46",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_46.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 0.917846,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.92,
+      "max_duration_seconds": 1.07,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#46",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "46",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single neutral retro synthetic compatibility sound lasting about 0.92 seconds: a compact filtered-noise and rounded pulse gesture, dry onset, distinct but restrained short decay. Do not imply a particular weapon, character or gameplay result. No repeating sequence.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102570,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-analysed pitch/envelope with new additive and band-limited noise synthesis"
+    },
+    {
+      "id": "rm_sfx_47",
+      "title": "光环与鬼火持续能量",
+      "request": "47",
+      "source_request": "0x47",
+      "category": "magic_sustained",
+      "role": "光环/鬼火程序起音，约96帧后30停止",
+      "semantic_confidence": "named_or_extracted_binding",
+      "old_paths": [
+        "res://assets/original/audio/sfx_47.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 8.0,
+      "generation_seconds": 9.5,
+      "target_duration_seconds": 8.0,
+      "max_duration_seconds": 8.0,
+      "loop": false,
+      "manual_stop": true,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 180,
+      "actual_references": [
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_29",
+          "ticks": [
+            107
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 29,
+          "source_item_name": "光环",
+          "source_program_id": 29,
+          "source_effect_id": 15,
+          "source_class_id": 11,
+          "next_stop_tick": 203
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_29_vs_heavy",
+          "ticks": [
+            107
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 29,
+          "source_item_name": "光环",
+          "source_program_id": 29,
+          "source_effect_id": 15,
+          "source_class_id": 11,
+          "next_stop_tick": 203
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_29_far_ally",
+          "ticks": [
+            107
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 29,
+          "source_item_name": "光环",
+          "source_program_id": 29,
+          "source_effect_id": 15,
+          "source_class_id": 11,
+          "next_stop_tick": 203
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_29_far_ally_vs_heavy",
+          "ticks": [
+            107
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 29,
+          "source_item_name": "光环",
+          "source_program_id": 29,
+          "source_effect_id": 15,
+          "source_class_id": 11,
+          "next_stop_tick": 203
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_29_far_enemy",
+          "ticks": [
+            107
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 29,
+          "source_item_name": "光环",
+          "source_program_id": 29,
+          "source_effect_id": 15,
+          "source_class_id": 11,
+          "next_stop_tick": 203
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_29_far_enemy_vs_heavy",
+          "ticks": [
+            107
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 29,
+          "source_item_name": "光环",
+          "source_program_id": 29,
+          "source_effect_id": 15,
+          "source_class_id": 11,
+          "next_stop_tick": 203
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_31",
+          "ticks": [
+            44
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 31,
+          "source_item_name": "鬼火",
+          "source_program_id": 29,
+          "source_effect_id": 19,
+          "source_class_id": 11,
+          "next_stop_tick": 140
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_31_vs_heavy",
+          "ticks": [
+            44
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 31,
+          "source_item_name": "鬼火",
+          "source_program_id": 29,
+          "source_effect_id": 19,
+          "source_class_id": 11,
+          "next_stop_tick": 140
+        }
+      ],
+      "full_usage_index": "usage-index.json#47",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "47",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        },
+        {
+          "kind": "extracted_runtime_timeline",
+          "file": "actual/data/legacy/full_animation_effects.json / m11_party_motion.json / reviewed_animations.json / full_map_effects.json",
+          "note": "使用证据见actual_references；只能证明请求出现在该时间轴，不能把旧attack/death别名解释为已审核。"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": true,
+        "verified_stop_examples": [
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_11_ally_item_29",
+            "ticks": [
+              107
+            ],
+            "count": 1,
+            "frame_rate": 60.0988,
+            "source_item_id": 29,
+            "source_item_name": "光环",
+            "source_program_id": 29,
+            "source_effect_id": 15,
+            "source_class_id": 11,
+            "next_stop_tick": 203
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_11_ally_item_29_vs_heavy",
+            "ticks": [
+              107
+            ],
+            "count": 1,
+            "frame_rate": 60.0988,
+            "source_item_id": 29,
+            "source_item_name": "光环",
+            "source_program_id": 29,
+            "source_effect_id": 15,
+            "source_class_id": 11,
+            "next_stop_tick": 203
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_11_ally_item_29_far_ally",
+            "ticks": [
+              107
+            ],
+            "count": 1,
+            "frame_rate": 60.0988,
+            "source_item_id": 29,
+            "source_item_name": "光环",
+            "source_program_id": 29,
+            "source_effect_id": 15,
+            "source_class_id": 11,
+            "next_stop_tick": 203
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_11_ally_item_29_far_ally_vs_heavy",
+            "ticks": [
+              107
+            ],
+            "count": 1,
+            "frame_rate": 60.0988,
+            "source_item_id": 29,
+            "source_item_name": "光环",
+            "source_program_id": 29,
+            "source_effect_id": 15,
+            "source_class_id": 11,
+            "next_stop_tick": 203
+          }
+        ],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A finite eight-second restrained halo-like magical energy bed: smooth filtered noise and subtle flickering pulse texture, bright but not sharp, stable volume, no tune or rhythmic beat. It will be stopped by an animation after a short segment, not played as background music.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102571,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-analysed pitch/envelope with new additive and band-limited noise synthesis"
+    },
+    {
+      "id": "rm_sfx_50",
+      "title": "兼容备用音50",
+      "request": "50",
+      "source_request": "0x50",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_50.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 4.389478,
+      "generation_seconds": 5.89,
+      "target_duration_seconds": 4.39,
+      "max_duration_seconds": 4.54,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#50",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "50",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single neutral retro synthetic compatibility sound lasting about 4.39 seconds: a compact filtered-noise and rounded pulse gesture, dry onset, distinct but restrained short decay. Do not imply a particular weapon, character or gameplay result. No repeating sequence.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102580,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-conditioned audio-to-audio variation"
+    },
+    {
+      "id": "rm_sfx_51",
+      "title": "兼容备用音51",
+      "request": "51",
+      "source_request": "0x51",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_51.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 1.045873,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 1.05,
+      "max_duration_seconds": 1.2,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#51",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "51",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single neutral retro synthetic compatibility sound lasting about 1.05 seconds: a compact filtered-noise and rounded pulse gesture, dry onset, distinct but restrained short decay. Do not imply a particular weapon, character or gameplay result. No repeating sequence.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102581
+    },
+    {
+      "id": "rm_sfx_52",
+      "title": "兼容备用音52",
+      "request": "52",
+      "source_request": "0x52",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_52.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 3.365079,
+      "generation_seconds": 4.87,
+      "target_duration_seconds": 3.37,
+      "max_duration_seconds": 3.52,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#52",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "52",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single neutral retro synthetic compatibility sound lasting about 3.37 seconds: a compact filtered-noise and rounded pulse gesture, dry onset, distinct but restrained short decay. Do not imply a particular weapon, character or gameplay result. No repeating sequence.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102582
+    },
+    {
+      "id": "rm_sfx_53",
+      "title": "箭雨前置与过渡底音",
+      "request": "53",
+      "source_request": "0x53",
+      "category": "transition_lead_in",
+      "role": "已确认箭雨接触前3帧的前置底音及原作战斗过渡；不是死亡/濒死提示",
+      "semantic_confidence": "source_program_verified",
+      "old_paths": [
+        "res://assets/original/audio/death.ogg"
+      ],
+      "named_aliases": [
+        "death"
+      ],
+      "original_duration_seconds": 4.0,
+      "generation_seconds": 5.5,
+      "target_duration_seconds": 4.0,
+      "max_duration_seconds": 4.0,
+      "loop": false,
+      "manual_stop": true,
+      "default_enabled": true,
+      "original_mapping_status": "pending",
+      "current_runtime_reference_count": 90,
+      "actual_references": [
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_28",
+          "ticks": [
+            310
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 28,
+          "source_item_name": "箭雨",
+          "source_program_id": 29,
+          "source_effect_id": 17,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_28_vs_heavy",
+          "ticks": [
+            315
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 28,
+          "source_item_name": "箭雨",
+          "source_program_id": 29,
+          "source_effect_id": 17,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_28_far_ally",
+          "ticks": [
+            335
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 28,
+          "source_item_name": "箭雨",
+          "source_program_id": 29,
+          "source_effect_id": 17,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_28_far_ally_vs_heavy",
+          "ticks": [
+            340
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 28,
+          "source_item_name": "箭雨",
+          "source_program_id": 29,
+          "source_effect_id": 17,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_28_far_enemy",
+          "ticks": [
+            335
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 28,
+          "source_item_name": "箭雨",
+          "source_program_id": 29,
+          "source_effect_id": 17,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_11_ally_item_28_far_enemy_vs_heavy",
+          "ticks": [
+            315
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 28,
+          "source_item_name": "箭雨",
+          "source_program_id": 29,
+          "source_effect_id": 17,
+          "source_class_id": 11,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_15_ally_item_28",
+          "ticks": [
+            296
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 28,
+          "source_item_name": "箭雨",
+          "source_program_id": 27,
+          "source_effect_id": 17,
+          "source_class_id": 15,
+          "next_stop_tick": null
+        },
+        {
+          "file": "actual/data/legacy/full_animation_effects.json",
+          "variant": "class_15_ally_item_28_vs_heavy",
+          "ticks": [
+            301
+          ],
+          "count": 1,
+          "frame_rate": 60.0988,
+          "source_item_id": 28,
+          "source_item_name": "箭雨",
+          "source_program_id": 27,
+          "source_effect_id": 17,
+          "source_class_id": 15,
+          "next_stop_tick": null
+        }
+      ],
+      "full_usage_index": "usage-index.json#53",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "53",
+          "evidence": "bank005 L05912C battle transition sustained noise; death mapping pending"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank005.asm",
+          "line": 2471,
+          "label": "L05912C",
+          "packed_write": "LDA #8; STA $06D5",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "kind": "extracted_runtime_timeline",
+          "file": "actual/data/legacy/full_animation_effects.json / m11_party_motion.json / reviewed_animations.json / full_map_effects.json",
+          "note": "使用证据见actual_references；只能证明请求出现在该时间轴，不能把旧attack/death别名解释为已审核。"
+        },
+        {
+          "kind": "confirmed_semantics_reaudit",
+          "evidence": "箭雨effect17 L05BB97含1B14，经L05A601写04A6=20，L00BE9C写06D5=8并计时80帧；L00BEB6/L00BEBA发30停止。普通hit显式30→03，miss43通过驱动清旧53。",
+          "details": "evidence-21-53.md"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": true,
+        "verified_stop_examples": [
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_19_ally_item_28",
+            "ticks": [
+              366
+            ],
+            "count": 1,
+            "frame_rate": 60.0988,
+            "source_item_id": 28,
+            "source_item_name": "箭雨",
+            "source_program_id": 47,
+            "source_effect_id": 17,
+            "source_class_id": 19,
+            "next_stop_tick": 446
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_19_ally_item_28_vs_heavy",
+            "ticks": [
+              371
+            ],
+            "count": 1,
+            "frame_rate": 60.0988,
+            "source_item_id": 28,
+            "source_item_name": "箭雨",
+            "source_program_id": 47,
+            "source_effect_id": 17,
+            "source_class_id": 19,
+            "next_stop_tick": 451
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_19_ally_item_28_far_ally",
+            "ticks": [
+              391
+            ],
+            "count": 1,
+            "frame_rate": 60.0988,
+            "source_item_id": 28,
+            "source_item_name": "箭雨",
+            "source_program_id": 47,
+            "source_effect_id": 17,
+            "source_class_id": 19,
+            "next_stop_tick": 471
+          },
+          {
+            "file": "actual/data/legacy/full_animation_effects.json",
+            "variant": "class_19_ally_item_28_far_ally_vs_heavy",
+            "ticks": [
+              396
+            ],
+            "count": 1,
+            "frame_rate": 60.0988,
+            "source_item_id": 28,
+            "source_item_name": "箭雨",
+            "source_program_id": 47,
+            "source_effect_id": 17,
+            "source_class_id": 19,
+            "next_stop_tick": 476
+          }
+        ],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。",
+        "verified_contact_offset_ticks": 3,
+        "verified_source_timer_ticks": 80,
+        "native_fps": 60.0988,
+        "hit_stop": "L059C82→04A6=29→L00BED0(request30)→L00BED9(request03)",
+        "miss_stop": "L059C18/L059C69(request43)→L0E88F3→L0E8A88 replaces interruptible53",
+        "source_transition_stop": "L05912C starts53; L059173 writes06D3=1 (request30)",
+        "runtime_required": "03/43播放前终止53声部，动作退出兜底清53；不影响音乐，不新增原动画触发。80tick兜底不能替代接触时精确停止。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A finite four-second subdued retro transition noise wash, rounded low-mid filtered texture with gentle flutter, even body and short clean ending. No scream, no death cue, no melody, no voice.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102583,
+      "original_default_enabled": false,
+      "activation_policy": "request及canonical按已核对动画启用；误名泛用alias death 保持禁用，不新增调用。",
+      "evidence_report": "evidence-21-53.md",
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-analysed pitch/envelope with new additive and band-limited noise synthesis"
+    },
+    {
+      "id": "rm_sfx_54",
+      "title": "兼容备用音54",
+      "request": "54",
+      "source_request": "0x54",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_54.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 0.16932,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.17,
+      "max_duration_seconds": 0.32,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#54",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "54",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank011.asm",
+          "line": 2931,
+          "label": "L0B9631",
+          "packed_write": "LDA #16; STA $06D5",
+          "kind": "asm_direct_packed_write"
+        },
+        {
+          "file": ".reference/fe2-source-956365ef/src/bank015.asm",
+          "line": 8891,
+          "label": "L0FF57E",
+          "packed_write": "LDA #16; STA $06D5",
+          "kind": "asm_direct_packed_write"
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single neutral retro synthetic compatibility sound lasting about 0.17 seconds: a compact filtered-noise and rounded pulse gesture, dry onset, distinct but restrained short decay. Do not imply a particular weapon, character or gameplay result. No repeating sequence.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102584,
+      "runtime_asset_revision": 3,
+      "selected_production_method": "reference-analysed pitch/envelope with new additive synthesis"
+    },
+    {
+      "id": "rm_sfx_55",
+      "title": "兼容备用音55",
+      "request": "55",
+      "source_request": "0x55",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_55.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 0.331746,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.33,
+      "max_duration_seconds": 0.48,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#55",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "55",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single neutral retro synthetic compatibility sound lasting about 0.33 seconds: a compact filtered-noise and rounded pulse gesture, dry onset, distinct but restrained short decay. Do not imply a particular weapon, character or gameplay result. No repeating sequence.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102585
+    },
+    {
+      "id": "rm_sfx_60",
+      "title": "兼容备用音60",
+      "request": "60",
+      "source_request": "0x60",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_60.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 0.907075,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.91,
+      "max_duration_seconds": 1.06,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#60",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "60",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single neutral retro synthetic compatibility sound lasting about 0.91 seconds: a compact filtered-noise and rounded pulse gesture, dry onset, distinct but restrained short decay. Do not imply a particular weapon, character or gameplay result. No repeating sequence.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102596
+    },
+    {
+      "id": "rm_sfx_61",
+      "title": "兼容备用音61",
+      "request": "61",
+      "source_request": "0x61",
+      "category": "compatibility_unassigned",
+      "role": "已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+      "semantic_confidence": "request_only",
+      "old_paths": [
+        "res://assets/original/audio/sfx_61.ogg"
+      ],
+      "named_aliases": [],
+      "original_duration_seconds": 0.907143,
+      "generation_seconds": 3.0,
+      "target_duration_seconds": 0.91,
+      "max_duration_seconds": 1.06,
+      "loop": false,
+      "manual_stop": false,
+      "default_enabled": true,
+      "original_mapping_status": "source_request_verified",
+      "current_runtime_reference_count": 0,
+      "actual_references": [],
+      "full_usage_index": "usage-index.json#61",
+      "asm_evidence": [
+        {
+          "kind": "manifest",
+          "file": "actual/data/legacy/full_audio.json",
+          "request": "61",
+          "evidence": "Original packed sound request, used only when selected by source animation/event opcode."
+        }
+      ],
+      "stop_contract": {
+        "original_loop": false,
+        "original_manual_stop": false,
+        "verified_stop_examples": [],
+        "policy": "保留有限时长loop=false；已有stop_sfx请求仍可提前终止，不因manual_stop自动改无限循环。"
+      },
+      "prompt": "TrackType: Sound Effect, VocalType: Instrumental. Original isolated retro fantasy tactical game sound effect, crisp and restrained, mobile-speaker-friendly midrange, no copied recording. No music, no melody, no speech, no singing, no choir, no background ambience. A single neutral retro synthetic compatibility sound lasting about 0.91 seconds: a compact filtered-noise and rounded pulse gesture, dry onset, distinct but restrained short decay. Do not imply a particular weapon, character or gameplay result. No repeating sequence.",
+      "negative_prompt": "music, melody, rhythm loop, vocals, speech, singing, choir, crowd, harsh distortion, clipping, long reverb, background noise, cinematic trailer",
+      "seed": 2026102597
+    }
+  ],
+  "request_aliases": {
+    "01": "rm_sfx_01",
+    "02": "rm_sfx_02",
+    "03": "rm_sfx_03",
+    "04": "rm_sfx_04",
+    "05": "rm_sfx_05",
+    "06": "rm_sfx_06",
+    "07": "rm_sfx_07",
+    "10": "rm_sfx_10",
+    "11": "rm_sfx_11",
+    "12": "rm_sfx_12",
+    "13": "rm_sfx_13",
+    "15": "rm_sfx_15",
+    "16": "rm_sfx_16",
+    "17": "rm_sfx_17",
+    "21": "rm_sfx_21",
+    "22": "rm_sfx_22",
+    "23": "rm_sfx_23",
+    "25": "rm_sfx_25",
+    "26": "rm_sfx_26",
+    "27": "rm_sfx_27",
+    "31": "rm_sfx_31",
+    "32": "rm_sfx_32",
+    "33": "rm_sfx_33",
+    "36": "rm_sfx_36",
+    "37": "rm_sfx_37",
+    "40": "rm_sfx_40",
+    "41": "rm_sfx_41",
+    "42": "rm_sfx_42",
+    "43": "rm_sfx_43",
+    "44": "rm_sfx_44",
+    "45": "rm_sfx_45",
+    "46": "rm_sfx_46",
+    "47": "rm_sfx_47",
+    "50": "rm_sfx_50",
+    "51": "rm_sfx_51",
+    "52": "rm_sfx_52",
+    "53": "rm_sfx_53",
+    "54": "rm_sfx_54",
+    "55": "rm_sfx_55",
+    "60": "rm_sfx_60",
+    "61": "rm_sfx_61"
+  },
+  "named_aliases": {
+    "menu_move": "rm_sfx_12",
+    "menu_confirm": "rm_sfx_10",
+    "menu_cancel": "rm_sfx_13",
+    "dialogue": "rm_sfx_25",
+    "attack": "rm_sfx_21",
+    "hit": "rm_sfx_03",
+    "miss": "rm_sfx_43",
+    "death": "rm_sfx_53",
+    "hp_tick": "rm_sfx_12"
+  },
+  "old_path_aliases": {
+    "res://assets/original/audio/sfx_01.ogg": "rm_sfx_01",
+    "res://assets/original/audio/sfx_02.ogg": "rm_sfx_02",
+    "res://assets/original/audio/hit.ogg": "rm_sfx_03",
+    "res://assets/original/audio/sfx_04.ogg": "rm_sfx_04",
+    "res://assets/original/audio/sfx_05.ogg": "rm_sfx_05",
+    "res://assets/original/audio/sfx_06.ogg": "rm_sfx_06",
+    "res://assets/original/audio/sfx_07.ogg": "rm_sfx_07",
+    "res://assets/original/audio/menu_confirm.ogg": "rm_sfx_10",
+    "res://assets/original/audio/sfx_11.ogg": "rm_sfx_11",
+    "res://assets/original/audio/hp_tick.ogg": "rm_sfx_12",
+    "res://assets/original/audio/menu_move.ogg": "rm_sfx_12",
+    "res://assets/original/audio/menu_cancel.ogg": "rm_sfx_13",
+    "res://assets/original/audio/sfx_15.ogg": "rm_sfx_15",
+    "res://assets/original/audio/sfx_16.ogg": "rm_sfx_16",
+    "res://assets/original/audio/sfx_17.ogg": "rm_sfx_17",
+    "res://assets/original/audio/attack.ogg": "rm_sfx_21",
+    "res://assets/original/audio/sfx_22.ogg": "rm_sfx_22",
+    "res://assets/original/audio/sfx_23.ogg": "rm_sfx_23",
+    "res://assets/original/audio/dialogue.ogg": "rm_sfx_25",
+    "res://assets/original/audio/sfx_26.ogg": "rm_sfx_26",
+    "res://assets/original/audio/sfx_27.ogg": "rm_sfx_27",
+    "res://assets/original/audio/sfx_31.ogg": "rm_sfx_31",
+    "res://assets/original/audio/sfx_32.ogg": "rm_sfx_32",
+    "res://assets/original/audio/sfx_33.ogg": "rm_sfx_33",
+    "res://assets/original/audio/sfx_36.ogg": "rm_sfx_36",
+    "res://assets/original/audio/sfx_37.ogg": "rm_sfx_37",
+    "res://assets/original/audio/sfx_40.ogg": "rm_sfx_40",
+    "res://assets/original/audio/sfx_41.ogg": "rm_sfx_41",
+    "res://assets/original/audio/sfx_42.ogg": "rm_sfx_42",
+    "res://assets/original/audio/miss.ogg": "rm_sfx_43",
+    "res://assets/original/audio/sfx_44.ogg": "rm_sfx_44",
+    "res://assets/original/audio/sfx_45.ogg": "rm_sfx_45",
+    "res://assets/original/audio/sfx_46.ogg": "rm_sfx_46",
+    "res://assets/original/audio/sfx_47.ogg": "rm_sfx_47",
+    "res://assets/original/audio/sfx_50.ogg": "rm_sfx_50",
+    "res://assets/original/audio/sfx_51.ogg": "rm_sfx_51",
+    "res://assets/original/audio/sfx_52.ogg": "rm_sfx_52",
+    "res://assets/original/audio/death.ogg": "rm_sfx_53",
+    "res://assets/original/audio/sfx_54.ogg": "rm_sfx_54",
+    "res://assets/original/audio/sfx_55.ogg": "rm_sfx_55",
+    "res://assets/original/audio/sfx_60.ogg": "rm_sfx_60",
+    "res://assets/original/audio/sfx_61.ogg": "rm_sfx_61"
+  },
+  "preserved_controls": {
+    "00": "stop_all",
+    "30": "stop_sfx",
+    "14": "stop_sfx",
+    "20": "stop_sfx",
+    "24": "stop_sfx",
+    "34": "stop_sfx",
+    "35": "stop_sfx",
+    "56": "fade_music",
+    "57": "stop_sfx",
+    "62": "stop_sfx",
+    "63": "stop_sfx",
+    "64": "stop_sfx",
+    "65": "stop_sfx",
+    "66": "stop_sfx",
+    "67": "stop_sfx"
+  },
+  "preserved_ignored_music_requests": {
+    "74": {
+      "behavior": "preserve_current_music",
+      "source": "L0E92DF null pointer; L0E8146-L0E815D jumps to existing playback without resetting channels."
+    },
+    "75": {
+      "behavior": "preserve_current_music",
+      "source": "L0E92DF null pointer; L0E8146-L0E815D jumps to existing playback without resetting channels."
+    },
+    "92": {
+      "behavior": "preserve_current_music",
+      "source": "L0E92DF null pointer; L0E8146-L0E815D jumps to existing playback without resetting channels."
+    },
+    "97": {
+      "behavior": "preserve_current_music",
+      "source": "L0E92DF null pointer; L0E8146-L0E815D jumps to existing playback without resetting channels."
+    },
+    "B1": {
+      "behavior": "preserve_current_music",
+      "source": "L0E92DF null pointer; L0E8146-L0E815D jumps to existing playback without resetting channels."
+    }
+  },
+  "silent_sfx_requests": [],
+  "source_failures": [],
+  "implementation_contract": {
+    "manifest": "actual/data/sound_effects.json",
+    "shape": "effects keyed by id; request_aliases and named_aliases; each effect carries path/default_enabled/manual_stop/loop=false/loop_offset=0 and actual metadata",
+    "resource_directory": "res://assets/sfx/20261024/",
+    "disabled": [],
+    "no_fallback": "不回退旧录音。先按输入别名检查named_alias_enabled/overrides；attack/death仍禁用；已证明的request21/53与canonical可共用新资源，不可因旧误名alias的pending复制状态继续静音。",
+    "controls": "15个control与5个ignored不生成音频；stop_sfx只停止音效，不能影响音乐或jingle。",
+    "timing": "保持原动画/地图请求时刻、命中/施法次数、停止时刻；部分01/06每2或8帧重复请求，不另造额外打击或长雷暴。",
+    "compatibility": "未发现现行触发的资源仍制作兼容替换，但报告为备用，不能声称听到或人为插到攻击里。",
+    "vocal_note": "无音乐无人声是生成目标；客观信号检查不能单独证明感知内容。",
+    "disabled_named_aliases": [
+      "attack",
+      "death"
+    ],
+    "verified_request_overrides": [
+      "21",
+      "53"
+    ]
+  },
+  "validation_scope": [
+    "41个新资源覆盖42旧路径/9别名/41请求；同一12资源复用",
+    "21/53 request与canonical已核对启用；attack/death泛用别名仍禁用；10个manual_stop维持有限时长，53接触/动作退出精确停止",
+    "保留35music/5ignored/15controls语义，不生成静默控制占位音",
+    "代表UI/HP、物理命中、闪避、法术重复触发、召唤/传送起止；实际代码触发单独测试，不重打40关不重复截图",
+    "实际时长/非静音/削波/峰值/源与成品SHA；音色与无人声需试听，不伪称已听过"
+  ],
+  "named_alias_enabled": {
+    "menu_move": true,
+    "menu_confirm": true,
+    "menu_cancel": true,
+    "dialogue": true,
+    "attack": false,
+    "hit": true,
+    "miss": true,
+    "death": false,
+    "hp_tick": true
+  },
+  "named_alias_overrides": {
+    "attack": {
+      "default_enabled": false,
+      "reason": "此泛用别名的语义未获证明；同资源的具体动画request已另行核对启用。",
+      "evidence_report": "evidence-21-53.md"
+    },
+    "death": {
+      "default_enabled": false,
+      "reason": "此泛用别名的语义未获证明；同资源的具体动画request已另行核对启用。",
+      "evidence_report": "evidence-21-53.md"
+    }
+  },
+  "revision_note": "2026-10-24补证：原21/53默认禁用来自提取器对误名alias pending的复制。现以ASM+提取程序双层证据确认request路径，按root批准区分别名与真实请求。"
+}

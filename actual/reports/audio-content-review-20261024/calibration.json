@@ -1,0 +1,175 @@
+[
+  {
+    "id": "calibration_silence",
+    "kind": "calibration",
+    "paths": [
+      "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-content-review-20261024/calibration/silence.wav"
+    ],
+    "hashes": [
+      "91e76678072b32dcb9174d02cb294032c23a6ed6c8616a19438aeac5e0105010"
+    ],
+    "prompt": "Describe only the audible sound in this audio. State sound type, timbre, pitch movement, rhythm and whether speech or music is audible. Do not infer a story or visual source. Be specific and concise, under 60 words. If silent say silent. Very short one-shot clips may be repeated four times with silence for analysis.",
+    "max_tokens": 95,
+    "key": "9c801643967f531f2584ed60",
+    "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+    "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+    "adapter_revision": 1,
+    "audio_input_samples": [
+      32000
+    ],
+    "audio_input_sample_rate": 16000,
+    "response": "A single-note sound from an instrument with a fast decay and a bright quality. No speech or music is present.",
+    "generation_tokens": 23,
+    "generation_tps": 13.410076414741702,
+    "wall_seconds": 3.314,
+    "peak_memory_bytes": 6951289234,
+    "review_type": "local_audio_model",
+    "human_listening": false
+  },
+  {
+    "id": "calibration_sine_440",
+    "kind": "calibration",
+    "paths": [
+      "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-content-review-20261024/calibration/sine_440.wav"
+    ],
+    "hashes": [
+      "834e892a30c7b076d6fbab716ef3a1e6f3862c280a588d3fefd1407c45b8e4ec"
+    ],
+    "prompt": "Describe only the audible sound in this audio. State sound type, timbre, pitch movement, rhythm and whether speech or music is audible. Do not infer a story or visual source. Be specific and concise, under 60 words. If silent say silent. Very short one-shot clips may be repeated four times with silence for analysis.",
+    "max_tokens": 95,
+    "key": "f4203ee907c3361e8506c9a6",
+    "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+    "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+    "adapter_revision": 1,
+    "audio_input_samples": [
+      32000
+    ],
+    "audio_input_sample_rate": 16000,
+    "response": "A sine wave sound, pure and repetitive, with a single pitch note that remains constant throughout the clip. No speech or music detected.",
+    "generation_tokens": 27,
+    "generation_tps": 26.42520215664871,
+    "wall_seconds": 1.109,
+    "peak_memory_bytes": 6951289234,
+    "review_type": "local_audio_model",
+    "human_listening": false
+  },
+  {
+    "id": "calibration_noise",
+    "kind": "calibration",
+    "paths": [
+      "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-content-review-20261024/calibration/noise.wav"
+    ],
+    "hashes": [
+      "54c0e77e1875a1af5dcd00574ffef0b10a017c5998ee9eb742f894dab4578320"
+    ],
+    "prompt": "Describe only the audible sound in this audio. State sound type, timbre, pitch movement, rhythm and whether speech or music is audible. Do not infer a story or visual source. Be specific and concise, under 60 words. If silent say silent. Very short one-shot clips may be repeated four times with silence for analysis.",
+    "max_tokens": 95,
+    "key": "e636a0b2459a8cef24d4237a",
+    "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+    "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+    "adapter_revision": 1,
+    "audio_input_samples": [
+      32000
+    ],
+    "audio_input_sample_rate": 16000,
+    "response": "A short, sharp sound followed by silence. Sound type: other sourceless. Timbre: one shot. Pitch movement: none. Rhythm: none. Speech or music: none.",
+    "generation_tokens": 38,
+    "generation_tps": 30.70337479166169,
+    "wall_seconds": 1.323,
+    "peak_memory_bytes": 6951289234,
+    "review_type": "local_audio_model",
+    "human_listening": false
+  },
+  {
+    "id": "rm_sfx_12",
+    "kind": "sfx_pair",
+    "paths": [
+      "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/hp_tick.ogg",
+      "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_12.ogg"
+    ],
+    "hashes": [
+      "0e1a4896f31c7865f764b17dd6da5c7677d7214d14262e42b0cd1e2f7a55054e",
+      "25a3637c3a5c4d92e94361e76820049b88c10418e02fce7eb04539e50e57f1bd"
+    ],
+    "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+    "max_tokens": 165,
+    "repeat_short": true,
+    "key": "2f3e959bba9b95b30c423d72",
+    "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+    "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+    "adapter_revision": 1,
+    "audio_input_samples": [
+      23628,
+      14356
+    ],
+    "audio_input_sample_rate": 16000,
+    "response": "The first sound is a fast, sharp beeping with a short release time. The second is a similar, but slightly quieter, beeping with a longer release time. The main difference is the timbre; the first beep has a harsh, digital quality while the second is more mellow and analog sounding. The attack and pitch are also slightly different, with the second sound having a slightly slower attack and a slightly lower pitch. The density and decay are also not directly comparable as the first sound is purely beeping, while the second includes additional noise and a longer release time.",
+    "generation_tokens": 116,
+    "generation_tps": 43.73178302516824,
+    "wall_seconds": 2.79,
+    "peak_memory_bytes": 6987743686,
+    "review_type": "local_audio_model",
+    "human_listening": false
+  },
+  {
+    "id": "rm_sfx_03",
+    "kind": "sfx_pair",
+    "paths": [
+      "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/hit.ogg",
+      "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_03.ogg"
+    ],
+    "hashes": [
+      "73e68e3ad36e0ac989ea2915f4127d1eb1a8915e7aeb8d845b474cb9b15cf040",
+      "e3951491cfb2aeed93510918d054b0869d82ce79c4d91fd7bb7f14f5473c38e1"
+    ],
+    "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+    "max_tokens": 165,
+    "repeat_short": true,
+    "key": "c1d6e078cd0bde56f1ccc719",
+    "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+    "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+    "adapter_revision": 1,
+    "audio_input_samples": [
+      10857,
+      12053
+    ],
+    "audio_input_sample_rate": 16000,
+    "response": "The actual sounds are sourceless sound effects with no specific source. The first sound has a quick, sharp attack and a fast decay, while the second sound has a longer attack and a slower decay. The first sound has a bright quality, while the second sound has a dark quality. There is no noticeable difference in timbre or pitch movement. The second sound is slightly more dense.",
+    "generation_tokens": 77,
+    "generation_tps": 38.694983117146705,
+    "wall_seconds": 2.141,
+    "peak_memory_bytes": 6987743686,
+    "review_type": "local_audio_model",
+    "human_listening": false
+  },
+  {
+    "id": "rm_title",
+    "kind": "music_full_coverage",
+    "segment": 0,
+    "paths": [
+      "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_title.ogg"
+    ],
+    "hashes": [
+      "5ec37d0e8c0b481dd48e529553a09b782f78613cc85d58c007a4074e2077c944"
+    ],
+    "start": 0.0,
+    "end": 28.0,
+    "prompt": "Describe this instrumental game-music passage using only what is audible: dominant instruments/timbres, pulse, energy and mood; any voice, noise or abrupt musical change. Is it sparse retro synthesized music or acoustic/full-band music? Do not guess a game, story, composer or title. Under 75 words.",
+    "max_tokens": 120,
+    "key": "8e23c9687d34275d95e5854c",
+    "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+    "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+    "adapter_revision": 1,
+    "audio_input_samples": [
+      448000
+    ],
+    "audio_input_sample_rate": 16000,
+    "response": "The passage features a synth brass melody over a syncopated snare and kick, creating an energetic, retro vibe. It's sparse, with a slow build but lacks any discernible voice, noise or abrupt changes. It's likely a soundtrack for a vintage-style game.",
+    "generation_tokens": 55,
+    "generation_tps": 14.934475505597028,
+    "wall_seconds": 4.213,
+    "peak_memory_bytes": 7672728330,
+    "review_type": "local_audio_model",
+    "human_listening": false
+  }
+]

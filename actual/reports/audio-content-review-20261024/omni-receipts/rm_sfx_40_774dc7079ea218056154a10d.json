@@ -1,0 +1,54 @@
+{
+  "id": "rm_sfx_40",
+  "kind": "final_scene_mix",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_sfx_40_new_context.wav"
+    }
+  ],
+  "asset_sha256": "b8ab18cf5179ba45102ac1273b9da3dc2792d65897a19c793664b120f040e8b8",
+  "fixture_sha256": "51a4c7e6251e0701d98eb84914d34dca645b60c5fcc5db41a47532652fb1d92a",
+  "prompt": "This is a final offline scene mix using the actual game gains and native event sequence. Describe only audible evidence. Check whether essential feedback attacks are clear, any intrusive click/distortion or excessive rumbling tail, and whether music continuity is distracted by the effects. Effects need not be as loud as music; a naturally masked quiet tail is not a failure. Report uncertainty and avoid inventing instruments/events. Under 90 words. Fixture context: 实际源动画请求序列（同一当前双声部规则）：class_11_ally_item_26；叠加当前配乐0.50／音效0.65",
+  "max_tokens": 170,
+  "key": "774dc7079ea218056154a10d",
+  "source_sha256": [
+    "51a4c7e6251e0701d98eb84914d34dca645b60c5fcc5db41a47532652fb1d92a"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/51a4c7e6251e0701d98eb84914d34dca645b60c5fcc5db41a47532652fb1d92a.wav"
+  ],
+  "audio_input_samples": [
+    91061
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "a1dfce7c31608196dba00fc444242697350fda731720ff364c49b22a07beb535"
+  ],
+  "response": "A low, sustained synth pad plays continuously beneath a sequence of sharp, high-pitched electronic chimes. Each chime is clear and distinct, with no audible distortion or intrusive clicks. The chimes have a brief, natural decay without excessive rumbling tails. The music remains uninterrupted and undistracted by the effects, maintaining smooth continuity. The mix balances the ambient pad and chimes as per the specified levels (0.50/0.65), with the effects naturally masked by the music. No additional instruments or events are present.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 111,
+    "prompt_tokens": 241,
+    "total_tokens": 352,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 213,
+    "prompt_ms": 643.175,
+    "prompt_per_token_ms": 3.019600938967136,
+    "prompt_per_second": 331.16958837019473,
+    "predicted_n": 111,
+    "predicted_ms": 1728.647,
+    "predicted_per_token_ms": 15.714972727272727,
+    "predicted_per_second": 63.633581639282056
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 2.389,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

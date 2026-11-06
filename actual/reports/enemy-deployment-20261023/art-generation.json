@@ -1,0 +1,43 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "date": "2026-10-23",
+  "user_revision": "降低饱和度到男主角附近、略弱；减少颜色。",
+  "runs": [
+    {
+      "kind": "original bird key poses",
+      "source": "/Users/gcc/.codex/generated_images/01a1676d-d26b-7992-acd6-1335649650d5/exec-c6a07742-b2e0-407a-b0cf-6855bb7fd24e.png",
+      "reference": "actual/assets/portraits-0.5.0/vucub.png",
+      "prompt_summary": "4×2 transparent pixel-art sheet; nonhuman sun macaw, gold beak, red seven-feather crown, blue/turquoise plumage, eight idle/charge/release/recover/beak preparation/contact/hurt/empowered poses; no human weapons. Original prompt is retained in this chat's imagegen tool call."
+    },
+    {
+      "kind": "original stone poses",
+      "source": "/Users/gcc/.codex/generated_images/01a1676d-d26b-7992-acd6-1335649650d5/exec-2df12860-9950-440b-a105-7b3a8739d9c5.png",
+      "prompt": "Use case: stylized-concept. Production 16-bit tactical RPG enemy sprite sheet, 4 columns by 2 rows, eight distinct complete-body key poses, equal cells, transparent background, no labels or grid. Subject: a wholly nonhuman stone wing beast, quadrupedal grey stone gargoyle-drake, hooked foreclaws, rock-plated back, short angular horns, slate batlike stone wings and amber eyes. NO human body, hands, clothing, spear, sword, shield or weapons. Compact agile silhouette, clear chiseled stone planes with cool grey and blue-grey shading, some warm fissures. Refined crisp pixel art consistent with classic tactical battle sprites. Every pose faces RIGHT, same character size, feet same baseline, generous full padding in every cell, no cell-to-cell overlaps. Row1: idle crouched folded wings; wings raised preparing dive; low forward diving extended claw contact; recovering folded wings. Row2: pull neck back preparing rock spit; open jaw expelling a tiny stone core still at mouth (no projectile outside body); recoil from damage; turn body and close wings defensively showing thick stone armor. No floor, shadows or background. Wide 2:1 spritesheet. Complete horns, tails, wings and toes in each cell."
+    },
+    {
+      "kind": "final bird palette edit",
+      "source": "art-review/enemy-deployment-20261023/source/class-21-muted.png",
+      "references": [
+        "original bird key poses",
+        "actual/assets/reviewed-animation-20261018/hunapu-battle.png (first 320×288 frame)"
+      ],
+      "prompt": "Edit the first reference spritesheet, using the second reference (Hunapu protagonist) ONLY as the palette/style standard. Preserve the sun bird species, eight poses, 4x2 layout, bird anatomy, identities and transparent background. Strongly reduce saturation and simplify palette to about 20-24 intentional flat color tones overall. Match the hero's restrained saturation and value range, slightly more muted than hero; use muted brick red, slate navy blue, dusty teal in small accents, antique ochre gold, warm ivory and dark charcoal. Remove vivid primary red, electric cyan, saturated royal blue, bright yellow glow. Make the gold less shiny, eliminate tiny multicolor ornament noise, use broad clean pixel shade clusters with only 3 or 4 tones per material. Crown glow is subtle pale warm accent only, never a large vivid flare. Make sprite pixels crisp at actual 80-96px character height, clean readable silhouette. Keep the seven crown feathers and 3 main circular mirror ornaments but reduce tiny decorative lines. Every bird is fully inside its own cell with at least 10% transparent padding on all sides, no pose overlap or touching outer canvas edges; consistent feet baseline. No text, no grids, no extra objects, no floor shadows. Do not insert the human reference in the output."
+    },
+    {
+      "kind": "final stone palette/framing edit",
+      "source": "art-review/enemy-deployment-20261023/source/class-3-muted.png",
+      "references": [
+        "original stone poses",
+        "actual/assets/reviewed-animation-20261018/hunapu-battle.png (first 320×288 frame)"
+      ],
+      "prompt": "Edit the first reference stone beast spritesheet using the second reference human hero ONLY as a palette complexity/saturation standard. Preserve the quadruped nonhuman stone beast and all eight action poses in exactly a 4-column 2-row sheet. Transparent background. Keep stone low saturation, subdued blue-grey and warm grey, amber eyes only a small accent. Simplify to roughly 16-20 deliberate colors, large clean pixel shading planes, remove noisy mottling and little colored speckles. Classic crisp RPG pixel sprite, readable at 64-80px body size. IMPORTANT repair framing: every pose must have its entire wings, tail, horns, claws and toes intact; especially raised wing of row1 col2 and tail of row2 col1. Shrink all subjects uniformly within equal cells to give at least 10% fully transparent padding on all four sides; every pose complete inside own cell with no overlap. Keep feet aligned and same character scale. No human weapons, staff, hands or shield; defensive last pose uses its own armored wing. No human reference in output. No labels or grid lines. Body colors slightly less saturated than the hero, understated natural stone."
+    },
+    {
+      "kind": "final bone drake key poses",
+      "source": "art-review/enemy-deployment-20261023/source/class-5-muted.png",
+      "reference": "final stone sheet for palette and pixel shading only",
+      "prompt": "Production tactical RPG pixel-art spritesheet, exact 4 columns x 2 rows with 8 complete full-body poses of ONE SKELETAL WINGED DRAKE. Nonhuman large skeletal birdlike dragon, exposed ivory grey skull with long jaws, rib cage, bony spine and thin bone wing fingers with torn muted grey membrane, four taloned limbs, tapering bone tail. Distinct from solid rock gargoyle: hollow skeletal ribs and skull, slow heavy body. No human weapons, no armor or clothing. Low saturation grey bone, charcoal shadows, tiny muted grey-green eye/accent; palette about 16 deliberate flat shades, broad pixel shade clusters, NO purple/magenta/neon. Style reference is attached stone sheet only for shading economy and saturation, do NOT copy stone plates. Crisp pixel art legible at 64-80px body height. Each character faces RIGHT, uniform scale and feet baseline, complete silhouette, at least 12% transparent margin in every cell. No touching canvas edges or other poses. Transparent background, no shadow floor, no text or grid. Row1: idle folded bone wings; prepare breath chest faint grey-green glow jaws slightly open; mouth open releasing breath (no projectile outside cell); recovering. Row2: jaw retracted heavy biting preparation; neck thrust forward jaws closing at contact; damage recoil; wings partly lifted idle. True skeleton anatomy and hollow gaps must read at game size. Eight separate complete poses."
+    }
+  ],
+  "processing": "build_innate_enemy_art.py: isolate alpha connected silhouettes, common uniform scale, anchor alignment, ImageMagick Point resize and nondithered palette reduction, lossless oxipng. Originals retained."
+}

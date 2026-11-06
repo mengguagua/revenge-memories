@@ -1,0 +1,76 @@
+{
+  "id": "rm_battle_tide",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_tide.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/music_77.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_tide.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_battle_tide_scene.mp3",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is tail 6 seconds then head 6 seconds, with the loop join at 6 seconds; assess rhythmic/harmonic continuity and distracting loudness changes there. Audio 4 is the current game-gain offline mix with interface or combat effects. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: F21/F22/F23/S21/S22; desired mood: 护航、救俘、海面行动",
+  "max_tokens": 340,
+  "key": "26919fb7e43502e3578c5915",
+  "source_sha256": [
+    "c34cf615011f96d3f5a8d467f6ae39a2920ffc87f8c38a6d8708e416db5d4467",
+    "aeec93fa2b63bea84f4bad00e167748119aab8d0f778fc24c38c2d5152c4b745",
+    "c34cf615011f96d3f5a8d467f6ae39a2920ffc87f8c38a6d8708e416db5d4467",
+    "775a14cdc1948cc154f9286e51a9c05c711bf8ba081a52201b747d5a9f6d9125"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "audio_input_samples": [
+    696323,
+    240000,
+    192001,
+    56717
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "e6a91f549335536093a458eba9e94c2dc6265ca71dd6e79ecd8b500fa006b949",
+    "52c349ea5e4f7d1c29f692026a5c5efd91be59fd16158163ee50c300b19f660b",
+    "d3388b3d2d130b7f9dd39997bfd5ea66cddad84f8aa09a386ce64d4b6a024624",
+    "73639e30d25992ca6a7d295b4356852ac71344397c8f71abc8f3fe31101ee3e0"
+  ],
+  "response": "Audio 1 features a synthesized flute-like lead with a breathy, slightly reedy timbre, supported by a steady electronic drum beat and a simple bassline. The melody is repetitive and calm, creating a low-energy, contemplative mood. There are no vocals or speech. The loop is seamless, with no abrupt changes in loudness or rhythm at the join point. The overall texture is sparse and clear, matching the retro aesthetic of Audio 2. Audio 4 introduces a sudden, loud explosion sound effect that completely masks the music for its duration, obscuring any underlying melodic or rhythmic information. This effect likely serves as a combat feedback cue but at the cost of musical clarity. The music itself remains unchanged in timbre and mood throughout.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 153,
+    "prompt_tokens": 1246,
+    "total_tokens": 1399,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 1218,
+    "prompt_ms": 6403.03,
+    "prompt_per_token_ms": 5.257003284072249,
+    "prompt_per_second": 190.2224415628226,
+    "predicted_n": 153,
+    "predicted_ms": 3649.77,
+    "predicted_per_token_ms": 24.011644736842104,
+    "predicted_per_second": 41.64645991391238
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 16.062,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/c34cf615011f96d3f5a8d467f6ae39a2920ffc87f8c38a6d8708e416db5d4467.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/aeec93fa2b63bea84f4bad00e167748119aab8d0f778fc24c38c2d5152c4b745.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/c34cf615011f96d3f5a8d467f6ae39a2920ffc87f8c38a6d8708e416db5d4467.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/775a14cdc1948cc154f9286e51a9c05c711bf8ba081a52201b747d5a9f6d9125.mp3"
+  ]
+}

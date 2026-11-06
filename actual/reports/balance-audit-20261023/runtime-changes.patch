@@ -1,0 +1,61 @@
+--- a/actual/core/combat_rules.gd
++++ b/actual/core/combat_rules.gd
+@@ -112,7 +112,9 @@
+ 		hit = 10 if int(defender.get("item_id", 0)) == 52 else clampi(int(weapon.get("hit", 0)) - Items.effective_luck(defender) - Items.effective_speed(defender), 0, 100)
+ 	else:
+ 		hit = clampi(int(attacker.get("skill", 0)) + int(weapon.get("hit", 0)) - defender_avoid - defender_speed, 0, 100)
+-	if int(attacker.get("item_id", 0)) == 10:
++	# Trading may carry an incompatible lance. Its guaranteed hit belongs to
++	# a legal lance strike, never the holder's default attack or selected magic.
++	if index == 10 and Items.can_use(attacker, 10):
+ 		hit = 100
+ 	var critical := (int(attacker.get("skill", 0)) + Items.effective_luck(attacker)) >> 1
+ 	critical = (critical + int(weapon.get("critical", 0))) >> 1
+--- a/actual/core/item_rules.gd
++++ b/actual/core/item_rules.gd
+@@ -230,7 +230,11 @@
+ 	var damage := mini(5, maxi(0, hp - 1)) if tile_id != 218 and terrain_category == 16 and not immune else 0
+ 	var amount := 0
+ 	var enemy_duma := _enemy(unit) and int(unit.get("character_id", unit.get("source_id", 0))) == 167
+-	if tile_id == 218 or (adjacent_saint and not _enemy(unit)) or cid == 19 or int(item(int(unit.get("item_id", 0))).get("effect_kind", 0)) == 10:
++	var held_id := int(unit.get("item_id", 0))
++	# Carrying an unusable weapon through trade does not activate its passive.
++	# Terrain, adjacent saints and innate class recovery remain independent.
++	var item_recovery := can_use(unit, held_id) and int(item(held_id).get("effect_kind", 0)) == 10
++	if tile_id == 218 or (adjacent_saint and not _enemy(unit)) or cid == 19 or item_recovery:
+ 		amount = 5
+ 	elif enemy_duma:
+ 		amount = 5 if hp >= 20 else 40
+--- a/actual/core/tactical_ai.gd
++++ b/actual/core/tactical_ai.gd
+@@ -164,7 +164,10 @@
+ 	var might = int(Items.item(held).get("might", 0))
+ 	if Items.effective_against(held, target): might *= 3
+ 	var magic = int(actor.class_id) in [15, 16, 19] or weapon == 15
+-	var defence = int(target.get("resistance", 0)) if magic else int(target.get("defence", 0)) + _shield(target)
++	# Campaign shields use the same defence bonuses as real combat. In
++	# particular, the late dual-defence shield must not look like an unarmed
++	# target to ordinary physical troops or spellcasters.
++	var defence = Items.magic_defence(target) if magic else int(target.get("defence", 0)) + Items.physical_defence_bonus(target, actor)
+ 	var power = int(actor.get("strength", 0)) + might
+ 	if not Items.effective_against(held, target): power = mini(60, power)
+ 	var attack = (power & 255) - defence
+@@ -179,7 +182,7 @@
+ 	var risk = 0
+ 	if distance <= _source_range(target):
+ 		var target_magic = int(target.class_id) in [15, 16, 19] or Rules.weapon_index(counter) == 15
+-		var own_defence = int(actor.get("resistance", 0)) if target_magic else int(actor.get("defence", 0)) + _shield(actor)
++		var own_defence = Items.magic_defence(actor) if target_magic else int(actor.get("defence", 0)) + Items.physical_defence_bonus(actor, counter)
+ 		risk = maxi(0, int(target.get("strength", 0)) - own_defence)
+ 	else: bonus += 40
+ 	return mini(255, ((attack * 2 - risk + 60) & 255) + bonus)
+@@ -193,9 +196,6 @@
+ 	if item in [20, 21, 22] and cid in [12, 13, 20]: reach = 5
+ 	if item == 57 and cid in [15, 16, 19]: reach = 5
+ 	return reach
+-
+-static func _shield(unit: Dictionary) -> int:
+-	return int({48: 3, 49: 5, 50: 7}.get(int(unit.get("item_id", 0)), 0))
+ 
+ static func _goal_destination(game, actor: Dictionary, turn_graph: Dictionary, mode: int, opponents: Array, gather: bool) -> Vector2i:
+ 	var start = _pos(actor)

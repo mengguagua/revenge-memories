@@ -1,0 +1,504 @@
+{
+  "checks": [
+    {
+      "title": "掩护规则与存档",
+      "file": "cover-checks.json",
+      "count": 29,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "title": "击退与供给",
+      "file": "knockback-checks.json",
+      "count": 76,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "title": "特殊AI、障碍与异常存档",
+      "file": "battlefield-checks.json",
+      "count": 89,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "title": "16种补练布局与状态",
+      "file": "training/checks.json",
+      "count": 303,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "title": "既有存档可靠性回归",
+      "file": "save-regression/checks.json",
+      "count": 241,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "title": "取消、说明与读档边界",
+      "file": "final-review-probes.json",
+      "count": 13,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "title": "后台手机布局",
+      "file": "visual/checks.json",
+      "count": 23,
+      "passed": true,
+      "errors": []
+    }
+  ],
+  "plays": [
+    {
+      "code": "M13",
+      "round": 1,
+      "outcome": "victory",
+      "turn": 23,
+      "inputs": 1026,
+      "file": "knockback-play/round1/report.json"
+    },
+    {
+      "code": "M33",
+      "round": 1,
+      "outcome": "victory",
+      "turn": 15,
+      "inputs": 1302,
+      "file": "knockback-play/round1/report.json"
+    },
+    {
+      "code": "M52",
+      "round": 1,
+      "outcome": "victory",
+      "turn": 12,
+      "inputs": 1118,
+      "file": "knockback-play/round1/report.json"
+    },
+    {
+      "code": "J53",
+      "round": 1,
+      "outcome": "victory",
+      "turn": 12,
+      "inputs": 3555,
+      "file": "knockback-play/round1/report.json"
+    },
+    {
+      "code": "M42",
+      "round": 1,
+      "outcome": "victory",
+      "turn": 15,
+      "inputs": 1218,
+      "file": "play/M42-round1/report.json"
+    },
+    {
+      "code": "J54",
+      "round": 1,
+      "outcome": "victory",
+      "turn": 7,
+      "inputs": 2142,
+      "file": "play/J54-round1/report.json"
+    },
+    {
+      "code": "T1W1",
+      "round": 1,
+      "outcome": "victory",
+      "turn": 2,
+      "inputs": 51,
+      "file": "training/play-round1.json"
+    },
+    {
+      "code": "T1W2",
+      "round": 1,
+      "outcome": "victory",
+      "turn": 4,
+      "inputs": 73,
+      "file": "training/play-round1.json"
+    },
+    {
+      "code": "T4W1",
+      "round": 1,
+      "outcome": "victory",
+      "turn": 2,
+      "inputs": 94,
+      "file": "training/play-round1.json"
+    },
+    {
+      "code": "T4W2",
+      "round": 1,
+      "outcome": "victory",
+      "turn": 2,
+      "inputs": 128,
+      "file": "training/play-round1.json"
+    },
+    {
+      "code": "M13",
+      "round": 2,
+      "outcome": "victory",
+      "turn": 32,
+      "inputs": 1438,
+      "file": "knockback-play/round2/report.json"
+    },
+    {
+      "code": "M33",
+      "round": 2,
+      "outcome": "victory",
+      "turn": 15,
+      "inputs": 1358,
+      "file": "knockback-play/round2/report.json"
+    },
+    {
+      "code": "M52",
+      "round": 2,
+      "outcome": "victory",
+      "turn": 13,
+      "inputs": 1129,
+      "file": "knockback-play/round2/report.json"
+    },
+    {
+      "code": "J53",
+      "round": 2,
+      "outcome": "victory",
+      "turn": 10,
+      "inputs": 2783,
+      "file": "knockback-play/round2/report.json"
+    },
+    {
+      "code": "M42",
+      "round": 2,
+      "outcome": "victory",
+      "turn": 15,
+      "inputs": 1131,
+      "file": "play/M42-round2/report.json"
+    },
+    {
+      "code": "J54",
+      "round": 2,
+      "outcome": "victory",
+      "turn": 7,
+      "inputs": 2135,
+      "file": "play/J54-round2/report.json"
+    },
+    {
+      "code": "T1W2",
+      "round": 2,
+      "outcome": "victory",
+      "turn": 4,
+      "inputs": 89,
+      "file": "training/play-round2.json"
+    },
+    {
+      "code": "T1W1",
+      "round": 2,
+      "outcome": "victory",
+      "turn": 2,
+      "inputs": 49,
+      "file": "training/play-round2.json"
+    },
+    {
+      "code": "T4W2",
+      "round": 2,
+      "outcome": "victory",
+      "turn": 2,
+      "inputs": 113,
+      "file": "training/play-round2.json"
+    },
+    {
+      "code": "T4W1",
+      "round": 2,
+      "outcome": "victory",
+      "turn": 2,
+      "inputs": 94,
+      "file": "training/play-round2.json"
+    }
+  ],
+  "F22_attempts": [
+    {
+      "attempt": "round1",
+      "outcome": "defeat",
+      "turn": 18,
+      "inputs": 581,
+      "new_dying": [
+        "eileen",
+        "mireille",
+        "lisa",
+        "carlo"
+      ],
+      "cover_hits": 0,
+      "releases": [
+        {
+          "action": "battlefield_release",
+          "cells": [
+            [
+              9,
+              12
+            ]
+          ],
+          "changed": [],
+          "interrupted": false,
+          "name": "封桥射击"
+        }
+      ],
+      "extra_actions": []
+    },
+    {
+      "attempt": "round1-retry1",
+      "outcome": "driver_turn_limit",
+      "turn": 91,
+      "inputs": 2804,
+      "new_dying": [],
+      "cover_hits": 0,
+      "releases": [
+        {
+          "action": "battlefield_release",
+          "cells": [
+            [
+              6,
+              17
+            ]
+          ],
+          "changed": [],
+          "interrupted": false,
+          "name": "封桥射击"
+        }
+      ],
+      "extra_actions": [
+        {
+          "kind": "ordinary retry from preserved failed attempt"
+        },
+        {
+          "kind": "ordinary deposit of healer focus to receive cabin shield"
+        }
+      ]
+    },
+    {
+      "attempt": "round1-retry2",
+      "outcome": "defeat",
+      "turn": 23,
+      "inputs": 1022,
+      "new_dying": [
+        "eileen"
+      ],
+      "cover_hits": 0,
+      "releases": [
+        {
+          "action": "battlefield_release",
+          "cells": [
+            [
+              6,
+              17
+            ]
+          ],
+          "changed": [],
+          "interrupted": false,
+          "name": "封桥射击"
+        }
+      ],
+      "extra_actions": [
+        {
+          "kind": "ordinary retry from preserved failed attempt"
+        },
+        {
+          "kind": "ordinary deposit of healer focus to receive cabin shield"
+        },
+        {
+          "action": "cover:choose",
+          "actor": "eileen",
+          "cell": [
+            21,
+            7
+          ],
+          "turn": 20
+        }
+      ]
+    },
+    {
+      "attempt": "round1-retry3",
+      "outcome": "victory",
+      "turn": 42,
+      "inputs": 1780,
+      "new_dying": [
+        "lisa"
+      ],
+      "cover_hits": 0,
+      "releases": [],
+      "extra_actions": [
+        {
+          "kind": "ordinary retry from preserved failed attempt"
+        },
+        {
+          "kind": "ordinary deposit of healer focus to receive cabin shield"
+        },
+        {
+          "action": "interact:F22_breakable_cargo",
+          "actor": "eileen",
+          "cell": [
+            17,
+            17
+          ],
+          "turn": 40
+        }
+      ]
+    },
+    {
+      "attempt": "round2",
+      "outcome": "defeat",
+      "turn": 9,
+      "inputs": 442,
+      "new_dying": [
+        "eileen"
+      ],
+      "cover_hits": 0,
+      "releases": [
+        {
+          "action": "battlefield_release",
+          "cells": [
+            [
+              6,
+              17
+            ]
+          ],
+          "changed": [],
+          "interrupted": false,
+          "name": "封桥射击"
+        }
+      ],
+      "extra_actions": [
+        {
+          "kind": "ordinary deposit of healer focus to receive cabin shield"
+        }
+      ]
+    },
+    {
+      "attempt": "round2-retry1",
+      "outcome": "defeat",
+      "turn": 37,
+      "inputs": 1253,
+      "new_dying": [
+        "eileen",
+        "mireille",
+        "lisa",
+        "carlo"
+      ],
+      "cover_hits": 1,
+      "releases": [
+        {
+          "action": "battlefield_release",
+          "cells": [
+            [
+              6,
+              16
+            ],
+            [
+              7,
+              16
+            ],
+            [
+              5,
+              16
+            ]
+          ],
+          "changed": [],
+          "interrupted": false,
+          "name": "封桥射击"
+        }
+      ],
+      "extra_actions": [
+        {
+          "kind": "ordinary retry from preserved failed attempt"
+        },
+        {
+          "kind": "ordinary deposit of healer focus to receive cabin shield"
+        },
+        {
+          "action": "cover:choose",
+          "actor": "carlo",
+          "cell": [
+            6,
+            20
+          ],
+          "turn": 9
+        },
+        {
+          "action": "cover:choose",
+          "actor": "carlo",
+          "cell": [
+            6,
+            19
+          ],
+          "turn": 11
+        }
+      ]
+    }
+  ],
+  "code_sha256": {
+    "core/mine_escort.gd": "6a26e8a4df4bf3a558e2b4de7e1007b40fc91f10b2dab2cd41e2fb869a686c10",
+    "core/hub_caption_layout.gd": "b31e4a9d21cc8e511fc235ff1cbbe9b8d6009227b03778ebb8d3773965395949",
+    "core/chapter5_endings.gd": "5c79726d6a99035c254023614da2a93e0e7c338703e86e3230f4d0b1fd4a4e04",
+    "core/campaign_experience.gd": "7262dfa9fb6d0673e70369b1a746a024c0b2fea5b2ec89c0ce5bb5e33295b18b",
+    "core/animation_programs.gd": "56e4f389b90ebbeb14d658d1af6639f7a799b6eaef1817cfbacd681d5920455c",
+    "core/tactical_ranges.gd": "5fdbcc9765cd4c4215f15e7a9d866b7e082b32a4cc286bea438d9136ebeaa42a",
+    "core/world_armies.gd": "75359b9983f73d19349e453a629b53764845776377f90881314547024722e51e",
+    "core/phone_shell.gd": "f4740bb72385672fab62f8c82e2876a918c4719becdf7d43a618384a57a2a35e",
+    "core/original_audio.gd": "d241b596be9747ceb7f89ea20be74c6f9cb6623f23e66cd91506e35a8f3a1dbe",
+    "core/item_rules.gd": "aa9c0180faaa671cd4472d95dbf0f98d9aee715d2e86d826b1dfbdb9cfa36473",
+    "core/campaign_loot.gd": "b482a61c11db7cd440d82e0dd6ad3cf6811dd6a49792bda831e329dd2b5bfa5f",
+    "core/equipment_supply.gd": "7dbc4d195ac3f915f5c52628351d2285ae867cac8f498bc5e282aa3ba6935cf8",
+    "core/campaign_save_validation.gd": "dabf30ff836ed92fb79903818d721667722d16b9f5b5874ff25c00a6817670ae",
+    "core/legacy_game_state.gd": "a83d7ba90ea0fc51eb2683788fc1cde41eadd230b9812e2f2fa4f4fd24aa8f14",
+    "core/cover_rules.gd": "8ec6d181753cfd4dd5d12854d0f73a187c3c335146a67117879cd56e8e317aef",
+    "core/story_accessories.gd": "f78c2ffef4096641e614c51729c5e1c290d1976593b3264946915b20ef81ca04",
+    "core/chapter4_hub.gd": "8cf9cb9d20b915f5bfd4c927cbfde5125d7801edec4c63eba61395eb1d00f61f",
+    "core/refugee_tactics.gd": "254fd08cd045e73d47d82b921e689fbbf41d42c9152376260fe6734e2270fd26",
+    "core/innate_attack_animation.gd": "1f2852ac2a176e1fa3f7800e0200ac336e59824ab54b8cf60fe99028e3787381",
+    "core/map_effects.gd": "8289d5cb2b322c06985f00b4101e4afa71f995b5e36dbe32449433621179d95e",
+    "core/battle_panel_layout.gd": "5be44cd6c0712669214d8fc9e103e548cbb9c7ecf72b8ed2fc60b0cc79cbefb8",
+    "core/main.gd": "bb461855e628fafdc365e9b82e80e6cc1a03b06f48c6551baa33b91e0518b2e4",
+    "core/enemy_balance.gd": "9b34e1c6ac9b9a90a911231f48a8911be9ed07f0831f6ce92215e0a6a63dcfcd",
+    "core/reviewed_animations.gd": "55906e4e1cba065060e841b31598a36cff5f77bbcda8bc46c74613bbbb1844d5",
+    "core/knockback_rules.gd": "96c7611e0ddf350ded4f0aa717b9a666ebab720263b211357ea19173725e0bc8",
+    "core/chapter4_rules.gd": "17aea6bd1f32c6514217738bfe17e265aea39c0d380e82c2b5313de34942ea90",
+    "core/chapter5_rules.gd": "6aaa899660ff3fdf55267d3742638017429f20aaa3266be09ba5572b7a6c06d1",
+    "core/summon_rules.gd": "9d53a702ff818fd0258e0b45af674e890eb3d622235b34b55b52206de8a395b4",
+    "core/battle_inventory.gd": "2ce69c814267ab563a1a9692ee567b2ca0c8c5b52a038072b9759aa624e271d7",
+    "core/legacy_main.gd": "043e9d89530b33423f9807de4e6bf322c3b14247c73b2f17e883412cf27745ed",
+    "core/story_armaments.gd": "1c22a2c57adc15f8919e20a48f7a98e96c823cdd501425996c890eb6c51576d6",
+    "core/hero_professions.gd": "479e629e71c50ceb5abd5c3816e270feca805b0d60e11c452f7ba5cc2c3cb90c",
+    "core/campaign_enemy_roles.gd": "121a5890a6113bdce5a676e67abd584d8d8176e0c79c82ba74dab421561498f6",
+    "core/game_state.gd": "9ed197c372c84035b578de9d65baea34d3fd2074a69fffe790dc62f62c008ba7",
+    "core/clinic_medicine.gd": "d23d8d97cb09a47d2cac60c631e187fccca692f91d4120a1b5eca743630a17b6",
+    "core/journey_art.gd": "a41e6403b61bf4f2d8a29d40562a79afdeb120b5825392085013e4deee1b3ade",
+    "core/chapter3_hub.gd": "50cf063743a98ea238f514cb77f91aed6979374413a5c0ee729e1ff8db701eb5",
+    "core/journey_slots.gd": "42b7d8692ad8f61adae071564414a87ebca632978e61b48599260ab4aaea3678",
+    "core/journey_screen.gd": "84ae63646d84a55648cc24a154131cfb368df8d4cd474589d842488873e47d53",
+    "core/campaign_tactics.gd": "d5201d52ece4f86be775d4cddae18d64c76ceca16276fedf16ec23f7c2e31ed3",
+    "core/equipment_comparison.gd": "70738ae34426702364bcab0c697bff9fd5062557ac4e506980c6646d1e399013",
+    "core/equipment_screen.gd": "25c09156f3ac51f06beeb17dbff4b20a370c32623e954cf3b80845d57fd5c928",
+    "core/unit_progression.gd": "1da05f5318ea2c0b94d32529f7bff10e7b74b06cc6c6fff8ae5c1c0c74d24bb9",
+    "core/party_sprites.gd": "062b8256f8851e7e19cc7deab1818fbe2e9a746cb34e6d1ed415bd0044adecb2",
+    "core/portrait_library.gd": "3cd412db337baf59878ab5ce424bace2a99185404d4ab47c95f91cf8208da9ad",
+    "core/innate_attacks.gd": "fa02c4803ee7acfbdc2047f9a81e8c5e4e315cbea5cb568cf31ce053d3058ef9",
+    "core/soundtrack_routing.gd": "20ccd0e26438b108de3fed1f845f32afec54253189da4248c9d724bd46276a99",
+    "core/tactical_ai.gd": "827d2f49cc9572eaa9b19ac36976391805e0598bf7bbaac5e040c45a80785af2",
+    "core/chapter3_rules.gd": "c5a12ed452e379092f3cace29dfbd1aef77c0a65b0ac02956374ebddc52cd817",
+    "core/chapter2_rules.gd": "8ec3e797b3bb7adcbe3e7619a21b6527ae8720cc45fb91fe242c3494f5653222",
+    "core/battlefield_tactics.gd": "2971f3b7a5ef770ed601bb59556e01c3f52e71de7d45956beed9d7aac98d40b0",
+    "core/combat_rules.gd": "d425437fb58d497838e1aea941694d11910d79fcbd908432b2342b5aa539b8f0",
+    "core/battle_animation.gd": "4f5697fbc1166a2bfe0d072fbf7c89709bbd7b956affd61aed059ed00bb8615d",
+    "core/spell_info.gd": "7639864e059d5c78e59c6439eaf87a0928b25aed67aad72f6cef9c9a44cce6a8",
+    "core/environment_border.gd": "23afcda785e59ffa1cf0e4bd62a2f155cf0ae9bfabbf216bd011139367a678b9",
+    "core/casualty_rules.gd": "71b452e871d16203716f71794f9d2d604f0f7e318578b942e893e68960064e97",
+    "core/story_hub.gd": "1dfdd1909b09dc276aabeaec84b5fe08a9194bbd792eef0cfe74e11112d6dcb1",
+    "core/training_rules.gd": "8923ecc5aedb09f1b1f162002363383202fef587eae37b0897cfd3742ddaac56",
+    "core/chapter5_hub.gd": "f16aced54950fad1abb1c48ff986d59cc46fa4bfc080e5c7dbfc30137289d814",
+    "core/scenario_rules.gd": "d57ea58b9d2ef4f8a8ef4f054705bd440f80eccc591b2d39d5d09544aee180da",
+    "data/knockback_equipment.json": "1c0ce12b55931f05739c69129e58c5dfecc04f04d8034c9b0cd3b01efe7267d5",
+    "data/training_encounters.json": "7f1973ae25c1d957986c4454f2d12ad3ff3380f0147c3dd806b5b6f827305fec",
+    "data/stages/F22.json": "b967aa159f679714db675d85ea2c5ba86ee53f21f24b801f82308553816985c4",
+    "data/stages/M42.json": "597619a1c27f5321974c14ced839bf1a9a299d614341a51c0b73a394302e37fc",
+    "data/stages/J54.json": "8faf5f0fbbbc3bd4fb73119f773fb3fd4668ef623935d24b933deea05b99046a"
+  },
+  "scope": "Two rounds of sampled normal-input engine play from historical genuine checkpoints, with separate controlled rules and background graphics checks. Not a continuous new-game campaign, human play or iPhone device test.",
+  "all_sampled_battles_won": false,
+  "phone_updated": false
+}

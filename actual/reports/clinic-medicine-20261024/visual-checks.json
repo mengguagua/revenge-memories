@@ -1,0 +1,25 @@
+{
+  "background_guard": true,
+  "checks": [
+    "01-clinic-duty text and controls respect safe content bounds: []",
+    "clinic card displays the actual duty",
+    "02-visible-transport text and controls respect safe content bounds: []",
+    "visible transport uses approved new walking art",
+    "medical handover stays pending until dialogue finishes",
+    "dialogue returns player control",
+    "completed handover enables invitation without automatically recruiting",
+    "03-handover-ready text and controls respect safe content bounds: []",
+    "completed handover guidance is visible at the clinic entrance",
+    "both clinic NPCs use the new profession artwork",
+    "clinic administrator also uses the approved new healer body"
+  ],
+  "device_updated": false,
+  "failures": [],
+  "passed": true,
+  "scope": "S12 role, delivery/recruitment gates, save/retry migration, new profession art, unique phone-layout viewport captures. Full S12 victory is recorded separately by the real-input driver.",
+  "screenshots": [
+    "01-clinic-duty.png",
+    "02-visible-transport.png",
+    "03-handover-ready.png"
+  ]
+}

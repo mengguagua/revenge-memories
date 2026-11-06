@@ -342,11 +342,11 @@
       191,
       191,
       191,
-      191,
-      191,
-      191,
-      191,
-      191,
+      208,
+      208,
+      208,
+      208,
+      208,
       191,
       191,
       191,
@@ -374,11 +374,11 @@
       191,
       191,
       191,
-      191,
-      191,
-      191,
-      191,
-      191,
+      208,
+      208,
+      208,
+      208,
+      208,
       191,
       191,
       191,
@@ -598,11 +598,11 @@
       191,
       191,
       191,
-      191,
-      191,
-      191,
-      191,
-      191,
+      208,
+      208,
+      208,
+      208,
+      208,
       191,
       191,
       191,
@@ -630,11 +630,11 @@
       191,
       191,
       191,
-      191,
-      191,
-      191,
-      191,
-      191,
+      208,
+      208,
+      208,
+      208,
+      208,
       191,
       191,
       191,
@@ -4702,7 +4702,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 50,
+      "exp_value": 112,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -4770,7 +4770,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 35,
+      "exp_value": 42,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -4836,7 +4836,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 35,
+      "exp_value": 42,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -4902,7 +4902,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 35,
+      "exp_value": 42,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -4968,7 +4968,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 35,
+      "exp_value": 42,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -5034,7 +5034,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 35,
+      "exp_value": 42,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -5100,7 +5100,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 35,
+      "exp_value": 42,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -5167,7 +5167,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 35,
+      "exp_value": 42,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -5221,7 +5221,7 @@
       "name_zh": "术士",
       "class": "arcanist",
       "class_id": 15,
-      "class_name_zh": "妖术师",
+      "class_name_zh": "执令术师",
       "level": 3,
       "hp": 19,
       "max_hp": 19,
@@ -5234,7 +5234,7 @@
       "resistance": 8,
       "move": 4,
       "item_id": 0,
-      "exp_value": 35,
+      "exp_value": 60,
       "raw_ai_flags": 0,
       "raw_magic_flags": 1,
       "magic_flags": 1,
@@ -5279,6 +5279,49 @@
       "acted": false,
       "ai_flags": 0,
       "behavior": "advance"
+    },
+    {
+      "id": "F21_water_monkey_1",
+      "name_id": 0,
+      "character_id": 0,
+      "name_zh": "水猴傀儡",
+      "class": "water_monkey",
+      "class_id": 25,
+      "class_name_zh": "水猴傀儡",
+      "unit_kind": "mechanical_puppet",
+      "mechanical_model": "water_monkey",
+      "level": 3,
+      "hp": 22,
+      "max_hp": 22,
+      "exp": 0,
+      "exp_value": 60,
+      "strength": 5,
+      "skill": 4,
+      "speed": 8,
+      "luck": 0,
+      "defence": 3,
+      "resistance": 1,
+      "move": 5,
+      "mechanical_base_move": 5,
+      "item_id": 0,
+      "position": [
+        21,
+        14
+      ],
+      "side": "enemy",
+      "acted": false,
+      "hidden": false,
+      "escaped": false,
+      "mechanical_retreating": false,
+      "no_drop": true,
+      "parts": {
+        "back_cannon": {
+          "hp": 10,
+          "max_hp": 10,
+          "defence": 2,
+          "resistance": 1
+        }
+      }
     }
   ],
   "npc_units": [
@@ -5381,7 +5424,7 @@
       "class": "villager",
       "class_id": 14,
       "level": 5,
-      "hp": 24,
+      "hp": 19,
       "max_hp": 24,
       "exp": 0,
       "strength": 9,
@@ -5451,7 +5494,7 @@
       "acted": false,
       "quest_kind": "witness",
       "locked": false,
-      "no_counter": true,
+      "no_counter": false,
       "player_slot": 11
     }
   ],
@@ -6314,38 +6357,6 @@
   "enemy_group_ids": [],
   "objects": [
     {
-      "id": "plank_1",
-      "kind": "inspect",
-      "position": [
-        14,
-        11
-      ],
-      "label": "检查第一跳板",
-      "adjacent": true,
-      "sprite": "open_gate",
-      "sprite_path": "res://assets/chapter2/modules/gangplank.png",
-      "sprite_offset": [
-        -16,
-        0
-      ]
-    },
-    {
-      "id": "plank_2",
-      "kind": "inspect",
-      "position": [
-        14,
-        19
-      ],
-      "label": "检查第二跳板",
-      "adjacent": true,
-      "sprite": "open_gate",
-      "sprite_path": "res://assets/chapter2/modules/gangplank.png",
-      "sprite_offset": [
-        -16,
-        0
-      ]
-    },
-    {
       "id": "F21_visit_0",
       "kind": "visit",
       "label": "访问船员休息舱",
@@ -6373,7 +6384,7 @@
       "door_visual": "native_building_art",
       "show_indicator": false,
       "optional": true,
-      "dialogue": "船员：两条跳板都能登舰。舵楼哨位可守可恢复，别把所有人挤在一条跳板上。",
+      "dialogue": "船员：两条跳板都能登舰。药车还在后甲板，伤者别往敌船跑。",
       "reward_item": 48,
       "building": "captain_cabin"
     }
@@ -6397,7 +6408,7 @@
   ],
   "goal": "击败搜捕船指挥官，保住己方船。甲板两端是地面通路，水面不能作为步兵落点。",
   "cause": "卡洛指出押送舰的航线，搜捕船封锁船团。",
-  "before": "卡洛：他们要登船。你们守内侧，别站在两块跳板中间。／船医：补给点就在上层跳板旁，受伤后轮换回来包扎。",
+  "before": "卡洛：他们要登船。你们守内侧，别站在两块跳板中间。／船医：药车右边有两处补给位。受伤就回己方后甲板包扎。",
   "during": "莉莎：另一条船的弓手换到右边了。",
   "after": "艾琳：押送舰在哪里？／俘虏：前面的灯线，所有船都得从那里过。",
   "absent_branch": "莉莎亡：甲板护卫报告右侧弓手；卡洛亡：固定舵手执行已获得的航线，不延续卡洛私人承诺。",
@@ -6644,12 +6655,29 @@
         400,
         64
       ]
+    },
+    {
+      "path": "res://assets/chapter2/modules/gangplank.png",
+      "position": [
+        208,
+        176
+      ],
+      "tag": "boarding_plank"
+    },
+    {
+      "path": "res://assets/chapter2/modules/gangplank.png",
+      "position": [
+        208,
+        304
+      ],
+      "tag": "boarding_plank"
     }
   ],
   "tactical_notes": [
-    "两艘错位舰船形成清楚船艏、作业甲板和船尾，甲板长度收紧；上下两条两格跳板横跨真实海面，分别接入敌舰前后战区。",
-    "己方休息舱、医药区与船体旗位位于后甲板，前方桅杆和舷边货物围出通道；守船与登舰可分开部署。",
-    "原敌人身份、属性和AI保持，己方船体必须存活；原两格普通恢复地形和一处舵楼哨位均保留。"
+    "己方船体必须存活。可分人守船，其他成员从上下两条跳板登上敌舰。",
+    "两条登舰跳板全区域回避＋20，无需交互。步兵只能沿甲板与跳板移动。",
+    "药车右侧两格为船医补给位，己方阶段开始恢复5生命。",
+    "受伤乘客只在己方左侧甲板自动移动、谨慎助战；低于半血时停止主动攻击并后退。存活通关，本队全体正式成员额外获得20经验。"
   ],
   "tactical_review_version": "0.10.6-ch2",
   "building_sites": [
@@ -6805,5 +6833,6 @@
     "infirmary": "Exterior timber supply deck, never stone paving",
     "prison": "Not applicable",
     "geometry_and_animation_unchanged": true
-  }
+  },
+  "enemy_role_hint": "战场提示：水猴傀儡的背炮可单独攻击，破坏后停用水炮。水炮命中速度－1，不叠加，至下次行动结束。机械傀儡经验为普通同条件的1.5倍；同阵营只剩机械傀儡时移动＋3并撤离，逃走无击败经验。击败指挥官仍直接过关。"
 }

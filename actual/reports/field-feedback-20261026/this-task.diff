@@ -1,0 +1,426 @@
+--- actual/reports/field-feedback-20261026/before/actual/core/story_hub.gd	2026-10-26 19:38:27
++++ actual/core/story_hub.gd	2026-10-26 23:42:10
+@@ -61,7 +61,7 @@
+ 		return
+ 	var cell=Vector2i(floori((point.x-ORIGIN.x)/16),floori((point.y-ORIGIN.y)/16))
+ 	for o in objects:
+-		if Vector2i(o.position[0],o.position[1])!=cell:continue
++		if not object_occupies(o,cell):continue
+ 		var delta=cell-ui.game.hub_position
+ 		if absi(delta.x)+absi(delta.y)==1:facing=delta;accept()
+ 		else:ui._notice("先走到对象旁边，再面对确认")
+@@ -103,7 +103,7 @@
+ 			obj("daan",[10,5],"达恩","actor",21)
+ 		"H02":
+ 			title="丘堡粮站 · 战后";hint="确认分粮，再与芙拉交谈"
+-			obj("grain",[6,3],"粮车","grain_wagon");obj("fula",[3,5],"芙拉","actor",14)
++			obj("grain",[6,3],"粮车","grain_wagon",0,"",Vector2i(2,1));obj("fula",[3,5],"芙拉","actor",14)
+ 			obj("crown",[10,3],"救济牌","aid_plaque")
+ 		"H03":
+ 			title="南岗押送所 · 战后";hint="查看军令，再到东侧教堂"
+@@ -156,13 +156,25 @@
+ 			if module.name==entry[0]:
+ 				scenery.append({"name":entry[0],"rect":Rect2i(entry[1],entry[2],module.footprint[0],module.footprint[1])});break
+ 	if chapter2_rooms.has(room):_configure_east_room()
++	# A pre-fix journal may place the player inside the wagon's missing half.
++	# Move to an adjacent free tile once; keep the handover and party intact.
++	if room=="H02" and objects.any(func(o):return object_occupies(o,ui.game.hub_position)):
++		for offset in [Vector2i.DOWN,Vector2i.RIGHT,Vector2i.UP,Vector2i.LEFT]:
++			var next=ui.game.hub_position+offset
++			if next.x<1 or next.x>12 or next.y<1 or next.y>7:continue
++			if objects.any(func(o):return object_occupies(o,next)) or scenery.any(func(d):return d.rect.has_point(next)):continue
++			ui.game.hub_position=next;render_position=Vector2(next)*16;motion_origin=render_position;motion_target=render_position;break
+ 	ui.audio.play_music("village")
+ 	if checkpoint:ui.game.save_game()
+ 	ui.queue_redraw()
+ 
+-func obj(action: String,at: Array,name: String,sprite: String,source: int=0,text: String="") -> void:
+-	objects.append({"action":action,"position":at,"name":name,"sprite":sprite,"source":source,"text":text})
++func obj(action: String,at: Array,name: String,sprite: String,source: int=0,text: String="",footprint: Vector2i=Vector2i.ONE) -> void:
++	objects.append({"action":action,"position":at,"name":name,"sprite":sprite,"source":source,"text":text,"footprint":[footprint.x,footprint.y]})
+ 
++func object_occupies(object: Dictionary,cell: Vector2i) -> bool:
++	var size=object.get("footprint",[1,1])
++	return Rect2i(Vector2i(object.position[0],object.position[1]),Vector2i(size[0],size[1])).has_point(cell)
++
+ func direction(d: Vector2i) -> void:
+ 	if ui.busy or motion_left>0.0:return
+ 	if not ui.menu_items.is_empty():
+@@ -179,7 +191,7 @@
+ 		ui._open_menu("hub_exit",["离开据点","留下"],["new:world","close"],Vector2(48,88));return
+ 	if at.x<1 or at.x>12 or at.y<1 or at.y>7:return
+ 	if not east_data.is_empty() and not east_walkable(at):return
+-	if objects.any(func(o):return Vector2i(o.position[0],o.position[1])==at):return
++	if objects.any(func(o):return object_occupies(o,at)):return
+ 	if scenery.any(func(d):return bool(d.get("blocking",true)) and d.rect.has_point(at)):return
+ 	motion_origin=Vector2(ui.game.hub_position)*16;motion_target=Vector2(at)*16
+ 	motion_left=0.0 if ui.instant_mode else STEP
+@@ -192,7 +204,7 @@
+ 		var a=str(ui.menu_actions[ui.menu_selected]);var context=ui.menu_context;ui._clear_menu();ui._menu_action(a,context);return
+ 	var target=ui.game.hub_position+facing
+ 	for o in objects:
+-		if Vector2i(o.position[0],o.position[1])==target:action(str(o.action));return
++		if object_occupies(o,target):action(str(o.action));return
+ 	ui._notice("面对人物或物件，再按确认")
+ 
+ func action(key: String) -> void:
+@@ -459,7 +471,14 @@
+ 		if ui.game.chapter==4:path=str(chapter4_environment.get("rooms",{}).get(room,{}).get("scenery_paths",{}).get(path,path))
+ 		if ui.game.chapter==5:path=str(chapter5_environment.get("rooms",{}).get(room,{}).get("scenery_paths",{}).get(path,path))
+ 		ui.draw_texture(ui._tex(path),ORIGIN+Vector2(d.rect.position)*16,_east_environment_tint())
+-	for o in objects:
++	# Sort by feet/ground anchor. Tall signs cover someone behind them;
++	# someone in front covers the sign. Collision remains on the ground.
++	if motion_left<=0.0:render_position=Vector2(ui.game.hub_position)*16
++	var layers=objects.duplicate()
++	layers.append({"sprite":"hub_player","position":[render_position.x/16,render_position.y/16]})
++	layers.sort_custom(func(a,b):return float(a.position[1])<float(b.position[1]))
++	for o in layers:
++		if o.sprite=="hub_player":_draw_player();continue
+ 		var at=Vector2(o.position[0],o.position[1])*16+ORIGIN
+ 		if o.sprite=="actor":
+ 			var sp: Dictionary=ui.graphics.village_sprites.get(str(int(o.source)),ui.graphics.village_sprites["1"])
+@@ -467,7 +486,14 @@
+ 			ui._draw_frame(sp,int(sp.directions.down[0]),at-Vector2(sp.tile_origin[0],sp.tile_origin[1]))
+ 		else:
+ 			var tex=ui._tex(str(o.get("sprite_path","res://assets/battle_tiles/modules/"+str(o.sprite)+".png")));ui.draw_texture(tex,at-Vector2(0,tex.get_height()-16),Color.WHITE if o.sprite in ["sun_altar","lit_brazier","ritual_lamp","well"] else _east_environment_tint())
+-		if ui.game.hub_position+facing==Vector2i(o.position[0],o.position[1]):ui._draw_indicator("down",at+Vector2(4,-8))
++		if object_occupies(o,ui.game.hub_position+facing):ui._draw_indicator("down",at+Vector2(4,-8))
++	ui._draw_indicator("down",ORIGIN+Vector2(6,8)*16+Vector2(4,-2))
++	var text=hint
++	for o in objects:
++		if object_occupies(o,ui.game.hub_position+facing):text="确认:"+str(o.name)
++	ui._draw_hub_caption(title,text)
++
++func _draw_player() -> void:
+ 	var source_id="2" if ui.game.route=="celica" else "1"
+ 	var sp: Dictionary=ui.graphics.village_sprites[source_id]
+ 	if ui.has_method("_personal_hub_sprite"):sp=ui.call("_personal_hub_sprite",sp)
+@@ -478,11 +504,6 @@
+ 	var travel=preload("res://core/reviewed_animations.gd")
+ 	var frame=travel.travel_frame(sp,direction,clock,motion_left>0.0)
+ 	ui._draw_frame(sp,frame,at-Vector2(sp.tile_origin[0],sp.tile_origin[1]),facing.x<0 and not sp.directions.has("left"))
+-	ui._draw_indicator("down",ORIGIN+Vector2(6,8)*16+Vector2(4,-2))
+-	var text=hint
+-	for o in objects:
+-		if ui.game.hub_position+facing==Vector2i(o.position[0],o.position[1]):text="确认:"+str(o.name)
+-	ui._draw_hub_caption(title,text)
+ 
+ func _configure_east_room() -> void:
+ 	east_data=chapter2_rooms[room].duplicate(true)
+--- actual/reports/field-feedback-20261026/before/actual/core/main.gd	2026-10-26 15:26:04
++++ actual/core/main.gd	2026-10-26 23:51:25
+@@ -59,7 +59,7 @@
+ 
+ func _ready() -> void:
+ 	super._ready()
+-	game.character_recruited.connect(_on_character_recruited)
++	_bind_recruitment_signal()
+ 	journey=JourneyScreen.new(self);journey.refresh();title_menu=true
+ 	title_selected=1 if journey.records.any(func(record):return record.valid) else 0
+ 	equipment_screen=EquipmentScreen.new(self)
+@@ -86,6 +86,8 @@
+ 	if window.content_scale_size!=logical:window.content_scale_size=logical
+ 
+ func _process(delta: float) -> void:
++	if recruitment_paused():
++		queue_redraw();return
+ 	if view=="story_intro" and story_intro!=null:story_intro.process(delta)
+ 	if prologue_scene!=null and prologue_scene.active:prologue_scene.process(delta)
+ 	if view not in ["title","journal","journal_confirm"]:game.play_seconds+=delta
+@@ -119,6 +121,7 @@
+ 	return Vector2(0,get_viewport_rect().size.y-240-_canvas_offset().y)
+ 
+ func _mouse_accept(point: Vector2) -> void:
++	if recruitment_paused():return
+ 	var local=point-_canvas_offset()
+ 	if equipment_screen!=null and equipment_screen.active():equipment_screen.mouse(local);return
+ 	if view in ["journal","journal_confirm"]:journey.mouse(local);return
+@@ -149,12 +152,14 @@
+ 	journey.open("new")
+ 
+ func _new_journey_in_slot() -> void:
++	_bind_recruitment_signal()
+ 	_clear_menu();held_direction=Vector2i.ZERO;busy=false;batch_running=false;ui_mode="inspect";world_path=[]
+ 	# A fresh journal owns the opening checkpoint; old journals start as before.
+ 	game.flags.story_intro_pending=true;game.flags.story_intro_offset=-1
+ 	story_intro.start()
+ 
+ func _resume_journey() -> void:
++	_bind_recruitment_signal()
+ 	_clear_menu();busy=false;batch_running=false;ui_mode="inspect";view=game.mode;held_direction=Vector2i.ZERO;world_path=[]
+ 	if view=="battle" and not game.battle_outcome.is_empty():view=game.battle_outcome;game.mode=view
+ 	world_actor=Vector2(world.nodes[str(game.world_node)].position[0],world.nodes[str(game.world_node)].position[1])*16
+@@ -187,6 +192,7 @@
+ 	super._begin_existing_battle()
+ 
+ func _accept() -> void:
++	if recruitment_paused():return
+ 	if view=="story_intro":story_intro.accept();return
+ 	if view=="prologue_scene":prologue_scene.accept();return
+ 	if equipment_screen!=null and equipment_screen.active():equipment_screen.accept();return
+@@ -236,6 +242,7 @@
+ 	super._accept()
+ 
+ func _direction(direction: Vector2i) -> void:
++	if recruitment_paused():return
+ 	if view=="story_intro":return
+ 	if prologue_scene!=null and prologue_scene.active:return
+ 	if equipment_screen!=null and equipment_screen.active():equipment_screen.direction(direction);return
+@@ -607,6 +614,9 @@
+ 
+ func play_pages(pages: Array,return_view: String,callback: String="",persist:bool=true) -> void:
+ 	var previous_busy=busy;busy=true;held_direction=Vector2i.ZERO
++	# Keep the successful invitation frame for the entire cue, even when
++	# ordinary animation waits are accelerated. Do not leave busy latched.
++	while recruitment_paused():await get_tree().process_frame
+ 	plot_pages.clear()
+ 	for page in pages:
+ 		plot_pages.append_array(_paginate_plot(page))
+@@ -1082,8 +1092,21 @@
+ 	if id.is_empty():return CampaignArt.map_sprite("hub",{"class_id":14,"side":"player","neutral":true,"id":str(object.get("name",""))})
+ 	var art=PartySprites.sprite("hub",game.roster.get(id,game.characters[id]),game.chapter)
+ 	return art if CampaignArt.valid(art) else CampaignArt.map_sprite("hub",game.roster.get(id,game.characters[id]))
++
++var recruit_pause_until_ms := 0
++const RECRUIT_PAUSE_MS := 2000
++
++func recruitment_paused() -> bool:
++	return Time.get_ticks_msec()<recruit_pause_until_ms
++
++func _physics_process(delta: float) -> void:
++	if not recruitment_paused():super._physics_process(delta)
+ 
++func _bind_recruitment_signal() -> void:
++	if not game.character_recruited.is_connected(_on_character_recruited):game.character_recruited.connect(_on_character_recruited)
++
+ func _on_character_recruited(_id:String)->void:
++	held_direction=Vector2i.ZERO;recruit_pause_until_ms=Time.get_ticks_msec()+RECRUIT_PAUSE_MS
+ 	audio.play_jingle("rm_jingle_recruit")
+ 
+ func _map_unit_sprite(unit: Dictionary) -> Dictionary:
+@@ -1435,6 +1458,7 @@
+ 	_panel(rect);_small_text(text,rect.position+Vector2(10,10),Color(.76,1,.82))
+ 
+ func _input(event: InputEvent) -> void:
++	if recruitment_paused():return
+ 	if prologue_scene!=null and prologue_scene.active and view in ["prologue_scene","plot"]:
+ 		if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode in [KEY_Z,KEY_ENTER,KEY_SPACE]:_accept()
+ 		elif event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_LEFT:_accept()
+--- actual/reports/field-feedback-20261026/before/actual/core/original_audio.gd	2026-10-24 22:47:40
++++ actual/core/original_audio.gd	2026-10-26 23:41:15
+@@ -64,6 +64,7 @@
+ 
+ var _next_sfx_voice := 0
+ var _initialized := false
++var _touch_feedback_depth := 0
+ 
+ 
+ func _ready() -> void:
+@@ -211,6 +212,7 @@
+ 
+ 
+ func play_sfx(key: String) -> void:
++	if _touch_feedback_depth>0 and key in ["menu_move","menu_confirm","menu_cancel"]:return
+ 	_ensure_initialized()
+ 	if not _sfx_enabled:
+ 		return
+@@ -362,6 +364,15 @@
+ 	jingle_started.emit(canonical)
+ 
+ 
++func begin_touch_feedback(key: int) -> void:
++	# A touch gets one click even when its game action has no menu sound.
++	# Suppress only synchronous duplicate menu sounds from that same action.
++	play_sfx("menu_move" if key in [KEY_UP,KEY_DOWN,KEY_LEFT,KEY_RIGHT] else "menu_cancel" if key==KEY_X else "menu_confirm")
++	_touch_feedback_depth+=1
++
++func end_touch_feedback() -> void:
++	_touch_feedback_depth=maxi(0,_touch_feedback_depth-1)
++
+ func set_music_enabled(enabled: bool) -> void:
+ 	_ensure_initialized()
+ 	_music_enabled = enabled
+--- actual/reports/field-feedback-20261026/before/actual/core/phone_shell.gd	2026-10-26 11:53:07
++++ actual/core/phone_shell.gd	2026-10-26 23:41:15
+@@ -169,6 +169,7 @@
+ 	return game_ui.ui_mode=="inspect" or (game_ui.ui_mode=="status" and game_ui.game.party.has(game_ui.status_id))
+ 
+ func _button_enabled(key:int) -> bool:
++	if game_ui.recruitment_paused():return false
+ 	if key==KEY_EQUAL:return game_ui.view=="overview" and game_ui.overview_zoom<3
+ 	if key==KEY_MINUS:return game_ui.view=="overview" and game_ui.overview_zoom>1
+ 	if key==KEY_E:return _can_cycle()
+@@ -176,6 +177,13 @@
+ 	return true
+ 
+ func _send(key: int, pressed: bool) -> void:
++	if pressed:
++		if not _button_enabled(key):return
++		game_ui.audio.begin_touch_feedback(key)
++	_forward_button(key,pressed)
++	if pressed:game_ui.audio.end_touch_feedback()
++
++func _forward_button(key: int, pressed: bool) -> void:
+ 	if key==FAST_KEY:
+ 		game_ui.set_touch_fast_forward(pressed)
+ 		return
+--- actual/reports/field-feedback-20261026/before/actual/data/stages/M13.json	2026-10-26 00:26:01
++++ actual/data/stages/M13.json	2026-10-26 23:43:50
+@@ -4881,12 +4881,12 @@
+       "hp": 27,
+       "max_hp": 27,
+       "exp": 0,
+-      "strength": 9,
++      "strength": 12,
+       "skill": 5,
+       "speed": 3,
+       "luck": 0,
+-      "defence": 4,
+-      "resistance": 0,
++      "defence": 6,
++      "resistance": 2,
+       "move": 4,
+       "item_id": 0,
+       "exp_value": 35,
+@@ -5271,21 +5271,21 @@
+       "name_id": 152,
+       "character_id": 152,
+       "name_ja": "シーザス",
+-      "name_zh": "重装兵",
+-      "class": "gold_knight",
+-      "class_id": 7,
+-      "class_name_zh": "大骑士",
+-      "level": 1,
++      "name_zh": "骑兵",
++      "class": "cavalier",
++      "class_id": 1,
++      "class_name_zh": "骑兵",
++      "level": 2,
+       "hp": 24,
+       "max_hp": 24,
+       "exp": 0,
+-      "strength": 8,
++      "strength": 10,
+       "skill": 3,
+       "speed": 3,
+       "luck": 0,
+       "defence": 6,
+-      "resistance": 6,
+-      "move": 9,
++      "resistance": 4,
++      "move": 7,
+       "item_id": 0,
+       "exp_value": 200,
+       "raw_ai_flags": 0,
+@@ -5337,21 +5337,21 @@
+       "name_id": 152,
+       "character_id": 152,
+       "name_ja": "シーザス",
+-      "name_zh": "重装兵",
+-      "class": "gold_knight",
+-      "class_id": 7,
+-      "class_name_zh": "大骑士",
+-      "level": 1,
++      "name_zh": "骑兵",
++      "class": "cavalier",
++      "class_id": 1,
++      "class_name_zh": "骑兵",
++      "level": 2,
+       "hp": 24,
+       "max_hp": 24,
+       "exp": 0,
+-      "strength": 8,
++      "strength": 10,
+       "skill": 3,
+       "speed": 3,
+       "luck": 0,
+       "defence": 6,
+-      "resistance": 6,
+-      "move": 9,
++      "resistance": 4,
++      "move": 7,
+       "item_id": 0,
+       "exp_value": 200,
+       "raw_ai_flags": 0,
+--- actual/reports/field-feedback-20261026/before/actual/data/enemy_balance_20261025.json	2026-10-26 11:45:10
++++ actual/data/enemy_balance_20261025.json	2026-10-26 23:43:50
+@@ -1,5 +1,5 @@
+ {
+-  "revision": 5,
++  "revision": 6,
+   "stages": {
+     "102": {
+       "M12_e1": {
+@@ -633,7 +633,71 @@
+             "after": {
+               "defence": 6,
+               "resistance": 2
++            }
++          }
++        }
++      }
++    },
++    {
++      "revision": 6,
++      "reason": "2026-10-26 player feedback: M13 commander and cavalry correction; exact before/after migration, no stacking",
++      "stages": {
++        "103": {
++          "M13_boss": {
++            "before": {
++              "strength": 9,
++              "defence": 4,
++              "resistance": 0
++            },
++            "after": {
++              "strength": 12,
++              "defence": 6,
++              "resistance": 2
++            }
++          },
++          "M13_e6": {
++            "before": {
++              "strength": 8,
++              "resistance": 6,
++              "move": 9,
++              "class_id": 7,
++              "class": "gold_knight",
++              "class_name_zh": "大骑士",
++              "name_zh": "重装兵",
++              "level": 1
++            },
++            "after": {
++              "strength": 10,
++              "resistance": 4,
++              "move": 7,
++              "class_id": 1,
++              "class": "cavalier",
++              "class_name_zh": "骑兵",
++              "name_zh": "骑兵",
++              "level": 2
+             }
++          },
++          "M13_e7": {
++            "before": {
++              "strength": 8,
++              "resistance": 6,
++              "move": 9,
++              "class_id": 7,
++              "class": "gold_knight",
++              "class_name_zh": "大骑士",
++              "name_zh": "重装兵",
++              "level": 1
++            },
++            "after": {
++              "strength": 10,
++              "resistance": 4,
++              "move": 7,
++              "class_id": 1,
++              "class": "cavalier",
++              "class_name_zh": "骑兵",
++              "name_zh": "骑兵",
++              "level": 2
++            }
+           }
+         }
+       }

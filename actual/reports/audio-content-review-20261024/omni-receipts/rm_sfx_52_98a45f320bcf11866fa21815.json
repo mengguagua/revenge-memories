@@ -1,0 +1,70 @@
+{
+  "id": "rm_sfx_52",
+  "kind": "sfx_resynthesis_recheck",
+  "candidate_input": 3,
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_52.ogg",
+      "repeat_short": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_52.ogg",
+      "repeat_short": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/source/sfx-20261024/audio-guided/candidates/rm_sfx_52.ogg",
+      "repeat_short": true
+    }
+  ],
+  "prompt": "Audio 1 is a reference. Audio 2 and Audio 3 are anonymous replacement sounds in randomized order. Describe the actual differences in electronic timbre, pitch/modulation, attack and decay. Which better preserves the reference gesture without dull impacts, mechanical rumble or unrelated sounds? If no difference is audible say so; do not prefer by order. Short one-shots may be repeated four times with gaps for analysis. Give preference 2, 3, neither or uncertain, with audible evidence. Under 120 words. Function: 已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+  "max_tokens": 240,
+  "key": "98a45f320bcf11866fa21815",
+  "source_sha256": [
+    "883f28d5814582d1260b15703758ee9b35f87b5e48d2a42b0961079728117bd7",
+    "76288b367e5104b64d0de6b2bd1b5cd95686e2bc39b53401b0f2bb3b9754252b",
+    "fa2493ade2c749742bec5d1f1a1a6945c98146f3eae5c1accd42c89ba058317c"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/883f28d5814582d1260b15703758ee9b35f87b5e48d2a42b0961079728117bd7.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/76288b367e5104b64d0de6b2bd1b5cd95686e2bc39b53401b0f2bb3b9754252b.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/fa2493ade2c749742bec5d1f1a1a6945c98146f3eae5c1accd42c89ba058317c.ogg"
+  ],
+  "audio_input_samples": [
+    53842,
+    54517,
+    52090
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "41539d4d8561107ed87fd8408f54790894ecaab8c812ccf6c8de910c43b960d5",
+    "b3a1d4a3151d5d2a7fe379d5d7490420753c75fa2d34d22b72aa5687e8f16aa2",
+    "2533d704a5bdb07bd5990344fe68e1eb0e1daf4a8a638ca68c80e26c122004dd"
+  ],
+  "response": "Audio 2 has a higher-pitched, metallic, whirring timbre with rapid modulation and a sharp attack, closely matching Audio 1's energetic, synthetic character. Audio 3 features a lower, broad-spectrum hiss with a slow attack and long decay, lacking the reference's defined pitch and gesture. Audio 2 better preserves the reference's electronic timbre and attack, though both lack the exact decay. Preference: 2.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 91,
+    "prompt_tokens": 334,
+    "total_tokens": 425,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 306,
+    "prompt_ms": 1805.964,
+    "prompt_per_token_ms": 5.901843137254902,
+    "prompt_per_second": 169.43859346033474,
+    "predicted_n": 91,
+    "predicted_ms": 2106.205,
+    "predicted_per_token_ms": 23.402277777777776,
+    "predicted_per_second": 42.730883271096594
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 3.951,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

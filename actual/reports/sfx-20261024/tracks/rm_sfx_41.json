@@ -1,0 +1,91 @@
+{
+  "id": "rm_sfx_41",
+  "title": "兼容备用音41",
+  "request": "41",
+  "revision": 3,
+  "status": "signal_checks_passed",
+  "errors": [],
+  "runtime_path": "actual/assets/sfx/20261024/rm_sfx_41.ogg",
+  "resource_path": "res://assets/sfx/20261024/rm_sfx_41.ogg",
+  "bytes": 87050,
+  "sha256": "ae52a5433dc510fff1166c212651841978775561e2836204136d630705961aca",
+  "duration_seconds": 8.0,
+  "loop": false,
+  "loop_offset_seconds": 0.0,
+  "manual_stop": true,
+  "default_enabled": true,
+  "sample_rate": 44100,
+  "channels": 2,
+  "codec": "vorbis",
+  "source": {
+    "method": "reference-analysed pitch/envelope with new additive and band-limited noise synthesis",
+    "reference_path": "actual/assets/original/audio/sfx_41.ogg",
+    "reference_sha256": "284af7857895a5bcb7dc2df90c330f754271456e2cd5b4e78e9c24653e43e929",
+    "source_path": "source/sfx-20261024/audio-guided/ui-synthesis/rm_sfx_41_float.wav",
+    "copied_pcm": false,
+    "oscillator": "sin(f) + 0.16 sin(3f) + 0.035 sin(5f)",
+    "noise_weight": 0.08,
+    "frequency_range_hz": [
+      689.0625,
+      904.39453125
+    ]
+  },
+  "source_path": "source/sfx-20261024/audio-guided/ui-synthesis/rm_sfx_41_float.wav",
+  "master_path": "source/sfx-20261024/audio-guided/ui-synthesis/rm_sfx_41_float.wav",
+  "editing": {
+    "method": "reference-analysed pitch/envelope with new additive and band-limited noise synthesis",
+    "reference_audio_used": true
+  },
+  "mastering": {
+    "gain_db": 3.557813190582454,
+    "target_active_rms_dbfs": -30.099,
+    "peak_ceiling_dbfs": -22.508,
+    "smooth_local_crest_control": false,
+    "active_rms_delta_from_original_db": 0.012336027757626766,
+    "sample_peak_delta_from_original_db": -2.603787679561421,
+    "runtime_gain_unchanged": true
+  },
+  "metrics": {
+    "seconds": 8.0,
+    "sample_rate": 44100,
+    "channels": 2,
+    "rms_dbfs": -30.08838726952273,
+    "active_rms_dbfs": -30.086663972242373,
+    "sample_peak_dbfs": -26.11178767956142,
+    "first_50ms_rms_dbfs": -30.06919512275465,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "leading_onset_seconds": 0.0,
+    "longest_internal_silence_seconds": 0.0,
+    "last_10ms_rms_dbfs": -35.15022287397247,
+    "first_last_sample_delta": 0.0015046594198793173,
+    "lufs_note": "Measured gated integrated loudness",
+    "integrated_lufs": -27.3,
+    "true_peak_dbtp": -26.1
+  },
+  "auditory_review": true,
+  "auditory_review_note": "Waveform-conditioned local audio model review completed; no human-listening claim. See audio_content_review and the linked receipt.",
+  "source_baseline": {
+    "request": "41",
+    "seconds": 8.0,
+    "sample_rate": 44100,
+    "channels": 2,
+    "peak_dbfs": -23.508,
+    "rms_dbfs": -30.099,
+    "active_rms_dbfs": -30.099,
+    "onset_seconds": 0.0,
+    "tail_silence_seconds": 0.00317,
+    "manual_stop": true,
+    "default_enabled": true
+  },
+  "production_method": "audio_review_refinement",
+  "master_path_note": "Synthesis FLOAT WAV",
+  "audio_content_review": {
+    "model_review_completed": true,
+    "review_type": "local_waveform_conditioned_model",
+    "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+    "receipt": "actual/reports/audio-content-review-20261024/omni-receipts/rm_sfx_41_6cb5d6ea7828110e8c01e5ce.json",
+    "conclusion": "按参考音高／包络重合成，保留短音识别度；兼容备用。",
+    "human_listening": false
+  }
+}

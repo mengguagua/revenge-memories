@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_43",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/miss.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_43.ogg"
+  ],
+  "hashes": [
+    "5d42ac0f8bdcab2f8d6a69170ab3f4e22107f4c892acc127f0d19a65c0661c1a",
+    "024ce0860798206a924eb4b95e842fc91bf8f7a30fa1516d4291dba974cbdb89"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "196e51c60ad4273c45d77377",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    31708,
+    19504
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "The reference sound is a punchy, snare-like one shot. The replacement has a muffled, dull sound, lacking the sharp attack and energetic feel of the reference. The pitch is slightly modified, and the decay is slower, creating a more lingering, resonant effect. The timbre is more muffled and the sound seems less full, which makes it sound dull.",
+  "generation_tokens": 76,
+  "generation_tps": 37.3148060483382,
+  "wall_seconds": 2.187,
+  "peak_memory_bytes": 7517914846,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

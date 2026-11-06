@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>粮站与南岗押送所 · 修改后运行截图</title>
+<style>
+:root{color-scheme:dark}body{margin:0;background:#0c1820;color:#e8edf0;font:17px/1.7 system-ui,sans-serif}main{max-width:1100px;margin:36px auto;padding:0 24px 60px}h1{font-size:29px;line-height:1.4}a{color:#a7d7e4}p{max-width:960px}.status{background:#243e35;border-radius:12px;padding:14px 20px}figure{margin:28px 0;background:#1c2d37;border-radius:12px;overflow:hidden}figcaption{padding:16px 22px}img{display:block;width:100%;height:auto}table{border-collapse:collapse;width:100%;margin:24px 0}td,th{text-align:left;padding:10px 18px;border-bottom:1px solid #36505a;background:#1c2d37}audio{width:min(100%,520px)}a:focus-visible{outline:none;box-shadow:0 0 0 5px #a7d7e440;border-radius:6px}
+</style>
+<main>
+<p>2026-10-26 · 修改后实际运行画面</p>
+<h1>粮站、邀请反馈与南岗押送所修复</h1>
+<p class="status">六项修改完成 · 两名骑兵升为2级 · 两轮抽查与试玩通过</p>
+<p>以下截图来自Mac原生Godot后台运行，使用移动端界面布局。本轮没有安装或更新iPhone；这些是本地原生运行截图，不是iPhone设备截图。</p>
+<p><a href="修改与验证.md">修改依据与验证说明（Markdown）</a> · <a href="two-rounds.json">两轮运行记录</a> · <a href="branch-checks.json">邀请与读档回归</a></p>
+<table><thead><tr><th>敌军</th><th>等级</th><th>攻击</th><th>物防</th><th>魔防</th><th>移动</th></tr></thead><tbody>
+<tr><td>南岗指挥官</td><td>3</td><td>12</td><td>6</td><td>2</td><td>4</td></tr>
+<tr><td>两名骑兵</td><td>2</td><td>10</td><td>6</td><td>4</td><td>7</td></tr>
+</tbody></table>
+<p>两轮M13分别在第17、12回合获胜，战后军令交付、邀请、教堂合作与继续前进均正常。停帧接管问题修复后又单独复核了新建记录流程，没有重打已通过的第一轮战斗。</p>
+<figure><figcaption>粮车：两格均有碰撞；右半部分也可确认分粮。</figcaption><img src="01-wagon-both-cells.png" alt="粮车两格碰撞与交互检查"></figure>
+<figure><figcaption>牌子后方：角色被牌子遮挡。</figcaption><img loading="lazy" src="02-plaque-covers-player-behind.png" alt="角色在牌子后方"></figure>
+<figure><figcaption>牌子前方：角色正常显示，绘制顺序随位置变化。</figcaption><img loading="lazy" src="06-player-in-front-of-plaque.png" alt="角色在牌子前方"></figure>
+<figure><figcaption>芙拉邀请成功：此画面停留2秒，同时播放专属短乐；停帧期间不能移动、确认或打开菜单，之后进入接受邀请对白。</figcaption><img loading="lazy" src="03-fula-recruitment-pause.png" alt="芙拉成功入队后的停帧画面"></figure>
+<p>专属入队短乐《同行的新约》试听：</p>
+<audio controls preload="none" src="recruit-success.mp3"></audio>
+<figure><figcaption>指挥官：攻击12、物防6、魔防2。</figcaption><img loading="lazy" src="04-commander-new-stats.png" alt="南岗指挥官最终属性"></figure>
+<figure><figcaption>骑兵：名称与职业纠正；2级、攻击10、魔防4、移动7格。另一名骑兵使用相同修正。</figcaption><img loading="lazy" src="05-level2-cavalry-seven-move.png" alt="2级骑兵与7格移动"></figure>
+</main></html>

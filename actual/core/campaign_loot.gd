@@ -22,7 +22,10 @@ static func role(enemy: Dictionary) -> String:
 	var source := int(enemy.get("source_enemy_character_id", enemy.get("character_id", enemy.get("name_id", 0))))
 	for monster_id in config().monster_source_ids:
 		if int(monster_id) == source: return "monster"
+	# The named final boss retains its former arcanist loot pool.
+	if bool(enemy.get("campaign_final_boss",false)):return "focus"
 	var cid := int(enemy.get("class_id", 0))
+	if cid in [3,5,11,17,18]:return "monster"
 	if cid in [12, 13, 20]: return "bow"
 	if cid in [15, 16, 17, 18, 19]: return "focus"
 	if cid in [8, 9, 10, 11, 14, 21]: return "sword"
@@ -33,10 +36,10 @@ static func pool(enemy: Dictionary) -> Array:
 
 static func chance(enemy: Dictionary) -> int:
 	if bool(enemy.get("no_drop", false)): return 0
-	return 100 if int(enemy.get("item_id", 0)) > 0 else int(config().chance_percent)
+	return 100 if int(enemy.get("item_id", 0)) > 0 or int(enemy.get("recoverable_item_id",0)) > 0 else int(config().chance_percent)
 
 static func ordinary_drop(enemy: Dictionary, chance_roll: int, item_roll: int) -> int:
-	if bool(enemy.get("no_drop", false)) or int(enemy.get("item_id", 0)) > 0: return 0
+	if bool(enemy.get("no_drop", false)) or int(enemy.get("item_id", 0)) > 0 or int(enemy.get("recoverable_item_id",0)) > 0: return 0
 	if chance_roll >= int(config().chance_percent): return 0
 	var entries := pool(enemy)
 	var total := 0

@@ -1,0 +1,119 @@
+{
+  "offline": true,
+  "final_version": "guide-conditioned SA3 FP32 v2",
+  "human_listening": false,
+  "signal_checks": {
+    "human_listening": false,
+    "tracks": [
+      {
+        "key": "map_hunapu_base",
+        "sha256": "5dde9aa38f2559b562113020336d3fb803f45addf75c402b6f7e357450fee514",
+        "finite": true,
+        "clipped_samples": 0,
+        "attack_above_minus22_relative_db_seconds": 0.0,
+        "active_end_seconds": 0.55,
+        "strongest_fft_bin_energy_fraction": 0.018449010723238828,
+        "duration": 0.6
+      },
+      {
+        "key": "map_hunapu_advanced",
+        "sha256": "b3baede9e7d4f59454f0ca42a03be8f5a45ab694096197304d6cf2c94abe66e5",
+        "finite": true,
+        "clipped_samples": 0,
+        "attack_above_minus22_relative_db_seconds": 0.0,
+        "active_end_seconds": 0.74,
+        "strongest_fft_bin_energy_fraction": 0.023889348957035372,
+        "duration": 0.78
+      },
+      {
+        "key": "map_eileen_base",
+        "sha256": "665e62a434b5c3b65bcc66e5428a0dab93dd4cde50ff4f8b48d96cabd6c398eb",
+        "finite": true,
+        "clipped_samples": 0,
+        "attack_above_minus22_relative_db_seconds": 0.0,
+        "active_end_seconds": 0.68,
+        "strongest_fft_bin_energy_fraction": 0.06884439529681667,
+        "duration": 0.72
+      },
+      {
+        "key": "map_eileen_advanced",
+        "sha256": "5b5d950a01113108b99779ae8bd0f30ae6d9b066d96082510534207fd297ad24",
+        "finite": true,
+        "clipped_samples": 0,
+        "attack_above_minus22_relative_db_seconds": 0.0,
+        "active_end_seconds": 0.87,
+        "strongest_fft_bin_energy_fraction": 0.03880602039482094,
+        "duration": 0.9
+      },
+      {
+        "key": "map_hunapu_bow",
+        "sha256": "db4d704b5351e3ea43782314c54294247c7fa641c6677d8e203da73373179278",
+        "finite": true,
+        "clipped_samples": 0,
+        "attack_above_minus22_relative_db_seconds": 0.0,
+        "active_end_seconds": 0.52,
+        "strongest_fft_bin_energy_fraction": 0.014596103344958478,
+        "duration": 0.55
+      },
+      {
+        "key": "map_bow_draw",
+        "sha256": "b499cd06cee46cbc0657a906a549ed6da8c049817b4a9bcc34f52e79c115bddb",
+        "finite": true,
+        "clipped_samples": 0,
+        "attack_above_minus22_relative_db_seconds": 0.0,
+        "active_end_seconds": 0.25,
+        "strongest_fft_bin_energy_fraction": 0.00805663911306501,
+        "duration": 0.28
+      }
+    ],
+    "scope": "No clipping/nonfinite samples; short event envelope and spectral concentration measured. These checks do not certify artistic quality."
+  },
+  "final_qwen2_audio_reviews": [
+    {
+      "id": "rm_map_hunapu_base",
+      "sha256": "5dde9aa38f2559b562113020336d3fb803f45addf75c402b6f7e357450fee514",
+      "response": "A single short tone, resembling a beep or bleep, is heard at the beginning of the clip. There is no speech or music present. The tone has a medium pitch and no specific rhythm. It is heard from 0:00 to 0:10 in the audio."
+    },
+    {
+      "id": "rm_map_hunapu_advanced",
+      "sha256": "b3baede9e7d4f59454f0ca42a03be8f5a45ab694096197304d6cf2c94abe66e5",
+      "response": "A single, short sound effect with no speech or music. A sine wave sound, pure and at a medium pitch, without any variation or rhythm."
+    },
+    {
+      "id": "rm_map_eileen_base",
+      "sha256": "665e62a434b5c3b65bcc66e5428a0dab93dd4cde50ff4f8b48d96cabd6c398eb",
+      "response": "A single short tone, resembling a ping, with a sharp, high-pitched timbre, no pitch movement, a steady rhythm, and no speech or music detected."
+    },
+    {
+      "id": "rm_map_eileen_advanced",
+      "sha256": "5b5d950a01113108b99779ae8bd0f30ae6d9b066d96082510534207fd297ad24",
+      "response": "A single, short, sharp sound followed by silence. Sound type: one-shot. Timbre: bright, fast_decay, percussive. Pitch movement: none. Rhythm: not rhythmic. Speech or music: none."
+    },
+    {
+      "id": "rm_map_hunapu_bow",
+      "sha256": "db4d704b5351e3ea43782314c54294247c7fa641c6677d8e203da73373179278",
+      "response": "A single, short, sharp sound followed by silence. Sound type: one-shot. Timbre: bright, fast_decay, percussive. Pitch movement: none. Rhythm: 1/4 note. Speech or music: none."
+    },
+    {
+      "id": "rm_map_bow_draw",
+      "sha256": "b499cd06cee46cbc0657a906a549ed6da8c049817b4a9bcc34f52e79c115bddb",
+      "response": "A single short sharp 'clap' sound, likely from a percussion instrument, occurs at the end of the clip."
+    }
+  ],
+  "qwen3_omni_scope": "Earlier candidates and calibration, not blanket approval of final six files.",
+  "calibration": [
+    {
+      "id": "silence",
+      "response": "A single, sustained, low-pitched electronic tone. The sound is constant and unwavering, with no discernible changes in pitch or volume."
+    },
+    {
+      "id": "noise",
+      "response": "A loud, sustained, high-pitched electronic tone is audible. The sound is constant and does not change in pitch or volume."
+    },
+    {
+      "id": "existing_projectile",
+      "response": "A high-pitched, descending electronic siren. The timbre is a pure, synthetic tone. The gesture is a smooth, continuous downward sweep in pitch. There is no speech or music."
+    }
+  ],
+  "judgment": "Model timbre/semantic labels are not reliable on these short inputs: silence was hallucinated as a constant tone. Preserve all receipts; do not use model labels to certify quality. Final delivery verified single-gesture guide timing, spectral concentration, no clipping, production resource loading and cue synchronization. User listening preview provided."
+}

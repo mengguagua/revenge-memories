@@ -1,7 +1,9 @@
 extends RefCounted
 ## Native original FE2 combat, with source-derived physical/magic/item rules.
 ## Tables/provenance: data/rules_full.json. No runtime ROM or emulator.
+const Body = preload("res://core/innate_attacks.gd")
 const Items = preload("res://core/item_rules.gd")
+const COMBAT_EXPERIENCE_CAP=180
 
 const WEAPON_MIGHT: Array[int] = [0, 0, 4, 8, 3, 3, 3, 15, 10, 20, 10, 4, 8, 5, 13, 15, 3, 10, 7, 12, 3, 5, 7]
 const WEAPON_WEIGHT: Array[int] = [0, 0, 1, 1, 2, 0, 1, 0, 0, 2, 1, 1, 1, 0, 5, 3, 0, 0, 0, 0, 1, 0, 2]
@@ -11,7 +13,14 @@ const WEAPON_CRITICAL: Array[int] = [0, 0, 0, 0, 0, 10, 0, 0, 50, 0, 0, 0, 0, 30
 # L098F21, indexed by player class - 1, and L098EF9, level - 1.
 const EXPERIENCE_CLASS: Array[int] = [6, 5, 6, 3, 1, 8, 1, 7, 4, 2, 5, 7, 4, 10, 5, 6, 7, 10, 2, 1, 5, 1]
 const EXPERIENCE_LEVEL: Array[int] = [10, 10, 9, 8, 7, 6, 5, 4, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+const EAST_EXPERIENCE_CLASS = {"eileen":[11,8], "lisa":[16,8], "lord":[2,7], "shia":[3,7], "noya":[16,8]}
 const GROWTH_ORDER: Array[String] = ["hp", "defence", "luck", "speed", "skill", "strength"]
+
+static func experience_class(unit: Dictionary) -> int:
+	var original=EXPERIENCE_CLASS[_class_id(unit)-1]
+	var adjustment: Array=EAST_EXPERIENCE_CLASS.get(str(unit.get("id","")),[])
+	if adjustment.is_empty() or _enemy(unit) or unit.get("neutral",false) or unit.get("temporary",false):return original
+	return maxi(original,int(adjustment[1])) if _class_id(unit)==int(adjustment[0]) else original
 
 
 static func default_weapon_index(unit: Dictionary) -> int:
@@ -39,6 +48,7 @@ static func default_weapon_index(unit: Dictionary) -> int:
 
 
 static func weapon_index(unit: Dictionary) -> int:
+	if Body.is_body(unit):return Body.selected(unit)
 	if unit.has("weapon_index"):
 		return clampi(int(unit.weapon_index), 0, 47)
 	var id := int(unit.get("item_id", 0))
@@ -63,6 +73,10 @@ static func attack_range(unit: Dictionary) -> Vector2i:
 	# L09844A: distance is Manhattan distance minus1. All ranges start at1.
 	var index := weapon_index(unit)
 	var maximum := 1
+	if Body.Mechanical.is_puppet(unit):
+		if index==47:return Vector2i.ZERO
+		return Vector2i(1,int(Body.profile(index).range)) if unit.has("innate_attack_index") else Vector2i(1,3 if Body.Mechanical.cannon_hp(unit)>0 and not unit.get("mechanical_retreating",false) else 1)
+	if Body.is_body(unit):return Vector2i(1,maxi(3 if bool(unit.get("guard_counter",false)) else 1,int(Body.profile(index).range)))
 	if index == 47 or Items.is_support(index):
 		return Vector2i.ZERO
 	if _class_id(unit) == 20 or (_class_id(unit) in [11, 15, 16, 17, 18, 19] and index >= 23 and int(unit.get("item_id", 0)) == 57):
@@ -73,6 +87,7 @@ static func attack_range(unit: Dictionary) -> Vector2i:
 		maximum = 3
 	elif int(Items.item(index).get("target_flags", 0)) & 4:
 		maximum = 2
+	if bool(unit.get("guard_counter",false)):maximum=maxi(maximum,3)
 	return Vector2i(1, maximum)
 
 
@@ -82,13 +97,14 @@ static func in_attack_range(unit: Dictionary, distance: int) -> bool:
 
 
 static func can_attack(unit: Dictionary, distance: int = 1) -> bool:
+	unit=attack_context(unit,distance,bool(unit.get("innate_counter",false)))
 	return not bool(unit.get("no_counter",false)) and in_attack_range(unit, distance) and (magic_cost(unit) == 0 or int(unit.get("hp", 0)) > magic_cost(unit))
 
 
 static func attack_stats(attacker: Dictionary, defender: Dictionary, defender_avoid: int) -> Dictionary:
 	var index := weapon_index(attacker)
 	var weapon := Items.weapon_profile(attacker, index)
-	var magical := index >= 23 or index == 15
+	var magical := bool(weapon.get("magic",false)) if Body.is_body(attacker) else index >= 23 or index == 15
 	var speed := attack_speed(attacker)
 	var defender_speed := attack_speed(defender)
 	var might := int(weapon.get("might", 0))
@@ -104,11 +120,13 @@ static func attack_stats(attacker: Dictionary, defender: Dictionary, defender_av
 	var defence := Items.magic_defence(defender) if magical else _defence(defender) + Items.physical_defence_bonus(defender, attacker)
 	var damage := clampi(power - defence + (5 if bool(attacker.get("triangle_attack", false)) else 0), 1, 60)
 	var hit: int
-	if index >= 23:
+	if magical and index != 15:
 		hit = 10 if int(defender.get("item_id", 0)) == 52 else clampi(int(weapon.get("hit", 0)) - Items.effective_luck(defender) - Items.effective_speed(defender), 0, 100)
 	else:
 		hit = clampi(int(attacker.get("skill", 0)) + int(weapon.get("hit", 0)) - defender_avoid - defender_speed, 0, 100)
-	if int(attacker.get("item_id", 0)) == 10:
+	# Trading may carry an incompatible lance. Its guaranteed hit belongs to
+	# a legal lance strike, never the holder's default attack or selected magic.
+	if index == 10 and Items.can_use(attacker, 10):
 		hit = 100
 	var critical := (int(attacker.get("skill", 0)) + Items.effective_luck(attacker)) >> 1
 	critical = (critical + int(weapon.get("critical", 0))) >> 1
@@ -121,13 +139,15 @@ static func attack_stats(attacker: Dictionary, defender: Dictionary, defender_av
 	if index == 34:
 		damage = maxi(1, int(defender.get("hp", 1)) - 1)
 		critical = 0
-	return {"damage": damage, "hit": hit, "critical": critical, "attack_speed": speed,
+	return {"damage": fatigue_damage(attacker,damage), "unfatigued_damage":damage, "hit": hit, "critical": critical, "attack_speed": speed,
 		"weapon_index": index, "defender_attack_speed": defender_speed, "magic": magical,
 		"hp_cost": magic_cost(attacker), "effective": effective or falcon_bonus,
 		"defender_defence": defence, "can_attack": index != 47 and not Items.is_support(index)}
 
 
 static func strike_sequence(attacker: Dictionary, defender: Dictionary, distance: int = 1) -> Array[String]:
+	attacker=attack_context(attacker,distance)
+	defender=attack_context(defender,distance,true)
 	if not can_attack(attacker, distance):
 		return []
 	# L098D25 sets one actor's $0357 suppression flag. L098606/60A
@@ -163,6 +183,7 @@ static func attack_blocked(attacker: Dictionary, defender: Dictionary) -> bool:
 
 
 static func strike_effect(attacker: Dictionary, defender: Dictionary, hit: bool, critical: bool, roll: int = 99, distance: int = 1, defender_avoid: int = 0) -> Dictionary:
+	attacker=attack_context(attacker,distance,bool(attacker.get("innate_counter",false)))
 	# Resolve one strike; callers apply HP cost before damage and stop if a
 	# preceding strike left the caster unable to pay. Nosferatu heals actual
 	# damage dealt; Dark Sword may recoil instead of harming the opponent.
@@ -179,13 +200,14 @@ static func strike_effect(attacker: Dictionary, defender: Dictionary, hit: bool,
 		return result
 	var index := weapon_index(attacker)
 	var stats := attack_stats(attacker, defender, defender_avoid)
-	var damage := int(stats.damage)
+	var damage := int(stats.get("unfatigued_damage",stats.damage))
 	if critical and index != 34:
 		damage = mini(120, damage * 3)
+	damage=fatigue_damage(attacker,damage)
 	if index == 14 and not _enemy(attacker) and _class_id(attacker) != 10 and distance == 1 and roll <= 20 - Items.effective_luck(attacker):
 		# L0985B5 clears the recoil flag when the wielder's own defence
 		# absorbs all recoil. That strike still damages the enemy and may crit.
-		var recoil_damage := int(attacker.get("strength", 0)) + 13 - _defence(attacker)
+		var recoil_damage := int(attacker.get("strength", 0)) + 13 - _defence(attacker) - Items.StrongBody.bonus(attacker)
 		if recoil_damage > 0:
 			result.self_damage = recoil_damage
 			result.critical = false
@@ -196,14 +218,48 @@ static func strike_effect(attacker: Dictionary, defender: Dictionary, hit: bool,
 	return result
 
 
+static func fatigue_damage(unit:Dictionary,amount:int)->int:
+	return maxi(1,floori(amount*.75)) if amount>0 and int(unit.get("map_fatigue_until_turn",0))>0 else amount
+
+
+static func attack_context(unit: Dictionary, distance: int, counter: bool=false) -> Dictionary:
+	if not Body.is_body(unit):return unit
+	var copy:=unit.duplicate(true)
+	copy.innate_attack_index=Body.selected(unit,distance,counter)
+	copy.innate_counter=counter
+	return copy
+
 static func default_counter(unit: Dictionary, distance: int = 1) -> Dictionary:
+	if Body.is_body(unit):
+		var body=attack_context(unit,distance,true)
+		if _enemy(body) and str(body.get("behavior","")) in ["guard","guard_exit"]:body.guard_counter=true
+		return body
 	# L098AF5 and L069BD9: mage counters use Fire; priestess uses a sword
 	# at melee and Fire at distance. Clerics use Nosferatu when learned.
 	var copy := unit.duplicate(true)
 	copy.erase("weapon_index")
+	if _enemy(copy) and str(copy.get("behavior","")) in ["guard","guard_exit"]:
+		copy.guard_counter=true
+		# Guard reach is a counter-only weapon choice, not a permanent item grant.
+		# Keep an existing ranged weapon/spell; ordinary melee uses a visible
+		# javelin or lightning sword with that weapon's real combat profile.
+		if distance>1:
+			var index=weapon_index(copy)
+			if index<23 and index not in [1,4,7,15,20,21,22]:
+				if _class_id(copy) in [1,2,4,6,7,22]:copy.weapon_index=4
+				elif _class_id(copy) in [8,9,10]:copy.weapon_index=15
 	if not _enemy(copy) and _class_id(copy) == 11 and distance > 1:
 		copy.weapon_index = 23
 	return copy
+
+static func weapon_name(unit:Dictionary, attack_index:int=-1) -> String:
+	var index=weapon_index(unit) if attack_index<0 else attack_index
+	# Copper/iron weapons share a base attack ID, but their real profile keeps
+	# the equipped item's name. A counter-only weapon/spell keeps its own name.
+	var profile=Items.weapon_profile(unit,index)
+	if index==0 and int(profile.get("id",0))==0:
+		return "普通枪" if _class_id(unit) in [1,2,3,4,5,6,7,22] else "普通剑"
+	return str(profile.get("name_zh","普通武器"))
 
 
 static func _source_id(unit: Dictionary) -> int:
@@ -221,13 +277,27 @@ static func victory_experience_gain(unit: Dictionary) -> int:
 	var level := int(unit.get("level", 1))
 	if level >= 20 or bool(unit.get("no_experience", false)) or int(unit.get("hp", 0)) <= 0:
 		return 0
-	var gain := _ceil_ratio(EXPERIENCE_CLASS[_class_id(unit) - 1] * EXPERIENCE_LEVEL[level - 1] * 20, 100)
+	var gain := _ceil_ratio(experience_class(unit) * EXPERIENCE_LEVEL[level - 1] * 20, 100)
 	if bool(unit.get("easy_mode", false)):
 		gain *= 2
 	return mini(100, gain)
 
+static func healing_experience_gain(unit: Dictionary, restored_hp: int) -> int:
+	# Campaign addition: NES white magic gives no combat EXP. Use the same
+	# source class/level multipliers, with action value10 (half a clear's20).
+	# A group heal is one action, independent of the number of targets.
+	var level=int(unit.get("level",1))
+	if restored_hp<=0 or level>=20 or level<1 or int(unit.get("hp",0))<=0 or bool(unit.get("no_experience",false)):return 0
+	var gain=_ceil_ratio(experience_class(unit)*EXPERIENCE_LEVEL[level-1]*10,100)
+	return mini(100,gain*2 if bool(unit.get("easy_mode",false)) else gain)
+
 
 static func experience_gain(attacker: Dictionary, defender: Dictionary, hp_before: int, hp_after: int, killed: bool) -> int:
+	var gain=_ordinary_experience_gain(attacker,defender,hp_before,hp_after,killed)
+	# Apply the mechanical multiplier before the shared final award cap.
+	return mini(COMBAT_EXPERIENCE_CAP,ceili(gain*1.5) if Body.Mechanical.is_puppet(defender) else gain)
+
+static func _ordinary_experience_gain(attacker: Dictionary, defender: Dictionary, hp_before: int, hp_after: int, killed: bool) -> int:
 	# The original grants experience to the player unit after an entire exchange,
 	# including enemy-phase counters, not after each individual strike.
 	var level: int = int(attacker.get("level", 1))
@@ -239,10 +309,9 @@ static func experience_gain(attacker: Dictionary, defender: Dictionary, hp_befor
 	# Enemy record field 4 comes from the final column of L0FED04 class data.
 	# Its meaning is exp value; it is not an enemy unit's level-up progress.
 	var enemy_value: int = int(defender.get("exp_value", defender.get("exp", 30)))
-	var full_gain: int = _ceil_ratio(EXPERIENCE_CLASS[class_id - 1] * EXPERIENCE_LEVEL[level - 1] * enemy_value, 100)
+	var full_gain: int = _ceil_ratio(experience_class(attacker) * EXPERIENCE_LEVEL[level - 1] * enemy_value, 100)
 	if bool(attacker.get("easy_mode", false)):
-		full_gain = mini(255, full_gain * 2)
-	full_gain = mini(100, full_gain)
+		full_gain *= 2
 	if killed:
 		return full_gain
 	var actual_damage: int = maxi(0, hp_before - hp_after)
@@ -291,7 +360,7 @@ static func _class_id(unit: Dictionary) -> int:
 
 
 static func _defence(unit: Dictionary) -> int:
-	return int(unit.get("defence", unit.get("defense", 0)))
+	return int(unit.get("defence", unit.get("defense", 0)))+Body.Mechanical.armour_bonus(unit)
 
 
 static func _growth_stat(unit: Dictionary, stat: String) -> int:

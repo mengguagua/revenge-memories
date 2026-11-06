@@ -1,0 +1,54 @@
+{
+  "id": "rm_sfx_47",
+  "kind": "final_scene_mix",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_sfx_47_new_context.wav"
+    }
+  ],
+  "asset_sha256": "2abd56a218151983c7ec8c0226b9253e2909c1a940079d05f0a820255288aa5b",
+  "fixture_sha256": "3c2586b5c5955736f512f21df5c835222e5df2799b993ead168f8b186609b5d6",
+  "prompt": "This is a final offline scene mix using the actual game gains and native event sequence. Describe only audible evidence. Check whether essential feedback attacks are clear, any intrusive click/distortion or excessive rumbling tail, and whether music continuity is distracted by the effects. Effects need not be as loud as music; a naturally masked quiet tail is not a failure. Report uncertainty and avoid inventing instruments/events. Under 90 words. Fixture context: 实际源动画请求序列（同一当前双声部规则）：class_11_ally_item_29；叠加当前配乐0.50／音效0.65",
+  "max_tokens": 170,
+  "key": "403e65e73c6ad59439a7a009",
+  "source_sha256": [
+    "3c2586b5c5955736f512f21df5c835222e5df2799b993ead168f8b186609b5d6"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/3c2586b5c5955736f512f21df5c835222e5df2799b993ead168f8b186609b5d6.wav"
+  ],
+  "audio_input_samples": [
+    82542
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "455567186a76ee14c1bf36b26a6eae143c83e9b83215219e1be46207e32d2c44"
+  ],
+  "response": "The audio features a synthesized melody with a retro, chime-like quality. A high-pitched, descending electronic effect follows, with a brief, sharp click at its onset. The music continues underneath without interruption, maintaining a steady, low-level presence. The effect is clear and distinct, with no excessive rumbling or distortion. The tail of the effect is quiet and naturally masked by the music, not intrusive. No additional instruments or events are audible.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 91,
+    "prompt_tokens": 241,
+    "total_tokens": 332,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 213,
+    "prompt_ms": 627.331,
+    "prompt_per_token_ms": 2.945215962441315,
+    "prompt_per_second": 339.53367520495556,
+    "predicted_n": 91,
+    "predicted_ms": 1405.657,
+    "predicted_per_token_ms": 15.61841111111111,
+    "predicted_per_second": 64.02699947426719
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 4.426,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

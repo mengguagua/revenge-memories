@@ -1,0 +1,76 @@
+{
+  "id": "rm_hub_hearth",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_hub_hearth.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/music_93.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_hub_hearth.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_hub_hearth_scene.mp3",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is tail 6 seconds then head 6 seconds, with the loop join at 6 seconds; assess rhythmic/harmonic continuity and distracting loudness changes there. Audio 4 is the current game-gain offline mix with interface or combat effects. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: H02/H03/H05/H07/H08/H32/H33/H36/H41/H42/H49; desired mood: 村民、军械与营地日常",
+  "max_tokens": 340,
+  "key": "9c47687bae14bf9f04aa5e00",
+  "source_sha256": [
+    "7f2b29810196aa635743234e55a93cdf14a346102cc07a4f8a0fc6bd5ec84c47",
+    "210dc354bbaeacdad62b51469ec150ff62933fecbaf94c2f13736e1fae1a9843",
+    "7f2b29810196aa635743234e55a93cdf14a346102cc07a4f8a0fc6bd5ec84c47",
+    "0b23410c03fbbce637a8f37d8aa2dfd881e360895b6c9ea7c87ee9405fca663a"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "audio_input_samples": [
+    706565,
+    240000,
+    192000,
+    80800
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "76f574413477699111d866c4e88103d49aa471535b726053d2855bdce56b9415",
+    "d5c7e025d3d1cb9f9cbb0b5d7570cd80c6a746d78c5e6d69729843e27f446c11",
+    "c7fc4d7d48bd1f0c01c3f3e0716d7d8146a82ade03b5fd947188fb19ae0c1617",
+    "8a815b313a04d39ef5e336304c0d2e9a2ab997a22cc2e757bf6a15e274f93a70"
+  ],
+  "response": "Audio 1 features a breathy flute melody over soft, steady percussion and a simple bassline. The timbre is gentle and organic, creating a calm, pastoral mood suitable for village or camp scenes. The melody is repetitive and looped, with no vocals or speech. The energy is low and consistent, lacking dynamic shifts. There are no obvious defects.\n\nAudio 2 is a short, clear chiptune melody with a retro, sparse texture. It serves as a reference for the original game’s style but is not used in the current cue.\n\nAudio 3 combines the tail of Audio 1 with its head, joined at the 6-second mark. The loop is seamless—rhythm and harmony continue without disruption. Loudness remains stable; no jarring changes occur.\n\nAudio 4 is an offline mix with added interface or combat sounds. These effects are loud and prominent, partially masking the music. The music itself is subdued, risking being overlooked during gameplay. It’s unclear if the mix prioritizes feedback or atmosphere.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 208,
+    "prompt_tokens": 1302,
+    "total_tokens": 1510,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 1274,
+    "prompt_ms": 7239.016,
+    "prompt_per_token_ms": 5.682116169544741,
+    "prompt_per_second": 175.99077001625636,
+    "predicted_n": 208,
+    "predicted_ms": 5433.927,
+    "predicted_per_token_ms": 26.250855072463768,
+    "predicted_per_second": 38.09399721416943
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 21.413,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/7f2b29810196aa635743234e55a93cdf14a346102cc07a4f8a0fc6bd5ec84c47.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/210dc354bbaeacdad62b51469ec150ff62933fecbaf94c2f13736e1fae1a9843.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/7f2b29810196aa635743234e55a93cdf14a346102cc07a4f8a0fc6bd5ec84c47.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/0b23410c03fbbce637a8f37d8aa2dfd881e360895b6c9ea7c87ee9405fca663a.mp3"
+  ]
+}

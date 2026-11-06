@@ -18,6 +18,7 @@ func check(ok: bool, label: String) -> void:
 func fresh():
 	var g = State.new(); g.new_game(); g.save_path = CACHE + "working-save.json"; return g
 func all_west(g) -> void:
+	g.cleared_stages.append(112);g.flags.clinic_staffed=true # Complete clinic recruitment prerequisites in this fixture.
 	for id in ["fula", "lena", "lance", "beck", "hervi"]: g.recruit(id)
 func all_east(g) -> void:
 	g.cleared_stages.append(105); g.flags.chapter1_complete = true; g.begin_chapter_two()

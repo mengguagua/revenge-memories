@@ -22,6 +22,7 @@ func run():
 	ui=load("res://scenes/main.tscn").instantiate();viewport.add_child(ui);await process_frame
 	ui.set_process(false);ui.set_physics_process(false);ui.instant_mode=true;ui.elapsed=3
 	ui.game.new_game();ui.game.mode="world";ui.game.world_node=32;ui.game.save_path="/private/tmp/equipment-preview-capture.json"
+	ui.game.cleared_stages.append(112);ui.game.flags.clinic_staffed=true # Complete clinic recruitment prerequisites in this fixture.
 	for id in ["fula","lena","lance","beck","hervi"]:ui.game.recruit(id)
 	ui.world_actor=Vector2(ui.world.nodes["32"].position[0],ui.world.nodes["32"].position[1])*16
 	ui.view="world";ui.game.convoy.alm=[20];ui._camp_action("withdraw_item:0")

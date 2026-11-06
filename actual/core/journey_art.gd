@@ -14,6 +14,7 @@ func _init(owner):
  center_tile=AtlasTexture.new();center_tile.atlas=ui._tex(ASSET+"journal-panel.png");center_tile.region=Rect2(40,40,16,16)
 
 func bounds() -> Rect2:return ui._visible_native_rect()
+func control_hint() -> String:return "点选条目 · 确认继续 · 返回上页" if ui.get_meta("phone",false) else "方向选择   Z确认   X返回"
 func compact() -> bool:return bounds().size.x<360
 func title_button(index: int) -> Rect2:
  var b=bounds()
@@ -88,7 +89,7 @@ func home(screen) -> void:
   var r=title_button(i);panel(r,ui.title_selected==i)
   text("开始游戏" if i==0 else "继续游戏",r.grow(-7),false,INK if i==0 or has_save else MUTED)
  material_safe=Rect2()
- text("方向选择   Z确认   X返回",Rect2(b.position.x+8,218,b.size.x-16,14),true,MUTED)
+ text(control_hint(),Rect2(b.position.x+8,218,b.size.x-16,14),true,MUTED)
  if not has_save:text("暂无记录",Rect2(title_button(1).position.x,199,180,12),true,MUTED)
 
 func records_screen(screen) -> void:
@@ -106,13 +107,13 @@ func records_screen(screen) -> void:
   var name="空槽位";var detail="可在此记录新的旅程"
   if entry.exists:
    name=entry.chapter+" · "+entry.location if entry.valid else "记录无法读取 · 原件保留"
-   detail=entry.time
-   if entry.valid and not compact():detail+="   "+entry.route+"   "+ui.game.Journals.duration(entry.seconds)
+   detail=("恢复副本 · " if entry.get("recovered",false) else "")+entry.time
+   if entry.valid and not compact() and not entry.get("recovered",false):detail+="   "+entry.route+"   "+ui.game.Journals.duration(entry.seconds)
    if entry.legacy and entry.valid:name+=" · 旧记录"
   text(name,Rect2(tx,r.position.y+8,tw,8),true,INK if entry.valid or not entry.exists else Color("d3a39c"),false)
   text(detail,Rect2(tx,r.position.y+18,tw,8),true,MUTED,false)
  material_safe=Rect2()
- var footer=screen.message if not screen.message.is_empty() else "方向选择   Z确认   X返回"
+ var footer=screen.message if not screen.message.is_empty() else control_hint()
  text(footer,Rect2(b.position.x+8,228,b.size.x-16,12),true,GOLD if not screen.message.is_empty() else MUTED)
 
 func confirmation(screen) -> void:

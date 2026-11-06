@@ -1,0 +1,1124 @@
+{
+  "date": "2026-11-03",
+  "reference": "https://34.suparobo.jp/system/",
+  "reference_use": "Cinematic pacing: character cut-in, anticipation, action, impact hold, recovery. No franchise artwork copied.",
+  "scope": "Standalone HTML and video. No game integration.",
+  "portrait_status": "All four bust portraits approved by user on 2026-11-03.",
+  "enemy_contract": {
+    "source": "Dynamic input: a single static current-target image, name, HP, max HP and resolved damage.",
+    "first_appearance": "From popup opening, continuously through preparation, attack and recovery; living target is never removed.",
+    "poses": 1,
+    "enemy_motion": "none; no skeletal animation, pose switching, recoil or species-specific design",
+    "cover": "Contact effects overlay the continuously present static target. One HP-loss count is shown. Only the resolved-dead branch removes the target after its impact feedback.",
+    "number_rule": "Preview values only; future integration must receive the existing resolved result, never calculate or apply additional damage."
+  },
+  "variants": [
+    {
+      "key": "hunapu-sword",
+      "hero": "hunapu",
+      "name": "胡纳普",
+      "className": "战士",
+      "weapon": "剑",
+      "title": "踏步重斩",
+      "advanced": false,
+      "duration": 7.2,
+      "hit": 4.1,
+      "color": "#9fcbd8",
+      "portrait": 0,
+      "anchor": [
+        190,
+        184,
+        176,
+        160,
+        180,
+        180,
+        190,
+        190
+      ],
+      "description": "压低重心，贴地突进，以一记斜斩穿过防线。",
+      "quote": "就是现在！",
+      "beats": [
+        "压步蓄势",
+        "贴地前冲",
+        "斜斩命中",
+        "刹步回防"
+      ],
+      "character_id": 1,
+      "action_to_effect": {
+        "weapon": "剑",
+        "form": "战士",
+        "attack_contract": "One current weapon critical result. Visual motion is not an extra attack or a new unlocked ability.",
+        "damage_display_at": 4.25,
+        "impact_at": 4.1
+      },
+      "storyboard": [
+        {
+          "time": [
+            0,
+            0.63
+          ],
+          "shot": "Central popup"
+        },
+        {
+          "time": [
+            0.63,
+            1.86
+          ],
+          "shot": "Approved new portrait cut-in"
+        },
+        {
+          "time": [
+            1.86,
+            2.8
+          ],
+          "shot": "压步蓄势"
+        },
+        {
+          "time": [
+            2.8,
+            3.9499999999999997
+          ],
+          "shot": "贴地前冲"
+        },
+        {
+          "time": [
+            0,
+            7.2
+          ],
+          "shot": "Current static target persists; contact effects overlay it and the single existing damage result is displayed"
+        },
+        {
+          "time": [
+            5.95,
+            7.2
+          ],
+          "shot": "刹步回防 and return"
+        }
+      ]
+    },
+    {
+      "key": "hunapu-bow",
+      "hero": "hunapu",
+      "name": "胡纳普",
+      "className": "基础造型",
+      "weapon": "弓",
+      "title": "满弓贯击",
+      "advanced": false,
+      "duration": 7.4,
+      "hit": 4.38,
+      "color": "#b8d0a2",
+      "portrait": 0,
+      "anchor": [
+        176,
+        160,
+        145,
+        135,
+        159,
+        148,
+        150,
+        160
+      ],
+      "description": "站姿搭箭，屏息拉满；镜头追随一支箭直抵目标。",
+      "quote": "这一箭，射穿你！",
+      "beats": [
+        "搭箭抬弓",
+        "站姿满弓",
+        "单箭追镜",
+        "松弦收弓"
+      ],
+      "character_id": 1,
+      "action_to_effect": {
+        "weapon": "弓",
+        "form": "基础造型",
+        "attack_contract": "One current weapon critical result. Visual motion is not an extra attack or a new unlocked ability.",
+        "damage_display_at": 4.53,
+        "impact_at": 4.38
+      },
+      "storyboard": [
+        {
+          "time": [
+            0,
+            0.63
+          ],
+          "shot": "Central popup"
+        },
+        {
+          "time": [
+            0.63,
+            1.86
+          ],
+          "shot": "Approved new portrait cut-in"
+        },
+        {
+          "time": [
+            1.86,
+            2.8
+          ],
+          "shot": "搭箭抬弓"
+        },
+        {
+          "time": [
+            2.8,
+            4.2299999999999995
+          ],
+          "shot": "站姿满弓"
+        },
+        {
+          "time": [
+            0,
+            7.4
+          ],
+          "shot": "Current static target persists; contact effects overlay it and the single existing damage result is displayed"
+        },
+        {
+          "time": [
+            5.95,
+            7.4
+          ],
+          "shot": "松弦收弓 and return"
+        }
+      ]
+    },
+    {
+      "key": "eileen-sword",
+      "hero": "eileen",
+      "name": "艾琳",
+      "className": "女魔剑士",
+      "weapon": "剑",
+      "title": "跃空落斩",
+      "advanced": false,
+      "duration": 7.4,
+      "hit": 4.22,
+      "color": "#e0acb0",
+      "portrait": 2,
+      "anchor": [
+        180,
+        180,
+        185,
+        178,
+        190,
+        180,
+        180,
+        180
+      ],
+      "description": "红发与披风随腾跃扬起，空中蓄剑，一次下劈落地。",
+      "quote": "让开！",
+      "beats": [
+        "屈膝起跳",
+        "空中蓄剑",
+        "落斩命中",
+        "低位落地"
+      ],
+      "character_id": 2,
+      "action_to_effect": {
+        "weapon": "剑",
+        "form": "女魔剑士",
+        "attack_contract": "One current weapon critical result. Visual motion is not an extra attack or a new unlocked ability.",
+        "damage_display_at": 4.37,
+        "impact_at": 4.22
+      },
+      "storyboard": [
+        {
+          "time": [
+            0,
+            0.63
+          ],
+          "shot": "Central popup"
+        },
+        {
+          "time": [
+            0.63,
+            1.86
+          ],
+          "shot": "Approved new portrait cut-in"
+        },
+        {
+          "time": [
+            1.86,
+            2.8
+          ],
+          "shot": "屈膝起跳"
+        },
+        {
+          "time": [
+            2.8,
+            4.069999999999999
+          ],
+          "shot": "空中蓄剑"
+        },
+        {
+          "time": [
+            0,
+            7.4
+          ],
+          "shot": "Current static target persists; contact effects overlay it and the single existing damage result is displayed"
+        },
+        {
+          "time": [
+            5.95,
+            7.4
+          ],
+          "shot": "低位落地 and return"
+        }
+      ]
+    },
+    {
+      "key": "hunapu-sword-advanced",
+      "hero": "hunapu",
+      "name": "胡纳普",
+      "className": "破晓勇士",
+      "weapon": "剑",
+      "title": "破晓 · 断阵",
+      "advanced": true,
+      "duration": 7.6,
+      "hit": 4.44,
+      "color": "#9edfe4",
+      "portrait": 1,
+      "anchor": [
+        175,
+        191,
+        192,
+        211,
+        148,
+        174,
+        145,
+        198
+      ],
+      "description": "重甲低伏后爆发突入，蓝脊银剑越肩落下，长刃痕短暂停留。",
+      "quote": "到此为止！",
+      "beats": [
+        "沉肩蓄势",
+        "重步跃进",
+        "长刃落斩",
+        "滑步收势"
+      ],
+      "actorKey": "hunapu-sword-fixed",
+      "character_id": 1,
+      "action_to_effect": {
+        "weapon": "剑",
+        "form": "破晓勇士",
+        "attack_contract": "One current weapon critical result. Visual motion is not an extra attack or a new unlocked ability.",
+        "damage_display_at": 4.590000000000001,
+        "impact_at": 4.44
+      },
+      "storyboard": [
+        {
+          "time": [
+            0,
+            0.63
+          ],
+          "shot": "Central popup"
+        },
+        {
+          "time": [
+            0.63,
+            1.86
+          ],
+          "shot": "Approved new portrait cut-in"
+        },
+        {
+          "time": [
+            1.86,
+            2.8
+          ],
+          "shot": "沉肩蓄势"
+        },
+        {
+          "time": [
+            2.8,
+            4.29
+          ],
+          "shot": "重步跃进"
+        },
+        {
+          "time": [
+            0,
+            7.6
+          ],
+          "shot": "Current static target persists; contact effects overlay it and the single existing damage result is displayed"
+        },
+        {
+          "time": [
+            5.95,
+            7.6
+          ],
+          "shot": "滑步收势 and return"
+        }
+      ]
+    },
+    {
+      "key": "hunapu-bow-advanced",
+      "hero": "hunapu",
+      "name": "胡纳普",
+      "className": "破晓勇士",
+      "weapon": "弓",
+      "title": "破晓 · 贯心",
+      "advanced": true,
+      "duration": 7.6,
+      "hit": 4.66,
+      "color": "#c4dca5",
+      "portrait": 1,
+      "anchor": [
+        165,
+        163,
+        170,
+        178,
+        164,
+        157,
+        159,
+        166
+      ],
+      "description": "单膝落地稳住长弓，特写弦与目光，单箭近镜掠过后贯入。",
+      "quote": "躲不开的。",
+      "beats": [
+        "单膝压稳",
+        "长弓拉满",
+        "近镜飞矢",
+        "贯入收弓"
+      ],
+      "character_id": 1,
+      "action_to_effect": {
+        "weapon": "弓",
+        "form": "破晓勇士",
+        "attack_contract": "One current weapon critical result. Visual motion is not an extra attack or a new unlocked ability.",
+        "damage_display_at": 4.8100000000000005,
+        "impact_at": 4.66
+      },
+      "storyboard": [
+        {
+          "time": [
+            0,
+            0.63
+          ],
+          "shot": "Central popup"
+        },
+        {
+          "time": [
+            0.63,
+            1.86
+          ],
+          "shot": "Approved new portrait cut-in"
+        },
+        {
+          "time": [
+            1.86,
+            2.8
+          ],
+          "shot": "单膝压稳"
+        },
+        {
+          "time": [
+            2.8,
+            4.51
+          ],
+          "shot": "长弓拉满"
+        },
+        {
+          "time": [
+            0,
+            7.6
+          ],
+          "shot": "Current static target persists; contact effects overlay it and the single existing damage result is displayed"
+        },
+        {
+          "time": [
+            5.95,
+            7.6
+          ],
+          "shot": "贯入收弓 and return"
+        }
+      ]
+    },
+    {
+      "key": "eileen-sword-advanced",
+      "hero": "eileen",
+      "name": "艾琳",
+      "className": "引光剑使",
+      "weapon": "剑",
+      "title": "引光 · 焰回斩",
+      "advanced": true,
+      "duration": 7.6,
+      "hit": 4.34,
+      "color": "#e9b08c",
+      "portrait": 3,
+      "anchor": [
+        178,
+        167,
+        172,
+        188,
+        181,
+        185,
+        184,
+        188
+      ],
+      "description": "低位切入，转身上挑，火焰沿剑弧展开，收剑后余烬熄灭。",
+      "quote": "看清了！",
+      "beats": [
+        "低位藏剑",
+        "穿步切入",
+        "回身上挑",
+        "长衣收势"
+      ],
+      "character_id": 2,
+      "action_to_effect": {
+        "weapon": "剑",
+        "form": "引光剑使",
+        "attack_contract": "One current weapon critical result. Visual motion is not an extra attack or a new unlocked ability.",
+        "damage_display_at": 4.49,
+        "impact_at": 4.34
+      },
+      "storyboard": [
+        {
+          "time": [
+            0,
+            0.63
+          ],
+          "shot": "Central popup"
+        },
+        {
+          "time": [
+            0.63,
+            1.86
+          ],
+          "shot": "Approved new portrait cut-in"
+        },
+        {
+          "time": [
+            1.86,
+            2.8
+          ],
+          "shot": "低位藏剑"
+        },
+        {
+          "time": [
+            2.8,
+            4.1899999999999995
+          ],
+          "shot": "穿步切入"
+        },
+        {
+          "time": [
+            0,
+            7.6
+          ],
+          "shot": "Current static target persists; contact effects overlay it and the single existing damage result is displayed"
+        },
+        {
+          "time": [
+            5.95,
+            7.6
+          ],
+          "shot": "长衣收势 and return"
+        }
+      ]
+    },
+    {
+      "key": "eileen-fire",
+      "actorKey": "eileen-cast",
+      "hero": "eileen",
+      "name": "艾琳",
+      "className": "女魔剑士",
+      "weapon": "魔法",
+      "spell": "fire",
+      "spellId": 23,
+      "title": "火球 · 必杀",
+      "advanced": false,
+      "duration": 7.2,
+      "hit": 4.32,
+      "color": "#edac91",
+      "portrait": 2,
+      "description": "头顶红色旋涡火团蓄大，飞向目标后爆燃。",
+      "quote": "去吧！",
+      "beats": [
+        "凝神蓄法",
+        "依原法术释放",
+        "一次命中结算",
+        "原地收势"
+      ],
+      "character_id": 2,
+      "action_to_effect": {
+        "weapon": "魔法",
+        "form": "女魔剑士",
+        "attack_contract": "One current weapon critical result. Visual motion is not an extra attack or a new unlocked ability.",
+        "damage_display_at": 4.470000000000001,
+        "impact_at": 4.32
+      },
+      "storyboard": [
+        {
+          "time": [
+            0,
+            0.63
+          ],
+          "shot": "Central popup"
+        },
+        {
+          "time": [
+            0.63,
+            1.86
+          ],
+          "shot": "Approved new portrait cut-in"
+        },
+        {
+          "time": [
+            1.86,
+            2.8
+          ],
+          "shot": "凝神蓄法"
+        },
+        {
+          "time": [
+            2.8,
+            4.17
+          ],
+          "shot": "依原法术释放"
+        },
+        {
+          "time": [
+            0,
+            7.2
+          ],
+          "shot": "Current static target persists; contact effects overlay it and the single existing damage result is displayed"
+        },
+        {
+          "time": [
+            5.95,
+            7.2
+          ],
+          "shot": "原地收势 and return"
+        }
+      ]
+    },
+    {
+      "key": "eileen-holy",
+      "actorKey": "eileen-cast",
+      "hero": "eileen",
+      "name": "艾琳",
+      "className": "女魔剑士",
+      "weapon": "魔法",
+      "spell": "holy",
+      "spellId": 26,
+      "title": "圣光 · 必杀",
+      "advanced": false,
+      "duration": 7.2,
+      "hit": 4.32,
+      "color": "#dce4a3",
+      "portrait": 2,
+      "description": "五只萤火虫振翅飞行，汇成散光与光环。",
+      "quote": "去吧！",
+      "beats": [
+        "凝神蓄法",
+        "依原法术释放",
+        "一次命中结算",
+        "原地收势"
+      ],
+      "character_id": 2,
+      "action_to_effect": {
+        "weapon": "魔法",
+        "form": "女魔剑士",
+        "attack_contract": "One current weapon critical result. Visual motion is not an extra attack or a new unlocked ability.",
+        "damage_display_at": 4.470000000000001,
+        "impact_at": 4.32
+      },
+      "storyboard": [
+        {
+          "time": [
+            0,
+            0.63
+          ],
+          "shot": "Central popup"
+        },
+        {
+          "time": [
+            0.63,
+            1.86
+          ],
+          "shot": "Approved new portrait cut-in"
+        },
+        {
+          "time": [
+            1.86,
+            2.8
+          ],
+          "shot": "凝神蓄法"
+        },
+        {
+          "time": [
+            2.8,
+            4.17
+          ],
+          "shot": "依原法术释放"
+        },
+        {
+          "time": [
+            0,
+            7.2
+          ],
+          "shot": "Current static target persists; contact effects overlay it and the single existing damage result is displayed"
+        },
+        {
+          "time": [
+            5.95,
+            7.2
+          ],
+          "shot": "原地收势 and return"
+        }
+      ]
+    },
+    {
+      "key": "eileen-thunder",
+      "actorKey": "eileen-cast",
+      "hero": "eileen",
+      "name": "艾琳",
+      "className": "女魔剑士",
+      "weapon": "魔法",
+      "spell": "thunder",
+      "spellId": 24,
+      "title": "雷电 · 必杀",
+      "advanced": false,
+      "duration": 7.2,
+      "hit": 4.32,
+      "color": "#cbd5f0",
+      "portrait": 2,
+      "description": "单股落雷先击地，随后压力环扩散，再分叉消散。",
+      "quote": "去吧！",
+      "beats": [
+        "凝神蓄法",
+        "依原法术释放",
+        "一次命中结算",
+        "原地收势"
+      ],
+      "character_id": 2,
+      "action_to_effect": {
+        "weapon": "魔法",
+        "form": "女魔剑士",
+        "attack_contract": "One current weapon critical result. Visual motion is not an extra attack or a new unlocked ability.",
+        "damage_display_at": 4.470000000000001,
+        "impact_at": 4.32
+      },
+      "storyboard": [
+        {
+          "time": [
+            0,
+            0.63
+          ],
+          "shot": "Central popup"
+        },
+        {
+          "time": [
+            0.63,
+            1.86
+          ],
+          "shot": "Approved new portrait cut-in"
+        },
+        {
+          "time": [
+            1.86,
+            2.8
+          ],
+          "shot": "凝神蓄法"
+        },
+        {
+          "time": [
+            2.8,
+            4.17
+          ],
+          "shot": "依原法术释放"
+        },
+        {
+          "time": [
+            0,
+            7.2
+          ],
+          "shot": "Current static target persists; contact effects overlay it and the single existing damage result is displayed"
+        },
+        {
+          "time": [
+            5.95,
+            7.2
+          ],
+          "shot": "原地收势 and return"
+        }
+      ]
+    },
+    {
+      "key": "eileen-wind",
+      "actorKey": "eileen-cast",
+      "hero": "eileen",
+      "name": "艾琳",
+      "className": "女魔剑士",
+      "weapon": "魔法",
+      "spell": "wind",
+      "spellId": 27,
+      "title": "风刃 · 必杀",
+      "advanced": false,
+      "duration": 7.2,
+      "hit": 4.32,
+      "color": "#c7e0f1",
+      "portrait": 2,
+      "description": "浅蓝月牙风刃放大后旋转，再单刃发射。",
+      "quote": "去吧！",
+      "beats": [
+        "凝神蓄法",
+        "依原法术释放",
+        "一次命中结算",
+        "原地收势"
+      ],
+      "character_id": 2,
+      "action_to_effect": {
+        "weapon": "魔法",
+        "form": "女魔剑士",
+        "attack_contract": "One current weapon critical result. Visual motion is not an extra attack or a new unlocked ability.",
+        "damage_display_at": 4.470000000000001,
+        "impact_at": 4.32
+      },
+      "storyboard": [
+        {
+          "time": [
+            0,
+            0.63
+          ],
+          "shot": "Central popup"
+        },
+        {
+          "time": [
+            0.63,
+            1.86
+          ],
+          "shot": "Approved new portrait cut-in"
+        },
+        {
+          "time": [
+            1.86,
+            2.8
+          ],
+          "shot": "凝神蓄法"
+        },
+        {
+          "time": [
+            2.8,
+            4.17
+          ],
+          "shot": "依原法术释放"
+        },
+        {
+          "time": [
+            0,
+            7.2
+          ],
+          "shot": "Current static target persists; contact effects overlay it and the single existing damage result is displayed"
+        },
+        {
+          "time": [
+            5.95,
+            7.2
+          ],
+          "shot": "原地收势 and return"
+        }
+      ]
+    },
+    {
+      "key": "eileen-fire-advanced",
+      "actorKey": "eileen-cast",
+      "hero": "eileen",
+      "name": "艾琳",
+      "className": "引光剑使",
+      "weapon": "魔法",
+      "spell": "fire",
+      "spellId": 23,
+      "title": "火球 · 必杀",
+      "advanced": true,
+      "duration": 7.2,
+      "hit": 4.5,
+      "color": "#edac91",
+      "portrait": 3,
+      "description": "头顶红色旋涡火团蓄大，飞向目标后爆燃。",
+      "quote": "结束了！",
+      "beats": [
+        "凝神蓄法",
+        "依原法术释放",
+        "一次命中结算",
+        "原地收势"
+      ],
+      "character_id": 2,
+      "action_to_effect": {
+        "weapon": "魔法",
+        "form": "引光剑使",
+        "attack_contract": "One current weapon critical result. Visual motion is not an extra attack or a new unlocked ability.",
+        "damage_display_at": 4.65,
+        "impact_at": 4.5
+      },
+      "storyboard": [
+        {
+          "time": [
+            0,
+            0.63
+          ],
+          "shot": "Central popup"
+        },
+        {
+          "time": [
+            0.63,
+            1.86
+          ],
+          "shot": "Approved new portrait cut-in"
+        },
+        {
+          "time": [
+            1.86,
+            2.8
+          ],
+          "shot": "凝神蓄法"
+        },
+        {
+          "time": [
+            2.8,
+            4.35
+          ],
+          "shot": "依原法术释放"
+        },
+        {
+          "time": [
+            0,
+            7.2
+          ],
+          "shot": "Current static target persists; contact effects overlay it and the single existing damage result is displayed"
+        },
+        {
+          "time": [
+            5.95,
+            7.2
+          ],
+          "shot": "原地收势 and return"
+        }
+      ]
+    },
+    {
+      "key": "eileen-holy-advanced",
+      "actorKey": "eileen-cast",
+      "hero": "eileen",
+      "name": "艾琳",
+      "className": "引光剑使",
+      "weapon": "魔法",
+      "spell": "holy",
+      "spellId": 26,
+      "title": "圣光 · 必杀",
+      "advanced": true,
+      "duration": 7.2,
+      "hit": 4.5,
+      "color": "#dce4a3",
+      "portrait": 3,
+      "description": "五只萤火虫振翅飞行，汇成散光与光环。",
+      "quote": "结束了！",
+      "beats": [
+        "凝神蓄法",
+        "依原法术释放",
+        "一次命中结算",
+        "原地收势"
+      ],
+      "character_id": 2,
+      "action_to_effect": {
+        "weapon": "魔法",
+        "form": "引光剑使",
+        "attack_contract": "One current weapon critical result. Visual motion is not an extra attack or a new unlocked ability.",
+        "damage_display_at": 4.65,
+        "impact_at": 4.5
+      },
+      "storyboard": [
+        {
+          "time": [
+            0,
+            0.63
+          ],
+          "shot": "Central popup"
+        },
+        {
+          "time": [
+            0.63,
+            1.86
+          ],
+          "shot": "Approved new portrait cut-in"
+        },
+        {
+          "time": [
+            1.86,
+            2.8
+          ],
+          "shot": "凝神蓄法"
+        },
+        {
+          "time": [
+            2.8,
+            4.35
+          ],
+          "shot": "依原法术释放"
+        },
+        {
+          "time": [
+            0,
+            7.2
+          ],
+          "shot": "Current static target persists; contact effects overlay it and the single existing damage result is displayed"
+        },
+        {
+          "time": [
+            5.95,
+            7.2
+          ],
+          "shot": "原地收势 and return"
+        }
+      ]
+    },
+    {
+      "key": "eileen-thunder-advanced",
+      "actorKey": "eileen-cast",
+      "hero": "eileen",
+      "name": "艾琳",
+      "className": "引光剑使",
+      "weapon": "魔法",
+      "spell": "thunder",
+      "spellId": 24,
+      "title": "雷电 · 必杀",
+      "advanced": true,
+      "duration": 7.2,
+      "hit": 4.5,
+      "color": "#cbd5f0",
+      "portrait": 3,
+      "description": "单股落雷先击地，随后压力环扩散，再分叉消散。",
+      "quote": "结束了！",
+      "beats": [
+        "凝神蓄法",
+        "依原法术释放",
+        "一次命中结算",
+        "原地收势"
+      ],
+      "character_id": 2,
+      "action_to_effect": {
+        "weapon": "魔法",
+        "form": "引光剑使",
+        "attack_contract": "One current weapon critical result. Visual motion is not an extra attack or a new unlocked ability.",
+        "damage_display_at": 4.65,
+        "impact_at": 4.5
+      },
+      "storyboard": [
+        {
+          "time": [
+            0,
+            0.63
+          ],
+          "shot": "Central popup"
+        },
+        {
+          "time": [
+            0.63,
+            1.86
+          ],
+          "shot": "Approved new portrait cut-in"
+        },
+        {
+          "time": [
+            1.86,
+            2.8
+          ],
+          "shot": "凝神蓄法"
+        },
+        {
+          "time": [
+            2.8,
+            4.35
+          ],
+          "shot": "依原法术释放"
+        },
+        {
+          "time": [
+            0,
+            7.2
+          ],
+          "shot": "Current static target persists; contact effects overlay it and the single existing damage result is displayed"
+        },
+        {
+          "time": [
+            5.95,
+            7.2
+          ],
+          "shot": "原地收势 and return"
+        }
+      ]
+    },
+    {
+      "key": "eileen-wind-advanced",
+      "actorKey": "eileen-cast",
+      "hero": "eileen",
+      "name": "艾琳",
+      "className": "引光剑使",
+      "weapon": "魔法",
+      "spell": "wind",
+      "spellId": 27,
+      "title": "风刃 · 必杀",
+      "advanced": true,
+      "duration": 7.2,
+      "hit": 4.5,
+      "color": "#c7e0f1",
+      "portrait": 3,
+      "description": "浅蓝月牙风刃放大后旋转，再单刃发射。",
+      "quote": "结束了！",
+      "beats": [
+        "凝神蓄法",
+        "依原法术释放",
+        "一次命中结算",
+        "原地收势"
+      ],
+      "character_id": 2,
+      "action_to_effect": {
+        "weapon": "魔法",
+        "form": "引光剑使",
+        "attack_contract": "One current weapon critical result. Visual motion is not an extra attack or a new unlocked ability.",
+        "damage_display_at": 4.65,
+        "impact_at": 4.5
+      },
+      "storyboard": [
+        {
+          "time": [
+            0,
+            0.63
+          ],
+          "shot": "Central popup"
+        },
+        {
+          "time": [
+            0.63,
+            1.86
+          ],
+          "shot": "Approved new portrait cut-in"
+        },
+        {
+          "time": [
+            1.86,
+            2.8
+          ],
+          "shot": "凝神蓄法"
+        },
+        {
+          "time": [
+            2.8,
+            4.35
+          ],
+          "shot": "依原法术释放"
+        },
+        {
+          "time": [
+            0,
+            7.2
+          ],
+          "shot": "Current static target persists; contact effects overlay it and the single existing damage result is displayed"
+        },
+        {
+          "time": [
+            5.95,
+            7.2
+          ],
+          "shot": "原地收势 and return"
+        }
+      ]
+    }
+  ]
+}

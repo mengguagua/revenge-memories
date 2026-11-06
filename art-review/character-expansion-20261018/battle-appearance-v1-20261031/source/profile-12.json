@@ -1,0 +1,67 @@
+{
+  "id": "professions-class-12-ally-battle",
+  "actor": "ally-archer",
+  "actorName": "盟军弓箭手",
+  "classId": "12",
+  "className": "弓箭手",
+  "context": "battle",
+  "contextName": "战斗场景",
+  "side": "ally",
+  "mapping": "professions/class-12-ally/battle/frame_mapping.json",
+  "mappingStatus": "runtime_integrated_for_device_review",
+  "revision": "archer-battle-scale-v4-20261019",
+  "modifiedBy": "Codex",
+  "reviewNote": "双方弓箭手人物与持弓整体等比缩至90%，以枪兵约32原生像素的人物高度对齐；固定脚底锚点，简洁配色、姿势、动作与命中时序保留。飞箭素材、轨迹及地图形象保持。已接入0.8.11测试包，等待实机验收。",
+  "sourceAtlas": "source-input/original-motion/class-12.png",
+  "sourceFrameSize": [
+    80,
+    64
+  ],
+  "sourceAtlasSize": [
+    1280,
+    64
+  ],
+  "sourceColumns": 16,
+  "sourceFrameCount": 6,
+  "anchor": [
+    40,
+    64
+  ],
+  "sourceOamCutoff": 1,
+  "flipOriginOffset": [
+    16,
+    0
+  ],
+  "outputFrameSize": [
+    320,
+    256
+  ],
+  "newFrames": {
+    "1": "archer-battle-scale-v4-20261019/deliverables/ally/frame-001.png",
+    "4": "archer-battle-scale-v4-20261019/deliverables/ally/frame-004.png",
+    "5": "archer-battle-scale-v4-20261019/deliverables/ally/frame-005.png"
+  },
+  "frameErrors": {},
+  "referenceArtAliases": {},
+  "links": [],
+  "revisedEffects": {
+    "5f107fe1afd7d2": {
+      "path": "archer-battle-light-armor-v3-20261019/deliverables/ally/flying-arrow.png",
+      "frame_size": [
+        48,
+        16
+      ],
+      "frames": 1,
+      "anchor": [
+        24,
+        8
+      ],
+      "source_oam": "bank001:L0195C5",
+      "default_facing": "left",
+      "flip_origin_offset": [
+        16,
+        0
+      ]
+    }
+  }
+}

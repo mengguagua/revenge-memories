@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_33",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_33.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_33.ogg"
+  ],
+  "hashes": [
+    "bcd0e4e2fe54a0ca21d599b04c3bec393606a6fbf9bbfa863a76a576b5d5d115",
+    "185078829fc0bf9f1d87ba0ab63acf793010a5329d62bbe4f1f2b6c091e776d6"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "7c9abfb30b3fc3692cc55008",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    128000,
+    128000
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "Audio 1: A repeated, rhythmic tapping with a slightly fast decay. Audio 2: A repeated, rhythmic tapping with a much faster decay and a lower pitch.",
+  "generation_tokens": 36,
+  "generation_tps": 14.717966443082549,
+  "wall_seconds": 2.77,
+  "peak_memory_bytes": 7517914846,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

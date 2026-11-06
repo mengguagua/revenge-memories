@@ -1,0 +1,67 @@
+{
+  "id": "rm_sfx_40",
+  "kind": "sfx_existing_timbre_remaster_check",
+  "candidate_input": 3,
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_40.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_40.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/source/sfx-20261024/audio-guided/candidates/rm_sfx_40.ogg"
+    }
+  ],
+  "prompt": "Audio 1 is the reference. Audio 2 and 3 are anonymous game sound-effect replacements. Compare actual pitch sweep and timbre, body audibility, transient harshness and clean ending. Which preserves a natural electronic sweep without excessive buzz or low thud? If indistinguishable say so. Under 100 words.",
+  "max_tokens": 200,
+  "key": "0fbfe34226640d59742cb26f",
+  "source_sha256": [
+    "cff0a66c07f8f881dd71afb35f08c612511e701f0640d603484cfa23aec18f94",
+    "a21796c83fd62933a205c5913692931a2d2cc566a21643c4895a49fac1418fa5",
+    "b8ab18cf5179ba45102ac1273b9da3dc2792d65897a19c793664b120f040e8b8"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/cff0a66c07f8f881dd71afb35f08c612511e701f0640d603484cfa23aec18f94.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/a21796c83fd62933a205c5913692931a2d2cc566a21643c4895a49fac1418fa5.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/b8ab18cf5179ba45102ac1273b9da3dc2792d65897a19c793664b120f040e8b8.ogg"
+  ],
+  "audio_input_samples": [
+    23692,
+    23467,
+    23467
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "c960fdee92f281b6395354db244aac808b81dafe602941b965471bae170883a9",
+    "2c4618c47d07a3833badeef5eb0021fa5066f63ba9815572a1f47608bec282f8",
+    "47926da2008fc3272584cb5e60951bbb7d52038c11af669e3e6f1ad851e6a4f1"
+  ],
+  "response": "Audio 2 and 3 are identical. Both preserve the natural electronic sweep of the reference. The pitch rises smoothly with a clear, metallic timbre. Body is present but not excessive. Transients are sharp but not harsh. Ends cleanly without buzz or low thud. Both are indistinguishable from each other and from the reference in these aspects.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 72,
+    "prompt_tokens": 191,
+    "total_tokens": 263,
+    "prompt_tokens_details": {
+      "cached_tokens": 92
+    }
+  },
+  "timings": {
+    "cache_n": 92,
+    "prompt_n": 99,
+    "prompt_ms": 686.405,
+    "prompt_per_token_ms": 6.933383838383838,
+    "prompt_per_second": 144.22971860636213,
+    "predicted_n": 72,
+    "predicted_ms": 1543.746,
+    "predicted_per_token_ms": 21.742901408450706,
+    "predicted_per_second": 45.99202200361976
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 2.297,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

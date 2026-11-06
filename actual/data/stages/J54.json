@@ -6253,9 +6253,9 @@
       "character_id": 169,
       "name_ja": "ようじゅつし",
       "name_zh": "乌库布·卡基",
-      "class": "arcanist",
-      "class_id": 15,
-      "class_name_zh": "妖术师",
+      "class": "divine_body",
+      "class_id": 21,
+      "class_name_zh": "神躯",
       "level": 10,
       "hp": 112,
       "max_hp": 112,
@@ -6266,12 +6266,12 @@
       "luck": 0,
       "defence": 9,
       "resistance": 6,
-      "move": 0,
+      "move": 4,
       "item_id": 0,
-      "exp_value": 60,
+      "exp_value": 190,
       "raw_ai_flags": 0,
-      "raw_magic_flags": 1,
-      "magic_flags": 1,
+      "raw_magic_flags": 0,
+      "magic_flags": 0,
       "raw_template": [
         191,
         15,
@@ -6338,7 +6338,7 @@
       "resistance": 5,
       "move": 7,
       "item_id": 0,
-      "exp_value": 38,
+      "exp_value": 80,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -6405,7 +6405,7 @@
       "resistance": 5,
       "move": 7,
       "item_id": 0,
-      "exp_value": 38,
+      "exp_value": 80,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -6472,7 +6472,7 @@
       "resistance": 5,
       "move": 7,
       "item_id": 0,
-      "exp_value": 38,
+      "exp_value": 80,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -6539,7 +6539,7 @@
       "resistance": 5,
       "move": 7,
       "item_id": 0,
-      "exp_value": 38,
+      "exp_value": 80,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -6606,7 +6606,7 @@
       "resistance": 5,
       "move": 4,
       "item_id": 0,
-      "exp_value": 38,
+      "exp_value": 80,
       "raw_ai_flags": 0,
       "raw_magic_flags": 1,
       "magic_flags": 1,
@@ -6673,7 +6673,7 @@
       "resistance": 5,
       "move": 4,
       "item_id": 0,
-      "exp_value": 38,
+      "exp_value": 80,
       "raw_ai_flags": 0,
       "raw_magic_flags": 1,
       "magic_flags": 1,
@@ -6740,7 +6740,7 @@
       "resistance": 5,
       "move": 4,
       "item_id": 0,
-      "exp_value": 38,
+      "exp_value": 80,
       "raw_ai_flags": 0,
       "raw_magic_flags": 1,
       "magic_flags": 1,
@@ -6807,7 +6807,7 @@
       "resistance": 5,
       "move": 4,
       "item_id": 0,
-      "exp_value": 38,
+      "exp_value": 96,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -6874,7 +6874,7 @@
       "resistance": 5,
       "move": 4,
       "item_id": 0,
-      "exp_value": 38,
+      "exp_value": 96,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -7806,9 +7806,9 @@
     "人工池岸明确；首领与固定16,10召唤点、两军二十部署、两处恢复格以及全部单位坐标保持；半血一次强化/召唤和结局规则不变。"
   ],
   "tactical_notes": [
-    "神座采用露天台地而非室内草坪：北侧神座、上庭园林和中轴平台共同位于上层，下庭为联军进入与退守区。",
-    "在三座阶口之间补连续石砌挡墙；中央踏步与两翼踏步是真正跨层通路，不能再从旁边草地绕过高差。",
-    "人工池岸明确；首领与固定16,10召唤点、两军二十部署、两处恢复格以及全部单位坐标保持；半血一次强化/召唤和结局规则不变。"
+    "胡纳普和艾琳都须存活。神躯可移动4格，固有攻击1～2格；进入其射程或攻击它后会追击，远射后也要预留退路。",
+    "首领生命降至一半时会强化并召来一波援军，不会回满生命；普通武器和法术始终有效。",
+    "可利用下庭和恢复格整队，分工清理护翼；首领不会一直停在北庭等候远程攻击。"
   ],
   "player_positions_by_route": {
     "alm": [
@@ -7904,7 +7904,7 @@
     "name_zh": "日宫援军",
     "class": "gargoyle",
     "class_id": 3,
-    "class_name_zh": "石像鬼",
+    "class_name_zh": "石翼兽",
     "level": 7,
     "hp": 27,
     "max_hp": 27,
@@ -7917,7 +7917,7 @@
     "resistance": 5,
     "move": 7,
     "item_id": 0,
-    "exp_value": 38,
+    "exp_value": 80,
     "raw_ai_flags": 0,
     "raw_magic_flags": 0,
     "magic_flags": 0,
@@ -8315,6 +8315,23 @@
     "exit": [
       16,
       29
+    ]
+  },
+  "battlefield_tactics": {
+    "intro": "战场提示：乌库布·卡基会聚集残余神光，震荡提前标记的区域。／战场提示：准备期间累计造成18点实际伤害，可打断本次聚光。／战场提示：推动实体也能打断；撤离标记格可避开。普通武器和法术始终有效。",
+    "attacks": [
+      {
+        "actor": "J54_boss",
+        "name": "聚光震荡",
+        "shape": "cross",
+        "kind": "magic",
+        "range": 9,
+        "power_bonus": 3,
+        "first_turn": 2,
+        "interval": 3,
+        "break_damage": 18,
+        "warning": "别再走了。留在我看得到的地方。"
+      }
     ]
   }
 }

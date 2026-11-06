@@ -1,0 +1,381 @@
+{
+  "seed": "M14-20261030-<unit id>",
+  "fields": [
+    "max_hp",
+    "strength",
+    "skill",
+    "speed",
+    "defence",
+    "resistance"
+  ],
+  "stat_points_per_unit": 5,
+  "bonus": [
+    {
+      "id": "M14_e1",
+      "class_id": 1,
+      "bonus": {
+        "max_hp": 0,
+        "strength": 1,
+        "skill": 0,
+        "speed": 1,
+        "defence": 2,
+        "resistance": 1
+      },
+      "total": 5
+    },
+    {
+      "id": "M14_e2",
+      "class_id": 1,
+      "bonus": {
+        "max_hp": 0,
+        "strength": 0,
+        "skill": 2,
+        "speed": 0,
+        "defence": 2,
+        "resistance": 1
+      },
+      "total": 5
+    },
+    {
+      "id": "M14_e3",
+      "class_id": 1,
+      "bonus": {
+        "max_hp": 1,
+        "strength": 2,
+        "skill": 1,
+        "speed": 1,
+        "defence": 0,
+        "resistance": 0
+      },
+      "total": 5
+    },
+    {
+      "id": "M14_e4",
+      "class_id": 6,
+      "bonus": {
+        "max_hp": 1,
+        "strength": 1,
+        "skill": 0,
+        "speed": 0,
+        "defence": 1,
+        "resistance": 2
+      },
+      "total": 5
+    },
+    {
+      "id": "M14_e5",
+      "class_id": 6,
+      "bonus": {
+        "max_hp": 2,
+        "strength": 1,
+        "skill": 0,
+        "speed": 1,
+        "defence": 0,
+        "resistance": 1
+      },
+      "total": 5
+    },
+    {
+      "id": "M14_e6",
+      "class_id": 15,
+      "bonus": {
+        "max_hp": 0,
+        "strength": 1,
+        "skill": 2,
+        "speed": 0,
+        "defence": 2,
+        "resistance": 0
+      },
+      "total": 5
+    },
+    {
+      "id": "M14_e7",
+      "class_id": 6,
+      "bonus": {
+        "max_hp": 1,
+        "strength": 1,
+        "skill": 0,
+        "speed": 2,
+        "defence": 0,
+        "resistance": 1
+      },
+      "total": 5
+    },
+    {
+      "id": "M14_e8",
+      "class_id": 6,
+      "bonus": {
+        "max_hp": 1,
+        "strength": 1,
+        "skill": 1,
+        "speed": 0,
+        "defence": 0,
+        "resistance": 2
+      },
+      "total": 5
+    },
+    {
+      "id": "M14_e9",
+      "class_id": 12,
+      "bonus": {
+        "max_hp": 0,
+        "strength": 2,
+        "skill": 1,
+        "speed": 0,
+        "defence": 1,
+        "resistance": 1
+      },
+      "total": 5
+    },
+    {
+      "id": "M14_e10",
+      "class_id": 12,
+      "bonus": {
+        "max_hp": 0,
+        "strength": 0,
+        "skill": 1,
+        "speed": 1,
+        "defence": 2,
+        "resistance": 1
+      },
+      "total": 5
+    },
+    {
+      "id": "M14_e11",
+      "class_id": 15,
+      "bonus": {
+        "max_hp": 2,
+        "strength": 0,
+        "skill": 1,
+        "speed": 0,
+        "defence": 2,
+        "resistance": 0
+      },
+      "total": 5
+    }
+  ],
+  "patches": {
+    "M14_boss": {
+      "before": {
+        "name_id": 177,
+        "character_id": 177,
+        "name_ja": "ナイト",
+        "class": "cavalier",
+        "class_id": 1,
+        "class_name_zh": "骑兵",
+        "level": 3,
+        "max_hp": 27,
+        "strength": 9,
+        "speed": 5,
+        "defence": 4,
+        "move": 7
+      },
+      "after": {
+        "name_id": 180,
+        "character_id": 180,
+        "name_ja": "パラディン",
+        "class": "paladin",
+        "class_id": 4,
+        "class_name_zh": "骑士",
+        "level": 1,
+        "max_hp": 28,
+        "strength": 12,
+        "speed": 8,
+        "defence": 8,
+        "move": 8
+      }
+    },
+    "M14_e1": {
+      "before": {
+        "level": 1,
+        "strength": 9,
+        "speed": 5,
+        "defence": 3,
+        "resistance": 2
+      },
+      "after": {
+        "level": 4,
+        "strength": 10,
+        "speed": 6,
+        "defence": 5,
+        "resistance": 3
+      }
+    },
+    "M14_e2": {
+      "before": {
+        "level": 1,
+        "skill": 3,
+        "defence": 3,
+        "resistance": 2
+      },
+      "after": {
+        "level": 4,
+        "skill": 5,
+        "defence": 5,
+        "resistance": 3
+      }
+    },
+    "M14_e3": {
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "strength": 9,
+        "skill": 3,
+        "speed": 5
+      },
+      "after": {
+        "level": 4,
+        "max_hp": 23,
+        "strength": 11,
+        "skill": 4,
+        "speed": 6
+      }
+    },
+    "M14_e4": {
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "strength": 9,
+        "defence": 3,
+        "resistance": 0
+      },
+      "after": {
+        "level": 4,
+        "max_hp": 23,
+        "strength": 10,
+        "defence": 4,
+        "resistance": 2
+      }
+    },
+    "M14_e5": {
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "strength": 9,
+        "speed": 3,
+        "resistance": 0
+      },
+      "after": {
+        "level": 4,
+        "max_hp": 24,
+        "strength": 10,
+        "speed": 4,
+        "resistance": 1
+      }
+    },
+    "M14_e6": {
+      "before": {
+        "name_id": 182,
+        "character_id": 182,
+        "name_ja": "ソルジャー",
+        "name_zh": "士兵",
+        "class": "soldier",
+        "class_id": 6,
+        "class_name_zh": "士兵",
+        "level": 1,
+        "strength": 9,
+        "skill": 3,
+        "defence": 3,
+        "resistance": 0,
+        "exp_value": 35,
+        "raw_magic_flags": 0,
+        "magic_flags": 0
+      },
+      "after": {
+        "name_id": 191,
+        "character_id": 191,
+        "name_ja": "ようじゅつし",
+        "name_zh": "魔道士",
+        "class": "arcanist",
+        "class_id": 15,
+        "class_name_zh": "执令术师",
+        "level": 4,
+        "strength": 8,
+        "skill": 5,
+        "defence": 5,
+        "resistance": 8,
+        "exp_value": 80,
+        "raw_magic_flags": 1,
+        "magic_flags": 1
+      }
+    },
+    "M14_e7": {
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "strength": 9,
+        "speed": 3,
+        "resistance": 0
+      },
+      "after": {
+        "level": 4,
+        "max_hp": 23,
+        "strength": 10,
+        "speed": 5,
+        "resistance": 1
+      }
+    },
+    "M14_e8": {
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "strength": 9,
+        "skill": 3,
+        "resistance": 0
+      },
+      "after": {
+        "level": 4,
+        "max_hp": 23,
+        "strength": 10,
+        "skill": 4,
+        "resistance": 2
+      }
+    },
+    "M14_e9": {
+      "before": {
+        "level": 1,
+        "strength": 9,
+        "skill": 3,
+        "defence": 3,
+        "resistance": 0
+      },
+      "after": {
+        "level": 4,
+        "strength": 11,
+        "skill": 4,
+        "defence": 4,
+        "resistance": 1
+      }
+    },
+    "M14_e10": {
+      "before": {
+        "level": 1,
+        "skill": 3,
+        "speed": 3,
+        "defence": 3,
+        "resistance": 0
+      },
+      "after": {
+        "level": 4,
+        "skill": 4,
+        "speed": 4,
+        "defence": 5,
+        "resistance": 1
+      }
+    },
+    "M14_e11": {
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "skill": 3,
+        "defence": 3
+      },
+      "after": {
+        "level": 4,
+        "max_hp": 24,
+        "skill": 4,
+        "defence": 5
+      }
+    }
+  }
+}

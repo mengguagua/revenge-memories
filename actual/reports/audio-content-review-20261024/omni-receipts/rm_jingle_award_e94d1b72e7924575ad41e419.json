@@ -1,0 +1,68 @@
+{
+  "id": "rm_jingle_award",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_jingle_award.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/music_82.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_jingle_award_scene.wav",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is the current game-gain offline mix, including the background pause and resume. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: 兵装/饰品交付、招募或进阶的通用确认；82/84/B6兼容; desired mood: 被托付、珍重",
+  "max_tokens": 340,
+  "key": "e94d1b72e7924575ad41e419",
+  "source_sha256": [
+    "793388381ff8a9fdf31539a00c6dc2004c5e7b6ad7ea745a2eda8cfd30b32581",
+    "bf176c36e6b21b85dc002b195a5fd1b4dbe4dea55bb78521382bf98af1ae34cd",
+    "2026e7b7a7e140dc414a165f2c7b65c5fd0c6d5c82925f52cda480a4a88adb80"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/793388381ff8a9fdf31539a00c6dc2004c5e7b6ad7ea745a2eda8cfd30b32581.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/bf176c36e6b21b85dc002b195a5fd1b4dbe4dea55bb78521382bf98af1ae34cd.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/2026e7b7a7e140dc414a165f2c7b65c5fd0c6d5c82925f52cda480a4a88adb80.wav"
+  ],
+  "audio_input_samples": [
+    41280,
+    28220,
+    73280
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "80b8cf79ae7b56c80a72c16d020abdb0a762bff416401a009776b5f50e97d079",
+    "5f389c9ba128b08d5f9360bbd6a4c1e009ee263d994e2f9ec37979efeebb130b",
+    "2bc5743b88a2235e6fa9d5c44cc8a0f26706ef6867a0e26288e3b8588d3d44b1"
+  ],
+  "response": "Audio 1: A gentle, high-pitched chime with a soft, bell-like timbre opens the cue. This is layered with a sustained, warm synth pad that creates a calm, reflective mood. The melody is simple and ascending, conveying a sense of gentle affirmation. There are no vocals or speech. The sound is clean, with no audible defects. The overall energy is low and soothing, suggesting a moment of quiet significance.\n\nAudio 2: A clear, bright, and sparse retro synth tone. It is monophonic and lacks harmonic depth, serving as a reference for minimalism.\n\nAudio 3: The music from Audio 1 plays with a noticeable background pause and resume. The chime and pad are present but slightly masked by the ambient silence between cues. The music does not obscure essential feedback; instead, it provides a gentle emotional layer. The pause allows the feedback to stand out clearly. The mood remains consistent with a sense of being entrusted or cherished.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 198,
+    "prompt_tokens": 340,
+    "total_tokens": 538,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 312,
+    "prompt_ms": 1273.57,
+    "prompt_per_token_ms": 4.081955128205128,
+    "prompt_per_second": 244.98064495865952,
+    "predicted_n": 198,
+    "predicted_ms": 3106.803,
+    "predicted_per_token_ms": 15.770573604060914,
+    "predicted_per_second": 63.40923450891479
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 6.227,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

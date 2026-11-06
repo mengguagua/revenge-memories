@@ -1,5 +1,8 @@
 extends RefCounted
 ## Persistent injuries; chapter three combines unused sources at the meeting camp.
+const MESSAGES := "res://data/casualty_messages_20261104.json"
+static var _messages:Dictionary={}
+
 const SOURCES := {"church":"alm", "lighthouse":"celica", "meeting":"shared", "final_delivery":"shared"}
 
 static func owner(state: Dictionary, id: String) -> String:
@@ -118,6 +121,12 @@ static func valid(state: Dictionary) -> bool:
 	ensure_sources(expected)
 	return expected.flags.treatment_sources == flags.treatment_sources
 
+static func message(unit:Dictionary) -> Dictionary:
+	if _messages.is_empty():_messages=JSON.parse_string(FileAccess.get_file_as_string(MESSAGES))
+	var text=str(_messages.get(str(unit.id),""))
+	if text.is_empty():return {}
+	return {"speaker":str(unit.name_zh),"text":text,"casualty_id":str(unit.id)}
+
 static func enter_dying(game, unit: Dictionary) -> void:
 	var route := owner({"parties":game.parties}, str(unit.get("id", "")))
 	if route.is_empty() or int(unit.get("hp", 1)) > 0: return
@@ -127,7 +136,10 @@ static func enter_dying(game, unit: Dictionary) -> void:
 	persistent.acted = false
 	game.roster[unit.id] = persistent
 	if first:
-		game.queue_pages([{"speaker":"战场提示", "text":str(unit.name_zh)+"濒死，已撤至照护处，暂时不能出阵。"}])
+		var pages=[];var personal=message(unit)
+		if not personal.is_empty():pages.append(personal)
+		pages.append({"speaker":"战场提示", "text":str(unit.name_zh)+"濒死，已撤至照护处，暂时不能出阵。"})
+		game.queue_pages(pages)
 
 static func treat(game, id: String) -> Dictionary:
 	if game.mode!="hub" or (not (game.chapter==5 and game.hub_record in ["H51","H55"]) and not (game.hub_record=="H10" and game.flags.get("D33_done",false)) and ((game.route=="alm" and game.hub_record!="H04") or (game.route=="celica" and game.hub_record!="H25"))):

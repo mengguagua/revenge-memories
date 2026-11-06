@@ -41,6 +41,7 @@ func run():
 	viewport=SubViewport.new();viewport.size=Vector2i(1278,720);viewport.size_2d_override=Vector2i(426,240);viewport.size_2d_override_stretch=true;viewport.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(viewport)
 	ui=load("res://scenes/main.tscn").instantiate();ui.game.slot_directory=CACHE+"visual-slots";viewport.add_child(ui);await process_frame
 	ui.set_process(false);ui.set_physics_process(false);ui.instant_mode=true;ui.elapsed=3;ui.busy=false;ui.game.new_game();ui.game.mode="world";ui.game.world_node=32;ui.game.save_path=CACHE+"visual-unused.json"
+	ui.game.cleared_stages.append(112);ui.game.flags.clinic_staffed=true # Complete clinic recruitment prerequisites in this fixture.
 	for id in ["fula","lena","lance","beck","hervi"]:ui.game.recruit(id)
 	ui.game.roster.hervi.class_id=19
 	ui.world_actor=Vector2(ui.world.nodes["32"].position[0],ui.world.nodes["32"].position[1])*16

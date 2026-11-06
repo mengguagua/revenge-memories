@@ -6,6 +6,13 @@ const FAST_KEY := -1
 const LEFT_RAIL := 116
 const RIGHT_RAIL := 70
 const DIRECTION_KEYS := [KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT]
+# Measured nontrivial alpha bounds of MATERIAL: (6,6)..(90,90).
+# Preserve the original 43px bitmap width; its visible face is 33px square.
+const DIRECTION_FACE_SIZE := 33
+const DIRECTION_MATERIAL_START := Vector2(6,6)
+const DIRECTION_MATERIAL_END := Vector2(4,6)
+const DIRECTION_TOUCH_PADDING := 1
+const DIRECTION_SHIFT_PX := -10 # Screen pixels, rounded to the nearest native art pixel.
 var game_view: SubViewport
 var game_ui
 var pixel_scale := 1
@@ -13,6 +20,7 @@ var game_rect := Rect2()
 var safe_area := Rect2()
 # Deterministic notch/home-indicator fixtures; actual devices use DisplayServer.
 var safe_area_override := Rect2()
+var journal_directory_override := "" # Isolated QA fixtures; empty in normal play.
 var buttons: Array = []
 var fingers: Dictionary = {}
 var contacts: Dictionary = {}
@@ -21,8 +29,20 @@ var layout_errors: Array = []
 var last_size := Vector2.ZERO
 var last_context := ""
 var map_contacts: Dictionary = {}
+var layout_probe_active := false
+var control_visual_state: Array = []
+signal layout_probe_completed(report: Dictionary)
+
+static func wants_layout_probe(arguments: PackedStringArray) -> bool:
+	return arguments.has("--phone-layout-probe")
 
 func _ready() -> void:
+	# Explicit diagnostic launch only: never instantiate the game, access journals,
+	# play audio or dispatch input. The report goes to stdout, not the app sandbox.
+	if wants_layout_probe(OS.get_cmdline_user_args()):
+		layout_probe_active=true;set_process(false);set_process_input(false)
+		call_deferred("_run_layout_probe")
+		return
 	game_view = SubViewport.new()
 	game_view.size = Vector2i(1704, 960)
 	game_view.size_2d_override = Vector2i(426, 240)
@@ -30,15 +50,56 @@ func _ready() -> void:
 	game_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	game_view.handle_input_locally = true
 	add_child(game_view)
-	game_ui = GAME_SCENE.instantiate();game_ui.set_meta("phone",true);game_view.add_child(game_ui)
+	game_ui = GAME_SCENE.instantiate();game_ui.set_meta("phone",true)
+	if not journal_directory_override.is_empty():
+		game_ui.game.slot_directory=journal_directory_override
+		game_ui.game.save_path=game_ui.game.Journals.path_for(journal_directory_override,1)
+	game_view.add_child(game_ui)
 	game_ui.set_process_input(false)
 	_layout()
+
+static func _probe_rect(rect: Rect2) -> Array:
+	return [rect.position.x,rect.position.y,rect.size.x,rect.size.y]
+
+func _run_layout_probe() -> void:
+	# One deferred read lets the native root viewport initialise without waiting
+	# for foreground activation or a rendered frame on a suspended iOS process.
+	game_view=SubViewport.new();game_view.render_target_update_mode=SubViewport.UPDATE_DISABLED;add_child(game_view)
+	_layout()
+	var raw_safe=Rect2(DisplayServer.get_display_safe_area())
+	var full=Rect2(Vector2.ZERO,get_viewport_rect().size)
+	var result={"kind":"phone-layout-probe","version":str(ProjectSettings.get_setting("application/config/version","")),
+		"ios":OS.has_feature("ios"),"screen_pixels":[DisplayServer.screen_get_size().x,DisplayServer.screen_get_size().y],
+		"viewport":_probe_rect(full),"display_safe_area_raw":_probe_rect(raw_safe),"safe_area_used":_probe_rect(safe_area),
+		"safe_area_received":raw_safe.has_area() and full.intersection(raw_safe).size.x>full.size.x*.6 and full.intersection(raw_safe).size.y>full.size.y*.6,
+		"game_rect":_probe_rect(game_rect),"logical_size":[game_view.size_2d_override.x,game_view.size_2d_override.y],
+		"integer_scale":pixel_scale,"orientation_setting":int(ProjectSettings.get_setting("display/window/handheld/orientation",-1)),
+		"game_instantiated":game_ui!=null,"player_records_read":false,"player_records_written":false,"contexts":{},"geometry_errors":[]}
+	for context in ["general","battle","combat","overview"]:
+		last_context=context;_build_buttons()
+		var entries=[]
+		for button in buttons:
+			var physical=Rect2(safe_area.position+button.hit_rect.position*pixel_scale,button.hit_rect.size*pixel_scale)
+			entries.append({"key":int(button.key),"label":str(button.text),"physical_hit_rect":_probe_rect(physical)})
+			if not safe_area.encloses(physical):result.geometry_errors.append(context+": control outside safe area "+str(button.key))
+			if game_rect.intersects(physical):result.geometry_errors.append(context+": control overlaps game "+str(button.key))
+		result.contexts[context]=entries
+	if not safe_area.encloses(game_rect):result.geometry_errors.append("game outside safe area")
+	print("PHONE_LAYOUT_PROBE ",JSON.stringify(result))
+	layout_probe_completed.emit(result)
+	get_tree().quit(0)
 
 func _process(_delta: float) -> void:
 	if get_viewport_rect().size != last_size or _available_area() != safe_area:
 		_release_all();_layout()
 	_sync_controls()
-	queue_redraw()
+	# The SubViewport texture updates without rebuilding this CanvasItem's
+	# commands. Only the rails depend on these small, discrete state changes.
+	var state: Array = [last_context, fingers.values(), int(game_ui.game.turn)]
+	for button in buttons:state.append(_button_enabled(int(button.key)))
+	if state != control_visual_state:
+		control_visual_state = state
+		queue_redraw()
 
 func _available_area() -> Rect2:
 	var full=Rect2(Vector2.ZERO,get_viewport_rect().size)
@@ -62,8 +123,10 @@ func _layout() -> void:
 	var spare = safe_area.size.x - (width+LEFT_RAIL+RIGHT_RAIL)*pixel_scale
 	game_rect = Rect2(Vector2(floorf(safe_area.position.x+LEFT_RAIL*pixel_scale+spare/2),floorf(safe_area.get_center().y-game_view.size.y/2.0)),game_view.size)
 	last_context=_control_context();_build_buttons()
+	queue_redraw()
 
 func _control_context() -> String:
+	if game_ui==null:return "general"
 	if game_ui.view=="combat":return "combat"
 	if game_ui.view=="overview":return "overview"
 	return "battle" if game_ui.view=="battle" else "general"
@@ -76,7 +139,12 @@ func _sync_controls() -> void:
 
 func _add_button(key:int,rect:Rect2,text_:String="",arrow:String="") -> void:
 	rect.position=rect.position.round()
-	buttons.append({"key":key,"rect":rect,"hit_rect":rect if key in DIRECTION_KEYS else rect.grow(2),"arrow":arrow,"text":text_})
+	var button={"key":key,"rect":rect,"hit_rect":rect.grow(2),"arrow":arrow,"text":text_}
+	if key in DIRECTION_KEYS:
+		var face=Rect2(rect.position+DIRECTION_MATERIAL_START,rect.size-DIRECTION_MATERIAL_START-DIRECTION_MATERIAL_END)
+		button.visible_rect=face
+		button.hit_rect=face.grow(DIRECTION_TOUCH_PADDING)
+	buttons.append(button)
 
 func _build_buttons() -> void:
 	buttons.clear()
@@ -88,27 +156,34 @@ func _build_buttons() -> void:
 	if last_context=="combat":
 		_add_button(FAST_KEY,Rect2(right-32,size.y/2.0-16,64,64),"按住\n加速")
 		return
-	var center=Vector2(left,size.y/2.0+12)
-	for row in [[KEY_UP,Vector2(0,-36),"up"],[KEY_DOWN,Vector2(0,36),"down"],[KEY_LEFT,Vector2(-36,0),"left"],[KEY_RIGHT,Vector2(36,0),"right"]]:
-		_add_button(row[0],Rect2(center+row[1]-Vector2(18,18),Vector2(36,36)),"",row[2])
-	var actions=[[KEY_Z,"确认"],[KEY_X,"返回"]]
+	var center=Vector2(left+roundf(float(DIRECTION_SHIFT_PX)/pixel_scale),size.y/2.0+12)
+	# Arrange visible faces, not the texture's transparent padding. Their
+	# slightly larger touch rectangles meet at corners without overlapping.
+	var face_size=minf(DIRECTION_FACE_SIZE,floorf((center.x-5)/1.5))
+	var spread=face_size+2*DIRECTION_TOUCH_PADDING
+	for row in [[KEY_UP,Vector2(0,-spread),"up"],[KEY_DOWN,Vector2(0,spread),"down"],[KEY_LEFT,Vector2(-spread,0),"left"],[KEY_RIGHT,Vector2(spread,0),"right"]]:
+		var face=Rect2((center+row[1]-Vector2.ONE*face_size/2.0).round(),Vector2.ONE*face_size)
+		_add_button(row[0],Rect2(face.position-DIRECTION_MATERIAL_START,face.size+DIRECTION_MATERIAL_START+DIRECTION_MATERIAL_END),"",row[2])
+	var actions=[[KEY_S,"菜单"]]
 	if last_context=="battle":actions.append([KEY_E,"切换我方"])
-	actions.append_array([[KEY_S,"菜单"],[KEY_TAB,"状态"]])
+	actions.append_array([[KEY_Z,"确认"],[KEY_X,"返回"],[KEY_TAB,"状态"]])
 	if last_context=="overview":actions=[[KEY_EQUAL,"放大"],[KEY_MINUS,"缩小"],[KEY_R,"复位"],[KEY_X,"返回"]]
 	var heights=[];var total=0.0
+	var gap=6 if last_context=="battle" else 8
 	for action in actions:
-		var height=60.0 if last_context=="battle" and action[0]==KEY_S else 34.0
+		var height=60.0 if last_context=="battle" and action[0]==KEY_S else 42.0 if action[0] in [KEY_Z,KEY_X] else 34.0
 		heights.append(height);total+=height
-	total+=(actions.size()-1)*8
+	total+=(actions.size()-1)*gap
 	var top=(size.y-total)/2.0
 	for i in range(actions.size()):
-		_add_button(actions[i][0],Rect2(right-32,top,64,heights[i]),actions[i][1]);top+=heights[i]+8
+		_add_button(actions[i][0],Rect2(right-32,top,64,heights[i]),actions[i][1]);top+=heights[i]+gap
 
 func _can_cycle() -> bool:
 	if game_ui.view!="battle" or game_ui.busy or game_ui.batch_running or game_ui.game.phase!="player" or not game_ui.menu_items.is_empty():return false
 	return game_ui.ui_mode=="inspect" or (game_ui.ui_mode=="status" and game_ui.game.party.has(game_ui.status_id))
 
 func _button_enabled(key:int) -> bool:
+	if game_ui.recruitment_paused():return false
 	if key==KEY_EQUAL:return game_ui.view=="overview" and game_ui.overview_zoom<3
 	if key==KEY_MINUS:return game_ui.view=="overview" and game_ui.overview_zoom>1
 	if key==KEY_E:return _can_cycle()
@@ -116,6 +191,13 @@ func _button_enabled(key:int) -> bool:
 	return true
 
 func _send(key: int, pressed: bool) -> void:
+	if pressed:
+		if not _button_enabled(key):return
+		game_ui.audio.begin_touch_feedback(key)
+	_forward_button(key,pressed)
+	if pressed:game_ui.audio.end_touch_feedback()
+
+func _forward_button(key: int, pressed: bool) -> void:
 	if key==FAST_KEY:
 		game_ui.set_touch_fast_forward(pressed)
 		return
@@ -189,6 +271,7 @@ func _release_all() -> void:
 func _notification(what: int) -> void:
 	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_APPLICATION_PAUSED]:
 		_release_all();contacts.clear();blocked_contacts.clear()
+		queue_redraw()
 
 func _input(event: InputEvent) -> void:
 	if game_ui == null: return
@@ -202,11 +285,11 @@ func _input(event: InputEvent) -> void:
 	elif event is InputEventKey:
 		game_ui._input(event);get_viewport().set_input_as_handled()
 
-func _panel(rect: Rect2, pressed: bool, enabled:bool=true) -> void:
+func _panel(rect: Rect2, pressed: bool, enabled:bool=true, visible_rect:Rect2=Rect2()) -> void:
 	if pressed:
 		var glow = StyleBoxFlat.new();glow.bg_color = Color.TRANSPARENT
 		glow.shadow_color = Color(0.8,0.65,0.35,0.35);glow.shadow_size = 4
-		draw_style_box(glow,rect.grow(-3))
+		draw_style_box(glow,(visible_rect if visible_rect.has_area() else rect).grow(-3))
 	var tint = Color(1.1,1.05,0.92) if pressed else Color(0.72,0.8,0.9) if enabled else Color(0.43,0.49,0.56)
 	var dx = [rect.position.x,rect.position.x+8,rect.end.x-8]
 	var dy = [rect.position.y,rect.position.y+8,rect.end.y-8]
@@ -233,6 +316,7 @@ func _label(value:String,rect:Rect2,enabled:bool) -> void:
 		y+=16
 
 func _draw() -> void:
+	if layout_probe_active:return
 	draw_rect(get_viewport_rect(),Color("0c151f"))
 	if game_view == null: return
 	draw_texture_rect(game_view.get_texture(),game_rect,false)
@@ -245,11 +329,16 @@ func _draw() -> void:
 		if game_rect.intersects(physical):layout_errors.append("touch covers game "+str(key))
 		for j in range(i):
 			if button.hit_rect.intersects(buttons[j].hit_rect):layout_errors.append("touch targets overlap "+str(key))
-		_panel(rect,key in fingers.values(),enabled)
+		_panel(rect,key in fingers.values(),enabled,button.get("visible_rect",Rect2()))
+		if button.has("visible_rect"):
+			var visible=Rect2(safe_area.position+button.visible_rect.position*pixel_scale,button.visible_rect.size*pixel_scale)
+			if not safe_area.encloses(visible):layout_errors.append("direction bitmap outside safe area "+str(key))
+			if game_rect.intersects(visible):layout_errors.append("direction bitmap covers game "+str(key))
 		if not str(button.arrow).is_empty():
 			var texture = game_ui._tex(game_ui.cursors.arrows[button.arrow].path)
-			var ink = Rect2((rect.get_center()-texture.get_size()/2).round(),texture.get_size())
-			if not rect.grow(-8).encloses(ink): layout_errors.append("arrow safe area "+str(button.arrow))
+			var face:Rect2=button.visible_rect
+			var ink = Rect2((face.get_center()-texture.get_size()/2).round(),texture.get_size())
+			if not face.grow(-6).encloses(ink): layout_errors.append("arrow safe area "+str(button.arrow))
 			draw_texture(texture,ink.position)
 		else:
 			var value="加速中\n松开恢复" if key==FAST_KEY and key in fingers.values() else str(button.text)

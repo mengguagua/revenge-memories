@@ -1,0 +1,681 @@
+{
+  "status": "passed",
+  "revision": "spellsword-complete-v1-20261023",
+  "new_profiles": 3,
+  "new_actions": 80,
+  "native_attack_variants": 67,
+  "existing_actions_unchanged": 1018,
+  "native_actor_frames_fps_origins_contacts_and_lengths_exact": true,
+  "shared_confirmed_spell_variants": 54,
+  "new_effect_images": 0,
+  "all_prior_effect_metadata_unchanged": true,
+  "map_head_neck_torso_fixed": true,
+  "map_idle_feet_fixed": true,
+  "left_walk_exact_mirror_of_right": true,
+  "body_sprite_files": 58,
+  "original_slash_arc_preserved": true,
+  "source_assets_unchanged": true,
+  "registrations_clipped_pixels": 0,
+  "assets": [
+    {
+      "path": "spellsword-complete-v1-20261023/ally/tactical-idle/frame-000.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1487,
+      "sha256": "9b824060fe0e54bfc3a68585049d8eb63ee8ac9afc500cc1a235a7399e31aa7a",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/tactical-idle/frame-001.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1480,
+      "sha256": "831c12e123c90cf794df17fb1d7292ee84a3bead246be67cd227390b4fe937a0",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/tactical-idle/frame-002.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1498,
+      "sha256": "91b7a6d1a1baaf5bb0ff6ed1ad457af0a9b283eec096fef17a5fae4255d2871f",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/tactical-idle/frame-003.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1480,
+      "sha256": "831c12e123c90cf794df17fb1d7292ee84a3bead246be67cd227390b4fe937a0",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/tactical-idle/frame-004.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1487,
+      "sha256": "9b824060fe0e54bfc3a68585049d8eb63ee8ac9afc500cc1a235a7399e31aa7a",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/tactical-idle/frame-005.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1480,
+      "sha256": "831c12e123c90cf794df17fb1d7292ee84a3bead246be67cd227390b4fe937a0",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/tactical-walk/frame-000.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1390,
+      "sha256": "7ec29ffdb80de3ecf6395198e6f8e573d9b138f4e39092f2165cab9a1197a003",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/tactical-walk/frame-001.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1392,
+      "sha256": "8c6aa95a4db3800ac1934b228e050a3dd6a12ab6da39a208f46152b3ee004f6f",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/tactical-walk/frame-002.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1486,
+      "sha256": "3fa097ba3be65d8566fe3ceb3e8a825e52241ef604ed4c1b2fcd92a71137d93d",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/tactical-walk/frame-003.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1488,
+      "sha256": "71c1e7165efc5615d07d65c450412fde73bce2c2da8ddee305883f79e396934b",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/tactical-walk/frame-004.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1481,
+      "sha256": "1ceb1bce4c96fdfb2c8ac1b0a58f79a1b519a9be6a14a5cc3270365636e13340",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/tactical-walk/frame-005.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1480,
+      "sha256": "a6a4d0507a21575ca2d274b5a36516afff4bf26effc778db8929946183a8d2f9",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/tactical-walk/frame-006.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1471,
+      "sha256": "17a0937196b1e2f59f3f428b24fdc5389f3f9747c8d2806cdaab8e846706e40c",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/tactical-walk/frame-007.png",
+      "size": [
+        128,
+        96
+      ],
+      "bytes": 1486,
+      "sha256": "4f10a3ca58ae89d54ee7bd630d631d626ac5cff1b04ebf6b14322c96b224caa0",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-000.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2544,
+      "sha256": "703a70bff18f74f2669dd825705074fc86d43aa3ec8bb552bd2b2c3cf438e905",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-001.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2618,
+      "sha256": "6a56ec269c54b85b2f4a4636145602d5a036f47e79efa4af7b5915fbf1f2d9bd",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-002.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2585,
+      "sha256": "02b27cdbc5f6941cd216604e52192751bb6b4467a89cb66002ccd209ba879d77",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-003.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2684,
+      "sha256": "55f3aa0a634d923190c60ffb9968f05bf878da17cc1db21cc73f33bba03418e7",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-004.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2670,
+      "sha256": "7400f744f781ba47a748f8d6a2f8610590ea2eecd6f7bd7b901d1f421630b969",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-005.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2717,
+      "sha256": "5701f4bce3fb5e95d628edc5b5341c9f061014c924a770c0f7a6c495ce18b6ce",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-006.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2652,
+      "sha256": "5a3254e9675fe6edfa420a491fb522db4dcf3885cae3b1753d9f3ed1334c8873",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-007.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2705,
+      "sha256": "0afd9ab7baaa0abc55089d578bb5e93d0c7e3d9239a16300fff24aae81746f67",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-008.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2537,
+      "sha256": "7d031cf4f04499328e0862e20e48864643f98f9b2c7d70fb412bb92b8c154961",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-009.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2388,
+      "sha256": "c6df362a62ff6a9c4ea82eecb576fd3883a6d7ac26d71e7944a105781ade0163",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-010.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2542,
+      "sha256": "a9cea0e6d9ec5e402f9832179b18ffb59ad6e268e70825050d9dcad515f4cef6",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-011.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2465,
+      "sha256": "43ec413c026eb3af94dc274223ae9b901afbe3e9c1dd30fcfd493c607987cd88",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-012.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2841,
+      "sha256": "3e4d91778d4460e542e5f90612dd164b7dc7dfc157b582ef225b2072eb943cf5",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-013.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 3002,
+      "sha256": "45b472c9e778c90f8590a4061201fe0d7a661ad99622934c648f1536c453510e",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-014.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 3188,
+      "sha256": "e6b059006d1487ef279560039be2194a220c87bf70628a8169acb5bbd52602c5",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-015.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 3265,
+      "sha256": "f438e774da1abf6b15b63afb60ff3b6d44463eba6d6842608bd23e745f72bc9b",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-016.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2630,
+      "sha256": "ebc1a283d88ae065ce1cd750ef68545adcedfedd72e7eed551facaea3982f56b",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-017.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2596,
+      "sha256": "524f28477d74c6ec835fc0ae9fb1d2f1c070f14d1e5da738adbf06bea6e8d283",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-018.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2184,
+      "sha256": "208362826308f0a80d78e61e794272abf3a0c9b387bb8f13cb03857bbf810d71",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-019.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2468,
+      "sha256": "f0f462480a8aad02ad92c79a8d0367f9536d444a31cd8a6eedefba7bed214b99",
+      "connected_components": 2
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-020.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2340,
+      "sha256": "e16bcfb2421402870f1acf69ddfaa46e4fb2533519e0b84bae65baf94ab2f0ee",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-021.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2295,
+      "sha256": "2fca337b8ebc40bbd4c466a1f61f443b0b15b653aa79080895300b26bd4a7fd9",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-022.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2421,
+      "sha256": "9851616566ef2c6397b6cae07735ca7adc45ac1a26df57882f89f07cd6e8bb61",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-023.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2515,
+      "sha256": "6f01a85211b068afdc33c1f42ffcb95cf009932828e849faf986d2febc0da9ac",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-024.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2594,
+      "sha256": "14084e7ebc80edd6fe31ce9b8e56b6e8f4a50dec2e530522ed64fe2132f51d5b",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-025.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2676,
+      "sha256": "ef53bcf745c7ef019398253b69b99e6392e75a26c104e304fa0b47310f0d7d27",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-026.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2778,
+      "sha256": "b851d09f438667384cb83db18d00456950c192add20dbbd5012b9d640194d122",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-027.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2497,
+      "sha256": "edf07f78ba7b77b168c9c3ec7b6082c8c3fa61e9c8432d1694d5e2dea9bc4311",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-028.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2440,
+      "sha256": "5260ffb035e873f6de3456939668217a26fd8631c51830d4e73c1641a31267e7",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-029.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2763,
+      "sha256": "66a1dcdff358388267c8fb34f75e2f046d2047c929900c0151eb0f3d39cf766b",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-030.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2802,
+      "sha256": "45c17012da02616689777f02d8945b4069834d9d270be91749e03581095c8a92",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-031.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2825,
+      "sha256": "7e25eeca0d9a8be667d7b4b83745d32c3d212bb060ae50fa1e2dd6c0ca196777",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-032.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2763,
+      "sha256": "66a1dcdff358388267c8fb34f75e2f046d2047c929900c0151eb0f3d39cf766b",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-050.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2544,
+      "sha256": "703a70bff18f74f2669dd825705074fc86d43aa3ec8bb552bd2b2c3cf438e905",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-097.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2544,
+      "sha256": "703a70bff18f74f2669dd825705074fc86d43aa3ec8bb552bd2b2c3cf438e905",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-098.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2582,
+      "sha256": "5f114cd7d03c9eddf7f04f3019d8dce59ff8c780b65526cb4e5e3f00a48528fa",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-099.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2244,
+      "sha256": "3d661106b49c58720f2d986c9838ad23aa746edbae0e3ea80d4f44888fd28111",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-107.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2268,
+      "sha256": "1cd24c87afd04afb60aece714325a8c83b17f6b32a0b60286963be1ef7387287",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-108.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2240,
+      "sha256": "e28269c8eda0c6a3d4f23dabc1a36da77243a4e63a481220fb906f4d6e1598bd",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-109.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2315,
+      "sha256": "fc0533dcdae87b5c1a88825bb8aca410c443cfa45881df2042adb3a5ec2d3d54",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-110.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2321,
+      "sha256": "cf833ae4f8ae7d92564958b02418c649e1851864a801d0f0bad22747b83ca490",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-111.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2350,
+      "sha256": "75c4d964884244ba5c2dd84f3f3b41f7a799cd56b66d939a78bf4f252e858810",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-112.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2298,
+      "sha256": "ffab2b87df228b8fddcab56a6b500383b3dbeb03ab407aa79c84b9f48e7e5f7d",
+      "connected_components": 1
+    },
+    {
+      "path": "spellsword-complete-v1-20261023/ally/battle/frame-113.png",
+      "size": [
+        320,
+        288
+      ],
+      "bytes": 2286,
+      "sha256": "0ee9c36f9126b252a9661e7e78c2857e29ed01251478b68fee821444c7523c49",
+      "connected_components": 1
+    }
+  ],
+  "browser_ui_checked": false,
+  "runtime_integrated": false,
+  "enemy_excluded_by_user": true,
+  "user_visual_acceptance": "pending",
+  "decoded_videos": 22,
+  "offline_captures": [
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-000-dark.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-000-light.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-056-dark.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-056-light.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-064-dark.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-064-light.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-110-dark.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-110-light.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-116-dark.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-116-light.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-123-dark.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-123-light.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-128-dark.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-128-light.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-145-dark.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-145-light.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-183-dark.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-183-light.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-232-dark.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-232-light.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-266-dark.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-266-light.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-310-dark.png",
+    "spellsword-complete-v1-20261023/ally-original_class_11_normal-310-light.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_levin-000-dark.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_levin-000-light.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_levin-036-dark.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_levin-036-light.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_levin-071-dark.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_levin-071-light.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_levin-122-dark.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_levin-122-light.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_item_23-000-dark.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_item_23-000-light.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_item_23-036-dark.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_item_23-036-light.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_item_23-071-dark.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_item_23-071-light.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_item_23-095-dark.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_item_23-095-light.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_item_28-000-dark.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_item_28-000-light.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_item_28-036-dark.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_item_28-036-light.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_item_28-071-dark.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_item_28-071-light.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_item_28-313-dark.png",
+    "spellsword-complete-v1-20261023/ally-class_11_ally_item_28-313-light.png",
+    "spellsword-complete-v1-20261023/ally-walk-up-000-dark.png",
+    "spellsword-complete-v1-20261023/ally-walk-up-000-light.png",
+    "spellsword-complete-v1-20261023/ally-walk-up-016-dark.png",
+    "spellsword-complete-v1-20261023/ally-walk-up-016-light.png",
+    "spellsword-complete-v1-20261023/ally-walk-right-000-dark.png",
+    "spellsword-complete-v1-20261023/ally-walk-right-000-light.png",
+    "spellsword-complete-v1-20261023/ally-walk-right-016-dark.png",
+    "spellsword-complete-v1-20261023/ally-walk-right-016-light.png",
+    "spellsword-complete-v1-20261023/ally-walk-down-000-dark.png",
+    "spellsword-complete-v1-20261023/ally-walk-down-000-light.png",
+    "spellsword-complete-v1-20261023/ally-walk-down-016-dark.png",
+    "spellsword-complete-v1-20261023/ally-walk-down-016-light.png",
+    "spellsword-complete-v1-20261023/ally-walk-left-000-dark.png",
+    "spellsword-complete-v1-20261023/ally-walk-left-000-light.png",
+    "spellsword-complete-v1-20261023/ally-walk-left-016-dark.png",
+    "spellsword-complete-v1-20261023/ally-walk-left-016-light.png",
+    "spellsword-complete-v1-20261023/ally-idle-cycle-000-dark.png",
+    "spellsword-complete-v1-20261023/ally-idle-cycle-000-light.png",
+    "spellsword-complete-v1-20261023/ally-idle-cycle-014-dark.png",
+    "spellsword-complete-v1-20261023/ally-idle-cycle-014-light.png",
+    "spellsword-complete-v1-20261023/ally-idle-cycle-022-dark.png",
+    "spellsword-complete-v1-20261023/ally-idle-cycle-022-light.png"
+  ],
+  "page_action_links_checked": 357,
+  "image_inventory_count": 245,
+  "sprite_max_bytes": 3265
+}

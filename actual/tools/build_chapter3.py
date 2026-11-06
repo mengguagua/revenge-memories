@@ -10,6 +10,8 @@ from PIL import Image
 R = Path(__file__).resolve().parents[1]
 def read(p): return json.loads((R / p).read_text())
 def write(p, v):
+    from enemy_experience_data import apply_stage_experience
+    apply_stage_experience(v)
     p = R / p; p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(json.dumps(v, ensure_ascii=False, indent=2) + '\n')
 

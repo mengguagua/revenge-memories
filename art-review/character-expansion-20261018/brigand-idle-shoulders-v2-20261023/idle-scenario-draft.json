@@ -1,0 +1,353 @@
+{
+  "id": "tactical-idle",
+  "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_14_enemy.png",
+  "source_frame_size": [
+    24,
+    24
+  ],
+  "source_anchor": [
+    12,
+    20
+  ],
+  "source_frame_count": 6,
+  "required_drawn_frames": [
+    0,
+    1,
+    2
+  ],
+  "static_facing": true,
+  "directions": {
+    "all": [
+      0,
+      1,
+      2,
+      1
+    ]
+  },
+  "timing": {
+    "native_fps": 60.0988,
+    "cycle_frames": [
+      0,
+      1,
+      2,
+      1
+    ],
+    "frame_ticks": [
+      14,
+      8,
+      14,
+      8
+    ],
+    "cycle_ticks": 44
+  },
+  "output_frame_size": [
+    96,
+    96
+  ],
+  "output_anchor": [
+    48,
+    80
+  ],
+  "logical_render_scale": 0.25,
+  "source_aliases": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 1,
+    "4": 0,
+    "5": 1
+  },
+  "class_id": 14,
+  "source_side": "enemy",
+  "character_id": "class-14-enemy",
+  "display_name": "敌方断路匪",
+  "frame_mapping": [
+    {
+      "source_index": 0,
+      "source_frame": 0,
+      "output_index": 0,
+      "canonical_frame": 0,
+      "path": "../../../brigand-idle-shoulders-v2-20261023/frames/frame-000.png",
+      "output_path": "../../../brigand-idle-shoulders-v2-20261023/frames/frame-000.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1321,
+      "sha256": "b0a1398cfb99d8451d99ae5562764a53a2e09cd19674844b894f0f56d77f3325",
+      "revision": "brigand-idle-shoulders-v2-20261023",
+      "art_status": "review_candidate"
+    },
+    {
+      "source_index": 1,
+      "source_frame": 1,
+      "output_index": 1,
+      "canonical_frame": 1,
+      "path": "../../../brigand-idle-shoulders-v2-20261023/frames/frame-001.png",
+      "output_path": "../../../brigand-idle-shoulders-v2-20261023/frames/frame-001.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1307,
+      "sha256": "19db0571c9b2512fa4eaf747ad007fdfb493b309350ded0216d5e1789e9a8034",
+      "revision": "brigand-idle-shoulders-v2-20261023",
+      "art_status": "review_candidate"
+    },
+    {
+      "source_index": 2,
+      "source_frame": 2,
+      "output_index": 2,
+      "canonical_frame": 2,
+      "path": "../../../brigand-idle-shoulders-v2-20261023/frames/frame-002.png",
+      "output_path": "../../../brigand-idle-shoulders-v2-20261023/frames/frame-002.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1297,
+      "sha256": "2dda877e4d108c37e8dff71ce4d848eb340e0b6ca7ada24d00e1828420440c53",
+      "revision": "brigand-idle-shoulders-v2-20261023",
+      "art_status": "review_candidate"
+    },
+    {
+      "source_index": 3,
+      "source_frame": 3,
+      "output_index": 3,
+      "canonical_frame": 1,
+      "path": "../../../brigand-idle-shoulders-v2-20261023/frames/frame-003.png",
+      "output_path": "../../../brigand-idle-shoulders-v2-20261023/frames/frame-003.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1307,
+      "sha256": "19db0571c9b2512fa4eaf747ad007fdfb493b309350ded0216d5e1789e9a8034",
+      "revision": "brigand-idle-shoulders-v2-20261023",
+      "art_status": "review_candidate"
+    },
+    {
+      "source_index": 4,
+      "source_frame": 4,
+      "output_index": 4,
+      "canonical_frame": 0,
+      "path": "../../../brigand-idle-shoulders-v2-20261023/frames/frame-004.png",
+      "output_path": "../../../brigand-idle-shoulders-v2-20261023/frames/frame-004.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1321,
+      "sha256": "b0a1398cfb99d8451d99ae5562764a53a2e09cd19674844b894f0f56d77f3325",
+      "revision": "brigand-idle-shoulders-v2-20261023",
+      "art_status": "review_candidate"
+    },
+    {
+      "source_index": 5,
+      "source_frame": 5,
+      "output_index": 5,
+      "canonical_frame": 1,
+      "path": "../../../brigand-idle-shoulders-v2-20261023/frames/frame-005.png",
+      "output_path": "../../../brigand-idle-shoulders-v2-20261023/frames/frame-005.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1307,
+      "sha256": "19db0571c9b2512fa4eaf747ad007fdfb493b309350ded0216d5e1789e9a8034",
+      "revision": "brigand-idle-shoulders-v2-20261023",
+      "art_status": "review_candidate"
+    }
+  ],
+  "output_atlas": "../../../brigand-idle-shoulders-v2-20261023/idle-atlas.png",
+  "revision": "brigand-idle-shoulders-v2-20261023",
+  "status": "review_candidate",
+  "review_note": "待机小幅左右扭肩；连续颈部与V领色面、稍收窄肩幅。头腰与脚底保持原点，原相位顺序和节奏保留。",
+  "motion_review": {
+    "revision": "brigand-idle-shoulders-v2-20261023",
+    "registration": [
+      {
+        "source": "idle-shoulder-neck-master.png",
+        "bounds": [
+          172,
+          157,
+          579,
+          621
+        ],
+        "head": [
+          186.5,
+          114
+        ],
+        "hip": [
+          178.5,
+          272
+        ],
+        "target_head": [
+          48,
+          34
+        ],
+        "target_hip": [
+          47,
+          55
+        ],
+        "scale": 0.13142857142857142,
+        "alpha_threshold": 200,
+        "hair_box": [
+          88,
+          0,
+          284,
+          119
+        ],
+        "source_sha256": "12a1543a06e0eeffc5707b9e6f6ffe94990e7eff5679a2c644a39ad37649cbbc",
+        "registered_size": [
+          53,
+          61
+        ],
+        "translation": [
+          24,
+          19
+        ],
+        "actual_landmarks": {
+          "head": [
+            48.28624078624078,
+            33.98706896551724
+          ],
+          "hip": [
+            47.24447174447174,
+            54.758620689655174
+          ]
+        },
+        "clipped_pixels": 0,
+        "method": "uniform whole-pose scale and integer translation; no neck or shoulder patch"
+      },
+      {
+        "source": "idle-shoulder-neck-master.png",
+        "bounds": [
+          897,
+          158,
+          1303,
+          621
+        ],
+        "head": [
+          186.5,
+          113.5
+        ],
+        "hip": [
+          178.5,
+          271
+        ],
+        "target_head": [
+          48,
+          34
+        ],
+        "target_hip": [
+          47,
+          55
+        ],
+        "scale": 0.13161659513590845,
+        "alpha_threshold": 200,
+        "hair_box": [
+          88,
+          0,
+          284,
+          118
+        ],
+        "source_sha256": "12a1543a06e0eeffc5707b9e6f6ffe94990e7eff5679a2c644a39ad37649cbbc",
+        "registered_size": [
+          53,
+          61
+        ],
+        "translation": [
+          24,
+          19
+        ],
+        "actual_landmarks": {
+          "head": [
+            48.3460591133005,
+            33.953563714902806
+          ],
+          "hip": [
+            47.30172413793103,
+            54.704103671706264
+          ]
+        },
+        "clipped_pixels": 0,
+        "method": "uniform whole-pose scale and integer translation; no neck or shoulder patch"
+      },
+      {
+        "source": "idle-shoulder-neck-master.png",
+        "bounds": [
+          1597,
+          157,
+          1992,
+          621
+        ],
+        "head": [
+          177.5,
+          114
+        ],
+        "hip": [
+          170.5,
+          272
+        ],
+        "target_head": [
+          48,
+          34
+        ],
+        "target_hip": [
+          47,
+          55
+        ],
+        "scale": 0.13142857142857142,
+        "alpha_threshold": 200,
+        "hair_box": [
+          79,
+          0,
+          275,
+          119
+        ],
+        "source_sha256": "12a1543a06e0eeffc5707b9e6f6ffe94990e7eff5679a2c644a39ad37649cbbc",
+        "registered_size": [
+          52,
+          61
+        ],
+        "translation": [
+          25,
+          19
+        ],
+        "actual_landmarks": {
+          "head": [
+            48.36708860759494,
+            33.98706896551724
+          ],
+          "hip": [
+            47.44556962025317,
+            54.758620689655174
+          ]
+        },
+        "clipped_pixels": 0,
+        "method": "uniform whole-pose scale and integer translation; no neck or shoulder patch"
+      }
+    ],
+    "fixed_lower_body": {
+      "reference_pose": 0,
+      "box": [
+        0,
+        62,
+        96,
+        96
+      ],
+      "sha256": "6b89799c140e527fe1d1bd30d3ae7bf4e3cef1916a66c004012714bded385705",
+      "method": "same intact lower-body crop, no limb rearrangement"
+    },
+    "neck_region": [
+      40,
+      31,
+      59,
+      49
+    ],
+    "old_neck_frame_reused": false,
+    "native_timing_modified": false,
+    "runtime_integrated": false
+  }
+}

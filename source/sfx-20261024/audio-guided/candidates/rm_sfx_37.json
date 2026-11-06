@@ -1,0 +1,58 @@
+{
+  "id": "rm_sfx_37",
+  "request": "37",
+  "path": "source/sfx-20261024/audio-guided/candidates/rm_sfx_37.ogg",
+  "sha256": "a72fde35086887be8aad0f28f645537dfc0605bdec6a84948cad5e8d4ee93b6c",
+  "bytes": 50538,
+  "source": {
+    "id": "rm_sfx_37",
+    "seed": 2026102655,
+    "model": "local Stable Audio 3 sm-sfx/same-s",
+    "method": "reference-conditioned audio-to-audio variation",
+    "reference_path": "actual/assets/original/audio/sfx_37.ogg",
+    "reference_sha256": "a58a0590815a53d21638884f04e61c9f3127cd3ebde2ba2ce3c86c709a03898f",
+    "reference_pcm_sha256": "6fb6480476f2f0ed1cd0531820f178ce0302de0b8c286cf74ce6f79eeddc5a5f",
+    "init_noise_level": 0.55,
+    "reference_input_gain_db": 10.472487811640887,
+    "prompt": "TrackType: SFX. A dry monophonic retro 8-bit game sound effect. Preserve the reference sound's electronic pitch contour, immediate attack, modulation speed and noise-pulse rhythm. A clearly defined pulse-wave or noise-channel effect, crisp upper-midrange, no muffled low drum or acoustic instrument. Create a variation in synthetic tone color, retaining the same sound gesture. No music, no vocal, no real-world ambience, no reverb. Continuous electronic modulation until stopped, stable presence from the opening, no musical beat.",
+    "cfg": 2.0,
+    "steps": 8,
+    "sha256": "3f856f11022d7d5022369e3662299ceb01dd71d28354f8f974302f802edbaaa0",
+    "seconds": 8.2,
+    "offline": true,
+    "generation_wall_seconds": 2.128,
+    "raw_peak": 0.7452532052993774,
+    "raw_rms": 0.08449888229370117
+  },
+  "mastering": {
+    "method": "preserve reference duration and 25ms-smoothed amplitude gesture; rounded edges; constant active-RMS gain",
+    "gain_db": 2.7019375551336093,
+    "target_active_rms_dbfs": -23.0,
+    "peak_ceiling_dbfs": -12.571,
+    "transient_shaping": {
+      "applied": true,
+      "method": "smooth tanh knee at 2.3 times 25ms local RMS",
+      "reason": "generated peak crest would otherwise hide the audible body under the reference peak budget"
+    }
+  },
+  "metrics": {
+    "seconds": 8.0,
+    "sample_rate": 44100,
+    "channels": 2,
+    "rms_dbfs": -30.631348058232216,
+    "active_rms_dbfs": -24.772599160784708,
+    "sample_peak_dbfs": -12.341556893429093,
+    "first_50ms_rms_dbfs": -28.46774703318346,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "leading_onset_seconds": 0.0,
+    "longest_internal_silence_seconds": 0.12471655328798185,
+    "last_10ms_rms_dbfs": -36.186307862843066,
+    "first_last_sample_delta": 0.0006467865314334631,
+    "lufs_note": "Measured gated integrated loudness",
+    "integrated_lufs": -28.9,
+    "true_peak_dbtp": -12.3
+  },
+  "review_decision": "selected",
+  "review_reason": "Matches final published review index."
+}

@@ -1,0 +1,54 @@
+{
+  "id": "rm_battle_tide",
+  "kind": "final_scene_mix",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_battle_tide_scene.wav"
+    }
+  ],
+  "asset_sha256": "fc419aaee95a6b647fa349bea63824f69e4ec830d3f260ac97b768370e5c1b88",
+  "fixture_sha256": "4f4dc4d6451456142e63ec3ed7c713d66371ecc7a515c79a5b41c482804bd3ca",
+  "prompt": "This is a final offline scene mix using the actual game gains and native event sequence. Describe only audible evidence. Check whether essential feedback attacks are clear, any intrusive click/distortion or excessive rumbling tail, and whether music continuity is distracted by the effects. Effects need not be as loud as music; a naturally masked quiet tail is not a failure. Report uncertainty and avoid inventing instruments/events. Under 90 words. Fixture context: 按当前双声部与实际请求时序合成：火球脉冲；不是实机录音",
+  "max_tokens": 170,
+  "key": "15156dab32b7ae942ed16705",
+  "source_sha256": [
+    "4f4dc4d6451456142e63ec3ed7c713d66371ecc7a515c79a5b41c482804bd3ca"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/4f4dc4d6451456142e63ec3ed7c713d66371ecc7a515c79a5b41c482804bd3ca.wav"
+  ],
+  "audio_input_samples": [
+    56717
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "86abb4ff7da925db9f8a60e1f1509d555078085312e475968de140616e38cdfb"
+  ],
+  "response": "A synthesized chime opens, followed by a rapid, high-pitched digital 'fireball' pulse. The pulse has a sharp attack and a brief, clean tail. No distortion or intrusive clicks are audible. A simple, low-pitched melodic loop plays continuously beneath. The pulse momentarily masks the music but does not disrupt its continuity. The overall mix is clear, with the effect well-integrated. No evidence of excessive rumbling or artifacts.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 91,
+    "prompt_tokens": 197,
+    "total_tokens": 288,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 169,
+    "prompt_ms": 505.789,
+    "prompt_per_token_ms": 2.992834319526627,
+    "prompt_per_second": 334.1314263457687,
+    "predicted_n": 91,
+    "predicted_ms": 1499.471,
+    "predicted_per_token_ms": 16.660788888888888,
+    "predicted_per_second": 60.02116746505934
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 8.31,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

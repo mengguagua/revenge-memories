@@ -46,15 +46,17 @@ static func ai_action(g,u: Dictionary) -> Dictionary:
 		var old_move=int(u.move)
 		if g.pos(u)==beacon:u.move=0
 		var choice=g.TacticalAI.action(g,u,false);u.move=old_move
-		if not str(choice.get("target","")).is_empty() or g.pos(u)==beacon:return choice
+		if not str(choice.get("target","")).is_empty():return choice
+		if g.pos(u)==beacon:
+			# Holding the light is the objective, but a wounded occupier must
+			# respond to ranged fire instead of becoming a permanently fixed target.
+			return g.TacticalAI.action(g,u,false) if int(u.hp)<int(u.max_hp) else choice
 		return g._toward(u,beacon)
 	if not u.has("quest_kind"):return {}
 	var kind=str(u.quest_kind)
 	if bool(u.get("locked",false)) or kind in ["witness","ship","camp","islanders"]:
 		return {"destination":g.pos(u),"target":""}
 	if kind not in ["prisoner","patient","sailor"]:return {}
-	var nearby=g.living("enemy").any(func(e):return _distance(g.pos(e),g.pos(u))<=maxi(4,g.Rules.attack_range(e).y+1))
-	if nearby:return {"destination":g.pos(u),"target":""}
 	return g._safe_escort_move(u,Vector2i(g.battle_data.exit[0],g.battle_data.exit[1]))
 
 static func after_wait(g,u: Dictionary) -> void:
@@ -217,9 +219,13 @@ static func status(g) -> Array[String]:
 			result.append("击败指挥官并保住己方船。指挥官："+boss_state)
 			result.append("船体耐久：%d/%d。敌人可以攻击船体，船体不能反击或接受治疗。" % [int(ship.get("hp",0)),int(ship.get("max_hp",0))])
 			result.append("步兵沿甲板和两块跳板通行，海面不可落脚。")
+			result.append("两条跳板回避＋20，踏上即生效，无需交互。药车右侧两格为船医补给位，己方阶段开始恢复5生命。")
+			var passenger=g.find_unit("injured_passengers")
+			result.append("乘客只在己方左侧甲板自动助战；低于半血时停止主动攻击并后退。")
+			result.append("乘客存活通关，本队全体正式成员额外获得20经验。" if not passenger.is_empty() and int(passenger.hp)>0 else "乘客已阵亡，本场无法取得乘客存活奖励；不影响主线通关。")
 		202:
 			var count=_units_of_kind(g,"prisoner").filter(func(u):return str(u.id)!="lord" and evacuated.has(str(u.id))).size()
-			result.append("打开囚舱、击败舰长，并让三名普通俘虏从己方船撤离。")
+			result.append("打开囚舱、击败舰长，并让三名普通俘虏抵达总闸旁的接应旗标。")
 			result.append("囚舱：%s；舰长：%s；普通俘虏：%d/3。" % ["已打开" if objects.get("prison_door",false) else "未打开",boss_state,count])
 			var lord=g.find_unit("lord");var lord_state="已撤离，可在据点交谈招募" if evacuated.has("lord") else "阵亡，失去招募" if not lord.is_empty() and int(lord.hp)<=0 else "尚未撤离，保护他沿安全路线走向出口"
 			result.append("洛德："+lord_state+"。他单独记录，不替代三名普通俘虏。")
@@ -277,7 +283,7 @@ static func _end_lines(g) -> String:
 		204:
 			if not _alive(g,"shia"):return "留守骑士：岛上的航灯由我们看守。安全的军港航路已经记下，去灯屋确认吧。"
 		205:return "艾琳：先带引航者离开牢房。我去确认箱里的航图。"
-		206:return "舵手：西岸到了，居民船已经安全靠岸。／艾琳：让伤者先上岸，我们去海峡城。"
+		206:return "舵手：居民船已经抵达西岸泊位，等候海峡城准许入港。／艾琳：先稳住船队。我去海峡城，争取让伤者上岸。"
 		211:return "渔民：风灯岛东侧还有一处避风泊位。你们救了船上的人，这条路我会给你们标清。"
 		212:
 			if not _alive(g,"old_sailor"):

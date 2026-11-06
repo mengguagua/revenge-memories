@@ -37,10 +37,10 @@ static func on_battle_start(game) -> void:
 static func rare_drop(enemy: Dictionary, chapter: int, cumulative_count: int, first_roll: int, second_roll: int) -> int:
 	if chapter < 1 or chapter >= int(data().rare_drops_disabled_from_chapter): return 0
 	if cumulative_count >= int(data().rare_drop_cumulative_caps_by_chapter[chapter - 1]): return 0
-	if int(enemy.get("item_id", 0)) > 0 or bool(enemy.get("no_drop", false)): return 0
+	if int(enemy.get("item_id", 0)) > 0 or int(enemy.get("recoverable_item_id",0)) > 0 or bool(enemy.get("no_drop", false)): return 0
 	var source_id := int(enemy.get("source_enemy_character_id", enemy.get("character_id", enemy.get("name_id", 0))))
 	for entry in data().rare_drops:
-		if Items.is_story_armament(int(entry.item_id)):continue
+		if Items.is_story_armament(int(entry.item_id)) or Items.is_story_accessory(int(entry.item_id)):continue
 		if source_id == int(entry.character_id) and first_roll < int(entry.roll_threshold) and second_roll < int(entry.roll_threshold):
 			return int(entry.item_id)
 	return 0
@@ -48,7 +48,7 @@ static func rare_drop(enemy: Dictionary, chapter: int, cumulative_count: int, fi
 static func carried_drop(enemy: Dictionary, _roll: int) -> int:
 	if bool(enemy.get("no_drop", false)): return 0
 	# Explicitly carried gear is guaranteed, including old saves with stale odds.
-	return int(enemy.get("item_id", 0))
+	return int(enemy.get("recoverable_item_id",enemy.get("item_id", 0)))
 
 static func on_death(game, unit: Dictionary, killer: Dictionary = {}) -> Dictionary:
 	if int(unit.get("hp", 0)) > 0 or bool(unit.get("no_drop", false)): return {}
@@ -66,6 +66,7 @@ static func on_death(game, unit: Dictionary, killer: Dictionary = {}) -> Diction
 		_sync(game, unit)
 		return {"kind":"death_storage", "item_id":held, "unit_id":key, "route":owner_route} if held > 0 else {}
 	if str(unit.get("side", "")) != "enemy": return {}
+	held=int(unit.get("recoverable_item_id",held))
 	# The original drop flow follows combat against a player, not mere removal
 	# from the map (escape, rescue, event cleanup or Expel).
 	if killer.is_empty() or str(killer.get("side", "")) != "player" or int(killer.get("hp", 0)) <= 0: return {}
@@ -145,6 +146,7 @@ static func exchange(game, first_id: String, second_id: String) -> bool:
 	first.item_id = int(second.get("item_id", 0))
 	second.item_id = held
 	first.acted = true
+	if game.has_method("plan_cover_damage"):game.Cover.refresh(game)
 	_sync(game, first)
 	_sync(game, second)
 	game.selected_id = ""
@@ -239,6 +241,8 @@ static func _persist_participants(game) -> void:
 				persistent=unit.duplicate(true);persistent.dead=false
 			else:persistent.dead = int(unit.hp) <= 0
 			persistent.acted = false
+			persistent.erase("map_uses");persistent.erase("map_fatigue_until_turn")
+			persistent.erase("map_move_penalty_until_turn");persistent.erase("strong_body_until_turn")
 			game.roster[str(unit.id)] = persistent
 		elif str(unit.get("side", "")) == "enemy" and int(unit.get("hp", 0)) <= 0 and not bool(unit.get("temporary", false)):
 			defeated[_enemy_key(unit)] = true

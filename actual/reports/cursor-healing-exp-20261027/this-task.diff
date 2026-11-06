@@ -1,0 +1,228 @@
+--- actual/reports/cursor-healing-exp-20261027/before/actual/core/main.gd	2026-10-26 23:51:25
++++ actual/core/main.gd	2026-10-27 16:01:20
+@@ -405,6 +405,13 @@
+ 		audio.play_jingle("levelup")
+ 		while training_reward_open:await get_tree().process_frame
+ 	view="victory"
++
++func _support_experience_feedback(result: Dictionary) -> bool:
++	var receipt=result.get("reward",{})
++	if receipt.is_empty() or int(receipt.get("gain",0))<=0:return false
++	reward=receipt;reward_elapsed=0.0;reward_dismissed=false;busy=false;view="reward"
++	if bool(reward.leveled):audio.play_jingle("levelup")
++	game.save_game();return true
+ 
+ func _unit_action_menu() -> void:
+ 	super._unit_action_menu()
+@@ -1023,7 +1030,7 @@
+ 		var p=_oriented_route(n)
+ 		if p.size()<2:continue
+ 		var d=Vector2(p[1][0]-p[0][0],p[1][1]-p[0][1]);var direction="right" if d.x>0 else "left" if d.x<0 else "down" if d.y>0 else "up"
+-		_draw_indicator(direction,world_actor+origin+d*20+Vector2(4,4))
++		_draw_map_indicator(direction,world_actor+origin+d*20+Vector2(4,4))
+ 	var bottom=_footer_shift()
+ 	_panel(Rect2(Vector2(8,164)+bottom,Vector2(240,68)));var node=world.nodes[str(game.world_node)]
+ 	_center_text((str(game.stages[game.stage_for_node(game.world_node)].name_zh) if game.chapter>=3 and game.world_has_battle(game.world_node) else str(node.name_zh)),Rect2(Vector2(20,174)+bottom,Vector2(216,16)))
+@@ -1261,14 +1268,14 @@
+ 	if target_ids.size()>1:
+ 		if placement.stacked:
+ 			var sprite=_map_unit_sprite(defender);var arrow_y=-int(sprite.get("tile_origin",[4,4])[1])-9
+-			_draw_indicator("left",_battle_cell_screen(game.cursor)+Vector2(-8,arrow_y))
+-			_draw_indicator("right",_battle_cell_screen(game.cursor)+Vector2(16,arrow_y))
++			_draw_map_indicator("left",_battle_cell_screen(game.cursor)+Vector2(-8,arrow_y))
++			_draw_map_indicator("right",_battle_cell_screen(game.cursor)+Vector2(16,arrow_y))
+ 		else:
+ 			_draw_indicator("left",rect.position+Vector2(110,14))
+ 			_draw_indicator("right",rect.position+Vector2(220,14))
+ 	# The whole panel is outside this protected sprite/arrow rectangle.
+ 	var target_sprite=_map_unit_sprite(defender)
+-	_draw_indicator("down",_battle_cell_screen(game.cursor)+Vector2(4,-int(target_sprite.get("tile_origin",[4,4])[1])-9))
++	_draw_map_indicator("down",_battle_cell_screen(game.cursor)+Vector2(4,-int(target_sprite.get("tile_origin",[4,4])[1])-9))
+ 
+ func _draw_unit_card(unit: Dictionary) -> void:
+ 	if busy or notice_time>0 or phase_time>0:return
+@@ -1555,7 +1562,9 @@
+ 	return super._status_members()
+ 
+ func _draw_status(unit: Dictionary) -> void:
+-	if not game.HeroProfessions.advanced(unit):super._draw_status(unit);return
++	if unit.is_empty():return
++	var advanced=game.HeroProfessions.advanced(unit)
++	if not advanced and unit.get("side","player")!="player":super._draw_status(unit);return
+ 	_panel(Rect2(8,12,240,220))
+ 	var members = _status_members()
+ 	if members.size()>1:
+@@ -1564,7 +1573,9 @@
+ 	var portrait = _unit_portrait(unit)
+ 	if not portrait.is_empty():draw_texture(_tex(portrait.path),Vector2(24,40))
+ 	_text(str(unit.name_zh),Vector2(96,40))
+-	_text(game.HeroProfessions.name(unit),Vector2(96,56),Color(.94,.88,.67))
++	var profession=game.HeroProfessions.name(unit) if advanced else str(game.catalog.classes.get(str(int(unit.class_id)),{}).get("name_zh",unit.get("class_name_zh","")))
++	_text("职业："+profession,Vector2(96,56),Color(.94,.88,.67))
++	presentation_audit.status_profession=profession
+ 	_text("等级%d 经验%d"%[int(unit.level),int(unit.get("exp",0))],Vector2(96,72))
+ 	_text("生命%d/%d"%[int(unit.hp),int(unit.max_hp)],Vector2(96,88))
+ 	_draw_health(int(unit.hp),int(unit.max_hp),Vector2(96,104),"ally")
+@@ -1573,15 +1584,17 @@
+ 	var stats = [["攻击",equipped.power],["技巧",int(unit.skill)],
+ 		["攻速",equipped.speed],["幸运",equipped.luck],
+ 		["物防",equipped.defence],["魔防",equipped.resistance],
+-		["移动",equipped.move],["训练",int(unit.get("magic_level",0))]]
++		["移动",equipped.move],["训练" if advanced else "射程",int(unit.get("magic_level",0)) if advanced else StatusStats.range_name(equipped.reach)]]
+ 	for i in range(stats.size()):
+ 		var x = 32+104*(i%2);var y = 124+16*int(i/2)
+ 		_text(str(stats[i][0]),Vector2(x,y));_text(str(stats[i][1]),Vector2(x+64,y))
+ 	var held = int(unit.get("item_id",0))
+ 	var footer = "装备："+str(Items.item(held).get("name_zh","")) if held>0 else "未携带装备（职业默认）"
+-	if game.is_dying(unit):footer="濒死 · 不可出阵"
+-	_center_text(footer,Rect2(24,190,208,14))
+-	_center_text(game.HeroProfessions.summary(unit),Rect2(24,206,208,14))
++	if game.is_dying(unit):
++		_center_text("濒死 · 不可出阵",Rect2(24,190,208,14))
++		_center_text("已救治过，无法再次救治" if int(unit.get("treatment_count",0))>0 else "可使用本队救治泉",Rect2(24,206,208,14));return
++	_center_text(footer,Rect2(24,190 if advanced else 206,208,14))
++	if advanced:_center_text(game.HeroProfessions.summary(unit),Rect2(24,206,208,14))
+ 
+ func _start_ending() -> void:
+ 	if not game.flags.get("campaign_complete",false):return
+--- actual/reports/cursor-healing-exp-20261027/before/actual/core/legacy_main.gd	2026-10-26 15:09:51
++++ actual/core/legacy_main.gd	2026-10-27 16:01:20
+@@ -1076,6 +1076,7 @@
+ 		await _map_spell_feedback(caster, result)
+ 		ui_mode = "inspect"
+ 		busy = false
++		if _support_experience_feedback(result):return
+ 		_finish_turn_action()
+ 		return
+ 	if target_id.is_empty():
+@@ -1097,13 +1098,18 @@
+ 	audio.play_combat(caster, target, false, true, game.stage_id == 62)
+ 	await battle_animation.play({"attacker": caster_id, "defender": target_id, "weapon_index": spell_id, "visual_only": true,
+ 		"hit": true, "critical": false, "damage": 0, "hp_before": int(previous.get(target_id, target.hp)), "hp_after": int(target.hp),
+-		"source_hp_before": int(previous[caster_id]), "source_hp_after": int(caster.hp), "hp_cost": Items.cost(spell_id)})
++		"source_hp_before": int(previous[caster_id]), "source_hp_after": int(result.get("source_hp_after_support",caster.hp)), "hp_cost": Items.cost(spell_id)})
+ 	view = "battle"
+ 	ui_mode = "inspect"
+ 	busy = false
+ 	_play_phase_music()
+ 	game.save_game()
++	if _support_experience_feedback(result):return
+ 	_finish_turn_action()
++
++func _support_experience_feedback(_result: Dictionary) -> bool:
++	# Campaign UI overrides this; the original white-magic rules remain intact.
++	return false
+ 
+ func _next_source_dialogue() -> void:
+ 	if dialogue_pages.is_empty():
+@@ -1890,12 +1896,12 @@
+ 	var leader_sprite: Dictionary = graphics.village_sprites["2" if game.route == "celica" else "1"]
+ 	var leader_at = cell * TILE + origin
+ 	_draw_frame(leader_sprite, int(leader_sprite.directions.up[0]), leader_at - Vector2(leader_sprite.tile_origin[0], leader_sprite.tile_origin[1]))
+-	_draw_indicator("down", leader_at + Vector2(4, -8))
++	_draw_map_indicator("down", leader_at + Vector2(4, -8))
+ 	for neighbor in game.world_neighbors():
+ 		var point: Array = world.nodes[str(neighbor)].position
+ 		var delta = Vector2(point[0], point[1]) - cell
+ 		var direction = ("right" if delta.x > 0 else "left") if absf(delta.x) > absf(delta.y) else ("down" if delta.y > 0 else "up")
+-		_draw_indicator(direction, leader_at + delta.normalized() * 22 + Vector2(4, 4))
++		_draw_map_indicator(direction, leader_at + delta.normalized() * 22 + Vector2(4, 4))
+ 	_panel(Rect2(16, 160, 224, 72))
+ 	_center_text(str(node.name_zh), Rect2(28, 170, 200, 16))
+ 	_center_text("阿尔姆军" if game.route == "alm" else "赛莉卡军", Rect2(28, 188, 200, 16))
+@@ -1987,7 +1993,7 @@
+ 			if not selected_unit.is_empty():
+ 				var selected_sprite=_map_unit_sprite(selected_unit)
+ 				arrow_y=-int(selected_sprite.get("tile_origin",[4,4])[1])-9
+-			_draw_indicator("down", at + Vector2(4, arrow_y + int(sin(elapsed * 6.0))))
++			_draw_map_indicator("down", at + Vector2(4, arrow_y + int(sin(elapsed * 6.0))))
+ 			if ui_mode == "inspect" and menu_items.is_empty():
+ 				var unit = game.unit_at(game.cursor)
+ 				if not unit.is_empty():
+@@ -2072,7 +2078,7 @@
+ 	var distance = absi(GameState.pos(attacker).x - GameState.pos(defender).x) + absi(GameState.pos(attacker).y - GameState.pos(defender).y)
+ 	var reply = Rules.default_counter(defender, distance)
+ 	# Map cursor belongs below every preview window, including its opaque fill.
+-	_draw_indicator("down", _battle_cell_screen(game.cursor) + Vector2(4, -4))
++	_draw_map_indicator("down", _battle_cell_screen(game.cursor) + Vector2(4, -4))
+ 	attacker = attacker.duplicate(true)
+ 	for unit in [attacker, reply]:
+ 		if int(unit.get("character_id", 0)) == 167: unit.weapon_index = Rules.boss_weapon(unit, game.frame_counter)
+@@ -2098,7 +2104,7 @@
+ 		_draw_indicator("right", Vector2(228, 30))
+ 
+ func _draw_support_preview() -> void:
+-	_draw_indicator("down", _battle_cell_screen(game.cursor) + Vector2(4, -4))
++	_draw_map_indicator("down", _battle_cell_screen(game.cursor) + Vector2(4, -4))
+ 	var rect = Rect2(16, 8, 224, 64)
+ 	_panel(rect)
+ 	var spell: Dictionary = Items.spell(chosen_spell)
+@@ -2376,6 +2382,16 @@
+ 
+ func _draw_indicator(direction: String, at: Vector2) -> void:
+ 	draw_texture(_tex(cursors.arrows[direction].path), at.round())
++
++func _draw_map_indicator(direction: String, at: Vector2) -> void:
++	# Reuse the original pixel bitmap. Keep its center while enlarging8→10px;
++	# a dark silhouette gives the amber pointer contrast on snow and terrain.
++	var texture=_tex(cursors.arrows[direction].path)
++	var rect=Rect2((at-Vector2.ONE).round(),Vector2(10,10))
++	for offset in [Vector2(-1,-1),Vector2(0,-1),Vector2(1,-1),Vector2(-1,0),Vector2(1,0),Vector2(-1,1),Vector2(0,1),Vector2(1,1)]:
++		draw_texture_rect(texture,Rect2(rect.position+offset,rect.size),false,Color("13233b"))
++	draw_texture_rect(texture,rect,false,Color("ffb52e"))
++	presentation_audit.map_indicator={"rect":rect.grow(1),"fill":"ffb52e","outline":"13233b"}
+ 
+ func _exit_tree() -> void:
+ 	if hub_controller != null:
+--- actual/reports/cursor-healing-exp-20261027/before/actual/core/game_state.gd	2026-10-26 19:36:31
++++ actual/core/game_state.gd	2026-10-27 16:00:39
+@@ -464,6 +464,17 @@
+ 
+ func use_support(caster_id:String,spell_id:int,target_id:String="",destination:Vector2i=Vector2i(-1,-1))->Dictionary:
+ 	var result=super.use_support(caster_id,spell_id,target_id,destination)
++	if not result.is_empty() and not Training.active(self) and str(result.action) in ["recover","physic","fortify"]:
++		var caster=find_unit(caster_id);var restored=0
++		for change in result.changed:restored+=maxi(0,int(change.get("after",0))-int(change.get("before",0)))
++		if caster.get("side","")=="player" and party.has(caster_id) and not caster.get("temporary",false) and not caster.get("neutral",false):
++			var gain=Rules.healing_experience_gain(caster,restored)
++			if gain>0:
++				# Commit HP, action cost and EXP together. Reloading cannot re-award
++				# the already consumed action; the UI presents this receipt later.
++				result.source_hp_after_support=int(caster.hp)
++				result.reward=CampaignExperience.award(self,caster,gain)
++				result.reward.victory_training=false;result.reward.support_training=true
+ 	Cover.refresh(self)
+ 	return result
+ 
+--- actual/reports/cursor-healing-exp-20261027/before/actual/core/combat_rules.gd	2026-10-26 11:48:22
++++ actual/core/combat_rules.gd	2026-10-27 16:00:39
+@@ -249,7 +249,16 @@
+ 		gain *= 2
+ 	return mini(100, gain)
+ 
++static func healing_experience_gain(unit: Dictionary, restored_hp: int) -> int:
++	# Campaign addition: NES white magic gives no combat EXP. Use the same
++	# source class/level multipliers, with action value10 (half a clear's20).
++	# A group heal is one action, independent of the number of targets.
++	var level=int(unit.get("level",1))
++	if restored_hp<=0 or level>=20 or level<1 or int(unit.get("hp",0))<=0 or bool(unit.get("no_experience",false)):return 0
++	var gain=_ceil_ratio(EXPERIENCE_CLASS[_class_id(unit)-1]*EXPERIENCE_LEVEL[level-1]*10,100)
++	return mini(100,gain*2 if bool(unit.get("easy_mode",false)) else gain)
+ 
++
+ static func experience_gain(attacker: Dictionary, defender: Dictionary, hp_before: int, hp_after: int, killed: bool) -> int:
+ 	# The original grants experience to the player unit after an entire exchange,
+ 	# including enemy-phase counters, not after each individual strike.
+--- actual/reports/cursor-healing-exp-20261027/before/actual/core/story_hub.gd	2026-10-26 23:42:10
++++ actual/core/story_hub.gd	2026-10-27 16:01:20
+@@ -486,8 +486,8 @@
+ 			ui._draw_frame(sp,int(sp.directions.down[0]),at-Vector2(sp.tile_origin[0],sp.tile_origin[1]))
+ 		else:
+ 			var tex=ui._tex(str(o.get("sprite_path","res://assets/battle_tiles/modules/"+str(o.sprite)+".png")));ui.draw_texture(tex,at-Vector2(0,tex.get_height()-16),Color.WHITE if o.sprite in ["sun_altar","lit_brazier","ritual_lamp","well"] else _east_environment_tint())
+-		if object_occupies(o,ui.game.hub_position+facing):ui._draw_indicator("down",at+Vector2(4,-8))
+-	ui._draw_indicator("down",ORIGIN+Vector2(6,8)*16+Vector2(4,-2))
++		if object_occupies(o,ui.game.hub_position+facing):ui._draw_map_indicator("down",at+Vector2(4,-8))
++	ui._draw_map_indicator("down",ORIGIN+Vector2(6,8)*16+Vector2(4,-2))
+ 	var text=hint
+ 	for o in objects:
+ 		if object_occupies(o,ui.game.hub_position+facing):text="确认:"+str(o.name)

@@ -1,0 +1,332 @@
+{
+  "checks": [
+    "ordinary launch does not enable probe",
+    "similar argument cannot accidentally enable probe",
+    "exact opt-in flag enables probe",
+    "probe intercepts ready before main game or journal reader exists",
+    "diagnostic branch cannot process gameplay or player inputs",
+    "main game stays uninstantiated through entire probe",
+    "probe contains only the measuring viewport, no game/audio/journal nodes",
+    "measurement viewport never owns game scene",
+    "probe reuses actual phone geometry",
+    "probe measures all four control contexts with no geometry errors",
+    "probe report declares no journal access"
+  ],
+  "errors": [],
+  "note": "Only this test harness writes its report; shipping opt-in branch only prints stdout and exits.",
+  "passed": true,
+  "report": {
+    "contexts": {
+      "battle": [
+        {
+          "key": 4194320,
+          "label": "",
+          "physical_hit_rect": [
+            337.0,
+            392.0,
+            144.0,
+            144.0
+          ]
+        },
+        {
+          "key": 4194322,
+          "label": "",
+          "physical_hit_rect": [
+            337.0,
+            680.0,
+            144.0,
+            144.0
+          ]
+        },
+        {
+          "key": 4194319,
+          "label": "",
+          "physical_hit_rect": [
+            193.0,
+            536.0,
+            144.0,
+            144.0
+          ]
+        },
+        {
+          "key": 4194321,
+          "label": "",
+          "physical_hit_rect": [
+            481.0,
+            536.0,
+            144.0,
+            144.0
+          ]
+        },
+        {
+          "key": 90,
+          "label": "确认",
+          "physical_hit_rect": [
+            2101.0,
+            96.0,
+            272.0,
+            152.0
+          ]
+        },
+        {
+          "key": 88,
+          "label": "返回",
+          "physical_hit_rect": [
+            2101.0,
+            264.0,
+            272.0,
+            152.0
+          ]
+        },
+        {
+          "key": 69,
+          "label": "切换我方",
+          "physical_hit_rect": [
+            2101.0,
+            432.0,
+            272.0,
+            152.0
+          ]
+        },
+        {
+          "key": 83,
+          "label": "菜单",
+          "physical_hit_rect": [
+            2101.0,
+            600.0,
+            272.0,
+            256.0
+          ]
+        },
+        {
+          "key": 4194306,
+          "label": "状态",
+          "physical_hit_rect": [
+            2101.0,
+            872.0,
+            272.0,
+            152.0
+          ]
+        }
+      ],
+      "combat": [
+        {
+          "key": -1,
+          "label": "按住\n加速",
+          "physical_hit_rect": [
+            2101.0,
+            488.0,
+            272.0,
+            272.0
+          ]
+        }
+      ],
+      "general": [
+        {
+          "key": 4194320,
+          "label": "",
+          "physical_hit_rect": [
+            337.0,
+            392.0,
+            144.0,
+            144.0
+          ]
+        },
+        {
+          "key": 4194322,
+          "label": "",
+          "physical_hit_rect": [
+            337.0,
+            680.0,
+            144.0,
+            144.0
+          ]
+        },
+        {
+          "key": 4194319,
+          "label": "",
+          "physical_hit_rect": [
+            193.0,
+            536.0,
+            144.0,
+            144.0
+          ]
+        },
+        {
+          "key": 4194321,
+          "label": "",
+          "physical_hit_rect": [
+            481.0,
+            536.0,
+            144.0,
+            144.0
+          ]
+        },
+        {
+          "key": 90,
+          "label": "确认",
+          "physical_hit_rect": [
+            2101.0,
+            232.0,
+            272.0,
+            152.0
+          ]
+        },
+        {
+          "key": 88,
+          "label": "返回",
+          "physical_hit_rect": [
+            2101.0,
+            400.0,
+            272.0,
+            152.0
+          ]
+        },
+        {
+          "key": 83,
+          "label": "菜单",
+          "physical_hit_rect": [
+            2101.0,
+            568.0,
+            272.0,
+            152.0
+          ]
+        },
+        {
+          "key": 4194306,
+          "label": "状态",
+          "physical_hit_rect": [
+            2101.0,
+            736.0,
+            272.0,
+            152.0
+          ]
+        }
+      ],
+      "overview": [
+        {
+          "key": 4194320,
+          "label": "",
+          "physical_hit_rect": [
+            337.0,
+            392.0,
+            144.0,
+            144.0
+          ]
+        },
+        {
+          "key": 4194322,
+          "label": "",
+          "physical_hit_rect": [
+            337.0,
+            680.0,
+            144.0,
+            144.0
+          ]
+        },
+        {
+          "key": 4194319,
+          "label": "",
+          "physical_hit_rect": [
+            193.0,
+            536.0,
+            144.0,
+            144.0
+          ]
+        },
+        {
+          "key": 4194321,
+          "label": "",
+          "physical_hit_rect": [
+            481.0,
+            536.0,
+            144.0,
+            144.0
+          ]
+        },
+        {
+          "key": 61,
+          "label": "放大",
+          "physical_hit_rect": [
+            2101.0,
+            232.0,
+            272.0,
+            152.0
+          ]
+        },
+        {
+          "key": 45,
+          "label": "缩小",
+          "physical_hit_rect": [
+            2101.0,
+            400.0,
+            272.0,
+            152.0
+          ]
+        },
+        {
+          "key": 82,
+          "label": "复位",
+          "physical_hit_rect": [
+            2101.0,
+            568.0,
+            272.0,
+            152.0
+          ]
+        },
+        {
+          "key": 88,
+          "label": "返回",
+          "physical_hit_rect": [
+            2101.0,
+            736.0,
+            272.0,
+            152.0
+          ]
+        }
+      ]
+    },
+    "display_safe_area_raw": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "game_instantiated": false,
+    "game_rect": [
+      642.0,
+      78.0,
+      1456.0,
+      960.0
+    ],
+    "geometry_errors": [],
+    "integer_scale": 4,
+    "ios": false,
+    "kind": "phone-layout-probe",
+    "logical_size": [
+      364,
+      240
+    ],
+    "orientation_setting": 4,
+    "player_records_read": false,
+    "player_records_written": false,
+    "safe_area_received": false,
+    "safe_area_used": [
+      177.0,
+      0.0,
+      2202.0,
+      1116.0
+    ],
+    "screen_pixels": [
+      0,
+      0
+    ],
+    "version": "0.10.4",
+    "viewport": [
+      0.0,
+      0.0,
+      2556.0,
+      1179.0
+    ]
+  }
+}

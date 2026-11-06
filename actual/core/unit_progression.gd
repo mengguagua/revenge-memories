@@ -19,7 +19,7 @@ static func promotion_options(unit: Dictionary) -> Array[Dictionary]:
 static func promote(unit: Dictionary, target_class: int, story_promotion: bool = false) -> Dictionary:
 	# L08A96C-L08AA27: level1/EXP0; raise six stats to destination minima.
 	# A promotion with no stat increase guarantees maxHP +1 (cap52).
-	if int(unit.get("hp", 1)) <= 0 or bool(unit.get("dead", false)):
+	if int(unit.get("hp", 1)) <= 0 or bool(unit.get("dead", false)) or bool(unit.get("dying",false)):
 		return {"valid": false, "unit": unit.duplicate(true), "growths": {}}
 	var allowed := false
 	for option in promotion_options(unit):

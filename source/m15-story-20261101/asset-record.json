@@ -1,0 +1,120 @@
+{
+  "generator": "built-in image_gen",
+  "reference": "actual/assets/character-art-sync-20261024/professions-class-22-enemy-maps-tactical-walk.png",
+  "purpose": "M15战伤临终、撑起失败与倒地；无新增攻击或处决",
+  "source": "source/m15-story-20261101/korlan-last-moments-source.png",
+  "runtime": "actual/assets/m15-story-20261101/korlan-last-moments.png",
+  "pixel_size": [
+    768,
+    96
+  ],
+  "bytes": 30488,
+  "poses": [
+    {
+      "pose": 0,
+      "source_bounds": [
+        50,
+        208,
+        412,
+        446
+      ],
+      "runtime_bounds": [
+        12,
+        32,
+        84,
+        80
+      ]
+    },
+    {
+      "pose": 1,
+      "source_bounds": [
+        42,
+        255,
+        454,
+        451
+      ],
+      "runtime_bounds": [
+        10,
+        41,
+        92,
+        80
+      ]
+    },
+    {
+      "pose": 2,
+      "source_bounds": [
+        40,
+        226,
+        462,
+        451
+      ],
+      "runtime_bounds": [
+        10,
+        35,
+        94,
+        80
+      ]
+    },
+    {
+      "pose": 3,
+      "source_bounds": [
+        38,
+        190,
+        471,
+        382
+      ],
+      "runtime_bounds": [
+        10,
+        42,
+        96,
+        80
+      ]
+    },
+    {
+      "pose": 4,
+      "source_bounds": [
+        19,
+        243,
+        481,
+        386
+      ],
+      "runtime_bounds": [
+        6,
+        51,
+        98,
+        80
+      ]
+    },
+    {
+      "pose": 5,
+      "source_bounds": [
+        17,
+        274,
+        478,
+        387
+      ],
+      "runtime_bounds": [
+        6,
+        58,
+        97,
+        80
+      ]
+    }
+  ],
+  "runtime_body_height": "约12逻辑像素的跪姿、约6逻辑像素的侧卧；与16逻辑像素站立人物同一缩放比例",
+  "edge_validation": "6姿势均有透明余量，已检查深浅背景、实际运行尺寸及完整钢枪/盾缘。原图隔离在工程根source，运行项目不加载原图。",
+  "role_action_mapping": {
+    "id": "M15_boss",
+    "name": "科兰",
+    "class_id": 22,
+    "equipment_item_id": 2,
+    "equipment": "钢枪",
+    "action": "剧情临终，非出牌或战斗攻击",
+    "trigger": "本场真实战斗HP归零后；只播放姿势，不增加攻击、伤害或处决"
+  },
+  "prompt_summary": "保持参考壁垒卫士蓝紫铠甲、圆盔、十字盾与钢枪；3×2透明小地图像素姿势：跪倒、撑地、试图起身、手臂失力、侧倒、静止身亡；无血、无魔法、无额外人物。第二次仅清理背景光晕并保留姿势。",
+  "prompts": [
+    "Use case: identity-preserve. Asset type: transparent pixel-art sprite sheet for a Godot tactics game's short death cutscene. Reference image is the exact existing character design and palette, NOT an edit target. Generate a NEW companion sheet matching this purple-blue armored enemy guard exactly: round dark cap/helmet, small visible pale face, wide segmented shoulder armor, blue-purple tabard, large gray-rimmed purple shield with pale cross, and a simple steel lance. Preserve this stocky knight's proportions, colors, armor, shield and lance. Small tactical-map body with about 18-20 logical pixels standing height; sharp pixel clusters and flat pixel shading, visibly pixel art, no smooth painting or gradients. Genuine transparent background. Sheet layout EXACTLY 3 columns by 2 rows, six equally sized cells, clear generous empty gutters, no labels or lines. All figures seen in side/three-quarter profile facing LEFT, same scale and aligned ground baseline within each cell; full body and equipment must fit, no clipping or overlap. Reading order: 1) badly wounded, dropped to one knee, shield lowered, lance tip on ground. 2) collapsed onto a supporting gauntleted hand, torso leaning down. 3) trying to push his torso upward from that hand and knee, face strained. 4) arm gives way and shoulders sag, body tilts sideways. 5) falling onto his left side, lance slipping flat along the ground, shield dropping beside him. 6) fully prone and completely still on his side, same armor, lance and shield visible next to him. This is quiet death from already received battle wounds, no new attack, no magic, no glow, no blood or gore, no additional characters or scenery. Target canvas 1536 by 1024.",
+    "Use case: background-extraction. Edit this exact six-pose pixel-art sprite sheet. Keep ALL six characters, armor, poses, colors, composition, grid, steel lances, and shield outlines unchanged. Remove ONLY all of the broad purple/black glow, haze, soft shadow, background and semi-transparent clouds surrounding the six silhouettes. The output must be crisp standalone pixel sprites on completely transparent empty pixels, with a tightly cut binary-alpha edge and absolutely NO light bloom or shadow outside the actual body, lance, shield or armor. Preserve fine lance points and all character pixels; do not recolor, redraw faces or crop equipment. Transparent background, no checkerboard drawn into image."
+  ]
+}

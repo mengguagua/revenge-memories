@@ -1,0 +1,162 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "00-primary",
+      "observed_window": true,
+      "window": "primary",
+      "exit_code": -9,
+      "files": {
+        "primary": {
+          "serial": 0,
+          "bytes": 523789,
+          "sha256": "27eb809b500225939a1bbad12f2d497f62778a7d026129e80da01d22a9f2bf4a",
+          "json_complete": true
+        },
+        "backup": {
+          "serial": 0,
+          "bytes": 523789,
+          "sha256": "27eb809b500225939a1bbad12f2d497f62778a7d026129e80da01d22a9f2bf4a",
+          "json_complete": true
+        }
+      }
+    },
+    {
+      "case": "01-backup",
+      "observed_window": true,
+      "window": "backup",
+      "exit_code": -9,
+      "files": {
+        "primary": {
+          "serial": 0,
+          "bytes": 523789,
+          "sha256": "27eb809b500225939a1bbad12f2d497f62778a7d026129e80da01d22a9f2bf4a",
+          "json_complete": true
+        },
+        "backup": {
+          "serial": 0,
+          "bytes": 523789,
+          "sha256": "27eb809b500225939a1bbad12f2d497f62778a7d026129e80da01d22a9f2bf4a",
+          "json_complete": true
+        }
+      }
+    },
+    {
+      "case": "02-primary",
+      "observed_window": true,
+      "window": "primary",
+      "exit_code": -9,
+      "files": {
+        "primary": {
+          "serial": 0,
+          "bytes": 523789,
+          "sha256": "ea218358d251e4cd448163064fd7448bded63d4916e7a62f54bc21028badc3b2",
+          "json_complete": true
+        },
+        "backup": {
+          "serial": 0,
+          "bytes": 523789,
+          "sha256": "ea218358d251e4cd448163064fd7448bded63d4916e7a62f54bc21028badc3b2",
+          "json_complete": true
+        }
+      }
+    },
+    {
+      "case": "03-backup",
+      "observed_window": true,
+      "window": "backup",
+      "exit_code": -9,
+      "files": {
+        "primary": {
+          "serial": 0,
+          "bytes": 523789,
+          "sha256": "ea218358d251e4cd448163064fd7448bded63d4916e7a62f54bc21028badc3b2",
+          "json_complete": true
+        },
+        "backup": {
+          "serial": 0,
+          "bytes": 523789,
+          "sha256": "ea218358d251e4cd448163064fd7448bded63d4916e7a62f54bc21028badc3b2",
+          "json_complete": true
+        }
+      }
+    },
+    {
+      "case": "04-primary",
+      "observed_window": true,
+      "window": "primary",
+      "exit_code": -9,
+      "files": {
+        "primary": {
+          "serial": 0,
+          "bytes": 523789,
+          "sha256": "faab26defca010196a3ecfcf8ae394461181b028c5a54c1a20a9ac896297961e",
+          "json_complete": true
+        },
+        "backup": {
+          "serial": 0,
+          "bytes": 523789,
+          "sha256": "faab26defca010196a3ecfcf8ae394461181b028c5a54c1a20a9ac896297961e",
+          "json_complete": true
+        }
+      }
+    },
+    {
+      "case": "05-backup",
+      "observed_window": true,
+      "window": "backup",
+      "exit_code": -9,
+      "files": {
+        "primary": {
+          "serial": 0,
+          "bytes": 523789,
+          "sha256": "faab26defca010196a3ecfcf8ae394461181b028c5a54c1a20a9ac896297961e",
+          "json_complete": true
+        },
+        "backup": {
+          "serial": 0,
+          "bytes": 523789,
+          "sha256": "faab26defca010196a3ecfcf8ae394461181b028c5a54c1a20a9ac896297961e",
+          "json_complete": true
+        }
+      }
+    }
+  ],
+  "runtime_validation": {
+    "cases": [
+      {
+        "backup": true,
+        "case": "00-primary",
+        "primary": true
+      },
+      {
+        "backup": true,
+        "case": "01-backup",
+        "primary": true
+      },
+      {
+        "backup": true,
+        "case": "02-primary",
+        "primary": true
+      },
+      {
+        "backup": true,
+        "case": "03-backup",
+        "primary": true
+      },
+      {
+        "backup": true,
+        "case": "04-primary",
+        "primary": true
+      },
+      {
+        "backup": true,
+        "case": "05-backup",
+        "primary": true
+      }
+    ],
+    "passed": true
+  },
+  "isolated_directory": "/private/tmp/revenge-save-process-cxzoa_zm",
+  "scope": "Six owned macOS headless subprocess SIGKILLs during enlarged checkpoint writes. Not device suspend, power-loss/fsync, or iOS thermal testing."
+}

@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "revision": "eileen-airborne-hold-v5-20261024",
+  "affected_actions": 1,
+  "aliases": {
+    "3": "2",
+    "4": "2",
+    "5": "2",
+    "6": "2",
+    "7": "2",
+    "9": "8",
+    "26": "25",
+    "28": "27",
+    "32": "29"
+  },
+  "groups_have_identical_whole_pose_pixels": true,
+  "original_frames_offsets_effects_contacts_and_timing_exact": true,
+  "crouch_and_retreated_sword_repairs_preserved": true,
+  "maps_and_promoted_files_unchanged": true,
+  "eileen_effect_definitions_unchanged": 124,
+  "decoded_videos": [
+    {
+      "path": "demos/videos/eileen-battle--original_class_11_normal.mp4",
+      "width": 2376,
+      "height": 840,
+      "duration": "5.191451",
+      "nb_read_frames": "312"
+    },
+    {
+      "path": "demos/videos/eileen-battle--original_class_11_normal--close.mp4",
+      "width": 1224,
+      "height": 584,
+      "duration": "5.191451",
+      "nb_read_frames": "312"
+    }
+  ],
+  "page_links_checked": 597,
+  "runtime_integrated": false,
+  "browser_ui_checked": false,
+  "visual_acceptance": "pending",
+  "text_safe_areas": "Existing padded gallery panel, wrapping links and export captions measured inside margins.",
+  "offline_visual_review": {
+    "status": "checked",
+    "checked_artifacts": {
+      "airborne-poses-light.png": "92abe7360467da90108eda638008a40970bdd73edb6b1b4ef1e9e5dcf963f24c",
+      "airborne-poses-dark.png": "35fb28a47126f28a35c9426e1863ee8362d9ad88d8269a959d36349d5c380d30",
+      "forward-continuous.png": "9faf95c77cb49616bc7fccb504568d54d0824380a13df0a1bbf86f9d6313133b",
+      "backward-continuous.png": "1be3963245af27ba02e18f013f5ae4c04758266e58ffa420aaf5732971c6f986"
+    },
+    "decoded_close_video_displayed_frame": 103,
+    "findings": "各空中阶段腿脚轮廓一致；阶段转换后保持姿势。第103帧源姿势9已复用收腿姿势8，剑、双手及双靴完整；深浅背景轮廓和导出文字间距清晰。",
+    "browser_ui_checked": false
+  }
+}

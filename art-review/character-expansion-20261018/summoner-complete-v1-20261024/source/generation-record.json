@@ -1,0 +1,55 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "prompt_record_type": "production briefs summarized from generation instructions; not verbatim tool transcripts",
+  "references": [
+    "native-battle-detail.png",
+    "map-pose-guide.png",
+    "../../bone-guard-complete-v1-20261024/source/enemy-swordmaster-style.png"
+  ],
+  "sources": [
+    {
+      "file": "battle-study.png",
+      "generated_original": "/Users/gcc/.codex/generated_images/01a1676d-d26b-7992-acd6-1335649650d5/exec-ad184cee-6574-4932-92c0-c7796d90d64d.png",
+      "sha256": "404789a90c49813d40b33b14c85cee46708247f78c76f2770cdabd814edb493a",
+      "use": "study, not used",
+      "production_brief": "Three native cast poses; rejected bell sleeves and forearm position."
+    },
+    {
+      "file": "battle-master.png",
+      "generated_original": "/Users/gcc/.codex/generated_images/01a1676d-d26b-7992-acd6-1335649650d5/exec-74786dbc-1e5f-4d7d-94db-528d4ec16934.png",
+      "sha256": "32dde9db321f66f938816c519e315cbbb0a7f427eb4d6128798bded13a8ca3e5",
+      "use": "production poses 0 and 5, lower pose4",
+      "production_brief": "Same human cloth-hooded summoner, facing left; low cupped hand, overhead bare forearm, extended cupped palm. Rear arm bends inward across waist during overhead pose; otherwise hangs bent by hip. Seven matte blue-purple colors, pale collar, tan exposed forearms, no staff, orb, hair, shine, glow or background. Match native pose silhouettes and fore/back anatomy."
+    },
+    {
+      "file": "raised-cross-study.png",
+      "generated_original": "/Users/gcc/.codex/generated_images/01a1676d-d26b-7992-acd6-1335649650d5/exec-e9a2b216-8da8-47a6-a12c-6e23db8c566c.png",
+      "sha256": "94bb79e890bf83cc2cb83a5f4c9becddf7fe460f712c8db1717ce82d46e7f852",
+      "use": "production upper pose4",
+      "production_brief": "Correct overhead reach close to the face; native foreground arm rises above hood, elbow and bare forearm connected. Same hood, face, long robe and palette. This source upper pose is registered with master lower robe and rear arm."
+    },
+    {
+      "file": "raised-guided.png",
+      "generated_original": "/Users/gcc/.codex/generated_images/01a1676d-d26b-7992-acd6-1335649650d5/exec-ea710d7d-b634-4323-b4f3-224414ad104d.png",
+      "sha256": "7fbb363ad8687659034df2bc4bc6609b9ef9ccb71ab40adf8a8ee993f2429ad9",
+      "use": "alternative, not used",
+      "production_brief": "Alternative native-referenced overhead arm; discarded due to hand placement."
+    },
+    {
+      "file": "maps-master.png",
+      "generated_original": "/Users/gcc/.codex/generated_images/01a1676d-d26b-7992-acd6-1335649650d5/exec-68a55eb4-2e52-4ad3-a508-8c3b5dc44656.png",
+      "sha256": "13f4721a8f29c654447eabd3dcaf5341b06c7ca08b9fefee00f52dc33045f73c",
+      "use": "production map poses",
+      "production_brief": "3x3 complete pixel sprite sheet; first row idle0/1/2, second row back0/right0/front0, third row back1/right1/front1. Match native gestures, robe/foot phases and foreground/background arm occlusion; fixed hood, torso and pelvis center, constant body scale and foot baseline. Soft low-saturation blue-purple matte robe, pale lining, bare tan arms, solid covered hair, no highlights or glow. Back views have no face. Genuine transparency and complete feet."
+    },
+    {
+      "file": "summon-mist-master.png",
+      "generated_original": "/Users/gcc/.codex/generated_images/01a1676d-d26b-7992-acd6-1335649650d5/exec-f6cbae5c-e36c-42cc-a050-c5ae363f07f1.png",
+      "sha256": "dc0fc795ed20ee447a4bd65dcf07c75a84402ca36134b74ca064cb1542d949d7",
+      "use": "production summon FX",
+      "production_brief": "Six phases in 3 columns x 2 rows of a single twin-mound summoning field: gather, rise, open, part, thin, last motes. Soft blue-purple coarse pixel mist with transparent background, fixed common ground and clean margins. No characters, rune text, fire explosions, weapons, damage or extra creatures. Field rendered once behind two approved skeletons."
+    }
+  ],
+  "postprocess": "authored pixels cropped by transparent gutters; seven-color material quantization, uniform scale, integer registration, fixed map hood/waist cores; corrected overhead upper pose composited above matching master lower torso; existing approved bone guard reused; mist quantized with discrete opacity, nearest-neighbor resizing; indexed PNG round-trip byte equality",
+  "runtime_integrated": false
+}

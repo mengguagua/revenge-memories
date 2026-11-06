@@ -1,0 +1,78 @@
+# coding: utf-8
+"""Prepare review copies of generated pixel art; no game resources are changed."""
+from pathlib import Path
+from PIL import Image
+import json, subprocess, shutil, heapq
+ROOT=Path(__file__).resolve().parent
+MAGICK='/opt/homebrew/bin/magick'
+frames={k:[] for k in ['battle','battle-broken','maps','maps-broken','concept']}
+def run(*args):subprocess.run([MAGICK,*map(str,args)],check=True,capture_output=True)
+def bounds(name,columns,rows,i):
+    im=Image.open(ROOT/'source'/name);x,y=i%columns,i//columns
+    rect=[round(x*im.width/columns),round(y*im.height/rows),round((x+1)*im.width/columns),round((y+1)*im.height/rows)]
+    if name=='defeat-original.png':
+        # Connected alpha silhouettes extend beyond an equal half-cell in this
+        # source. Measured individual rectangles keep whole fists and boots
+        # while excluding the adjacent fallen pose.
+        rect=[[48,95,562,555],[579,190,1274,553],[48,655,564,1116],[577,752,1274,1114]][i]
+    box=im.getchannel('A').crop(rect).point(lambda v:255 if v>=128 else 0).getbbox()
+    assert box and min(box[:2])>2 and box[2]<rect[2]-rect[0]-2 and box[3]<rect[3]-rect[1]-2,(name,i,box)
+    return rect,box
+def cell(name,columns,rows,i,group,index,factor,size,baseline):
+    rect,b= bounds(name,columns,rows,i);l,t,r,bt=b
+    w,h=round((r-l)*factor),round((bt-t)*factor);left,top=(size[0]-w)//2,baseline-h
+    assert min(left,top)>=2 and left+w<=size[0]-2 and top+h<=size[1]-2,(name,i,w,h,size)
+    p=ROOT/'assets'/f'{group}-{index:02d}.png'
+    run(ROOT/'source'/name,'-crop',f'{rect[2]-rect[0]}x{rect[3]-rect[1]}+{rect[0]}+{rect[1]}','+repage',
+        '-channel','A','-threshold','50%','+channel','-crop',f'{r-l}x{bt-t}+{l}+{t}','+repage',
+        '-filter','point','-resize',f'{w}x{h}!','+dither','-colors','24',
+        '-background','none','-gravity','northwest','-splice',f'{left}x{top}','-extent',f'{size[0]}x{size[1]}','-strip',p)
+    frames[group].append({'id':index,'path':'assets/'+p.name,'pixels':size,'content':[left,top,w,h],'source':name,'source_cell':i})
+_,b=bounds('battle-original.png',4,4,0);battle_factor=48/(b[3]-b[1])
+for i in range(16):cell('battle-original.png',4,4,i,'battle' if i<8 else 'battle-broken',i%8,battle_factor,[96,88],80)
+_,b=bounds('defeat-original.png',2,2,0);defeat_factor=38/(b[3]-b[1])
+for i in range(4):cell('defeat-original.png',2,2,i,'battle' if i<2 else 'battle-broken',8+i%2,defeat_factor,[96,88],80)
+for group,name in [('maps','maps-original.png'),('maps-broken','maps-broken-original.png')]:
+    _,b=bounds(name,4,4,1);factor=48/(b[3]-b[1])
+    for i in range(16):cell(name,4,4,i,group,i,factor,[64,64],60)
+for i in range(4):
+    _,b=bounds('concept-original.png',2,2,i)
+    cell('concept-original.png',2,2,i,'concept',i,64/(b[3]-b[1]),[96,96],90)
+for group in frames:
+    paths=[ROOT/f['path'] for f in frames[group]]
+    run(*paths,'+append','-strip',ROOT/'assets'/f'{group}-poses.png')
+    run(*([paths[0]]*len(paths)),'+append','-strip',ROOT/'assets'/f'{group}-reference.png')
+run(ROOT/'assets/concept-00.png',ROOT/'assets/concept-01.png','+append',ROOT/'assets/concept-top.png')
+run(ROOT/'assets/concept-02.png',ROOT/'assets/concept-03.png','+append',ROOT/'assets/concept-bottom.png')
+run(ROOT/'assets/concept-top.png',ROOT/'assets/concept-bottom.png','-append','-filter','point','-resize','300%','-strip','-quality','100',ROOT/'assets/concept.webp')
+(ROOT/'assets/concept-top.png').unlink();(ROOT/'assets/concept-bottom.png').unlink()
+# The soldier is a size/contact reference only, never a proposed new unit.
+for name in ['soldier-reference.png','hit.ogg']:
+    shutil.copyfile(ROOT.parent/'water-monkey-v1-20261104/assets'/name,ROOT/'assets'/name)
+inventory=[]
+for p in sorted((ROOT/'assets').glob('*')):
+    if p.suffix not in ['.png','.webp']:continue
+    if p.suffix=='.png':subprocess.run(['/opt/homebrew/bin/oxipng','-o','2','--strip','safe','--quiet',str(p)],check=True)
+    im=Image.open(p)
+    inventory.append({'path':'assets/'+p.name,'pixels':list(im.size),'bytes':p.stat().st_size,'use':'review-only native pixel sprite / atlas / concept','colors':len(im.convert('RGBA').getcolors(1000000) or []),'quality':'Native square clusters, nearest-neighbor registration; no smoothing, intact transparent outline. Original sources isolated.'})
+(ROOT/'asset-manifest.json').write_text(json.dumps({'frames':frames,'images':inventory},ensure_ascii=False,indent=2)+'\n')
+# Review-only F25 route uses its actual terrain table; never writes the stage.
+stage=json.loads((ROOT.parents[2]/'actual/data/stages/F25.json').read_text());w,h=stage['map']['width'],stage['map']['height']
+occupied={tuple(p) for p in stage['player_positions']}|{tuple(u['position']) for u in stage['npc_units']}
+origin=(18,9);cost={origin:0};previous={};q=[(0,origin)];values=stage['terrain']['movement_by_class_and_category']['6']
+while q:
+    c,p=heapq.heappop(q)
+    if cost[p]!=c:continue
+    for dx,dy in [(0,-1),(1,0),(0,1),(-1,0)]:
+        n=(p[0]+dx,p[1]+dy)
+        if not (0<=n[0]<w and 0<=n[1]<h) or n in occupied:continue
+        tile=stage['map']['tiles'][n[1]*w+n[0]];category=stage['terrain']['tile_categories'].get(str(tile),0);step=values[category]
+        if step>=255 or c+step>=cost.get(n,999999):continue
+        cost[n]=c+step;previous[n]=p;heapq.heappush(q,(c+step,n))
+def rank(p):return p[0] if p[1]==0 else 10000+p[1] if p[0]==w-1 else 20000+p[0] if p[1]==h-1 else 30000+p[1]
+edges=[p for p in cost if p[0] in [0,w-1] or p[1] in [0,h-1]];goal=min(edges,key=lambda p:(cost[p],rank(p)));path=[goal]
+while path[0]!=origin:path.insert(0,previous[path[0]])
+route={'stage':'F25','origin':origin,'destination':goal,'path':path,'costs':[cost[p] for p in path],'total_cost':cost[goal],'move':7,'map_size':[w,h],'occupied':list(occupied),'no_sea_exception':True,'scope':'HTML design demonstration, actual ground infantry terrain; enemy human units removed for retreat condition, existing player/NPC blockers retained.'}
+(ROOT/'escape-route.json').write_text(json.dumps(route,ensure_ascii=False,indent=2)+'\n')
+(ROOT/'route-data.js').write_text('window.PSEUDO_TITAN_ROUTE='+json.dumps(route,ensure_ascii=False,separators=(',',':'))+';\n')
+print(json.dumps({'frames':{k:len(v) for k,v in frames.items()},'images':len(inventory),'route_cost':cost[goal],'goal':goal}))

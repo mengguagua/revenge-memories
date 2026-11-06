@@ -1,0 +1,58 @@
+{
+  "id": "rm_jingle_wounded",
+  "path": "source/audio-20261024/content-review/candidates/rm_jingle_wounded.ogg",
+  "source_path": "source/audio-20261024/content-review/raw/rm_jingle_wounded_2026102828_float.wav",
+  "master_path": "source/audio-20261024/content-review/masters/rm_jingle_wounded_float.wav",
+  "sha256": "57268288ccea0fafac00f45ef5977caaa59256d02931687a57e5bfd700173bf4",
+  "bytes": 33215,
+  "source": {
+    "track_id": "rm_jingle_wounded",
+    "seed": 2026102828,
+    "model": "local Stable Audio 3 sm-music/same-s",
+    "method": "owned-guide audio-conditioned generation",
+    "guide": {
+      "path": "source/audio-20261024/content-review/guides/rm_jingle_wounded.wav",
+      "sha256": "8807b0a9f76d26e81729d40f5085f867f1a8423dde58d15e336ad4fb461cbb39",
+      "active_end_seconds": 2.6
+    },
+    "prompt": "TrackType: Music, VocalType: Instrumental. Original early-console 8-bit fantasy tactics soundtrack. Strict sparse four-channel chiptune: two warm pulse-wave melody and harmony voices, one rounded triangle bass voice, and quiet band-limited noise percussion. Dry direct electronic tone, clear monophonic lines, memorable NEW melody. Straight rhythm, no swing, no jazz, no reggae. No acoustic instruments, no piano, no guitar, no flute, no orchestral pad, no realistic drum kit, no voice or choir. a short gentle minor phrase conveying concern for a living wounded companion, never a funeral. Preserve the supplied new guide melody and its completed final cadence; one phrase followed by a short natural release, then silence.",
+    "seconds": 4.2,
+    "cfg": 2.0,
+    "steps": 8,
+    "dit_dtype": "fp32",
+    "sha256": "eae80be2fbf166de159e5c3732be6e045d1abe45e6dbcadcdf24bcec7099343c",
+    "source_format": "FLOAT WAV",
+    "offline": true,
+    "generation_wall_seconds": 1.371,
+    "raw_peak": 0.7470442056655884,
+    "raw_rms": 0.09540804475545883
+  },
+  "editing": {
+    "method": "65% newly composed guide + 35% model texture; preserve completed cadence and short release",
+    "guide_mix": 0.65,
+    "model_mix": 0.35,
+    "active_end_seconds": 2.6
+  },
+  "gain_db": -5.210000000000001,
+  "target_integrated_lufs": -19,
+  "metrics": {
+    "seconds": 2.78,
+    "rms_dbfs": -21.433486881411365,
+    "sample_peak_dbfs": -9.086262341283879,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "interior_silence_longest_seconds": 0.06,
+    "silent_frame_fraction": 0.11151079136690648,
+    "rms_10ms_p10_dbfs": -58.673464720200776,
+    "rms_10ms_p90_dbfs": -18.343636260271424,
+    "seam_max_sample_delta": 0.0004487006808631122,
+    "derivative_p99": 0.015919527038931847,
+    "seam_delta_over_derivative_p99": 0.02818555348822842,
+    "integrated_lufs": -18.98,
+    "true_peak_dbtp": -9.09,
+    "loudness_range_lu": 0.0
+  },
+  "errors": [],
+  "review_decision": "selected",
+  "review_reason": "Matches final published review index."
+}

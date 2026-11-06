@@ -22,6 +22,15 @@ func write_checkpoint(state: Dictionary) -> String:
 	var path=CACHE+"legacy.json"
 	var f=FileAccess.open(path,FileAccess.WRITE);f.store_string(JSON.stringify(state));f.close();return path
 
+func legacy_checkpoint(g) -> Dictionary:
+	# A deliberately pre-migration casualty is not a valid schema-3 state.
+	# Construct the old fixture directly instead of asking the production
+	# writer to overwrite a valid checkpoint with it before changing schema.
+	var raw={"schema":2,"campaign_id":g.CAMPAIGN_ID,"hub_record":g.hub_record,"map_revision":str(g.battle_data.get("tactical_review_version","0.2.0"))}
+	for key in g.SAVE_FIELDS:
+		var value=g.get(key);raw[key]=[value.x,value.y] if value is Vector2i else value
+	raw=JSON.parse_string(JSON.stringify(raw));legacy_fields(raw);return raw
+
 func legacy_fields(state: Dictionary) -> void:
 	state.schema=2
 	state.flags.erase("treatment_sources");state.flags.erase("treatment_used")
@@ -67,7 +76,7 @@ func run() -> void:
 	check(not g.treat_member("daan").valid,"Treatment cannot occur in battle")
 	g=fresh();g.roster.otto.level=6;g.roster.otto.exp=89;g.roster.otto.strength+=5;g.roster.otto.hp=0;g.roster.otto.dead=true;g.roster.otto.item_id=11
 	g.roster.beck=g._initial_character("beck");g.roster.beck.dead=true;g.roster.beck.hp=0
-	unlock_west(g);g.save_game();var raw=State.read_json(g.save_path);legacy_fields(raw)
+	unlock_west(g);var raw=legacy_checkpoint(g)
 	var legacy_growth=growth(raw.roster.otto);var old_bag=raw.convoy.alm.count(11)
 	reload=State.new();reload.save_path=write_checkpoint(raw)
 	check(reload.load_game(),"Schema 2 legacy casualty checkpoint migrates")

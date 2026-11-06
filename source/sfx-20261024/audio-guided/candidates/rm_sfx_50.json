@@ -1,0 +1,58 @@
+{
+  "id": "rm_sfx_50",
+  "request": "50",
+  "path": "source/sfx-20261024/audio-guided/candidates/rm_sfx_50.ogg",
+  "sha256": "51ebad8dc3830d18cad349f325b5443b28a5d91823c3f111207fe58187956683",
+  "bytes": 63434,
+  "source": {
+    "id": "rm_sfx_50",
+    "seed": 2026102680,
+    "model": "local Stable Audio 3 sm-sfx/same-s",
+    "method": "reference-conditioned audio-to-audio variation",
+    "reference_path": "actual/assets/original/audio/sfx_50.ogg",
+    "reference_sha256": "9c1570440a82d69618d9239cc5adfc2c53090bb8d3ff118bab3154439585aae1",
+    "reference_pcm_sha256": "57c6463dbf190b6e1dea47e728a58fcbe4b92ee54a9b63f1c8e38f5f757484ce",
+    "init_noise_level": 0.55,
+    "reference_input_gain_db": 10.07527575813298,
+    "prompt": "TrackType: SFX. A dry monophonic retro 8-bit game sound effect. Preserve the reference sound's electronic pitch contour, immediate attack, modulation speed and noise-pulse rhythm. A clearly defined pulse-wave or noise-channel effect, crisp upper-midrange, no muffled low drum or acoustic instrument. Create a variation in synthetic tone color, retaining the same sound gesture. No music, no vocal, no real-world ambience, no reverb. One compact event with immediate attack and short release, no additional impacts or repeated sequence.",
+    "cfg": 1.5,
+    "steps": 8,
+    "sha256": "99e1ab5931f3401bd89da6b42e5b564bbe30f7afdb2fec2d764e0ff09931f8c8",
+    "seconds": 4.589478458049887,
+    "offline": true,
+    "generation_wall_seconds": 1.582,
+    "raw_peak": 0.19365118443965912,
+    "raw_rms": 0.0480383075773716
+  },
+  "mastering": {
+    "method": "preserve reference duration and 25ms-smoothed amplitude gesture; rounded edges; constant active-RMS gain",
+    "gain_db": 1.8544924117283657,
+    "target_active_rms_dbfs": -22.0,
+    "peak_ceiling_dbfs": -12.173,
+    "transient_shaping": {
+      "applied": true,
+      "method": "smooth tanh knee at 2.3 times 25ms local RMS",
+      "reason": "generated peak crest would otherwise hide the audible body under the reference peak budget"
+    }
+  },
+  "metrics": {
+    "seconds": 4.3894784580498865,
+    "sample_rate": 44100,
+    "channels": 2,
+    "rms_dbfs": -22.634080686637926,
+    "active_rms_dbfs": -22.42744636414566,
+    "sample_peak_dbfs": -11.775354514005677,
+    "first_50ms_rms_dbfs": -28.580956402008745,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "leading_onset_seconds": 0.014965986394557823,
+    "longest_internal_silence_seconds": 0.06485260770975057,
+    "last_10ms_rms_dbfs": -240.0,
+    "first_last_sample_delta": 0.0,
+    "lufs_note": "Measured gated integrated loudness",
+    "integrated_lufs": -19.1,
+    "true_peak_dbtp": -11.7
+  },
+  "review_decision": "selected",
+  "review_reason": "Matches final published review index."
+}

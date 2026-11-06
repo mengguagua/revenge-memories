@@ -1,0 +1,38 @@
+from pathlib import Path
+from html import escape
+import json
+import subprocess
+from PIL import Image
+
+ROOT=Path(__file__).resolve().parents[2]
+OUT=ROOT/'actual/reports/walk-counter-20261029'
+logic=json.loads((OUT/'logic.json').read_text())
+visual=json.loads((OUT/'visual.json').read_text())
+assert not logic['errors'] and not visual['errors']
+sizes=[]
+def figure(name,title):
+    path=OUT/name
+    if path.stat().st_size>=200000:
+        target=path.with_suffix('.webp')
+        subprocess.run(['/opt/homebrew/bin/magick',str(path),'-define','webp:lossless=true',str(target)],check=True)
+        path=target
+    with Image.open(path) as image:dimensions=list(image.size)
+    sizes.append({'source':name,'display':path.name,'dimensions':dimensions,'bytes':path.stat().st_size,'quality':'Full viewport pixels; lossless WebP where useful. No crop or downscale.'})
+    return f'<figure><a href="{path.name}"><img loading="lazy" src="{path.name}" alt="{escape(title)}"></a><figcaption>{escape(title)}</figcaption></figure>'
+walking=''.join(figure(n,t) for n,t in [('walk-tap-0.png','同一次短按：前半步'),('walk-tap-4.png','同一次短按：后半步'),('story-walk-3-0.png','上前挡击：开始迈步'),('story-walk-3-3.png','上前挡击：交替迈步'),('story-walk-7-0.png','走近艾琳：迈步'),('story-walk-7-3.png','走近后站定，再伸手')])
+weapons=''.join(figure(n,t) for n,t in [('javelin-forecast.png','发起攻击前，预览已显示投枪'),('javelin-status.png','状态页区分携带装备和远程反击武器'),('counter-6-3-14.png','枪兵：举起投枪'),('counter-6-3-22.png','枪兵：释放投枪，手中不留第二把'),('counter-2-3-22.png','重装兵：沿用自己的投枪动作'),('counter-8-3-22.png','剑兵：举起引霆剑（雷电剑）'),('compact-forecast.png','紧凑手机布局：武器与数字完整显示')])
+manifest=json.loads((ROOT/'actual/assets/ranged-counter-20261029/manifest.json').read_text())
+rows=''.join(f'<tr><td>{escape(Path(r["path"]).name)}</td><td>{r["dimensions"][0]}×{r["dimensions"][1]}</td><td>{r["bytes"]:,} B</td></tr>' for r in manifest['new_poses']+[manifest['atlas']])
+(OUT/'image-sizes.json').write_text(json.dumps({'review_images':sizes,'runtime_art':manifest},ensure_ascii=False,indent=2)+'\n')
+page=f'''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>序言迈步与远程反击 · 2026-10-29</title><style>
+:root{{color-scheme:dark;font:16px/1.75 system-ui,-apple-system,sans-serif;background:#10181f;color:#dce4eb}}body{{max-width:1380px;margin:auto;padding:32px 24px 72px}}h1,h2{{color:#eadbb7;line-height:1.4}}p{{max-width:1020px}}a{{color:#dbc18a;text-underline-offset:4px}}video,img{{width:100%;height:auto;display:block;background:#0a1018}}video{{max-height:80vh}}.grid{{display:grid;grid-template-columns:1fr 1fr;gap:24px}}figure{{margin:0}}figcaption{{padding:9px 0 18px;color:#b9c6d0}}.badge{{display:inline-block;background:#203d31;color:#cde9cf;padding:7px 16px;border-radius:28px}}table{{border-collapse:collapse;width:100%}}td,th{{text-align:left;padding:10px 14px;border-bottom:1px solid #34434e}}h2{{margin-top:44px}}.small{{color:#a9b7c2;font-size:14px}}@media(max-width:800px){{.grid{{grid-template-columns:1fr}}body{{padding:20px 14px}}}}
+</style><h1>序言迈步与远程反击</h1><p>2026-10-29 · 电脑上 Godot 按手机布局后台渲染的实际游戏视口。未安装或更新 iPhone。</p>
+<span class="badge">{logic['checks']}项无窗口检查 + {visual['checks']}项后台呈现检查通过</span>
+<h2>运行演出预览</h2><video controls preload="metadata" poster="counter-6-3-14.png"><source src="walk-counter.mp4" type="video/mp4"></video><p class="small">静音验收视频。前段使用P00和D00正式移动控制器；后段使用正式战斗动画选择器逐帧呈现投枪、引霆剑（雷电剑），在接触帧结算一次反击。为便于连续查看，战斗样例固定生命与防御；不用于展示关卡数值平衡，也不是真机录屏。</p>
+<h2>迈步</h2><p>P00短按一格时也会切换双脚，连续行走使用当前步行时钟。重新开始游戏后，旧剧情时钟不会冻结步行。D00上前阻挡和走近艾琳的移动段使用现有小地图迈步帧，到位后切换抬臂、收势、伸手姿势，保持小体型。</p><div class="grid">{walking}</div>
+<h2>远距离反击</h2><p>原来的守卫能力只扩展射程，仍使用普通近战武器。现在枪系守卫在远处反击时切换投枪，剑系守卫切换引霆剑（雷电剑）；已有远程装备继续使用原装备。反击预览、状态页、战斗事件、动画与武器名称一致。投枪按物防结算，引霆剑（雷电剑）使用固定攻击力15、按魔防结算。1–3格守卫反击能力保留，主动攻击射程与实际携带物保持原设定。</p><p>敌方普通枪兵补绘了4帧举枪、投掷和收势，保留原有27个普通攻击／受击图格。重装兵、骑兵和剑兵继续使用自己的现有投枪、引霆剑（雷电剑）动画。魔物使用自身攻击；石翼兽远反切换碎岩喷吐。每次攻击动作只触发一次接触与结算。</p><div class="grid">{weapons}</div>
+<h2>当前克制规则</h2><p><strong>没有剑、斧、枪互相克制的武器三角。</strong>当前普通交锋按攻击、物防／魔防、速度、命中和地形等规则结算。另有个别装备的特效，例如骑士杀手对骑兵、钢弓／银弓对飞行单位，以及圣系装备对指定魔物。该特效属于已有规则，本次没有新增武器三角。</p>
+<h2>素材与验证记录</h2><p>投枪新帧由内置 imagegen 按现有蓝紫色枪兵形象绘制，原图与完整提示词保存在工程 source 目录。每张独立新姿势小于20KB。合并动画图集为约102KB，保留原有图格像素和完整动作帧，按质量优先规则保留；尺寸、字节与原因见清单。</p><table><thead><tr><th>运行素材</th><th>尺寸</th><th>实际字节</th></tr></thead><tbody>{rows}</tbody></table>
+<p><a href="logic.json">逻辑检查</a> · <a href="visual.json">呈现检查</a> · <a href="movie.json">预览分段</a> · <a href="image-sizes.json">图片尺寸与质量记录</a> · <a href="../../assets/ranged-counter-20261029/manifest.json">运行图清单</a> · <a href="../../../source/ranged-counter-20261029/prompts.json">完整生成提示词</a></p><p class="small">范围包括单格短按、D00两处移动、距离1／2／3／4的守卫边界、反击预览与真实事件一致、近战与已有远程装备保持、物理／魔法结算、投枪／引霆剑（雷电剑）动作、一次真实接触、状态与两种手机布局。未执行全关卡回归或真机触摸测试。</p></html>'''
+(OUT/'index.html').write_text(page)
+print(json.dumps({'logic':logic['checks'],'visual':visual['checks'],'page':str(OUT/'index.html')},ensure_ascii=False))

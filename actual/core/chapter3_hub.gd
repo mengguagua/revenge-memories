@@ -14,11 +14,11 @@ static func action(h,key: String) -> void:
 		var result=g.ChapterThree.transfer_supply(g,int(key.substr(15)))
 		ui._notice("已交给本队行囊" if result.valid else str(result.reason));return
 	match key:
-		"third_prologue":await ui.play_pages(g.campaign.scenes.D31,"hub","third_prologue")
+		"third_prologue":await ui.prologue_scene.reprise()
 		"third_altar":await pages(h,["旁白：传光台仍在向西岸投下明亮的日光。神幕另一端的船还没有获准靠岸。"])
 		"third_reunion":
 			if not g.stage_cleared(301) or not g.stage_cleared(304):
-				await pages(h,["留守医者：这一队已经脱围。另一队还在海峡城，先去接应他们。", "提示：按S打开菜单，可以切换队伍。两队各自保留位置、成长和行囊。"]);return
+				await pages(h,["留守医者：这一队已经脱围。另一队还在海峡城，先去接应他们。", "提示：打开菜单，选择切换队伍。两队各自保留位置、成长和行囊。"]);return
 			if g.flags.get("D32_done",false):await pages(h,["信使：西队走军需大道，东队沿盐路调查。两边的来信都由我们传递。"]);return
 			var story=g.campaign.scenes.D32.duplicate(true)
 			if g.speaker_alive("米蕾"):story.append({"speaker":"米蕾","text":"艾琳，伤者已经交给留守医者。我在船边等你。"})
@@ -69,7 +69,7 @@ static func action(h,key: String) -> void:
 		"third_brother":await pages(h,["留守医者：诺娅的弟弟已经交给照护处。" if g.flags.get("noya_brother_survived",false) else "留守医者：诺娅的弟弟遇难了。我们已经留下他的姓名和遗物。"])
 		"third_council":
 			if int(g.route_positions.alm)!=9 or int(g.route_positions.celica)!=9:
-				await pages(h,["信使：另一队尚未到营站。可以按S切队，沿短渡把他们带来。会谈需要两队都在场。"]);return
+				await pages(h,["信使：另一队尚未到营站。可以从菜单切换队伍，沿短渡把他们带来。会谈需要两队都在场。"]);return
 			if g.flags.get("D33_done",false):
 				await pages(h,["信使：观测台、日塔和村落的计划已登记。还可以整理行囊、训练、救治同伴，或返回本章未完成的支路。"])
 			else:await ui.play_pages(g.campaign.scenes.D33,"hub","third_council")
@@ -107,7 +107,7 @@ static func relations(h) -> void:
 	var g=h.ui.game;var lines=[]
 	if not g.flags.get("D33_done",false):await pages(h,["旁白：营火旁空着两个位置，等两队回来。"]);return
 	if g.speaker_alive("达恩") and g.speaker_alive("米蕾") and not g.flags.get("seen_R01",false):
-		lines.append_array(["达恩：商队还剩这些干净的布。先记在我账上。", "米蕾：伤者会用得上。你带的货单，我也可以帮你看。", "达恩：那下次写信，你教我读剩下的几行。"]);g.flags.seen_R01=true
+		lines.append_array(["达恩：商队还剩这些干净的布。先记在我账上。", "米蕾：伤者会用得上。你带的货单，我也可以帮你看。", "达恩：那下次写信，你教我读剩下的几行。我还想开家店呢，总不能连货单都认不全。", "米蕾：好。等这边忙完，我把那几行念给你听。"]);g.flags.seen_R01=true
 	if g.speaker_alive("芙拉") and g.speaker_alive("赫维") and g.stage_cleared(112) and not g.flags.get("seen_R04",false):
 		lines.append_array(["芙拉：你为什么一定要离开诊所？村里还需要人。", "赫维：我想学会这些设备。回来以后，村里就不必一直等教团发药。"]);g.flags.seen_R04=true
 	if g.speaker_alive("奥托") and g.speaker_alive("格曼") and not g.flags.get("seen_R08",false):

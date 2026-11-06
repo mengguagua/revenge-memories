@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_27",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_27.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_27.ogg"
+  ],
+  "hashes": [
+    "7c1e405e702fad6b6e5e95b5986b8cbd6f1bf8d356a02eed2d3d8a98199f1acb",
+    "3521bdeb896c0677dccd2c242553bc7b45f844c651f11fc66e0afa1a59776a47"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "3b29cabba8881c03fd1494d7",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    8848,
+    11095
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "The first sound is a one-shot with a sharp, short attack and a high pitch. The second is a one-shot that sounds similar but with a longer attack and a slightly lower pitch. The most noticeable difference is the attack duration and the change in pitch. The first sound has a more intense attack and a higher pitch, while the second sound has a longer attack and a slightly lower pitch. The density and decay of both sounds are the same.",
+  "generation_tokens": 90,
+  "generation_tps": 43.57973002521128,
+  "wall_seconds": 2.18,
+  "peak_memory_bytes": 7517914846,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

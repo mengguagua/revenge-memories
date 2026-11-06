@@ -1,0 +1,68 @@
+{
+  "id": "rm_jingle_growth",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_jingle_growth.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/levelup.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_jingle_growth_scene.wav",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is the current game-gain offline mix, including the background pause and resume. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: 升级81；职业进阶可用奖赏cue; desired mood: 轻快、成长确认",
+  "max_tokens": 340,
+  "key": "b991dbb3f27f71eced36e2ad",
+  "source_sha256": [
+    "23526f140a52557192cd5b1385dc5eaaa6b9dd4b60664bc4f1743c372ae03abb",
+    "b7449e8e15eddef4480292ac575b8de20c3f08ac3a9dff209145e6667aaf6f18",
+    "d3f5b683b3151a520c23d4a8e1cf5ec95c6c83e72c632efc59956a0bad5920a8"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/23526f140a52557192cd5b1385dc5eaaa6b9dd4b60664bc4f1743c372ae03abb.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/b7449e8e15eddef4480292ac575b8de20c3f08ac3a9dff209145e6667aaf6f18.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/d3f5b683b3151a520c23d4a8e1cf5ec95c6c83e72c632efc59956a0bad5920a8.wav"
+  ],
+  "audio_input_samples": [
+    36480,
+    31491,
+    68480
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "73a814f1f9916c2b9c56792b192f749cf70757072054084abc45fbb585f486df",
+    "fbb1369719fbd470b46d1e82e87351e6a458f1caead570b3efef595c35a030e7",
+    "eb359e3f99a069f8df92f2251343e7e36573b2d310d53b1cb5e464b2cea1f9cb"
+  ],
+  "response": "Audio 1: The cue features a bright, synthesized chime with a clear, bell-like timbre. It has a simple, ascending melodic fragment that feels conclusive and positive. The energy is moderate and the mood is light, cheerful, and affirming—suitable for a reward or progression confirmation. There is no speech or vocal content. The sound is clean, with no audible defects. The melodic development is minimal but effective, providing a sense of completion.\n\nAudio 2: This reference is a very sparse, high-pitched, and clear retro electronic tone. It is monophonic and lacks harmonic depth, emphasizing clarity and minimalism.\n\nAudio 3: The mix includes the Audio 1 cue layered over a low, sustained synth pad. The pad is present during the pause and resumes with the cue. The pad’s presence is subtle but noticeable, potentially masking the clarity of the chime. However, the chime remains the dominant element, so essential feedback is not obscured. The overall effect is slightly less crisp than the reference, but the mood remains light and affirming.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 222,
+    "prompt_tokens": 329,
+    "total_tokens": 551,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 301,
+    "prompt_ms": 1303.384,
+    "prompt_per_token_ms": 4.330179401993355,
+    "prompt_per_second": 230.93731394585174,
+    "predicted_n": 222,
+    "predicted_ms": 3409.921,
+    "predicted_per_token_ms": 15.429506787330316,
+    "predicted_per_second": 64.81088564808394
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 6.741,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

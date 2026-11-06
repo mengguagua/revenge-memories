@@ -1,19 +1,25 @@
 {
   "schema_version": 1,
   "character_id": "class-18-ally",
-  "display_name": "修女（职业样板）",
   "original_class_id": 18,
   "source_side": "ally",
-  "status": "complete_art_review_passed",
+  "display_name": "盟军疗愈师",
+  "display_class_name": "疗愈师",
+  "revision": "healer-all-heal-flow-v3-20261023",
+  "status": "review_candidate",
   "runtime_integrated": false,
+  "review_note": "全体恢复节奏优化：静止光环75帧缩为13帧，提前衔接绿色雨滴，原结算时刻开始汇成泉水。其它法术沿用已完成修订。",
+  "palette": [
+    "172638",
+    "3976b5",
+    "e4e1c8",
+    "dda77d",
+    "78a99b"
+  ],
   "source_atlas": "../../../source-input/original-motion/class-18.png",
   "source_frame_size": [
     80,
     64
-  ],
-  "output_frame_size": [
-    320,
-    256
   ],
   "source_anchor": [
     40,
@@ -23,18 +29,17 @@
     160,
     256
   ],
-  "source_columns": 16,
-  "source_oam_frame_count": 7,
+  "output_frame_size": [
+    320,
+    256
+  ],
   "source_idle_frame": 7,
   "source_frame_count": 9,
+  "source_columns": 16,
   "frame_mapping": {
-    "7": "frames/frame-007.png",
-    "8": "frames/frame-008.png"
+    "7": "../../../healer-saint-complete-v1-20261023/class-18/battle/frame-007.png",
+    "8": "../../../healer-saint-complete-v1-20261023/class-18/battle/frame-008.png"
   },
-  "canonical_frames": [
-    7,
-    8
-  ],
   "required_source_frames": [
     7,
     8
@@ -71,117 +76,20 @@
     "class_18_ally_item_44_far_enemy",
     "class_18_ally_item_44_far_enemy_vs_heavy"
   ],
-  "records": [
-    {
-      "frame": 7,
-      "raw": "battle-v4-pose007.png",
-      "crop": [
-        60,
-        78,
-        982,
-        1499
-      ],
-      "hood_y": 80,
-      "hem": [
-        584,
-        1497
-      ],
-      "uniform_scale": 0.0903316866619619,
-      "resampled_size": [
-        83,
-        128
-      ],
-      "paste": [
-        149,
-        128
-      ],
-      "target_visible_hood_y": 128,
-      "target_visible_robe_hem": [
-        196,
-        256
-      ],
-      "registration_basis": "Visible continuous robe hem and hood top; no hidden joint guess, no silhouette clamp.",
-      "alpha_noise_threshold": 8,
-      "low_alpha_pixels_removed": 15074,
-      "output_alpha_bounds": [
-        149,
-        128,
-        232,
-        256
-      ],
-      "bytes": 17168,
-      "sha256": "61c5bc824fc81f22d7ba42a341add6c6219d064a31e2ebda5d979fa965b1d20c",
-      "path": "battle/frames/frame-007.png",
-      "size": [
-        320,
-        256
-      ],
-      "alpha_bounds": [
-        149,
-        128,
-        232,
-        256
-      ]
-    },
-    {
-      "frame": 8,
-      "raw": "battle-v5-pose008.png",
-      "crop": [
-        207,
-        57,
-        920,
-        1555
-      ],
-      "hood_y": 381,
-      "hem": [
-        591.5,
-        1553
-      ],
-      "uniform_scale": 0.10921501706484642,
-      "resampled_size": [
-        78,
-        164
-      ],
-      "paste": [
-        154,
-        93
-      ],
-      "target_visible_hood_y": 128,
-      "target_visible_robe_hem": [
-        196,
-        256
-      ],
-      "registration_basis": "Visible continuous robe hem and hood top; no hidden joint guess, no silhouette clamp.",
-      "alpha_noise_threshold": 8,
-      "low_alpha_pixels_removed": 17874,
-      "output_alpha_bounds": [
-        154,
-        93,
-        232,
-        256
-      ],
-      "bytes": 18402,
-      "sha256": "987bd79d52980fb45121d6480fbc0256792e40e2d3393bf99bb64ffbb7da6434",
-      "path": "battle/frames/frame-008.png",
-      "size": [
-        320,
-        256
-      ],
-      "alpha_bounds": [
-        154,
-        93,
-        232,
-        256
-      ]
-    }
-  ],
-  "output_atlas": "deliverables/battle-two-poses.png",
-  "output_atlas_frame_order": [
+  "output_atlas": "../../../healer-saint-complete-v1-20261023/class-18/battle-atlas.png",
+  "output_atlas_order": [
     7,
     8
   ],
-  "art_generator": "built-in image_gen",
-  "external_effects": "Original effects retained outside body PNG; no light or extra ability painted into body.",
-  "identity_scope": "Profession exemplar. Does not unlock white magic for any named actor.",
-  "source_semantics": "Original narrow staff retained; head veil, broad sleeves and continuous long robe cover legs. No invented leg joints."
+  "batches": [
+    {
+      "id": "全姿势",
+      "review": "../../../healer-saint-complete-v1-20261023/class-18-battle-light.png",
+      "status": "review_candidate"
+    }
+  ],
+  "qa_report": "../../../healer-all-heal-flow-v3-20261023/verification.json",
+  "review_timeline": "../../../healer-all-heal-flow-v3-20261023/class-18-motion.json",
+  "heal_effect_revision": "spellsword-jump-heal-v3-20261023",
+  "heal_qa_report": "../../../spellsword-jump-heal-v3-20261023/verification.json"
 }

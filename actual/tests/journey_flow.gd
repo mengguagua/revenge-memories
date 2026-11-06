@@ -22,7 +22,9 @@ func new_ui():
  ui=load("res://scenes/main.tscn").instantiate();ui.game.slot_directory=folder;viewport.add_child(ui);await process_frame
  ui.set_process(false);ui.set_physics_process(false);ui.instant_mode=true
 func open_continue(slot: int):
- ui._show_title();key(KEY_DOWN);key(KEY_Z)
+ ui._show_title()
+ if ui.title_selected!=1:key(KEY_DOWN)
+ key(KEY_Z)
  while ui.journey.selected!=slot-1:key(KEY_DOWN)
  key(KEY_Z)
 func run():
@@ -47,6 +49,7 @@ func run():
  key(KEY_X);check(ui.view=="hub","Cancel save returns to same gameplay view")
  key(KEY_S);action("title")
  check(ui.view=="title" and ui.game.mode=="hub","Return to homepage preserves checkpoint mode")
+ if ui.title_selected!=0:key(KEY_UP)
  key(KEY_Z)
  while ui.journey.selected!=1:key(KEY_DOWN)
  key(KEY_Z);key(KEY_X)
@@ -79,11 +82,13 @@ func run():
   await process_frame
  check(ui.view=="battle" and ui.game.phase=="player" and ui.game.turn==4,"Continue executes persisted enemy phase and returns control once")
  check(ui.game.find_unit("hunapu").hp==hp and ui.game.kills==kills,"Already acted enemies never repeat damage or kills")
+ check(ui.game.return_to_preparation(),"Normal retreat returns to a save-capable preparation state")
+ ui._continue_world()
  var old_path=ui.game.save_path;var active=ui.game.active_slot
- ui.game.slot_directory="res://.cache/journey-flow-no-parent/missing";key(KEY_S);action("save");key(KEY_Z)
+ ui.game.slot_directory="res://.cache/journey-flow-no-parent/missing";key(KEY_S);action("new:save");key(KEY_Z)
  check(ui.view=="journal" and ui.journey.message.contains("失败") and ui.game.save_path==old_path and ui.game.active_slot==active,"Disk failure keeps prior progress and active destination")
  key(KEY_X);ui.game.slot_directory=folder
- check(ui.view=="battle","Failed-save cancellation returns to battle")
+ check(ui.view=="world","Failed-save cancellation returns to preparation world")
  # Mouse uses the expanded native coordinates at both display proportions.
  for width in [256,426]:
   viewport.size=Vector2i(width,240);ui._show_title();await process_frame
@@ -95,6 +100,7 @@ func run():
   check(ui.view=="journal","Mouse cancel is aligned with displayed button "+str(width))
   key(KEY_X)
  var untouched=FileAccess.get_file_as_bytes(State.Journals.path_for(folder,5))
+ if ui.title_selected!=0:key(KEY_UP)
  key(KEY_Z)
  while ui.journey.selected!=1:key(KEY_DOWN)
  key(KEY_Z);key(KEY_RIGHT);key(KEY_Z)

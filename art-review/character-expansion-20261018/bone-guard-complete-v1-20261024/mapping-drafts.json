@@ -1,0 +1,1048 @@
+{
+  "maps": {
+    "schema_version": 1,
+    "width_height_scale": 4,
+    "scenarios": [
+      {
+        "id": "tactical-idle",
+        "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_17_enemy.png",
+        "source_frame_size": [
+          24,
+          24
+        ],
+        "source_anchor": [
+          12,
+          20
+        ],
+        "source_frame_count": 6,
+        "output_frame_size": [
+          96,
+          96
+        ],
+        "output_anchor": [
+          48,
+          80
+        ],
+        "logical_render_scale": 0.25,
+        "class_id": 17,
+        "source_side": "enemy",
+        "character_id": "class-17-enemy",
+        "display_name": "敌方骸卫",
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "output_index": 0,
+            "canonical_frame": 0,
+            "path": "../../../bone-guard-complete-v1-20261024/tactical-idle/frame-000.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1511,
+            "sha256": "0416a4970ea4ba2b44a9cb01e349e5fae85096c45fdf14a324544cf19fe0df93",
+            "revision": "bone-guard-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "output_index": 1,
+            "canonical_frame": 1,
+            "path": "../../../bone-guard-complete-v1-20261024/tactical-idle/frame-001.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1510,
+            "sha256": "c9ee8a2a5fdfd1e3a0abf1c065e8f84e78d604540a243713b466f51891fbe6f0",
+            "revision": "bone-guard-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "output_index": 2,
+            "canonical_frame": 2,
+            "path": "../../../bone-guard-complete-v1-20261024/tactical-idle/frame-002.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1519,
+            "sha256": "243b4f95927e329df7a5ba76b25d4c26fc56dd5f9273e1ff3c7d3cd1c7bcb700",
+            "revision": "bone-guard-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "output_index": 3,
+            "canonical_frame": 1,
+            "path": "../../../bone-guard-complete-v1-20261024/tactical-idle/frame-003.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1510,
+            "sha256": "c9ee8a2a5fdfd1e3a0abf1c065e8f84e78d604540a243713b466f51891fbe6f0",
+            "revision": "bone-guard-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "output_index": 4,
+            "canonical_frame": 0,
+            "path": "../../../bone-guard-complete-v1-20261024/tactical-idle/frame-004.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1511,
+            "sha256": "0416a4970ea4ba2b44a9cb01e349e5fae85096c45fdf14a324544cf19fe0df93",
+            "revision": "bone-guard-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "output_index": 5,
+            "canonical_frame": 1,
+            "path": "../../../bone-guard-complete-v1-20261024/tactical-idle/frame-005.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1510,
+            "sha256": "c9ee8a2a5fdfd1e3a0abf1c065e8f84e78d604540a243713b466f51891fbe6f0",
+            "revision": "bone-guard-complete-v1-20261024",
+            "art_status": "review_candidate"
+          }
+        ],
+        "output_atlas": "../../../bone-guard-complete-v1-20261024/tactical-idle-atlas.png",
+        "revision": "bone-guard-complete-v1-20261024",
+        "review_note": "骸卫：温和骨白与蓝紫色，骨骼、下颌、肋骨和骨盆清楚，包腕包腿哑光；地图持剑圆盾，战斗沿原作弯刃与后屈空手臂。固定地图头部和身体基准，保留原步态、遮挡、动作顺序及结算。",
+        "required_drawn_frames": [
+          0,
+          1,
+          2
+        ],
+        "static_facing": true,
+        "directions": {
+          "all": [
+            0,
+            1,
+            2,
+            1
+          ]
+        },
+        "source_aliases": {
+          "0": 0,
+          "1": 1,
+          "2": 2,
+          "3": 1,
+          "4": 0,
+          "5": 1
+        },
+        "timing": {
+          "native_fps": 60.0988,
+          "cycle_frames": [
+            0,
+            1,
+            2,
+            1
+          ],
+          "frame_ticks": [
+            14,
+            8,
+            14,
+            8
+          ],
+          "cycle_ticks": 44
+        }
+      },
+      {
+        "id": "tactical-walk",
+        "source_atlas": "../../../source-input/corrected-tactical-walk/class-17-enemy.png",
+        "source_frame_size": [
+          32,
+          24
+        ],
+        "source_anchor": [
+          16,
+          24
+        ],
+        "source_frame_count": 8,
+        "output_frame_size": [
+          128,
+          96
+        ],
+        "output_anchor": [
+          64,
+          96
+        ],
+        "logical_render_scale": 0.25,
+        "class_id": 17,
+        "source_side": "enemy",
+        "character_id": "class-17-enemy",
+        "display_name": "敌方骸卫",
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "output_index": 0,
+            "canonical_frame": 0,
+            "path": "../../../bone-guard-complete-v1-20261024/tactical-walk/frame-000.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1525,
+            "sha256": "490dc18ba329ed15a154ffedb4fc34a6e67a236fa05705593544474f0ca85aae",
+            "revision": "bone-guard-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "output_index": 2,
+            "canonical_frame": 2,
+            "path": "../../../bone-guard-complete-v1-20261024/tactical-walk/frame-002.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1516,
+            "sha256": "7ea3d3cad241d86b5a7b1285fbd1eb4e6040068da2f12144125e0fdaa77e8320",
+            "revision": "bone-guard-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "output_index": 4,
+            "canonical_frame": 4,
+            "path": "../../../bone-guard-complete-v1-20261024/tactical-walk/frame-004.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1501,
+            "sha256": "7b16b7a6f126c0d3193b09be7278ebf3e44cf1a7366de5bfae2e728e2bfad9d0",
+            "revision": "bone-guard-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "output_index": 1,
+            "canonical_frame": 1,
+            "path": "../../../bone-guard-complete-v1-20261024/tactical-walk/frame-001.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1494,
+            "sha256": "b1cf0ab0b14f99dc3fdd30bbbe9d7b9f253d0c343e7138bd0e27a23726d6356e",
+            "revision": "bone-guard-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "output_index": 3,
+            "canonical_frame": 3,
+            "path": "../../../bone-guard-complete-v1-20261024/tactical-walk/frame-003.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1477,
+            "sha256": "97fc009a81bb02cc82cc42ba97a03c5ba4ab3e9843d007da225980e4274dca30",
+            "revision": "bone-guard-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "output_index": 5,
+            "canonical_frame": 5,
+            "path": "../../../bone-guard-complete-v1-20261024/tactical-walk/frame-005.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1513,
+            "sha256": "790d3e1e68068a828774a9fb1076c36cd89bdc1466b92d55f41cb4ba063129a4",
+            "revision": "bone-guard-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 6,
+            "source_frame": 6,
+            "output_index": 6,
+            "canonical_frame": 6,
+            "path": "../../../bone-guard-complete-v1-20261024/tactical-walk/frame-006.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1515,
+            "sha256": "5d2f0fb5e2f3eb70bac045a2e21c3dc084e4942abe5c6b9d2b867f7a3a1c0fba",
+            "revision": "bone-guard-complete-v1-20261024",
+            "art_status": "review_candidate"
+          },
+          {
+            "source_index": 7,
+            "source_frame": 7,
+            "output_index": 7,
+            "canonical_frame": 7,
+            "path": "../../../bone-guard-complete-v1-20261024/tactical-walk/frame-007.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1461,
+            "sha256": "939c7b065d6300aeac0cc80b13a1888ba3f8673148cd1c48fdbf4d7770b1d983",
+            "revision": "bone-guard-complete-v1-20261024",
+            "art_status": "review_candidate"
+          }
+        ],
+        "output_atlas": "../../../bone-guard-complete-v1-20261024/tactical-walk-atlas.png",
+        "revision": "bone-guard-complete-v1-20261024",
+        "review_note": "骸卫：温和骨白与蓝紫色，骨骼、下颌、肋骨和骨盆清楚，包腕包腿哑光；地图持剑圆盾，战斗沿原作弯刃与后屈空手臂。固定地图头部和身体基准，保留原步态、遮挡、动作顺序及结算。",
+        "required_drawn_frames": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "directions": {
+          "up": [
+            0,
+            1
+          ],
+          "right": [
+            2,
+            3
+          ],
+          "down": [
+            4,
+            5
+          ],
+          "left": [
+            6,
+            7
+          ]
+        },
+        "direction_mirror_x": {},
+        "timing": {
+          "native_fps": 60.0988,
+          "frame_ticks": 16,
+          "cycle_ticks": 32
+        },
+        "source_audit": {
+          "class_id": 17,
+          "source_side": "enemy",
+          "status": "verified_native_tactical",
+          "scope": "native CPU frame/phase source verified for art review; no runtime integration",
+          "source_atlas": "class-17-enemy.png",
+          "source_frame_size": [
+            32,
+            24
+          ],
+          "source_columns": 8,
+          "source_frame_count": 8,
+          "source_anchor": [
+            16,
+            24
+          ],
+          "native_actor_origin": [
+            16,
+            16
+          ],
+          "anchor_note": "Rendering anchor is native actor origin+[0,8] matching map tile base; not inferred anatomical foot or wing tip. Native OAM Y adds hardware+1.",
+          "source_palette": [
+            15,
+            54,
+            37,
+            15
+          ],
+          "palette_evidence": "bank006:L06852C PPU palette payload sprite palette0(ally)/3(enemy), not BG palette.",
+          "source_chr": 27,
+          "frame_mapping": [
+            {
+              "direction": "up",
+              "direction_code": 0,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 155,
+              "source_frame_address": "L088B26",
+              "oam": [
+                [
+                  71,
+                  196,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  197,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  212,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  213,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 445,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 0,
+              "source_alpha_bounds": [
+                8,
+                8,
+                23,
+                24
+              ],
+              "rgba_sha256": "e07ca8bf6321ca4ce334c600da81ae242d075e25dc45ca18682d708e3447b00a"
+            },
+            {
+              "direction": "up",
+              "direction_code": 0,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 156,
+              "source_frame_address": "L088B2C",
+              "oam": [
+                [
+                  71,
+                  194,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  195,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  210,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  211,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 445,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 1,
+              "source_alpha_bounds": [
+                8,
+                8,
+                24,
+                24
+              ],
+              "rgba_sha256": "d9c782d8c21398d0e8f0c34d95e9eb577fe61ac86ca5518b695492578ef7d337"
+            },
+            {
+              "direction": "right",
+              "direction_code": 1,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 157,
+              "source_frame_address": "L088B32",
+              "oam": [
+                [
+                  71,
+                  192,
+                  67,
+                  64
+                ],
+                [
+                  71,
+                  193,
+                  67,
+                  56
+                ],
+                [
+                  79,
+                  208,
+                  67,
+                  64
+                ],
+                [
+                  79,
+                  209,
+                  67,
+                  56
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 522,
+              "source_global_flip": true,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 2,
+              "source_alpha_bounds": [
+                8,
+                8,
+                23,
+                24
+              ],
+              "rgba_sha256": "9786bd8ff1effc1669fb22827091f270d9e6b5f9a70a05dda7d31914ad3d2429"
+            },
+            {
+              "direction": "right",
+              "direction_code": 1,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 158,
+              "source_frame_address": "L088B38",
+              "oam": [
+                [
+                  71,
+                  206,
+                  67,
+                  64
+                ],
+                [
+                  71,
+                  207,
+                  67,
+                  56
+                ],
+                [
+                  79,
+                  222,
+                  67,
+                  64
+                ],
+                [
+                  79,
+                  223,
+                  67,
+                  56
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 522,
+              "source_global_flip": true,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 3,
+              "source_alpha_bounds": [
+                8,
+                8,
+                23,
+                24
+              ],
+              "rgba_sha256": "e0aea660cd050ae65f275f3b1059d57fcd4255d20c791d01d784536016c94f4f"
+            },
+            {
+              "direction": "down",
+              "direction_code": 2,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 159,
+              "source_frame_address": "L088B3E",
+              "oam": [
+                [
+                  71,
+                  174,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  175,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  190,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  191,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 445,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 4,
+              "source_alpha_bounds": [
+                9,
+                8,
+                24,
+                24
+              ],
+              "rgba_sha256": "236e2acfeb3d2c0329df80ea682bc86b4b797be11b4b9c65d5d964dea0c871d8"
+            },
+            {
+              "direction": "down",
+              "direction_code": 2,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 160,
+              "source_frame_address": "L088B44",
+              "oam": [
+                [
+                  71,
+                  142,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  143,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  158,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  159,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 445,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 5,
+              "source_alpha_bounds": [
+                8,
+                8,
+                24,
+                24
+              ],
+              "rgba_sha256": "a5d68fbbbb0d892b6d6958293bb794ea9a806af0c87a036eac09dbe47fa4c667"
+            },
+            {
+              "direction": "left",
+              "direction_code": 3,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 157,
+              "source_frame_address": "L088B32",
+              "oam": [
+                [
+                  71,
+                  192,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  193,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  208,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  209,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 445,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 6,
+              "source_alpha_bounds": [
+                9,
+                8,
+                24,
+                24
+              ],
+              "rgba_sha256": "dad9d150ab35edfd5e2bf7bf7a01bc67bdbbbe3e815e2beccee8a27fe650b7ec"
+            },
+            {
+              "direction": "left",
+              "direction_code": 3,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 27,
+              "source_frame_index": 158,
+              "source_frame_address": "L088B38",
+              "oam": [
+                [
+                  71,
+                  206,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  207,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  222,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  223,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 27
+                },
+                {
+                  "register": "0xc000",
+                  "value": 27
+                }
+              ],
+              "cpu_instructions": 445,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 7,
+              "source_alpha_bounds": [
+                9,
+                8,
+                24,
+                24
+              ],
+              "rgba_sha256": "deb56b9a8a3c7ab76768430a7d24024dd870e6516a4f9975c64fdf5d88ecb769"
+            }
+          ],
+          "exact_pixel_aliases": {
+            "0": 0,
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 7
+          },
+          "unique_source_slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "directions": {
+            "up": [
+              0,
+              1
+            ],
+            "right": [
+              2,
+              3
+            ],
+            "down": [
+              4,
+              5
+            ],
+            "left": [
+              6,
+              7
+            ]
+          },
+          "direction_mirror_x": {},
+          "mirror_note": "Native whole-sprite right flip and individual tile flips are already applied by original CPU; do not apply an additional direction mirror.",
+          "timing": {
+            "native_fps": 60.0988,
+            "frame_ticks": 16,
+            "cycle_ticks": 32,
+            "phase_source": "$36 & $10 selects phase; L0BB62C",
+            "movement_pixels_per_tick": 1,
+            "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+          },
+          "old_frozen_source": "source-input/original-motion/original-walk-17.png",
+          "old_frozen_frame_rgba_matches_by_corrected_slot": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "old_reference_classification": "Old PNG is CHR26 combined with village OAM selected via L08A779; this is not the native tactical renderer. Native village initializes CHR30, so this hybrid is retained only as current-game frozen historical reference.",
+          "exact_mirror_aliases": {
+            "6": {
+              "source_slot": 2,
+              "transform": "horizontal-mirror-full-canvas",
+              "rgba_exact": true
+            },
+            "7": {
+              "source_slot": 3,
+              "transform": "horizontal-mirror-full-canvas",
+              "rgba_exact": true
+            }
+          },
+          "unique_art_source_slots_after_exact_mirror": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "old_frozen_tight_shape_matches": [],
+          "verified_static_idle_reuse": [],
+          "static_idle_source": "source-input/legacy-assets/assets/original/graphics/map_units/class_17_enemy.png",
+          "native_record_status": "native_cpu_reference",
+          "review_evidence": "../../../bone-guard-complete-v1-20261024/source-walk-verification.json"
+        }
+      }
+    ],
+    "character_id": "class-17-enemy",
+    "display_name": "敌方骸卫",
+    "display_class_name": "骸卫",
+    "class_id": 17,
+    "original_class_id": 17,
+    "source_side": "enemy",
+    "revision": "bone-guard-complete-v1-20261024",
+    "status": "review_candidate",
+    "runtime_integrated": false,
+    "review_note": "骸卫：温和骨白与蓝紫色，骨骼、下颌、肋骨和骨盆清楚，包腕包腿哑光；地图持剑圆盾，战斗沿原作弯刃与后屈空手臂。固定地图头部和身体基准，保留原步态、遮挡、动作顺序及结算。",
+    "palette": [
+      "172638",
+      "d9d8c5",
+      "9b9eb4",
+      "57577f",
+      "343c5d",
+      "bac4d2",
+      "8f7b8d"
+    ]
+  },
+  "battle": {
+    "schema_version": 1,
+    "character_id": "class-17-enemy",
+    "display_name": "敌方骸卫",
+    "display_class_name": "骸卫",
+    "original_class_id": 17,
+    "source_side": "enemy",
+    "source_atlas": "../../../source-input/enemy-motion/class-17-enemy.png",
+    "source_frame_size": [
+      96,
+      64
+    ],
+    "source_anchor": [
+      48,
+      64
+    ],
+    "output_frame_size": [
+      384,
+      256
+    ],
+    "source_idle_frame": 9,
+    "source_frame_count": 19,
+    "source_columns": 16,
+    "frame_mapping": {
+      "0": "../../../bone-guard-complete-v1-20261024/battle/frame-000.png",
+      "1": "../../../bone-guard-complete-v1-20261024/battle/frame-001.png",
+      "2": "../../../bone-guard-complete-v1-20261024/battle/frame-002.png",
+      "3": "../../../bone-guard-complete-v1-20261024/battle/frame-003.png",
+      "4": "../../../bone-guard-complete-v1-20261024/battle/frame-004.png",
+      "5": "../../../bone-guard-complete-v1-20261024/battle/frame-005.png",
+      "8": "../../../bone-guard-complete-v1-20261024/battle/frame-008.png",
+      "7": "../../../bone-guard-complete-v1-20261024/battle/frame-007.png",
+      "9": "../../../bone-guard-complete-v1-20261024/battle/frame-009.png",
+      "17": "../../../bone-guard-complete-v1-20261024/battle/frame-017.png"
+    },
+    "required_source_frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      17
+    ],
+    "variant_keys": [
+      "original_class_17_enemy_normal"
+    ],
+    "output_atlas": "../../../bone-guard-complete-v1-20261024/battle-atlas.png",
+    "revision": "bone-guard-complete-v1-20261024",
+    "status": "review_candidate",
+    "runtime_integrated": false,
+    "review_note": "骸卫：温和骨白与蓝紫色，骨骼、下颌、肋骨和骨盆清楚，包腕包腿哑光；地图持剑圆盾，战斗沿原作弯刃与后屈空手臂。固定地图头部和身体基准，保留原步态、遮挡、动作顺序及结算。",
+    "palette": [
+      "172638",
+      "d9d8c5",
+      "9b9eb4",
+      "57577f",
+      "343c5d",
+      "bac4d2",
+      "8f7b8d"
+    ],
+    "batches": [
+      {
+        "id": "骸卫完整姿势",
+        "review": "../../../bone-guard-complete-v1-20261024/battle-light.png",
+        "status": "review_candidate"
+      }
+    ]
+  }
+}

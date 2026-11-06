@@ -2,11 +2,24 @@ extends "res://core/legacy_main.gd"
 ## Original native combat controller, new world / story / hub presentation.
 const EnvironmentBorder = preload("res://core/environment_border.gd")
 const BattlePanels = preload("res://core/battle_panel_layout.gd")
+const SpellInfo=preload("res://core/spell_info.gd")
 const Portraits = preload("res://core/portrait_library.gd")
 const PartySprites = preload("res://core/party_sprites.gd")
+const TacticalIdle=preload("res://core/tactical_idle.gd")
+const PostbattleNpcs = preload("res://core/postbattle_npcs.gd")
 const JourneyScreen = preload("res://core/journey_screen.gd")
 const EquipmentScreen = preload("res://core/equipment_screen.gd")
 const HubCaption = preload("res://core/hub_caption_layout.gd")
+const StoryIntro = preload("res://core/story_intro.gd")
+const PrologueScene = preload("res://core/prologue_scene.gd")
+const M15Scene = preload("res://core/m15_scene.gd")
+const HeroMapAnimation=preload("res://core/map_skill_animation.gd")
+var hero_map_animation
+var map_facing:=Vector2i.RIGHT
+var story_intro
+var prologue_scene
+var m15_scene
+var field_notes
 const OVERVIEW_IMAGE = preload("res://assets/world_tiles/formal-world-overview.png")
 var chapter_one_world_climate: Dictionary = {}
 var chapter_three_world_environment: Dictionary = {}
@@ -22,6 +35,9 @@ var journey
 var equipment_screen
 var battle_card_audit: Dictionary={}
 var battle_preview_audit: Dictionary={}
+var mechanical_target_id:=""
+var mechanical_target_part:=""
+var mechanical_target_confirmed:=false
 var training_reward_open := false
 var objective_badge_rect := Rect2()
 var battle_pack: Dictionary
@@ -36,23 +52,26 @@ var plot_index := 0
 var plot_return := "hub"
 var plot_callback := ""
 var plot_finished := true
+var plot_persistent := true
 var world_facing := Vector2i.DOWN
 var previous_canvas_size := Vector2.ZERO
 var plot_layout_audit: Dictionary = {}
 var small_font: Dictionary = {}
 const NPC_PORTRAITS := {"赫兰":35,"艾琳":48,"科兰":37,"乌库布·卡基":50,
-	"村民":17,"管理员":30,"矿工":47,"医者":13,"教团守卫":26,"教团兵":26,
+	"村民":17,"运药员":17,"管理员":30,"矿工":47,"医者":13,"教团守卫":26,"教团兵":26,
 	"指挥官":26,"士兵":26,"守军":26,"焚毁兵":26,"流民":17,"劳工":47,
 	"居民":17,"投降兵":26,"斥候":26,"裴萨":37,"船长":26,"舵手":26,
 	"甲板护卫":26,"船员":47,"引航者":47,"渔民":17,"渔村长者":17,
 	"岛上医者":13,"地方医者":13,"留守骑士":26,"学舍导师":30,"俘虏":17,
 	"固定舵手":26,"旧船员":47,"求救船员":47,"伤者":17,
 	"仓吏":30,"记录员":30,"文书":30,"医师":13,"守灯人":47,"账房":30,"洞民":17}
-const NARRATOR_SPEAKERS := ["旁白", "", "叙述", "战场提示", "提示", "旧记录"]
+const NARRATOR_SPEAKERS := ["旁白", "", "叙述", "战场提示", "界面提示", "提示", "旧记录", "堡内记录"]
 
 func _ready() -> void:
 	super._ready()
+	_bind_recruitment_signal()
 	journey=JourneyScreen.new(self);journey.refresh();title_menu=true
+	title_selected=1 if journey.records.any(func(record):return record.valid) else 0
 	equipment_screen=EquipmentScreen.new(self)
 	small_font=GameState.read_json("res://data/legacy/font_small_zh.json")
 	get_window().title="revenge-memories · 序章至第三章 · "+str(ProjectSettings.get_setting("application/config/version",""))
@@ -60,6 +79,11 @@ func _ready() -> void:
 	nature_layouts=GameState.read_json("res://data/nature-layouts.json")
 	for sprite in GameState.read_json("res://assets/nature/nature.json").get("sprites",[]):nature_sprites[str(sprite.key)]=sprite
 	hub_controller=load("res://core/story_hub.gd").new(self)
+	story_intro=StoryIntro.new(self)
+	prologue_scene=PrologueScene.new(self)
+	m15_scene=M15Scene.new(self)
+	field_notes=load("res://core/field_notes.gd").new(self)
+	hero_map_animation=HeroMapAnimation.new(self)
 	world_actor=Vector2(world.nodes["1"].position[0],world.nodes["1"].position[1])*16
 	if get_viewport() is Window:
 		get_window().size_changed.connect(_resize_window_viewport)
@@ -75,6 +99,11 @@ func _resize_window_viewport() -> void:
 	if window.content_scale_size!=logical:window.content_scale_size=logical
 
 func _process(delta: float) -> void:
+	if recruitment_paused():
+		queue_redraw();return
+	if view=="story_intro" and story_intro!=null:story_intro.process(delta)
+	if prologue_scene!=null and prologue_scene.active:prologue_scene.process(delta)
+	if m15_scene!=null and m15_scene.active:m15_scene.process(delta)
 	if view not in ["title","journal","journal_confirm"]:game.play_seconds+=delta
 	if journey!=null:journey.saved_left=maxf(0.0,journey.saved_left-delta)
 	super._process(delta)
@@ -95,6 +124,15 @@ func _process(delta: float) -> void:
 		if world_step>=world_path.size()-1:
 			game.travel_to(world_destination);world_path=[];busy=false;game.mode="world";game.save_game()
 		queue_redraw()
+	_maybe_training_unlock()
+
+func _maybe_training_unlock() -> void:
+	# Old journals receive their one-time introduction only when idle in a
+	# peaceful view, after any saved dialogue, movement or result has finished.
+	if view not in ["hub","world"] or busy or batch_running or result_sequence_running:return
+	if held_direction!=Vector2i.ZERO or (view=="hub" and hub_controller!=null and hub_controller.motion_left>0.0):return
+	if not menu_items.is_empty() or not world_path.is_empty() or not game.story_events.is_empty() or game.flags.has("active_plot"):return
+	if game.Training.queue_unlock(game):_play_story_events()
 
 func _canvas_offset() -> Vector2:
 	return ((get_viewport_rect().size-NATIVE)/2.0).floor()
@@ -106,9 +144,22 @@ func _footer_shift() -> Vector2:
 	return Vector2(0,get_viewport_rect().size.y-240-_canvas_offset().y)
 
 func _mouse_accept(point: Vector2) -> void:
+	if recruitment_paused():return
 	var local=point-_canvas_offset()
+	if view=="field_notes":field_notes.mouse(local);return
+	if view=="battle" and ui_mode=="map_target" and not busy:
+		var cell=_battle_screen_cell(local)
+		if not game.in_bounds(cell):return
+		var actor=game.find_unit(game.selected_id);var spec=game.MapSkills.profile(actor)
+		if spec.get("male",false):
+			var delta=cell-game.pos(actor)
+			if delta!=Vector2i.ZERO:map_facing=Vector2i(signi(delta.x),0) if absi(delta.x)>=absi(delta.y) else Vector2i(0,signi(delta.y))
+		else:game.cursor=cell;_focus_battle(game.cursor)
+		_refresh_map_forecast();queue_redraw();return
 	if equipment_screen!=null and equipment_screen.active():equipment_screen.mouse(local);return
 	if view in ["journal","journal_confirm"]:journey.mouse(local);return
+	if view=="story_intro":story_intro.accept();return
+	if view=="prologue_scene":prologue_scene.accept();return
 	if view=="plot":_accept();return
 	if view=="overview":return
 	if view=="chapter_end" and menu_items.is_empty():_accept();return
@@ -116,13 +167,21 @@ func _mouse_accept(point: Vector2) -> void:
 		for i in range(2):
 			if journey.title_button(i).has_point(local):title_selected=i;_accept();return
 		return
+	if _status_open() and not busy and menu_items.is_empty():
+		if _status_members().size()>1:
+			if Rect2(16,20,24,20).has_point(local):_cycle_status(-1);return
+			if Rect2(216,20,24,20).has_point(local):_cycle_status(1);return
+		# Status is a reading surface. Only explicit return/confirm controls close it.
+		return
 	if view=="battle" and not busy and menu_items.is_empty() and ui_mode not in ["status","action"]:
 		var cell=_battle_screen_cell(local)
 		# Extended mountains are visual-only; in_bounds remains the authority.
 		if not game.in_bounds(cell):return
 		if ui_mode in ["target","support_target"]:
 			var candidate=game.unit_at(cell)
-			if not candidate.is_empty() and target_ids.has(candidate.id):target_index=target_ids.find(candidate.id);game.cursor=cell;_focus_battle(cell);_accept()
+			if not candidate.is_empty() and target_ids.has(candidate.id):
+				if target_ids[target_index]!=candidate.id:mechanical_target_confirmed=false;mechanical_target_part=""
+				target_index=target_ids.find(candidate.id);game.cursor=cell;_focus_battle(cell);_accept()
 		else:game.cursor=cell;_focus_battle(cell);_accept()
 		return
 	super._mouse_accept(local)
@@ -131,17 +190,29 @@ func _new_game() -> void:
 	journey.open("new")
 
 func _new_journey_in_slot() -> void:
+	_bind_recruitment_signal()
 	_clear_menu();held_direction=Vector2i.ZERO;busy=false;batch_running=false;ui_mode="inspect";world_path=[]
-	hub_controller.enter_room("P00")
+	# A fresh journal owns the opening checkpoint; old journals start as before.
+	game.flags.story_intro_pending=true;game.flags.story_intro_offset=-1
+	story_intro.start()
 
 func _resume_journey() -> void:
+	_bind_recruitment_signal()
 	_clear_menu();busy=false;batch_running=false;ui_mode="inspect";view=game.mode;held_direction=Vector2i.ZERO;world_path=[]
 	if view=="battle" and not game.battle_outcome.is_empty():view=game.battle_outcome;game.mode=view
 	world_actor=Vector2(world.nodes[str(game.world_node)].position[0],world.nodes[str(game.world_node)].position[1])*16
+	if game.flags.get("story_intro_pending",false):story_intro.start();return
 	if view=="hub":hub_controller.resume()
 	elif view=="battle":_focus_battle(game.cursor,true);_play_phase_music()
 	elif view=="world":audio.play_world(game.chapter)
 	elif view=="ending":_start_ending();return
+	if prologue_scene.can_resume():prologue_scene.resume();return
+	if m15_scene.can_resume():
+		m15_scene.resume()
+		while m15_scene.active:await get_tree().process_frame
+		busy=false
+		if view=="battle" and not game.battle_outcome.is_empty():view=game.battle_outcome;game.mode=view
+	if game.chapter==3 and str(game.flags.get("active_plot",{}).get("callback",""))=="third_prologue":prologue_scene.resume_reprise()
 	if game.flags.has("active_plot"):
 		_resume_plot()
 		while not plot_finished:await get_tree().process_frame
@@ -154,18 +225,40 @@ func _resume_journey() -> void:
 
 func _show_title() -> void:
 	# Keep the gameplay checkpoint mode intact when returning to the homepage.
-	view="title";title_menu=true;title_selected=0;elapsed=0.0;held_direction=Vector2i.ZERO
+	view="title";title_menu=true;elapsed=0.0;held_direction=Vector2i.ZERO
 	_clear_menu();audio.play_music("title")
 	if journey!=null:journey.refresh()
+	title_selected=1 if journey!=null and journey.records.any(func(record):return record.valid) else 0
 
 func _begin_existing_battle() -> void:
 	notice_time=0
 	super._begin_existing_battle()
 
 func _accept() -> void:
+	if view=="battle" and game.phase=="player" and ui_mode=="target" and not busy and menu_items.is_empty() and not target_ids.is_empty():
+		var id=str(target_ids[target_index]);var enemy=game.find_unit(id)
+		if game.Mechanical.is_puppet(enemy) and game.Mechanical.part_hp(enemy)>0:
+			if mechanical_target_id!=id or not mechanical_target_confirmed:
+				mechanical_target_id=id;mechanical_target_part="";mechanical_target_confirmed=false
+				_open_menu("mechanical_part",["本体 %d/%d"%[int(enemy.hp),int(enemy.max_hp)],"%s %d/%d"%[game.Mechanical.part_name(enemy),game.Mechanical.part_hp(enemy),game.Mechanical.part_max(enemy)]],["mechanical:body","mechanical:part"],Vector2(44,36));return
+			var part=mechanical_target_part;mechanical_target_confirmed=false
+			_play_combat(game.selected_id,id,part);return
+		mechanical_target_confirmed=false;mechanical_target_part=""
+	if view=="field_notes":field_notes.accept();return
+	if view=="battle" and ui_mode in ["inspect","move"] and not busy and not batch_running and menu_items.is_empty():
+		var enemy=game.unit_at(game.cursor)
+		if enemy.get("side","")=="enemy":
+			game.selected_id="";status_id=str(enemy.id);ui_mode="inspect";queue_redraw();return
+	if recruitment_paused():return
+	if view=="story_intro":story_intro.accept();return
+	if view=="prologue_scene":prologue_scene.accept();return
 	if equipment_screen!=null and equipment_screen.active():equipment_screen.accept();return
 	if view in ["journal","journal_confirm"]:journey.accept();return
 	if view in ["victory","defeat"] and result_sequence_running:return
+	if view in ["victory","defeat"] and game.Training.active(game) and menu_items.is_empty():
+		var labels=["返回营地","保存进度","返回标题"];var actions=["training:leave","new:save","title"]
+		if view=="defeat":labels.push_front("重试演习");actions.push_front("retry")
+		_open_menu("training_result",labels,actions,Vector2(44,124));return
 	if view=="reward" and training_reward_open:
 		training_reward_open=false;view="victory";return
 	if view=="ending":
@@ -206,6 +299,16 @@ func _accept() -> void:
 	super._accept()
 
 func _direction(direction: Vector2i) -> void:
+	if view=="battle" and ui_mode=="target" and menu_items.is_empty():mechanical_target_confirmed=false;mechanical_target_part=""
+	if view=="field_notes":field_notes.direction(direction);return
+	if recruitment_paused():return
+	if view=="battle" and ui_mode=="map_target" and not busy:
+		var actor=game.find_unit(game.selected_id);var spec=game.MapSkills.profile(actor)
+		if spec.get("male",false):map_facing=direction
+		elif game.in_bounds(game.cursor+direction):game.cursor+=direction;_focus_battle(game.cursor)
+		_refresh_map_forecast();queue_redraw();return
+	if view=="story_intro":return
+	if prologue_scene!=null and prologue_scene.active:return
 	if equipment_screen!=null and equipment_screen.active():equipment_screen.direction(direction);return
 	if view in ["journal","journal_confirm"]:journey.direction(direction);return
 	if view=="overview":
@@ -222,6 +325,8 @@ func _direction(direction: Vector2i) -> void:
 			if d.dot(Vector2(direction))>0:candidates.append(n)
 		if candidates.size()==1:_travel(int(candidates[0]))
 		elif candidates.size()>1:_open_menu("fork",candidates.map(func(n):return world.nodes[str(n)].name_zh),candidates.map(func(n):return "travel:"+str(n)),Vector2(32,64))
+		elif game.chapter==1 and game.world_node==3 and direction==Vector2i.RIGHT and game.stage_cleared(102) and not game.flags.get("grain_shared",false):
+			await play_pages([{"speaker":"胡纳普","text":"先回丘堡粮站，把粮送回雪原村。再往东去南岗押送所。"}],"world")
 		else:_notice("这个方向没有开放道路")
 		return
 	super._direction(direction)
@@ -239,10 +344,89 @@ func _travel(node: int) -> void:
 		world_actor=Vector2(world_path[-1][0],world_path[-1][1])*16;game.travel_to(node);world_path=[];busy=false;game.save_game()
 
 func _menu_action(action: String,context: String) -> void:
+	if context=="mechanical_part":
+		mechanical_target_part=game.Mechanical.part_key(game.find_unit(mechanical_target_id)) if action=="mechanical:part" else ""
+		mechanical_target_confirmed=true;_clear_menu();ui_mode="target";queue_redraw();return
+	if action=="new:rewind":
+		var reason=game.Rewind.reason(game)
+		if not reason.is_empty():_open_system_menu();_notice(reason,3.0);return
+		_open_menu("rewind_confirm",["确认回溯（第%d回合初）" % (int(game.turn)-1),"取消"],["new:rewind_commit","new:rewind_cancel"],Vector2(32,88))
+		_notice("回到上回合我方尚未行动时",4.0);return
+	if action=="new:rewind_cancel":_open_system_menu();return
+	if action=="new:rewind_commit":
+		if busy or batch_running or view!="battle":return
+		if not game.Rewind.reason(game).is_empty():_notice(game.Rewind.reason(game),3.0);return
+		if not game.Rewind.commit(game):_notice("保存失败，回溯未生效且不消耗次数",3.0);return
+		_clear_menu();ui_mode="inspect";status_id="";held_direction=Vector2i.ZERO
+		if hero_map_animation!=null:hero_map_animation.forecast={}
+		phase_banner="我方回合";phase_time=1.2;_focus_battle(game.cursor,true);_play_phase_music()
+		await _play_story_events()
+		_notice("已回到第%d回合初 · 剩余%d次" % [int(game.turn),game.Rewind.remaining(game)],3.0);return
+	if action=="new:tasks":field_notes.open_tasks();return
+	if action=="map:choose":_choose_map_skill();return
+	if action=="training:open":
+		var labels=["收益与次数"];var actions=["training:rules"]
+		for choice in game.Training.choices(game):
+			labels.append(str(choice.label));actions.append("training:detail:"+str(choice.id))
+		labels.append("返回整备");actions.append("new:camp")
+		_open_menu("training_choices",labels,actions,Vector2(24,64));return
+	if action=="training:rules":
+		await play_pages(game.Training.rules_pages(),game.mode,"",false)
+		_menu_action("training:open","training_choices");return
+	if action.begins_with("training:detail:"):
+		var id=int(action.trim_prefix("training:detail:"))
+		var choices=game.Training.choices(game).filter(func(c):return int(c.id)==id)
+		if choices.is_empty():_open_camp_menu();return
+		await play_pages([{"speaker":"战场提示","text":str(choices[0].detail)}],game.mode,"",false)
+		var labels=["返回"];var actions=["training:open"]
+		if choices[0].enabled:labels.push_front("开始演习");actions.push_front("training:start:"+str(id))
+		_open_menu("training_confirm",labels,actions,Vector2(48,92));return
+	if action.begins_with("training:start:"):
+		if game.Training.start(game,int(action.trim_prefix("training:start:"))):_begin_existing_battle()
+		else:_notice("当前无法开始演习");_open_camp_menu()
+		return
+	if action=="training:leave":
+		if game.Training.leave(game):
+			game.save_game();_resume_journey()
+		return
+	if action=="cover:choose":
+		var labels=[];var actions=[]
+		for target in game.cover_targets(game.find_unit(game.selected_id)):
+			labels.append("保护"+str(target.name_zh));actions.append("cover:target:"+str(target.id))
+		labels.append("返回");actions.append("cover:cancel")
+		_open_menu("cover_targets",labels,actions,Vector2(40,64));return
+	if action.begins_with("cover:target:"):
+		var id=action.trim_prefix("cover:target:");var target=game.find_unit(id)
+		if not game.cover_targets(game.find_unit(game.selected_id)).any(func(u):return str(u.id)==id):
+			_notice("只能掩护相邻且本回合已行动的队友");_unit_action_menu();return
+		_open_menu("cover_confirm",["确认掩护"+str(target.name_zh),"返回"],["cover:commit:"+id,"cover:cancel"],Vector2(48,92));return
+	if action.begins_with("cover:commit:"):
+		if game.begin_cover(action.trim_prefix("cover:commit:")):
+			ui_mode="inspect";game.save_game();_notice("掩护就位 · 保持邻接",2.0);_finish_turn_action()
+		else:_notice("目标需相邻且本回合已行动");_unit_action_menu()
+		return
+	if action=="cover:cancel":_unit_action_menu();return
+	if action=="tactics:unit_info":
+		var actor=game.find_unit(game.selected_id);var pages=[]
+		if game.Cover.eligible(actor):pages.append({"speaker":"战场提示","text":"掩护：放弃攻击，保护一名相邻且本回合已行动的队友至下次己方回合。首次命中时分担一半伤害；掩护者生命不足时，余量仍由原目标承担。"})
+		var detail=game.Knockback.description(game,actor)
+		if not detail.is_empty():pages.append({"speaker":"战场提示","text":detail})
+		if not pages.is_empty():await play_pages(pages,"battle","",false)
+		_unit_action_menu();return
 	if action.begins_with("travel:"):_travel(int(action.get_slice(":",1)));return
 	if action.begins_with("interact:"):
+		var id=action.substr(9)
+		var options=game.interactions_for(game.find_unit(game.selected_id)).filter(func(o):return str(o.id)==id)
+		if not options.is_empty() and options[0].get("kind","")=="breakable":
+			await play_pages([{"speaker":"战场提示","text":str(options[0].confirm_text)}],"battle","",false)
+			_open_menu("breakable_confirm",["确认破坏","返回"],["breakable:commit:"+id,"cover:cancel"],Vector2(48,92));return
 		if game.interact(action.substr(9)):ui_mode="inspect";await _play_story_events();_finish_turn_action()
 		elif not game.story_events.is_empty():await _play_story_events()
+		return
+	if action.begins_with("breakable:commit:"):
+		if game.interact(action.trim_prefix("breakable:commit:")):
+			ui_mode="inspect";game.save_game();await _play_story_events();_finish_turn_action()
+		else:_unit_action_menu()
 		return
 	if action.begins_with("hub:"):hub_controller.action(action.substr(4));return
 	match action:
@@ -269,7 +453,7 @@ func _menu_action(action: String,context: String) -> void:
 			if game.begin_chapter_two():
 				busy=false;batch_running=false;ui_mode="inspect";held_direction=Vector2i.ZERO
 				hub_controller.enter_room("H21")
-				await play_pages([{"speaker":"旁白","text":"半年前，东群岛的风灯岛。艾琳守着船团的航灯，等待一条没有归来的船的消息。"}],"hub")
+				await play_pages([{"speaker":"旁白","text":"半年前，东群岛的风灯岛。两年前，艾琳的母亲薇娅带着伤者出航，此后失去了消息。"},{"speaker":"旁白","text":"艾琳一路追查旧船的下落。船坞的卡洛留着一块旧船牌，她要先问清船牌的来历。"}],"hub")
 		"new:battle":_enter_battle(game.stage_for_node(game.world_node))
 		"new:hub":hub_controller.enter_world()
 		"new:world":_continue_world()
@@ -289,10 +473,13 @@ func _menu_action(action: String,context: String) -> void:
 			else:_notice("保存失败，仍停留在当前战场",3.0)
 		"new:goal":
 			var text=str(game.battle_data.goal)
-			if not game.exit_marker().is_empty():text+="\n出口有旗标。S菜单可定位出口与首领。"
-			else:text+="\n首领有橙色旗标。S菜单可定位首领。"
+			if not game.exit_marker().is_empty():text+="\n出口有旗标。"+("菜单" if get_meta("phone",false) else "S菜单")+"可定位出口与首领。"
+			else:text+="\n首领有橙色旗标。"+("菜单" if get_meta("phone",false) else "S菜单")+"可定位首领。"
 			if game.battle_data.code=="M15":text+="\n科兰第6回合半血撤离，最晚第8回合；沿东侧栈道尽头封住北门退路。"
 			var pages=[{"speaker":"战场提示","text":text}]
+			if game.stage_id==105:
+				pages.append({"speaker":"战场提示","text":"至少开门解救一队劳工，并让其存活，再击败或劝降科兰即可获胜。劳工不必走到出口。两队劳工都开门解救且存活时，本队全体正式成员战后额外获得20经验，含未出阵成员；满级除外。"})
+				pages.append({"speaker":"战场提示","text":"开门后，劳工会在我方阶段结束时自动移动。他们会避开敌军能攻击到的路线；若仍停在原地，请清除沿途敌人，并让出通路。"})
 			if game.stage_id>=200:
 				for status in game.objective_status():pages.append({"speaker":"战场提示","text":status})
 			for note in game.battle_data.get("tactical_notes",[]):pages.append({"speaker":"战场提示","text":str(note)})
@@ -300,6 +487,37 @@ func _menu_action(action: String,context: String) -> void:
 		"new:overview":
 			overview_zoom=1;overview_center=Vector2(0.5,0.5);overview_mouse_drag=false;held_direction=Vector2i.ZERO;view="overview"
 		_:super._menu_action(action,context)
+
+func _draw_reward() -> void:
+	var names:Array[String]=[]
+	for id in reward.get("learned",[]):
+		var spell=Items.spell(int(id));var label=str(spell.get("name_zh",""))
+		if not label.is_empty() and not names.has(label):names.append(label)
+	if not reward.get("leveled",false) or names.is_empty():
+		presentation_audit.erase("learned_spells");super._draw_reward();return
+	var unit=game.find_unit(str(reward.unit))
+	if unit.is_empty():unit=game.roster.get(str(reward.unit),{})
+	_panel(Rect2(20,4,216,232))
+	_center_text("连续升级 ×%d"%int(reward.levels_gained) if int(reward.get("levels_gained",0))>1 else "等级提升",Rect2(30,16,196,18))
+	_center_text("%s 等级%d升至%d" % [str(unit.name_zh),int(reward.get("level_before",unit.level)),int(unit.level)],Rect2(30,40,196,14))
+	_center_text("经验%d +%d 剩余%d" % [int(reward.get("exp_before",0)),int(reward.gain),int(reward.get("exp_after",unit.get("exp",0)))],Rect2(30,60,196,12))
+	var progress=1.0 if instant_mode else clampf(reward_elapsed*60.0/maxf(1.0,float(reward.gain)),0.0,1.0)
+	var displayed=int(reward.get("exp_before",0))+int(roundf(float(reward.gain)*progress))
+	displayed=displayed%100
+	_draw_exp_progress(displayed,Vector2(30,78),196)
+	var rows=[]
+	var stats=[["生命","hp",int(unit.max_hp)],["攻击","strength",int(unit.strength)],["技巧","skill",int(unit.skill)],["速度","speed",int(unit.speed)],["幸运","luck",int(unit.luck)],["物防","defence",int(unit.defence)]]
+	for i in range(stats.size()):
+		var x=34+100*(i%2);var y=96+18*int(i/2);var stat=stats[i]
+		_text(str(stat[0]),Vector2(x,y));_text(str(stat[2]),Vector2(x+40,y))
+		var gain=int(reward.growths.get(str(stat[1]),0))
+		if gain>0:_text("+%d" % gain,Vector2(x+66,y),Color(.8,1,.8))
+		rows.append(Rect2(x,y,82,12))
+	var learned_lines=_wrapped_lines("学会："+"、".join(names),188);var learned_bounds=[]
+	for i in range(learned_lines.size()):
+		var rect=Rect2(34,158+i*16,188,14);_center_text(learned_lines[i],rect,Color(.98,.94,.8));learned_bounds.append(rect)
+	_center_text("确认继续",Rect2(30,210,196,16))
+	presentation_audit.learned_spells={"names":names,"lines":learned_lines,"bounds":learned_bounds,"stats":rows,"panel":Rect2(20,4,216,232)}
 
 func play_victory_rewards() -> void:
 	for record in game.victory_rewards:
@@ -309,32 +527,155 @@ func play_victory_rewards() -> void:
 		while training_reward_open:await get_tree().process_frame
 	view="victory"
 
+func _support_experience_feedback(result: Dictionary) -> bool:
+	var receipt=result.get("reward",{})
+	if receipt.is_empty() or int(receipt.get("gain",0))<=0:return false
+	reward=receipt;reward_elapsed=0.0;reward_dismissed=false;busy=false;view="reward"
+	if bool(reward.leveled):audio.play_jingle("levelup")
+	game.save_game();return true
+
 func _unit_action_menu() -> void:
+	mechanical_target_confirmed=false;mechanical_target_part=""
 	super._unit_action_menu()
+	var actor=game.find_unit(game.selected_id)
+	if hero_map_animation!=null:hero_map_animation.forecast={}
+	if game.MapSkills.eligible(actor):
+		var spec=game.MapSkills.profile(actor);var at=mini(1,menu_items.size())
+		menu_items.insert(at,"MAP "+str(spec.name)+" "+str(3-int(spec.tier))+"/3")
+		menu_actions.insert(at,"map:choose")
+	if not game.cover_targets(actor).is_empty():
+		var cover_index=menu_actions.find("attack")+1
+		menu_items.insert(cover_index,"掩护");menu_actions.insert(cover_index,"cover:choose")
+	if game.Cover.eligible(actor) or not game.Knockback.description(game,actor).is_empty():
+		menu_items.append("战术说明");menu_actions.append("tactics:unit_info")
 	var options=game.interactions_for(game.find_unit(game.selected_id))
 	for o in options:menu_items.push_front(str(o.label));menu_actions.push_front("interact:"+str(o.id))
+	var wait_index=menu_actions.find("wait")
+	if wait_index>0:
+		var wait_label=menu_items[wait_index]
+		menu_items.remove_at(wait_index);menu_actions.remove_at(wait_index)
+		menu_items.push_front(wait_label);menu_actions.push_front("wait")
+	var attack_index=menu_actions.find("attack")
+	if attack_index>0:
+		var attack_label=menu_items[attack_index]
+		menu_items.remove_at(attack_index);menu_actions.remove_at(attack_index)
+		menu_items.push_front(attack_label);menu_actions.push_front("attack")
+
+func _choose_map_skill()->void:
+	var actor=game.find_unit(game.selected_id);var spec=game.MapSkills.profile(actor)
+	if spec.is_empty():return
+	if int(spec.tier)>=3:_notice("本场MAP三次额度已用尽");_unit_action_menu();return
+	if int(actor.hp)<=int(spec.cost):_notice("支付后至少需要保留1HP");_unit_action_menu();return
+	_clear_menu();ui_mode="map_target";held_direction=Vector2i.ZERO
+	game.cursor=game.pos(actor);map_facing=Vector2i.RIGHT
+	var support=bool(spec.get("support",false))
+	var candidates=game.living("player" if support else "enemy").filter(func(u):return not u.get("event_object",false) and not u.get("hidden",false))
+	if support:candidates=candidates.filter(func(u):return game.MapSkills.Healing.preview(game,str(actor.id),game.pos(u)).get("valid",false))
+	candidates.sort_custom(func(a,b):return (game.pos(a)-game.pos(actor)).length_squared()<(game.pos(b)-game.pos(actor)).length_squared())
+	if not candidates.is_empty():
+		var delta=game.pos(candidates[0])-game.pos(actor)
+		if spec.male:map_facing=Vector2i(signi(delta.x),0) if absi(delta.x)>=absi(delta.y) else Vector2i(0,signi(delta.y))
+		elif absi(delta.x)+absi(delta.y)<=int(spec.reach):game.cursor=game.pos(candidates[0])
+	_refresh_map_forecast();_focus_battle(game.cursor);queue_redraw()
+
+func _refresh_map_forecast()->void:
+	hero_map_animation.forecast=game.MapSkills.preview(game,game.selected_id,game.cursor,map_facing)
+	player_range_key=""
+
+func _battle_accept()->void:
+	if ui_mode=="map_target":
+		if not busy:_play_map_skill()
+		return
+	super._battle_accept()
+
+func _play_map_skill()->void:
+	var result=game.MapSkills.apply(game,game.selected_id,game.cursor,map_facing)
+	if not result.get("valid",false):_notice(str(result.get("reason","无法释放MAP")));_refresh_map_forecast();return
+	busy=true;held_direction=Vector2i.ZERO;_clear_menu();ui_mode="whole_capture";notice_time=0.0;phase_time=0.0
+	# Cost, uses, damage, loot and one action's EXP are checkpointed together.
+	game.save_game()
+	await hero_map_animation.play(result)
+	ui_mode="inspect";reward=result.reward
+	await _resolve_pending_loot();await _play_story_events();busy=false
+	if not reward.is_empty() and reward.get("leveled",false):
+		view="reward";reward_elapsed=0.0;reward_dismissed=false;audio.play_jingle("levelup")
+	else:
+		if not reward.is_empty():_notice(str(result.name)+" · 经验+"+str(int(reward.gain)),.8)
+		_finish_turn_action()
+	queue_redraw()
+
+func _draw_map_skill_ranges()->void:
+	if hero_map_animation!=null and (hero_map_animation.active or ui_mode=="map_target"):hero_map_animation.draw_ranges()
+
+func _draw_map_forecast()->void:
+	var value=hero_map_animation.forecast
+	if value.is_empty():return
+	if value.get("support",false):_draw_healing_map_forecast(value);return
+	var bounds=_visible_native_rect();var width=minf(224,bounds.size.x-16)
+	var rows=[]
+	var actor=game.find_unit(game.selected_id)
+	rows.append("HP "+str(int(actor.hp))+" > "+str(int(actor.hp)-int(value.cost))+"  额外威力+"+str(int(value.power)))
+	var damages=value.targets.map(func(t):return int(t.damage))
+	if damages.is_empty():rows.append(str(value.get("reason","选择目标")))
+	else:
+		rows.append("目标"+str(damages.size())+"名  伤害"+str(damages.min())+("~"+str(damages.max()) if damages.min()!=damages.max() else "")+(" · 中心+4" if value.magic and value.advanced else ""))
+	if int(value.get("reflection_damage",0))>0:rows.append("反伤%dHP · 结算后HP%d"%[int(value.reflection_damage),int(value.hp_after_reflection)])
+	if int(value.tier)==2:rows.append("本次后虚脱：移动-2 伤害-25%")
+	rows.append("方向选"+("朝向" if value.male else "落点")+" · 确认释放／返回")
+	var height=44+rows.size()*12
+	var rect=Rect2(Vector2(bounds.get_center().x-width/2,bounds.end.y-height-5),Vector2(width,height))
+	_panel(rect)
+	_center_text(str(value.name)+" 第"+str(int(value.tier)+1)+"/3次",Rect2(rect.position+Vector2(12,10),Vector2(width-24,14)))
+	for i in range(rows.size()):_center_text(str(rows[i]),Rect2(rect.position+Vector2(12,31+i*12),Vector2(width-24,10)),Color(1,.8,.6) if i==2 and int(value.tier)==2 else Color(.8,.88,.92))
+	presentation_audit.hero_map_forecast={"panel":rect,"rows":rows,"valid":value.valid,"target_count":value.targets.size()}
+
+func _draw_healing_map_forecast(value:Dictionary)->void:
+	var actor=game.find_unit(game.selected_id);var bounds=_visible_native_rect();var width=minf(224,bounds.size.x-16)
+	var rows=["HP "+str(int(actor.hp))+" > "+str(int(actor.hp)-int(value.cost))+" · 最远"+str(value.reach)+"格／对单"]
+	if value.targets.is_empty():rows.append(str(value.get("reason","请选择友军")))
+	else:
+		var hit=value.targets[0]
+		rows.append(str(hit.unit.name_zh)+" 生命 "+str(hit.hp_before)+" > "+str(hit.hp_after)+"（+"+str(hit.heal)+"）")
+	rows.append("强身：物防+2，持续2回合")
+	if int(value.tier)==2:rows.append("本次后移动-2，至下个己方回合结束")
+	rows.append("方向选友军 · 确认释放／返回")
+	var height=48+rows.size()*14
+	var rect=Rect2(Vector2(bounds.get_center().x-width/2,bounds.end.y-height-5),Vector2(width,height))
+	_panel(rect);_center_text(str(value.name)+" 第"+str(int(value.tier)+1)+"/3次",Rect2(rect.position+Vector2(12,10),Vector2(width-24,14)))
+	for i in range(rows.size()):_center_text(str(rows[i]),Rect2(rect.position+Vector2(12,31+i*14),Vector2(width-24,12)),Color("a9dfb6") if i==2 else Color(.8,.88,.92))
+	presentation_audit.hero_map_forecast={"panel":rect,"rows":rows,"valid":value.valid,"target_count":value.targets.size(),"support":true}
 
 func _open_system_menu() -> void:
+	if view=="field_notes":return
 	if equipment_screen!=null and equipment_screen.active():return
 	if view in ["plot","title","journal","journal_confirm"]:return
+	# Leaving an uncommitted action must roll back its tentative movement before
+	# a save/retry/system command can persist a free extra move.
+	if view=="battle" and not busy and not batch_running and not game.selected_id.is_empty() and ui_mode in ["action","move","target","support_target","warp","map_target"]:
+		game.cancel_move();ui_mode="inspect";_clear_menu()
+		if hero_map_animation!=null:hero_map_animation.forecast={}
 	if view=="world" and not busy and game.can_switch_route():
-		_open_menu("world_system",["部队整备","切换队伍","世界全图","保存进度","返回标题"],["new:camp","new:switch","new:overview","new:save","title"],Vector2(40,56));return
+		_open_menu("world_system",["部队整备","当前任务","切换队伍","世界全图","保存进度","返回标题"],["new:camp","new:tasks","new:switch","new:overview","new:save","title"],Vector2(40,56));return
 	if view=="world" and not busy:
-		_open_menu("world_system",["部队整备","世界全图","保存进度","返回标题"],["new:camp","new:overview","new:save","title"],Vector2(48,64));return
+		_open_menu("world_system",["部队整备","当前任务","世界全图","保存进度","返回标题"],["new:camp","new:tasks","new:overview","new:save","title"],Vector2(48,64));return
 	super._open_system_menu()
 	if view=="battle" and menu_context=="system" and not menu_items.is_empty():
 		var save_index=menu_actions.find("save")
 		if save_index>=0:menu_actions.remove_at(save_index);menu_items.remove_at(save_index)
 		var end_index=menu_actions.find("end_turn")
 		if end_index>=0:menu_items[end_index]="结束回合（第%d回合）" % game.turn
+		menu_items.insert(1,"回溯到上回合（剩余%d次）" % game.Rewind.remaining(game));menu_actions.insert(1,"new:rewind")
 		menu_items.append("战场目标");menu_actions.append("new:goal")
 		if not game.exit_marker().is_empty():menu_items.append("定位出口或目的地");menu_actions.append("new:focus_exit")
 		var boss=game.find_unit(str(game.battle_data.boss_id))
 		if not boss.is_empty() and int(boss.hp)>0:menu_items.append("定位首领："+str(boss.name_zh));menu_actions.append("new:focus_boss")
 		menu_items.append("返回整备（重置本战）");menu_actions.append("new:prepare")
+		if game.Training.active(game):
+			menu_items[-1]="退出演习（无收益）";menu_actions[-1]="training:leave"
 		menu_items.append("保存并返回主菜单");menu_actions.append("new:battle_title")
 
 func _show_status() -> void:
+	if view=="field_notes":return
 	if equipment_screen!=null and equipment_screen.active():equipment_screen.toggle_details();return
 	if view in ["plot","overview","chapter_end","title","journal","journal_confirm"]:return
 	if view=="hub":
@@ -345,9 +686,13 @@ func _open_camp_menu() -> void:
 	super._open_camp_menu()
 	var title_index=menu_actions.find("title")
 	if title_index>=0:menu_items.remove_at(title_index);menu_actions.remove_at(title_index)
+	var save_index=menu_actions.find("camp:save")
+	if save_index>=0:menu_items.remove_at(save_index);menu_actions.remove_at(save_index)
 	menu_items.insert(3,"装备说明");menu_actions.insert(3,"new:equipment")
 	var ready=game.party.filter(func(id):return game.can_deploy(game.roster[id])).size()
 	menu_items[0]="部队状态 · "+str(ready)+"/"+str(game.party.size())+"可出阵"
+	if not game.Training.choices(game).is_empty():
+		menu_items.append("战术补练 · 剩余%d次"%game.Training.remaining(game));menu_actions.append("training:open")
 	_open_menu("camp",menu_items.duplicate(),menu_actions.duplicate(),Vector2(32,48))
 
 func _camp_members(action: String, except_id: String = "") -> void:
@@ -361,6 +706,11 @@ func _camp_members(action: String, except_id: String = "") -> void:
 
 func _camp_action(action: String) -> void:
 	if action=="save":journey.open("save");return
+	if action=="withdraw":
+		var grouped=Items.inventory_groups(game.convoy.get(game.route,[]))
+		if grouped.is_empty():_notice("仓库没有道具");return
+		_open_menu("stored_items",grouped.map(func(g):return g.label),grouped.map(func(g):return "camp:withdraw_item:"+str(g.index)),Vector2(64,32))
+		return
 	if action.begins_with("withdraw_item:"):
 		camp_first=action.get_slice(":",1);equipment_screen.open(int(camp_first));return
 	# Old camp action strings also lead to a preview, never a direct transfer.
@@ -375,6 +725,56 @@ func _small_text_width(text: String) -> float:
 	var width=0.0
 	for ch in text:width+=float(small_font.get("glyphs",{}).get(ch,{}).get("advance",8))
 	return width
+
+func _highlighted_spell() -> int:
+	if menu_context!="magic" or menu_selected<0 or menu_selected>=menu_actions.size():return -1
+	return int(str(menu_actions[menu_selected]).get_slice(":",1))
+
+func _magic_list_width() -> float:
+	var width=112.0
+	for item in menu_items:width=maxf(width,_text_width(str(item))+40)
+	return width
+
+func _magic_side_by_side() -> bool:
+	return _magic_list_width()+216<=_visible_native_rect().size.x-16
+
+func _menu_capacity() -> int:
+	if menu_context!="magic" or _magic_side_by_side():return super._menu_capacity()
+	var phone=bool(get_meta("phone",false));var available=_visible_native_rect().size.y-16
+	for count in range(super._menu_capacity(),0,-1):
+		var height=mini(count,menu_items.size())*_menu_row_height()+(24 if phone else 28)+108
+		if menu_items.size()>count:height+=20 if phone else 16
+		if height<=available:return count
+	return 1
+
+func _magic_layout() -> Dictionary:
+	var phone=bool(get_meta("phone",false));var capacity=_menu_capacity();var side=_magic_side_by_side()
+	var width=_magic_list_width() if side else maxf(224,_magic_list_width())
+	var height=mini(capacity,menu_items.size())*_menu_row_height()+(24 if phone else 28)
+	if menu_items.size()>capacity:height+=20 if phone else 16
+	var total=Vector2(width+216,maxf(height,100)) if side else Vector2(width,height+108)
+	var bounds=_visible_native_rect().grow(-8)
+	var at=Vector2(bounds.get_center().x-total.x/2,clampf(menu_position.y,bounds.position.y,bounds.end.y-total.y)).round()
+	var caster=game.find_unit(game.selected_id)
+	if side and not caster.is_empty():at.y=bounds.position.y if _battle_cell_screen(game.pos(caster)).y>=bounds.get_center().y else bounds.end.y-total.y
+	var detail=Rect2(at+Vector2(width+8,0),Vector2(208,100)) if side else Rect2(at+Vector2(0,height+8),Vector2(width,100))
+	return {"menu":Rect2(at,Vector2(width,height)),"detail":detail,"side_by_side":side}
+
+func _menu_rect() -> Rect2:
+	return _magic_layout().menu if menu_context=="magic" else super._menu_rect()
+
+func _draw_menu() -> void:
+	super._draw_menu()
+	if menu_context!="magic" or menu_items.is_empty():presentation_audit.erase("spell_info");return
+	var caster=game.find_unit(game.selected_id);var id=_highlighted_spell()
+	if caster.is_empty() or id<0:return
+	var info=SpellInfo.describe(game,caster,id);var layout=_magic_layout();var rect:Rect2=layout.detail
+	_panel(rect)
+	_center_text(str(info.title),Rect2(rect.position+Vector2(12,12),Vector2(rect.size.x-24,12)),Color(.93,.87,.67))
+	var lines=[info.effect,info.stats,info.range,info.availability]
+	for i in range(lines.size()):
+		_center_text(str(lines[i]),Rect2(rect.position+Vector2(12,28+i*16),Vector2(rect.size.x-24,12)),Color(.72,1,.78) if i>=2 else Color.WHITE)
+	presentation_audit.spell_info=info;presentation_audit.spell_layout=layout
 
 func _small_lines(text: String,width: float) -> Array[String]:
 	var lines: Array[String]=[];var line=""
@@ -444,28 +844,62 @@ func _continue_world() -> void:
 	world_actor=Vector2(world.nodes[str(game.world_node)].position[0],world.nodes[str(game.world_node)].position[1])*16
 	audio.play_world(1);game.save_game()
 
+func _play_casualty_messages() -> void:
+	if view!="combat":return
+	var personal=[]
+	for event in game.story_events:
+		if event.get("kind","")!="new_story":continue
+		var remaining=[]
+		for page in event.get("pages",[]):
+			if not str(page.get("casualty_id","")).is_empty():personal.append(page)
+			else:remaining.append(page)
+		event.pages=remaining
+	if personal.is_empty():return
+	game.story_events=game.story_events.filter(func(event):return event.get("kind","")!="new_story" or not event.get("pages",[]).is_empty())
+	# A strike is not settled yet. Do not save an incomplete exchange or a
+	# return-to-combat plot without its animation state. Normal settlement
+	# owns persistence; the ordinary withdrawal notice remains queued.
+	await play_pages(personal,"combat","",false)
+
 func _play_story_events() -> void:
 	var was_busy=busy;busy=true
 	while not game.story_events.is_empty():
 		var event: Dictionary=game.story_events.pop_front()
-		await play_pages(event.get("pages",[]),view)
+		if game.stage_id==105 and not str(event.get("m15_scene","")).is_empty():
+			m15_scene.start(event,view)
+			while m15_scene.active:await get_tree().process_frame
+		else:await play_pages(event.get("pages",[]),view)
 	busy=was_busy;game.save_game()
 
-func play_pages(pages: Array,return_view: String,callback: String="") -> void:
+func _run_ai_unit(unit:Dictionary,gather:bool=false) -> void:
+	# The turn/whisper must precede the real northbound move. ai_action() also
+	# queues this for simulations, while the seen flag keeps playback singular.
+	if int(unit.get("hp",0))>0 and not unit.get("acted",false) and game.M15Story.escaping(game,unit):
+		game.M15Story.announce_escape(game)
+		await _play_story_events()
+	await super._run_ai_unit(unit,gather)
+
+func play_pages(pages: Array,return_view: String,callback: String="",persist:bool=true) -> void:
 	var previous_busy=busy;busy=true;held_direction=Vector2i.ZERO
+	# Keep the successful invitation frame for the entire cue, even when
+	# ordinary animation waits are accelerated. Do not leave busy latched.
+	while recruitment_paused():await get_tree().process_frame
 	plot_pages.clear()
 	for page in pages:
 		plot_pages.append_array(_paginate_plot(page))
 	if plot_pages.is_empty():busy=previous_busy;return
 	plot_index=0;plot_return=return_view;plot_callback=callback;plot_finished=false;dialogue_reveal=0.0
-	game.flags.active_plot={"pages":plot_pages,"index":0,"return":return_view,"callback":callback}
-	view="plot";game.save_game()
+	plot_persistent=persist
+	if persist:game.flags.active_plot={"pages":plot_pages,"index":0,"return":return_view,"callback":callback}
+	view="plot"
+	if persist:game.save_game()
 	while not plot_finished:await get_tree().process_frame
 	busy=previous_busy
 
 func _resume_plot() -> void:
+	plot_persistent=true
 	var p: Dictionary=game.flags.active_plot
-	plot_pages=p.pages;plot_index=int(p.index);plot_return=p["return"];plot_callback=p.get("callback","")
+	plot_pages=PostbattleNpcs.refresh_saved_dialogue(game,p.pages);plot_index=int(p.index);plot_return=p["return"];plot_callback=p.get("callback","")
 	plot_finished=false;dialogue_reveal=0.0;view="plot";_reflow_plot()
 
 func _speaker_portrait(speaker: String,emotion: String="") -> Dictionary:
@@ -473,6 +907,7 @@ func _speaker_portrait(speaker: String,emotion: String="") -> Dictionary:
 	return Portraits.speaker(game,speaker,emotion)
 
 func _unit_portrait(unit: Dictionary) -> Dictionary:
+	if game.Mechanical.is_puppet(unit):return {"path":preload("res://core/mechanical_art.gd").portrait(unit)}
 	return Portraits.unit(game,unit)
 
 func _portrait(source_id: int) -> Dictionary:
@@ -511,13 +946,33 @@ func _advance_plot() -> void:
 	var line=str(plot_pages[plot_index].text)
 	if int(dialogue_reveal)<line.length():dialogue_reveal=line.length();return
 	plot_index+=1;dialogue_reveal=0.0
-	if plot_index<plot_pages.size():game.flags.active_plot.index=plot_index;game.save_game();return
-	view=plot_return;game.flags.erase("active_plot");plot_finished=true
-	if not plot_callback.is_empty():hub_controller.finish_story(plot_callback)
-	game.save_game()
+	if plot_index<plot_pages.size():
+		if plot_persistent:game.flags.active_plot.index=plot_index;game.save_game()
+		return
+	view=plot_return
+	if plot_persistent:game.flags.erase("active_plot")
+	plot_finished=true
+	if plot_callback=="m15_next":m15_scene.dialogue_finished()
+	elif not plot_callback.is_empty():hub_controller.finish_story(plot_callback)
+	if plot_persistent:game.save_game()
 
 func _draw() -> void:
 	draw_set_transform(_canvas_offset())
+	if m15_scene!=null and m15_scene.active and view in ["m15_scene","plot"]:
+		safe_panels.clear();text_checks.clear();layout_errors.clear();health_checks.clear()
+		m15_scene.draw()
+		if view=="plot":_draw_plot()
+		return
+	if view=="field_notes":
+		safe_panels.clear();text_checks.clear();layout_errors.clear();health_checks.clear();field_notes.draw();return
+	if prologue_scene!=null and prologue_scene.active and view in ["prologue_scene","plot"]:
+		safe_panels.clear();text_checks.clear();layout_errors.clear();health_checks.clear()
+		prologue_scene.draw()
+		if view=="plot":_draw_plot()
+		return
+	if view=="story_intro":
+		safe_panels.clear();text_checks.clear();layout_errors.clear();health_checks.clear()
+		story_intro.draw();return
 	if equipment_screen!=null and equipment_screen.active():
 		safe_panels.clear();text_checks.clear();layout_errors.clear();health_checks.clear()
 		equipment_screen.draw();return
@@ -529,6 +984,7 @@ func _draw() -> void:
 		if view=="overview":_draw_overview();return
 		if view=="chapter_end":_draw_chapter_end()
 		elif plot_return=="hub":hub_controller.draw()
+		elif plot_return=="combat":_draw_combat(false)
 		elif plot_return in ["battle","victory","defeat"]:_draw_battle()
 		else:_draw_world()
 		if view=="plot":_draw_plot()
@@ -642,7 +1098,15 @@ func _draw_map(map: Dictionary,atlas: Texture2D,origin: Vector2) -> void:
 		_draw_battle_surroundings(origin,tint)
 		_draw_layers(game.battle_data.art_layers,int(game.battle_data.get("art_columns",32)),_tex(str(game.battle_data.get("art_atlas","res://assets/battle_tiles/battle-tiles.png"))),origin,tint)
 		_draw_nature_props(game.battle_data.get("natural_props",[]),origin,tint)
-		_draw_art_props(game.battle_data.get("art_props",[]),origin,tint)
+		_draw_art_props(game.VisitBuildings.props(game.battle_data),origin,tint)
+		_draw_art_props(game.VisitBuildings.entrances(game.battle_data),origin,tint)
+		presentation_audit.erase("spell_attack")
+		if view=="battle" and menu_context=="magic" and not menu_items.is_empty():
+			var caster=game.find_unit(game.selected_id);var spell_id=_highlighted_spell()
+			if not caster.is_empty() and spell_id>=0:
+				var cells=SpellInfo.attack_cells(game,caster,spell_id)
+				for cell in cells:draw_rect(Rect2(_battle_cell_screen(cell),Vector2(16,16)),Color(.18,.85,.40,.30))
+				presentation_audit.spell_attack=cells
 		objective_badge_rect=Rect2()
 		var marker=game.exit_marker()
 		if not marker.is_empty():
@@ -654,7 +1118,7 @@ func _draw_map(map: Dictionary,atlas: Texture2D,origin: Vector2) -> void:
 				for actor in game.units:
 					if int(actor.hp)>0 and actor.side!="evacuated" and not actor.get("hidden",false):
 						var actor_at=moving_position-battle_camera if moving_id==str(actor.id) else Vector2(actor.position[0],actor.position[1])*16+origin
-						occupied.append(Rect2(actor_at+Vector2(-4,-8),Vector2(24,28)))
+						occupied.append(Rect2(actor_at+Vector2(-10 if str(actor.id)=="medicine_wagon" else -4,-8),Vector2(36 if str(actor.id)=="medicine_wagon" else 24,28)))
 				for offset in [Vector2(8-width/2,-44),Vector2(32,-12),Vector2(-width-16,-12),Vector2(8-width/2,32)]:
 					var badge=Rect2(at+offset,Vector2(width,28))
 					if not _visible_native_rect().grow(-4).encloses(badge) or occupied.any(func(rect):return badge.intersects(rect)):continue
@@ -827,15 +1291,17 @@ func _draw_world() -> void:
 	if class_actor.is_empty():class_actor=PartySprites.sprite("map",game.roster.get(game.leader_id(),{}),game.chapter)
 	if not class_actor.is_empty():sp=class_actor
 	var walk_direction="up" if world_facing.y<0 else "side" if world_facing.x!=0 else "down"
-	var step=(int(elapsed*60.0988)>>4)&1 if not world_path.is_empty() else 0
+	if world_facing.x!=0 and sp.directions.has("left"):walk_direction="left" if world_facing.x<0 else "right"
 	var tile_origin=sp.get("tile_origin",[4,4])
 	var flip_=world_facing.x>0 if sp.get("default_facing","right")=="left" else world_facing.x<0
-	_draw_frame(sp,int(sp.directions[walk_direction][step]),world_actor+origin-Vector2(tile_origin[0],tile_origin[1]),flip_)
+	if sp.directions.has("left"):flip_=false
+	var world_frame=PartySprites.Reviewed.travel_frame(sp,walk_direction,elapsed,not world_path.is_empty())
+	_draw_frame(sp,world_frame,world_actor+origin-Vector2(tile_origin[0],tile_origin[1]),flip_)
 	for n in game.world_neighbors():
 		var p=_oriented_route(n)
 		if p.size()<2:continue
 		var d=Vector2(p[1][0]-p[0][0],p[1][1]-p[0][1]);var direction="right" if d.x>0 else "left" if d.x<0 else "down" if d.y>0 else "up"
-		_draw_indicator(direction,world_actor+origin+d*20+Vector2(4,4))
+		_draw_map_indicator(direction,world_actor+origin+d*20+Vector2(4,4))
 	var bottom=_footer_shift()
 	_panel(Rect2(Vector2(8,164)+bottom,Vector2(240,68)));var node=world.nodes[str(game.world_node)]
 	_center_text((str(game.stages[game.stage_for_node(game.world_node)].name_zh) if game.chapter>=3 and game.world_has_battle(game.world_node) else str(node.name_zh)),Rect2(Vector2(20,174)+bottom,Vector2(216,16)))
@@ -846,7 +1312,8 @@ func _draw_plot() -> void:
 	if plot_pages.is_empty():return
 	var page=plot_pages[plot_index];var layout=_plot_layout(str(page.speaker));var panel: Rect2=layout.panel
 	_panel(panel)
-	_center_text(str(page.speaker),Rect2(panel.position+Vector2(16,10),Vector2(panel.size.x-32,16)),Color(.94,.88,.67))
+	var speaker_label=str(page.speaker)+(str(page.get("delivery","")))
+	_center_text(speaker_label,Rect2(panel.position+Vector2(16,10),Vector2(panel.size.x-32,16)),Color(.94,.88,.67))
 	var face=_speaker_portrait(str(page.speaker),Portraits.dialogue_emotion(page))
 	if not face.is_empty():draw_texture(_tex(face.path),layout.portrait.position)
 	_text(str(page.text).substr(0,int(dialogue_reveal)),layout.text.position,Color.WHITE,true,layout.text.size.x)
@@ -854,6 +1321,14 @@ func _draw_plot() -> void:
 	plot_layout_audit={"speaker":page.speaker,"emotion":Portraits.dialogue_emotion(page),"portrait_key":face.get("key",""),"has_portrait":layout.has_portrait,"text":layout.text,"portrait":layout.portrait,"panel":panel}
 
 func _draw_result() -> void:
+	if game.Training.active(game):
+		_panel(Rect2(24,36,208,124))
+		_center_text("演习完成" if view=="victory" else "演习结束",Rect2(36,48,184,24))
+		var text="所有参训者获得%d经验\n本次倒地不留伤势\n剩余%d次成功演习"%[int(game.Training.config().completion_experience),game.Training.remaining(game)] if view=="victory" else "本次没有经验收益\n未消耗演习次数\n可重试或返回营地"
+		_center_text(text,Rect2(36,84,184,48))
+		if menu_items.is_empty():
+			_panel(Rect2(56,176,144,40));_center_text("确认返回营地",Rect2(68,188,120,16))
+		return
 	if view=="victory":
 		_panel(Rect2(24,40,208,112));_center_text("战斗胜利",Rect2(34,50,188,32))
 		_center_text(str(game.battle_data.name_zh)+"\n战场目标已达成\n过关经验与成长已保存",Rect2(34,86,188,48))
@@ -870,13 +1345,35 @@ func _personal_battle_sprite(unit: Dictionary,original: Dictionary) -> Dictionar
 
 func _personal_hub_sprite(original: Dictionary) -> Dictionary:
 	var shared=PartySprites.sprite("hub",game.roster.get(game.leader_id(),{}),game.chapter)
-	return original if shared.is_empty() else shared
+	return shared if CampaignArt.valid(shared) else CampaignArt.map_sprite("hub",game.roster.get(game.leader_id(),{}))
 
 func _party_hub_sprite(object: Dictionary,original: Dictionary) -> Dictionary:
+	if game.hub_record=="H06" and str(object.get("action",""))=="treat":
+		return PartySprites.Reviewed.metadata().maps["18_ally"]["tactical-idle"].duplicate(true)
+	if game.hub_record=="H21":
+		var ids={"east_departure":"carlo","east_mireille":"mireille","east_lisa":"lisa"}
+		var id=str(ids.get(str(object.get("action","")),""))
+		if not id.is_empty() and str(object.get("name",""))==str(game.characters[id].name_zh):
+			var actor:Dictionary=game.roster.get(id,game.characters[id])
+			return PartySprites.Reviewed.metadata().maps[PartySprites.Reviewed.key(actor)]["tactical-idle"].duplicate(true)
+	if str(object.get("name",""))=="赫兰":
+		var art=GameState.read_json("res://data/prologue_cast.json").actors.herlan.duplicate(true)
+		art.directions={"down":[0,0],"up":[0,0],"side":[0,0]};art.tile_origin=[8,8];return art
+	if str(object.get("action","")) in ["lena","lance"]:
+		var id=str(object.action);var actor:Dictionary=game.roster.get(id,game.characters[id])
+		return PartySprites.Reviewed.metadata().maps[PartySprites.Reviewed.key(actor)]["tactical-idle"].duplicate(true)
+	var civilian=PostbattleNpcs.hub(game,object)
+	if CampaignArt.valid(civilian):return civilian
 	var id=str(object.get("action",""))
+	if id=="transport":return CampaignArt.map_or(PartySprites.Reviewed.metadata().maps["14_ally"]["tactical-idle"],"hub",{"id":id,"class_id":14,"side":"player"})
+	if id=="fula" and game.hub_record=="H02":
+		var actor:Dictionary=game.roster.get("fula",game.characters.fula)
+		return CampaignArt.map_or(PartySprites.Reviewed.metadata().maps[PartySprites.Reviewed.key(actor)]["tactical-idle"],"hub",actor).duplicate(true)
+	if id=="hervi" and game.hub_record=="H09":return CampaignArt.map_or(PartySprites.Reviewed.metadata().maps["15_ally"]["tactical-idle"],"hub",{"id":id,"class_id":15,"side":"player"})
+	if id=="staff" and game.hub_record=="H09":return CampaignArt.map_or(PartySprites.Reviewed.metadata().maps["18_ally"]["tactical-idle"],"hub",{"id":id,"class_id":18,"side":"player"})
 	if id=="guard" or str(object.get("name","")) in ["教团守卫","教团兵","教团守军"]:
 		var guard: Dictionary=PartySprites.data().get("story_npc_profiles",{}).get("guard",{}).get("hub",{})
-		if not guard.is_empty() and ResourceLoader.exists(str(guard.path)):return guard
+		if CampaignArt.valid(guard):return guard
 	if not game.characters.has(id):
 		id=""
 		for candidate in game.characters:
@@ -885,15 +1382,32 @@ func _party_hub_sprite(object: Dictionary,original: Dictionary) -> Dictionary:
 	# Do not infer profession from source=5: civilians and captains reuse it too.
 	if id.is_empty() and str(object.get("name",""))=="投降兵":
 		return PartySprites.sprite("hub",{"class_id":6,"side":"player"},game.chapter)
-	if id.is_empty():return original
+	if id.is_empty():return CampaignArt.map_sprite("hub",{"class_id":14,"side":"player","neutral":true,"id":str(object.get("name",""))})
 	var art=PartySprites.sprite("hub",game.roster.get(id,game.characters[id]),game.chapter)
-	return original if art.is_empty() else art
+	return art if CampaignArt.valid(art) else CampaignArt.map_sprite("hub",game.roster.get(id,game.characters[id]))
+
+var recruit_pause_until_ms := 0
+const RECRUIT_PAUSE_MS := 2000
+
+func recruitment_paused() -> bool:
+	return Time.get_ticks_msec()<recruit_pause_until_ms
+
+func _physics_process(delta: float) -> void:
+	if not recruitment_paused():super._physics_process(delta)
+
+func _bind_recruitment_signal() -> void:
+	if not game.character_recruited.is_connected(_on_character_recruited):game.character_recruited.connect(_on_character_recruited)
+
+func _on_character_recruited(_id:String)->void:
+	held_direction=Vector2i.ZERO;recruit_pause_until_ms=Time.get_ticks_msec()+RECRUIT_PAUSE_MS
+	audio.play_jingle("rm_jingle_recruit")
 
 func _map_unit_sprite(unit: Dictionary) -> Dictionary:
 	var moving=str(unit.get("id",""))==moving_id
 	var art=PartySprites.sprite("map_move" if moving else "map",unit,game.chapter)
 	if art.is_empty() and moving:art=PartySprites.sprite("map",unit,game.chapter)
-	if art.is_empty():return super._map_unit_sprite(unit)
+	if not CampaignArt.valid(art):art=CampaignArt.map_sprite("map_move" if moving else "map",unit)
+	if not moving and not game.Mechanical.is_puppet(unit):art=TacticalIdle.sprite(art,unit,elapsed)
 	if moving and art.has("direction_cycles"):
 		var facing="up" if moving_direction.y<0 else "left" if moving_direction.x<0 else "right" if moving_direction.x>0 else "down"
 		var cycle:Dictionary=art.direction_cycles[facing]
@@ -913,6 +1427,22 @@ func _map_unit_sprite(unit: Dictionary) -> Dictionary:
 				shade.a=color.a;image.set_pixel(x,y,shade)
 		textures[key]=ImageTexture.create_from_image(image)
 	art.path=key;return art
+
+func _draw_medicine_transport(unit: Dictionary,at: Vector2) -> void:
+	var walking=moving_id==str(unit.id)
+	var sprite: Dictionary=PartySprites.Reviewed.metadata().maps["14_ally"]["tactical-walk" if walking else "tactical-idle"]
+	var direction="up" if walking and moving_direction.y<0 else "left" if walking and moving_direction.x<0 else "right" if walking and moving_direction.x>0 else "down"
+	var frame=_native_map_pose(sprite)
+	if walking:
+		var cycle: Dictionary=sprite.get("direction_cycles",{}).get(direction,{})
+		if not cycle.is_empty():
+			sprite=sprite.duplicate(false);sprite.native_cycle=cycle.frames;sprite.cycle_ticks=cycle.ticks
+			frame=_native_map_pose(sprite)
+		else:frame=int(sprite.directions[direction][moving_frame])
+	var origin=sprite.get("tile_origin",[4,4])
+	_draw_frame(sprite,frame,at+Vector2(-10,0)-Vector2(origin[0],origin[1]))
+	draw_texture(_tex("res://assets/battle_tiles/modules/medicine_wagon.png"),at-Vector2(1,0))
+	presentation_audit.medicine_transport={"worker":str(sprite.path),"moving":walking,"unit_id":str(unit.id),"bounds":Rect2(at+Vector2(-10,-8),Vector2(36,24))}
 
 func _attack_preview_placement() -> Dictionary:
 	var neighbours=[];var combatants=[]
@@ -987,11 +1517,23 @@ func _draw_preview() -> void:
 	if attacker.is_empty() or defender.is_empty():return
 	attacker=attacker.duplicate(true)
 	var distance=absi(game.pos(attacker).x-game.pos(defender).x)+absi(game.pos(attacker).y-game.pos(defender).y)
+	attacker=Rules.attack_context(attacker,distance)
 	var reply=Rules.default_counter(defender,distance)
+	var part_selected=mechanical_target_confirmed and mechanical_target_id==str(defender.id) and mechanical_target_part==game.Mechanical.part_key(defender) and game.Mechanical.part_hp(defender)>0
 	var placement=_attack_preview_placement();battle_preview_audit=placement
 	if not placement.valid:return
 	var rect: Rect2=placement.panel
 	_panel(rect)
+	# Reuse the panel material and its intact frame. The two inner fields use
+	# the same faction colors as combat, independent of attacker/defender order.
+	battle_preview_audit.factions=[]
+	var material=_tex(graphics.panel.path)
+	for i in range(2):
+		var unit=attacker if i==0 else reply
+		var field=Rect2(rect.position+Vector2(8+i*112,8),Vector2(112,rect.size.y-16)) if not placement.stacked else Rect2(rect.position+Vector2(8,8+i*82),Vector2(rect.size.x-16,82))
+		var tint=Color(.7,1.15,2.1) if unit.side=="player" else Color(2.8,.8,.8)
+		draw_texture_rect_region(material,field,Rect2((material.get_size()/2).floor(),Vector2.ONE),tint)
+		battle_preview_audit.factions.append({"unit":str(unit.id),"side":str(unit.side),"bounds":field,"tint":tint})
 	var largest_maximum=maxi(int(attacker.max_hp),int(reply.max_hp))
 	battle_preview_audit.text_font_px=12;battle_preview_audit.hp_cell_size=Vector2(2,2) if largest_maximum>52 else Vector2(4,4)
 	battle_preview_audit.text_rows=[]
@@ -1000,38 +1542,96 @@ func _draw_preview() -> void:
 	for i in range(2):
 		var unit=attacker.duplicate(true) if i==0 else reply.duplicate(true)
 		var other=(reply if i==0 else attacker).duplicate(true)
+		if i==0 and part_selected:other=game.Mechanical.defence_context(other,game.Mechanical.part_key(defender))
 		unit.triangle_attack=Rules.combat_support(unit,other,game.living(str(unit.side)),distance)
 		other.story_invulnerable=Rules.boss_guard(other,game.turn)
 		var stats=Rules.attack_stats(unit,other,game.terrain_avoid(game.pos(other)))
+		var guard=game.Cover.guard_for(game,other)
+		var shared=mini(int(guard.get("hp",0)),ceili(float(stats.damage)/2.0)) if not guard.is_empty() else 0
+		stats.damage-=shared
 		var can_attack=Rules.can_attack(unit,distance);var blocked=Rules.attack_blocked(unit,other)
 		var x=rect.position.x+12+(0 if placement.stacked else i*112);var y=rect.position.y+(i*88 if placement.stacked else 0)
 		_preview_text(str(unit.name_zh),Vector2(x,y+(10 if placement.compact else 12)))
 		var lines=["生命%d/%d"%[int(unit.hp),int(unit.max_hp)],"攻击无效" if blocked else ("伤害"+str(stats.damage)+" 命中"+str(stats.hit)+"%" if can_attack else "无法反击"),"不能造成伤害" if blocked else ("必杀"+str(stats.critical)+"%" if can_attack else "超出攻击范围")]
+		if i==1 and part_selected:lines[0]="%s%d/%d"%[game.Mechanical.part_name(defender,true),game.Mechanical.part_hp(defender),game.Mechanical.part_max(defender)]
+		if i==1 and can_attack and not blocked:lines[2]+=" "+Rules.weapon_name(unit)
+		if shared>0 and can_attack and not blocked:lines[2]="首击掩护分担"+str(shared)
+		if i==0 and game.Knockback.capable(game,unit):
+			var push=game.Knockback.preview(game,unit,other)
+			battle_preview_audit.knockback=push
+			lines[2]="必杀"+str(stats.critical)+"% "+("推1格" if push.valid and int(stats.damage)>0 else "不击退")
+		if i==0 and not part_selected and game.Mechanical.core_active(defender):lines[2]="攻击后反伤2HP"
 		for row in range(3):
 			var line=str(lines[row])
 			if _preview_text_width(line)>104:line=line.replace(" ","")
 			_preview_text(line,Vector2(x,y+(24+row*14 if placement.compact else 32+row*16)))
 			battle_preview_audit.text_rows.append({"unit":str(unit.id),"text":line})
-		_draw_preview_health(int(unit.hp),int(unit.max_hp),Vector2(x,y+(66 if placement.compact else 82)),"ally" if unit.side=="player" else "enemy",largest_maximum)
+		_draw_preview_health(game.Mechanical.part_hp(defender) if i==1 and part_selected else int(unit.hp),game.Mechanical.part_max(defender) if i==1 and part_selected else int(unit.max_hp),Vector2(x,y+(66 if placement.compact else 82)),"ally" if unit.side=="player" else "enemy",largest_maximum)
+		if i==1 and game.Mechanical.is_puppet(defender):battle_preview_audit.mechanical_target={"part":game.Mechanical.part_key(defender) if part_selected else "body","body_hp":int(defender.hp),"part_hp":game.Mechanical.part_hp(defender)}
 	if target_ids.size()>1:
 		if placement.stacked:
 			var sprite=_map_unit_sprite(defender);var arrow_y=-int(sprite.get("tile_origin",[4,4])[1])-9
-			_draw_indicator("left",_battle_cell_screen(game.cursor)+Vector2(-8,arrow_y))
-			_draw_indicator("right",_battle_cell_screen(game.cursor)+Vector2(16,arrow_y))
+			_draw_map_indicator("left",_battle_cell_screen(game.cursor)+Vector2(-8,arrow_y))
+			_draw_map_indicator("right",_battle_cell_screen(game.cursor)+Vector2(16,arrow_y))
 		else:
 			_draw_indicator("left",rect.position+Vector2(110,14))
 			_draw_indicator("right",rect.position+Vector2(220,14))
 	# The whole panel is outside this protected sprite/arrow rectangle.
 	var target_sprite=_map_unit_sprite(defender)
-	_draw_indicator("down",_battle_cell_screen(game.cursor)+Vector2(4,-int(target_sprite.get("tile_origin",[4,4])[1])-9))
+	_draw_map_indicator("down",_battle_cell_screen(game.cursor)+Vector2(4,-int(target_sprite.get("tile_origin",[4,4])[1])-9))
+
+func _draw_support_preview() -> void:
+	var anchor=_battle_cell_screen(game.cursor)
+	var arrow_y=-4
+	var hovered=game.unit_at(game.cursor)
+	if not hovered.is_empty():arrow_y=-int(_map_unit_sprite(hovered).get("tile_origin",[4,4])[1])-9
+	var neighbours=[]
+	for other in game.living("player"):
+		if game.pos(other)!=game.cursor:neighbours.append(Rect2(_battle_cell_screen(game.pos(other))-Vector2(8,12),Vector2(32,32)))
+	var protected=[objective_badge_rect] if objective_badge_rect.has_area() else []
+	protected.append(Rect2(anchor+Vector2(2,arrow_y-2),Vector2(14,14)))
+	var placement=BattlePanels.place(anchor,Vector2(224,64),_visible_native_rect(),neighbours,protected)
+	presentation_audit.support_preview=placement
+	if not placement.valid:return
+	var rect:Rect2=placement.panel
+	_panel(rect)
+	var spell=Items.spell(chosen_spell)
+	_center_text(str(spell.name_zh)+" 消耗生命"+str(Items.cost(chosen_spell)),Rect2(rect.position+Vector2(12,12),Vector2(200,16)))
+	var instruction="选择传送目的地" if ui_mode=="warp" else "选择支援对象"
+	var target=game.find_unit(support_target) if ui_mode=="warp" else game.find_unit(str(target_ids[target_index])) if not target_ids.is_empty() else {}
+	if not target.is_empty():instruction="传送"+str(target.name_zh)+"至选定格" if ui_mode=="warp" else "%s %d/%d"%[target.name_zh,int(target.hp),int(target.max_hp)]
+	_center_text(instruction,Rect2(rect.position+Vector2(12,36),Vector2(200,16)))
+	_draw_map_indicator("down",anchor+Vector2(4,arrow_y))
+	presentation_audit.support_preview.arrow=protected[-1]
 
 func _draw_unit_card(unit: Dictionary) -> void:
 	if busy or notice_time>0 or phase_time>0:return
 	var screen=_battle_cell_screen(game.cursor);var neighbours=[]
+	var recovery=game.category(game.cursor)==15
+	var hint=game.interaction_hint(game.cursor)
+	var footer=str(hint.text) if not hint.is_empty() else _terrain_name(game.cursor)+" 回避+"+str(game.terrain_avoid(game.cursor))
+	var footer_lines=_small_lines(footer,120)
 	for other in game.units:
 		if int(other.hp)>0 and str(other.id)!=str(unit.id):neighbours.append(Rect2(_battle_cell_screen(game.pos(other))-Vector2(8,12),Vector2(32,32)))
-	var placement=BattlePanels.place(screen,Vector2(144,92),_visible_native_rect(),neighbours,[objective_badge_rect] if objective_badge_rect.has_area() else [])
+	var tactical=[]
+	if game.MapSkills.eligible(unit):tactical.append("MAP剩余"+str(3-game.MapSkills.used(unit))+"/3")
+	if int(unit.get("map_fatigue_until_turn",0))>0:
+		tactical.append("虚脱：移动-2 伤害-25%")
+		tactical.append("至下个己方回合结束")
+	if int(unit.get("map_move_penalty_until_turn",0))>0:
+		tactical.append("施法负荷：移动-2")
+		tactical.append("至下个己方回合结束")
+	var strong_turns=game.MapSkills.StrongBody.remaining(unit,int(game.turn))
+	var cover=game.Cover.description(game,unit)
+	if not cover.is_empty():tactical.append_array(_small_lines(cover,120))
+	if game.Knockback.capable(game,unit):tactical.append("主动近战命中可击退1格")
+	var extra_footer=maxi(0,footer_lines.size()-1)*12
+	var protected=[objective_badge_rect] if objective_badge_rect.has_area() else []
+	if unit.get("side","")=="enemy":
+		for cell in presentation_audit.get("enemy_range",[]):protected.append(Rect2(_battle_cell_screen(cell),Vector2(16,16)).grow(1))
+	var placement=BattlePanels.place(screen,Vector2(144,(108 if recovery else 92)+tactical.size()*12+extra_footer+(4 if not tactical.is_empty() else 0)+(32 if strong_turns>0 else 0)),_visible_native_rect(),neighbours,protected)
 	battle_card_audit=placement
+	presentation_audit.range_card_hidden=not placement.valid and unit.get("side","")=="enemy"
 	if not placement.valid:return
 	var rect: Rect2=placement.panel;var x=rect.position.x;var y=rect.position.y
 	_panel(rect);_text(str(unit.name_zh),Vector2(x+12,y+12))
@@ -1039,13 +1639,52 @@ func _draw_unit_card(unit: Dictionary) -> void:
 	if unit.get("objective_boss",false):label="首领 · "+label
 	if bool(unit.get("neutral",false)):
 		label="船体检查点" if unit.get("quest_kind","")=="ship" else "等待救援" if unit.get("locked",false) else "岗位守卫" if unit.get("battle_guard",false) else "自动护送" if unit.get("quest_kind","") in ["escort","medicine","prisoner","patient","sailor"] else "非战斗友军"
+		if game.stage_id==112 and game.Medicine.is_staff(unit):label="药品已到 · 准备交接" if game.Medicine.delivered(game) else "核对药单 · 照护伤者"
+		elif game.MineEscort.applies(game,unit):label="随矿工推进 · 安全弓援"
+		elif game.ShipInterception.applies(game,unit):label=game.ShipInterception.hint(unit)
+		elif str(unit.get("quest_kind",""))=="medicine" or (game.stage_id==105 and str(unit.id).begins_with("M15_workers")):label=game.escort_hint(unit)
 	elif unit.side=="player":label+=" 经验"+str(int(unit.get("exp",0)))
 	_small_text(label,Vector2(x+12,y+30));_small_text(("耐久" if unit.get("event_object",false) else "生命")+str(int(unit.hp))+"/"+str(int(unit.max_hp)),Vector2(x+12,y+42))
-	_draw_health(int(unit.hp),int(unit.max_hp),Vector2(x+12,y+54),"ally" if unit.side=="player" else "enemy")
-	_small_text(_terrain_name(game.cursor)+" 回避+"+str(game.terrain_avoid(game.cursor)),Vector2(x+12,y+74),Color(.78,.85,.71))
+	_draw_health(int(unit.hp),int(unit.max_hp),Vector2(x+12,y+54),"ally" if unit.side in ["player","neutral"] else "enemy")
+	for i in range(footer_lines.size()):_small_text(footer_lines[i],Vector2(x+12,y+74+i*12),Color(.78,.85,.71))
+	if recovery:
+		var recovery_text="下次己方阶段恢复5生命" if unit.side=="player" else "所属阵营阶段开始恢复5生命"
+		_small_text(recovery_text,Vector2(x+12,y+90+extra_footer),Color(.72,1.0,.78))
+	for i in range(tactical.size()):_small_text(str(tactical[i]),Vector2(x+12,y+(106 if recovery else 90)+extra_footer+i*12),Color(.82,.91,1))
+
+	if strong_turns>0:
+		var by=y+(106 if recovery else 90)+extra_footer+tactical.size()*12
+		_draw_strong_body_icon(Vector2(x+12,by),strong_turns)
+		_text("强身",Vector2(x+40,by))
+		_small_text("剩余"+str(strong_turns)+"回合",Vector2(x+70,by+2),Color(.72,.8,.82))
+		_small_text("物防+2  合计"+str(Rules._defence(unit)+Items.physical_defence_bonus(unit)),Vector2(x+40,by+16),Color("a9dfb6"))
+	presentation_audit.strong_body={"unit":str(unit.id),"remaining":strong_turns,"bonus":game.MapSkills.StrongBody.bonus(unit),"icon_visible":strong_turns>0,"panel":rect}
+
+func _draw_strong_body_icon(at:Vector2,turns:int)->void:
+	draw_texture_rect(_tex(game.MapSkills.StrongBody.ICON),Rect2(at,Vector2(19,19)),false)
+	var badge=StyleBoxFlat.new();badge.bg_color=Color("172a34");badge.set_corner_radius_all(2)
+	draw_style_box(badge,Rect2(at+Vector2(13,12),Vector2(9,10)))
+	_small_text(str(turns),at+Vector2(14,13))
+
+func _contact(event:Dictionary)->void:
+	await super._contact(event)
+	var cover:Dictionary=event.get("cover",{})
+	if not cover.is_empty():
+		combat_message=str(game.find_unit(str(cover.unit)).get("name_zh","同伴"))+"掩护分担"+str(int(cover.damage))+"伤害"
+		# The critical timeline already owns its impact hold and synchronized audio.
+		if not battle_animation.cinema.accepts_contact(event):await _wait(0.45)
+	if int(event.get("reflection_damage",0))>0:
+		await battle_animation.reaction(str(event.defender),"reflection")
+		# Feedback only: the original contact already committed both HP changes once.
+		await super._contact({"attacker":str(event.defender),"defender":str(event.attacker),"hit":true,"critical":false,
+			"damage":int(event.reflection_damage),"hp_before":int(event.reflection_hp_before),"hp_after":int(event.source_hp_after),
+			"feedback_only":true,"reflection_feedback":true})
 
 func _terrain_name(cell: Vector2i) -> String:
 	if not game.in_bounds(cell):return "地图边界"
+	if game.ShipInterception.plank(game,cell):return "登舰跳板"
+	var visit=game.VisitBuildings.visit_at(game.battle_data,cell)
+	if not visit.is_empty():return str(visit.label).trim_prefix("访问")
 	for site in game.battle_data.get("recovery_sites",[]):
 		if cell==Vector2i(site.position[0],site.position[1]):return str(site.label)
 	if game.battle_data.code=="M15" and cell==Vector2i(game.battle_data.exit[0],game.battle_data.exit[1]):return "北门敌军退路"
@@ -1115,7 +1754,9 @@ func _terrain_name(cell: Vector2i) -> String:
 		7:return "河流" if game.battle_data.code in ["M11","S12"] else "潮水" if game.battle_data.code=="S22" else "海面"
 		8:return "石铺地"
 		10:return "碎石"
-		12:return "建筑障碍"
+		12:
+			var building_name=game.VisitBuildings.name_at(game.battle_data,cell)
+			return building_name if not building_name.is_empty() else "建筑障碍"
 		15:return "恢复地形"
 		16:return "湿地"
 	return "地面"
@@ -1123,7 +1764,9 @@ func _terrain_name(cell: Vector2i) -> String:
 func _draw_terrain_card() -> void:
 	var screen=_battle_cell_screen(game.cursor)
 	var recovery=game.category(game.cursor)==15
-	var height=84 if recovery else 68
+	var hint=game.interaction_hint(game.cursor)
+	var hint_lines=_wrapped_lines(str(hint.get("text","")),152) if not hint.is_empty() else []
+	var height=68+(16 if recovery else 0)+hint_lines.size()*16
 	var neighbours=[]
 	for actor in game.units:
 		if int(actor.hp)>0:neighbours.append(Rect2(_battle_cell_screen(game.pos(actor))-Vector2(4,8),Vector2(24,28)))
@@ -1137,10 +1780,16 @@ func _draw_terrain_card() -> void:
 	_center_text("回避+"+str(game.terrain_avoid(game.cursor)),Rect2(x+12,y+28,152,12))
 	var movement="不能在此落脚" if cost>=255 else str(unit.get("name_zh","部队"))+"移动消耗"+str(cost)
 	_center_text(movement,Rect2(x+12,y+44,152,12),Color(.78,.85,.71))
-	if recovery:_center_text("每回合恢复5生命",Rect2(x+12,y+60,152,12),Color(.78,.85,.71))
+	if recovery:_center_text("己方阶段开始恢复5生命",Rect2(x+12,y+60,152,12),Color(.78,.85,.71))
+	if not hint.is_empty():
+		_center_text("\n".join(hint_lines),Rect2(x+12,y+(76 if recovery else 60),152,hint_lines.size()*16),Color(.72,1.0,.78))
+		presentation_audit.interaction_hint=hint
 
 func _draw_battle() -> void:
 	super._draw_battle()
+	if hero_map_animation!=null and hero_map_animation.active:
+		hero_map_animation.draw();return
+	if ui_mode=="map_target":_draw_map_forecast();return
 	if view=="battle" and ui_mode=="inspect" and menu_items.is_empty() and not busy and phase_time<=0 and notice_time<=0:
 		_draw_exit_direction()
 	if view!="battle" or ui_mode not in ["inspect","move"] or not menu_items.is_empty() or busy or phase_time>0 or notice_time>0:return
@@ -1157,6 +1806,16 @@ func _draw_battle() -> void:
 		_draw_health(int(boat.hp),int(boat.max_hp),Vector2(x+12,y+58),"ally")
 		return
 	_draw_terrain_card()
+
+func _draw_tactical_marks()->void:
+	var marks=game.Battlefield.warning_cells(game)
+	presentation_audit.tactical_warnings=marks
+	for mark in marks:
+		var cell=Vector2i(mark.position[0],mark.position[1])
+		var at=_battle_cell_screen(cell)
+		draw_rect(Rect2(at,Vector2(16,16)),Color(1,.28,.08,.34+.08*sin(elapsed*4)))
+		# Native glyph, beneath units: a warning differs from move/attack shading.
+		_text("!",at+Vector2(5,2),Color(1,.94,.71),false)
 
 func _draw_exit_direction() -> void:
 	var marker=game.exit_marker()
@@ -1175,6 +1834,15 @@ func _draw_exit_direction() -> void:
 	_panel(rect);_small_text(text,rect.position+Vector2(10,10),Color(.76,1,.82))
 
 func _input(event: InputEvent) -> void:
+	if recruitment_paused():return
+	if prologue_scene!=null and prologue_scene.active and view in ["prologue_scene","plot"]:
+		if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode in [KEY_Z,KEY_ENTER,KEY_SPACE]:_accept()
+		elif event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_LEFT:_accept()
+		return
+	if view=="story_intro":
+		if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode in [KEY_Z,KEY_ENTER,KEY_SPACE]:story_intro.accept()
+		elif event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_LEFT:story_intro.accept()
+		return
 	if view=="overview":
 		if event is InputEventKey and event.pressed and not event.echo:
 			if event.physical_keycode in [KEY_EQUAL,KEY_KP_ADD]:_overview_change_zoom(1);return
@@ -1235,6 +1903,17 @@ func _draw_chapter_end() -> void:
 	_center_text("确认打开菜单",Rect2(24,186,208,16))
 
 func _cancel() -> void:
+	if view=="battle" and menu_context=="mechanical_part":_clear_menu();mechanical_target_confirmed=false;ui_mode="target";queue_redraw();return
+	if view=="battle" and ui_mode=="target":mechanical_target_confirmed=false;mechanical_target_part=""
+	if view in ["camp_status","village_status"] and not busy and not batch_running and menu_items.is_empty():
+		view=camp_context if view=="camp_status" else "village";return
+	if view=="field_notes":field_notes.cancel();return
+	if view=="story_intro":return
+	if view=="battle" and ui_mode=="map_target" and not busy:
+		hero_map_animation.forecast={};_unit_action_menu();return
+	if prologue_scene!=null and prologue_scene.active:return
+	if view=="battle" and not busy and menu_context in ["cover_targets","cover_confirm","breakable_confirm"]:
+		_clear_menu();_unit_action_menu();return
 	if equipment_screen!=null and equipment_screen.active():equipment_screen.cancel();return
 	if view in ["journal","journal_confirm"]:journey.cancel();return
 	if view=="title":return
@@ -1252,37 +1931,75 @@ func _show_result() -> void:
 	if game.stage_id==534 and game.battle_settled and game.flags.get("campaign_complete",false) and view=="victory":_start_ending()
 
 func _status_members() -> Array:
+	if view=="battle" and game.find_unit(status_id).get("side","")=="enemy":return _enemy_status_members()
 	if game.stage_id in [533,534] and game.mode in ["battle","victory","defeat"]:
 		if game.Casualties.owner({"parties":game.parties},status_id).is_empty():return []
 		return game.units.filter(func(u):return u.side=="player" and not u.get("temporary",false) and not u.get("neutral",false)).map(func(u):return str(u.id))
 	return super._status_members()
 
 func _draw_status(unit: Dictionary) -> void:
-	if not game.HeroProfessions.advanced(unit):super._draw_status(unit);return
+	if unit.is_empty():return
+	var advanced=game.HeroProfessions.advanced(unit)
+	var enemy=unit.get("side","player")=="enemy"
 	_panel(Rect2(8,12,240,220))
 	var members = _status_members()
+	if members.size()>1 or enemy:
+		_center_text(("敌军" if enemy else "队伍")+" %d/%d"%[members.find(status_id)+1,members.size()],Rect2(40,24,176,12))
 	if members.size()>1:
-		_center_text("队伍 %d/%d"%[members.find(status_id)+1,members.size()],Rect2(40,24,176,12))
 		_draw_indicator("left",Vector2(24,24));_draw_indicator("right",Vector2(224,24))
 	var portrait = _unit_portrait(unit)
 	if not portrait.is_empty():draw_texture(_tex(portrait.path),Vector2(24,40))
 	_text(str(unit.name_zh),Vector2(96,40))
-	_text(game.HeroProfessions.name(unit),Vector2(96,56),Color(.94,.88,.67))
+	var profession=game.HeroProfessions.name(unit) if advanced else str(game.catalog.classes.get(str(int(unit.class_id)),{}).get("name_zh",unit.get("class_name_zh","")))
+	if enemy:profession=str(game.catalog.classes.get(str(int(unit.class_id)),{}).get("enemy_name_zh",unit.get("class_name_zh",profession)))
+	_text("职业："+profession,Vector2(96,56),Color(.94,.88,.67))
+	presentation_audit.status_profession=profession
 	_text("等级%d 经验%d"%[int(unit.level),int(unit.get("exp",0))],Vector2(96,72))
 	_text("生命%d/%d"%[int(unit.hp),int(unit.max_hp)],Vector2(96,88))
-	_draw_health(int(unit.hp),int(unit.max_hp),Vector2(96,104),"ally")
-	var stats = [["攻击",int(unit.strength)],["技巧",int(unit.skill)],
-		["速度",int(unit.speed)],["幸运",int(unit.luck)],
-		["防御",int(unit.defence)],["抗性",int(unit.get("resistance",0))],
-		["移动",Items.movement(unit)],["训练",int(unit.get("magic_level",0))]]
+	_draw_health(int(unit.hp),int(unit.max_hp),Vector2(96,104),"enemy" if enemy else "ally")
+	var strong_turns=game.MapSkills.StrongBody.remaining(unit,int(game.turn))
+	if strong_turns>0:
+		_draw_strong_body_icon(Vector2(212,82),strong_turns)
+		_small_text("强身 "+str(strong_turns)+"回合 · 物防+2",Vector2(96,114),Color("a9dfb6"))
+	var equipped=StatusStats.stats(unit)
+	presentation_audit.status_stats=equipped;presentation_audit.status_unit=str(unit.id)
+	var stats = [["攻击",equipped.power],["技巧",int(unit.skill)],
+		["速度",equipped.speed],["幸运",equipped.luck],
+		["物防",equipped.defence],["魔防",equipped.resistance],
+		["移动",equipped.move],["训练" if advanced else "射程",int(unit.get("magic_level",0)) if advanced else StatusStats.range_name(equipped.reach)]]
 	for i in range(stats.size()):
-		var x = 32+104*(i%2);var y = 124+16*int(i/2)
-		_text(str(stats[i][0]),Vector2(x,y));_text(str(stats[i][1]),Vector2(x+64,y))
+		var x = 32+104*(i%2);var y = 120+14*int(i/2) if game.Mechanical.is_puppet(unit) else 124+16*int(i/2)
+		_text(str(stats[i][0]),Vector2(x,y));_text(str(stats[i][1]),Vector2(x+64,y),Color("a9dfb6") if i==4 and strong_turns>0 else Color.WHITE)
 	var held = int(unit.get("item_id",0))
 	var footer = "装备："+str(Items.item(held).get("name_zh","")) if held>0 else "未携带装备（职业默认）"
-	if game.is_dying(unit):footer="濒死 · 不可出阵"
-	_center_text(footer,Rect2(24,190,208,14))
-	_center_text(game.HeroProfessions.summary(unit),Rect2(24,206,208,14))
+	if Rules.Body.is_body(unit):footer="固有："+str(Items.item(Rules.weapon_index(unit)).name_zh)
+	if game.Mechanical.is_puppet(unit):footer="撤离中 · 移动%d"%int(unit.move) if unit.get("mechanical_retreating",false) else "机械傀儡 · 经验×1.5"
+	if advanced and unit.get("water_slow",false):footer="水滞 · 速度－1"
+	if game.is_dying(unit):
+		_center_text("濒死 · 不可出阵",Rect2(24,190,208,14))
+		_center_text("已救治过，无法再次救治" if int(unit.get("treatment_count",0))>0 else "可使用本队救治泉",Rect2(24,206,208,14));return
+	if game.Mechanical.is_puppet(unit):
+		var label=game.Mechanical.part_name(unit,true)
+		_center_text(label+"损毁 · 经验×1.5" if game.Mechanical.part_hp(unit)<=0 else "%s%d/%d · 经验×1.5"%[label,game.Mechanical.part_hp(unit),game.Mechanical.part_max(unit)],Rect2(24,182,208,12))
+		_center_text("核心有效：双防+10 · 反伤2HP" if game.Mechanical.core_active(unit) else ("核心失效 · 双防加成与反伤停用" if game.Mechanical.is_titan(unit) else "同阵营仅剩机械傀儡时撤离"),Rect2(24,196,208,12))
+		_center_text("仅剩傀儡撤离 · 移动4→7" if game.Mechanical.is_titan(unit) else "移动5→8 · 可穿过水面",Rect2(24,210,208,12))
+		return
+	_center_text(footer,Rect2(24,190 if advanced else 206,208,14))
+	if advanced:_center_text(game.HeroProfessions.summary(unit),Rect2(24,206,208,14))
+	elif unit.get("water_slow",false):_center_text("水滞 · 速度－1",Rect2(24,190,208,14))
+	elif enemy and str(unit.get("behavior","")) in ["guard","guard_exit"]:
+		var reply=Rules.default_counter(unit,3)
+		_center_text("远反："+Rules.weapon_name(reply)+" "+StatusStats.range_name(Rules.attack_range(reply))+"格",Rect2(24,190,208,14))
+
+func _draw_mechanical_part_meter(unit:Dictionary,x:float)->void:
+	var hp=game.Mechanical.part_hp(unit)
+	var maximum=game.Mechanical.part_max(unit)
+	_text("%s%d/%d"%[game.Mechanical.part_name(unit,true),hp,maximum],Vector2(x,166),Color(.8,.94,.98))
+	for i in range(maximum):
+		var state="filled" if i<hp else "empty"
+		var cell_width=mini(2,floori(20.0/maximum))
+		draw_texture_rect(_tex(health_ui.cells.enemy[state].path),Rect2(x+76+i*cell_width,170,cell_width,4),false)
+	presentation_audit.mechanical_part_hp=hp
 
 func _start_ending() -> void:
 	if not game.flags.get("campaign_complete",false):return

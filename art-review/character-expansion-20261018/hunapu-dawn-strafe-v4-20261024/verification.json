@@ -1,0 +1,88 @@
+{
+  "revision": "hunapu-dawn-strafe-v4-20261024",
+  "passed": true,
+  "checks": 1032,
+  "profiles": 1,
+  "actions": 8,
+  "changed_character_slots": [
+    2,
+    3,
+    6,
+    7
+  ],
+  "native_timeline_offsets_fps_preserved": true,
+  "native_left_phase_mirror_verified": true,
+  "root_checks": [
+    {
+      "slots": [
+        2,
+        3
+      ],
+      "head_centroids": [
+        [
+          62.32631578947368,
+          37.026315789473685
+        ],
+        [
+          62.9766081871345,
+          36.42690058479532
+        ]
+      ],
+      "head_centroid_drift_output_pixels": [
+        0.6502923976608201,
+        0.5994152046783654
+      ],
+      "ground_y": 95,
+      "boot_spans": [
+        13,
+        52
+      ],
+      "upper_pose_changed_pixels": 600
+    },
+    {
+      "slots": [
+        6,
+        7
+      ],
+      "head_centroids": [
+        [
+          64.0233918128655,
+          36.42690058479532
+        ],
+        [
+          64.67368421052632,
+          37.026315789473685
+        ]
+      ],
+      "head_centroid_drift_output_pixels": [
+        0.6502923976608201,
+        0.5994152046783654
+      ],
+      "ground_y": 95,
+      "boot_spans": [
+        52,
+        13
+      ],
+      "upper_pose_changed_pixels": 600
+    }
+  ],
+  "compact_shadow_and_vertical_walk_frames_preserved": true,
+  "runtime_integrated": false,
+  "visual_acceptance": "offline_review_passed_user_acceptance_pending",
+  "errors": [],
+  "offline_visual_review": {
+    "artifacts": [
+      "poses-light.png",
+      "tactical-right-dark.png",
+      "tactical-left-light.png",
+      "decoded-horizontal.png"
+    ],
+    "notes": [
+      "双向脸部与胸面可见，剑从腹前斜举跨过胸前，持剑拳位于护手下方的剑柄处，低位盾贴在另一侧腹前。",
+      "收腿重叠与屈膝横跨两相顺序遵循原作；两个完整姿势的衣摆、肘部与腿共同变化，无腰线切分。",
+      "左右四个字符姿势均保持脚底95，头部中心相位差约0.65个输出像素；原位置数据和16帧每相不变。",
+      "深浅背景轮廓、发色、剑尖、盾面和输出视频首尾帧已查看；所有标签与背景保持清楚内间距。"
+    ],
+    "browser_ui_checked": false
+  }
+}

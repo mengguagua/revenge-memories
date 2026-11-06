@@ -1,0 +1,39 @@
+{
+  "checks": [
+    "enemy overview replaces gather in the existing row",
+    "01-battle-menu text and controls remain within safe bounds: []",
+    "tap opens the first living enemy detail directly",
+    "enemy details focus the map and stay within enemy roster",
+    "02-enemy-detail text and controls remain within safe bounds: []",
+    "detail header identifies enemy index and living count",
+    "commander detail includes current equipped attack",
+    "right direction moves to next living enemy",
+    "left direction moves to previous living enemy",
+    "left wraps from first to last",
+    "right wraps from last to first",
+    "tap on right header arrow switches details",
+    "tap on left header arrow switches back",
+    "switch-my-side control cannot change enemy inspection to a player",
+    "back returns to battlefield inspection",
+    "read-only overview does not spend actions, change HP or RNG, or save",
+    "system menu offers enemy overview",
+    "overview starts with hovered living enemy",
+    "defeated and hidden enemies are excluded",
+    "merged-party status branch still exposes enemy members only",
+    "single remaining enemy is stable under both directions",
+    "single-enemy text and controls remain within safe bounds: []",
+    "single enemy keeps a correct one-of-one heading",
+    "cycling recovers from a no-longer-living inspected unit",
+    "system menu offers enemy overview",
+    "zero enemies gives a short notice instead of an empty detail",
+    "ordinary friendly status still cycles only the friendly party",
+    "overview checks completed"
+  ],
+  "device_updated": false,
+  "failures": [],
+  "passed": true,
+  "screenshots": [
+    "01-battle-menu.png",
+    "02-enemy-detail.png"
+  ]
+}

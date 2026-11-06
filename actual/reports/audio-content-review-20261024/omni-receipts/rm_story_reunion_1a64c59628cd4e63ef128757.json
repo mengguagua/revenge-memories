@@ -1,0 +1,76 @@
+{
+  "id": "rm_story_reunion",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_story_reunion.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/music_b2.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_story_reunion.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_story_reunion_scene.mp3",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is tail 6 seconds then head 6 seconds, with the loop join at 6 seconds; assess rhythmic/harmonic continuity and distracting loudness changes there. Audio 4 is the current game-gain offline mix with interface or combat effects. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: H31/H10/H55；D32/D33；关系对话; desired mood: 重逢、倾听、未完成的约定",
+  "max_tokens": 340,
+  "key": "1a64c59628cd4e63ef128757",
+  "source_sha256": [
+    "209b19abe31587ee61657e0c8b71cdd19865f16fed0e0b99f4597b8047e3bd38",
+    "59ab75b89fdba1aafe2d1331d8de721a277a41ab546105e5801d5551be5211f6",
+    "209b19abe31587ee61657e0c8b71cdd19865f16fed0e0b99f4597b8047e3bd38",
+    "3d04191599de02c43a7584baf2cf8d748d25cfc9fb0514b1a38609aadb4199b0"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "audio_input_samples": [
+    599041,
+    240000,
+    192000,
+    80800
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "5cc057bafc241a8527756c9ed018b93c406de985429f307bdf172e011b2f8015",
+    "809df6d95c0c4e0bcdd8e4cb6f33d4e1a437e73501a829c6b4a5a56921a5266c",
+    "7e2b459e1ba6cd6360396689988c8e7f356f7da0f456dd44265d8b80ad4a3fa3",
+    "03f915ca358612770e9f726ac1eabf4fe9578c99b664287c5fd5e773e829b307"
+  ],
+  "response": "Audio 1 features a gentle, breathy flute melody over soft piano and ambient pads. The timbre is warm and intimate, with a slow, flowing rhythm. The mood is reflective and tender, evoking quiet reunion and unresolved emotion. Melodically, the flute line is lyrical and repetitive, building emotional weight without dramatic shifts. No speech or defects are present. The music is appropriate for a heartfelt dialogue scene.\n\nAudio 2 is a chiptune-style track with clear, simple synth tones. Its sparse texture contrasts with Audio 1’s lushness but provides a nostalgic reference.\n\nAudio 3 shows a seamless loop: the tail of Audio 1 fades into the head of Audio 3, with no rhythmic or harmonic discontinuity. Loudness remains consistent, avoiding distraction.\n\nAudio 4 adds subtle UI clicks and a low combat hum beneath the music. These effects are quiet and do not mask the dialogue or music. The mix prioritizes clarity, allowing emotional cues to remain audible during interaction.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 204,
+    "prompt_tokens": 1198,
+    "total_tokens": 1402,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 1170,
+    "prompt_ms": 5799.036,
+    "prompt_per_token_ms": 4.956441025641026,
+    "prompt_per_second": 201.7576714474613,
+    "predicted_n": 204,
+    "predicted_ms": 4172.61,
+    "predicted_per_token_ms": 20.554729064039407,
+    "predicted_per_second": 48.6506047773456
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 17.701,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/209b19abe31587ee61657e0c8b71cdd19865f16fed0e0b99f4597b8047e3bd38.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/59ab75b89fdba1aafe2d1331d8de721a277a41ab546105e5801d5551be5211f6.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/209b19abe31587ee61657e0c8b71cdd19865f16fed0e0b99f4597b8047e3bd38.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/3d04191599de02c43a7584baf2cf8d748d25cfc9fb0514b1a38609aadb4199b0.mp3"
+  ]
+}

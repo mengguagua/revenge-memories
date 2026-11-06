@@ -517,14 +517,24 @@
       "hair_edit": "Connected crown hair colours only; expression/eyes/mouth/skin and clothing retained."
     },
     "noya": {
-      "path": "res://assets/original/graphics/portraits/portrait_41.png",
-      "brief": "Noya: reuse the existing female mage portrait from the reference assets for this chapter; no new character animation authored.",
-      "source": "existing reference portrait 41"
+      "path": "res://assets/portraits-0.6.0/lisa.png",
+      "fallback_key": "lisa",
+      "brief": "Approved campaign portrait of the same profession used as a temporary safety fallback; no source-game portrait."
     },
     "celine": {
-      "path": "res://assets/original/graphics/portraits/portrait_17.png",
-      "brief": "Celine: reuse existing Tatiana portrait 17 and the existing Saint class body; no new animation frames.",
-      "source": "existing reference portrait 17"
+      "path": "res://assets/portraits-0.6.0/mireille.png",
+      "fallback_key": "mireille",
+      "brief": "Approved campaign portrait of the same profession used as a temporary safety fallback; no source-game portrait."
+    },
+    "m12_commander": {
+      "path": "res://assets/portraits-ch1-20261026/m12-commander.png",
+      "brief": "Dedicated M12 granary commander; middle-aged bearded man with bronze-banded steel helmet, cheek scar and dark red scarf; distinct from rank-and-file infantry and Korlan.",
+      "logical_size": [
+        48,
+        48
+      ],
+      "source": "source/ch1-story-20261026/commander-original.png",
+      "generation": "Built-in image_gen; west_infantry and korlan portraits used only as style references."
     }
   },
   "generation": "Built-in image_gen; individual portraits, no paid CLI fallback.",

@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_53",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/death.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_53.ogg"
+  ],
+  "hashes": [
+    "06bb2bbaf499a3dbbd4ab09019cda7217d9192f30ca69d218a0b1c09315fa485",
+    "7b0e62f7e1f10a1924fee175364d0cb48678d60b2889a4fe6a3c3948c8c54c3d"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "eb3cbf04861569604b8981bc",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    64000,
+    64000
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "Audio 1: A heartbeat sound effect. Audio 2: A heartbeat sound effect with a faster pace and a '4 on the floor' kick pattern.",
+  "generation_tokens": 32,
+  "generation_tps": 19.962707686248507,
+  "wall_seconds": 1.808,
+  "peak_memory_bytes": 7517914846,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

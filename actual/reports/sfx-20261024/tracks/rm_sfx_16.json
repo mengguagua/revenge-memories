@@ -1,0 +1,91 @@
+{
+  "id": "rm_sfx_16",
+  "title": "投枪与高能破空",
+  "request": "16",
+  "revision": 3,
+  "status": "signal_checks_passed",
+  "errors": [],
+  "runtime_path": "actual/assets/sfx/20261024/rm_sfx_16.ogg",
+  "resource_path": "res://assets/sfx/20261024/rm_sfx_16.ogg",
+  "bytes": 15950,
+  "sha256": "35ea60b78513f6f544ab43b9ed2035e4376251ff33dc921684b642ab0d89a2c8",
+  "duration_seconds": 1.0955328798185942,
+  "loop": false,
+  "loop_offset_seconds": 0.0,
+  "manual_stop": false,
+  "default_enabled": true,
+  "sample_rate": 44100,
+  "channels": 2,
+  "codec": "vorbis",
+  "source": {
+    "method": "reference-analysed pitch/envelope with new additive and band-limited noise synthesis",
+    "reference_path": "actual/assets/original/audio/sfx_16.ogg",
+    "reference_sha256": "311f2d57bb1f495161636647338f8b132df7991d37ded0d6e3819e4422d6f554",
+    "source_path": "source/sfx-20261024/audio-guided/ui-synthesis/rm_sfx_16_float.wav",
+    "copied_pcm": false,
+    "oscillator": "sin(f) + 0.16 sin(3f) + 0.035 sin(5f)",
+    "noise_weight": 0.3270795941352844,
+    "frequency_range_hz": [
+      430.6640625,
+      990.52734375
+    ]
+  },
+  "source_path": "source/sfx-20261024/audio-guided/ui-synthesis/rm_sfx_16_float.wav",
+  "master_path": "source/sfx-20261024/audio-guided/ui-synthesis/rm_sfx_16_float.wav",
+  "editing": {
+    "method": "reference-analysed pitch/envelope with new additive and band-limited noise synthesis",
+    "reference_audio_used": true
+  },
+  "mastering": {
+    "gain_db": 5.656677547079525,
+    "target_active_rms_dbfs": -26.6,
+    "peak_ceiling_dbfs": -20.088,
+    "smooth_local_crest_control": false,
+    "active_rms_delta_from_original_db": 0.9447222340107473,
+    "sample_peak_delta_from_original_db": 2.457944683705694,
+    "runtime_gain_unchanged": true
+  },
+  "metrics": {
+    "seconds": 1.0955328798185942,
+    "sample_rate": 44100,
+    "channels": 2,
+    "rms_dbfs": -26.727125397865017,
+    "active_rms_dbfs": -26.655277765989254,
+    "sample_peak_dbfs": -18.630055316294307,
+    "first_50ms_rms_dbfs": -26.16919474770072,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "leading_onset_seconds": 0.0,
+    "longest_internal_silence_seconds": 0.0,
+    "last_10ms_rms_dbfs": -63.65287703558174,
+    "first_last_sample_delta": 0.0012323290575295687,
+    "lufs_note": "Measured gated integrated loudness",
+    "integrated_lufs": -22.8,
+    "true_peak_dbtp": -18.6
+  },
+  "auditory_review": true,
+  "auditory_review_note": "Waveform-conditioned local audio model review completed; no human-listening claim. See audio_content_review and the linked receipt.",
+  "source_baseline": {
+    "request": "16",
+    "seconds": 1.199251700680272,
+    "sample_rate": 44100,
+    "channels": 2,
+    "peak_dbfs": -21.088,
+    "rms_dbfs": -28.065,
+    "active_rms_dbfs": -27.6,
+    "onset_seconds": 0.0,
+    "tail_silence_seconds": 0.1217,
+    "manual_stop": false,
+    "default_enabled": true
+  },
+  "production_method": "audio_review_refinement",
+  "master_path_note": "Synthesis FLOAT WAV",
+  "audio_content_review": {
+    "model_review_completed": true,
+    "review_type": "local_waveform_conditioned_model",
+    "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+    "receipt": "actual/reports/audio-content-review-20261024/omni-receipts/rm_sfx_16_e191bcbde56a4886c14af78b.json",
+    "conclusion": "以参考音高包络重合成破空反馈，去掉低闷机械感。",
+    "human_listening": false
+  }
+}

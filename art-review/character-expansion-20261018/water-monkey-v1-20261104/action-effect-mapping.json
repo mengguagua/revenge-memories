@@ -1,0 +1,320 @@
+{
+  "status": "runtime_integrated",
+  "unit": "water_monkey",
+  "mapping": [
+    {
+      "action": "water-monkey-idle",
+      "name": "战斗待机",
+      "frames": 60,
+      "contact_frame": null,
+      "poses": [
+        0
+      ],
+      "effect": "已接入运行工程；此处为美术对照。本体22，背炮10；空手，背炮完整。"
+    },
+    {
+      "action": "water-monkey-melee",
+      "name": "机械掌击 · 跑近攻击后回位",
+      "frames": 219,
+      "contact_frame": 83,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        16,
+        17,
+        18,
+        19
+      ],
+      "effect": "已接入运行工程；此处为美术对照。按普通士兵的跑近→出手→收势→跑回阶段编排，共219帧，第83帧单次命中；空手接触位移88，主体约32像素，与士兵同脚底基线。"
+    },
+    {
+      "action": "water-monkey-cannon",
+      "name": "水炮 · 高压水束 · 1–3格",
+      "frames": 90,
+      "contact_frame": 63,
+      "poses": [
+        0,
+        4,
+        5,
+        7
+      ],
+      "effect": "已接入运行工程；此处为美术对照。撑地→背炮发射有厚度的高压水束→目标处大水花→收势。一次命中，速度－1不叠加；水束与水花不增加攻击次数或范围伤害。"
+    },
+    {
+      "action": "water-monkey-hit",
+      "name": "受伤反馈 · 闪烁与命中音",
+      "frames": 28,
+      "contact_frame": null,
+      "poses": [
+        0
+      ],
+      "effect": "已接入运行工程；此处为美术对照。与普通士兵一致：同一张待机姿势配合明暗闪烁、轻微位移和命中音；不播放后仰受伤连帧。"
+    },
+    {
+      "action": "water-monkey-part-break",
+      "name": "背炮破坏 · 本体存活",
+      "frames": 70,
+      "contact_frame": 21,
+      "poses": [
+        0,
+        10,
+        11
+      ],
+      "effect": "已接入运行工程；此处为美术对照。第21帧炮管损坏并漏水，立即禁用水炮；保留掌击与移动，不触发额外爆炸伤害。"
+    },
+    {
+      "action": "water-monkey-part-break-aftermath",
+      "name": "背炮破坏后 · 停留",
+      "frames": 60,
+      "contact_frame": null,
+      "poses": [
+        11
+      ],
+      "effect": "已接入运行工程；此处为美术对照。损坏炮体保留在背部，状态清楚可辨，不恢复耐久。"
+    },
+    {
+      "action": "water-monkey-defeat",
+      "name": "本体击败 · 倒地退场",
+      "frames": 58,
+      "contact_frame": 9,
+      "poses": [
+        0,
+        15
+      ],
+      "effect": "已接入运行工程；此处为美术对照。只在本体生命归零时倒地退场；副部位破坏不算击杀。"
+    },
+    {
+      "action": "water-monkey-map-idle",
+      "name": "地图待机 · 慢节奏",
+      "frames": 180,
+      "contact_frame": null,
+      "poses": [
+        0,
+        1,
+        2
+      ],
+      "effect": "已接入运行工程；此处为美术对照。约3秒一轮，停留更长、动作放缓；只改待机，不拖慢四向行走。"
+    },
+    {
+      "action": "water-monkey-battle-run",
+      "name": "战斗跑动与停止",
+      "frames": 80,
+      "contact_frame": null,
+      "poses": [
+        0,
+        16,
+        17,
+        18,
+        19
+      ],
+      "effect": "已接入运行工程；此处为美术对照。完整背炮，四相跑动、停止；主体尺寸与普通士兵一致。"
+    },
+    {
+      "action": "water-monkey-walk-down",
+      "name": "向下行走",
+      "frames": 32,
+      "contact_frame": null,
+      "poses": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "effect": "已接入运行工程；此处为美术对照。四相交替迈步，头身与背部装置保持登记；地图帧40×48像素。"
+    },
+    {
+      "action": "water-monkey-walk-right",
+      "name": "向右行走",
+      "frames": 32,
+      "contact_frame": null,
+      "poses": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "effect": "已接入运行工程；此处为美术对照。四相交替迈步，头身与背部装置保持登记；地图帧40×48像素。"
+    },
+    {
+      "action": "water-monkey-walk-up",
+      "name": "向上行走",
+      "frames": 32,
+      "contact_frame": null,
+      "poses": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "effect": "已接入运行工程；此处为美术对照。四相交替迈步，头身与背部装置保持登记；地图帧40×48像素。"
+    },
+    {
+      "action": "water-monkey-walk-left",
+      "name": "向左行走",
+      "frames": 32,
+      "contact_frame": null,
+      "poses": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "effect": "已接入运行工程；此处为美术对照。四相交替迈步，头身与背部装置保持登记；地图帧40×48像素。"
+    },
+    {
+      "action": "water-monkey-escape",
+      "name": "失控撤离 · 到边缘消失",
+      "frames": 120,
+      "contact_frame": null,
+      "poses": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "effect": "已接入运行工程；此处为美术对照。同阵营无非机械战斗单位时移动5→8。这里只演示向左边界移动，到达即消失；真实目标按最近合法路径选择，逃脱无击败经验。"
+    },
+    {
+      "action": "water-monkey-broken-idle",
+      "name": "破损 · 战斗待机",
+      "frames": 60,
+      "contact_frame": null,
+      "poses": [
+        0
+      ],
+      "effect": "已接入运行工程；此处为美术对照。背炮全程保持弯折与漏水，未用完整炮体替代。本体存活，水炮禁用，掌击可用。"
+    },
+    {
+      "action": "water-monkey-broken-melee",
+      "name": "破损 · 跑近掌击后回位",
+      "frames": 219,
+      "contact_frame": 83,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        12,
+        13,
+        14,
+        15
+      ],
+      "effect": "已接入运行工程；此处为美术对照。按普通士兵的跑近→出手→收势→跑回阶段编排，共219帧，第83帧单次命中；空手接触位移88，主体约32像素，与士兵同脚底基线。"
+    },
+    {
+      "action": "water-monkey-broken-hit",
+      "name": "破损 · 闪烁与命中音",
+      "frames": 28,
+      "contact_frame": null,
+      "poses": [
+        0
+      ],
+      "effect": "已接入运行工程；此处为美术对照。与普通士兵一致：同一张待机姿势配合明暗闪烁、轻微位移和命中音；不播放后仰受伤连帧。"
+    },
+    {
+      "action": "water-monkey-broken-defeat",
+      "name": "破损 · 击败退场",
+      "frames": 58,
+      "contact_frame": 9,
+      "poses": [
+        0,
+        6,
+        7
+      ],
+      "effect": "已接入运行工程；此处为美术对照。背炮全程保持弯折与漏水，未用完整炮体替代。倒地时仍保留损坏装置，不发射、不爆炸。"
+    },
+    {
+      "action": "water-monkey-broken-battle-run",
+      "name": "破损 · 战斗跑动与停止",
+      "frames": 80,
+      "contact_frame": null,
+      "poses": [
+        0,
+        12,
+        13,
+        14,
+        15
+      ],
+      "effect": "已接入运行工程；此处为美术对照。背炮全程保持弯折与漏水，未用完整炮体替代。交替迈步、收势站定，双手仍为空手。"
+    },
+    {
+      "action": "water-monkey-broken-map-idle",
+      "name": "破损 · 地图待机 · 慢节奏",
+      "frames": 180,
+      "contact_frame": null,
+      "poses": [
+        0,
+        1,
+        2
+      ],
+      "effect": "已接入运行工程；此处为美术对照。背炮全程保持弯折与漏水，未用完整炮体替代。约3秒一轮，与完整状态同节奏。"
+    },
+    {
+      "action": "water-monkey-broken-walk-down",
+      "name": "破损 · 向下行走",
+      "frames": 32,
+      "contact_frame": null,
+      "poses": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "effect": "已接入运行工程；此处为美术对照。背炮全程保持弯折与漏水，未用完整炮体替代。四方向分别制作，破损不改变移动数值。"
+    },
+    {
+      "action": "water-monkey-broken-walk-right",
+      "name": "破损 · 向右行走",
+      "frames": 32,
+      "contact_frame": null,
+      "poses": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "effect": "已接入运行工程；此处为美术对照。背炮全程保持弯折与漏水，未用完整炮体替代。四方向分别制作，破损不改变移动数值。"
+    },
+    {
+      "action": "water-monkey-broken-walk-up",
+      "name": "破损 · 向上行走",
+      "frames": 32,
+      "contact_frame": null,
+      "poses": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "effect": "已接入运行工程；此处为美术对照。背炮全程保持弯折与漏水，未用完整炮体替代。四方向分别制作，破损不改变移动数值。"
+    },
+    {
+      "action": "water-monkey-broken-walk-left",
+      "name": "破损 · 向左行走",
+      "frames": 32,
+      "contact_frame": null,
+      "poses": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "effect": "已接入运行工程；此处为美术对照。背炮全程保持弯折与漏水，未用完整炮体替代。四方向分别制作，破损不改变移动数值。"
+    },
+    {
+      "action": "water-monkey-broken-escape",
+      "name": "破损 · 撤离至边缘",
+      "frames": 120,
+      "contact_frame": null,
+      "poses": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "effect": "已接入运行工程；此处为美术对照。背炮全程保持弯折与漏水，未用完整炮体替代。移动仍为5＋3＝8，到边缘立即消失；部位已坏不会解除公共撤离特性。"
+    }
+  ]
+}

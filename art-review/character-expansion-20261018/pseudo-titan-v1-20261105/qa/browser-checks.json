@@ -1,0 +1,2273 @@
+{
+  "date": "2026-11-05",
+  "surface": "Headless Chrome, file URLs; no Godot or user window activated",
+  "checks": [
+    {
+      "name": "standalone file page loads without HTTP fetch",
+      "passed": true
+    },
+    {
+      "name": "protected physical body damage1 and reflection2",
+      "passed": true,
+      "detail": {
+        "body": 41,
+        "core": 16,
+        "friendHp": 22,
+        "target": "body",
+        "reflected": 2,
+        "humans": 1,
+        "pathIndex": 0,
+        "turns": 0,
+        "escaped": false,
+        "artBroken": false,
+        "artAction": "pseudo-titan-reflection",
+        "artTick": 0,
+        "artPlaying": true,
+        "route": {
+          "stage": "F25",
+          "origin": [
+            18,
+            9
+          ],
+          "destination": [
+            17,
+            0
+          ],
+          "path": [
+            [
+              18,
+              9
+            ],
+            [
+              17,
+              9
+            ],
+            [
+              17,
+              8
+            ],
+            [
+              17,
+              7
+            ],
+            [
+              17,
+              6
+            ],
+            [
+              17,
+              5
+            ],
+            [
+              17,
+              4
+            ],
+            [
+              17,
+              3
+            ],
+            [
+              17,
+              2
+            ],
+            [
+              17,
+              1
+            ],
+            [
+              17,
+              0
+            ]
+          ],
+          "costs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "total_cost": 10,
+          "move": 7,
+          "map_size": [
+            34,
+            28
+          ],
+          "occupied": [
+            [
+              11,
+              23
+            ],
+            [
+              12,
+              23
+            ],
+            [
+              25,
+              19
+            ],
+            [
+              10,
+              24
+            ],
+            [
+              13,
+              23
+            ],
+            [
+              10,
+              23
+            ],
+            [
+              9,
+              25
+            ],
+            [
+              9,
+              24
+            ],
+            [
+              27,
+              19
+            ],
+            [
+              11,
+              24
+            ],
+            [
+              12,
+              24
+            ],
+            [
+              13,
+              24
+            ]
+          ],
+          "no_sea_exception": true,
+          "scope": "HTML design demonstration, actual ground infantry terrain; enemy human units removed for retreat condition, existing player/NPC blockers retained."
+        },
+        "forecast": {
+          "defence": 14,
+          "damage": 1,
+          "reflection": 2,
+          "hit": true
+        },
+        "experience": {
+          "value": 98,
+          "ordinary": 55,
+          "reward": 83
+        }
+      }
+    },
+    {
+      "name": "missed body attack still reflects2",
+      "passed": true,
+      "detail": {
+        "body": 42,
+        "core": 16,
+        "friendHp": 22,
+        "target": "body",
+        "reflected": 2,
+        "humans": 1,
+        "pathIndex": 0,
+        "turns": 0,
+        "escaped": false,
+        "artBroken": false,
+        "artAction": "pseudo-titan-reflection",
+        "artTick": 0,
+        "artPlaying": true,
+        "route": {
+          "stage": "F25",
+          "origin": [
+            18,
+            9
+          ],
+          "destination": [
+            17,
+            0
+          ],
+          "path": [
+            [
+              18,
+              9
+            ],
+            [
+              17,
+              9
+            ],
+            [
+              17,
+              8
+            ],
+            [
+              17,
+              7
+            ],
+            [
+              17,
+              6
+            ],
+            [
+              17,
+              5
+            ],
+            [
+              17,
+              4
+            ],
+            [
+              17,
+              3
+            ],
+            [
+              17,
+              2
+            ],
+            [
+              17,
+              1
+            ],
+            [
+              17,
+              0
+            ]
+          ],
+          "costs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "total_cost": 10,
+          "move": 7,
+          "map_size": [
+            34,
+            28
+          ],
+          "occupied": [
+            [
+              11,
+              23
+            ],
+            [
+              12,
+              23
+            ],
+            [
+              25,
+              19
+            ],
+            [
+              10,
+              24
+            ],
+            [
+              13,
+              23
+            ],
+            [
+              10,
+              23
+            ],
+            [
+              9,
+              25
+            ],
+            [
+              9,
+              24
+            ],
+            [
+              27,
+              19
+            ],
+            [
+              11,
+              24
+            ],
+            [
+              12,
+              24
+            ],
+            [
+              13,
+              24
+            ]
+          ],
+          "no_sea_exception": true,
+          "scope": "HTML design demonstration, actual ground infantry terrain; enemy human units removed for retreat condition, existing player/NPC blockers retained."
+        },
+        "forecast": {
+          "defence": 14,
+          "damage": 0,
+          "reflection": 2,
+          "hit": false
+        },
+        "experience": {
+          "value": 98,
+          "ordinary": 55,
+          "reward": 83
+        }
+      }
+    },
+    {
+      "name": "missed core attack has no reflection",
+      "passed": true,
+      "detail": {
+        "body": 42,
+        "core": 16,
+        "friendHp": 24,
+        "target": "core",
+        "reflected": 0,
+        "humans": 1,
+        "pathIndex": 0,
+        "turns": 0,
+        "escaped": false,
+        "artBroken": false,
+        "artAction": "pseudo-titan-melee",
+        "artTick": 0,
+        "artPlaying": true,
+        "route": {
+          "stage": "F25",
+          "origin": [
+            18,
+            9
+          ],
+          "destination": [
+            17,
+            0
+          ],
+          "path": [
+            [
+              18,
+              9
+            ],
+            [
+              17,
+              9
+            ],
+            [
+              17,
+              8
+            ],
+            [
+              17,
+              7
+            ],
+            [
+              17,
+              6
+            ],
+            [
+              17,
+              5
+            ],
+            [
+              17,
+              4
+            ],
+            [
+              17,
+              3
+            ],
+            [
+              17,
+              2
+            ],
+            [
+              17,
+              1
+            ],
+            [
+              17,
+              0
+            ]
+          ],
+          "costs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "total_cost": 10,
+          "move": 7,
+          "map_size": [
+            34,
+            28
+          ],
+          "occupied": [
+            [
+              11,
+              23
+            ],
+            [
+              12,
+              23
+            ],
+            [
+              25,
+              19
+            ],
+            [
+              10,
+              24
+            ],
+            [
+              13,
+              23
+            ],
+            [
+              10,
+              23
+            ],
+            [
+              9,
+              25
+            ],
+            [
+              9,
+              24
+            ],
+            [
+              27,
+              19
+            ],
+            [
+              11,
+              24
+            ],
+            [
+              12,
+              24
+            ],
+            [
+              13,
+              24
+            ]
+          ],
+          "no_sea_exception": true,
+          "scope": "HTML design demonstration, actual ground infantry terrain; enemy human units removed for retreat condition, existing player/NPC blockers retained."
+        },
+        "forecast": {
+          "defence": 3,
+          "damage": 0,
+          "reflection": 0,
+          "hit": false
+        },
+        "experience": {
+          "value": 98,
+          "ordinary": 55,
+          "reward": 83
+        }
+      }
+    },
+    {
+      "name": "core uses independent defence, 11 damage and no body spill",
+      "passed": true,
+      "detail": {
+        "body": 42,
+        "core": 5,
+        "friendHp": 24,
+        "target": "core",
+        "reflected": 0,
+        "humans": 1,
+        "pathIndex": 0,
+        "turns": 0,
+        "escaped": false,
+        "artBroken": false,
+        "artAction": "pseudo-titan-melee",
+        "artTick": 0,
+        "artPlaying": true,
+        "route": {
+          "stage": "F25",
+          "origin": [
+            18,
+            9
+          ],
+          "destination": [
+            17,
+            0
+          ],
+          "path": [
+            [
+              18,
+              9
+            ],
+            [
+              17,
+              9
+            ],
+            [
+              17,
+              8
+            ],
+            [
+              17,
+              7
+            ],
+            [
+              17,
+              6
+            ],
+            [
+              17,
+              5
+            ],
+            [
+              17,
+              4
+            ],
+            [
+              17,
+              3
+            ],
+            [
+              17,
+              2
+            ],
+            [
+              17,
+              1
+            ],
+            [
+              17,
+              0
+            ]
+          ],
+          "costs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "total_cost": 10,
+          "move": 7,
+          "map_size": [
+            34,
+            28
+          ],
+          "occupied": [
+            [
+              11,
+              23
+            ],
+            [
+              12,
+              23
+            ],
+            [
+              25,
+              19
+            ],
+            [
+              10,
+              24
+            ],
+            [
+              13,
+              23
+            ],
+            [
+              10,
+              23
+            ],
+            [
+              9,
+              25
+            ],
+            [
+              9,
+              24
+            ],
+            [
+              27,
+              19
+            ],
+            [
+              11,
+              24
+            ],
+            [
+              12,
+              24
+            ],
+            [
+              13,
+              24
+            ]
+          ],
+          "no_sea_exception": true,
+          "scope": "HTML design demonstration, actual ground infantry terrain; enemy human units removed for retreat condition, existing player/NPC blockers retained."
+        },
+        "forecast": {
+          "defence": 3,
+          "damage": 5,
+          "reflection": 0,
+          "hit": true
+        },
+        "experience": {
+          "value": 98,
+          "ordinary": 55,
+          "reward": 83
+        }
+      }
+    },
+    {
+      "name": "core break no overflow, body42 and powered-down art",
+      "passed": true,
+      "detail": {
+        "body": 42,
+        "core": 0,
+        "friendHp": 24,
+        "target": "core",
+        "reflected": 0,
+        "humans": 1,
+        "pathIndex": 0,
+        "turns": 0,
+        "escaped": false,
+        "artBroken": true,
+        "artAction": "pseudo-titan-broken-idle",
+        "artTick": 0,
+        "artPlaying": true,
+        "route": {
+          "stage": "F25",
+          "origin": [
+            18,
+            9
+          ],
+          "destination": [
+            17,
+            0
+          ],
+          "path": [
+            [
+              18,
+              9
+            ],
+            [
+              17,
+              9
+            ],
+            [
+              17,
+              8
+            ],
+            [
+              17,
+              7
+            ],
+            [
+              17,
+              6
+            ],
+            [
+              17,
+              5
+            ],
+            [
+              17,
+              4
+            ],
+            [
+              17,
+              3
+            ],
+            [
+              17,
+              2
+            ],
+            [
+              17,
+              1
+            ],
+            [
+              17,
+              0
+            ]
+          ],
+          "costs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "total_cost": 10,
+          "move": 7,
+          "map_size": [
+            34,
+            28
+          ],
+          "occupied": [
+            [
+              11,
+              23
+            ],
+            [
+              12,
+              23
+            ],
+            [
+              25,
+              19
+            ],
+            [
+              10,
+              24
+            ],
+            [
+              13,
+              23
+            ],
+            [
+              10,
+              23
+            ],
+            [
+              9,
+              25
+            ],
+            [
+              9,
+              24
+            ],
+            [
+              27,
+              19
+            ],
+            [
+              11,
+              24
+            ],
+            [
+              12,
+              24
+            ],
+            [
+              13,
+              24
+            ]
+          ],
+          "no_sea_exception": true,
+          "scope": "HTML design demonstration, actual ground infantry terrain; enemy human units removed for retreat condition, existing player/NPC blockers retained."
+        },
+        "forecast": {
+          "defence": 3,
+          "damage": 0,
+          "reflection": 0,
+          "hit": true
+        },
+        "experience": {
+          "value": 98,
+          "ordinary": 55,
+          "reward": 83
+        }
+      }
+    },
+    {
+      "name": "broken core physical body damage10 and no reflection",
+      "passed": true,
+      "detail": {
+        "body": 32,
+        "core": 0,
+        "friendHp": 24,
+        "target": "body",
+        "reflected": 0,
+        "humans": 1,
+        "pathIndex": 0,
+        "turns": 0,
+        "escaped": false,
+        "artBroken": true,
+        "artAction": "pseudo-titan-broken-idle",
+        "artTick": 0,
+        "artPlaying": true,
+        "route": {
+          "stage": "F25",
+          "origin": [
+            18,
+            9
+          ],
+          "destination": [
+            17,
+            0
+          ],
+          "path": [
+            [
+              18,
+              9
+            ],
+            [
+              17,
+              9
+            ],
+            [
+              17,
+              8
+            ],
+            [
+              17,
+              7
+            ],
+            [
+              17,
+              6
+            ],
+            [
+              17,
+              5
+            ],
+            [
+              17,
+              4
+            ],
+            [
+              17,
+              3
+            ],
+            [
+              17,
+              2
+            ],
+            [
+              17,
+              1
+            ],
+            [
+              17,
+              0
+            ]
+          ],
+          "costs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "total_cost": 10,
+          "move": 7,
+          "map_size": [
+            34,
+            28
+          ],
+          "occupied": [
+            [
+              11,
+              23
+            ],
+            [
+              12,
+              23
+            ],
+            [
+              25,
+              19
+            ],
+            [
+              10,
+              24
+            ],
+            [
+              13,
+              23
+            ],
+            [
+              10,
+              23
+            ],
+            [
+              9,
+              25
+            ],
+            [
+              9,
+              24
+            ],
+            [
+              27,
+              19
+            ],
+            [
+              11,
+              24
+            ],
+            [
+              12,
+              24
+            ],
+            [
+              13,
+              24
+            ]
+          ],
+          "no_sea_exception": true,
+          "scope": "HTML design demonstration, actual ground infantry terrain; enemy human units removed for retreat condition, existing player/NPC blockers retained."
+        },
+        "forecast": {
+          "defence": 4,
+          "damage": 10,
+          "reflection": 0,
+          "hit": true
+        },
+        "experience": {
+          "value": 98,
+          "ordinary": 55,
+          "reward": 83
+        }
+      }
+    },
+    {
+      "name": "broken core magic body damage12 and no reflection",
+      "passed": true,
+      "detail": {
+        "body": 20,
+        "core": 0,
+        "friendHp": 24,
+        "target": "body",
+        "reflected": 0,
+        "humans": 1,
+        "pathIndex": 0,
+        "turns": 0,
+        "escaped": false,
+        "artBroken": true,
+        "artAction": "pseudo-titan-broken-idle",
+        "artTick": 1,
+        "artPlaying": true,
+        "route": {
+          "stage": "F25",
+          "origin": [
+            18,
+            9
+          ],
+          "destination": [
+            17,
+            0
+          ],
+          "path": [
+            [
+              18,
+              9
+            ],
+            [
+              17,
+              9
+            ],
+            [
+              17,
+              8
+            ],
+            [
+              17,
+              7
+            ],
+            [
+              17,
+              6
+            ],
+            [
+              17,
+              5
+            ],
+            [
+              17,
+              4
+            ],
+            [
+              17,
+              3
+            ],
+            [
+              17,
+              2
+            ],
+            [
+              17,
+              1
+            ],
+            [
+              17,
+              0
+            ]
+          ],
+          "costs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "total_cost": 10,
+          "move": 7,
+          "map_size": [
+            34,
+            28
+          ],
+          "occupied": [
+            [
+              11,
+              23
+            ],
+            [
+              12,
+              23
+            ],
+            [
+              25,
+              19
+            ],
+            [
+              10,
+              24
+            ],
+            [
+              13,
+              23
+            ],
+            [
+              10,
+              23
+            ],
+            [
+              9,
+              25
+            ],
+            [
+              9,
+              24
+            ],
+            [
+              27,
+              19
+            ],
+            [
+              11,
+              24
+            ],
+            [
+              12,
+              24
+            ],
+            [
+              13,
+              24
+            ]
+          ],
+          "no_sea_exception": true,
+          "scope": "HTML design demonstration, actual ground infantry terrain; enemy human units removed for retreat condition, existing player/NPC blockers retained."
+        },
+        "forecast": {
+          "defence": 2,
+          "damage": 12,
+          "reflection": 0,
+          "hit": true
+        },
+        "experience": {
+          "value": 98,
+          "ordinary": 55,
+          "reward": 83
+        }
+      }
+    },
+    {
+      "name": "broken guardian keeps power14 melee, nine damage vs DEF5",
+      "passed": true,
+      "detail": {
+        "body": 20,
+        "core": 0,
+        "friendHp": 15,
+        "target": "body",
+        "reflected": 0,
+        "humans": 1,
+        "pathIndex": 0,
+        "turns": 0,
+        "escaped": false,
+        "artBroken": true,
+        "artAction": "pseudo-titan-broken-melee",
+        "artTick": 0,
+        "artPlaying": true,
+        "route": {
+          "stage": "F25",
+          "origin": [
+            18,
+            9
+          ],
+          "destination": [
+            17,
+            0
+          ],
+          "path": [
+            [
+              18,
+              9
+            ],
+            [
+              17,
+              9
+            ],
+            [
+              17,
+              8
+            ],
+            [
+              17,
+              7
+            ],
+            [
+              17,
+              6
+            ],
+            [
+              17,
+              5
+            ],
+            [
+              17,
+              4
+            ],
+            [
+              17,
+              3
+            ],
+            [
+              17,
+              2
+            ],
+            [
+              17,
+              1
+            ],
+            [
+              17,
+              0
+            ]
+          ],
+          "costs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "total_cost": 10,
+          "move": 7,
+          "map_size": [
+            34,
+            28
+          ],
+          "occupied": [
+            [
+              11,
+              23
+            ],
+            [
+              12,
+              23
+            ],
+            [
+              25,
+              19
+            ],
+            [
+              10,
+              24
+            ],
+            [
+              13,
+              23
+            ],
+            [
+              10,
+              23
+            ],
+            [
+              9,
+              25
+            ],
+            [
+              9,
+              24
+            ],
+            [
+              27,
+              19
+            ],
+            [
+              11,
+              24
+            ],
+            [
+              12,
+              24
+            ],
+            [
+              13,
+              24
+            ]
+          ],
+          "no_sea_exception": true,
+          "scope": "HTML design demonstration, actual ground infantry terrain; enemy human units removed for retreat condition, existing player/NPC blockers retained."
+        },
+        "forecast": {
+          "defence": 2,
+          "damage": 12,
+          "reflection": 0,
+          "hit": true
+        },
+        "experience": {
+          "value": 98,
+          "ordinary": 55,
+          "reward": 83
+        }
+      }
+    },
+    {
+      "name": "miss retaliation can defeat 2HP attacker",
+      "passed": true,
+      "detail": {
+        "body": 42,
+        "core": 16,
+        "friendHp": 0,
+        "target": "body",
+        "reflected": 2,
+        "humans": 1,
+        "pathIndex": 0,
+        "turns": 0,
+        "escaped": false,
+        "artBroken": false,
+        "artAction": "pseudo-titan-reflection",
+        "artTick": 0,
+        "artPlaying": true,
+        "route": {
+          "stage": "F25",
+          "origin": [
+            18,
+            9
+          ],
+          "destination": [
+            17,
+            0
+          ],
+          "path": [
+            [
+              18,
+              9
+            ],
+            [
+              17,
+              9
+            ],
+            [
+              17,
+              8
+            ],
+            [
+              17,
+              7
+            ],
+            [
+              17,
+              6
+            ],
+            [
+              17,
+              5
+            ],
+            [
+              17,
+              4
+            ],
+            [
+              17,
+              3
+            ],
+            [
+              17,
+              2
+            ],
+            [
+              17,
+              1
+            ],
+            [
+              17,
+              0
+            ]
+          ],
+          "costs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "total_cost": 10,
+          "move": 7,
+          "map_size": [
+            34,
+            28
+          ],
+          "occupied": [
+            [
+              11,
+              23
+            ],
+            [
+              12,
+              23
+            ],
+            [
+              25,
+              19
+            ],
+            [
+              10,
+              24
+            ],
+            [
+              13,
+              23
+            ],
+            [
+              10,
+              23
+            ],
+            [
+              9,
+              25
+            ],
+            [
+              9,
+              24
+            ],
+            [
+              27,
+              19
+            ],
+            [
+              11,
+              24
+            ],
+            [
+              12,
+              24
+            ],
+            [
+              13,
+              24
+            ]
+          ],
+          "no_sea_exception": true,
+          "scope": "HTML design demonstration, actual ground infantry terrain; enemy human units removed for retreat condition, existing player/NPC blockers retained."
+        },
+        "forecast": {
+          "defence": 14,
+          "damage": 0,
+          "reflection": 2,
+          "hit": false
+        },
+        "experience": {
+          "value": 98,
+          "ordinary": 55,
+          "reward": 83
+        }
+      }
+    },
+    {
+      "name": "public retreat move4 plus3 once",
+      "passed": true,
+      "detail": {
+        "body": 42,
+        "core": 16,
+        "friendHp": 24,
+        "target": "body",
+        "reflected": 0,
+        "humans": 0,
+        "pathIndex": 0,
+        "turns": 0,
+        "escaped": false,
+        "artBroken": false,
+        "artAction": "pseudo-titan-melee",
+        "artTick": 0,
+        "artPlaying": true,
+        "route": {
+          "stage": "F25",
+          "origin": [
+            18,
+            9
+          ],
+          "destination": [
+            17,
+            0
+          ],
+          "path": [
+            [
+              18,
+              9
+            ],
+            [
+              17,
+              9
+            ],
+            [
+              17,
+              8
+            ],
+            [
+              17,
+              7
+            ],
+            [
+              17,
+              6
+            ],
+            [
+              17,
+              5
+            ],
+            [
+              17,
+              4
+            ],
+            [
+              17,
+              3
+            ],
+            [
+              17,
+              2
+            ],
+            [
+              17,
+              1
+            ],
+            [
+              17,
+              0
+            ]
+          ],
+          "costs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "total_cost": 10,
+          "move": 7,
+          "map_size": [
+            34,
+            28
+          ],
+          "occupied": [
+            [
+              11,
+              23
+            ],
+            [
+              12,
+              23
+            ],
+            [
+              25,
+              19
+            ],
+            [
+              10,
+              24
+            ],
+            [
+              13,
+              23
+            ],
+            [
+              10,
+              23
+            ],
+            [
+              9,
+              25
+            ],
+            [
+              9,
+              24
+            ],
+            [
+              27,
+              19
+            ],
+            [
+              11,
+              24
+            ],
+            [
+              12,
+              24
+            ],
+            [
+              13,
+              24
+            ]
+          ],
+          "no_sea_exception": true,
+          "scope": "HTML design demonstration, actual ground infantry terrain; enemy human units removed for retreat condition, existing player/NPC blockers retained."
+        },
+        "forecast": {
+          "defence": 14,
+          "damage": 1,
+          "reflection": 2,
+          "hit": true
+        },
+        "experience": {
+          "value": 98,
+          "ordinary": 55,
+          "reward": 83
+        }
+      }
+    },
+    {
+      "name": "first retreat follows real terrain budget7",
+      "passed": true,
+      "detail": {
+        "body": 42,
+        "core": 16,
+        "friendHp": 24,
+        "target": "body",
+        "reflected": 0,
+        "humans": 0,
+        "pathIndex": 7,
+        "turns": 1,
+        "escaped": false,
+        "artBroken": false,
+        "artAction": "pseudo-titan-escape",
+        "artTick": 0,
+        "artPlaying": true,
+        "route": {
+          "stage": "F25",
+          "origin": [
+            18,
+            9
+          ],
+          "destination": [
+            17,
+            0
+          ],
+          "path": [
+            [
+              18,
+              9
+            ],
+            [
+              17,
+              9
+            ],
+            [
+              17,
+              8
+            ],
+            [
+              17,
+              7
+            ],
+            [
+              17,
+              6
+            ],
+            [
+              17,
+              5
+            ],
+            [
+              17,
+              4
+            ],
+            [
+              17,
+              3
+            ],
+            [
+              17,
+              2
+            ],
+            [
+              17,
+              1
+            ],
+            [
+              17,
+              0
+            ]
+          ],
+          "costs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "total_cost": 10,
+          "move": 7,
+          "map_size": [
+            34,
+            28
+          ],
+          "occupied": [
+            [
+              11,
+              23
+            ],
+            [
+              12,
+              23
+            ],
+            [
+              25,
+              19
+            ],
+            [
+              10,
+              24
+            ],
+            [
+              13,
+              23
+            ],
+            [
+              10,
+              23
+            ],
+            [
+              9,
+              25
+            ],
+            [
+              9,
+              24
+            ],
+            [
+              27,
+              19
+            ],
+            [
+              11,
+              24
+            ],
+            [
+              12,
+              24
+            ],
+            [
+              13,
+              24
+            ]
+          ],
+          "no_sea_exception": true,
+          "scope": "HTML design demonstration, actual ground infantry terrain; enemy human units removed for retreat condition, existing player/NPC blockers retained."
+        },
+        "forecast": {
+          "defence": 14,
+          "damage": 1,
+          "reflection": 2,
+          "hit": true
+        },
+        "experience": {
+          "value": 98,
+          "ordinary": 55,
+          "reward": 83
+        }
+      }
+    },
+    {
+      "name": "second retreat reaches nearest north edge, zero kill reward",
+      "passed": true,
+      "detail": {
+        "body": 42,
+        "core": 16,
+        "friendHp": 24,
+        "target": "body",
+        "reflected": 0,
+        "humans": 0,
+        "pathIndex": 10,
+        "turns": 2,
+        "escaped": true,
+        "artBroken": false,
+        "artAction": "pseudo-titan-escape",
+        "artTick": 0,
+        "artPlaying": true,
+        "route": {
+          "stage": "F25",
+          "origin": [
+            18,
+            9
+          ],
+          "destination": [
+            17,
+            0
+          ],
+          "path": [
+            [
+              18,
+              9
+            ],
+            [
+              17,
+              9
+            ],
+            [
+              17,
+              8
+            ],
+            [
+              17,
+              7
+            ],
+            [
+              17,
+              6
+            ],
+            [
+              17,
+              5
+            ],
+            [
+              17,
+              4
+            ],
+            [
+              17,
+              3
+            ],
+            [
+              17,
+              2
+            ],
+            [
+              17,
+              1
+            ],
+            [
+              17,
+              0
+            ]
+          ],
+          "costs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "total_cost": 10,
+          "move": 7,
+          "map_size": [
+            34,
+            28
+          ],
+          "occupied": [
+            [
+              11,
+              23
+            ],
+            [
+              12,
+              23
+            ],
+            [
+              25,
+              19
+            ],
+            [
+              10,
+              24
+            ],
+            [
+              13,
+              23
+            ],
+            [
+              10,
+              23
+            ],
+            [
+              9,
+              25
+            ],
+            [
+              9,
+              24
+            ],
+            [
+              27,
+              19
+            ],
+            [
+              11,
+              24
+            ],
+            [
+              12,
+              24
+            ],
+            [
+              13,
+              24
+            ]
+          ],
+          "no_sea_exception": true,
+          "scope": "HTML design demonstration, actual ground infantry terrain; enemy human units removed for retreat condition, existing player/NPC blockers retained."
+        },
+        "forecast": {
+          "defence": 14,
+          "damage": 1,
+          "reflection": 2,
+          "hit": true
+        },
+        "experience": {
+          "value": 98,
+          "ordinary": 55,
+          "reward": 83
+        }
+      }
+    },
+    {
+      "name": "broken core preserves public retreat",
+      "passed": true,
+      "detail": {
+        "body": 42,
+        "core": 0,
+        "friendHp": 24,
+        "target": "core",
+        "reflected": 0,
+        "humans": 0,
+        "pathIndex": 7,
+        "turns": 1,
+        "escaped": false,
+        "artBroken": true,
+        "artAction": "pseudo-titan-broken-escape",
+        "artTick": 0,
+        "artPlaying": true,
+        "route": {
+          "stage": "F25",
+          "origin": [
+            18,
+            9
+          ],
+          "destination": [
+            17,
+            0
+          ],
+          "path": [
+            [
+              18,
+              9
+            ],
+            [
+              17,
+              9
+            ],
+            [
+              17,
+              8
+            ],
+            [
+              17,
+              7
+            ],
+            [
+              17,
+              6
+            ],
+            [
+              17,
+              5
+            ],
+            [
+              17,
+              4
+            ],
+            [
+              17,
+              3
+            ],
+            [
+              17,
+              2
+            ],
+            [
+              17,
+              1
+            ],
+            [
+              17,
+              0
+            ]
+          ],
+          "costs": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "total_cost": 10,
+          "move": 7,
+          "map_size": [
+            34,
+            28
+          ],
+          "occupied": [
+            [
+              11,
+              23
+            ],
+            [
+              12,
+              23
+            ],
+            [
+              25,
+              19
+            ],
+            [
+              10,
+              24
+            ],
+            [
+              13,
+              23
+            ],
+            [
+              10,
+              23
+            ],
+            [
+              9,
+              25
+            ],
+            [
+              9,
+              24
+            ],
+            [
+              27,
+              19
+            ],
+            [
+              11,
+              24
+            ],
+            [
+              12,
+              24
+            ],
+            [
+              13,
+              24
+            ]
+          ],
+          "no_sea_exception": true,
+          "scope": "HTML design demonstration, actual ground infantry terrain; enemy human units removed for retreat condition, existing player/NPC blockers retained."
+        },
+        "forecast": {
+          "defence": 3,
+          "damage": 0,
+          "reflection": 0,
+          "hit": true
+        },
+        "experience": {
+          "value": 98,
+          "ordinary": 55,
+          "reward": 83
+        }
+      }
+    },
+    {
+      "name": "base70 level5 value98; Eileen level5 ordinary55 becomes83",
+      "passed": true,
+      "detail": {
+        "value": 98,
+        "ordinary": 55,
+        "reward": 83
+      }
+    },
+    {
+      "name": "mechanical experience remains capped100",
+      "passed": true,
+      "detail": {
+        "value": 98,
+        "ordinary": 79,
+        "reward": 100
+      }
+    },
+    {
+      "name": "base value70 at level1 distinct from level growth",
+      "passed": true,
+      "detail": {
+        "value": 70,
+        "ordinary": 56,
+        "reward": 84
+      }
+    },
+    {
+      "name": "standalone animation false idle",
+      "passed": true
+    },
+    {
+      "name": "standalone animation false battle-walk",
+      "passed": true
+    },
+    {
+      "name": "standalone animation false melee",
+      "passed": true
+    },
+    {
+      "name": "standalone animation false hit",
+      "passed": true
+    },
+    {
+      "name": "standalone animation false reflection",
+      "passed": true
+    },
+    {
+      "name": "standalone animation false core-break",
+      "passed": true
+    },
+    {
+      "name": "standalone animation false defeat",
+      "passed": true
+    },
+    {
+      "name": "standalone animation false map-idle",
+      "passed": true
+    },
+    {
+      "name": "standalone animation false walk-up",
+      "passed": true
+    },
+    {
+      "name": "standalone animation false walk-right",
+      "passed": true
+    },
+    {
+      "name": "standalone animation false walk-down",
+      "passed": true
+    },
+    {
+      "name": "standalone animation false walk-left",
+      "passed": true
+    },
+    {
+      "name": "standalone animation false escape",
+      "passed": true
+    },
+    {
+      "name": "standalone animation true idle",
+      "passed": true
+    },
+    {
+      "name": "standalone animation true battle-walk",
+      "passed": true
+    },
+    {
+      "name": "standalone animation true melee",
+      "passed": true
+    },
+    {
+      "name": "standalone animation true hit",
+      "passed": true
+    },
+    {
+      "name": "standalone animation true defeat",
+      "passed": true
+    },
+    {
+      "name": "standalone animation true map-idle",
+      "passed": true
+    },
+    {
+      "name": "standalone animation true walk-up",
+      "passed": true
+    },
+    {
+      "name": "standalone animation true walk-right",
+      "passed": true
+    },
+    {
+      "name": "standalone animation true walk-down",
+      "passed": true
+    },
+    {
+      "name": "standalone animation true walk-left",
+      "passed": true
+    },
+    {
+      "name": "standalone animation true escape",
+      "passed": true
+    },
+    {
+      "name": "native battle1x and2x retain integer CSS sizes",
+      "passed": true
+    },
+    {
+      "name": "mobile no horizontal overflow",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "width": 390,
+        "bad": []
+      }
+    },
+    {
+      "name": "mobile controls and text containers no clipping",
+      "passed": true,
+      "detail": {
+        "viewport": 390,
+        "width": 390,
+        "bad": []
+      }
+    },
+    {
+      "name": "main gallery extension loads with water monkey retained",
+      "passed": true
+    },
+    {
+      "name": "one closed history includes this new revision",
+      "passed": true,
+      "detail": {
+        "count": 1,
+        "open": false,
+        "contains": true
+      }
+    },
+    {
+      "name": "24 new unique action IDs",
+      "passed": true
+    },
+    {
+      "name": "all main gallery actions and transition images load",
+      "passed": true,
+      "detail": 24
+    },
+    {
+      "name": "nonzero pose design baseline rendered",
+      "passed": true,
+      "detail": 29888
+    },
+    {
+      "name": "main mobile no overflow",
+      "passed": true
+    },
+    {
+      "name": "history still opens",
+      "passed": true
+    },
+    {
+      "name": "existing water monkey still works",
+      "passed": true
+    },
+    {
+      "name": "no browser runtime exceptions",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "source/review-desktop.png",
+    "source/review-broken-core.png",
+    "source/native-phone-dark.png",
+    "source/native-phone-light.png",
+    "source/f25-deployment.png",
+    "source/review-mobile.png",
+    "source/melee-start.png",
+    "source/melee-approach.png",
+    "source/melee-contact.png",
+    "source/melee-return.png",
+    "source/broken-melee-contact.png",
+    "source/body-reflection.png",
+    "source/core-break.png",
+    "source/broken-map-up.png",
+    "source/main-desktop.png",
+    "source/main-mobile.png"
+  ],
+  "passed": true
+}

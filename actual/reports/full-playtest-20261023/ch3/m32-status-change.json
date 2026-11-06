@@ -1,0 +1,7 @@
+{
+  "file": "actual/core/chapter3_rules.gd",
+  "before": "运输车第5回合起北撤，每轮一格。控制任一运输站使车停止；两站与车锁均需确认。车逃出北口或损毁即失败。",
+  "after": "运输车第6己方回合起北撤，每轮一格。控制任一运输站或打开车锁可停车；两站与车锁均需确认。车逃出北口或损毁即失败。",
+  "basis": "chapter3_rules.after_phase returns while turn <= 5; transport advances starting player turn 6; transport_stopped also includes cart_release.",
+  "gameplay_rules_changed": false
+}

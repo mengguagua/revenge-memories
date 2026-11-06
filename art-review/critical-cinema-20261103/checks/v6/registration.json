@@ -1,0 +1,61 @@
+{
+  "method": "Instrument actual canvas draw calls and full transform; measure marked head point after draw scaling and stage camera, at60Hz. 2.1 output pixels = 1.17 logical pixels maximum rounding tolerance. No per-frame body scaling.",
+  "results": [
+    {
+      "key": "hunapu-sword",
+      "check": "Return head height stays fixed; horizontal travel follows timeline",
+      "measured_world_pixels": 0,
+      "limit_world_pixels": 2.1,
+      "painted_poses": [
+        "hunapu-return:0",
+        "hunapu-return:1",
+        "hunapu-return:2",
+        "hunapu-return:3"
+      ],
+      "samples": 64,
+      "passed": true
+    },
+    {
+      "key": "eileen-sword",
+      "check": "Return head height stays fixed; horizontal travel follows timeline",
+      "measured_world_pixels": 0,
+      "limit_world_pixels": 2.1,
+      "painted_poses": [
+        "eileen-return:0",
+        "eileen-return:1",
+        "eileen-return:2",
+        "eileen-return:3"
+      ],
+      "samples": 64,
+      "passed": true
+    },
+    {
+      "key": "hunapu-sword-advanced",
+      "check": "Return head height stays fixed; horizontal travel follows timeline",
+      "measured_world_pixels": 0,
+      "limit_world_pixels": 2.1,
+      "painted_poses": [
+        "hunapu-return:4",
+        "hunapu-return:5",
+        "hunapu-return:6",
+        "hunapu-return:7"
+      ],
+      "samples": 64,
+      "passed": true
+    },
+    {
+      "key": "eileen-sword-advanced",
+      "check": "Return head height stays fixed; horizontal travel follows timeline",
+      "measured_world_pixels": 0,
+      "limit_world_pixels": 2.1,
+      "painted_poses": [
+        "eileen-return:4",
+        "eileen-return:5",
+        "eileen-return:6",
+        "eileen-return:7"
+      ],
+      "samples": 64,
+      "passed": true
+    }
+  ]
+}

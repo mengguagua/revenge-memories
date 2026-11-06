@@ -8,6 +8,14 @@ from export_gallery import render_frame
 from export_knight_complete import export_one
 from share_sage_mage_spells import REV,OUT,COMMON,sha,item,write
 
+def record_preview_images(captures,exports):
+    paths=sorted(set(captures+[e['still'] for e in exports]));images=[]
+    for rel in paths:
+        path=ROOT/rel
+        with Image.open(path) as im:
+            images.append({'path':rel,'purpose':'离线动作对照预览','dimensions':list(im.size),'mode':im.mode,'bytes':path.stat().st_size,'sha256':file_hash(path)})
+    write(OUT/'image-inventory.json',{'revision':REV,'images':images,'new_sprite_art_assets':0,'all_preview_images_below_200kb':all(i['bytes']<200000 for i in images)})
+
 def verify(export=False):
     b=json.loads((OUT/'baseline.json').read_text());data=json.loads((ROOT/'demos/gallery-data.json').read_text());now={a['id']:a for a in data['actions']};before=b['action_facts'];pp={p['id']:p for p in data['profiles']};contracts=json.loads((OUT/'spell-contracts.json').read_text())['contracts'];ledger={c['sage_action']:c for c in contracts};changed={k for k,a in now.items() if a['contentDigest']!=before[k]['digest']}
     assert len(now)==len(before)==872 and len(pp)==100 and len(ledger)==54 and changed==set(ledger)
@@ -77,6 +85,7 @@ def verify(export=False):
         for field,kind,suffix,ext in [('video','videos','','mp4'),('closeVideo','videos','--close','mp4'),('still','stills','','png')]:
             path=ROOT/f'demos/{kind}/{a["id"]}{suffix}.{ext}';a[field]=relative(path) if matched_export(path,a['contentDigest']) else None
     (ROOT/'gallery-data.js').write_text('window.GALLERY_DATA = '+json.dumps(data,ensure_ascii=False,separators=(',',':'))+';\n');(ROOT/'demos/gallery-data.json').write_text(json.dumps(data,ensure_ascii=False,separators=(',',':'))+'\n')
+    record_preview_images(captures,exports)
     report.update(status='passed',decoded_videos=len(decoded),offline_captures=captures);write(OUT/'verification.json',report);write(OUT/'export-report.json',{'status':'passed','exports':exports,'decoded_video_checks':decoded});print(json.dumps({'status':'passed','variants':54,'unchanged':818,'videos':len(decoded)}),flush=True)
 if __name__=='__main__':
     import argparse

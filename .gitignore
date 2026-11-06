@@ -37,3 +37,22 @@ venv/
 /dist/
 *.pck
 *.app/
+*.ipa
+/officialWebsite/dist/
+
+# 本机安装、签名及打包验收记录
+/actual/reports/iphone-install-*/
+/actual/reports/mac-package-*/
+
+# 音频制作原稿和本地试听产物；游戏运行音频在 actual/assets/
+/source/audio-20261024/**/*.wav
+/source/sfx-20261024/**/*.wav
+/actual/reports/soundtrack-20261024/audition/
+/actual/reports/sfx-20261024/audition/
+/actual/reports/audio-scene-review-20261024/audition/
+/actual/reports/audio-content-review-20261024/inputs/
+/actual/reports/audio-content-review-20261024/native-engine-mix.wav
+
+# 未压缩的本地对照快照，保留压缩版和正式验收记录
+/art-review/character-expansion-20261018/**/baseline.json
+/actual/reports/full-playtest-20261023/start-numeric-data.json

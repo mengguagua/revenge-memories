@@ -1,0 +1,352 @@
+{
+  "stage": "M15",
+  "base_stats": true,
+  "bonus_rule": "每人合计3点，随机分配至生命/力量/技巧/速度/物防/魔防，制作时固定，不消耗游戏随机数。",
+  "bonus": [
+    {
+      "id": "M15_e2",
+      "seed": 2026110102,
+      "bonus": {
+        "resistance": 1,
+        "max_hp": 1,
+        "speed": 1
+      },
+      "total": 3
+    },
+    {
+      "id": "M15_e3",
+      "seed": 2026110103,
+      "bonus": {
+        "skill": 2,
+        "max_hp": 1
+      },
+      "total": 3
+    },
+    {
+      "id": "M15_e4",
+      "seed": 2026110104,
+      "bonus": {
+        "resistance": 1,
+        "speed": 2
+      },
+      "total": 3
+    },
+    {
+      "id": "M15_e5",
+      "seed": 2026110105,
+      "bonus": {
+        "max_hp": 1,
+        "speed": 2
+      },
+      "total": 3
+    },
+    {
+      "id": "M15_e9",
+      "seed": 2026110109,
+      "bonus": {
+        "strength": 1,
+        "resistance": 1,
+        "max_hp": 1
+      },
+      "total": 3
+    },
+    {
+      "id": "M15_e10",
+      "seed": 2026110110,
+      "bonus": {
+        "skill": 2,
+        "max_hp": 1
+      },
+      "total": 3
+    },
+    {
+      "id": "M15_e11",
+      "seed": 2026110111,
+      "bonus": {
+        "max_hp": 2,
+        "resistance": 1
+      },
+      "total": 3
+    },
+    {
+      "id": "M15_r0",
+      "seed": 2026110150,
+      "bonus": {
+        "resistance": 2,
+        "speed": 1
+      },
+      "total": 3
+    },
+    {
+      "id": "M15_r1",
+      "seed": 2026110151,
+      "bonus": {
+        "max_hp": 1,
+        "speed": 1,
+        "defence": 1
+      },
+      "total": 3
+    }
+  ],
+  "changes": {
+    "M15_boss": {
+      "before": {
+        "class": "gold_knight",
+        "class_id": 7,
+        "class_name_zh": "大骑士",
+        "level": 3,
+        "max_hp": 32,
+        "strength": 12,
+        "skill": 5,
+        "defence": 8,
+        "resistance": 6,
+        "move": 9
+      },
+      "after": {
+        "class": "baron",
+        "class_id": 22,
+        "class_name_zh": "壁垒卫士",
+        "level": 5,
+        "max_hp": 40,
+        "strength": 16,
+        "skill": 4,
+        "defence": 11,
+        "resistance": 5,
+        "move": 4
+      }
+    },
+    "M15_e1": {
+      "before": {
+        "name_zh": "士兵",
+        "class": "soldier",
+        "class_id": 6,
+        "class_name_zh": "士兵",
+        "level": 1,
+        "max_hp": 22,
+        "strength": 9,
+        "skill": 3,
+        "speed": 3,
+        "defence": 3,
+        "resistance": 0
+      },
+      "after": {
+        "name_zh": "重装兵",
+        "class": "knight",
+        "class_id": 2,
+        "class_name_zh": "重装兵",
+        "level": 5,
+        "max_hp": 28,
+        "strength": 12,
+        "skill": 2,
+        "speed": 2,
+        "defence": 9,
+        "resistance": 2
+      }
+    },
+    "M15_e2": {
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "speed": 3,
+        "resistance": 0
+      },
+      "after": {
+        "level": 5,
+        "max_hp": 23,
+        "speed": 4,
+        "resistance": 1
+      }
+    },
+    "M15_e3": {
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "skill": 3
+      },
+      "after": {
+        "level": 5,
+        "max_hp": 23,
+        "skill": 5
+      }
+    },
+    "M15_e4": {
+      "before": {
+        "level": 1,
+        "speed": 3,
+        "resistance": 0
+      },
+      "after": {
+        "level": 5,
+        "speed": 5,
+        "resistance": 1
+      }
+    },
+    "M15_e5": {
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "speed": 3
+      },
+      "after": {
+        "level": 5,
+        "max_hp": 23,
+        "speed": 5
+      }
+    },
+    "M15_e6": {
+      "before": {
+        "name_zh": "重装兵",
+        "class": "gold_knight",
+        "class_id": 7,
+        "class_name_zh": "大骑士",
+        "level": 1,
+        "max_hp": 24,
+        "strength": 10,
+        "skill": 3,
+        "speed": 3,
+        "defence": 6,
+        "resistance": 6,
+        "move": 9
+      },
+      "after": {
+        "name_zh": "骑士",
+        "class": "paladin",
+        "class_id": 4,
+        "class_name_zh": "骑士",
+        "level": 4,
+        "max_hp": 30,
+        "strength": 8,
+        "skill": 2,
+        "speed": 5,
+        "defence": 4,
+        "resistance": 3,
+        "move": 8
+      }
+    },
+    "M15_e7": {
+      "before": {
+        "name_zh": "重装兵",
+        "class": "gold_knight",
+        "class_id": 7,
+        "class_name_zh": "大骑士",
+        "level": 1,
+        "max_hp": 24,
+        "strength": 10,
+        "skill": 3,
+        "speed": 3,
+        "defence": 6,
+        "resistance": 6,
+        "move": 9
+      },
+      "after": {
+        "name_zh": "骑士",
+        "class": "paladin",
+        "class_id": 4,
+        "class_name_zh": "骑士",
+        "level": 4,
+        "max_hp": 30,
+        "strength": 8,
+        "skill": 2,
+        "speed": 5,
+        "defence": 4,
+        "resistance": 3,
+        "move": 8
+      }
+    },
+    "M15_e8": {
+      "before": {
+        "name_zh": "重装兵",
+        "class": "gold_knight",
+        "class_id": 7,
+        "class_name_zh": "大骑士",
+        "level": 1,
+        "max_hp": 24,
+        "strength": 10,
+        "skill": 3,
+        "speed": 3,
+        "defence": 6,
+        "resistance": 6,
+        "move": 9
+      },
+      "after": {
+        "name_zh": "骑士",
+        "class": "paladin",
+        "class_id": 4,
+        "class_name_zh": "骑士",
+        "level": 4,
+        "max_hp": 30,
+        "strength": 8,
+        "skill": 2,
+        "speed": 5,
+        "defence": 4,
+        "resistance": 3,
+        "move": 8
+      }
+    },
+    "M15_e9": {
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "strength": 9,
+        "resistance": 0
+      },
+      "after": {
+        "level": 5,
+        "max_hp": 23,
+        "strength": 10,
+        "resistance": 1
+      }
+    },
+    "M15_e10": {
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "skill": 3
+      },
+      "after": {
+        "level": 5,
+        "max_hp": 23,
+        "skill": 5
+      }
+    },
+    "M15_e11": {
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "resistance": 0
+      },
+      "after": {
+        "level": 5,
+        "max_hp": 24,
+        "resistance": 1
+      }
+    },
+    "M15_r0": {
+      "before": {
+        "level": 1,
+        "speed": 3,
+        "resistance": 0
+      },
+      "after": {
+        "level": 5,
+        "speed": 4,
+        "resistance": 2
+      }
+    },
+    "M15_r1": {
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "speed": 3,
+        "defence": 3
+      },
+      "after": {
+        "level": 5,
+        "max_hp": 23,
+        "speed": 4,
+        "defence": 4
+      }
+    }
+  },
+  "equipment_note": "科兰保留钢枪：基础力量16，装备攻击20；基础速度3，钢枪重量1使战速为2。职业移动按壁垒卫士4、重装兵4、骑士8。"
+}

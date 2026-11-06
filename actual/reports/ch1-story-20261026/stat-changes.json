@@ -1,0 +1,189 @@
+{
+  "scope": "M12 enemies only, including soldier-class commander",
+  "revision": 4,
+  "mercenary_note": "Fixed M12 upgrade: level+1, HP+2, strength/skill/speed/defence+1; luck, resistance, movement and range unchanged. Original constructor raises stats every two levels, so this is an authored increase rather than claiming natural level1-to2 growth. Experience value40→44 follows the existing level-based enemy constructor; drops and equipment unchanged.",
+  "units": [
+    {
+      "id": "M12_boss",
+      "class": "soldier",
+      "before": {
+        "level": 3,
+        "max_hp": 27,
+        "strength": 9,
+        "skill": 5,
+        "speed": 3,
+        "defence": 4
+      },
+      "after": {
+        "level": 3,
+        "max_hp": 29,
+        "strength": 9,
+        "skill": 5,
+        "speed": 3,
+        "defence": 4
+      }
+    },
+    {
+      "id": "M12_e1",
+      "class": "soldier",
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "strength": 8,
+        "skill": 3,
+        "speed": 3,
+        "defence": 3
+      },
+      "after": {
+        "level": 1,
+        "max_hp": 24,
+        "strength": 8,
+        "skill": 3,
+        "speed": 3,
+        "defence": 3
+      }
+    },
+    {
+      "id": "M12_e2",
+      "class": "soldier",
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "strength": 8,
+        "skill": 3,
+        "speed": 3,
+        "defence": 3
+      },
+      "after": {
+        "level": 1,
+        "max_hp": 24,
+        "strength": 8,
+        "skill": 3,
+        "speed": 3,
+        "defence": 3
+      }
+    },
+    {
+      "id": "M12_e3",
+      "class": "soldier",
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "strength": 8,
+        "skill": 3,
+        "speed": 3,
+        "defence": 3
+      },
+      "after": {
+        "level": 1,
+        "max_hp": 24,
+        "strength": 8,
+        "skill": 3,
+        "speed": 3,
+        "defence": 3
+      }
+    },
+    {
+      "id": "M12_e4",
+      "class": "soldier",
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "strength": 8,
+        "skill": 3,
+        "speed": 3,
+        "defence": 3
+      },
+      "after": {
+        "level": 1,
+        "max_hp": 24,
+        "strength": 8,
+        "skill": 3,
+        "speed": 3,
+        "defence": 3
+      }
+    },
+    {
+      "id": "M12_e5",
+      "class": "soldier",
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "strength": 8,
+        "skill": 3,
+        "speed": 3,
+        "defence": 3
+      },
+      "after": {
+        "level": 1,
+        "max_hp": 24,
+        "strength": 8,
+        "skill": 3,
+        "speed": 3,
+        "defence": 3
+      }
+    },
+    {
+      "id": "M12_e6",
+      "class": "archer",
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "strength": 8,
+        "skill": 3,
+        "speed": 3,
+        "defence": 3
+      },
+      "after": {
+        "level": 1,
+        "max_hp": 20,
+        "strength": 10,
+        "skill": 3,
+        "speed": 3,
+        "defence": 3
+      }
+    },
+    {
+      "id": "M12_e7",
+      "class": "archer",
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "strength": 8,
+        "skill": 3,
+        "speed": 3,
+        "defence": 3
+      },
+      "after": {
+        "level": 1,
+        "max_hp": 20,
+        "strength": 10,
+        "skill": 3,
+        "speed": 3,
+        "defence": 3
+      }
+    },
+    {
+      "id": "M12_e8",
+      "class": "mercenary",
+      "before": {
+        "level": 1,
+        "max_hp": 22,
+        "strength": 8,
+        "skill": 3,
+        "speed": 5,
+        "defence": 3,
+        "exp_value": 40
+      },
+      "after": {
+        "level": 2,
+        "max_hp": 24,
+        "strength": 9,
+        "skill": 4,
+        "speed": 6,
+        "defence": 4,
+        "exp_value": 44
+      }
+    }
+  ]
+}

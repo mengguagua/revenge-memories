@@ -1,0 +1,191 @@
+{
+  "status": "runtime_integrated",
+  "date": "2026-11-04",
+  "id": "water_monkey",
+  "name": "水猴傀儡",
+  "category": "机械傀儡",
+  "stats": {
+    "level": 3,
+    "hp": 22,
+    "strength": 5,
+    "skill": 4,
+    "speed": 8,
+    "luck": 0,
+    "defence": 3,
+    "resistance": 1,
+    "move": 5,
+    "escape_move": 8
+  },
+  "melee": {
+    "name": "机械掌击",
+    "range": [
+      1,
+      1
+    ],
+    "might": 0,
+    "weight": 0,
+    "hit": 85,
+    "critical": 0,
+    "damage_type": "physical",
+    "power": 5,
+    "attack_speed": 8
+  },
+  "cannon": {
+    "name": "水炸弹投掷炮",
+    "location": "背部",
+    "range": [
+      1,
+      3
+    ],
+    "might": 3,
+    "weight": 5,
+    "hit": 75,
+    "critical": 0,
+    "damage_type": "physical",
+    "power": 8,
+    "attack_speed": 3,
+    "part": {
+      "id": "back_cannon",
+      "durability": 10,
+      "defence": 2,
+      "resistance": 1,
+      "body_damage_transfer": 0,
+      "overflow_transfer": 0,
+      "break_effect": "永久禁用水炸弹投掷炮；本体与掌击保留"
+    },
+    "slow": {
+      "speed_delta": -1,
+      "minimum_speed": 0,
+      "stackable": false,
+      "refresh": true,
+      "duration": "命中后立即生效，持续至受击者下一次行动结束；已经行动的单位持续至其下一次行动结束",
+      "requires_hit": true
+    }
+  },
+  "experience": {
+    "multiplier": 1.5,
+    "rounding": "按普通同条件经验计算后乘1.5，向上取整；沿用单次经验上限",
+    "illustration": "普通同条件击败经验35时为53，不是固定所有角色均得53",
+    "applies_to": [
+      "本体伤害经验",
+      "部位伤害经验",
+      "击败经验"
+    ],
+    "part_break_kill_bonus": false,
+    "escape_kill_experience": 0,
+    "keep_earned_damage_experience": true,
+    "map_clear_experience_multiplier": 1
+  },
+  "escape": {
+    "condition": "同阵营在场且存活的战斗单位全部为机械傀儡；单位是否机械按类别判断，不按外形/职业编号判断",
+    "move_bonus": 3,
+    "stackable": false,
+    "check": "单位死亡、退场、援军入场后，以及本方行动前重新检查；若出现非机械友军则恢复普通移动与行为",
+    "behavior": "每个本方回合优先撤离，不主动攻击；仅保留近身掌击自卫",
+    "destination": "按合法通路代价计算最近可达的战场边缘；并列固定顺序上、右、下、左；到达立刻退场",
+    "blocked": "不穿墙、不穿单位、不瞬移；通路临时堵塞时等待/绕行，不替换为地图外瞬移",
+    "f21_water_route": "正常战斗按甲板步兵通路；仅撤离状态允许从船舷下水，沿海面离场，海面代价1，障碍和占位仍阻挡",
+    "victory": "逃脱不计击杀，不发击败经验，不掉击杀战利品，也不阻挡关卡胜利"
+  },
+  "deployment": {
+    "stage": "F21",
+    "name": "海上拦截",
+    "unit_id": "F21_water_monkey_1",
+    "count": 1,
+    "additive": true,
+    "enemy_count_before": 9,
+    "enemy_count_after": 10,
+    "position": [
+      21,
+      14
+    ],
+    "coordinates": "零起算；显示为第22列第15行",
+    "normal_behavior": "近身默认掌击；2–3格使用水炮，优先选择未减速目标；一次行动只选一种攻击，不附送额外攻击",
+    "victory": "保留原目标：击败搜捕指挥官并保住己方船。胜利优先结算，不等待机械傀儡逃完。想拿击败经验需先击败水猴，再结束指挥官战。",
+    "sample_escape_path": [
+      [
+        21,
+        14
+      ],
+      [
+        22,
+        14
+      ],
+      [
+        23,
+        14
+      ],
+      [
+        24,
+        14
+      ],
+      [
+        25,
+        14
+      ],
+      [
+        26,
+        14
+      ],
+      [
+        27,
+        14
+      ],
+      [
+        28,
+        14
+      ],
+      [
+        29,
+        14
+      ],
+      [
+        30,
+        14
+      ],
+      [
+        31,
+        14
+      ]
+    ],
+    "note": "已写入实际F21配置；新部署／重试启用，旧的进行中存档不强行追加敌人"
+  },
+  "combat_targeting": {
+    "selectable": [
+      "本体",
+      "背炮"
+    ],
+    "default": "本体",
+    "same_exchange_break": "首击破坏后立即禁用水炮；后续反击重新检查可用攻击与射程",
+    "followup": "整次交锋固定所选目标；部位已破坏则取消该部位上的后续追击，不转打本体",
+    "map_attacks": "第一版MAP只伤本体",
+    "part_recovery": "本战不恢复，不新增击杀计数"
+  },
+  "visuals": {
+    "palette": [
+      "旧黄铜",
+      "灰青装甲",
+      "石墨关节",
+      "米白口鼻",
+      "浅青玻璃眼"
+    ],
+    "equipment": "背部水罐＋短管投掷炮；空手近战；无飞行、无额外连击",
+    "native_battle_frame": [
+      56,
+      64
+    ],
+    "native_map_frame": [
+      40,
+      48
+    ],
+    "body_height_target": 32,
+    "ordinary_hit": "与普通士兵一致：固定姿势明暗闪烁、轻微位移、命中音，不用连续后仰姿势。",
+    "idle_period_seconds": 2.995068121160489,
+    "motion_revision": "motion-v2-20261104"
+  },
+  "scope": {
+    "game_code_changed": true,
+    "actual_stage_changed": true,
+    "build_or_device_update": false
+  }
+}

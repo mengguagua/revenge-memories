@@ -1,0 +1,78 @@
+{
+  "id": "professions-class-13-ally-battle",
+  "actor": "class-13-ally",
+  "actorName": "盟军狙击手",
+  "classId": "13",
+  "className": "狙击手",
+  "context": "battle",
+  "contextName": "战斗场景",
+  "side": "ally",
+  "mapping": "professions/class-13-ally/battle/frame_mapping.json",
+  "mappingStatus": "review_candidate",
+  "revision": "sniper-complete-v1-20261022",
+  "modifiedBy": "codex",
+  "reviewNote": "狙击手：弓箭手四色加柔和棕色，整片米白护甲、长弓与箭袋；固定地图头部和腰胯，双方按各自原作取箭、转弓、拉弦、单次释放及收势时序。 飞行箭矢统一木色箭杆、米白箭头与尾羽，摆脱原作阵营色。",
+  "sourceAtlas": "source-input/original-motion/class-13.png",
+  "sourceFrameSize": [
+    80,
+    64
+  ],
+  "sourceAtlasSize": [
+    1280,
+    128
+  ],
+  "sourceColumns": 16,
+  "sourceFrameCount": 17,
+  "anchor": [
+    40,
+    64
+  ],
+  "sourceOamCutoff": 1,
+  "flipOriginOffset": [
+    16,
+    0
+  ],
+  "outputFrameSize": [
+    320,
+    256
+  ],
+  "newFrames": {
+    "1": "sniper-complete-v1-20261022/ally/battle/frame-001.png",
+    "2": "sniper-complete-v1-20261022/ally/battle/frame-002.png",
+    "10": "sniper-complete-v1-20261022/ally/battle/frame-010.png",
+    "11": "sniper-complete-v1-20261022/ally/battle/frame-011.png",
+    "12": "sniper-complete-v1-20261022/ally/battle/frame-012.png",
+    "13": "sniper-complete-v1-20261022/ally/battle/frame-013.png",
+    "14": "sniper-complete-v1-20261022/ally/battle/frame-014.png",
+    "15": "sniper-complete-v1-20261022/ally/battle/frame-015.png",
+    "16": "sniper-complete-v1-20261022/ally/battle/frame-016.png"
+  },
+  "frameErrors": {},
+  "referenceArtAliases": {},
+  "links": [
+    {
+      "label": "full-pose-review 姿势对照",
+      "href": "sniper-complete-v1-20261022/ally-battle-light.png"
+    }
+  ],
+  "revisedEffects": {
+    "4af589272de96e": {
+      "path": "sniper-arrow-natural-v3-20261023/flying-arrow.png",
+      "frame_size": [
+        48,
+        16
+      ],
+      "frames": 1,
+      "anchor": [
+        24,
+        8
+      ],
+      "source_oam": "bank001:L0195D2",
+      "default_facing": "left",
+      "flip_origin_offset": [
+        16,
+        0
+      ]
+    }
+  }
+}

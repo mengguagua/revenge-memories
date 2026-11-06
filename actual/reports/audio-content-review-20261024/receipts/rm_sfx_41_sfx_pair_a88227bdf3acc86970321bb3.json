@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_41",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_41.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_41.ogg"
+  ],
+  "hashes": [
+    "284af7857895a5bcb7dc2df90c330f754271456e2cd5b4e78e9c24653e43e929",
+    "67ad499a4e1b423470920ebe4b940b418e85045476ab7188da4541edde0d88e0"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "a88227bdf3acc86970321bb3",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    128000,
+    128000
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "The reference has a fuzzy, static sound effect with a long release and a weird, space-like feel. The replacement has a similar, static sound but is less fuzzy, has a shorter release, and sounds slightly more real. The main difference is the timbre; the reference has a strange, otherworldly quality, while the replacement sounds more like a video game sound.",
+  "generation_tokens": 75,
+  "generation_tps": 23.996451940623402,
+  "wall_seconds": 3.448,
+  "peak_memory_bytes": 7517914846,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

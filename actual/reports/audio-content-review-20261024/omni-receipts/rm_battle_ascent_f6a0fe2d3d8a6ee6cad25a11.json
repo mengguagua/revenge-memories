@@ -1,0 +1,76 @@
+{
+  "id": "rm_battle_ascent",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_ascent.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/music_76.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_ascent.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_battle_ascent_scene.wav",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is tail 6 seconds then head 6 seconds, with the loop join at 6 seconds; assess rhythmic/harmonic continuity and distracting loudness changes there. Audio 4 is the current game-gain offline mix with interface or combat effects. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: M51/M52/F51/F52/J53/S51; desired mood: 保护撤离者、合军、走向神座",
+  "max_tokens": 340,
+  "key": "f6a0fe2d3d8a6ee6cad25a11",
+  "source_sha256": [
+    "72923997d6be2fdbc5b52b76750ee8921174d4dee17342e045198bc0fc10bf15",
+    "7f628eb5024e7a1f0db7114d30412be1a75294cda9dddea0efe33bdb31a537de",
+    "72923997d6be2fdbc5b52b76750ee8921174d4dee17342e045198bc0fc10bf15",
+    "18bb4a0846faea6c589d7f79882f6cd9f1375368038dae2b03b2b7bd532066d8"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/72923997d6be2fdbc5b52b76750ee8921174d4dee17342e045198bc0fc10bf15.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/7f628eb5024e7a1f0db7114d30412be1a75294cda9dddea0efe33bdb31a537de.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/72923997d6be2fdbc5b52b76750ee8921174d4dee17342e045198bc0fc10bf15.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/18bb4a0846faea6c589d7f79882f6cd9f1375368038dae2b03b2b7bd532066d8.wav"
+  ],
+  "audio_input_samples": [
+    432676,
+    240000,
+    192000,
+    55120
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "ff164fa7219f4c42c4c536846dd69d1a44dda7763ddaf2d7d4c0a991db493e0b",
+    "dd4c6f60cc9540737c2388e8671df0411400a92c7201e26ed7a988580cb75895",
+    "bfdaa88a0854734c409b586a988769f3338a9dfcd1f4327d6f9450bed7b8a481",
+    "4f30beb6d5e10f864c0f634e37a2749aa7ee82c8bec1698ebc6899623b60daa9"
+  ],
+  "response": "Audio 1 features a synthesized chiptune melody with a clear, bright timbre. The music has a moderate, steady tempo and a hopeful, determined mood. The melodic development is simple and repetitive, creating a sense of forward motion. There are no vocals or speech. The audio quality is clean, with no noticeable defects. The overall energy is consistent and uplifting, suitable for a scene of protection and retreat.\n\nAudio 2 provides a reference with a sparse, retro texture. It is not required to copy its melody.\n\nAudio 3 shows a loop with a potential seam at the 6-second mark. The rhythmic and harmonic continuity appears intact, with no distracting loudness changes.\n\nAudio 4 includes interface or combat effects layered over the music. The effects do not significantly mask the music, and the music does not obscure essential feedback.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 171,
+    "prompt_tokens": 1042,
+    "total_tokens": 1213,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 1014,
+    "prompt_ms": 3373.598,
+    "prompt_per_token_ms": 3.327019723865878,
+    "prompt_per_second": 300.56930315941617,
+    "predicted_n": 171,
+    "predicted_ms": 2664.849,
+    "predicted_per_token_ms": 15.675582352941177,
+    "predicted_per_second": 63.79348323300869
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 7.686,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

@@ -1,0 +1,496 @@
+{
+  "checks": [
+    "old thirteen-defence build's legitimately exchanged shield save loads",
+    "old save retains shield ownership",
+    "old held-item save uses current campaign bonuses",
+    "equipment explanation derives both current bonuses from metadata",
+    "repeated stat display never writes the bonus into permanent attributes",
+    "shield-bearing old progress can be saved without a base-attribute migration",
+    "updated shield progress reloads",
+    "save round trip preserves permanent physical and magical defence",
+    "eileen receives exactly five to both defences",
+    "eileen retains five-point phase recovery",
+    "eileen formula comparisons leave the source attributes unchanged",
+    "lord receives exactly five to both defences",
+    "lord retains five-point phase recovery",
+    "lord formula comparisons leave the source attributes unchanged",
+    "noya receives exactly five to both defences",
+    "noya retains five-point phase recovery",
+    "noya formula comparisons leave the source attributes unchanged",
+    "bone-wing melee threat is nine physical damage to Celine, not default breath magic",
+    "actual threat evaluator uses the physical profile at adjacent distance"
+  ],
+  "comparisons": [
+    {
+      "base_defence": 8.0,
+      "base_resistance": 10.0,
+      "class_id": 11.0,
+      "effective_defence": 8,
+      "effective_resistance": 10,
+      "item": 0,
+      "matchups": [
+        {
+          "damage_per_hit": 10,
+          "distance": 1,
+          "hit": 75,
+          "phase": 1,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 8,
+          "distance": 2,
+          "hit": 56,
+          "phase": 1,
+          "weapon": 1006
+        },
+        {
+          "damage_per_hit": 13,
+          "distance": 1,
+          "hit": 75,
+          "phase": 2,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 11,
+          "distance": 2,
+          "hit": 56,
+          "phase": 2,
+          "weapon": 1006
+        }
+      ],
+      "unit": "eileen"
+    },
+    {
+      "base_defence": 8.0,
+      "base_resistance": 10.0,
+      "class_id": 11.0,
+      "effective_defence": 13,
+      "effective_resistance": 10,
+      "item": 49,
+      "matchups": [
+        {
+          "damage_per_hit": 5,
+          "distance": 1,
+          "hit": 75,
+          "phase": 1,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 8,
+          "distance": 2,
+          "hit": 56,
+          "phase": 1,
+          "weapon": 1006
+        },
+        {
+          "damage_per_hit": 8,
+          "distance": 1,
+          "hit": 75,
+          "phase": 2,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 11,
+          "distance": 2,
+          "hit": 56,
+          "phase": 2,
+          "weapon": 1006
+        }
+      ],
+      "unit": "eileen"
+    },
+    {
+      "base_defence": 8.0,
+      "base_resistance": 10.0,
+      "class_id": 11.0,
+      "effective_defence": 15,
+      "effective_resistance": 10,
+      "item": 50,
+      "matchups": [
+        {
+          "damage_per_hit": 3,
+          "distance": 1,
+          "hit": 75,
+          "phase": 1,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 8,
+          "distance": 2,
+          "hit": 56,
+          "phase": 1,
+          "weapon": 1006
+        },
+        {
+          "damage_per_hit": 6,
+          "distance": 1,
+          "hit": 75,
+          "phase": 2,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 11,
+          "distance": 2,
+          "hit": 56,
+          "phase": 2,
+          "weapon": 1006
+        }
+      ],
+      "unit": "eileen"
+    },
+    {
+      "base_defence": 8.0,
+      "base_resistance": 10.0,
+      "class_id": 11.0,
+      "effective_defence": 13,
+      "effective_resistance": 15,
+      "item": 53,
+      "matchups": [
+        {
+          "damage_per_hit": 5,
+          "distance": 1,
+          "hit": 75,
+          "phase": 1,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 3,
+          "distance": 2,
+          "hit": 56,
+          "phase": 1,
+          "weapon": 1006
+        },
+        {
+          "damage_per_hit": 8,
+          "distance": 1,
+          "hit": 75,
+          "phase": 2,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 6,
+          "distance": 2,
+          "hit": 56,
+          "phase": 2,
+          "weapon": 1006
+        }
+      ],
+      "unit": "eileen"
+    },
+    {
+      "base_defence": 15.0,
+      "base_resistance": 0.0,
+      "class_id": 2.0,
+      "effective_defence": 15,
+      "effective_resistance": 0,
+      "item": 0,
+      "matchups": [
+        {
+          "damage_per_hit": 3,
+          "distance": 1,
+          "hit": 84,
+          "phase": 1,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 18,
+          "distance": 2,
+          "hit": 75,
+          "phase": 1,
+          "weapon": 1006
+        },
+        {
+          "damage_per_hit": 6,
+          "distance": 1,
+          "hit": 84,
+          "phase": 2,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 21,
+          "distance": 2,
+          "hit": 75,
+          "phase": 2,
+          "weapon": 1006
+        }
+      ],
+      "unit": "lord"
+    },
+    {
+      "base_defence": 15.0,
+      "base_resistance": 0.0,
+      "class_id": 2.0,
+      "effective_defence": 20,
+      "effective_resistance": 0,
+      "item": 49,
+      "matchups": [
+        {
+          "damage_per_hit": 1,
+          "distance": 1,
+          "hit": 84,
+          "phase": 1,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 18,
+          "distance": 2,
+          "hit": 75,
+          "phase": 1,
+          "weapon": 1006
+        },
+        {
+          "damage_per_hit": 1,
+          "distance": 1,
+          "hit": 84,
+          "phase": 2,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 21,
+          "distance": 2,
+          "hit": 75,
+          "phase": 2,
+          "weapon": 1006
+        }
+      ],
+      "unit": "lord"
+    },
+    {
+      "base_defence": 15.0,
+      "base_resistance": 0.0,
+      "class_id": 2.0,
+      "effective_defence": 22,
+      "effective_resistance": 0,
+      "item": 50,
+      "matchups": [
+        {
+          "damage_per_hit": 1,
+          "distance": 1,
+          "hit": 84,
+          "phase": 1,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 18,
+          "distance": 2,
+          "hit": 75,
+          "phase": 1,
+          "weapon": 1006
+        },
+        {
+          "damage_per_hit": 1,
+          "distance": 1,
+          "hit": 84,
+          "phase": 2,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 21,
+          "distance": 2,
+          "hit": 75,
+          "phase": 2,
+          "weapon": 1006
+        }
+      ],
+      "unit": "lord"
+    },
+    {
+      "base_defence": 15.0,
+      "base_resistance": 0.0,
+      "class_id": 2.0,
+      "effective_defence": 20,
+      "effective_resistance": 5,
+      "item": 53,
+      "matchups": [
+        {
+          "damage_per_hit": 1,
+          "distance": 1,
+          "hit": 84,
+          "phase": 1,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 13,
+          "distance": 2,
+          "hit": 75,
+          "phase": 1,
+          "weapon": 1006
+        },
+        {
+          "damage_per_hit": 1,
+          "distance": 1,
+          "hit": 84,
+          "phase": 2,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 16,
+          "distance": 2,
+          "hit": 75,
+          "phase": 2,
+          "weapon": 1006
+        }
+      ],
+      "unit": "lord"
+    },
+    {
+      "base_defence": 6.0,
+      "base_resistance": 10.0,
+      "class_id": 16.0,
+      "effective_defence": 6,
+      "effective_resistance": 10,
+      "item": 0,
+      "matchups": [
+        {
+          "damage_per_hit": 12,
+          "distance": 1,
+          "hit": 83,
+          "phase": 1,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 8,
+          "distance": 2,
+          "hit": 70,
+          "phase": 1,
+          "weapon": 1006
+        },
+        {
+          "damage_per_hit": 15,
+          "distance": 1,
+          "hit": 83,
+          "phase": 2,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 11,
+          "distance": 2,
+          "hit": 70,
+          "phase": 2,
+          "weapon": 1006
+        }
+      ],
+      "unit": "noya"
+    },
+    {
+      "base_defence": 6.0,
+      "base_resistance": 10.0,
+      "class_id": 16.0,
+      "effective_defence": 11,
+      "effective_resistance": 10,
+      "item": 49,
+      "matchups": [
+        {
+          "damage_per_hit": 7,
+          "distance": 1,
+          "hit": 83,
+          "phase": 1,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 8,
+          "distance": 2,
+          "hit": 70,
+          "phase": 1,
+          "weapon": 1006
+        },
+        {
+          "damage_per_hit": 10,
+          "distance": 1,
+          "hit": 83,
+          "phase": 2,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 11,
+          "distance": 2,
+          "hit": 70,
+          "phase": 2,
+          "weapon": 1006
+        }
+      ],
+      "unit": "noya"
+    },
+    {
+      "base_defence": 6.0,
+      "base_resistance": 10.0,
+      "class_id": 16.0,
+      "effective_defence": 13,
+      "effective_resistance": 10,
+      "item": 50,
+      "matchups": [
+        {
+          "damage_per_hit": 5,
+          "distance": 1,
+          "hit": 83,
+          "phase": 1,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 8,
+          "distance": 2,
+          "hit": 70,
+          "phase": 1,
+          "weapon": 1006
+        },
+        {
+          "damage_per_hit": 8,
+          "distance": 1,
+          "hit": 83,
+          "phase": 2,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 11,
+          "distance": 2,
+          "hit": 70,
+          "phase": 2,
+          "weapon": 1006
+        }
+      ],
+      "unit": "noya"
+    },
+    {
+      "base_defence": 6.0,
+      "base_resistance": 10.0,
+      "class_id": 16.0,
+      "effective_defence": 11,
+      "effective_resistance": 15,
+      "item": 53,
+      "matchups": [
+        {
+          "damage_per_hit": 7,
+          "distance": 1,
+          "hit": 83,
+          "phase": 1,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 3,
+          "distance": 2,
+          "hit": 70,
+          "phase": 1,
+          "weapon": 1006
+        },
+        {
+          "damage_per_hit": 10,
+          "distance": 1,
+          "hit": 83,
+          "phase": 2,
+          "weapon": 1005
+        },
+        {
+          "damage_per_hit": 6,
+          "distance": 2,
+          "hit": 70,
+          "phase": 2,
+          "weapon": 1006
+        }
+      ],
+      "unit": "noya"
+    }
+  ],
+  "errors": [],
+  "passed": true,
+  "scope": "Current campaign metadata, real old shield-bearing save round trip, and hypothetical held-item comparisons for genuine roster attributes. Per-hit formula analysis is not a separate playthrough."
+}

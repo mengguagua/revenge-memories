@@ -1,0 +1,54 @@
+{
+  "id": "rm_sfx_40",
+  "kind": "final_scene_mix",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_sfx_40_new_context.wav"
+    }
+  ],
+  "asset_sha256": "b8ab18cf5179ba45102ac1273b9da3dc2792d65897a19c793664b120f040e8b8",
+  "fixture_sha256": "5683b5d05110a95505d24fa4f346b743f4222c64106bc7305ecf12e0284a365c",
+  "prompt": "This is a final offline scene mix using the actual game gains and native event sequence. Describe only audible evidence. Check whether essential feedback attacks are clear, any intrusive click/distortion or excessive rumbling tail, and whether music continuity is distracted by the effects. Effects need not be as loud as music; a naturally masked quiet tail is not a failure. Report uncertainty and avoid inventing instruments/events. Under 90 words. Fixture context: 实际源动画请求序列（同一当前双声部规则）：class_11_ally_item_26；叠加当前配乐0.50／音效0.65",
+  "max_tokens": 170,
+  "key": "bcb21e12702b7c7e36b0543d",
+  "source_sha256": [
+    "5683b5d05110a95505d24fa4f346b743f4222c64106bc7305ecf12e0284a365c"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/5683b5d05110a95505d24fa4f346b743f4222c64106bc7305ecf12e0284a365c.wav"
+  ],
+  "audio_input_samples": [
+    91061
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "702113ba504cf5f8c4bc54b8f2274b0b18c01ce60397249cfb6e0f3fced2fdc2"
+  ],
+  "response": "The audio features a chiptune-style melody with a steady, low-frequency hum beneath. A sharp, high-pitched electronic beep occurs at 00:03, followed by a brief, low-frequency rumble. The music maintains continuity without being disrupted by the effects. The beep is clear and distinct, with no distortion or intrusive clicks. The rumble has a natural tail and is masked by the music. No additional feedback attacks are audible. The mix balances music and effects as intended.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 101,
+    "prompt_tokens": 241,
+    "total_tokens": 342,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 213,
+    "prompt_ms": 634.057,
+    "prompt_per_token_ms": 2.976793427230047,
+    "prompt_per_second": 335.93194302720417,
+    "predicted_n": 101,
+    "predicted_ms": 1522.171,
+    "predicted_per_token_ms": 15.22171,
+    "predicted_per_second": 65.69564129128725
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 2.173,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

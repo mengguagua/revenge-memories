@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-28",
+  "url": "https://revenge-web.gaocc.cc/",
+  "host": "198.44.112.174",
+  "os": "Debian GNU/Linux 13",
+  "services": "Existing Nginx and Certbot reused; independent virtual host added",
+  "dns": {
+    "provider": "Cloudflare",
+    "type": "A",
+    "name": "revenge-web.gaocc.cc",
+    "value": "198.44.112.174",
+    "proxied": true,
+    "ttl": "Auto",
+    "public_ipv4_verified_from_vps": [
+      "172.67.181.84",
+      "104.21.75.201"
+    ]
+  },
+  "release": {
+    "release": "20261028-221138",
+    "archive": "/Users/gcc/gaocc/project/revenge-memories/officialWebsite/dist/revenge-web-20261028-221138.tar.gz",
+    "archive_sha256": "9c03848ad0f15ce6553e4b64129b433b8ae9bb89294878a5e31b4e9b1ec38cf0",
+    "archive_bytes": 31607519,
+    "public_files": 54,
+    "public_bytes": 32330820,
+    "domain": "revenge-web.gaocc.cc"
+  },
+  "server_root": "/srv/www/revenge-web/current",
+  "server_release": "/srv/www/revenge-web/releases/20261028-221138",
+  "remote_file_hashes_verified": 54,
+  "public_resources_checked": 49,
+  "public_checks_passed": true,
+  "http_redirect_to_https": true,
+  "certificate": {
+    "issuer": "Let’s Encrypt YE2",
+    "domain": "revenge-web.gaocc.cc",
+    "not_before_utc": "2026-10-28T13:16:49Z",
+    "not_after_utc": "2027-01-26T13:16:48Z",
+    "automatic_renewal": "existing certbot.timer enabled; webroot authentication; nginx reload hook verified"
+  },
+  "source_directories_public": false,
+  "credentials_in_package": false,
+  "other_vhost_configs_modified": false,
+  "cloudflare": {
+    "existing_zone_encryption_mode": "Full",
+    "zone_encryption_changed": false,
+    "edge_home_status": 200,
+    "edge_video_range_status": 206,
+    "edge_video_cache_status": "HIT",
+    "scope": "Only revenge-web A record added; other DNS records unchanged",
+    "edge_battle_full_download_status": 200,
+    "edge_battle_full_download_bytes": 13864973,
+    "edge_battle_full_download_seconds_from_vps": 0.281821,
+    "edge_home_seconds_from_vps": 0.137822
+  },
+  "browser_verification": {
+    "browser": "Chrome",
+    "homepage_loaded": true,
+    "journey_video": {
+      "duration_seconds": 96.075167,
+      "played_seconds": 10.902133,
+      "ready_state": 4
+    },
+    "console_errors": 0,
+    "battle_video": {
+      "browser": "Codex in-app browser",
+      "duration_seconds": 80.200922,
+      "played_seconds": 0.9009,
+      "error": null
+    },
+    "verification_limit": "Confirmed both videos begin playing; full-length playback and all regional networks were not tested."
+  },
+  "verification_notes": [
+    "All 49 public resources and source-directory blocking verified before enabling proxy.",
+    "Cloudflare edge verified separately from VPS after proxy enabled.",
+    "Default Python urllib requests from the local network received Cloudflare 1010; normal Chrome homepage and journey playback succeeded. Browser integrity protections retained."
+  ],
+  "nginx_configuration_test": "passed",
+  "nginx_service": "active",
+  "certbot_timer": "enabled",
+  "temporary_remote_uploads_removed": true
+}

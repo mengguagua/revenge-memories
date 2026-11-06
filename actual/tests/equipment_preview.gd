@@ -95,6 +95,7 @@ func run():
 	key(KEY_Z)
 	check(ui.view=="world" and int(ui.game.roster.otto.item_id)==62 and ui.game.convoy.alm==[61],"keyboard confirmation returns soldier's old lance")
 	ui._clear_menu()
+	ui.game.cleared_stages.append(112);ui.game.flags.clinic_staffed=true # Complete clinic recruitment prerequisites in this fixture.
 	for id in ["fula","lena","lance","beck","hervi"]:ui.game.recruit(id)
 	ui.game.convoy.alm=[20];ui._camp_action("withdraw_item:0");mouse(ui.equipment_screen.page_rect(1).get_center())
 	check(ui.equipment_screen.first==3 and ui.equipment_screen.members.size()==8,"mouse page arrow exposes remaining full-party members")

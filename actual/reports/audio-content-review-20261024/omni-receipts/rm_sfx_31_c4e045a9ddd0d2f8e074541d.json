@@ -1,0 +1,78 @@
+{
+  "id": "rm_sfx_31",
+  "kind": "sfx_candidate_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_31.ogg",
+      "repeat_short": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/source/sfx-20261024/audio-guided/candidates/rm_sfx_31.ogg",
+      "repeat_short": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_31.ogg",
+      "repeat_short": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/source/sfx-20261024/audio-guided/scene-candidates/rm_sfx_31.mp3",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Audio 1 is a reference sound effect. Audio 2 and Audio 3 are anonymous replacement sounds in randomized order. Short one-shots may be repeated four times with gaps for analysis. Audio 4, if present, is one replacement in the actual game-gain offline scene mix; assess that mix separately, never compare it as an isolated replacement. Describe audible timbre, attack, pitch/modulation gesture and decay of 1, 2 and 3. Which replacement better preserves distinctive clear retro electronic feedback? Identify any dull thud, unwanted music/voice or unrelated sound. If 2 and 3 sound the same, say so. For 4, check whether the essential attack is audible; a tail under music alone is not a failure. Give final isolated preference 2, 3, neither or uncertain, with concrete audible evidence. Do not infer quality from ordering. Under 180 words. Function context: 已确认原驱动请求存在；未发现当前战斗/地图/命名API触发，不杜撰用途",
+  "max_tokens": 320,
+  "candidate_input": 2,
+  "key": "c4e045a9ddd0d2f8e074541d",
+  "source_sha256": [
+    "da54863ed6d7e910334bf42b1a9ff8ea996d9fec7456da6ce750e2666788106f",
+    "921fc6d2a1a75e8eb7a1e120d007b57cf1a4fe21a7e5d412abfe2979880ce03b",
+    "b20dbc12dfb112cef3e10c2f2f87454d3cbe7e0efc592603ed9e279496a9af82",
+    "f4862d6aa5c73fc02a32560dfd242da9a6c111a10d9ecfdb56e8d960a02e5407"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "audio_input_samples": [
+    19058,
+    19058,
+    9340,
+    19058
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "501f5bb79f67cf42664645db6bdbbd862bad36cf61adfc29d12798c2b010f244",
+    "bcfafe8622292527bb877ba6a62ff5e5f9d78a61d62ebd0b83dafef29b666432",
+    "f4645450e9ebb3d3f7519c07152d797afe9c4c21389ec02457e8eb1fe29ffb1b",
+    "45b9601acb1d693b534af885bcf9e5052b6ec74d83d120e260ebbf30fe550184"
+  ],
+  "response": "Audio 1: Deep, resonant, low-frequency electronic buzz with a smooth, sustained attack and slow decay. Timbre is pure and synthetic, characteristic of retro electronic feedback.\n\nAudio 2: High-pitched, harsh, buzzing electronic tone with rapid, modulated pulse. Attack is sharp and abrupt, pitch fluctuates slightly, decay is short and abrupt. Timbre is grating and digital.\n\nAudio 3: Single, clean, high-pitched electronic beep. Attack is immediate, pitch is static, decay is fast and silent. Timbre is pure and synthetic.\n\nAudio 2 and 3 differ significantly in timbre and gesture. Audio 2 better preserves the distinctive retro electronic feedback due to its modulated, sustained buzz and electronic texture. Audio 3 is a simple beep, lacking the complex timbre and modulation of the original.\n\nNo dull thud, music, or voice detected in any audio.\n\nAudio 4: Not present in analysis.\n\nFinal isolated preference: **2** — its modulated, sustained buzz most closely matches the timbral and gestural qualities of the reference sound.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 224,
+    "prompt_tokens": 355,
+    "total_tokens": 579,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 327,
+    "prompt_ms": 2592.26,
+    "prompt_per_token_ms": 7.927400611620795,
+    "prompt_per_second": 126.1447539984415,
+    "predicted_n": 224,
+    "predicted_ms": 5073.942,
+    "predicted_per_token_ms": 22.753103139013454,
+    "predicted_per_second": 43.950049093978606
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 19.805,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/da54863ed6d7e910334bf42b1a9ff8ea996d9fec7456da6ce750e2666788106f.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/921fc6d2a1a75e8eb7a1e120d007b57cf1a4fe21a7e5d412abfe2979880ce03b.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/b20dbc12dfb112cef3e10c2f2f87454d3cbe7e0efc592603ed9e279496a9af82.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/f4862d6aa5c73fc02a32560dfd242da9a6c111a10d9ecfdb56e8d960a02e5407.mp3"
+  ]
+}

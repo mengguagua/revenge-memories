@@ -1,0 +1,138 @@
+--- actual/reports/M13-rescue-20261028/before/main.gd	2026-10-28 11:49:37
++++ actual/core/main.gd	2026-10-28 11:49:37
+@@ -428,6 +428,11 @@
+ 		var wait_label=menu_items[wait_index]
+ 		menu_items.remove_at(wait_index);menu_actions.remove_at(wait_index)
+ 		menu_items.push_front(wait_label);menu_actions.push_front("wait")
++	var attack_index=menu_actions.find("attack")
++	if attack_index>0:
++		var attack_label=menu_items[attack_index]
++		menu_items.remove_at(attack_index);menu_actions.remove_at(attack_index)
++		menu_items.push_front(attack_label);menu_actions.push_front("attack")
+ 
+ func _open_system_menu() -> void:
+ 	if equipment_screen!=null and equipment_screen.active():return
+--- actual/reports/M13-rescue-20261028/before/game_state.gd	2026-10-28 11:49:37
++++ actual/core/game_state.gd	2026-10-28 11:50:01
+@@ -354,6 +354,17 @@
+ func _held_captive(unit: Dictionary) -> bool:
+ 	return ChapterThree.held_captive(self,unit) or (stage_id in [103,105,202,205] and bool(unit.get("neutral",false)) and bool(unit.get("locked",false)) and str(unit.get("quest_kind","")) in ["escort","prisoner","witness"])
+ 
++func _prepare_prison_rescue(actors: Array,released: bool=false) -> void:
++	if stage_id!=103:return
++	for unit in actors:
++		if str(unit.id)!="lena" or not unit.get("neutral",false) or unit.get("controllable",true):continue
++		if str(unit.get("quest_kind","")) not in ["witness","escort"]:continue
++		# Older saves unlocked the cell but kept the witness AI's permanent wait.
++		# Preserve HP/action/position and the post-battle invitation; release only
++		# the live rescued NPC, never the still-locked retry snapshot.
++		unit.quest_kind="escort"
++		if released:unit.locked=false
++
+ func living(side: String) -> Array:
+ 	var result=super.living(side)
+ 	if _guard_target_context and side=="player":return result.filter(func(u):return not _held_captive(u))
+@@ -527,7 +538,9 @@
+ 				var free=ChapterTwo.free_spawn(self,u,at)
+ 				if free==Vector2i(-1,-1):continue
+ 				u.position=[free.x,free.y]
+-			u.enemy_slot=units.filter(func(z):return str(z.side)=="enemy").size();units.append(u)
++			u.enemy_slot=units.filter(func(z):return str(z.side)=="enemy").size()
++			if stage_id==103:EnemyBalance.prepare(stage_id,[u])
++			units.append(u)
+ 	if phase=="player" and turn==maxi(1,int(battle_data.reinforcement_turn)-1) and int(battle_data.reinforcement_turn)>0:
+ 		queue_lines("斥候：后方路口有援军。下一回合抵达，只有这一队。",str(battle_data.code)+"-REINFORCEMENT-WARNING")
+ 	Battlefield.after_phase(self)
+@@ -881,6 +894,8 @@
+ 	var beck_changed=MineEscort.applies(self,find_unit("beck")) and str(find_unit("beck").get("quest_kind",""))=="witness"
+ 	for actors in [units,battle_start_snapshot.get("units",[])]:
+ 		EnemyBalance.prepare(stage_id,actors);MineEscort.prepare(self,actors)
++	_prepare_prison_rescue(units,bool(flags.get("quest",{}).get("objects",{}).get("M13_door_0",false)))
++	_prepare_prison_rescue(battle_start_snapshot.get("units",[]))
+ 	if beck_changed and mode=="battle":queue_lines("战场提示：贝克会随矿工自动推进，并在安全时提供弓援；战后存活可邀请同行。他不替代两组矿工的撤离目标。","S11-BECK-DUTY")
+ 	if clinic_changed and mode=="battle":
+ 		queue_lines("战场提示：赫维在北岸诊所核对药单、照护伤者。药车由运药员护送，清路后会在友军行动时前进。","S12-CLINIC-DUTY")
+--- actual/reports/M13-rescue-20261028/before/M13.json	2026-10-28 11:49:37
++++ actual/data/stages/M13.json	2026-10-28 11:49:37
+@@ -5774,7 +5774,7 @@
+       "no_experience": true,
+       "controllable": false,
+       "acted": false,
+-      "quest_kind": "witness",
++      "quest_kind": "escort",
+       "locked": true,
+       "player_slot": 12
+     }
+@@ -6738,11 +6738,11 @@
+       "class": "mercenary",
+       "class_id": 8,
+       "class_name_zh": "佣兵",
+-      "level": 1,
++      "level": 3,
+       "hp": 22,
+       "max_hp": 22,
+       "exp": 0,
+-      "strength": 8,
++      "strength": 9,
+       "skill": 3,
+       "speed": 5,
+       "luck": 0,
+@@ -6804,11 +6804,11 @@
+       "class": "mercenary",
+       "class_id": 8,
+       "class_name_zh": "佣兵",
+-      "level": 1,
++      "level": 3,
+       "hp": 22,
+       "max_hp": 22,
+       "exp": 0,
+-      "strength": 8,
++      "strength": 9,
+       "skill": 3,
+       "speed": 5,
+       "luck": 0,
+--- actual/reports/M13-rescue-20261028/before/enemy_balance_20261025.json	2026-10-28 11:49:37
++++ actual/data/enemy_balance_20261025.json	2026-10-28 11:49:37
+@@ -1,5 +1,5 @@
+ {
+-  "revision": 7,
++  "revision": 8,
+   "stages": {
+     "102": {
+       "M12_e1": {
+@@ -805,7 +805,35 @@
+             "after": {
+               "level": 2,
+               "speed": 3
++            }
++          }
++        }
++      }
++    },
++    {
++      "revision": 8,
++      "reason": "2026-10-28 M13 reinforcements: mercenaries level3 strength9; migrate already spawned enemies without resetting battle progress",
++      "stages": {
++        "103": {
++          "M13_r0": {
++            "before": {
++              "level": 1,
++              "strength": 8
++            },
++            "after": {
++              "level": 3,
++              "strength": 9
+             }
++          },
++          "M13_r1": {
++            "before": {
++              "level": 1,
++              "strength": 8
++            },
++            "after": {
++              "level": 3,
++              "strength": 9
++            }
+           }
+         }
+       }

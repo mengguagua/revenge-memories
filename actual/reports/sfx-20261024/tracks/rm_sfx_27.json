@@ -1,0 +1,91 @@
+{
+  "id": "rm_sfx_27",
+  "title": "死亡法术短冲击",
+  "request": "27",
+  "revision": 3,
+  "status": "signal_checks_passed",
+  "errors": [],
+  "runtime_path": "actual/assets/sfx/20261024/rm_sfx_27.ogg",
+  "resource_path": "res://assets/sfx/20261024/rm_sfx_27.ogg",
+  "bytes": 9259,
+  "sha256": "20518a31d31d8287027727cead8beb16c988eb73e3e555bb83830fa83ccf138c",
+  "duration_seconds": 0.44700680272108845,
+  "loop": false,
+  "loop_offset_seconds": 0.0,
+  "manual_stop": false,
+  "default_enabled": true,
+  "sample_rate": 44100,
+  "channels": 2,
+  "codec": "vorbis",
+  "source": {
+    "method": "reference-analysed pitch/envelope with new additive and band-limited noise synthesis",
+    "reference_path": "actual/assets/original/audio/sfx_27.ogg",
+    "reference_sha256": "7c1e405e702fad6b6e5e95b5986b8cbd6f1bf8d356a02eed2d3d8a98199f1acb",
+    "source_path": "source/sfx-20261024/audio-guided/ui-synthesis/rm_sfx_27_float.wav",
+    "copied_pcm": false,
+    "oscillator": "sin(f) + 0.16 sin(3f) + 0.035 sin(5f)",
+    "noise_weight": 0.08,
+    "frequency_range_hz": [
+      904.39453125,
+      3746.77734375
+    ]
+  },
+  "source_path": "source/sfx-20261024/audio-guided/ui-synthesis/rm_sfx_27_float.wav",
+  "master_path": "source/sfx-20261024/audio-guided/ui-synthesis/rm_sfx_27_float.wav",
+  "editing": {
+    "method": "reference-analysed pitch/envelope with new additive and band-limited noise synthesis",
+    "reference_audio_used": true
+  },
+  "mastering": {
+    "gain_db": 0.8441527127258048,
+    "target_active_rms_dbfs": -22.0,
+    "peak_ceiling_dbfs": -8.603,
+    "smooth_local_crest_control": false,
+    "active_rms_delta_from_original_db": -2.7070654612323217,
+    "sample_peak_delta_from_original_db": -7.265291418171765,
+    "runtime_gain_unchanged": true
+  },
+  "metrics": {
+    "seconds": 0.44700680272108845,
+    "sample_rate": 44100,
+    "channels": 2,
+    "rms_dbfs": -22.172357424882772,
+    "active_rms_dbfs": -21.99406546123232,
+    "sample_peak_dbfs": -16.868291418171765,
+    "first_50ms_rms_dbfs": -21.68071699044951,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "leading_onset_seconds": 0.0,
+    "longest_internal_silence_seconds": 0.0,
+    "last_10ms_rms_dbfs": -63.62475971439028,
+    "first_last_sample_delta": 0.005202584899961948,
+    "lufs_note": "Measured gated integrated loudness",
+    "integrated_lufs": -16.9,
+    "true_peak_dbtp": -16.9
+  },
+  "auditory_review": true,
+  "auditory_review_note": "Waveform-conditioned local audio model review completed; no human-listening claim. See audio_content_review and the linked receipt.",
+  "source_baseline": {
+    "request": "27",
+    "seconds": 0.5529931972789116,
+    "sample_rate": 44100,
+    "channels": 2,
+    "peak_dbfs": -9.603,
+    "rms_dbfs": -20.389,
+    "active_rms_dbfs": -19.287,
+    "onset_seconds": 0.0,
+    "tail_silence_seconds": 0.12397,
+    "manual_stop": false,
+    "default_enabled": true
+  },
+  "production_method": "audio_review_refinement",
+  "master_path_note": "Synthesis FLOAT WAV",
+  "audio_content_review": {
+    "model_review_completed": true,
+    "review_type": "local_waveform_conditioned_model",
+    "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+    "receipt": "actual/reports/audio-content-review-20261024/omni-receipts/rm_sfx_27_df4f34cb52b78125fd735bb2.json",
+    "conclusion": "按参考重合成法术短冲击；保留死亡法术语义，不作为角色死亡提示。",
+    "human_listening": false
+  }
+}

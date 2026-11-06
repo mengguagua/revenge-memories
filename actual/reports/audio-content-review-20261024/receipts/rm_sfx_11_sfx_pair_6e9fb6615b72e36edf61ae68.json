@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_11",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_11.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_11.ogg"
+  ],
+  "hashes": [
+    "f90209450087a17521419fe96fc5be87a555404c476c53518109753cde1b5f8d",
+    "4857f14f558cfa9683ed5b9e030c4ac44bb992e42e56ebedba9fe8ec499cdb6e"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "6e9fb6615b72e36edf61ae68",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    27788,
+    19504
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "The sounds are clicking or ticking. The reference has a single, sharp click with a fast decay, while the replacement has multiple clicks with a longer decay. The timbre is similar, but the attack and pitch movement are different. The density is also lower in the replacement.",
+  "generation_tokens": 55,
+  "generation_tps": 34.9156285719821,
+  "wall_seconds": 1.731,
+  "peak_memory_bytes": 7027507842,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

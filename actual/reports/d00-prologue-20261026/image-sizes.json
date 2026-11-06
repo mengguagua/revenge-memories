@@ -1,0 +1,772 @@
+{
+  "runtime_assets": [
+    {
+      "path": "actual/assets/prologue-d00-20261026/wrist-knot.webp",
+      "purpose": "D00专用16:9特写／神幕背景，保持比例完整显示，非九宫格复用背景",
+      "dimensions": [
+        959,
+        540
+      ],
+      "bytes": 48506,
+      "alpha_content_bounds": null,
+      "source_method": "built-in imagegen"
+    },
+    {
+      "path": "actual/assets/prologue-d00-20261026/east-evacuation.webp",
+      "purpose": "D00专用16:9特写／神幕背景，保持比例完整显示，非九宫格复用背景",
+      "dimensions": [
+        959,
+        540
+      ],
+      "bytes": 129676,
+      "alpha_content_bounds": null,
+      "source_method": "built-in imagegen"
+    },
+    {
+      "path": "actual/assets/prologue-d00-20261026/rowboat.png",
+      "purpose": "复用第二章木船；独立移动与上下船演出，不烘焙到背景",
+      "dimensions": [
+        48,
+        32
+      ],
+      "bytes": 941,
+      "alpha_content_bounds": null,
+      "source_method": "existing campaign boat, exact 90-degree rotation"
+    },
+    {
+      "actor": "hunapu",
+      "path": "actual/assets/prologue-small-20261026/hunapu.png",
+      "purpose": "D00与D31专用小地图人物，8帧过渡；非战斗动作",
+      "dimensions": [
+        512,
+        192
+      ],
+      "bytes": 17059,
+      "frames": [
+        {
+          "frame": 0,
+          "pose": "站立",
+          "content": [
+            43,
+            32,
+            42,
+            64
+          ],
+          "logical_height": 16.0
+        },
+        {
+          "frame": 1,
+          "pose": "起步",
+          "content": [
+            40,
+            32,
+            47,
+            64
+          ],
+          "logical_height": 16.0
+        },
+        {
+          "frame": 2,
+          "pose": "跨步",
+          "content": [
+            38,
+            32,
+            51,
+            64
+          ],
+          "logical_height": 16.0
+        },
+        {
+          "frame": 3,
+          "pose": "抬臂阻挡",
+          "content": [
+            44,
+            34,
+            45,
+            62
+          ],
+          "logical_height": 15.5
+        },
+        {
+          "frame": 4,
+          "pose": "挡击后仰",
+          "content": [
+            41,
+            36,
+            49,
+            60
+          ],
+          "logical_height": 15.0
+        },
+        {
+          "frame": 5,
+          "pose": "收势",
+          "content": [
+            42,
+            34,
+            47,
+            62
+          ],
+          "logical_height": 15.5
+        },
+        {
+          "frame": 6,
+          "pose": "开始伸手",
+          "content": [
+            37,
+            32,
+            54,
+            64
+          ],
+          "logical_height": 16.0
+        },
+        {
+          "frame": 7,
+          "pose": "伸手停点",
+          "content": [
+            29,
+            32,
+            61,
+            64
+          ],
+          "logical_height": 16.0
+        }
+      ],
+      "source_method": "built-in imagegen; ImageMagick grid cutting, alpha-haze cleanup, proportional resizing and foot alignment"
+    },
+    {
+      "actor": "eileen",
+      "path": "actual/assets/prologue-small-20261026/eileen.png",
+      "purpose": "D00与D31专用小地图人物，8帧过渡；非战斗动作",
+      "dimensions": [
+        512,
+        192
+      ],
+      "bytes": 16057,
+      "frames": [
+        {
+          "frame": 0,
+          "pose": "束腕",
+          "content": [
+            41,
+            32,
+            42,
+            64
+          ],
+          "logical_height": 16.0
+        },
+        {
+          "frame": 1,
+          "pose": "挣脱起势",
+          "content": [
+            38,
+            32,
+            44,
+            64
+          ],
+          "logical_height": 16.0
+        },
+        {
+          "frame": 2,
+          "pose": "挣开",
+          "content": [
+            34,
+            32,
+            54,
+            64
+          ],
+          "logical_height": 16.0
+        },
+        {
+          "frame": 3,
+          "pose": "施法准备",
+          "content": [
+            36,
+            32,
+            45,
+            64
+          ],
+          "logical_height": 16.0
+        },
+        {
+          "frame": 4,
+          "pose": "抬手",
+          "content": [
+            37,
+            32,
+            55,
+            64
+          ],
+          "logical_height": 16.0
+        },
+        {
+          "frame": 5,
+          "pose": "释放",
+          "content": [
+            34,
+            32,
+            62,
+            64
+          ],
+          "logical_height": 16.0
+        },
+        {
+          "frame": 6,
+          "pose": "收势",
+          "content": [
+            34,
+            32,
+            57,
+            64
+          ],
+          "logical_height": 16.0
+        },
+        {
+          "frame": 7,
+          "pose": "望向赫兰",
+          "content": [
+            38,
+            32,
+            44,
+            64
+          ],
+          "logical_height": 16.0
+        }
+      ],
+      "source_method": "built-in imagegen; ImageMagick grid cutting, alpha-haze cleanup, proportional resizing and foot alignment"
+    },
+    {
+      "actor": "herlan",
+      "path": "actual/assets/prologue-small-20261026/herlan-slim.png",
+      "purpose": "D00与D31专用小地图人物，8帧过渡；非战斗动作",
+      "dimensions": [
+        512,
+        192
+      ],
+      "bytes": 15483,
+      "frames": [
+        {
+          "frame": 0,
+          "pose": "站立",
+          "content": [
+            46,
+            32,
+            35,
+            64
+          ],
+          "logical_height": 16.0
+        },
+        {
+          "frame": 1,
+          "pose": "呼吸",
+          "content": [
+            46,
+            32,
+            36,
+            64
+          ],
+          "logical_height": 16.0
+        },
+        {
+          "frame": 2,
+          "pose": "察觉",
+          "content": [
+            44,
+            32,
+            37,
+            64
+          ],
+          "logical_height": 16.0
+        },
+        {
+          "frame": 3,
+          "pose": "收肩",
+          "content": [
+            46,
+            32,
+            36,
+            64
+          ],
+          "logical_height": 16.0
+        },
+        {
+          "frame": 4,
+          "pose": "抬手",
+          "content": [
+            46,
+            32,
+            36,
+            64
+          ],
+          "logical_height": 16.0
+        },
+        {
+          "frame": 5,
+          "pose": "回稳",
+          "content": [
+            46,
+            32,
+            36,
+            64
+          ],
+          "logical_height": 16.0
+        },
+        {
+          "frame": 6,
+          "pose": "放手",
+          "content": [
+            46,
+            32,
+            36,
+            64
+          ],
+          "logical_height": 16.0
+        },
+        {
+          "frame": 7,
+          "pose": "站定",
+          "content": [
+            46,
+            32,
+            36,
+            64
+          ],
+          "logical_height": 16.0
+        }
+      ],
+      "source_method": "built-in imagegen; ImageMagick grid cutting, alpha-haze cleanup, proportional resizing and foot alignment"
+    }
+  ],
+  "review_images": [
+    {
+      "source": "prepared-plaza.png",
+      "display": "prepared-plaza.webp",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 50750,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "old_knot.png",
+      "display": "old_knot.webp",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 218312,
+      "reason": "保持完整运行像素和文字，无损WebP不降低清晰度；大于参考体积时按视觉质量优先规则保留。"
+    },
+    {
+      "source": "recognize_face.png",
+      "display": "recognize_face.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 125775,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "recognition-page-0.png",
+      "display": "recognition-page-0.webp",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 108394,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "recognition-page-1.png",
+      "display": "recognition-page-1.webp",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 108258,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "recognition-page-2.png",
+      "display": "recognition-page-2.webp",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 108090,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "recognition-page-3.png",
+      "display": "recognition-page-3.webp",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 110990,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "recognition-page-4.png",
+      "display": "recognition-page-4.webp",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 108492,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "cast-0.4.png",
+      "display": "cast-0.4.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 174539,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "cast-1.1.png",
+      "display": "cast-1.1.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 174986,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "cast-1.65.png",
+      "display": "cast-1.65.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 172890,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "cast-2.1.png",
+      "display": "cast-2.1.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 173831,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "mutual_questions-page-0.png",
+      "display": "mutual_questions-page-0.webp",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 110506,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "mutual_questions-page-1.png",
+      "display": "mutual_questions-page-1.webp",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 110316,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "mutual_questions-page-2.png",
+      "display": "mutual_questions-page-2.webp",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 110604,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "mutual_questions-page-3.png",
+      "display": "mutual_questions-page-3.webp",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 112508,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "projection-1.7.png",
+      "display": "projection-1.7.webp",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 477534,
+      "reason": "保持完整运行像素和文字，无损WebP不降低清晰度；大于参考体积时按视觉质量优先规则保留。"
+    },
+    {
+      "source": "projection-3.5.png",
+      "display": "projection-3.5.webp",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 478240,
+      "reason": "保持完整运行像素和文字，无损WebP不降低清晰度；大于参考体积时按视觉质量优先规则保留。"
+    },
+    {
+      "source": "projection-4.5.png",
+      "display": "projection-4.5.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 172302,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "projection-5.7.png",
+      "display": "projection-5.7.webp",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 478068,
+      "reason": "保持完整运行像素和文字，无损WebP不降低清晰度；大于参考体积时按视觉质量优先规则保留。"
+    },
+    {
+      "source": "where_and_stop-page-0.png",
+      "display": "where_and_stop-page-0.webp",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 109186,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "where_and_stop-page-1.png",
+      "display": "where_and_stop-page-1.webp",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 110132,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "where_and_stop-page-2.png",
+      "display": "where_and_stop-page-2.webp",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 109096,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "hand_and_look.png",
+      "display": "hand_and_look.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 174386,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "hold_same_instant.png",
+      "display": "hold_same_instant.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 174386,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "fade_out.png",
+      "display": "fade_out.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 155833,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "six_months_earlier.png",
+      "display": "six_months_earlier.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 18319,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "D31-same-instant.png",
+      "display": "D31-same-instant.webp",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 108720,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "compact-held.png",
+      "display": "compact-held.png",
+      "dimensions": [
+        1334,
+        750
+      ],
+      "bytes": 95783,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "compact-flashback.png",
+      "display": "compact-flashback.png",
+      "dimensions": [
+        1334,
+        750
+      ],
+      "bytes": 9011,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "small-cast-0.12.png",
+      "display": "small-cast-0.12.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 172666,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "small-cast-0.32.png",
+      "display": "small-cast-0.32.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 174340,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "small-cast-0.56.png",
+      "display": "small-cast-0.56.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 173528,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "small-cast-0.78.png",
+      "display": "small-cast-0.78.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 174615,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "small-cast-1.1.png",
+      "display": "small-cast-1.1.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 174986,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "small-cast-1.4.png",
+      "display": "small-cast-1.4.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 174406,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "small-cast-1.65.png",
+      "display": "small-cast-1.65.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 172890,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "small-cast-1.9.png",
+      "display": "small-cast-1.9.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 173831,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "small-cast-2.2.png",
+      "display": "small-cast-2.2.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 174139,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "small-cast-2.55.png",
+      "display": "small-cast-2.55.png",
+      "dimensions": [
+        2556,
+        1179
+      ],
+      "bytes": 173942,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "poses-dark.png",
+      "display": "poses-dark.png",
+      "dimensions": [
+        512,
+        576
+      ],
+      "bytes": 73303,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "poses-light.png",
+      "display": "poses-light.png",
+      "dimensions": [
+        512,
+        576
+      ],
+      "bytes": 73187,
+      "reason": "完整像素，无损压缩。"
+    },
+    {
+      "source": "H01-arrival.png",
+      "display": "H01-arrival.png",
+      "dimensions": [
+        1280,
+        592
+      ],
+      "bytes": 105781,
+      "reason": "完整像素，无损压缩。"
+    }
+  ]
+}

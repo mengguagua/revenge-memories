@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_10",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/menu_confirm.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_10.ogg"
+  ],
+  "hashes": [
+    "2fe929c03ea7ba13c57e99dcecacca4d07a153f42c12df086fba16acb0427b83",
+    "b6b3fbbc16d65ad6245e3e45b2f65a0eadb7807be426fd6bf49acb68ff31f202"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "5c06c8cc149fd22cc62714fa",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    28708,
+    18316
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "The actual sounds are brief, sharp beeps with a fast decay. The reference has a slightly lower pitch and a longer release. The replacement has a higher pitch and a faster attack. There's a noticeable difference in timbre and decay.",
+  "generation_tokens": 48,
+  "generation_tps": 32.92018082287292,
+  "wall_seconds": 1.603,
+  "peak_memory_bytes": 7027507842,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

@@ -21,7 +21,7 @@ static func action(game, unit: Dictionary, gather: bool = false) -> Dictionary:
 	var actor = unit.duplicate(true)
 	actor.erase("weapon_index")
 	var teleport = {}
-	if enemy and int(actor.class_id) == 16:
+	if enemy and int(actor.class_id) == 16 and not actor.has("campaign_role"):
 		var name_id = _name(actor)
 		if name_id in [142, 170]:
 			if game.random_bounded(256) >= 160:
@@ -37,7 +37,7 @@ static func action(game, unit: Dictionary, gather: bool = false) -> Dictionary:
 	var spell_id = _attack_spell(actor)
 	if spell_id >= 0: actor.weapon_index = spell_id
 	var can_initiate = not gather and mode != 1 and Rules.can_attack(actor)
-	if enemy and (int(actor.class_id) == 19 or (int(actor.class_id) == 21 and int(actor.hp) < 52)):
+	if enemy and (int(actor.class_id) == 19 or (int(actor.class_id) == 21 and _name(actor)==167 and int(actor.hp) < 52)):
 		can_initiate = false
 	if not enemy and (int(actor.class_id) == 18 or (int(actor.class_id) in [15, 16, 19] and int(actor.hp) * 2 < int(actor.max_hp))):
 		can_initiate = false
@@ -64,7 +64,7 @@ static func action(game, unit: Dictionary, gather: bool = false) -> Dictionary:
 			var spec = Items.enemy_summon_spec(actor, 0)
 			var summon = _summon(game, actor, int(spec.class_id), int(spec.hp_cost), false)
 			if not summon.is_empty(): result = summon
-		elif cid in [18, 21] and str(result.target).is_empty() and not bool(result.support):
+		elif (cid == 18 or (cid == 21 and _name(actor)==167)) and str(result.target).is_empty() and not bool(result.support):
 			var summon = _summon(game, actor, 18, 0, true)
 			if not summon.is_empty(): result = summon
 	if not teleport.is_empty():
@@ -152,12 +152,22 @@ static func _attack_choice(game, actor: Dictionary, graph: Dictionary, opponents
 static func _score(game, actor: Dictionary, target: Dictionary, cell: Vector2i, distance: int, first_slot: bool) -> int:
 	# L038843-L038A85: source uses damage, counter availability, terrain,
 	# low HP and priest priority, rather than hit chance or a new kill bonus.
+	if Rules.Body.is_body(actor):
+		var actual=Rules.attack_context(actor,distance)
+		var stats=Rules.attack_stats(actual,target,game.terrain_avoid(_pos(target)))
+		var counter=Rules.default_counter(target,distance)
+		var risk=0
+		if not counter.is_empty() and Rules.can_attack(counter,distance):risk=int(Rules.attack_stats(counter,actual,game.terrain_avoid(cell)).damage)
+		return maxi(1,int(stats.damage)*2-risk+60+(5 if first_slot else 0))
 	var weapon = Rules.weapon_index(actor)
 	var held = int(actor.get("item_id", 0))
 	var might = int(Items.item(held).get("might", 0))
 	if Items.effective_against(held, target): might *= 3
 	var magic = int(actor.class_id) in [15, 16, 19] or weapon == 15
-	var defence = int(target.get("resistance", 0)) if magic else int(target.get("defence", 0)) + _shield(target)
+	# Campaign shields use the same defence bonuses as real combat. In
+	# particular, the late dual-defence shield must not look like an unarmed
+	# target to ordinary physical troops or spellcasters.
+	var defence = Items.magic_defence(target) if magic else int(target.get("defence", 0)) + Items.physical_defence_bonus(target, actor)
 	var power = int(actor.get("strength", 0)) + might
 	if not Items.effective_against(held, target): power = mini(60, power)
 	var attack = (power & 255) - defence
@@ -172,12 +182,13 @@ static func _score(game, actor: Dictionary, target: Dictionary, cell: Vector2i, 
 	var risk = 0
 	if distance <= _source_range(target):
 		var target_magic = int(target.class_id) in [15, 16, 19] or Rules.weapon_index(counter) == 15
-		var own_defence = int(actor.get("resistance", 0)) if target_magic else int(actor.get("defence", 0)) + _shield(actor)
+		var own_defence = Items.magic_defence(actor) if target_magic else int(actor.get("defence", 0)) + Items.physical_defence_bonus(actor, counter)
 		risk = maxi(0, int(target.get("strength", 0)) - own_defence)
 	else: bonus += 40
 	return mini(255, ((attack * 2 - risk + 60) & 255) + bonus)
 
 static func _source_range(unit: Dictionary) -> int:
+	if Rules.Body.is_body(unit):return Rules.attack_range(unit).y
 	var cid = int(unit.class_id)
 	var reach = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 1, 2, 2, 1, 1, 2, 5, 1, 1][clampi(cid - 1, 0, 21)]
 	var item = int(unit.get("item_id", 0))
@@ -185,9 +196,6 @@ static func _source_range(unit: Dictionary) -> int:
 	if item in [20, 21, 22] and cid in [12, 13, 20]: reach = 5
 	if item == 57 and cid in [15, 16, 19]: reach = 5
 	return reach
-
-static func _shield(unit: Dictionary) -> int:
-	return int({48: 3, 49: 5, 50: 7}.get(int(unit.get("item_id", 0)), 0))
 
 static func _goal_destination(game, actor: Dictionary, turn_graph: Dictionary, mode: int, opponents: Array, gather: bool) -> Vector2i:
 	var start = _pos(actor)
@@ -289,6 +297,7 @@ static func _source_support(game, actor: Dictionary, result: Dictionary) -> void
 				return
 
 static func _summon(game, actor: Dictionary, cid: int, cost: int, divide: bool) -> Dictionary:
+	if actor.has("campaign_role"):return {}
 	if game.living("enemy").size() >= 20 or int(actor.hp) <= cost: return {}
 	var count = (int(game.random_bounded(256)) & 3) + 1 if divide else (int(game.random_bounded(maxi(1, int(actor.get("strength", 1))))) >> 1) + 1
 	var template_id = 11 if (divide and int(actor.class_id) == 21) or (int(actor.class_id) == 19 and not (int(actor.get("magic_flags", actor.get("raw_magic_flags", 0))) & 240)) else 10 if divide else int({5: 0, 3: 1, 11: 2, 17: 3, 16: 9}.get(cid, 11))

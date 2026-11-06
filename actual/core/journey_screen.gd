@@ -43,7 +43,9 @@ func accept() -> void:
 	if intent=="load":
 		if not record.exists:message="尚无记录，请选择其他槽位";return
 		if not record.valid:message="记录无法读取，原件已保留";return
-		if ui.game.load_slot(selected+1):ui._resume_journey()
+		if ui.game.load_slot(selected+1):
+			ui._resume_journey()
+			if record.get("recovered",false):ui._notice("已从恢复副本继续\n损坏原记录会保留",5.0)
 		else:message="读取失败，原件已保留"
 	elif record.exists:
 		confirm_choice=0;ui.view="journal_confirm"

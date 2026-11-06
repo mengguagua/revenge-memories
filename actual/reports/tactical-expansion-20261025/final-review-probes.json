@@ -1,0 +1,102 @@
+{
+	"checks": [
+		{
+			"label": "X returns cover targets to the existing unit action menu",
+			"passed": true
+		},
+		{
+			"label": "cover explanation opens its confirmation",
+			"passed": true
+		},
+		{
+			"label": "X cancels cover confirmation without spending action",
+			"passed": true
+		},
+		{
+			"label": "X cancels obstacle confirmation into action menu",
+			"passed": true
+		},
+		{
+			"label": "opening tactical explanation never checkpoints tentative movement",
+			"passed": true
+		},
+		{
+			"label": "fresh UI reload resumes before the uncommitted move",
+			"passed": true
+		},
+		{
+			"label": "system-menu probe begins after ordinary tentative movement",
+			"passed": true
+		},
+		{
+			"label": "opening S rolls tentative movement back before offering save",
+			"passed": true
+		},
+		{
+			"label": "save-and-title command completes",
+			"passed": true
+		},
+		{
+			"label": "system-menu save/reload grants no extra movement",
+			"passed": true
+		},
+		{
+			"label": "zero damage does not consume cover",
+			"passed": true
+		},
+		{
+			"label": "mutual cover conserves both hits without a damage-transfer loop",
+			"passed": true
+		},
+		{
+			"label": "each mutually protecting guard is consumed only once",
+			"passed": true
+		}
+	],
+	"driver_failures": [],
+	"findings": [
+		{
+			"issue": false,
+			"menu": "unit_action",
+			"probe": "cancel cover target picker",
+			"selected": "hunapu",
+			"ui_mode": "action"
+		},
+		{
+			"probe": "tactical explanation checkpoint",
+			"saved_acted": false,
+			"saved_plot": false,
+			"saved_position": [
+				6.0,
+				13.0
+			],
+			"view": "plot"
+		},
+		{
+			"acted": false,
+			"issue": false,
+			"loaded": true,
+			"menu": "",
+			"position": [
+				6.0,
+				13.0
+			],
+			"probe": "resume explanation in fresh UI",
+			"ui_mode": "inspect",
+			"view": "battle"
+		},
+		{
+			"both_consumed": true,
+			"first": {
+				"a_loss": 5,
+				"b_loss": 4
+			},
+			"probe": "zero damage and mutual cover",
+			"total_loss": 18,
+			"zero_empty": true,
+			"zero_preserves_cover": true
+		}
+	],
+	"passed": true,
+	"scope": "Independent UI/state review probes; no shared implementation edits."
+}

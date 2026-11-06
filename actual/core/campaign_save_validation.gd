@@ -6,6 +6,7 @@ const EXTENDED_FIELDS = ["chapter", "route", "parties", "route_positions", "prev
 	"world_armies", "convoy", "hub_id", "hub_position", "hub_flags", "hub_changes", "hub_used",
 	"battle_return", "battle_settled", "story_events", "encounter_groups"]
 const Items = preload("res://core/item_rules.gd")
+const PrologueCheckpoint = preload("res://core/prologue_checkpoint.gd")
 
 static func valid(game, state: Dictionary) -> bool:
 	if not _integer(state.get("version", 0), 1, 3):
@@ -61,16 +62,47 @@ static func _base(game, state: Dictionary) -> bool:
 	if state.has("flags") and not _flags(game, state.flags, state): return false
 	return true
 
+static func _body_fields(unit: Dictionary) -> bool:
+	if unit.has("weapon_index") and not _integer(unit.weapon_index,0,47):return false
+	for field in ["body_attack","body_armour","recoverable_item_id","innate_attack_index","innate_counter"]:
+		if unit.has(field) and not Items.Body.is_body(unit):return false
+	if unit.has("body_attack") and (int(unit.class_id)!=3 or unit.body_attack!="stone_spit"):return false
+	if unit.has("body_armour") and (int(unit.class_id)!=3 or unit.body_armour!="thick_stone"):return false
+	if unit.has("recoverable_item_id") and not _carried_item(unit.recoverable_item_id):return false
+	if unit.has("innate_attack_index"):
+		if not _integer(unit.innate_attack_index,1001,1009):return false
+		var allowed={3:[1001,1002],5:[1003,1004],21:[1005,1006],25:[1007,1008],26:[1009]}
+		if not int(unit.innate_attack_index) in allowed.get(int(unit.class_id),[]):return false
+	if unit.has("innate_counter") and not unit.innate_counter is bool:return false
+	if unit.has("campaign_final_boss") and not unit.campaign_final_boss is bool:return false
+	var role_classes={"short_blink":[16],"bounded_summoner":[19],"bounded_divider":[18],"summoned_minion":[17,18]}
+	if unit.has("campaign_role"):
+		if not unit.campaign_role is String or not role_classes.has(unit.campaign_role):return false
+		if unit.get("side","")!="enemy" or not int(unit.get("class_id",0)) in role_classes[unit.campaign_role]:return false
+	for key in ["role_summons_used","role_last_turn"]:
+		if unit.has(key) and not unit.has("campaign_role"):return false
+	if unit.has("role_summons_used") and not _integer(unit.role_summons_used,0,1 if unit.campaign_role=="bounded_divider" else 2):return false
+	if unit.has("role_last_turn") and not _integer(unit.role_last_turn,0,65535):return false
+	return true
+
+static func _map_fields(unit:Dictionary)->bool:
+	if unit.has("map_uses") and not _integer(unit.map_uses,0,3):return false
+	for field in ["map_fatigue_until_turn","map_move_penalty_until_turn","strong_body_until_turn"]:
+		if unit.has(field) and not _integer(unit[field],0,2147483647):return false
+	return true
+
 static func _unit(unit: Variant, tactical: bool) -> bool:
 	if not unit is Dictionary or not unit.get("id") is String or unit.id.is_empty(): return false
+	if not _body_fields(unit):return false
 	if unit.get("side") not in ["player", "enemy"] or not unit.get("acted") is bool: return false
 	for key in ["hp", "strength", "skill", "speed", "luck", "defence", "move"]:
 		if not _integer(unit.get(key), 0, 255): return false
 	if not _integer(unit.get("max_hp"), 1, 255 if unit.side == "enemy" else 52) or int(unit.hp) > int(unit.max_hp): return false
 	if not _integer(unit.get("class_id"), 1, 22) or not _integer(unit.get("level"), 1, 20): return false
 	if tactical and not _point(unit.get("position")): return false
-	for key in ["exp", "magic_level", "magic_flags", "raw_magic_flags", "character_id", "name_id", "resistance", "ai_flags", "raw_ai_flags", "record_index", "group_id", "exp_value", "weapon_index", "source_enemy_character_id"]:
+	for key in ["exp", "magic_level", "magic_flags", "raw_magic_flags", "character_id", "name_id", "resistance", "ai_flags", "raw_ai_flags", "record_index", "group_id", "exp_value", "source_enemy_character_id"]:
 		if unit.has(key) and not _integer(unit[key], 0, 65535 if key == "exp" else 255): return false
+	if not _map_fields(unit):return false
 	# Personal resistance is consumed by promotion after resume. A source
 	# Dread Fighter may have a negative personal baseline after bonus removal.
 	if unit.has("personal_resistance") and not _integer(unit.personal_resistance, -15, 255): return false
@@ -373,6 +405,7 @@ static func campaign_valid(game, state: Dictionary, fields: Array) -> bool:
 		if not state.has(key):return false
 	var revision=str(state.get("map_revision","0.2.0"))
 	if not _campaign_core(game,state,false,revision):return false
+	if not game.Training.validate(game,state):return false
 	if not state.get("hub_record") is String or state.hub_record not in (["P00","H01","H02","H03","H04","H05","H06","H07","H08","H09"] if int(state.chapter)==1 else ["H21","H22","H23","H24","H25","H26","H27"] if int(state.chapter)==2 else game.ChapterThree.ROOMS if int(state.chapter)==3 else game.ChapterFour.ROOMS if int(state.chapter)==4 else game.ChapterFive.ROOMS):return false
 	for key in ["hub_position","cursor","move_origin"]:
 		if not _point(state.get(key)):return false
@@ -390,12 +423,14 @@ static func campaign_valid(game, state: Dictionary, fields: Array) -> bool:
 	if not snapshot is Dictionary:return false
 	if not snapshot.is_empty():
 		if not _campaign_core(game,snapshot,true,revision):return false
+		if not game.Training.validate(game,snapshot):return false
 		if int(snapshot.stage_id)!=int(state.stage_id) or int(snapshot.chapter)!=int(state.chapter) or snapshot.route!=state.route:return false
 	if state.mode in ["battle","victory","defeat"] and snapshot.is_empty():return false
 	if int(state.schema)==1 and (int(state.chapter)!=1 or state.route!="alm"):return false
 	if int(state.schema)==3:
 		if not game.Casualties.valid(state):return false
 		if not snapshot.is_empty() and not game.Casualties.valid(snapshot):return false
+	if not game.Rewind.valid(game,state):return false
 	return true
 
 static func campaign_stage(game, id: int, revision: String="") -> Dictionary:
@@ -410,6 +445,7 @@ static func campaign_stage(game, id: int, revision: String="") -> Dictionary:
 static func _campaign_core(game, state: Dictionary, snapshot: bool, revision: String="") -> bool:
 	for key in ["chapter","route","parties","route_positions","previous_world_node","convoy","battle_return","story_events","stage_id","world_node","cleared_stages","roster","flags","party","units","rng_state","frame_counter"]:
 		if not state.has(key):return false
+	if not state.flags is Dictionary or not state.roster is Dictionary:return false
 	if not _integer(state.chapter,1,5) or state.route not in ["alm","celica"]:return false
 	if int(state.chapter)<3 and ((int(state.chapter)==1)!=(state.route=="alm")):return false
 	if not _integer(state.stage_id,101,534) or not game.stages.has(int(state.stage_id)):return false
@@ -419,7 +455,6 @@ static func _campaign_core(game, state: Dictionary, snapshot: bool, revision: St
 		if not _integer(state[key],1,39) or not game.formal_world.nodes.has(str(int(state[key]))):return false
 	for key in ["rng_state","frame_counter"]:
 		if not _integer(state[key],0,255):return false
-	if not state.flags is Dictionary or not state.roster is Dictionary:return false
 	if not state.parties is Dictionary or not state.route_positions is Dictionary or not state.convoy is Dictionary:return false
 	var ownership={}
 	for route_name in ["alm","celica"]:
@@ -514,6 +549,14 @@ static func _campaign_core(game, state: Dictionary, snapshot: bool, revision: St
 
 static func _campaign_unit(game, unit: Variant, tactical: bool) -> bool:
 	if not unit is Dictionary or not unit.get("id") is String or unit.id.is_empty():return false
+	if not Items.Body.Mechanical.valid_unit(unit):return false
+	if not _integer(unit.get("class_id"),1,255):return false
+	if not _body_fields(unit):return false
+	if not _map_fields(unit):return false
+	if unit.has("cover_target"):
+		if not unit.cover_target is String or unit.cover_target.is_empty() or unit.cover_target==unit.id:return false
+		if not _integer(unit.get("cover_turn"),1,2147483647) or unit.get("side","")!="player" or not int(unit.get("class_id",0)) in game.Cover.MELEE_CLASSES:return false
+	elif unit.has("cover_turn"):return false
 	if unit.get("side") not in ["player","enemy","neutral","evacuated"]:return false
 	for key in ["hp","strength","skill","speed","luck","defence","move"]:
 		if not _integer(unit.get(key),0,255):return false
@@ -525,10 +568,10 @@ static func _campaign_unit(game, unit: Variant, tactical: bool) -> bool:
 	if tactical and not _point(unit.get("position")):return false
 	if unit.has("item_id") and not (_integer(unit.item_id,0,0) or _carried_item(unit.item_id)):return false
 	if unit.has("drop_chance") and not _integer(unit.drop_chance,0,100):return false
-	for key in ["exp","magic_level","magic_flags","raw_magic_flags","character_id","name_id","resistance","ai_flags","raw_ai_flags","record_index","exp_value","weapon_index"]:
+	for key in ["exp","magic_level","magic_flags","raw_magic_flags","character_id","name_id","resistance","ai_flags","raw_ai_flags","record_index","exp_value"]:
 		if unit.has(key) and not _integer(unit[key],0,65535):return false
 	if unit.has("treatment_count") and not _integer(unit.treatment_count,0,1):return false
-	for key in ["dead","dying","ever_dying","acted","neutral","controllable","temporary","locked","hidden","event_object","no_counter","no_experience","no_drop","surrendered","battle_guard","promoted"]:
+	for key in ["dead","dying","ever_dying","acted","neutral","controllable","temporary","locked","hidden","event_object","no_counter","no_experience","no_drop","surrendered","battle_guard","guard_alerted","promoted"]:
 		if unit.has(key) and not unit[key] is bool:return false
 	if unit.has("route") and unit.route not in ["alm","celica"]:return false
 	if unit.has("growths"):
@@ -550,6 +593,24 @@ static func _campaign_story(value: Variant) -> bool:
 	return true
 
 static func _campaign_flags(game, flags: Dictionary, stage: Dictionary) -> bool:
+	if not game.Battlefield.validate(game,flags,stage):return false
+	if flags.has("knockback_clear_rewards"):
+		if not flags.knockback_clear_rewards is Dictionary:return false
+		for id in flags.knockback_clear_rewards:
+			if id not in ["103","204"] or not flags.knockback_clear_rewards[id] is bool:return false
+	if flags.has("story_accessory_results"):
+		if not flags.story_accessory_results is Dictionary:return false
+		for id in flags.story_accessory_results:
+			if not id is String or not Items.accessories().items.has(id):return false
+			var facts=flags.story_accessory_results[id];var required=Items.accessories().items[id].facts
+			if not facts is Dictionary or facts.size()!=required.size():return false
+			for key in facts:
+				if not key is String or not required.has(key) or not facts[key] is bool:return false
+	if flags.has("story_accessories_claimed"):
+		if not flags.story_accessories_claimed is Dictionary:return false
+		for id in flags.story_accessories_claimed:
+			if not id is String or not Items.accessories().items.has(id) or not flags.story_accessories_claimed[id] is bool:return false
+			if flags.story_accessories_claimed[id] and not Items.accessories().items[id].facts.all(func(key):return flags.get("story_accessory_results",{}).get(id,{}).get(key,false)==true):return false
 	if flags.has("story_armaments_claimed"):
 		if not flags.story_armaments_claimed is Dictionary:return false
 		for key in flags.story_armaments_claimed:
@@ -578,6 +639,19 @@ static func _campaign_flags(game, flags: Dictionary, stage: Dictionary) -> bool:
 	if flags.has("active_plot"):
 		var plot=flags.active_plot
 		if not plot is Dictionary or not _campaign_pages(plot.get("pages")) or not _integer(plot.get("index"),0,plot.pages.size()-1):return false
+		if plot.get("return") not in ["hub","world","battle","victory","defeat","chapter_end","ending"]:return false
+		if plot.has("callback") and not plot.callback is String:return false
+	if flags.has("prologue_scene") and not PrologueCheckpoint.valid(flags.prologue_scene):return false
+	if flags.has("m15_scene"):
+		var scene=flags.m15_scene
+		if str(stage.get("code",""))!="M15" or not scene is Dictionary:return false
+		if scene.get("version")!=1 or scene.get("scene") not in ["opening","escape","death"]:return false
+		var count={"opening":5,"escape":4,"death":8}[str(scene.scene)]
+		if not _integer(scene.get("step"),0,count-1) or not _campaign_pages(scene.get("pages")):return false
+		if scene.get("return") not in ["battle","victory","defeat"]:return false
+		for key in ["time","clock"]:
+			if not PrologueCheckpoint.number(scene.get(key)):return false
+	if flags.has("prologue_reprise_clock") and not PrologueCheckpoint.number(flags.prologue_reprise_clock):return false
 	if flags.has("east_recruit_ready"):
 		if not flags.east_recruit_ready is Dictionary:return false
 		for id in flags.east_recruit_ready:
@@ -591,6 +665,9 @@ static func _campaign_flags(game, flags: Dictionary, stage: Dictionary) -> bool:
 		if not q.objects is Dictionary or not q.evacuated is Array or not q.freed is Array:return false
 		var object_ids=[]
 		for o in stage.get("objects",[]):object_ids.append(str(o.id))
+		# Retired inspections may be present in a genuine ongoing F21 journal.
+		# They no longer have gameplay effects and are removed on restoration.
+		if str(stage.get("code",""))=="F21":object_ids.append_array(["plank_1","plank_2"])
 		for id in q.objects:
 			if not id is String or not object_ids.has(id) or not q.objects[id] is bool:return false
 		for id in q.evacuated:

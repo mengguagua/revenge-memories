@@ -1,0 +1,77 @@
+{
+  "id": "rm_sfx_23",
+  "kind": "sfx_candidate_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_23.ogg",
+      "repeat_short": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_23.ogg",
+      "repeat_short": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/source/sfx-20261024/audio-guided/candidates/rm_sfx_23.ogg",
+      "repeat_short": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/source/sfx-20261024/audio-guided/scene-candidates/rm_sfx_23.mp3",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Compare the actual audio inputs. Audio 1 is the reference sound effect; Audio 2 is the current replacement; Audio 3 is a newly remade candidate. Short one-shots may be repeated four times with gaps for analysis. Audio 4, if supplied, is the candidate in a game-gain offline scene mix. Describe the actual timbre, attack, pitch/modulation gesture and decay of 1, 2 and 3. Which replacement better preserves clear, distinctive retro electronic feedback without dull thuds, unwanted music/voice or unrelated sounds? Assess candidate clarity/masking/tail in audio 4. Give a final preference: 2, 3, neither, or uncertain, with a concrete audible reason. Do not invent visuals or mechanics. Under 180 words. Function context: 战斗传送；地图出现/消失与召唤显形，多程序以30停止",
+  "max_tokens": 320,
+  "key": "241ad24c5929459175e9f8c7",
+  "source_sha256": [
+    "8f060caf613a221404da2e3b56096a04ab667c4c6add00b95dacf1eeb6b95053",
+    "3bf5c945cf6edbbd3149485bc8a2620bd31cb68e37704beb89e75ac82c1bc401",
+    "39d113adb285046c9acafaabb1aa8830efc508dd896d11cbe0903650cfeeb3b5",
+    "265a640332a37aa584898d34a4ca166b0b42a13854f818ca27a490c330f46dd4"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "audio_input_samples": [
+    128000,
+    128000,
+    128000,
+    69504
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "83d2ce5673523b749f4b324289d8f8f8176068290aa1517c409c20612661d142",
+    "ca9d2d6690bc32e191c792f10f595139732cadfb7454568a40845540be1f440e",
+    "e0f264252649c1678bda96d9de8ae7f249d3170063cf8f48538dfe8340ee0322",
+    "2a0b30acf25f943fba91a1f30f603414ab49fdc71a7c74c077e13fbb7ae9020e"
+  ],
+  "response": "Audio 1: High-pitched, rapid, descending electronic warble with sharp attack and clean decay—distinctive retro feedback.  \nAudio 2: Low, muffled thud with slow attack; lacks high-frequency clarity; masked by low-end resonance.  \nAudio 3: Fast, descending digital bleep with crisp attack and short decay—close match to 1’s timbre and gesture.  \nAudio 4: Candidate 3 in mix; masked by soft guitar and percussion; tail obscured, reducing clarity.  \n\n**Preference: 3**  \nReason: Preserves the clear, distinctive retro electronic feedback of Audio 1 without dull thuds or unrelated music. Audio 2’s thud lacks pitch articulation; Audio 4’s mix obscures the sound.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 158,
+    "prompt_tokens": 652,
+    "total_tokens": 810,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 624,
+    "prompt_ms": 3304.059,
+    "prompt_per_token_ms": 5.2949663461538465,
+    "prompt_per_second": 188.8586129969229,
+    "predicted_n": 158,
+    "predicted_ms": 3604.462,
+    "predicted_per_token_ms": 22.95835668789809,
+    "predicted_per_second": 43.55712447516439
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 6.993,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/8f060caf613a221404da2e3b56096a04ab667c4c6add00b95dacf1eeb6b95053.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/3bf5c945cf6edbbd3149485bc8a2620bd31cb68e37704beb89e75ac82c1bc401.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/39d113adb285046c9acafaabb1aa8830efc508dd896d11cbe0903650cfeeb3b5.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/265a640332a37aa584898d34a4ca166b0b42a13854f818ca27a490c330f46dd4.mp3"
+  ]
+}

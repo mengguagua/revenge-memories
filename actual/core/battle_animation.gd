@@ -3,11 +3,17 @@ extends RefCounted
 ## Source asset/coordinate contract: data/full_animation_schema.md.
 
 const Rules = preload("res://core/combat_rules.gd")
+const Innate = preload("res://core/innate_attack_animation.gd")
+const CampaignEffects=preload("res://core/campaign_effects.gd")
 const Reviewed = preload("res://core/reviewed_animations.gd")
+const CriticalCinema=preload("res://core/critical_cinema.gd")
+const Counter = preload("res://core/counter_animation.gd")
+const MechanicalArt=preload("res://core/mechanical_art.gd")
 const FIELD := Rect2(0, 0, 256, 128)
 const FPS := 60.0988
 const EFFECT_PATH := "res://data/legacy/full_animation_effects.json"
 static var _source_cache: Dictionary = {}
+static var _source_metadata_cache: Dictionary = {}
 static var _costume_variant_cache: Dictionary = {}
 
 var _ui_ref: WeakRef
@@ -16,19 +22,26 @@ var ui:
 var flips: Dictionary = {}
 var effects: Array = []
 var target_alpha: Dictionary = {}
+var pose_alpha: Dictionary = {}
+var pose_tint: Dictionary = {}
 var missing_animations: Array[String] = []
 var active_variant := ""
 var active_tick := -1
 var active_event: Dictionary = {}
 var contact_calls := 0
+var cinema
 
 func _init(owner) -> void:
 	_ui_ref = weakref(owner)
+	cinema=CriticalCinema.new(owner)
 
 func reset() -> void:
+	if cinema!=null:cinema.reset()
 	flips.clear()
 	effects.clear()
 	target_alpha.clear()
+	pose_alpha.clear()
+	pose_tint.clear()
 	active_variant = ""
 	active_tick = -1
 	active_event.clear()
@@ -36,15 +49,22 @@ func reset() -> void:
 
 func _source() -> Dictionary:
 	if _source_cache.is_empty():
-		var raw = JSON.parse_string(FileAccess.get_file_as_string(EFFECT_PATH))
-		if raw is Dictionary:
-			_source_cache = raw
-			if FileAccess.file_exists("res://data/m11_party_motion.json"):
-				var original: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/m11_party_motion.json"))
-				for key in original.get("variants",{}):_source_cache.variants["fe2_"+str(key)]=original.variants[key]
-				_source_cache.sprites.merge(original.get("sprites",{}),true)
-			_source_cache.sprites.merge(Reviewed.data().get("sprites", {}), true)
+		_source_cache = Reviewed.Programs.full_data("legacy").duplicate(false)
+		_source_cache.variants = _source_cache.variants.duplicate(false)
+		var original = Reviewed.Programs.full_data("party")
+		for key in original.variants:_source_cache.variants["fe2_"+str(key)] = original.variants[key]
+		_source_cache.sprites = _source_metadata().sprites
 	return _source_cache
+
+func _source_metadata() -> Dictionary:
+	if _source_metadata_cache.is_empty():
+		_source_metadata_cache={"sprites":CampaignEffects.sprites().duplicate(false)}
+		_source_metadata_cache.sprites.merge(Innate.effect_sprites(),true)
+		_source_metadata_cache.sprites.merge(MechanicalArt.data().effects,true)
+	return _source_metadata_cache
+
+func _source_variant(key: String) -> Dictionary:
+	return Reviewed.Programs.variant("party",key.trim_prefix("fe2_")) if key.begins_with("fe2_") else Reviewed.Programs.variant("legacy",key)
 
 func _class(unit: Dictionary) -> int:
 	var cid = int(unit.get("class_id", 0))
@@ -63,15 +83,13 @@ func _record_missing(message: String) -> void:
 	push_warning("Original animation missing: " + message)
 
 func sprite(unit: Dictionary) -> Dictionary:
+	if Rules.Body.Mechanical.is_puppet(unit):return MechanicalArt.battle(unit)
 	if unit.get("event_object",false):return {"path":"res://assets/battle_tiles/modules/medicine_wagon.png","frame_size":[32,16],"frames":1,"anchor":[16,16],"sequences":{"idle":[0]},"source_oam_frame_count":0}
 	var side = "enemy" if str(unit.get("side", "player")) == "enemy" else "ally"
 	var cid = _class(unit)
 	var key = "class_%d_%s" % [cid, side]
 	var battle: Dictionary = ui.graphics.get("battle", {})
-	if not battle.has(key):
-		_record_missing("class %d / %s" % [cid, side])
-		# An explicitly missing, invisible actor is preferable to the wrong unit.
-		return {"missing": true, "sequences": {"idle": [0]}, "frames": 1}
+	if not battle.has(key):return ui.CampaignArt.battle(unit)
 	var result: Dictionary = battle[key]
 	var sid = _source_id(unit)
 	var palette: Dictionary = result.get("palette_variants", {})
@@ -90,13 +108,13 @@ func sprite(unit: Dictionary) -> Dictionary:
 	if str(active_event.get("attacker", "")) == str(unit.get("id", "")):
 		var body_key = str(result.get("spell_body_variants", {}).get(str(int(active_event.get("weapon_index", -1))), ""))
 		if not body_key.is_empty(): result = battle.get(body_key, result)
-	if side == "enemy" and cid == 21:
+	if side == "enemy" and cid == 21 and _source_id(unit)==167:
 		# L05952D entry sequence ends on pose9 intact, pose5 below52HP.
 		result = result.duplicate(false)
 		result.sequences = result.sequences.duplicate(true)
 		result.sequences.idle = [int(result.background_frame_offset) + (5 if int(unit.get("hp", 182)) < 52 else 9)]
 	if ui.has_method("_personal_battle_sprite"):result=ui.call("_personal_battle_sprite",unit,result)
-	return Reviewed.battle(unit, result, active_event)
+	return Innate.sprite(unit,Counter.sprite(unit,Reviewed.battle(unit, result, active_event),active_event))
 
 func _left(unit: Dictionary, exchange: Dictionary) -> bool:
 	if bool(exchange.get("support", false)):
@@ -114,6 +132,7 @@ func origin(unit: Dictionary, exchange: Dictionary) -> Vector2:
 	var left = _left(unit, exchange)
 	var far = _far_role(exchange)
 	var cid = _class(unit)
+	if Rules.Body.is_body(unit):return Innate.safe_origin(sprite(unit),Vector2(32 if left and far=="enemy" else 64 if left else 208 if far=="ally" else 176,128))
 	if left:
 		if cid in [4, 5, 7]: return Vector2(56, 128)
 		return Vector2(32 if far == "enemy" else 64, 128)
@@ -122,61 +141,29 @@ func origin(unit: Dictionary, exchange: Dictionary) -> Vector2:
 	return Vector2(176, 128)
 
 func selection(event: Dictionary) -> Dictionary:
+	var mechanical_actor=ui.game.find_unit(str(event.attacker))
+	if Rules.Body.Mechanical.is_puppet(mechanical_actor):
+		return MechanicalArt.selection(mechanical_actor,event,origin(mechanical_actor,ui.combat),origin(ui.game.find_unit(str(event.defender)),ui.combat),_left(mechanical_actor,ui.combat))
+	var critical_key=CriticalCinema.case_for(ui.game.find_unit(str(event.attacker)),event)
+	if not critical_key.is_empty():return {"kind":"critical_cinema","key":critical_key}
 	var actor = ui.game.find_unit(str(event.attacker))
 	var target = ui.game.find_unit(str(event.defender))
 	var graphic = sprite(actor)
+	if graphic.get("campaign_safe_idle",false):return {"kind":"campaign_idle","sprite":graphic}
 	if graphic.get("missing", false): return {"kind": "missing", "reason": "unknown class"}
 	var weapon = int(event.get("weapon_index", Rules.weapon_index(actor)))
+	if Rules.Body.is_body(actor):
+		_source_metadata()
+		return Innate.selection(graphic,event,origin(actor,ui.combat),origin(target,ui.combat),_left(actor,ui.combat))
 	if graphic.has("reviewed_variants"):
-		_source()
+		_source_metadata()
 		var target_x = int(origin(target, ui.combat).x)
 		var heavy = target_x == (56 if _left(target, ui.combat) else 184)
+		var counter=Counter.selection(graphic,_far_role(ui.combat),heavy)
+		if not counter.is_empty():return counter
 		var reviewed = Reviewed.selection(graphic, event, weapon, _far_role(ui.combat), heavy)
 		if not reviewed.is_empty(): return reviewed
-	var schedule: Dictionary = graphic.get("attack_schedule", {})
-	var base = ""
-	if graphic.get("weapon_variants", {}).has(str(weapon)):
-		base = str(graphic.weapon_variants[str(weapon)])
-	elif graphic.get("spell_variants", {}).has(str(weapon)):
-		base = str(graphic.spell_variants[str(weapon)])
-	elif weapon >= 23:
-		return {"kind": "missing", "reason": "class %d / %s / spell %d" % [_class(actor), str(actor.side), weapon], "sprite": graphic}
-	elif weapon in [1, 20, 21, 22] and _class(actor) in [12, 13, 20]:
-		base = str(schedule.get("effect_variant", ""))
-	elif graphic.has("original_source_programs"):
-		var kind="critical" if bool(event.get("critical",false)) and graphic.original_source_programs.has("critical") else "normal"
-		return {"kind":"source","key":"original_class_"+str(graphic.get("visual_class",_class(actor)))+"_"+kind,"variant":graphic.original_source_programs[kind],"sprite":graphic}
-	elif graphic.has("personal_source_programs"):
-		var kind="critical" if bool(event.get("critical",false)) else "normal"
-		return {"kind":"source","key":"hunapu_"+kind,"variant":graphic.personal_source_programs[kind],"sprite":graphic}
-	elif schedule.has("native_timeline"):
-		return {"kind": "melee", "timeline": schedule.native_timeline, "sprite": graphic}
-	else:
-		return {"kind": "missing", "reason": "class %d / weapon %d has no recovered attack" % [_class(actor), weapon], "sprite": graphic}
-	var key = base
-	var far = _far_role(ui.combat)
-	if far != "": key += "_far_" + far
-	var target_x = int(origin(target, ui.combat).x)
-	var heavy = target_x == (56 if _left(target, ui.combat) else 184)
-	if heavy: key += "_vs_heavy"
-	var variants: Dictionary = _source().get("variants", {})
-	if not variants.has(key):
-		return {"kind": "missing", "reason": "source variant " + key, "sprite": graphic}
-	# Costume atlases compile partial BG writes into complete native bodies.
-	# Only frame IDs change; source effects, offsets, clocks and contact stay.
-	var frame_maps: Dictionary=graphic.get("costume_variant_frames",{})
-	if frame_maps.has(key):
-		var cache_key=str(graphic.path)+":"+key
-		if not _costume_variant_cache.has(cache_key):
-			var mapped: Dictionary=variants[key].duplicate(false)
-			mapped.frames=[]
-			for i in range(variants[key].frames.size()):
-				var frame: Dictionary=variants[key].frames[i].duplicate(false)
-				frame.frame=int(frame_maps[key][i]);mapped.frames.append(frame)
-			_costume_variant_cache[cache_key]=mapped
-		return {"kind":"source","key":key,"variant":_costume_variant_cache[cache_key],"sprite":graphic}
-	return {"kind": "source", "key": key, "variant": variants[key], "sprite": graphic}
-
+	return {"kind":"campaign_idle","sprite":graphic}
 func _vec(value) -> Vector2:
 	return value if value is Vector2 else Vector2(float(value[0]), float(value[1]))
 
@@ -184,7 +171,10 @@ func _source_frame(event: Dictionary, frame: Dictionary, tick: int, sounds: bool
 	var id = str(event.attacker)
 	ui.combat_poses[id] = int(frame.frame)
 	ui.combat_offsets[id] = _vec(frame.get("offset", [0, 0]))
+	ui.combat_offsets[id].x += float(frame.get("shake",0))
 	flips[id] = bool(frame.get("flip", false))
+	pose_alpha[id] = float(frame.get("alpha",1.0))
+	pose_tint[id] = float(frame.get("tint",1.0))
 	effects = frame.get("effects", []).duplicate(false)
 	active_tick = tick
 	if frame.has("target_palette"):
@@ -213,6 +203,38 @@ func _contact(event: Dictionary) -> void:
 	contact_calls += 1
 	await ui._contact(event)
 
+func reaction(unit_id: String, kind: String) -> bool:
+	var unit:Dictionary=ui.game.find_unit(unit_id)
+	if unit.is_empty():return false
+	# Korlan falls in the map-scale farewell right after this exchange. Keep
+	# the fatal hit intact, without making him vanish and reappear to speak.
+	if kind=="exit" and ui.game.stage_id==105 and unit_id=="M15_boss":return true
+	var graphic=sprite(unit)
+	var mechanical=Rules.Body.Mechanical.is_puppet(unit)
+	if mechanical and kind not in ["hit","exit","part_break","reflection"]:return false
+	var key="mechanical" if mechanical else str(graphic.get("reviewed_reactions",{}).get(kind,""))
+	if key.is_empty():return false
+	var variant:Dictionary=MechanicalArt.reaction(unit,kind) if mechanical else Reviewed.variant(key)
+	var saved_pose=int(ui.combat_poses.get(unit_id,graphic.sequences.idle[0]))
+	var saved_offset:Vector2=ui.combat_offsets.get(unit_id,Vector2.ZERO)
+	var saved_flip=bool(flips.get(unit_id,graphic.get("idle_flip",false)))
+	var saved_effects=effects.duplicate(false)
+	var saved_tick=active_tick
+	if not bool(ui.instant_mode):
+		var deadline=float(Time.get_ticks_usec())
+		for row in variant.frames:
+			_source_frame({"attacker":unit_id},row,saved_tick,false)
+			deadline+=1000000.0/(float(variant.native_fps)*float(ui.effective_animation_speed()))
+			while float(Time.get_ticks_usec())<deadline:await ui.get_tree().process_frame
+	ui.combat_poses[unit_id]=saved_pose
+	ui.combat_offsets[unit_id]=saved_offset
+	flips[unit_id]=saved_flip
+	pose_alpha.erase(unit_id);pose_tint.erase(unit_id)
+	effects=saved_effects;active_tick=saved_tick
+	if kind=="exit":ui.combat_fades[unit_id]=0.0
+	ui.queue_redraw()
+	return true
+
 func _body_frame(event: Dictionary, frame: Dictionary) -> void:
 	var actor = ui.game.find_unit(str(event.attacker))
 	var offset = _vec(frame.get("offset", [0, 0]))
@@ -236,6 +258,8 @@ func play(event: Dictionary) -> void:
 	if int(event.get("hp_cost", 0)) > 0 and (not bool(event.get("visual_only", false)) or event.has("source_hp_before")):
 		ui.combat_hp[id] = maxi(0, int(event.get("source_hp_before", actor.hp)) - int(event.hp_cost))
 	match str(chosen.kind):
+		"critical_cinema":
+			await cinema.play(event)
 		"source":
 			active_variant = str(chosen.key)
 			var variant: Dictionary = chosen.variant
@@ -270,6 +294,9 @@ func play(event: Dictionary) -> void:
 				for frame in timeline.after_contact:
 					_body_frame(event, frame)
 					await ui._wait(1.0 / float(timeline.get("native_fps", FPS)))
+		"campaign_idle":
+			await ui._wait(0.25)
+			await _contact(event)
 		_:
 			_record_missing(str(chosen.get("reason", "unknown source program")))
 			# Preserve the actual actor silhouette. No unrelated Fire/melee asset.
@@ -282,24 +309,28 @@ func play(event: Dictionary) -> void:
 	ui.combat_offsets[id] = Vector2.ZERO
 	ui.combat_poses[id] = int(graphic.get("sequences", {"idle": [0]}).idle[0])
 	flips.erase(id)
+	pose_alpha.erase(id)
+	pose_tint.erase(id)
 	effects.clear()
 	target_alpha.clear()
 	ui.combat_message = ""
 	ui.combat_hit_id = ""
+	if ui.audio.has_method("finish_combat_sfx"):ui.audio.finish_combat_sfx()
 	ui.queue_redraw()
 	await ui._wait(0.18)
 
 func clipped_region(graphic: Dictionary, frame: int, at: Vector2, flip: bool) -> Dictionary:
 	var density = maxf(1.0, float(graphic.get("native_density", 1)))
 	var source_size = _vec(graphic.frame_size)
-	var size = source_size / density
+	var size = _vec(graphic.logical_frame_size) if graphic.has("logical_frame_size") else source_size / density
+	var axes_density=source_size/size
 	var destination = Rect2(at.round(), size)
 	var visible = destination.intersection(FIELD)
 	if not visible.has_area(): return {}
 	var offset = visible.position - destination.position
 	var source_x = size.x - offset.x - visible.size.x if flip else offset.x
 	var columns=int(graphic.get("columns",graphic.get("frames",1)))
-	return {"destination": visible, "source": Rect2(Vector2((frame%columns)*source_size.x+source_x*density,floori(float(frame)/columns)*source_size.y+offset.y*density),visible.size*density),"flip":flip}
+	return {"destination": visible, "source": Rect2(Vector2((frame%columns)*source_size.x+source_x*axes_density.x,floori(float(frame)/columns)*source_size.y+offset.y*axes_density.y),visible.size*axes_density),"flip":flip}
 
 func _draw_frame(graphic: Dictionary, frame: int, at: Vector2, flip: bool, color: Color) -> void:
 	if bool(graphic.get("missing", false)): return
@@ -323,22 +354,31 @@ func draw_actors() -> void:
 		var graphic = sprite(unit)
 		if bool(graphic.get("missing", false)): continue
 		var frame = int(ui.combat_poses.get(id, graphic.sequences.idle[0]))
-		var flip = _left(unit, ui.combat) != bool(flips.get(id, false))
+		var flip = Innate.horizontal_flip(graphic,_left(unit,ui.combat),bool(flips.get(id,graphic.get("idle_flip",false)))) if Rules.Body.is_body(unit) else _left(unit, ui.combat) != bool(flips.get(id, graphic.get("idle_flip",false)))
 		var at = origin(unit, ui.combat) + _vec(ui.combat_offsets.get(id, Vector2.ZERO)) - _vec(graphic.anchor)
 		if flip and frame < int(graphic.get("source_oam_frame_count", 0)):
 			at += _vec(graphic.get("oam_flip_origin_offset", [0, 0]))
-		var color = Color.WHITE
-		color.a = float(ui.combat_fades.get(id, 1.0)) * float(target_alpha.get(id, 1.0))
+		var shade=float(pose_tint.get(id,1.0))
+		var color = Color(shade,shade,shade,1.0)
+		color.a = float(ui.combat_fades.get(id, 1.0)) * float(target_alpha.get(id, 1.0)) * float(pose_alpha.get(id,1.0))
 		if str(ui.combat_hit_id) == id and float(ui.combat_hit_time) > 0.0 and int(float(ui.elapsed) * 30.0) % 2 == 0:
 			color = Color(0.35, 0.35, 0.35, color.a)
 		_draw_frame(graphic, frame, at, flip, color)
 	if not effects.is_empty():
-		var sprites: Dictionary = _source().sprites
+		var sprites: Dictionary = _source_metadata().sprites
 		for effect in effects:
-			var graphic: Dictionary = sprites[str(effect.sprite)]
-			var at = effect_position(effect) - _vec(graphic.anchor)
+			var graphic: Dictionary = CampaignEffects.graphic(str(effect.sprite),active_variant)
+			if graphic.is_empty():graphic=sprites.get(str(effect.sprite),{})
+			if graphic.is_empty():continue
+			var point=effect_position(effect)
+			var role=str(graphic.get("campaign_anchor_role",""))
+			if not role.is_empty() and not active_event.is_empty():
+				var owner=ui.game.find_unit(str(active_event.defender if role=="defender" else active_event.attacker))
+				if not owner.is_empty():point=origin(owner,ui.combat)+(Vector2(0,-52) if role=="attacker_charge" else Vector2.ZERO)
+			var at = point - _vec(graphic.anchor)
 			if bool(effect.flip): at += _vec(graphic.get("flip_origin_offset", [0, 0]))
-			_draw_frame(graphic, 0, at, bool(effect.flip), Color.WHITE)
+			var tint=effect.get("tint",[1,1,1,1])
+			_draw_frame(graphic, 0, at, bool(effect.flip), Color(float(tint[0]),float(tint[1]),float(tint[2]),float(tint[3])))
 
 func effect_position(effect: Dictionary) -> Vector2:
 	# Review-only example targets never ship. Engulf the real defender at its

@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "character_id": "ally-archer",
+  "display_name": "盟军弓箭手",
+  "original_class_id": 12,
+  "source_side": "ally",
+  "status": "review_candidate",
+  "source_atlas": "../../../source-input/original-motion/class-12.png",
+  "source_atlas_base": "mapping directory",
+  "source_frame_size": [
+    80,
+    64
+  ],
+  "output_frame_size": [
+    320,
+    256
+  ],
+  "source_anchor": [
+    40,
+    64
+  ],
+  "output_anchor": [
+    160,
+    256
+  ],
+  "source_frame_count": 6,
+  "source_columns": 16,
+  "frame_mapping": {
+    "1": "../../../battle-appearance-v1-20261031/class-12/frame-001.png",
+    "4": "../../../battle-appearance-v1-20261031/class-12/frame-004.png",
+    "5": "../../../battle-appearance-v1-20261031/class-12/frame-005.png"
+  },
+  "records": [
+    {
+      "class_id": 12,
+      "frame": 1,
+      "generated_cell": 0,
+      "source_crop": [
+        314,
+        281,
+        529,
+        648
+      ],
+      "face_component": [
+        83,
+        77,
+        132,
+        129
+      ],
+      "scale": 0.40705128205128205,
+      "registered_at": [
+        162,
+        107
+      ],
+      "foot_y": 256,
+      "foot_center_x": 208,
+      "palette": [
+        "172638",
+        "3976b5",
+        "e4e1c8",
+        "dda77d",
+        "8c6b45"
+      ],
+      "hair": "low flat dark crew cut",
+      "bow_state": "empty bow",
+      "path": "../../../battle-appearance-v1-20261031/class-12/frame-001.png"
+    },
+    {
+      "class_id": 12,
+      "frame": 4,
+      "generated_cell": 1,
+      "source_crop": [
+        210,
+        277,
+        530,
+        648
+      ],
+      "face_component": [
+        182,
+        82,
+        231,
+        118
+      ],
+      "scale": 0.40836012861736337,
+      "registered_at": [
+        124,
+        104
+      ],
+      "foot_y": 256,
+      "foot_center_x": 208,
+      "palette": [
+        "172638",
+        "3976b5",
+        "e4e1c8",
+        "dda77d",
+        "8c6b45"
+      ],
+      "hair": "low flat dark crew cut",
+      "bow_state": "one nocked arrow",
+      "path": "../../../battle-appearance-v1-20261031/class-12/frame-004.png"
+    },
+    {
+      "class_id": 12,
+      "frame": 5,
+      "generated_cell": 2,
+      "source_crop": [
+        294,
+        279,
+        607,
+        648
+      ],
+      "face_component": [
+        101,
+        79,
+        150,
+        131
+      ],
+      "scale": 0.40705128205128205,
+      "registered_at": [
+        152,
+        106
+      ],
+      "foot_y": 256,
+      "foot_center_x": 208,
+      "palette": [
+        "172638",
+        "3976b5",
+        "e4e1c8",
+        "dda77d",
+        "8c6b45"
+      ],
+      "hair": "low flat dark crew cut",
+      "bow_state": "empty bow",
+      "path": "../../../battle-appearance-v1-20261031/class-12/frame-005.png"
+    }
+  ],
+  "canonical_frames": [
+    1,
+    4,
+    5
+  ],
+  "variant_keys": [
+    "class_12_ally_bow",
+    "class_12_ally_bow_vs_heavy",
+    "class_12_ally_bow_far_ally",
+    "class_12_ally_bow_far_ally_vs_heavy",
+    "class_12_ally_bow_far_enemy",
+    "class_12_ally_bow_far_enemy_vs_heavy",
+    "class_12_ally_silver_bow",
+    "class_12_ally_silver_bow_vs_heavy",
+    "class_12_ally_silver_bow_far_ally",
+    "class_12_ally_silver_bow_far_ally_vs_heavy",
+    "class_12_ally_silver_bow_far_enemy",
+    "class_12_ally_silver_bow_far_enemy_vs_heavy"
+  ],
+  "output_atlas": "../../../battle-appearance-v1-20261031/class-12/battle-atlas.png",
+  "output_atlas_frame_order": [
+    1,
+    4,
+    5
+  ],
+  "batches": [
+    {
+      "id": "2026-10-31 外观修订",
+      "review": "../../../battle-appearance-v1-20261031/review/class-12-light.png",
+      "status": "pending_user_visual_acceptance"
+    }
+  ],
+  "source_semantics": {
+    "1": "upright empty bow / recovery",
+    "4": "full draw with one nocked arrow",
+    "5": "post-release empty bow"
+  },
+  "foot_anchor_registration": {
+    "method": "Uniform 0.90 nearest-neighbor affine transform about fixed foot pivot",
+    "pivot": [
+      208,
+      256
+    ],
+    "scale": 0.9,
+    "record": "../../../archer-battle-scale-v4-20261019/registration.json"
+  },
+  "qa_report": "../../../battle-appearance-v1-20261031/verification.json",
+  "art_review": "Uniform scale correction requested by user; pending device acceptance.",
+  "revision": "battle-appearance-v1-20261031",
+  "modified_by": "Codex",
+  "review_note": "身体重制为狙击手的中蓝／米白／深蓝配色，发型改为深蓝板寸；待机、满弓搭箭和松弦空弓三姿势同步。",
+  "effect_overrides": {
+    "5f107fe1afd7d2": "../../../archer-battle-light-armor-v3-20261019/deliverables/ally/flying-arrow.png"
+  },
+  "runtime_integrated": false,
+  "previous_revision": "archer-battle-scale-v4-20261019",
+  "art_mode": "ImageGen targeted edit, native registration and material normalization"
+}

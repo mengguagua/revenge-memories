@@ -1,0 +1,23 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "edit_target": "source/map-20261029/hunapu-advanced-original.png",
+  "prompt": "Use case: precise-object-edit. Edit target: the supplied transparent 1536x1024, 3-column by 2-row, six-frame physical sword-wind VFX sprite sheet. Recolor ONLY this ADVANCED version to make it immediately distinguishable from a basic muted gray-blue sword sweep on a snowy tactical-game map. Keep all six frames in exactly their original cells, preserve their silhouette, size, center anchors, facing RIGHT, pixel clusters, debris count, phase progression, clear gutters and alpha transparency. Do not redesign the shapes or add any new objects. New coherent multi-color palette: the main crescent and wake should be clearly CYAN / TEAL-BLUE (visible medium saturation, teal shadows and turquoise midtones), the narrow cutting rim should be SILVER-IVORY, the lower/shadow trailing streaks should use distinct LAVENDER / BLUE-VIOLET accents, and a very few existing fragments may get a muted pale bronze highlight. Make these color zones legible at a 100–150px effect display size; the crescent must no longer read as gray or desaturated white-blue overall. Use bounded crisp 16-bit pixel-art clusters, restrained soft glow, keep dark-slate debris. This remains a physical sword wind, not a new elemental spell: no fire, lightning, runes, magical circles, rainbow gradients, text, characters, UI, opaque backgrounds, extra particles or clipped contours. Maintain the original exact 1536x1024 canvas, six 512x512 cells, and genuinely transparent unused pixels. Palette change only; preserve the frame registration.",
+  "technical_extraction": {
+    "note": "按实测透明间隙分离底行帧，保留跨越名义512px边界的完整尾尖；不改绘图颜色或alpha。",
+    "registered_cell": [
+      640,
+      640
+    ],
+    "nominal_source_cell": [
+      512,
+      512
+    ],
+    "render_scale_compensation": 1.25,
+    "bottom_row_boundaries": [
+      0,
+      577,
+      1056,
+      1536
+    ]
+  }
+}

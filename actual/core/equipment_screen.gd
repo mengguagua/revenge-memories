@@ -129,7 +129,7 @@ func draw_members(r: Rect2) -> void:
 	text("%d至%d / %d"%[first+1,mini(first+page_size(),members.size()),members.size()],Rect2(r.position.x+40,184,r.size.x-80,12),MUTED)
 	for step in [-1,1]:
 		if (step<0 and first>0) or (step>0 and first+page_size()<members.size()):ui._draw_indicator("left" if step<0 else "right",page_rect(step).position+Vector2(4,2))
-	var back=back_rect();art.panel(back);text("X返回行囊 · Z查看",back.grow(-8))
+	var back=back_rect();art.panel(back);text("返回行囊" if ui.get_meta("phone",false) else "X返回行囊 · Z查看",back.grow(-8))
 
 func detail_lines(data: Dictionary,r: Rect2) -> Array:
 	var lines=[]

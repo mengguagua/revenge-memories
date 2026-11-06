@@ -1,0 +1,76 @@
+{
+  "id": "rm_prologue",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_prologue.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/opening.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_prologue.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_prologue_scene.wav",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is tail 6 seconds then head 6 seconds, with the loop join at 6 seconds; assess rhythmic/harmonic continuity and distracting loudness changes there. Audio 4 is the current game-gain offline mix with interface or combat effects. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: P00序章；H27回到广场；H30接回现在; desired mood: 表面庆典、逐渐显出的不安",
+  "max_tokens": 340,
+  "key": "54284e64957a766402b296d3",
+  "source_sha256": [
+    "f15921f913b40dde8bf629fb07aa6bee2a326e9e0ac8598a8c701ba8d70ab7fa",
+    "344cce790341669642511c212d3622c19a545ce87e4ede89d7cfdacea54b426d",
+    "f15921f913b40dde8bf629fb07aa6bee2a326e9e0ac8598a8c701ba8d70ab7fa",
+    "24a17c979d84a887a737a9d84624457a3a7183018b6ebc3715c1ed8dc1f87cc8"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/f15921f913b40dde8bf629fb07aa6bee2a326e9e0ac8598a8c701ba8d70ab7fa.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/344cce790341669642511c212d3622c19a545ce87e4ede89d7cfdacea54b426d.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/f15921f913b40dde8bf629fb07aa6bee2a326e9e0ac8598a8c701ba8d70ab7fa.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/24a17c979d84a887a737a9d84624457a3a7183018b6ebc3715c1ed8dc1f87cc8.wav"
+  ],
+  "audio_input_samples": [
+    698182,
+    240000,
+    192000,
+    80800
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "e77a08be1ce575223263787c43e274d6637f6ec5fe40b1a08cfedf9d36a98ba6",
+    "623d5fc7915fdae853c730031e8d7dea4b9e203331ac7c3760dc224275f90cc6",
+    "677551444f13e5c20dacdc032519930e7fa7d1d5b4b4ef27bbf4fdc16c4bf986",
+    "e97d7933fb88e6942c51835272dedc78b6590811678cd4a5b898e2001f6e7cd8"
+  ],
+  "response": "Audio 1 features a synthesized melody with a bright, chime-like timbre, reminiscent of early video game music. The energy is initially upbeat and celebratory, with a clear, looping structure. Melodically, it's simple and repetitive, creating a sense of innocence. However, the mood gradually shifts as the melody becomes slightly more dissonant and the rhythm feels subtly off-kilter, introducing an undercurrent of unease beneath the surface festivity. There are no vocals or speech. The audio quality is clean, with no noticeable defects.\n\nAudio 2 provides a reference with a clear, sparse, and retro texture, using simple waveforms.\n\nAudio 3 shows a loop with a clear join at the 6-second mark. The harmonic and rhythmic continuity is maintained, but the transition is abrupt, causing a distracting loudness change that could break immersion.\n\nAudio 4 contains the same melody but with added interface or combat effects. These effects are loud and prominent, potentially masking the music and obscuring essential feedback. It's uncertain if the music itself is being masked or vice versa.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 222,
+    "prompt_tokens": 1275,
+    "total_tokens": 1497,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1275,
+    "prompt_ms": 5564.251,
+    "prompt_per_token_ms": 4.36411843137255,
+    "prompt_per_second": 229.14135253783482,
+    "predicted_n": 222,
+    "predicted_ms": 3592.621,
+    "predicted_per_token_ms": 16.256203619909503,
+    "predicted_per_second": 61.51497750528096
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 9.371,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

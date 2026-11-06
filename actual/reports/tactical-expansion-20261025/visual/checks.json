@@ -1,0 +1,542 @@
+{
+  "background_guard": true,
+  "checks": [
+    "load display source res://reports/tactical-expansion-20261025/knockback-play/round1/M13-deployment.json",
+    "01-cover-menu: safe text and controls",
+    "02-cover-rules: safe text and controls",
+    "03-cover-confirm: safe text and controls",
+    "04-cover-active: safe text and controls",
+    "load display source res://reports/tactical-expansion-20261025/rescue-play/round1/F22-deployment.json",
+    "05-crate-intact: safe text and controls",
+    "crate offers demolition",
+    "06-crate-consequences: safe text and controls",
+    "07-crate-confirm: safe text and controls",
+    "08-crate-open: safe text and controls",
+    "load display source res://reports/tactical-expansion-20261025/play/J54-round1/J54-turn-4.json",
+    "actual turn-four checkpoint retains telegraph",
+    "09-final-warning: safe text and controls",
+    "load display source res://reports/tactical-expansion-20261025/knockback-play/round1/M33-deployment.json",
+    "10-knockback-preview: safe text and controls",
+    "attack preview includes displacement result",
+    "load display source res://reports/tactical-expansion-20261025/training/round1-early/191-entry.json",
+    "11-training-field: safe text and controls",
+    "load display source res://reports/tactical-expansion-20261025/training/round1-early/191-victory.json",
+    "12-training-result: safe text and controls",
+    "13-training-entry: safe text and controls",
+    "14-training-detail: safe text and controls"
+  ],
+  "errors": [],
+  "passed": true,
+  "scope": "Background-rendered phone-layout presentation fixtures and real play checkpoints. This is not an iPhone installation or device playtest.",
+  "shots": [
+    {
+      "audit": {
+        "enemy_range": [],
+        "tactical_warnings": []
+      },
+      "name": "01-cover-menu",
+      "path": "res://reports/tactical-expansion-20261025/visual/01-cover-menu.png",
+      "text": [
+        {
+          "bounds": "[P: (212.0, 128.0), S: (24.0, 12.0)]",
+          "text": "掩护"
+        },
+        {
+          "bounds": "[P: (200.0, 148.0), S: (48.0, 12.0)]",
+          "text": "交换装备"
+        },
+        {
+          "bounds": "[P: (212.0, 168.0), S: (24.0, 12.0)]",
+          "text": "待机"
+        },
+        {
+          "bounds": "[P: (200.0, 188.0), S: (48.0, 12.0)]",
+          "text": "战术说明"
+        }
+      ],
+      "view": "battle"
+    },
+    {
+      "audit": {
+        "enemy_range": [],
+        "tactical_warnings": []
+      },
+      "name": "02-cover-rules",
+      "path": "res://reports/tactical-expansion-20261025/visual/02-cover-rules.png",
+      "text": [
+        {
+          "bounds": "[P: (104.0, 156.0), S: (48.0, 12.0)]",
+          "text": "战场提示"
+        },
+        {
+          "bounds": "[P: (-34.0, 174.0), S: (312.0, 28.0)]",
+          "text": "掩护达恩：放弃本次攻击，保持邻接直到下次己方回合，为\n其分担首次命中伤害的一半。未命中不消耗掩护。"
+        }
+      ],
+      "view": "plot"
+    },
+    {
+      "audit": {
+        "enemy_range": [],
+        "tactical_warnings": []
+      },
+      "name": "03-cover-confirm",
+      "path": "res://reports/tactical-expansion-20261025/visual/03-cover-confirm.png",
+      "text": [
+        {
+          "bounds": "[P: (88.0, 108.0), S: (48.0, 12.0)]",
+          "text": "确认掩护"
+        },
+        {
+          "bounds": "[P: (100.0, 128.0), S: (24.0, 12.0)]",
+          "text": "返回"
+        }
+      ],
+      "view": "battle"
+    },
+    {
+      "audit": {
+        "enemy_range": [],
+        "tactical_warnings": []
+      },
+      "name": "04-cover-active",
+      "path": "res://reports/tactical-expansion-20261025/visual/04-cover-active.png",
+      "text": [
+        {
+          "bounds": "[P: (90.0, 70.0), S: (36.0, 12.0)]",
+          "text": "胡纳普"
+        },
+        {
+          "bounds": "[P: (90.0, 88.0), S: (48.0, 8.0)]",
+          "font_px": 8,
+          "text": "等级5 经验11"
+        },
+        {
+          "bounds": "[P: (90.0, 100.0), S: (36.0, 8.0)]",
+          "font_px": 8,
+          "text": "生命30/30"
+        },
+        {
+          "bounds": "[P: (90.0, 132.0), S: (32.0, 8.0)]",
+          "font_px": 8,
+          "text": "仅作地形"
+        },
+        {
+          "bounds": "[P: (90.0, 148.0), S: (84.0, 8.0)]",
+          "font_px": 8,
+          "text": "掩护达恩 · 待分担一次"
+        }
+      ],
+      "view": "battle"
+    },
+    {
+      "audit": {
+        "enemy_range": [],
+        "interaction_hint": {
+          "available": true,
+          "description": "清出西侧甲板的一格通路，敌我都能通过；囚舱仍须打开总闸，备用跳板仍须操作绞盘。",
+          "kind": "breakable",
+          "object_id": "F22_breakable_cargo",
+          "text": "可破坏 · 邻格行动"
+        },
+        "tactical_warnings": []
+      },
+      "name": "05-crate-intact",
+      "path": "res://reports/tactical-expansion-20261025/visual/05-crate-intact.png",
+      "text": [
+        {
+          "bounds": "[P: (112.0, 74.0), S: (32.0, 8.0)]",
+          "font_px": 8,
+          "text": "护送出口"
+        },
+        {
+          "bounds": "[P: (34.0, 154.0), S: (48.0, 12.0)]",
+          "text": "建筑障碍"
+        },
+        {
+          "bounds": "[P: (38.0, 170.0), S: (40.0, 12.0)]",
+          "text": "回避+0"
+        },
+        {
+          "bounds": "[P: (22.0, 186.0), S: (72.0, 12.0)]",
+          "text": "不能在此落脚"
+        },
+        {
+          "bounds": "[P: (2.0, 204.0), S: (112.0, 12.0)]",
+          "text": "可破坏 · 邻格行动"
+        }
+      ],
+      "view": "battle"
+    },
+    {
+      "audit": {
+        "enemy_range": [],
+        "tactical_warnings": []
+      },
+      "name": "06-crate-consequences",
+      "path": "res://reports/tactical-expansion-20261025/visual/06-crate-consequences.png",
+      "text": [
+        {
+          "bounds": "[P: (112.0, 74.0), S: (32.0, 8.0)]",
+          "font_px": 8,
+          "text": "护送出口"
+        },
+        {
+          "bounds": "[P: (104.0, 156.0), S: (48.0, 12.0)]",
+          "text": "战场提示"
+        },
+        {
+          "bounds": "[P: (-34.0, 174.0), S: (312.0, 44.0)]",
+          "text": "消耗本次行动破坏松动货箱。清出西侧甲板的一格通路，敌\n我都能通过；囚舱仍须打开总闸，备用跳板仍须操作绞盘。\n破坏不可在本场撤销。"
+        }
+      ],
+      "view": "plot"
+    },
+    {
+      "audit": {
+        "enemy_range": [],
+        "tactical_warnings": []
+      },
+      "name": "07-crate-confirm",
+      "path": "res://reports/tactical-expansion-20261025/visual/07-crate-confirm.png",
+      "text": [
+        {
+          "bounds": "[P: (112.0, 74.0), S: (32.0, 8.0)]",
+          "font_px": 8,
+          "text": "护送出口"
+        },
+        {
+          "bounds": "[P: (88.0, 108.0), S: (48.0, 12.0)]",
+          "text": "确认破坏"
+        },
+        {
+          "bounds": "[P: (100.0, 128.0), S: (24.0, 12.0)]",
+          "text": "返回"
+        }
+      ],
+      "view": "battle"
+    },
+    {
+      "audit": {
+        "enemy_range": [],
+        "interaction_hint": {
+          "available": false,
+          "description": "清出西侧甲板的一格通路，敌我都能通过；囚舱仍须打开总闸，备用跳板仍须操作绞盘。",
+          "kind": "breakable",
+          "object_id": "F22_breakable_cargo",
+          "text": "已破坏 · 敌我可通行"
+        },
+        "tactical_warnings": []
+      },
+      "name": "08-crate-open",
+      "path": "res://reports/tactical-expansion-20261025/visual/08-crate-open.png",
+      "text": [
+        {
+          "bounds": "[P: (112.0, 74.0), S: (32.0, 8.0)]",
+          "font_px": 8,
+          "text": "护送出口"
+        },
+        {
+          "bounds": "[P: (46.0, 154.0), S: (24.0, 12.0)]",
+          "text": "甲板"
+        },
+        {
+          "bounds": "[P: (38.0, 170.0), S: (40.0, 12.0)]",
+          "text": "回避+0"
+        },
+        {
+          "bounds": "[P: (18.0, 186.0), S: (80.0, 12.0)]",
+          "text": "艾琳移动消耗1"
+        },
+        {
+          "bounds": "[P: (-4.0, 204.0), S: (124.0, 12.0)]",
+          "text": "已破坏 · 敌我可通行"
+        }
+      ],
+      "view": "battle"
+    },
+    {
+      "audit": {
+        "enemy_range": [],
+        "tactical_warnings": [
+          {
+            "actor": "J54_boss",
+            "name": "聚光震荡",
+            "position": [
+              16.0,
+              17.0
+            ],
+            "text": "聚光震荡将在本回合敌方阶段攻击标记格；撤离可避开，掩护可分担。推动蓄力者可打断，准备期间累计造成18点实际伤害也可打断。"
+          },
+          {
+            "actor": "J54_boss",
+            "name": "聚光震荡",
+            "position": [
+              16.0,
+              16.0
+            ],
+            "text": "聚光震荡将在本回合敌方阶段攻击标记格；撤离可避开，掩护可分担。推动蓄力者可打断，准备期间累计造成18点实际伤害也可打断。"
+          }
+        ]
+      },
+      "name": "09-final-warning",
+      "path": "res://reports/tactical-expansion-20261025/visual/09-final-warning.png",
+      "text": [
+        {
+          "bounds": "[P: (60.0, 148.0), S: (24.0, 12.0)]",
+          "text": "希雅"
+        },
+        {
+          "bounds": "[P: (60.0, 166.0), S: (52.0, 8.0)]",
+          "font_px": 8,
+          "text": "等级15 经验27"
+        },
+        {
+          "bounds": "[P: (60.0, 178.0), S: (36.0, 8.0)]",
+          "font_px": 8,
+          "text": "生命26/26"
+        },
+        {
+          "bounds": "[P: (60.0, 210.0), S: (108.0, 8.0)]",
+          "font_px": 8,
+          "text": "聚光震荡 · 敌方阶段命中此格"
+        }
+      ],
+      "view": "battle"
+    },
+    {
+      "audit": {
+        "enemy_range": [],
+        "tactical_warnings": []
+      },
+      "name": "10-knockback-preview",
+      "path": "res://reports/tactical-expansion-20261025/visual/10-knockback-preview.png",
+      "text": [
+        {
+          "bounds": "[P: (-18.0, 146.0), S: (24.0, 12.0)]",
+          "font_px": 12,
+          "native_digits": true,
+          "text": "奥托"
+        },
+        {
+          "bounds": "[P: (-18.0, 160.0), S: (60.0, 12.0)]",
+          "font_px": 12,
+          "native_digits": true,
+          "text": "生命26/26"
+        },
+        {
+          "bounds": "[P: (-18.0, 174.0), S: (82.0, 12.0)]",
+          "font_px": 12,
+          "native_digits": true,
+          "text": "伤害1 命中87%"
+        },
+        {
+          "bounds": "[P: (-18.0, 188.0), S: (75.0, 12.0)]",
+          "font_px": 12,
+          "native_digits": true,
+          "text": "必杀2% 推1格"
+        },
+        {
+          "bounds": "[P: (94.0, 146.0), S: (48.0, 12.0)]",
+          "font_px": 12,
+          "native_digits": true,
+          "text": "石堡堡主"
+        },
+        {
+          "bounds": "[P: (94.0, 160.0), S: (60.0, 12.0)]",
+          "font_px": 12,
+          "native_digits": true,
+          "text": "生命32/32"
+        },
+        {
+          "bounds": "[P: (94.0, 174.0), S: (82.0, 12.0)]",
+          "font_px": 12,
+          "native_digits": true,
+          "text": "伤害5 命中95%"
+        },
+        {
+          "bounds": "[P: (94.0, 188.0), S: (40.0, 12.0)]",
+          "font_px": 12,
+          "native_digits": true,
+          "text": "必杀0%"
+        }
+      ],
+      "view": "battle"
+    },
+    {
+      "audit": {
+        "enemy_range": [
+          "(2, 10)",
+          "(2, 8)",
+          "(1, 9)",
+          "(3, 9)",
+          "(1, 11)",
+          "(2, 12)",
+          "(2, 7)",
+          "(1, 8)",
+          "(3, 8)",
+          "(4, 9)",
+          "(1, 12)",
+          "(3, 12)",
+          "(2, 13)",
+          "(1, 7)",
+          "(3, 7)",
+          "(4, 8)",
+          "(5, 9)",
+          "(1, 13)",
+          "(4, 12)",
+          "(3, 13)",
+          "(2, 14)"
+        ],
+        "tactical_warnings": []
+      },
+      "name": "11-training-field",
+      "path": "res://reports/tactical-expansion-20261025/visual/11-training-field.png",
+      "text": [
+        {
+          "bounds": "[P: (28.0, 110.0), S: (32.0, 8.0)]",
+          "font_px": 8,
+          "text": "演习据点"
+        },
+        {
+          "bounds": "[P: (86.0, 78.0), S: (48.0, 12.0)]",
+          "text": "对练士兵"
+        },
+        {
+          "bounds": "[P: (86.0, 96.0), S: (20.0, 8.0)]",
+          "font_px": 8,
+          "text": "等级1"
+        },
+        {
+          "bounds": "[P: (86.0, 108.0), S: (36.0, 8.0)]",
+          "font_px": 8,
+          "text": "生命18/18"
+        },
+        {
+          "bounds": "[P: (86.0, 140.0), S: (68.0, 8.0)]",
+          "font_px": 8,
+          "text": "可占领 · 格上行动"
+        }
+      ],
+      "view": "battle"
+    },
+    {
+      "audit": {
+        "enemy_range": [],
+        "tactical_warnings": []
+      },
+      "name": "12-training-result",
+      "path": "res://reports/tactical-expansion-20261025/visual/12-training-result.png",
+      "text": [
+        {
+          "bounds": "[P: (28.0, 110.0), S: (32.0, 8.0)]",
+          "font_px": 8,
+          "text": "演习据点"
+        },
+        {
+          "bounds": "[P: (104.0, 54.0), S: (48.0, 12.0)]",
+          "text": "演习完成"
+        },
+        {
+          "bounds": "[P: (66.0, 86.0), S: (124.0, 12.0)]",
+          "text": "所有参训者获得60经验"
+        },
+        {
+          "bounds": "[P: (80.0, 102.0), S: (96.0, 12.0)]",
+          "text": "本次倒地不留伤势"
+        },
+        {
+          "bounds": "[P: (82.0, 118.0), S: (92.0, 12.0)]",
+          "text": "剩余1次成功演习"
+        },
+        {
+          "bounds": "[P: (92.0, 190.0), S: (72.0, 12.0)]",
+          "text": "确认返回营地"
+        }
+      ],
+      "view": "victory"
+    },
+    {
+      "audit": {
+        "enemy_range": [],
+        "tactical_warnings": []
+      },
+      "name": "13-training-entry",
+      "path": "res://reports/tactical-expansion-20261025/visual/13-training-entry.png",
+      "text": [
+        {
+          "bounds": "[P: (98.0, 176.0), S: (60.0, 12.0)]",
+          "text": "南岗押送所"
+        },
+        {
+          "bounds": "[P: (78.0, 194.0), S: (100.0, 12.0)]",
+          "text": "第一章 · 西大陆"
+        },
+        {
+          "bounds": "[P: (58.0, 207.0), S: (140.0, 12.0)]",
+          "text": "确认:地点与道路 S:整备"
+        },
+        {
+          "bounds": "[P: (60.0, 64.0), S: (136.0, 12.0)]",
+          "text": "部队状态 · 3/4可出阵"
+        },
+        {
+          "bounds": "[P: (104.0, 84.0), S: (48.0, 12.0)]",
+          "text": "交换装备"
+        },
+        {
+          "bounds": "[P: (104.0, 104.0), S: (48.0, 12.0)]",
+          "text": "装备行囊"
+        },
+        {
+          "bounds": "[P: (104.0, 124.0), S: (48.0, 12.0)]",
+          "text": "装备说明"
+        },
+        {
+          "bounds": "[P: (104.0, 144.0), S: (48.0, 12.0)]",
+          "text": "调整顺序"
+        },
+        {
+          "bounds": "[P: (104.0, 164.0), S: (48.0, 12.0)]",
+          "text": "保存进度"
+        },
+        {
+          "bounds": "[P: (68.0, 184.0), S: (120.0, 12.0)]",
+          "text": "战术补练 · 剩余1次"
+        }
+      ],
+      "view": "world"
+    },
+    {
+      "audit": {
+        "enemy_range": [],
+        "tactical_warnings": []
+      },
+      "name": "14-training-detail",
+      "path": "res://reports/tactical-expansion-20261025/visual/14-training-detail.png",
+      "text": [
+        {
+          "bounds": "[P: (98.0, 176.0), S: (60.0, 12.0)]",
+          "text": "南岗押送所"
+        },
+        {
+          "bounds": "[P: (78.0, 194.0), S: (100.0, 12.0)]",
+          "text": "第一章 · 西大陆"
+        },
+        {
+          "bounds": "[P: (58.0, 207.0), S: (140.0, 12.0)]",
+          "text": "确认:地点与道路 S:整备"
+        },
+        {
+          "bounds": "[P: (104.0, 156.0), S: (48.0, 12.0)]",
+          "text": "战场提示"
+        },
+        {
+          "bounds": "[P: (-34.0, 174.0), S: (312.0, 44.0)]",
+          "text": "守住演习据点，连续坚持3个敌方阶段；也可击败全部对练\n者。本章本队剩余1次；成功后每位参训者获得60经验。对\n练无永久伤亡；失败或退出不获经验、不消耗次数。"
+        }
+      ],
+      "view": "plot"
+    }
+  ]
+}

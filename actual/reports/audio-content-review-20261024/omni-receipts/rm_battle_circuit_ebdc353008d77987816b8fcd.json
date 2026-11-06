@@ -1,0 +1,76 @@
+{
+  "id": "rm_battle_circuit",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_circuit.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/music_76.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_circuit.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_battle_circuit_scene.wav",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is tail 6 seconds then head 6 seconds, with the loop join at 6 seconds; assess rhythmic/harmonic continuity and distracting loudness changes there. Audio 4 is the current game-gain offline mix with interface or combat effects. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: F42/F43/F44/S41/S42; desired mood: 记录、古道、地方循环验证",
+  "max_tokens": 340,
+  "key": "ebdc353008d77987816b8fcd",
+  "source_sha256": [
+    "bd7c5633f50b1fe2dc88e0d38c5d846c541c0e87eca0cfef8c08df3633b7648f",
+    "7f628eb5024e7a1f0db7114d30412be1a75294cda9dddea0efe33bdb31a537de",
+    "bd7c5633f50b1fe2dc88e0d38c5d846c541c0e87eca0cfef8c08df3633b7648f",
+    "8b33be32ee8040a1ffe7b70f86b321193c68eaa03b0ed10a2fc932ca5e7e8735"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/bd7c5633f50b1fe2dc88e0d38c5d846c541c0e87eca0cfef8c08df3633b7648f.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/7f628eb5024e7a1f0db7114d30412be1a75294cda9dddea0efe33bdb31a537de.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/bd7c5633f50b1fe2dc88e0d38c5d846c541c0e87eca0cfef8c08df3633b7648f.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/8b33be32ee8040a1ffe7b70f86b321193c68eaa03b0ed10a2fc932ca5e7e8735.wav"
+  ],
+  "audio_input_samples": [
+    487620,
+    240000,
+    192000,
+    55120
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "0687869161b4c6c2ec48987393fb2f87ca7b3f858a104e8e7e58a458211d28c4",
+    "dd4c6f60cc9540737c2388e8671df0411400a92c7201e26ed7a988580cb75895",
+    "437732581c69586c9d98c034dcd08def4104b7cdb14685fd325c6296743f79b2",
+    "847d5bcc78728dd0d26ba527ab5fdf2a6e91b88a96222329f07b95269311ff14"
+  ],
+  "response": "Audio 1 features a synthesized chiptune melody with a clear, bright timbre. The music has a moderate, steady tempo and a looping structure, creating a calm, nostalgic, and slightly melancholic mood. The melodic development is simple and repetitive, suitable for background use in a non-action context. There are no vocals or speech. The audio is clean, with no noticeable defects.\n\nAudio 2 is a short, sparse retro chiptune piece, serving as a reference for the original game’s texture. It is clear and uncluttered, with no melodic copying required.\n\nAudio 3 shows a seamless loop between its head and tail; the harmonic and rhythmic continuity is maintained, with no distracting loudness changes at the join.\n\nAudio 4 includes a chiptune melody layered with a sharp, high-frequency static burst and a short electronic beep. The static effect is loud and abrupt, partially masking the music. The music, in turn, may obscure the beep, which could be an essential interface or combat cue. This interaction risks reducing feedback clarity. The exact timing and balance of these elements are uncertain.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 229,
+    "prompt_tokens": 1077,
+    "total_tokens": 1306,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 1049,
+    "prompt_ms": 3773.276,
+    "prompt_per_token_ms": 3.5970219256434697,
+    "prompt_per_second": 278.0077577150466,
+    "predicted_n": 229,
+    "predicted_ms": 3948.386,
+    "predicted_per_token_ms": 17.31748245614035,
+    "predicted_per_second": 57.74511407952516
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 9.35,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

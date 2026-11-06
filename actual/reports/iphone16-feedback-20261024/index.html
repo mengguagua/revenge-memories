@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>iPhone 16反馈 · 9项修订</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#14212a;color:#e8e5d9;font:16px/1.75 system-ui,sans-serif}main{max-width:1320px;margin:auto;padding:28px}h1{line-height:1.35;font-size:28px}h2{font-size:21px;margin:0 0 10px}p{color:#c0cfce}a{color:#bcdcca}article,section{padding:22px;background:#20313a;border-radius:14px;margin:22px 0;box-shadow:0 4px 18px #0002}img{display:block;max-width:100%;height:auto;image-rendering:pixelated;border-radius:8px}audio{width:100%}.facts{font-size:14px;color:#b0c2c2}:focus-visible{outline:none;box-shadow:0 0 0 4px #8bafa766}@media(max-width:680px){main{padding:16px}article,section{padding:16px}h1{font-size:24px}}
+</style>
+<main>
+<h1>iPhone 16反馈 · 9项修订</h1>
+<p>第6项已有后续完整修改：<a href="../clinic-medicine-20261024/index.html">诊所岗位、新版运输员、交接和主动邀请</a>。下方赫维画面保留初版记录。</p>
+<p>本地代码与iPhone 16尺寸后台验证；未安装、更新或访问iPhone。使用独立临时记录与受控关卡摆位，以下画面不是新增真机截图。</p>
+<p><a href="README.md">9项修改依据（Markdown）</a> · <a href="visual-checks.json">代表性检查</a> · <a href="visual-delta-checks.json">增量检查</a> · <a href="audio-routing.json">交锋音乐检查</a></p>
+<section><h2>走路 → 交锋切曲 → 返回地图</h2><p>真实Godot混音输出：地图配乐下5次脚步，进入约164 BPM交锋版本，再从原位置续播地图曲。Dummy驱动录音，未通过扬声器播放；不是人耳验收。</p><audio controls preload="none" src="map-walk-duel-return.wav"></audio><p class="facts">单独脚步音，保留实际资源电平：</p><audio controls preload="none" src="map-step.wav"></audio><p><a href="native-audio-events.json">调用顺序</a> · <a href="native-audio-metrics.json">音频指标</a></p></section>
+<article><h2>有有效记录，默认选中继续</h2><p>空记录或只有损坏记录时仍默认开始；已有有效记录时选中继续，不自动读取或覆盖。</p><img src="01-title-continue.png" alt="标题页默认选中继续游戏，四个等大的方向键已放大" loading="lazy"></article>
+<article><h2>九项战场菜单整页显示</h2><p>手机行高缩为20逻辑像素，短行动菜单随内容缩小；普通战场菜单无需翻页。上下选择与点击都保留。</p><img src="02-compact-menu.png" alt="紧凑战场菜单完整显示九项操作" loading="lazy"></article>
+<article><h2>蓝色移动区、绿色攻击外圈与建筑提示</h2><p>绿色按实际可落脚位置、装备、可用攻击法术与生命消耗计算。建筑提示区分可访问、已访问和仅作地形；门前被角色占据时仍能在角色卡看到提示。</p><img src="03-move-attack-visit.png" alt="蓝绿范围与可访问门前行动提示" loading="lazy"></article>
+<article><h2>赫维新版形象与送药规则说明</h2><p>修复入队前中立标记导致的旧图回退。赫维驻留等药，药车自动护送、敌近暂停，属于送药支线现有规则；清路后可正常抵达诊所。</p><img src="04-hervi-new-art-guidance.png" alt="棕袍新版术法师赫维，角色卡提示驻留等药战后可同行" loading="lazy"></article>
+</main><script>document.addEventListener('play',e=>{if(e.target.tagName==='AUDIO')document.querySelectorAll('audio').forEach(a=>{if(a!==e.target)a.pause()})},true)</script></html>

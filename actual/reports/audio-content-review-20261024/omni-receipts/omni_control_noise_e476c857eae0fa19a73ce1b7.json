@@ -1,0 +1,52 @@
+{
+  "id": "omni_control_noise",
+  "kind": "control",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-content-review-20261024/calibration/noise.wav"
+    }
+  ],
+  "prompt": "Describe only the sound actually audible. If silent, say silent. Under 50 words.",
+  "max_tokens": 100,
+  "key": "e476c857eae0fa19a73ce1b7",
+  "source_sha256": [
+    "54c0e77e1875a1af5dcd00574ffef0b10a017c5998ee9eb742f894dab4578320"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "audio_input_samples": [
+    32000
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "d5cfbf8656809d411eb4622305bb30f82f3531079f78aae56319a0c111e6f158"
+  ],
+  "response": "A loud, sustained, high-pitched electronic tone. The sound is constant and unwavering throughout the audio clip.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 25,
+    "prompt_tokens": 92,
+    "total_tokens": 117,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 64,
+    "prompt_ms": 598.402,
+    "prompt_per_token_ms": 9.35003125,
+    "prompt_per_second": 106.95151419948462,
+    "predicted_n": 25,
+    "predicted_ms": 531.988,
+    "predicted_per_token_ms": 22.16616666666667,
+    "predicted_per_second": 45.11379955938855
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 1.137,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/54c0e77e1875a1af5dcd00574ffef0b10a017c5998ee9eb742f894dab4578320.wav"
+  ]
+}

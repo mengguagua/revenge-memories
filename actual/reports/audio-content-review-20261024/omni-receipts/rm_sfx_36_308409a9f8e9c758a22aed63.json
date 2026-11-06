@@ -1,0 +1,54 @@
+{
+  "id": "rm_sfx_36",
+  "kind": "final_scene_mix",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_sfx_36_new_context.wav"
+    }
+  ],
+  "asset_sha256": "dd3ea91cedd16a81bb4ec9e183a5a2351d717748c9297b9f0fb63424dda75b3a",
+  "fixture_sha256": "8af13239dd48562b824ae9591fcc91be6bec3f23c26f5ddd001b4f84fde78bf2",
+  "prompt": "This is a final offline scene mix using the actual game gains and native event sequence. Describe only audible evidence. Check whether essential feedback attacks are clear, any intrusive click/distortion or excessive rumbling tail, and whether music continuity is distracted by the effects. Effects need not be as loud as music; a naturally masked quiet tail is not a failure. Report uncertainty and avoid inventing instruments/events. Under 90 words. Fixture context: 兼容备用：未检出当前调用，不增加猜测的游戏触发",
+  "max_tokens": 170,
+  "key": "308409a9f8e9c758a22aed63",
+  "source_sha256": [
+    "8af13239dd48562b824ae9591fcc91be6bec3f23c26f5ddd001b4f84fde78bf2"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/8af13239dd48562b824ae9591fcc91be6bec3f23c26f5ddd001b4f84fde78bf2.wav"
+  ],
+  "audio_input_samples": [
+    128000
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "63f698717ba989043578fb96b06f39f905f6f8f78988a7ac0dab0ae4f2e0730d"
+  ],
+  "response": "The audio consists of a rapid, rhythmic series of sharp, percussive clicks, likely representing a digital or mechanical event. The clicks are clear and distinct, with no audible distortion or intrusive artifacts. There is no music or ambient sound present. The sequence ends abruptly, with no lingering rumble or tail. The feedback attacks are well-defined and consistent. No additional instruments or events are audible. The overall sound is clean and focused, with no evidence of masking or distraction.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 97,
+    "prompt_tokens": 256,
+    "total_tokens": 353,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 228,
+    "prompt_ms": 714.717,
+    "prompt_per_token_ms": 3.134723684210526,
+    "prompt_per_second": 319.0073833419382,
+    "predicted_n": 97,
+    "predicted_ms": 1490.275,
+    "predicted_per_token_ms": 15.523697916666668,
+    "predicted_per_second": 64.41764103940548
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 2.23,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

@@ -6,6 +6,18 @@
   let active = null, profile = null, tick = 0, playing = false, speed = 1, close = false;
   let last = null, accumulated = 0, selection = 0;
   let mapGround = true;
+  let soundEnabled = false;
+  const soundCache = new Map();
+  function soundAt(frame) {
+    if (!soundEnabled) return;
+    for (const event of active?.soundEvents || []) {
+      if (event.tick !== frame) continue;
+      if (!soundCache.has(event.path)) soundCache.set(event.path, new Audio(event.path));
+      const audio=soundCache.get(event.path);audio.pause();audio.currentTime=0;audio.volume=event.volume??.45;
+      audio.play().catch(()=>{});
+    }
+  }
+  function stopSounds(){for(const audio of soundCache.values())audio.pause();}
   const contexts = [$('original').getContext('2d'), $('redrawn').getContext('2d')];
   const option = (value, name) => { const el = document.createElement('option'); el.value = value; el.textContent = name; return el; };
   function loadImage(path) {
@@ -18,7 +30,7 @@
   }
   const imageFor = path => cache.get(path)?.image || null;
   const frameCount = () => active.frames.length + (active.reviewTailFrames?.length || 0);
-  function setPlaying(value) { playing = value; last = null; accumulated = 0; $('play').textContent = playing ? '暂停' : '播放'; }
+  function setPlaying(value) { playing = value; last = null; accumulated = 0; $('play').textContent = playing ? '暂停' : '播放'; if(value)soundAt(tick);else stopSounds(); }
   function viewport(row) {
     if (close && active.context==='battle') {
       const camera=active.closeCamera;
@@ -40,9 +52,15 @@
     const width = Math.round(view[2] * scale), height = Math.round(view[3] * scale);
     if (ctx.canvas.width !== width || ctx.canvas.height !== height) { ctx.canvas.width=width; ctx.canvas.height=height; }
     ctx.clearRect(0,0,width,height); ctx.save(); ctx.scale(scale,scale); ctx.translate(-view[0],-view[1]);
-    const ground=mapGround && !bodyOnly && profile.mapGround ? imageFor(profile.mapGround) : null;
+    const groundPath=active.reviewGround||profile.mapGround;
+    const ground=mapGround && !bodyOnly && groundPath ? imageFor(groundPath) : null;
     if(ground) blit(ctx,ground,[0,0,ground.width,ground.height],[view[0],view[1]],[view[2],view[3]],false);
-    const f = (!revised && bodyOnly ? profile.reviewFrameSources?.[String(row.frame)] : undefined) ?? row.frame;
+    if(!bodyOnly)for(const target of active.reviewCompanions||[]){
+      const im=imageFor(target.path);if(!im)continue;
+      const at=[target.origin[0]-target.anchor[0]+(row.companionShake||0),target.origin[1]-target.anchor[1]];
+      blit(ctx,im,[0,0,im.width,im.height],at,target.size,!!target.flip,1,row.companionTint??1);
+    }
+    const f = (!revised ? (active.referenceFrame ?? (bodyOnly ? profile.reviewFrameSources?.[String(row.frame)] : undefined)) : undefined) ?? row.frame;
     const flip = (profile.context==='battle'&&profile.side==='enemy') !== !!row.flip;
     const at = [active.origin[0]+(row.offset?.[0]||0)-profile.anchor[0]+(row.shake||0), active.origin[1]+(row.offset?.[1]||0)-profile.anchor[1]];
     if (flip && f < profile.sourceOamCutoff) { at[0] += profile.flipOriginOffset[0]; at[1] += profile.flipOriginOffset[1]; }
@@ -51,18 +69,25 @@
       if(im) blit(ctx,im,[0,0,im.width,im.height],[active.origin[0]+(row.offset?.[0]||0)+delta[0]-s.size[0]/2,active.origin[1]+(row.offset?.[1]||0)+delta[1]-s.size[1]/2],s.size,false,s.alpha??1);
     }
     const sw=profile.sourceFrameSize[0], sh=profile.sourceFrameSize[1];
+    const paintEffects = layer => {
+      if (bodyOnly) return;
+      for (const effect of row.effects || []) {
+        if ((effect.layer || 'front') !== layer) continue;
+        const info=(revised && profile.revisedEffects?.[effect.sprite]) || data.effects[effect.sprite]; if(!info) continue;
+        const size=effect.size||info.frame_size;
+        const eAt=[effect.position[0]-info.anchor[0]*size[0]/info.frame_size[0],effect.position[1]-info.anchor[1]*size[1]/info.frame_size[1]];
+        if(effect.flip) {eAt[0]+=(info.flip_origin_offset?.[0]||0);eAt[1]+=(info.flip_origin_offset?.[1]||0);}
+        const im=imageFor(info.path); if(im) blit(ctx,im,[0,0,im.width,im.height],eAt,size,!!effect.flip,effect.alpha??1,effect.tint??1);
+      }
+    };
+    paintEffects('back');
     if (revised) {
       const im=imageFor(profile.newFrames[String(f)]);
       if(im) blit(ctx, im, [0,0,im.width,im.height], at,[sw,sh],flip,row.alpha ?? 1,row.tint ?? 1);
     } else {
       blit(ctx,imageFor(profile.sourceAtlas),[(f%profile.sourceColumns)*sw,Math.floor(f/profile.sourceColumns)*sh,sw,sh],at,[sw,sh],flip,row.alpha ?? 1,row.tint ?? 1);
     }
-    if(!bodyOnly) for(const effect of row.effects || []) {
-      const info=(revised && profile.revisedEffects?.[effect.sprite]) || data.effects[effect.sprite]; if(!info) continue;
-      const eAt=[effect.position[0]-info.anchor[0],effect.position[1]-info.anchor[1]];
-      if(effect.flip) {eAt[0]+=(info.flip_origin_offset?.[0]||0);eAt[1]+=(info.flip_origin_offset?.[1]||0);}
-      const im=imageFor(info.path); if(im) blit(ctx,im,[0,0,im.width,im.height],eAt,info.frame_size,!!effect.flip);
-    }
+    paintEffects('front');
     ctx.restore();
   }
   function draw() {
@@ -72,7 +97,7 @@
     drawRow(contexts[0],row,false,view); drawRow(contexts[1],revised,true,view);
     $('scrub').value=String(tick);
     $('time-info').textContent=`第 ${tick+1} / ${frameCount()} 帧 · 源姿势 ${row.frame} · ${(tick/active.fps).toFixed(3)} / ${active.duration.toFixed(3)} 秒${tick>=active.frames.length?' · 原作结束，新稿'+(active.reviewTailLabel||'光点收尾'):''}`;
-    $('contact-info').textContent=active.key==='idle-pose' ? '剧情形象 · 静止展示' : active.contactTick === null ? (active.context==='battle'?'反应演示 · 不新增效果':'地图步态 · 原节奏') : `${tick===active.contactTick?'结算时刻 · ':''}结算：第 ${active.contactTick+1} 帧`;
+    $('contact-info').textContent=active.disappearTick!==undefined ? `原地爆炸：第 ${active.disappearTick+1} 帧` : active.reviewGround && active.contactTick===null ? '本回合无治疗特效' : active.key==='idle-pose' ? '剧情形象 · 静止展示' : active.contactTick === null ? (active.timelineLabel || (active.context==='battle'?'反应演示 · 不新增效果':'地图步态 · 原节奏')) : `${tick===active.contactTick?'结算时刻 · ':''}结算：第 ${active.contactTick+1} 帧`;
   }
   function seek(value) { if(!active)return; tick=Math.max(0,Math.min(frameCount()-1,value)); accumulated=0; draw(); }
   function links() {
@@ -97,8 +122,9 @@
       const old=document.createElement('canvas'),redraw=document.createElement('canvas');pair.append(old,redraw);
       const labels=document.createElement('div');labels.className='pose-labels';labels.innerHTML='<span>原作</span><span>四倍重绘</span>';
       labels.firstElementChild.textContent=active.referenceLabel||'原作';
+      labels.lastElementChild.textContent=active.newLabel||'四倍重绘';
       card.append(title,pair,labels);$('poses').append(card);
-      const row={frame:f,offset:[0,0],flip:false,effects:[]};
+      const row={frame:f,offset:[0,0],flip:profile.revision?.startsWith('puppet-trio-v')&&profile.context==='battle',effects:[]};
       const v=[active.origin[0]-profile.anchor[0],active.origin[1]-profile.anchor[1],...profile.sourceFrameSize];
       drawRow(old.getContext('2d'),row,false,v,true);drawRow(redraw.getContext('2d'),row,true,v,true);
     }
@@ -114,19 +140,25 @@
   async function chooseAction(id) {
     const token=++selection;setPlaying(false);active=data.actions.find(a=>a.id===id);if(!active)return;
     profile=data.profiles.find(p=>p.id===active.profile);tick=0;
-    $('map-ground').hidden=!profile.mapGround;
-    $('map-ground').setAttribute('aria-pressed',String(mapGround && !!profile.mapGround));
+    if($('review-sound'))$('review-sound').hidden=!(active.soundEvents?.length);
+    if(active.reviewGround)mapGround=true;
+    const groundPath=active.reviewGround||profile.mapGround;
+    $('map-ground').hidden=!groundPath;
+    $('map-ground').setAttribute('aria-pressed',String(mapGround && !!groundPath));
     $('scrub').max=String(frameCount()-1);$('source-size').textContent=profile.sourceFrameSize.join(' × ')+' 像素';
     $('source-label').textContent=active.referenceLabel||'原作';
-    $('ready-state').textContent=active.ready?'素材齐备 · 待验收':active.sourceReviewPending?'参考来源复核中':`尚缺 ${active.missingFrames.length} 个源姿势`;
+    if($('new-label'))$('new-label').textContent=active.newLabel||'四倍像素重绘';
+    const accepted=profile.mappingStatus?.startsWith('user_accepted');
+    $('ready-state').textContent=active.ready?(accepted?'素材齐备 · 已确认':'素材齐备 · 待验收'):active.sourceReviewPending?'参考来源复核中':`尚缺 ${active.missingFrames.length} 个源姿势`;
     $('ready-state').className=active.ready?'status-ready':'status-pending';
     $('action-note').textContent=active.notes+' '+(active.ready||active.sourceReviewPending?'':'缺失姿势：'+active.missingFrames.join('、')+'。');
     $('new-missing').hidden=false;$('new-missing').querySelector('strong').textContent=active.ready?'正在载入素材':active.sourceReviewPending?'参考来源复核中':'本动作素材未齐';
     $('new-missing').querySelector('span').textContent=active.ready?'':active.sourceReviewPending?'正在核对原战术移动的动作表与图块银行，旧素材保留待重审。':`尚缺源姿势 ${active.missingFrames.join('、')}；不回退使用旧图。`;
     catalog();links();draw();
     const paths=[profile.sourceAtlas,...active.neededFrames.map(f=>profile.newFrames[String(f)]).filter(Boolean),...active.effectIds.map(id=>data.effects[id]?.path).filter(Boolean),...active.effectIds.map(id=>profile.revisedEffects?.[id]?.path).filter(Boolean)];
-    if(profile.mapGround) paths.push(profile.mapGround);
+    if(groundPath) paths.push(groundPath);
     if(profile.mapShadow) paths.push(profile.mapShadow.path);
+    for(const target of active.reviewCompanions||[])paths.push(target.path);
     await Promise.all(paths.map(loadImage));if(token!==selection)return;
     const runtimeMissing=active.neededFrames.filter(f=>!imageFor(profile.newFrames[String(f)]));
     const effectMissing=active.effectIds.filter(id=>!imageFor(data.effects[id]?.path) || (profile.revisedEffects?.[id] && !imageFor(profile.revisedEffects[id].path)));
@@ -154,6 +186,7 @@
   $('stats').innerHTML=`<span><strong>${data.summary.profiles}</strong> 个场景配置</span><span><strong>${data.summary.ready} / ${data.summary.actions}</strong> 个动作素材齐备</span><span><strong>${data.summary.pending}</strong> 个动作待补帧／复核</span><span>源节奏 <strong>60.0988 fps</strong></span>`;
   $('policy').textContent=data.policy;
   $('play').onclick=()=>setPlaying(!playing);$('previous').onclick=()=>{setPlaying(false);seek(tick-1);};$('next').onclick=()=>{setPlaying(false);seek(tick+1);};$('restart').onclick=()=>{setPlaying(false);seek(0);};$('scrub').oninput=event=>{setPlaying(false);seek(Number(event.target.value));};
+  if($('review-sound'))$('review-sound').onclick=()=>{soundEnabled=!soundEnabled;$('review-sound').setAttribute('aria-pressed',String(soundEnabled));$('review-sound').textContent=soundEnabled?'音效：开':'音效：关';if(!soundEnabled)stopSounds();};
   function setSpeed(value){speed=value;for(const [id,n] of [['normal-speed',1],['half-speed',.5],['quarter-speed',.25]])$(id).setAttribute('aria-pressed',String(n===value));}
   $('normal-speed').onclick=()=>setSpeed(1);$('half-speed').onclick=()=>setSpeed(.5);$('quarter-speed').onclick=()=>setSpeed(.25);
   function setView(value){close=value;$('scene').setAttribute('aria-pressed',String(!value));$('close').setAttribute('aria-pressed',String(value));draw();}
@@ -164,10 +197,11 @@
   $('map-ground').onclick=()=>{mapGround=true;$('map-ground').setAttribute('aria-pressed','true');$('dark').setAttribute('aria-pressed','false');$('light').setAttribute('aria-pressed','false');draw();};
   document.addEventListener('keydown',event=>{if(event.target.matches('input,button,textarea,select')||event.altKey||event.ctrlKey||event.metaKey)return;if(event.code==='Space'){event.preventDefault();setPlaying(!playing);}if(event.code==='ArrowLeft'||event.code==='ArrowRight'){event.preventDefault();setPlaying(false);seek(tick+(event.code==='ArrowRight'?1:-1));}});
   document.addEventListener('visibilitychange',()=>{last=null;});
-  function animate(now){if(playing&&active){if(last!==null){accumulated+=(now-last)/1000*active.fps*speed;const steps=Math.floor(accumulated);if(steps){accumulated-=steps;tick=(tick+steps)%frameCount();draw();}}last=now;}requestAnimationFrame(animate);}
+  function animate(now){if(playing&&active){if(last!==null){accumulated+=(now-last)/1000*active.fps*speed;const steps=Math.floor(accumulated);if(steps){accumulated-=steps;for(let i=0;i<Math.min(steps,frameCount());i++){tick=(tick+1)%frameCount();soundAt(tick);}if(steps>frameCount())tick=(tick+steps-frameCount())%frameCount();draw();}}last=now;}requestAnimationFrame(animate);}
   const requestedId=new URLSearchParams(location.search).get('action')||document.body.dataset.defaultAction;
   const requested=data.actions.find(a=>a.id===requestedId);
   const requestedProfile=data.profiles.find(p=>p.id===requested?.profile);
   if(actorList.length){const actor=requestedProfile?.actor||actorList[0][0];$('actor').value=actor;chooseActor(actor,requestedProfile?.id,requested?.id);}requestAnimationFrame(animate);
-  window.motionReview={seek:value=>{setPlaying(false);seek(value);},play:()=>setPlaying(true),pause:()=>setPlaying(false),setSpeed,setLight,select:chooseAction,getState:()=>({action:active?.id,tick,playing,speed,ready:active?.ready})};
+  function selectReview(id){const a=data.actions.find(a=>a.id===id),p=data.profiles.find(p=>p.id===a?.profile);if(!p)return;$('actor').value=p.actor;chooseActor(p.actor,p.id,id);}
+  window.motionReview={seek:value=>{setPlaying(false);seek(value);},play:()=>setPlaying(true),pause:()=>setPlaying(false),setSpeed,setLight,select:selectReview,getState:()=>({action:active?.id,tick,playing,speed,ready:active?.ready})};
 })();

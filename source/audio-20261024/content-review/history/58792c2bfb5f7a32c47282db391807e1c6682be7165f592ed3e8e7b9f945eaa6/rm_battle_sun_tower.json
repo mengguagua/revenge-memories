@@ -1,0 +1,69 @@
+{
+  "id": "rm_battle_sun_tower",
+  "path": "source/audio-20261024/content-review/candidates/rm_battle_sun_tower.ogg",
+  "source_path": "source/audio-20261024/content-review/raw/rm_battle_sun_tower_2026102814_float.wav",
+  "master_path": "source/audio-20261024/content-review/masters/rm_battle_sun_tower_v3_float.wav",
+  "sha256": "58792c2bfb5f7a32c47282db391807e1c6682be7165f592ed3e8e7b9f945eaa6",
+  "bytes": 308109,
+  "source": {
+    "track_id": "rm_battle_sun_tower",
+    "seed": 2026102814,
+    "model": "local Stable Audio 3 sm-music/same-s",
+    "method": "owned-guide audio-conditioned generation",
+    "guide": {
+      "path": "source/audio-20261024/content-review/guides/rm_battle_sun_tower.wav",
+      "sha256": "c31d6f9ccb27016b01600d5618414e47daeba7f6ea39698808e2d765716f6342",
+      "period_seconds": 28.235283446712018,
+      "period_frames": 1245176
+    },
+    "prompt": "TrackType: Music, VocalType: Instrumental. Original early-console 8-bit fantasy tactics soundtrack. Strict sparse four-channel chiptune: two warm pulse-wave melody and harmony voices, one rounded triangle bass voice, and quiet band-limited noise percussion. Dry direct electronic tone, clear monophonic lines, memorable NEW melody. Straight rhythm, no swing, no jazz, no reggae. No acoustic instruments, no piano, no guitar, no flute, no orchestral pad, no realistic drum kit, no voice or choir. 136 BPM. A stern minor-key battle march for a conflicted confrontation with former comrades. Serious and restrained but clearly urgent. Repeating complete eight-bar phrases, A A B A form, stable accompaniment, no introduction or fadeout.",
+    "seconds": 28.555283446712018,
+    "cfg": 2.0,
+    "steps": 8,
+    "dit_dtype": "fp32",
+    "sha256": "0f0b1552cbdbfde29cdf4c70f6c6c30159a02ffb9a823419bbc1ac635918cde5",
+    "source_format": "FLOAT WAV",
+    "offline": true,
+    "generation_wall_seconds": 3.372,
+    "raw_peak": 0.7890009880065918,
+    "raw_rms": 0.20990484952926636,
+    "post_guide": {
+      "path": "source/audio-20261024/content-review/guides/rm_battle_sun_tower_v3.wav",
+      "sha256": "df0ac7494ae701baa28a3c0f469989f0cfa7a3e45c0fe954951edd1ff96b0242",
+      "reason": "leading-tone pickup resolves into loop tonic"
+    }
+  },
+  "editing": {
+    "method": "new sixteen-bar four-voice composition with local model texture and circular phase wrap",
+    "guide_mix": 0.85,
+    "model_mix": 0.15,
+    "bars": 16,
+    "guide_bpm": 136,
+    "period_frames": 1245176,
+    "period_seconds": 28.235283446712018,
+    "loop_offset_seconds": 0.0,
+    "model_wrap_seconds": 0.2
+  },
+  "gain_db": -4.289999999999999,
+  "target_integrated_lufs": -20,
+  "metrics": {
+    "seconds": 28.235283446712018,
+    "rms_dbfs": -22.609217335373653,
+    "sample_peak_dbfs": -9.661900171269481,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "interior_silence_longest_seconds": 0.0,
+    "silent_frame_fraction": 0.0,
+    "rms_10ms_p10_dbfs": -25.589172948411218,
+    "rms_10ms_p90_dbfs": -21.28162828771679,
+    "seam_max_sample_delta": 0.005491175688803196,
+    "derivative_p99": 0.03211924806237221,
+    "seam_delta_over_derivative_p99": 0.170962149491791,
+    "integrated_lufs": -19.97,
+    "true_peak_dbtp": -9.67,
+    "loudness_range_lu": 0.4
+  },
+  "errors": [],
+  "review_decision": "rejected",
+  "review_reason": "No clear comparative advantage; retain published V2."
+}

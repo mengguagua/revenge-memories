@@ -1,0 +1,52 @@
+{
+  "id": "omni_control_sine_440",
+  "kind": "control",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-content-review-20261024/calibration/sine_440.wav"
+    }
+  ],
+  "prompt": "Describe only the sound actually audible. If silent, say silent. Under 50 words.",
+  "max_tokens": 100,
+  "key": "68b1aa15d787b053acd90ef0",
+  "source_sha256": [
+    "834e892a30c7b076d6fbab716ef3a1e6f3862c280a588d3fefd1407c45b8e4ec"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "audio_input_samples": [
+    32000
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "35cd11ac37bfe6edab0eccdaad3b69035e79b7ad72538b02f785d5ae53f0786a"
+  ],
+  "response": "A single, sustained, high-pitched electronic tone. The sound is pure and unwavering, with no discernible background noise or variation in pitch or volume.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 34,
+    "prompt_tokens": 92,
+    "total_tokens": 126,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 64,
+    "prompt_ms": 527.207,
+    "prompt_per_token_ms": 8.237609375,
+    "prompt_per_second": 121.39444279002366,
+    "predicted_n": 34,
+    "predicted_ms": 657.633,
+    "predicted_per_token_ms": 19.928272727272727,
+    "predicted_per_second": 50.179963596717315
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 1.191,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/834e892a30c7b076d6fbab716ef3a1e6f3862c280a588d3fefd1407c45b8e4ec.wav"
+  ]
+}

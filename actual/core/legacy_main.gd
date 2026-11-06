@@ -1,9 +1,12 @@
 extends Control
 ## Native five-chapter campaign flow. Art/sound are decoded originals; gameplay is GDScript.
 const GameState = preload("res://core/game_state.gd")
+const CampaignArt=preload("res://core/campaign_art.gd")
 const OriginalAudio = preload("res://core/original_audio.gd")
 const Rules = preload("res://core/combat_rules.gd")
 const Items = preload("res://core/item_rules.gd")
+const TacticalRanges = preload("res://core/tactical_ranges.gd")
+const StatusStats = preload("res://core/equipment_comparison.gd")
 const Inventory = preload("res://core/battle_inventory.gd")
 const Progression = preload("res://core/unit_progression.gd")
 const TILE := 16
@@ -33,6 +36,14 @@ var cursors: Dictionary
 var health_ui: Dictionary
 var world: Dictionary
 var textures: Dictionary = {}
+# Keep the active working set, but do not retain every high-resolution battle
+# atlas visited over a five-chapter session. This is an RGBA upper estimate;
+# recently used resources may temporarily exceed the soft budget.
+const TEXTURE_CACHE_BUDGET := 128 * 1024 * 1024
+const TEXTURE_CACHE_IDLE_SECONDS := 3.0
+var texture_last_used: Dictionary = {}
+var texture_cache_clock := 0.0
+var texture_cache_check_left := 1.0
 var view: String = "title"
 var ui_mode: String = "inspect"
 var elapsed := 0.0
@@ -104,15 +115,17 @@ var moving_direction := Vector2i.DOWN
 var moving_frame := 0
 var enemy_range_key := ""
 var enemy_range_cells: Array = []
+var player_range_key := ""
+var player_range_cells: Dictionary = {}
 var presentation_audit: Dictionary = {}
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	get_window().title = "火焰之纹章 外传 · 原生复刻 0.6"
-	graphics = GameState.read_json("res://data/legacy/graphics.json")
+	get_window().title = "复仇与回忆"
+	graphics = CampaignArt.graphics()
 	chinese_font = GameState.read_json("res://data/legacy/font_zh.json")
-	cursors = GameState.read_json("res://data/legacy/cursors.json")
-	health_ui = GameState.read_json("res://data/legacy/health_ui.json")
+	cursors = GameState.read_json("res://data/campaign_cursors.json")
+	health_ui = GameState.read_json("res://data/campaign_health.json")
 	world = GameState.read_json("res://data/legacy/world_map.json")
 	if not game.catalog.is_empty():
 		world.nodes = game.catalog.world_nodes
@@ -123,12 +136,20 @@ func _ready() -> void:
 	add_child(audio)
 	hub_controller = load("res://core/story_hub.gd").new(self)
 	battle_animation = load("res://core/battle_animation.gd").new(self)
+	# Warm only the small indexes before input starts; the first actual attack
+	# then reads its own program instead of parsing metadata during presentation.
+	battle_animation._source_metadata()
 	map_effects = load("res://core/map_effects.gd").new(self)
 	audio.play_music("title")
 	set_process_input(true)
 	queue_redraw()
 
 func _process(delta: float) -> void:
+	texture_cache_clock += delta
+	texture_cache_check_left -= delta
+	if texture_cache_check_left <= 0.0:
+		texture_cache_check_left = 1.0
+		_trim_texture_cache()
 	if view != "combat":
 		touch_fast_forward = false
 		combat_wait_accumulated = 0.0
@@ -217,11 +238,11 @@ func _input(event: InputEvent) -> void:
 			_mouse_accept(event.position)
 
 func _direction(direction: Vector2i) -> void:
-	if _status_open():
+	if _status_open() and menu_items.is_empty():
 		if direction.x != 0: _cycle_status(direction.x)
 		return
 	if view in ["loot", "loot_confirm"]:
-		menu_selected = posmod(menu_selected + (direction.x if direction.x != 0 else direction.y), menu_items.size())
+		_move_menu_selection(direction.x if direction.x != 0 else direction.y)
 		return
 	if view.begins_with("hub"):
 		hub_controller.direction(direction)
@@ -229,8 +250,7 @@ func _direction(direction: Vector2i) -> void:
 	if busy or batch_running:
 		return
 	if not menu_items.is_empty():
-		menu_selected = posmod(menu_selected + (direction.x if direction.x != 0 else direction.y), menu_items.size())
-		menu_scroll = clampi(menu_scroll, maxi(0, menu_selected - 9), menu_selected)
+		_move_menu_selection(direction.x if direction.x != 0 else direction.y)
 		audio.play_sfx("menu_move")
 		return
 	if view == "title":
@@ -724,8 +744,8 @@ func _open_system_menu() -> void:
 	if view == "battle":
 		if ui_mode in ["move", "target", "action", "support_target", "warp"]:
 			return
-		_open_menu("system", ["结束回合", "自动进攻", "集合队伍", "人物状态", "保存进度"],
-			["end_turn", "assault", "gather", "roster", "save"], Vector2(8, 72))
+		_open_menu("system", ["结束回合", "自动进攻", "敌军速览", "人物状态", "保存进度"],
+			["end_turn", "assault", "enemy_roster", "roster", "save"], Vector2(8, 72))
 		if Inventory.can_retreat(game):
 			menu_items.append("撤退")
 			menu_actions.append("retreat")
@@ -801,6 +821,14 @@ func _menu_action(action: String, _context: String) -> void:
 		"end_turn": _enemy_phase()
 		"assault": _auto_player(false)
 		"gather": _auto_player(true)
+		"enemy_roster":
+			var enemies=_enemy_status_members()
+			if enemies.is_empty():
+				ui_mode="inspect";_notice("当前没有存活敌军")
+				return
+			var hovered=str(game.unit_at(game.cursor).get("id",""))
+			status_id=hovered if enemies.has(hovered) else str(enemies[0])
+			ui_mode="status";game.cursor=GameState.pos(game.find_unit(status_id));_focus_battle(game.cursor,true)
 		"roster":
 			if view == "village":
 				status_id = game.party[0]
@@ -852,9 +880,13 @@ func _status_open() -> bool:
 	return view in ["camp_status", "village_status"] or (view == "battle" and ui_mode == "status")
 
 func _status_members() -> Array:
-	# An enemy/NPC inspection never exposes the other army or switches sides.
+	if view=="battle" and game.find_unit(status_id).get("side","")=="enemy":return _enemy_status_members()
+	# NPC inspection never exposes a player army or switches sides.
 	if view == "battle" and not game.party.has(status_id): return []
 	return game.party.filter(func(id): return game.roster.has(id) and (view != "battle" or not game.find_unit(str(id)).is_empty()))
+
+func _enemy_status_members() -> Array:
+	return game.living("enemy").filter(func(u):return not u.get("hidden",false) and not u.get("dead",false)).map(func(u):return str(u.id))
 
 func _status_unit(id: String) -> Dictionary:
 	return game.find_unit(id) if view == "battle" else game.roster.get(id, {})
@@ -862,8 +894,9 @@ func _status_unit(id: String) -> Dictionary:
 func _cycle_status(step: int) -> void:
 	if busy or batch_running or not menu_items.is_empty(): return
 	var members = _status_members()
-	if members.size() < 2: return
-	status_id = str(members[posmod(members.find(status_id) + step, members.size())])
+	if members.is_empty() or (members.size()==1 and str(members[0])==status_id):return
+	var index=members.find(status_id)
+	status_id=str(members[(0 if step>=0 else members.size()-1) if index<0 else posmod(index+step,members.size())])
 	if view == "battle":
 		game.cursor = GameState.pos(_status_unit(status_id))
 		_focus_battle(game.cursor, true)
@@ -1000,7 +1033,7 @@ func _camp_action(action: String) -> void:
 func _choose_spell(id: int) -> void:
 	var caster = game.find_unit(game.selected_id)
 	if int(caster.hp) <= Items.cost_for(caster,id):
-		_notice("生命不足以施放")
+		_notice("施放"+str(Items.spell(id).name_zh)+"需生命高于"+str(Items.cost_for(caster,id)))
 		_unit_action_menu()
 		return
 	chosen_spell = id
@@ -1016,7 +1049,10 @@ func _choose_spell(id: int) -> void:
 		target_ids = game.targets(caster).map(func(unit): return str(unit.id))
 		ui_mode = "target"
 	if target_ids.is_empty():
-		_notice("范围内没有合适目标")
+		if Items.is_support(id):_notice("范围内没有合适的受伤友军或可传送友军")
+		else:
+			var reach=Rules.attack_range(caster)
+			_notice(str(Items.spell(id).name_zh)+"范围内没有敌人\n射程%d～%d格，距离按横向+纵向计算"%[reach.x,reach.y])
 		_unit_action_menu()
 		return
 	target_index = 0
@@ -1040,12 +1076,22 @@ func _play_support(caster_id: String, spell_id: int, target_id: String = "", des
 		await _map_spell_feedback(caster, result)
 		ui_mode = "inspect"
 		busy = false
+		if _support_experience_feedback(result):return
 		_finish_turn_action()
 		return
 	if target_id.is_empty():
 		var allies = game.living(str(caster.side)).filter(func(unit): return str(unit.id) != caster_id)
 		target_id = str(allies[0].id) if not allies.is_empty() else caster_id
 	var target = game.find_unit(target_id)
+	# Every actually healed ally gets its own HP feedback, including Fortify.
+	# Gameplay HP/cost/EXP were already committed by use_support; only animate
+	# their receipt here, never apply the heal again at contact.
+	var healing = str(result.action) in ["recover", "physic", "fortify"]
+	var recipients: Array = []
+	if healing:
+		for change in result.changed:
+			if int(change.after)>int(change.before):recipients.append(change)
+	if recipients.is_empty():recipients.append({"id":target_id,"before":int(previous.get(target_id,target.hp)),"after":int(target.hp)})
 	combat = {"attacker": caster_id, "defender": target_id, "distance": 1, "initiative_side": caster.side, "support": true}
 	combat_poses.clear()
 	combat_offsets.clear()
@@ -1059,15 +1105,33 @@ func _play_support(caster_id: String, spell_id: int, target_id: String = "", des
 	battle_animation.reset()
 	view = "combat"
 	audio.play_combat(caster, target, false, true, game.stage_id == 62)
-	await battle_animation.play({"attacker": caster_id, "defender": target_id, "weapon_index": spell_id, "visual_only": true,
-		"hit": true, "critical": false, "damage": 0, "hp_before": int(previous.get(target_id, target.hp)), "hp_after": int(target.hp),
-		"source_hp_before": int(previous[caster_id]), "source_hp_after": int(caster.hp), "hp_cost": Items.cost(spell_id)})
+	var source_after = int(result.get("source_hp_after_support",caster.hp))
+	for i in range(recipients.size()):
+		var change: Dictionary = recipients[i]
+		target_id = str(change.id)
+		target = game.find_unit(target_id)
+		combat.defender = target_id
+		combat.healed_amount = maxi(0,int(change.after)-int(change.before)) if healing else 0
+		combat_hp[target_id] = int(change.before)
+		combat_poses[target_id] = int(_battle_sprite(target).sequences.idle[0])
+		combat_offsets[target_id] = Vector2.ZERO
+		combat_fades[target_id] = 1.0
+		battle_animation.reset()
+		await battle_animation.play({"attacker": caster_id, "defender": target_id, "weapon_index": spell_id, "visual_only": true,
+			"hit": true, "critical": false, "damage": 0, "hp_before": int(change.before), "hp_after": int(change.after),
+			"source_hp_before": int(previous[caster_id]) if i==0 else source_after, "source_hp_after": source_after,
+			"hp_cost": maxi(0,int(previous[caster_id])-source_after) if i==0 else 0})
 	view = "battle"
 	ui_mode = "inspect"
 	busy = false
 	_play_phase_music()
 	game.save_game()
+	if _support_experience_feedback(result):return
 	_finish_turn_action()
+
+func _support_experience_feedback(_result: Dictionary) -> bool:
+	# Campaign UI overrides this; the original white-magic rules remain intact.
+	return false
 
 func _next_source_dialogue() -> void:
 	if dialogue_pages.is_empty():
@@ -1176,7 +1240,7 @@ func _draw_ending() -> void:
 	_center_text("确认继续", Rect2(24, 204, 208, 16))
 
 func _show_help() -> void:
-	_notice("Z确认 X返回 S菜单\nTab状态 左右切换队员\nQ/E定位未行动友军", 4.0)
+	_notice("点击确认、返回、菜单\n状态页左右切换队员\n切换我方定位未行动队员" if get_meta("phone",false) else "Z确认 X返回 S菜单\nTab状态 左右切换队员\nQ/E定位未行动友军", 4.0)
 
 func _notice(text: String, seconds: float = 2.0) -> void:
 	notice = text
@@ -1191,6 +1255,7 @@ func _animate_move(unit: Dictionary, path: Array, open_action: bool = false) -> 
 		var to = Vector2(path[i]) * TILE
 		moving_direction = path[i] - path[i - 1]
 		var native_ticks=int(_map_unit_sprite(unit).get("native_move_ticks",4))
+		if not instant_mode:audio.play_map_step(unit)
 		for tick in range(native_ticks):
 			moving_frame = (int(elapsed*60.0988)>>4)&1 if native_ticks==16 else tick / 2
 			moving_position = from.lerp(to, float(tick + 1) / float(native_ticks))
@@ -1204,8 +1269,8 @@ func _animate_move(unit: Dictionary, path: Array, open_action: bool = false) -> 
 	if open_action:
 		_unit_action_menu()
 
-func _play_combat(attacker_id: String, defender_id: String) -> void:
-	var exchange = game.plan_combat(attacker_id, defender_id)
+func _play_combat(attacker_id: String, defender_id: String,target_part:String="") -> void:
+	var exchange = game.plan_combat(attacker_id, defender_id,target_part)
 	if exchange.is_empty():
 		return
 	busy = true
@@ -1260,40 +1325,64 @@ func _animate_ranged_strike(event: Dictionary, _sprite: Dictionary) -> void:
 
 func _contact(event: Dictionary) -> void:
 	var target_id = str(event.defender)
-	if not bool(event.get("visual_only", false)):
+	if not bool(event.get("visual_only", false)) and not bool(event.get("feedback_only",false)):
 		game.commit_strike(event)
+	if battle_animation!=null and battle_animation.cinema!=null and battle_animation.cinema.accepts_contact(event):
+		battle_animation.cinema.on_contact(event)
+		queue_redraw()
+		return
 	if bool(event.get("visual_only", false)):
-		combat_message = str(Items.spell(int(event.get("weapon_index", 40))).get("name_zh", ""))
+		var recovered = maxi(0,int(event.hp_after)-int(event.hp_before))
+		combat_message = "恢复 +%d" % recovered if recovered>0 else str(Items.spell(int(event.get("weapon_index", 40))).get("name_zh", ""))
+		for hp in range(int(event.hp_before)+1,int(event.hp_after)+1):
+			combat_hp[target_id] = hp
+			audio.play_sfx("hp_tick")
+			queue_redraw()
+			await _wait(0.05)
 		combat_hp[target_id] = int(event.hp_after)
+		queue_redraw()
 		await _wait(0.3)
 		return
 	if not bool(event.hit):
 		combat_message = "未命中"
 		audio.play_sfx("miss")
-		await _wait(0.45)
+		if not await battle_animation.reaction(target_id,"miss"):await _wait(0.45)
 		return
 	var recoil = int(event.get("self_damage", 0)) > 0
 	var feedback_id = str(event.attacker) if recoil else target_id
 	var feedback_before = int(event.source_hp_before) - int(event.get("hp_cost", 0)) if recoil else int(event.hp_before)
 	var feedback_after = int(event.source_hp_after) if recoil else int(event.hp_after)
+	var part_hit=not recoil and not str(event.get("target_part","")).is_empty()
+	if part_hit:
+		feedback_before=int(event.part_hp_before);feedback_after=int(event.part_hp_after)
+		if feedback_before>0 and feedback_after==0:await battle_animation.reaction(feedback_id,"part_break")
 	combat_message = "反噬" if recoil else ("必杀" if bool(event.critical) else "")
+	if part_hit:combat_message=game.Mechanical.part_name(game.find_unit(target_id),true)+("破坏" if feedback_after==0 else "受损")
+	elif event.get("reflection_feedback",false):combat_message="反伤2HP"
+	elif event.get("water_slow_applied",false):combat_message="速度－1"
 	combat_hit_id = feedback_id
 	combat_hit_time = 0.5
-	audio.play_sfx("hit")
+	# Source L059C18/L059C69 uses 0x43 for both misses and zero damage.
+	# Recoil compares the actor's actual HP change, not the untouched target.
+	audio.play_sfx("hit" if feedback_after < feedback_before else "miss")
 	# Original PPU horizontal-scroll hit feedback, one step per NTSC frame.
-	for displacement in [3, 1, 2, 1, 3, 1, 2, 4, 2, 1, 0]:
-		combat_shake = float(displacement)
-		await _wait(1.0 / 60.0988)
+	if not await battle_animation.reaction(feedback_id,"hit"):
+		for displacement in [3, 1, 2, 1, 3, 1, 2, 4, 2, 1, 0]:
+			combat_shake = float(displacement)
+			await _wait(1.0 / 60.0988)
 	combat_shake = 0.0
 	for hp in range(feedback_before - 1, feedback_after - 1, -1):
-		combat_hp[feedback_id] = hp
+		if not part_hit:combat_hp[feedback_id] = hp
 		audio.play_sfx("hp_tick")
 		await _wait(1.0 / 60.0988)
 	await _wait(16.0 / 60.0988)
-	if feedback_after == 0:
-		for step in range(4):
-			combat_fades[feedback_id] = 1.0 - float(step + 1) / 4.0
-			await _wait(8.0 / 60.0988)
+	# Reflected casualties are presented after their own HP feedback below.
+	if int(event.get("reflection_damage",0))==0 and has_method("_play_casualty_messages"):await call("_play_casualty_messages")
+	if feedback_after == 0 and not part_hit:
+		if not await battle_animation.reaction(feedback_id,"exit"):
+			for step in range(4):
+				combat_fades[feedback_id] = 1.0 - float(step + 1) / 4.0
+				await _wait(8.0 / 60.0988)
 		if game.find_unit(feedback_id).side == "player" and feedback_id not in ["alm", "celica"]:
 			audio.play_jingle("unit_death")
 
@@ -1371,9 +1460,9 @@ func _run_ai_unit(unit: Dictionary, gather: bool = false) -> void:
 		if int(action.get("spell_id", -1)) >= 0: unit.weapon_index = int(action.spell_id)
 		else: unit.erase("weapon_index")
 		await _play_combat(str(unit.id), str(action.target))
-		if view == "reward":
+		if view == "reward" and not result_sequence_running:
 			await _wait_for_reward()
-			view = "battle"
+			if not result_sequence_running:view = "battle"
 	else:
 		game.mark_wait(str(unit.id))
 	busy = true
@@ -1469,6 +1558,9 @@ func _map_spell_feedback(caster: Dictionary, result: Dictionary) -> void:
 		for change in result.get("changed", []):
 			var unit = game.find_unit(str(change.id))
 			await map_effects.play_program(map_effects.summon_program(unit, true), unit)
+	elif kind == "battlefield_release":
+		for change in result.get("changed", []):
+			if int(change.before)!=int(change.after):await map_effects.play_program(9,game.find_unit(str(change.id)))
 	elif kind == "quake":
 		await map_effects.flash("quake")
 		for change in result.get("changed", []):
@@ -1507,9 +1599,30 @@ func _battle_sprite(unit: Dictionary) -> Dictionary:
 	return battle_animation.sprite(unit)
 
 func _tex(path: String) -> Texture2D:
+	if path.begins_with("res://assets/original/") or battle_animation.CampaignEffects.excluded(path):
+		push_error("Blocked source-game texture: "+path)
+		path=str(graphics.panel.path)
 	if not textures.has(path):
 		textures[path] = load(path)
+	texture_last_used[path] = texture_cache_clock
 	return textures[path]
+
+func _trim_texture_cache() -> void:
+	var bytes := 0
+	var stale: Array = []
+	for path in textures:
+		var texture = textures[path] as Texture2D
+		if texture == null:continue
+		bytes += texture.get_width() * texture.get_height() * 4
+		# Derived rest-pose textures are regenerated from their source if needed.
+		var used = float(texture_last_used.get(path, texture_cache_clock))
+		if texture_cache_clock - used >= TEXTURE_CACHE_IDLE_SECONDS:
+			stale.append([path, used, texture.get_width() * texture.get_height() * 4])
+	if bytes <= TEXTURE_CACHE_BUDGET:return
+	stale.sort_custom(func(a, b):return float(a[1]) < float(b[1]))
+	for entry in stale:
+		textures.erase(entry[0]);texture_last_used.erase(entry[0]);bytes -= int(entry[2])
+		if bytes <= TEXTURE_CACHE_BUDGET:break
 
 func _draw() -> void:
 	if graphics.is_empty():
@@ -1566,19 +1679,22 @@ func _canvas_offset() -> Vector2:
 	return Vector2.ZERO
 
 func _panel(rect: Rect2) -> void:
-	var image = _tex(graphics.panel.path)
-	var positions_x = [rect.position.x, rect.position.x + 8, rect.end.x - 8]
-	var positions_y = [rect.position.y, rect.position.y + 8, rect.end.y - 8]
-	var widths = [8.0, rect.size.x - 16, 8.0]
-	var heights = [8.0, rect.size.y - 16, 8.0]
+	var image=_tex(graphics.panel.path)
+	var dx=[rect.position.x,rect.position.x+8,rect.end.x-8]
+	var dy=[rect.position.y,rect.position.y+8,rect.end.y-8]
+	var dw=[8,rect.size.x-16,8];var dh=[8,rect.size.y-16,8]
+	var sx=[0,image.get_width()/2,image.get_width()-8]
+	var sy=[0,image.get_height()/2,image.get_height()-8]
 	for y in range(3):
 		for x in range(3):
-			draw_texture_rect_region(image, Rect2(positions_x[x], positions_y[y], widths[x], heights[y]), Rect2(x * 8, y * 8, 8, 8))
+			draw_texture_rect_region(image,Rect2(dx[x],dy[y],dw[x],dh[y]),Rect2(sx[x],sy[y],1 if x==1 else 8,1 if y==1 else 8))
 	safe_panels.append(rect.grow(-10))
 
 func _glyph(code: int, at: Vector2, color: Color = Color.WHITE) -> void:
-	var source = Rect2((code % 16) * 8, (code / 16) * 8, 8, 8)
-	draw_texture_rect_region(_tex(graphics.font.path), Rect2(at.round(), Vector2(8, 8)), source, color)
+	var character=String.chr(code+0xfee0) if code>=33 and code<=126 else String.chr(code)
+	var glyph:Dictionary=graphics.font.glyphs.get(character,graphics.font.glyphs["？"])
+	var r:Array=glyph.rect
+	draw_texture_rect_region(_tex(graphics.font.path),Rect2(at.round(),Vector2(8,8)),Rect2(r[0],r[1],r[2],r[3]),color)
 
 func _zh_glyph(character: String) -> Dictionary:
 	# The original Japanese atlas has no ASCII arithmetic signs. Reuse the
@@ -1678,7 +1794,7 @@ func _draw_title() -> void:
 	draw_texture(_tex(graphics.title.path), Vector2.ZERO)
 	# Localize the original logo area while retaining the source sword art.
 	draw_rect(Rect2(52, 110, 158, 20), Color.BLACK)
-	_center_text("火焰之纹章 外传", Rect2(32, 106, 192, 28), Color(0.7, 0.85, 1.0), false)
+	_center_text("复仇与回忆", Rect2(32, 106, 192, 28), Color(0.7, 0.85, 1.0), false)
 	if title_menu:
 		var rect = Rect2(56, 180, 144, 56)
 		_panel(rect)
@@ -1725,7 +1841,7 @@ func _draw_village() -> void:
 		_sync_village_position()
 	camera_x = roundf(clampf(village_render_position.x - 120.0, 0.0, 128.0))
 	var origin = Vector2(-camera_x, 0)
-	var atlas = _tex("res://assets/original/graphics/maps/buildings.png")
+	var atlas = _tex(str(graphics.compat_atlas))
 	_draw_map(game.opening.village, atlas, origin)
 	for object in game.opening.village.objects:
 		_draw_map(object.map, atlas, origin + Vector2(object.x, object.y) * TILE)
@@ -1767,7 +1883,10 @@ func _draw_frame(sprite: Dictionary, frame: int, at: Vector2, flip: bool = false
 		# Godot makes a negative width positive and sets FLIP_H at this origin.
 		# Adding the frame width here shifts every enemy sprite out of place.
 		destination.size.x = -size.x
-	draw_texture_rect_region(_tex(sprite.path), destination, Rect2(frame * source_size.x, 0, source_size.x, source_size.y), color)
+	# Legacy descriptors without columns are horizontal strips.
+	var columns=int(sprite.get("columns",maxi(1,frame+1)))
+	var source_at=Vector2((frame%columns)*source_size.x,floori(float(frame)/columns)*source_size.y)
+	draw_texture_rect_region(_tex(sprite.path), destination, Rect2(source_at,source_size), color)
 
 func _draw_dialogue() -> void:
 	if dialogue_pages.is_empty():
@@ -1808,7 +1927,7 @@ func _draw_world() -> void:
 	camera.x = clampf(camera.x, 0, int(world.width) * TILE - 256)
 	camera.y = clampf(camera.y, 0, int(world.height) * TILE - 240)
 	var origin = -camera.round()
-	_draw_map(world, _tex("res://assets/original/graphics/maps/worldtiles.png"), origin)
+	_draw_map(world, _tex(str(graphics.compat_atlas)), origin)
 	for node_id in game.world_armies:
 		var enemy_node: Dictionary = world.nodes.get(str(node_id), {})
 		if enemy_node.is_empty() or not int(node_id) in game.allowed_world_nodes(): continue
@@ -1819,12 +1938,12 @@ func _draw_world() -> void:
 	var leader_sprite: Dictionary = graphics.village_sprites["2" if game.route == "celica" else "1"]
 	var leader_at = cell * TILE + origin
 	_draw_frame(leader_sprite, int(leader_sprite.directions.up[0]), leader_at - Vector2(leader_sprite.tile_origin[0], leader_sprite.tile_origin[1]))
-	_draw_indicator("down", leader_at + Vector2(4, -8))
+	_draw_map_indicator("down", leader_at + Vector2(4, -8))
 	for neighbor in game.world_neighbors():
 		var point: Array = world.nodes[str(neighbor)].position
 		var delta = Vector2(point[0], point[1]) - cell
 		var direction = ("right" if delta.x > 0 else "left") if absf(delta.x) > absf(delta.y) else ("down" if delta.y > 0 else "up")
-		_draw_indicator(direction, leader_at + delta.normalized() * 22 + Vector2(4, 4))
+		_draw_map_indicator(direction, leader_at + delta.normalized() * 22 + Vector2(4, 4))
 	_panel(Rect2(16, 160, 224, 72))
 	_center_text(str(node.name_zh), Rect2(28, 170, 200, 16))
 	_center_text("阿尔姆军" if game.route == "alm" else "赛莉卡军", Rect2(28, 188, 200, 16))
@@ -1856,8 +1975,9 @@ func _focus_battle(cell: Vector2i, force: bool = false) -> void:
 	battle_camera.y = roundf(clampf(battle_camera.y, 0, maxf(0, maximum.y)))
 
 func _draw_battle() -> void:
+	presentation_audit.erase("player_movement");presentation_audit.erase("player_attack");presentation_audit.erase("interaction_hint")
 	draw_set_transform(_canvas_offset()+map_offset)
-	_draw_map(game.battle_data.map, _tex("res://assets/original/graphics/maps/tileset.png"), -battle_camera)
+	_draw_map(game.battle_data.map, _tex(str(graphics.compat_atlas)), -battle_camera)
 	presentation_audit.enemy_range = []
 	if view == "battle" and ui_mode == "inspect" and menu_items.is_empty() and not busy and not batch_running and phase_time <= 0.0:
 		var hovered = game.unit_at(game.cursor)
@@ -1867,12 +1987,21 @@ func _draw_battle() -> void:
 				draw_rect(Rect2(_battle_cell_screen(cell), Vector2(16, 16)), Color(0.92, 0.17, 0.17, 0.32))
 			presentation_audit.enemy_range = cells
 	if ui_mode == "move" and game.selected_id != "":
-		var graph = game.reachable(game.find_unit(game.selected_id))
-		for cell in graph.costs:
-			if game.can_stop(game.find_unit(game.selected_id), cell):
-				draw_rect(Rect2(_battle_cell_screen(cell), Vector2(16, 16)), Color(0.2, 0.35, 1.0, 0.3))
+		var ranges = _player_movement_and_attack_cells(game.find_unit(game.selected_id))
+		for cell in ranges.attack:
+			draw_rect(Rect2(_battle_cell_screen(cell), Vector2(16,16)),Color(.18,.85,.40,.30))
+		for cell in ranges.movement:
+			draw_rect(Rect2(_battle_cell_screen(cell), Vector2(16,16)),Color(.2,.35,1.0,.30))
+		presentation_audit.player_movement=ranges.movement
+		presentation_audit.player_attack=ranges.attack
+	if has_method("_draw_tactical_marks"):call("_draw_tactical_marks")
+	if has_method("_draw_map_skill_ranges"):call("_draw_map_skill_ranges")
 	for unit in game.units:
 		if int(unit.hp) <= 0 or bool(unit.get("hidden", false)):
+			continue
+		if str(unit.id)=="medicine_wagon":
+			var wagon_at=moving_position-battle_camera if moving_id==str(unit.id) else _battle_cell_screen(GameState.pos(unit))
+			_draw_medicine_transport(unit,wagon_at)
 			continue
 		if unit.has("sprite_path"):
 			var object_at=moving_position-battle_camera if moving_id==str(unit.id) else _battle_cell_screen(GameState.pos(unit))
@@ -1880,10 +2009,6 @@ func _draw_battle() -> void:
 			var object_offset=Vector2((object_texture.get_width()-16)/2,object_texture.get_height()-16)
 			if unit.has("sprite_offset"):object_offset=-Vector2(unit.sprite_offset[0],unit.sprite_offset[1])
 			draw_texture(object_texture,object_at-object_offset)
-			continue
-		if str(unit.id)=="medicine_wagon":
-			var wagon_at=moving_position-battle_camera if moving_id==str(unit.id) else _battle_cell_screen(GameState.pos(unit))
-			draw_texture(_tex("res://assets/battle_tiles/modules/medicine_wagon.png"),wagon_at-Vector2(8,0))
 			continue
 		var sprite = _map_unit_sprite(unit)
 		var at = moving_position - battle_camera if moving_id == str(unit.id) else _battle_cell_screen(GameState.pos(unit))
@@ -1896,6 +2021,7 @@ func _draw_battle() -> void:
 		var tile_origin=sprite.get("tile_origin",[4,4])
 		var map_flip=not sprite.get("static_facing",false) and is_moving and (moving_direction.x > 0 if sprite.get("default_facing","right")=="left" else moving_direction.x < 0)
 		if sprite.directions.has("left"): map_flip = false
+		if not is_moving and sprite.has("idle_flip"):map_flip=bool(sprite.idle_flip)
 		_draw_frame(sprite, frame, at - Vector2(tile_origin[0],tile_origin[1]), map_flip, Color(1, 1, 1, float(map_actor_alpha.get(str(unit.id), 1.0))))
 	if view == "battle":
 		if ui_mode == "status":
@@ -1911,7 +2037,7 @@ func _draw_battle() -> void:
 			if not selected_unit.is_empty():
 				var selected_sprite=_map_unit_sprite(selected_unit)
 				arrow_y=-int(selected_sprite.get("tile_origin",[4,4])[1])-9
-			_draw_indicator("down", at + Vector2(4, arrow_y + int(sin(elapsed * 6.0))))
+			_draw_map_indicator("down", at + Vector2(4, arrow_y + int(sin(elapsed * 6.0))))
 			if ui_mode == "inspect" and menu_items.is_empty():
 				var unit = game.unit_at(game.cursor)
 				if not unit.is_empty():
@@ -1932,6 +2058,18 @@ func _enemy_movement_cells(unit: Dictionary) -> Array:
 		enemy_range_key = stamp
 		enemy_range_cells = game.reachable(unit).costs.keys().filter(func(cell): return game.can_stop(unit, cell))
 	return enemy_range_cells
+
+func _draw_medicine_transport(_unit: Dictionary,at: Vector2) -> void:
+	draw_texture(_tex("res://assets/battle_tiles/modules/medicine_wagon.png"),at-Vector2(8,0))
+
+func _player_movement_and_attack_cells(unit: Dictionary) -> Dictionary:
+	var blockers=[]
+	for other in game.units:blockers.append([other.id,other.position,other.hp,other.get("hidden",false),other.side])
+	var stamp=str([game.stage_id,game.turn,unit.hash(),game.battle_data.map.tiles.hash(),blockers.hash()])
+	if stamp!=player_range_key:
+		player_range_key=stamp
+		player_range_cells=TacticalRanges.preview(game,unit)
+	return player_range_cells
 
 func _map_unit_sprite(unit: Dictionary) -> Dictionary:
 	var key = "class_" + str(int(unit.class_id)) + ("_ally" if unit.side in ["player", "neutral"] else "_enemy")
@@ -1984,7 +2122,7 @@ func _draw_preview() -> void:
 	var distance = absi(GameState.pos(attacker).x - GameState.pos(defender).x) + absi(GameState.pos(attacker).y - GameState.pos(defender).y)
 	var reply = Rules.default_counter(defender, distance)
 	# Map cursor belongs below every preview window, including its opaque fill.
-	_draw_indicator("down", _battle_cell_screen(game.cursor) + Vector2(4, -4))
+	_draw_map_indicator("down", _battle_cell_screen(game.cursor) + Vector2(4, -4))
 	attacker = attacker.duplicate(true)
 	for unit in [attacker, reply]:
 		if int(unit.get("character_id", 0)) == 167: unit.weapon_index = Rules.boss_weapon(unit, game.frame_counter)
@@ -2010,7 +2148,7 @@ func _draw_preview() -> void:
 		_draw_indicator("right", Vector2(228, 30))
 
 func _draw_support_preview() -> void:
-	_draw_indicator("down", _battle_cell_screen(game.cursor) + Vector2(4, -4))
+	_draw_map_indicator("down", _battle_cell_screen(game.cursor) + Vector2(4, -4))
 	var rect = Rect2(16, 8, 224, 64)
 	_panel(rect)
 	var spell: Dictionary = Items.spell(chosen_spell)
@@ -2030,8 +2168,9 @@ func _draw_status(unit: Dictionary) -> void:
 	var rect = Rect2(8, 16, 240, 208)
 	_panel(rect)
 	var members = _status_members()
-	if members.size() > 1:
-		_center_text("队伍 %d/%d" % [members.find(status_id) + 1, members.size()], Rect2(40, 27, 176, 10))
+	if members.size() > 1 or unit.get("side","")=="enemy":
+		_center_text(("敌军" if unit.get("side","")=="enemy" else "队伍")+" %d/%d" % [members.find(status_id) + 1, members.size()], Rect2(40, 27, 176, 10))
+	if members.size()>1:
 		_draw_indicator("left", Vector2(24, 28))
 		_draw_indicator("right", Vector2(224, 28))
 	var portrait = _portrait(int(unit.get("character_id", 0)))
@@ -2042,20 +2181,27 @@ func _draw_status(unit: Dictionary) -> void:
 	_text("等级" + str(int(unit.level)) + " 经验" + str(int(unit.get("exp", 0))), Vector2(96, 56))
 	_text("生命" + str(int(unit.hp)) + "/" + str(int(unit.max_hp)), Vector2(96, 72))
 	_draw_health(int(unit.hp), int(unit.max_hp), Vector2(96, 88), "ally" if unit.get("side", "player") == "player" else "enemy")
-	var stats = [["攻击", "strength"], ["技巧", "skill"], ["速度", "speed"], ["幸运", "luck"], ["防御", "defence"], ["移动", "move"]]
+	var equipped=StatusStats.stats(unit)
+	presentation_audit.status_stats=equipped;presentation_audit.status_unit=str(unit.id)
+	var stats = [["攻击", equipped.power], ["技巧", int(unit.skill)], ["速度", equipped.speed], ["幸运", equipped.luck], ["物防", equipped.defence], ["魔防", equipped.resistance], ["移动", equipped.move], ["射程", StatusStats.range_name(equipped.reach)]]
 	var dying := game.is_dying(unit)
 	var care_layout := unit.has("dying")
 	for i in range(stats.size()):
-		var row_y := 108+int(i/2)*24 if care_layout else 108+i*16
-		var label_x := 32+104*(i%2) if care_layout else 32
-		var value_x := 104+104*(i%2) if care_layout else 200
+		var row_y := 108+int(i/2)*16
+		var label_x := 32+104*(i%2)
+		var value_x := 104+104*(i%2)
 		if care_layout and has_method("_small_text"):
 			call("_small_text",stats[i][0],Vector2(label_x,row_y+2))
 		else:_text(stats[i][0], Vector2(label_x, row_y))
-		_text(str(int(unit[stats[i][1]])), Vector2(value_x, row_y))
+		_text(str(stats[i][1]), Vector2(value_x, row_y))
 	var held = int(unit.get("item_id", 0))
 	var footer = "装备：" + str(Items.item(held).get("name_zh", "")) if held > 0 else "未携带装备（职业默认）"
 	if held <= 0 and unit.get("side", "player") == "enemy": footer = "未携带装备"
+	if Rules.Body.is_body(unit):
+		footer="固有："+str(Items.item(Rules.weapon_index(unit)).name_zh)
+		if int(unit.class_id)==5:footer="固有：骸颚／蚀息"
+		elif int(unit.class_id)==21:footer="固有：日冠／翼喙"
+		elif Rules.Body.armour(unit)>0:footer="裂石爪·厚石甲+5"
 	if held > 0 and not Items.can_use(unit, held): footer += "（不适用）"
 	if dying:
 		_center_text("濒死 · 不可出阵",Rect2(24,181,208,16))
@@ -2063,11 +2209,14 @@ func _draw_status(unit: Dictionary) -> void:
 		return
 	if bool(unit.get("dead", false)):
 		footer = "已阵亡"
+	if unit.get("side","")=="enemy" and str(unit.get("behavior","")) in ["guard","guard_exit"]:
+		var reply=Rules.default_counter(unit,3)
+		_center_text("远反："+Rules.weapon_name(reply)+" "+StatusStats.range_name(Rules.attack_range(reply))+"格",Rect2(24,181,208,16))
 	_center_text(footer, Rect2(24, 181 if care_layout else 201, 208, 16 if care_layout else 13))
 	if care_layout and int(unit.get("treatment_count",0))>0:
 		_center_text("已接受一次救治",Rect2(24,197,208,16))
 
-func _draw_combat() -> void:
+func _draw_combat(show_status:bool=true) -> void:
 	draw_set_transform(_canvas_offset()+Vector2(combat_shake, 0))
 	var attacker = game.find_unit(str(combat.attacker))
 	var defender = game.find_unit(str(combat.defender))
@@ -2077,10 +2226,16 @@ func _draw_combat() -> void:
 		draw_texture(_tex(graphics.battle_background.path), Vector2.ZERO)
 	else:
 		# Original outdoor metatiles supply the ground until the background program is decoded.
-		var atlas = _tex("res://assets/original/graphics/maps/tileset.png")
+		var atlas = _tex(str(graphics.compat_atlas))
 		for x in range(16):
 			draw_texture_rect_region(atlas, Rect2(x * 16, 128, 16, 16), Rect2(0, 48, 16, 16))
 	battle_animation.draw_actors()
+	presentation_audit.combat_weapons={}
+	if not show_status:
+		# A portrait dialogue owns the lower field; leave no cropped HUD rows
+		# visible around its panel while the strike is paused.
+		draw_rect(Rect2(0,128,256,112),Color(.03,.06,.1))
+		return
 	# Source HUD includes Japanese labels and rules inside its colored texture.
 	# Use the clean panel's fixed-size corners instead of stretching those pixels.
 	for i in range(2):
@@ -2088,37 +2243,51 @@ func _draw_combat() -> void:
 		var other = player if i == 0 else enemy
 		var x = 12 + i * 128
 		_panel(Rect2(i * 128, 128, 128, 112))
-		safe_panels[-1] = Rect2(x, 138, 104, 92)
-		_text(str(unit.name_zh), Vector2(x, 140))
-		_text(("耐久" if unit.get("event_object",false) else "生命") + str(int(combat_hp.get(str(unit.id), unit.hp))), Vector2(x, 156))
+		safe_panels[-1] = Rect2(x, 138, 104, 94)
+		_text(str(unit.name_zh), Vector2(x, 138))
+		_text(("耐久" if unit.get("event_object",false) else "生命") + str(int(combat_hp.get(str(unit.id), unit.hp))), Vector2(x, 152))
 		var stats = combat.get("stats", {}).get(str(unit.id), Rules.attack_stats(unit, other, game.terrain_avoid(GameState.pos(other))))
+		if Rules.Body.Mechanical.is_puppet(unit) and has_method("_draw_mechanical_part_meter"):
+			call("_draw_mechanical_part_meter",unit,x)
+		elif not bool(combat.get("support",false)) and bool(stats.get("can_strike",false)):
+			var weapon_label=Rules.weapon_name(unit,int(stats.weapon_index))
+			var weapon_text=("反击：" if str(unit.id)==str(combat.defender) else "武器：")+weapon_label
+			_text(weapon_text,Vector2(x,166),Color(.98,.94,.8))
+			presentation_audit.combat_weapons[str(unit.id)]={"name":weapon_label,"text":weapon_text,"font_px":12,"bounds":Rect2(x,166,_text_width(weapon_text),_text_height(weapon_text))}
 		var incoming = combat.get("stats", {}).get(str(other.id), Rules.attack_stats(other, unit, game.terrain_avoid(GameState.pos(unit))))
 		var shown_defence = int(incoming.get("defender_defence", unit.defence))
+		var defence_label = "魔防" if bool(incoming.get("magic",false)) else "物防"
 		# Keep the original red/blue bitmap panel and replace embedded labels.
-		var background = Color8(181, 49, 32) if i == 0 else Color8(21, 95, 217)
-		draw_rect(Rect2(x - 4, 176, 112, 56), background)
-		_draw_health(int(combat_hp.get(str(unit.id), unit.hp)), int(unit.max_hp), Vector2(x, 180), "enemy" if i == 0 else "ally")
+		var allied_panel = i == 1 or bool(combat.get("support",false))
+		var background = Color8(21, 95, 217) if allied_panel else Color8(181, 49, 32)
+		draw_rect(Rect2(x - 4, 180, 112, 52), background)
+		_draw_health(int(combat_hp.get(str(unit.id), unit.hp)), int(unit.max_hp), Vector2(x, 182), "ally" if allied_panel else "enemy")
 		if bool(combat.get("support", false)):
-			_text("支援魔法", Vector2(x, 202))
+			_text("支援魔法", Vector2(x, 204))
+			if str(unit.id)==str(combat.defender) and int(combat.get("healed_amount",0))>0:
+				_text("恢复 +%d" % int(combat.healed_amount),Vector2(x,220),Color(.65,1,.65))
 		elif bool(stats.get("blocked", false)):
-			_text("攻击无效", Vector2(x, 202))
-			_text("防御" + str(shown_defence), Vector2(x, 218))
+			_text("攻击无效", Vector2(x, 204))
+			_text(defence_label + str(shown_defence), Vector2(x, 220))
 		elif bool(stats.get("can_strike", game.can_attack(unit, other))):
-			_text("命中" + str(stats.hit) + "%", Vector2(x, 202))
-			_text("伤害" + str(stats.damage) + " 防御" + str(shown_defence), Vector2(x, 218))
+			_text("命中" + str(stats.hit) + "%", Vector2(x, 204))
+			_text("伤害" + str(stats.damage) + " " + defence_label + str(shown_defence), Vector2(x, 220))
 		else:
-			_text("无法反击", Vector2(x, 202))
-			_text("防御" + str(shown_defence), Vector2(x, 218))
+			_text("无法反击", Vector2(x, 204))
+			_text(defence_label + str(shown_defence), Vector2(x, 220))
 	if not combat_message.is_empty():
 		_center_text(combat_message, Rect2(16, 24, 224, 24), Color.WHITE, false)
 	draw_set_transform(_canvas_offset())
+	if battle_animation.cinema.active:battle_animation.cinema.draw()
 
 func _draw_reward() -> void:
 	var unit = game.find_unit(str(reward.unit))
+	if unit.is_empty():unit=game.roster.get(str(reward.unit),{})
 	var leveled = bool(reward.leveled)
 	var rect = Rect2(24, 24, 208, 208) if leveled else Rect2(24, 52, 208, 160)
 	_panel(rect)
-	_center_text("等级提升" if leveled else "获得经验", Rect2(34, rect.position.y + 10, 188, 24))
+	var title="连续升级 ×%d"%int(reward.levels_gained) if int(reward.get("levels_gained",0))>1 else ("等级提升" if leveled else "获得经验")
+	_center_text(title, Rect2(34, rect.position.y + 10, 188, 24))
 	var level_before = int(reward.get("level_before", unit.level))
 	var level_after = int(reward.get("level_after", unit.level))
 	var name = str(unit.name_zh) + " 等级" + str(level_after)
@@ -2133,8 +2302,7 @@ func _draw_reward() -> void:
 	_text(exp_line, Vector2(40, 88 if leveled else 116))
 	var progress = 1.0 if instant_mode else clampf(reward_elapsed * 60.0 / maxf(1.0, float(reward.gain)), 0.0, 1.0)
 	var displayed_exp = exp_before + int(roundf(float(reward.gain) * progress))
-	if leveled and displayed_exp >= 100:
-		displayed_exp -= 100
+	displayed_exp=displayed_exp%100
 	_draw_exp_progress(displayed_exp, Vector2(40, 106 if leveled else 138), 168)
 	if not leveled:
 		_text("进度" + str(exp_after) + "/100", Vector2(40, 156))
@@ -2190,64 +2358,103 @@ func _draw_result() -> void:
 	if menu_items.is_empty():
 		_center_text("Z / ENTER", Rect2(32, 168, 192, 32), Color.WHITE, false)
 
+func _menu_capacity() -> int:
+	return (9 if menu_items.size()>10 else 10) if get_meta("phone",false) else 10
+
+func _menu_row_height() -> int:
+	return 20 if get_meta("phone",false) else 16
+
+func _move_menu_selection(step: int) -> void:
+	if menu_items.is_empty():return
+	menu_selected = posmod(menu_selected + step, menu_items.size())
+	menu_scroll = clampi(menu_scroll, maxi(0, menu_selected - _menu_capacity() + 1), menu_selected)
+
 func _menu_rect() -> Rect2:
 	var max_width := 0.0
 	for item in menu_items:
 		max_width = maxf(max_width, _text_width(str(item)))
-	var width = maxf(88, max_width + 40)
-	var height = mini(10, menu_items.size()) * 16 + 28
-	if menu_items.size() > 10:
+	var phone = bool(get_meta("phone",false))
+	var capacity = _menu_capacity()
+	var width = maxf(112 if phone else 88, max_width + 40)
+	var height = mini(capacity, menu_items.size()) * _menu_row_height() + (24 if phone else 28)
+	if menu_items.size() > capacity:
 		width = maxf(120, width)
-		height += 16
+		height += 20 if phone else 16
 	var at = menu_position
-	at.x = clampf(at.x, 8, 248 - width)
+	var canvas = Rect2(-((get_viewport_rect().size-NATIVE)/2.0).floor(),get_viewport_rect().size) if phone else Rect2(0,0,256,240)
+	at.x = clampf(at.x, canvas.position.x + 8, canvas.end.x - 8 - width)
 	at.y = clampf(at.y, 8, 232 - height)
 	return Rect2(at, Vector2(width, height))
 
+func _menu_row_rect(slot: int) -> Rect2:
+	var rect = _menu_rect()
+	var top = 12 if get_meta("phone",false) else 16
+	return Rect2(rect.position + Vector2(10,top + slot * _menu_row_height()),Vector2(rect.size.x-20,_menu_row_height()))
+
 func _menu_page_arrow_rect(step: int) -> Rect2:
 	var rect = _menu_rect()
+	if get_meta("phone",false):
+		return Rect2(rect.position + Vector2(10 if step < 0 else rect.size.x-34,rect.size.y-30),Vector2(24,20))
 	var x = 10 if step < 0 else rect.size.x - 26
 	return Rect2(rect.position + Vector2(x, rect.size.y - 28), Vector2(16, 18))
 
 func _change_menu_page(step: int) -> void:
-	var next_scroll = clampi(menu_scroll + step * 10, 0, maxi(0, menu_items.size() - 10))
+	var capacity = _menu_capacity()
+	var next_scroll = clampi(menu_scroll + step * capacity, 0, maxi(0, menu_items.size() - capacity))
 	if next_scroll == menu_scroll: return
-	var row = clampi(menu_selected - menu_scroll, 0, 9)
+	var row = clampi(menu_selected - menu_scroll, 0, capacity - 1)
 	menu_scroll = next_scroll
 	menu_selected = mini(menu_scroll + row, menu_items.size() - 1)
 	audio.play_sfx("menu_move")
 
 func _menu_pointer_index(point: Vector2) -> int:
 	if menu_items.is_empty(): return -1
-	var rect = _menu_rect()
-	if menu_items.size() > 10:
+	var capacity = _menu_capacity()
+	if menu_items.size() > capacity:
 		for step in [-1, 1]:
 			if _menu_page_arrow_rect(step).has_point(point):
 				_change_menu_page(step)
 				return -1
 	# Only visible rows accept confirmation. Frame padding, page arrows and
 	# the footer must never be interpreted as an unseen or clamped row.
-	var rows = Rect2(rect.position + Vector2(10, 16), Vector2(rect.size.x - 20, mini(10, menu_items.size() - menu_scroll) * 16))
-	if not rows.has_point(point): return -1
-	return menu_scroll + int((point.y - rows.position.y) / 16)
+	for slot in range(mini(capacity,menu_items.size()-menu_scroll)):
+		if _menu_row_rect(slot).has_point(point):return menu_scroll+slot
+	return -1
 
 func _draw_menu() -> void:
+	# All callers (including hub and loot menus) keep their selected row visible.
+	menu_scroll = clampi(menu_scroll, maxi(0, menu_selected - _menu_capacity() + 1), menu_selected)
 	var rect = _menu_rect()
+	var phone = bool(get_meta("phone",false))
+	var capacity = _menu_capacity()
 	_panel(rect)
-	for i in range(menu_scroll, mini(menu_scroll + 10, menu_items.size())):
-		_text(str(menu_items[i]), rect.position + Vector2(28, 18 + (i - menu_scroll) * 16))
-	_draw_menu_arrow(rect.position + Vector2(12, 20 + (menu_selected - menu_scroll) * 16))
-	if menu_items.size() > 10:
-		_center_text("%d至%d/%d" % [menu_scroll + 1, mini(menu_scroll + 10, menu_items.size()), menu_items.size()],
-			Rect2(rect.position + Vector2(24, rect.size.y - 28), Vector2(rect.size.x - 48, 16)))
-		if menu_scroll > 0: _draw_indicator("up", rect.position + Vector2(12, rect.size.y - 24))
-		if menu_scroll + 10 < menu_items.size(): _draw_indicator("down", rect.position + Vector2(rect.size.x - 20, rect.size.y - 24))
+	for i in range(menu_scroll, mini(menu_scroll + capacity, menu_items.size())):
+		var row = _menu_row_rect(i-menu_scroll)
+		if phone:_center_text(str(menu_items[i]),Rect2(row.position+Vector2(18,0),row.size-Vector2(20,0)))
+		else:_text(str(menu_items[i]), rect.position + Vector2(28, 18 + (i - menu_scroll) * 16))
+	var selected_row = _menu_row_rect(menu_selected-menu_scroll)
+	_draw_menu_arrow(Vector2(rect.position.x+12,selected_row.get_center().y-4))
+	if menu_items.size() > capacity:
+		var footer = Rect2(rect.position+Vector2(40,rect.size.y-30),Vector2(rect.size.x-80,20)) if phone else Rect2(rect.position+Vector2(24,rect.size.y-28),Vector2(rect.size.x-48,16))
+		_center_text("%d至%d/%d" % [menu_scroll + 1, mini(menu_scroll + capacity, menu_items.size()), menu_items.size()],footer)
+		if menu_scroll > 0: _draw_indicator("up", _menu_page_arrow_rect(-1).get_center()-Vector2(4,4) if phone else rect.position+Vector2(12,rect.size.y-24))
+		if menu_scroll + capacity < menu_items.size(): _draw_indicator("down", _menu_page_arrow_rect(1).get_center()-Vector2(4,4) if phone else rect.position+Vector2(rect.size.x-20,rect.size.y-24))
 
 func _draw_menu_arrow(at: Vector2) -> void:
 	_draw_indicator("right", at + Vector2(0, int(sin(elapsed * 5.0))))
 
 func _draw_indicator(direction: String, at: Vector2) -> void:
 	draw_texture(_tex(cursors.arrows[direction].path), at.round())
+
+func _draw_map_indicator(direction: String, at: Vector2) -> void:
+	# Reuse the original pixel bitmap. Keep its center while enlarging8→10px;
+	# preserve its original color and add a black silhouette for contrast.
+	var texture=_tex(cursors.arrows[direction].path)
+	var rect=Rect2((at-Vector2.ONE).round(),Vector2(10,10))
+	for offset in [Vector2(-1,-1),Vector2(0,-1),Vector2(1,-1),Vector2(-1,0),Vector2(1,0),Vector2(-1,1),Vector2(0,1),Vector2(1,1)]:
+		draw_texture_rect(texture,Rect2(rect.position+offset,rect.size),false,Color.BLACK)
+	draw_texture_rect(texture,rect,false)
+	presentation_audit.map_indicator={"rect":rect.grow(1),"fill":"original","outline":"000000"}
 
 func _exit_tree() -> void:
 	if hub_controller != null:

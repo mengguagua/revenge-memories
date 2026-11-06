@@ -1,0 +1,76 @@
+{
+  "id": "rm_battle_revenge",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_revenge.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/music_76.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_revenge.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_battle_revenge_scene.wav",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is tail 6 seconds then head 6 seconds, with the loop join at 6 seconds; assess rhythmic/harmonic continuity and distracting loudness changes there. Audio 4 is the current game-gain offline mix with interface or combat effects. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: M14/M15/F25; desired mood: 直面科兰与裴萨、愤怒受责任约束",
+  "max_tokens": 340,
+  "key": "2660d19dfcf6e028ed66d350",
+  "source_sha256": [
+    "dae1a7372aa435d6d9f009c6d95fd12d83eb6cdaca8a4fca11599bcfa7268ccc",
+    "7f628eb5024e7a1f0db7114d30412be1a75294cda9dddea0efe33bdb31a537de",
+    "dae1a7372aa435d6d9f009c6d95fd12d83eb6cdaca8a4fca11599bcfa7268ccc",
+    "52249cbdf393eacbcf81167887c6b6798776822379e527fc0259c47e762b2e5a"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/dae1a7372aa435d6d9f009c6d95fd12d83eb6cdaca8a4fca11599bcfa7268ccc.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/7f628eb5024e7a1f0db7114d30412be1a75294cda9dddea0efe33bdb31a537de.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/dae1a7372aa435d6d9f009c6d95fd12d83eb6cdaca8a4fca11599bcfa7268ccc.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/52249cbdf393eacbcf81167887c6b6798776822379e527fc0259c47e762b2e5a.wav"
+  ],
+  "audio_input_samples": [
+    445218,
+    240000,
+    192001,
+    44800
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "0d857df19594967f9552fdc9ebe4b087e11394a079a900eebb0d31c076b76382",
+    "dd4c6f60cc9540737c2388e8671df0411400a92c7201e26ed7a988580cb75895",
+    "4da9d8794b72eeb0ea632fd5c19b9bf9992eae1e883127ee0edba84c526228b7",
+    "d7d72dd34cd6639c192d176ec314b1979b6b9a17b8bc62fb24a84caafd5ec168"
+  ],
+  "response": "Audio 1: The music features a synthesized chiptune timbre, with a clear, melodic lead and simple harmonic accompaniment. The energy is moderate and consistent, creating a tense, focused mood. The melody is repetitive but develops slightly through variation in rhythm and phrasing. No speech or vocals are present. The audio is clean, with no noticeable defects. The mood aligns with the intended scene—serious, restrained, and charged with suppressed emotion.\n\nAudio 2: This reference track has a sparse, retro texture with distinct, isolated notes. It lacks melodic complexity but provides a clear timbral benchmark.\n\nAudio 3: The loop at 6 seconds shows a slight rhythmic and harmonic discontinuity. The transition is abrupt, causing a momentary jarring effect. Loudness remains consistent, but the abruptness may distract from immersion.\n\nAudio 4: The mix includes sharp interface sounds layered over the music. These effects partially mask the music, especially during combat. The music, in turn, may obscure subtle feedback cues. The balance is unclear—both elements compete for attention, potentially reducing clarity in critical moments.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 230,
+    "prompt_tokens": 1022,
+    "total_tokens": 1252,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 994,
+    "prompt_ms": 3357.251,
+    "prompt_per_token_ms": 3.3775160965794773,
+    "prompt_per_second": 296.07556896996977,
+    "predicted_n": 230,
+    "predicted_ms": 3685.296,
+    "predicted_per_token_ms": 16.092995633187773,
+    "predicted_per_second": 62.13883498096219
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 7.17,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

@@ -1,0 +1,157 @@
+{
+  "passed": true,
+  "checks": 3092,
+  "profiles": 3,
+  "actions": 24,
+  "original_map_rows_and_cadence_preserved": true,
+  "motion_checks": [
+    {
+      "context": "story",
+      "slots": [
+        2,
+        3
+      ],
+      "head_centroids": [
+        [
+          63.87027027027027,
+          40.94864864864865
+        ],
+        [
+          62.83733333333333,
+          40.82933333333333
+        ]
+      ],
+      "head_centroid_drift_pixels": [
+        1.0329369369369346,
+        0.11931531531531903
+      ],
+      "ground_y": 95,
+      "changed_pixels_in_authored_joint_regions": {
+        "upper_body": 467,
+        "left_arm": 181,
+        "right_arm": 203,
+        "torso": 119
+      },
+      "whole_poses_not_separate_leg_patches": true
+    },
+    {
+      "context": "story",
+      "slots": [
+        4,
+        5
+      ],
+      "head_centroids": [
+        [
+          60.67680608365019,
+          37.42585551330799
+        ],
+        [
+          60.909774436090224,
+          38.597744360902254
+        ]
+      ],
+      "head_centroid_drift_pixels": [
+        0.23296835244003233,
+        1.1718888475942677
+      ],
+      "ground_y": 95,
+      "changed_pixels_in_authored_joint_regions": {
+        "upper_body": 453,
+        "left_arm": 216,
+        "right_arm": 102,
+        "torso": 164
+      },
+      "whole_poses_not_separate_leg_patches": true
+    },
+    {
+      "context": "tactical-walk",
+      "slots": [
+        2,
+        3
+      ],
+      "head_centroids": [
+        [
+          62.97260273972603,
+          37.337899543378995
+        ],
+        [
+          63.36521739130435,
+          37.38260869565217
+        ]
+      ],
+      "head_centroid_drift_pixels": [
+        0.3926146515783202,
+        0.044709152273178177
+      ],
+      "ground_y": 95,
+      "changed_pixels_in_authored_joint_regions": {
+        "upper_body": 658,
+        "left_arm": 173,
+        "right_arm": 286,
+        "torso": 197
+      },
+      "whole_poses_not_separate_leg_patches": true
+    },
+    {
+      "context": "tactical-walk",
+      "slots": [
+        6,
+        7
+      ],
+      "head_centroids": [
+        [
+          62.71120689655172,
+          37.34051724137931
+        ],
+        [
+          63.63594470046083,
+          37.17972350230415
+        ]
+      ],
+      "head_centroid_drift_pixels": [
+        0.9247378039091103,
+        0.16079373907516015
+      ],
+      "ground_y": 95,
+      "changed_pixels_in_authored_joint_regions": {
+        "upper_body": 532,
+        "left_arm": 265,
+        "right_arm": 129,
+        "torso": 148
+      },
+      "whole_poses_not_separate_leg_patches": true
+    },
+    {
+      "native_slots": [
+        2,
+        3
+      ],
+      "boot_spans": [
+        19,
+        48
+      ],
+      "original_narrow_wide_order_preserved": true
+    },
+    {
+      "native_slots": [
+        6,
+        7
+      ],
+      "boot_spans": [
+        49,
+        20
+      ],
+      "original_narrow_wide_order_preserved": true
+    }
+  ],
+  "visual_inspection": {
+    "story_raised_heels_tucked_under_hips": true,
+    "story_opposed_arm_swing_and_torso_motion": true,
+    "tactical_horizontal_faces_forward": true,
+    "tactical_shields_held_in_front_of_forearm_and_chest": true,
+    "native_directional_sword_shield_arrangement": true
+  },
+  "battle_and_effects_not_rebuilt": true,
+  "runtime_integrated": false,
+  "errors": []
+}

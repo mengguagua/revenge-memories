@@ -1,0 +1,307 @@
+{
+  "status": "user_accepted_runtime_integrated",
+  "unit": "pseudo_titan",
+  "mapping": [
+    {
+      "action": "pseudo-titan-idle",
+      "name": "战斗待机",
+      "frames": 180,
+      "contact_frame": null,
+      "poses": [
+        0
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。核心青色；双防14／12，本体被攻击后固定反伤2HP，未命中也触发。"
+    },
+    {
+      "action": "pseudo-titan-battle-walk",
+      "name": "战斗行走",
+      "frames": 168,
+      "contact_frame": null,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。核心青色；双防14／12，本体被攻击后固定反伤2HP，未命中也触发。重型步幅，身体不缩小。"
+    },
+    {
+      "action": "pseudo-titan-melee",
+      "name": "重臂锤击 · 跑近后回位",
+      "frames": 246,
+      "contact_frame": 101,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。核心青色；双防14／12，本体被攻击后固定反伤2HP，未命中也触发。靠近→抬臂→单次锤击→收势→回位。威力14，1格，速度1；不追加连击或震波伤害。"
+    },
+    {
+      "action": "pseudo-titan-hit",
+      "name": "普通受伤 · 闪烁",
+      "frames": 28,
+      "contact_frame": null,
+      "poses": [
+        0
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。核心青色；双防14／12，本体被攻击后固定反伤2HP，未命中也触发。与普通士兵相同：固定姿势闪烁、轻微位移和命中音。"
+    },
+    {
+      "action": "pseudo-titan-defeat",
+      "name": "本体被击败",
+      "frames": 88,
+      "contact_frame": null,
+      "poses": [
+        0,
+        8,
+        9
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。核心青色；双防14／12，本体被攻击后固定反伤2HP，未命中也触发。仅本体归零时跪倒、倒下；核心破坏不等于击败。"
+    },
+    {
+      "action": "pseudo-titan-map-idle",
+      "name": "地图待机 · 同敌方枪兵频率",
+      "frames": 44,
+      "contact_frame": null,
+      "poses": [
+        0,
+        1,
+        2
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。核心青色；双防14／12，本体被攻击后固定反伤2HP，未命中也触发。待机与敌方枪兵同为14／8／14／8帧，44帧约0.73秒一轮；原生图64×64，游戏密度2，主体约24逻辑像素高。"
+    },
+    {
+      "action": "pseudo-titan-walk-down",
+      "name": "向下行走",
+      "frames": 48,
+      "contact_frame": null,
+      "poses": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。核心青色；双防14／12，本体被攻击后固定反伤2HP，未命中也触发。上下方向姿势保留。脚底与主体尺度统一。"
+    },
+    {
+      "action": "pseudo-titan-walk-right",
+      "name": "向右行走",
+      "frames": 48,
+      "contact_frame": null,
+      "poses": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。核心青色；双防14／12，本体被攻击后固定反伤2HP，未命中也触发。左右行走为近侧腿前跨→远侧腿经过→远侧腿前跨→近侧腿经过，双腿交替。左右装备对称，左向为整组右向姿势的完整镜像；不拼接肢体。脚底与主体尺度统一。"
+    },
+    {
+      "action": "pseudo-titan-walk-up",
+      "name": "向上行走",
+      "frames": 48,
+      "contact_frame": null,
+      "poses": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。核心青色；双防14／12，本体被攻击后固定反伤2HP，未命中也触发。上下方向姿势保留。脚底与主体尺度统一。"
+    },
+    {
+      "action": "pseudo-titan-walk-left",
+      "name": "向左行走",
+      "frames": 48,
+      "contact_frame": null,
+      "poses": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。核心青色；双防14／12，本体被攻击后固定反伤2HP，未命中也触发。左右行走为近侧腿前跨→远侧腿经过→远侧腿前跨→近侧腿经过，双腿交替。左右装备对称，左向为整组右向姿势的完整镜像；不拼接肢体。脚底与主体尺度统一。"
+    },
+    {
+      "action": "pseudo-titan-escape",
+      "name": "撤离至边缘",
+      "frames": 224,
+      "contact_frame": null,
+      "poses": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。核心青色；双防14／12，本体被攻击后固定反伤2HP，未命中也触发。移动4＋3＝7。此处只演示走向左缘，真实示例按F25合法路径计算。"
+    },
+    {
+      "action": "pseudo-titan-broken-idle",
+      "name": "核心破坏 · 战斗待机",
+      "frames": 180,
+      "contact_frame": null,
+      "poses": [
+        0
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。黑色破口与断裂暗管持续保留；双防4／2，无反伤。"
+    },
+    {
+      "action": "pseudo-titan-broken-battle-walk",
+      "name": "核心破坏 · 战斗行走",
+      "frames": 168,
+      "contact_frame": null,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。黑色破口与断裂暗管持续保留；双防4／2，无反伤。重型步幅，身体不缩小。"
+    },
+    {
+      "action": "pseudo-titan-broken-melee",
+      "name": "核心破坏 · 重臂锤击 · 跑近后回位",
+      "frames": 246,
+      "contact_frame": 101,
+      "poses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。黑色破口与断裂暗管持续保留；双防4／2，无反伤。靠近→抬臂→单次锤击→收势→回位。威力14，1格，速度1；不追加连击或震波伤害。"
+    },
+    {
+      "action": "pseudo-titan-broken-hit",
+      "name": "核心破坏 · 普通受伤 · 闪烁",
+      "frames": 28,
+      "contact_frame": null,
+      "poses": [
+        0
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。黑色破口与断裂暗管持续保留；双防4／2，无反伤。与普通士兵相同：固定姿势闪烁、轻微位移和命中音。"
+    },
+    {
+      "action": "pseudo-titan-broken-defeat",
+      "name": "核心破坏 · 本体被击败",
+      "frames": 88,
+      "contact_frame": null,
+      "poses": [
+        0,
+        8,
+        9
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。黑色破口与断裂暗管持续保留；双防4／2，无反伤。仅本体归零时跪倒、倒下；核心破坏不等于击败。"
+    },
+    {
+      "action": "pseudo-titan-broken-map-idle",
+      "name": "核心破坏 · 地图待机 · 同敌方枪兵频率",
+      "frames": 44,
+      "contact_frame": null,
+      "poses": [
+        0,
+        1,
+        2
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。黑色破口与断裂暗管持续保留；双防4／2，无反伤。待机与敌方枪兵同为14／8／14／8帧，44帧约0.73秒一轮；原生图64×64，游戏密度2，主体约24逻辑像素高。"
+    },
+    {
+      "action": "pseudo-titan-broken-walk-down",
+      "name": "核心破坏 · 向下行走",
+      "frames": 48,
+      "contact_frame": null,
+      "poses": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。黑色破口与断裂暗管持续保留；双防4／2，无反伤。上下方向姿势保留。脚底与主体尺度统一。"
+    },
+    {
+      "action": "pseudo-titan-broken-walk-right",
+      "name": "核心破坏 · 向右行走",
+      "frames": 48,
+      "contact_frame": null,
+      "poses": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。黑色破口与断裂暗管持续保留；双防4／2，无反伤。左右行走为近侧腿前跨→远侧腿经过→远侧腿前跨→近侧腿经过，双腿交替。左右装备对称，左向为整组右向姿势的完整镜像；不拼接肢体。脚底与主体尺度统一。"
+    },
+    {
+      "action": "pseudo-titan-broken-walk-up",
+      "name": "核心破坏 · 向上行走",
+      "frames": 48,
+      "contact_frame": null,
+      "poses": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。黑色破口与断裂暗管持续保留；双防4／2，无反伤。上下方向姿势保留。脚底与主体尺度统一。"
+    },
+    {
+      "action": "pseudo-titan-broken-walk-left",
+      "name": "核心破坏 · 向左行走",
+      "frames": 48,
+      "contact_frame": null,
+      "poses": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。黑色破口与断裂暗管持续保留；双防4／2，无反伤。左右行走为近侧腿前跨→远侧腿经过→远侧腿前跨→近侧腿经过，双腿交替。左右装备对称，左向为整组右向姿势的完整镜像；不拼接肢体。脚底与主体尺度统一。"
+    },
+    {
+      "action": "pseudo-titan-broken-escape",
+      "name": "核心破坏 · 撤离至边缘",
+      "frames": 224,
+      "contact_frame": null,
+      "poses": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。黑色破口与断裂暗管持续保留；双防4／2，无反伤。移动4＋3＝7。此处只演示走向左缘，真实示例按F25合法路径计算。"
+    },
+    {
+      "action": "pseudo-titan-core-break",
+      "name": "防护核心破坏",
+      "frames": 44,
+      "contact_frame": 21,
+      "poses": [
+        0,
+        10
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。核心耐久归零，本体生命不变；第21帧起切换为真正绘制的黑色破口，立即取消双防＋10和反伤。"
+    },
+    {
+      "action": "pseudo-titan-reflection",
+      "name": "本体被攻击后 · 固定反伤2HP",
+      "frames": 48,
+      "contact_frame": 13,
+      "poses": [
+        0
+      ],
+      "rule": "仅美术与规则预览，未改游戏代码或关卡。示意本体被攻击后向攻击者结算2HP，未命中同样触发。不是额外挥拳、远程武器或反击；攻击核心无反伤。"
+    }
+  ]
+}

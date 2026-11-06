@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_51",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_51.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_51.ogg"
+  ],
+  "hashes": [
+    "0a3c04ec5397ba0ae7ad41dfdcc2a5d9b2c8015e6a16e00a3e74ed67419054de",
+    "d5a93a6ee16ef8bd2c38079ebe2b2a63a63a4defae0fac8e28585b7446803a6b"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "25ae55ce74893c049c469d00",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    16734,
+    9819
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "The first sound is a beep, a short, sharp, and unique sound. The second is a sound effect from a video game, which has a similar sharpness but is longer and includes a variety of effects like reverb and distortion. The most noticeable difference is the timbre, which is more complex and varied in the second sound. The attack and decay are also slightly different, with the second sound having a slightly longer decay time. The density is also slightly different, with the second sound being slightly more spread out across the frequency spectrum.",
+  "generation_tokens": 109,
+  "generation_tps": 45.42535162287289,
+  "wall_seconds": 2.529,
+  "peak_memory_bytes": 7517914846,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

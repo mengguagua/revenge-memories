@@ -1,0 +1,562 @@
+{
+  "passed": true,
+  "render": {
+    "cases": 5,
+    "tiers": 3,
+    "all_frames_sampled_fps": 30,
+    "canvas_text_safe_area_errors": [],
+    "damage_and_coverage": "locked values pass",
+    "reference_layout_errors": [
+      {
+        "key": "hunapu-base",
+        "errors": []
+      },
+      {
+        "key": "hunapu-advanced",
+        "errors": []
+      },
+      {
+        "key": "eileen-base",
+        "errors": []
+      },
+      {
+        "key": "eileen-advanced",
+        "errors": []
+      },
+      {
+        "key": "hunapu-bow",
+        "errors": []
+      }
+    ]
+  },
+  "interaction": {
+    "third_eileen_advanced": "power +6, outer19 / center23, cost14HP + fatigue",
+    "video_ready_state": 4,
+    "video_seconds": 28.333333
+  },
+  "visual_checks": [
+    "四组原尺寸截图与效果定帧",
+    "进阶艾琳火柱根部对准中心格",
+    "角色地图动作体型对齐",
+    "透明轮廓在雪地、木甲板、沙地上检查",
+    "中文字体、按钮与文字安全区",
+    "持弓演出使用真实弓姿与箭矢",
+    "四职业的已确认原图、当前游戏、MAP待机对照",
+    "艾琳两版蓄势、横挥、下劈、收势的原图身份与固定脚部",
+    "修订5页面668px与390px内容安全区",
+    "持弓准备、搭箭、满弓、松弦四姿势同地图身高与腿长",
+    "新持弓图集在雪地与深色信息栏检查，腰腹与眼神可辨",
+    "新图靴底与全部帧固定，满弓到松弦的箭矢同步",
+    "原尺寸造型对照图可点击放大"
+  ],
+  "scope": "Only art preview, local page interactions, design-value and render checks. No production game behavior, full campaign regression or device installation.",
+  "revision": 6,
+  "revision_changes": [
+    "持弓版改用按地图原型制作的动作，停用战斗身体缩小拼接",
+    "按同身高对齐，原地图腿层与靴底恢复，双脚固定",
+    "腰腹加厚、眼神聚焦攻击方向",
+    "地图与信息栏使用同一持弓造型",
+    "其余四组已确认素材哈希一致；数值与代价保持不变",
+    "动作分解、身高对照、交互预览与28秒总览视频同步更新"
+  ],
+  "browser_note": "修订6已在当前面板刷新，默认选择持弓，检查放大和1.60秒满弓定帧。新图、视频、对照图全部载入，未出现文本溢出。沿用未变的响应式CSS；本轮不重复全页面手机回归。",
+  "preserved_asset_hashes": {
+    "assets/hunapu-base-fx.png": "e1bc9f9981bc90a73b351a848ac8040c3136ca215313f118ace90a8b3be9b98c",
+    "assets/hunapu-advanced-fx.png": "980a82194572590747407cf27f8ea4907b93de72fc21053b984905e2ab83e5de",
+    "assets/eileen-base-fx.png": "eed56ea90faecb955ff07af7ecc6f9c2a5c334c1a09bb4366edcc7f00136ba1f",
+    "assets/eileen-advanced-fx.png": "0c0a9e5cc12bc689560bb65e96037259ae5545bae1731382b03c0e63ad9ee4c4"
+  },
+  "revision3_visual_checks": [
+    "青蓝、银白、青紫三层在雪地上可辨认",
+    "底行尾尖跨格问题按实测透明间隙切分，完整尾迹无硬切边",
+    "进阶前原特效与艾琳两版特效SHA256一致",
+    "新导出视频代表帧检查",
+    "原地图形象与站定规则保留"
+  ],
+  "action_acceptance": {
+    "revision": 6,
+    "scope": "Only MAP art-preview actions: exact lower-leg pixel lock, stationary map draw rectangle, visible upper-body pose changes, distinct bow draw/release, representative rendered screenshots and text-safe-area checks.",
+    "results": [
+      {
+        "key": "hunapu-base",
+        "fixed_foot_hashes": 1,
+        "upper_body_pose_count": 3,
+        "rendered_pose_count": 6,
+        "fixed_destination_rectangles": 1,
+        "kind": "sword",
+        "sweep_degrees": null,
+        "passed": true
+      },
+      {
+        "key": "hunapu-advanced",
+        "fixed_foot_hashes": 1,
+        "upper_body_pose_count": 3,
+        "rendered_pose_count": 6,
+        "fixed_destination_rectangles": 1,
+        "kind": "sword",
+        "sweep_degrees": null,
+        "passed": true
+      },
+      {
+        "key": "eileen-base",
+        "fixed_foot_hashes": 1,
+        "upper_body_pose_count": 14,
+        "rendered_pose_count": 16,
+        "fixed_destination_rectangles": 1,
+        "kind": "casting",
+        "sweep_degrees": 102,
+        "passed": true
+      },
+      {
+        "key": "eileen-advanced",
+        "fixed_foot_hashes": 1,
+        "upper_body_pose_count": 14,
+        "rendered_pose_count": 16,
+        "fixed_destination_rectangles": 1,
+        "kind": "casting",
+        "sweep_degrees": 102,
+        "passed": true
+      },
+      {
+        "key": "hunapu-bow",
+        "fixed_foot_hashes": 1,
+        "upper_body_pose_count": 4,
+        "rendered_pose_count": 6,
+        "fixed_destination_rectangles": 1,
+        "kind": "bow",
+        "sweep_degrees": null,
+        "passed": true
+      }
+    ]
+  },
+  "original_map_identity_exactly_preserved": [
+    "hunapu-base",
+    "hunapu-advanced",
+    "eileen-base",
+    "eileen-advanced"
+  ],
+  "identity_acceptance": {
+    "revision": 5,
+    "finding": "四组地图素材均取图正确；用户截图展示进阶后的破晓勇士与引光剑使。未进阶战士的大头比例来自现行已确认素材。",
+    "method": "RGBA pixel equality for all six map poses; exact preview idle registration; no production changes.",
+    "profiles": [
+      {
+        "case": "hunapu-base",
+        "profession": "战士",
+        "promoted": false,
+        "gallery_profile": "hunapu-maps-tactical-idle",
+        "gallery_revision": "hero-map-v3-side-arms",
+        "runtime_key": "21_ally",
+        "runtime_path": "res://assets/character-art-sync-20261024/hunapu-maps-tactical-idle.png",
+        "preview_path": "assets/hunapu-base-map.png",
+        "frames": [
+          {
+            "frame": 0,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/map-motion-review-v2/deliverables/hunapu-idle-size2/frame-08.png",
+            "rgba_sha256": "cebcd73a5c2afc33d213b4044c8a34f061aaef46814924d736883eed86082e9a"
+          },
+          {
+            "frame": 1,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/map-motion-review-v2/deliverables/hunapu-idle-size2/frame-09.png",
+            "rgba_sha256": "088ca82192f10cb4e536efb1dfab806edb0208cf31a3876b85c971e85a0ff006"
+          },
+          {
+            "frame": 2,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/map-motion-review-v2/deliverables/hunapu-idle-size2/frame-10.png",
+            "rgba_sha256": "435ee315150453b62de6accf4cad65b639fa34d98b425a856eaaac1a4cdf993f"
+          },
+          {
+            "frame": 3,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/map-motion-review-v2/deliverables/hunapu-idle-size2/frame-09.png",
+            "rgba_sha256": "088ca82192f10cb4e536efb1dfab806edb0208cf31a3876b85c971e85a0ff006"
+          },
+          {
+            "frame": 4,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/map-motion-review-v2/deliverables/hunapu-idle-size2/frame-08.png",
+            "rgba_sha256": "cebcd73a5c2afc33d213b4044c8a34f061aaef46814924d736883eed86082e9a"
+          },
+          {
+            "frame": 5,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/map-motion-review-v2/deliverables/hunapu-idle-size2/frame-09.png",
+            "rgba_sha256": "088ca82192f10cb4e536efb1dfab806edb0208cf31a3876b85c971e85a0ff006"
+          }
+        ],
+        "action_idle_equals_approved": true,
+        "gallery_frame0": "art-review/character-expansion-20261018/map-motion-review-v2/deliverables/hunapu-idle-size2/frame-08.png"
+      },
+      {
+        "case": "hunapu-advanced",
+        "profession": "破晓勇士",
+        "promoted": true,
+        "gallery_profile": "hunapu-promoted-maps-tactical-idle",
+        "gallery_revision": "hunapu-dawn-map-unify-v5-20261024",
+        "runtime_key": "23_ally",
+        "runtime_path": "res://assets/character-art-sync-20261024/hunapu-promoted-maps-tactical-idle.png",
+        "preview_path": "assets/hunapu-advanced-map.png",
+        "frames": [
+          {
+            "frame": 0,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-000.png",
+            "rgba_sha256": "1ac76883d3189d565d5c965530942dde8d70d36b88f104f0debafe224b389e32"
+          },
+          {
+            "frame": 1,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-001.png",
+            "rgba_sha256": "35e6986e20575f43fe9055567863198ec73b5b425578ffad4ff7cb501f1d8524"
+          },
+          {
+            "frame": 2,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-002.png",
+            "rgba_sha256": "4848dd24399c36aba74f7c52417d944deeb1464a01d912a04fec2faf5f328d86"
+          },
+          {
+            "frame": 3,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-003.png",
+            "rgba_sha256": "35e6986e20575f43fe9055567863198ec73b5b425578ffad4ff7cb501f1d8524"
+          },
+          {
+            "frame": 4,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-004.png",
+            "rgba_sha256": "1ac76883d3189d565d5c965530942dde8d70d36b88f104f0debafe224b389e32"
+          },
+          {
+            "frame": 5,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-005.png",
+            "rgba_sha256": "35e6986e20575f43fe9055567863198ec73b5b425578ffad4ff7cb501f1d8524"
+          }
+        ],
+        "action_idle_equals_approved": true,
+        "gallery_frame0": "art-review/character-expansion-20261018/hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-000.png"
+      },
+      {
+        "case": "eileen-base",
+        "profession": "女魔剑士",
+        "promoted": false,
+        "gallery_profile": "eileen-maps-tactical-idle",
+        "gallery_revision": "eileen-spellsword-map-v2-20261024",
+        "runtime_key": "eileen",
+        "runtime_path": "res://assets/character-art-sync-20261024/eileen-maps-tactical-idle.png",
+        "preview_path": "assets/eileen-base-map.png",
+        "frames": [
+          {
+            "frame": 0,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/eileen-spellsword-map-v2-20261024/tactical-idle/frame-000.png",
+            "rgba_sha256": "1c6b3875b137aebebd03ac974f4e8a8d9a89831058411ef7885eb5d779774b43"
+          },
+          {
+            "frame": 1,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/eileen-spellsword-map-v2-20261024/tactical-idle/frame-001.png",
+            "rgba_sha256": "2933f535e7e3a5fdc1be29dd4d4a3c98e29eca4f355c9a3086906a158e089b49"
+          },
+          {
+            "frame": 2,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/eileen-spellsword-map-v2-20261024/tactical-idle/frame-002.png",
+            "rgba_sha256": "b52e387b070a9b3650462b1b4d34bcadaba2e38c8c382efea73817d5bf35ba6e"
+          },
+          {
+            "frame": 3,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/eileen-spellsword-map-v2-20261024/tactical-idle/frame-003.png",
+            "rgba_sha256": "2933f535e7e3a5fdc1be29dd4d4a3c98e29eca4f355c9a3086906a158e089b49"
+          },
+          {
+            "frame": 4,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/eileen-spellsword-map-v2-20261024/tactical-idle/frame-004.png",
+            "rgba_sha256": "1c6b3875b137aebebd03ac974f4e8a8d9a89831058411ef7885eb5d779774b43"
+          },
+          {
+            "frame": 5,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/eileen-spellsword-map-v2-20261024/tactical-idle/frame-005.png",
+            "rgba_sha256": "2933f535e7e3a5fdc1be29dd4d4a3c98e29eca4f355c9a3086906a158e089b49"
+          }
+        ],
+        "action_idle_equals_approved": true,
+        "gallery_frame0": "art-review/character-expansion-20261018/eileen-spellsword-map-v2-20261024/tactical-idle/frame-000.png"
+      },
+      {
+        "case": "eileen-advanced",
+        "profession": "引光剑使",
+        "promoted": true,
+        "gallery_profile": "eileen-promoted-maps-tactical-idle",
+        "gallery_revision": "eileen-promoted-idle-v2-20261024",
+        "runtime_key": "eileen_promoted",
+        "runtime_path": "res://assets/character-art-sync-20261024/eileen-promoted-maps-tactical-idle.png",
+        "preview_path": "assets/eileen-advanced-map.png",
+        "frames": [
+          {
+            "frame": 0,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/eileen-promoted-idle-v2-20261024/tactical-idle/frame-000.png",
+            "rgba_sha256": "6c58102b4f02e6d6d7bd09ca9217f6b3162193500a37eb7152f8b3873f7542ec"
+          },
+          {
+            "frame": 1,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/eileen-promoted-idle-v2-20261024/tactical-idle/frame-001.png",
+            "rgba_sha256": "8d550c0e96753cba6a32d7d2c05e4e4981ba923034f37917afe3191f14d443c0"
+          },
+          {
+            "frame": 2,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/eileen-promoted-idle-v2-20261024/tactical-idle/frame-002.png",
+            "rgba_sha256": "07a71afa20ba0213e149d1fb445b6221c0203ad2f162bdf54df6c7911679d074"
+          },
+          {
+            "frame": 3,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/eileen-promoted-idle-v2-20261024/tactical-idle/frame-003.png",
+            "rgba_sha256": "8d550c0e96753cba6a32d7d2c05e4e4981ba923034f37917afe3191f14d443c0"
+          },
+          {
+            "frame": 4,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/eileen-promoted-idle-v2-20261024/tactical-idle/frame-004.png",
+            "rgba_sha256": "6c58102b4f02e6d6d7bd09ca9217f6b3162193500a37eb7152f8b3873f7542ec"
+          },
+          {
+            "frame": 5,
+            "runtime_equals_approved": true,
+            "preview_equals_approved": true,
+            "approved_path": "art-review/character-expansion-20261018/eileen-promoted-idle-v2-20261024/tactical-idle/frame-005.png",
+            "rgba_sha256": "8d550c0e96753cba6a32d7d2c05e4e4981ba923034f37917afe3191f14d443c0"
+          }
+        ],
+        "action_idle_equals_approved": true,
+        "gallery_frame0": "art-review/character-expansion-20261018/eileen-promoted-idle-v2-20261024/tactical-idle/frame-000.png"
+      }
+    ]
+  },
+  "browser_previous_revision": [
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "scroll_width": 1280,
+      "missing_images": [],
+      "button_text_overflow": []
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "scroll_width": 390,
+      "button_text_overflow": []
+    }
+  ],
+  "browser": [
+    {
+      "viewport": [
+        668,
+        905
+      ],
+      "scroll_width": 668,
+      "missing_images": [],
+      "button_heading_summary_text_overflow": [],
+      "bow_proof_natural_width": 1440,
+      "screenshot": "sources/browser-v6-current.png"
+    }
+  ],
+  "bow_acceptance": {
+    "revision": 6,
+    "purpose": "地图持弓造型修正：同身高、同腿长、固定原腿层、厚腰、聚焦眼神",
+    "source": "source/map-20261029/hunapu-map-bow-v6c-original.png",
+    "reference": "assets/hunapu-advanced-map.png",
+    "path": "assets/hunapu-bow-map-action-v6.png",
+    "pixels": [
+      768,
+      128
+    ],
+    "bytes": 23482,
+    "registration": [
+      {
+        "pose": 0,
+        "source_cell": [
+          0,
+          0
+        ],
+        "source_head_crown": 153,
+        "source_boot_bottom": 620,
+        "scale": 0.139186295503212,
+        "translate": [
+          5.383297644539617,
+          -6.295503211991434
+        ],
+        "target_person_head_top": 15,
+        "target_boot_bottom": 80,
+        "native_leg_layer_source_y": 58,
+        "fixed_boot_strip_y": 68,
+        "note": "原图腿层先完整恢复；低持弓姿势的弓下缘作为前景遮挡右膝，未改变腿的形状或长度。"
+      },
+      {
+        "pose": 1,
+        "source_cell": [
+          1,
+          0
+        ],
+        "source_head_crown": 153,
+        "source_boot_bottom": 620,
+        "scale": 0.139186295503212,
+        "translate": [
+          16.170235546038544,
+          -6.295503211991434
+        ],
+        "target_person_head_top": 15,
+        "target_boot_bottom": 80,
+        "native_leg_layer_source_y": 58,
+        "fixed_boot_strip_y": 68,
+        "note": "原图腿层先完整恢复；低持弓姿势的弓下缘作为前景遮挡右膝，未改变腿的形状或长度。"
+      },
+      {
+        "pose": 2,
+        "source_cell": [
+          0,
+          1
+        ],
+        "source_head_crown": 100,
+        "source_boot_bottom": 569,
+        "scale": 0.13859275053304904,
+        "translate": [
+          5.56076759061834,
+          1.1407249466950962
+        ],
+        "target_person_head_top": 15,
+        "target_boot_bottom": 80,
+        "native_leg_layer_source_y": 58,
+        "fixed_boot_strip_y": 68,
+        "note": "原图腿层先完整恢复；低持弓姿势的弓下缘作为前景遮挡右膝，未改变腿的形状或长度。"
+      },
+      {
+        "pose": 3,
+        "source_cell": [
+          1,
+          1
+        ],
+        "source_head_crown": 100,
+        "source_boot_bottom": 569,
+        "scale": 0.13859275053304904,
+        "translate": [
+          16.30170575692964,
+          1.1407249466950962
+        ],
+        "target_person_head_top": 15,
+        "target_boot_bottom": 80,
+        "native_leg_layer_source_y": 58,
+        "fixed_boot_strip_y": 68,
+        "note": "原图腿层先完整恢复；低持弓姿势的弓下缘作为前景遮挡右膝，未改变腿的形状或长度。"
+      }
+    ],
+    "frame_source_order": [
+      0,
+      1,
+      2,
+      3,
+      3,
+      0
+    ],
+    "native_leg_layer": [
+      0,
+      58,
+      96,
+      96
+    ],
+    "all_boot_strips_equal_to_native": true,
+    "foot_sha256": "37d4681628ea13f0077bd2a03826b36e8bb36f0b892f5d6ea3a016b4ab1d1101",
+    "preserved_four_cases": true,
+    "generation": "built-in image_gen, prompts in bow-v6*.json",
+    "offline_originals": [
+      {
+        "path": "source/map-20261029/hunapu-map-bow-v6b-original.png",
+        "pixels": [
+          1254,
+          1254
+        ],
+        "bytes": 912978,
+        "use": "原始生成源图，离线隔离，运行与交付图集不直接加载"
+      },
+      {
+        "path": "source/map-20261029/hunapu-map-bow-v6-original.png",
+        "pixels": [
+          1254,
+          1254
+        ],
+        "bytes": 930096,
+        "use": "原始生成源图，离线隔离，运行与交付图集不直接加载"
+      },
+      {
+        "path": "source/map-20261029/hunapu-map-bow-v6c-original.png",
+        "pixels": [
+          1254,
+          1254
+        ],
+        "bytes": 905345,
+        "use": "原始生成源图，离线隔离，运行与交付图集不直接加载"
+      }
+    ]
+  },
+  "browser_revision5": [
+    {
+      "viewport": [
+        668,
+        "default panel height"
+      ],
+      "scroll_width": 668,
+      "missing_images": [],
+      "button_heading_summary_text_overflow": [],
+      "identity_cards": 4,
+      "screenshot": "sources/browser-v5-current.png"
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "scroll_width": 390,
+      "missing_images": [],
+      "button_heading_summary_text_overflow": [],
+      "screenshot": "sources/browser-v5-mobile.png"
+    }
+  ],
+  "revision6_preserved_four_cases": true
+}

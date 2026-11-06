@@ -1,0 +1,117 @@
+{
+  "revision": "hunapu-dawn-map-unify-v5-20261024",
+  "passed": true,
+  "checks": 1214,
+  "profiles": 2,
+  "actions": 9,
+  "new_complete_poses": 7,
+  "new_walk_slots": [
+    0,
+    1,
+    4,
+    5
+  ],
+  "idle_slots": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "confirmed_horizontal_v4_pixels_and_paths_preserved": true,
+  "native_frames_offsets_fps_and_cadence_preserved": true,
+  "root_checks": [
+    {
+      "context": "tactical-walk",
+      "slots": [
+        0,
+        1
+      ],
+      "head_centroids": [
+        [
+          64.1747572815534,
+          39.17799352750809
+        ],
+        [
+          63.07357859531773,
+          39.130434782608695
+        ]
+      ],
+      "head_centroid_drift_output_pixels": [
+        1.10117868623567,
+        0.04755874489939771
+      ],
+      "ground_y": 95
+    },
+    {
+      "context": "tactical-walk",
+      "slots": [
+        4,
+        5
+      ],
+      "head_centroids": [
+        [
+          63.92,
+          37.025
+        ],
+        [
+          63.4780487804878,
+          37.204878048780486
+        ]
+      ],
+      "head_centroid_drift_output_pixels": [
+        0.4419512195121982,
+        0.17987804878048763
+      ],
+      "ground_y": 95
+    },
+    {
+      "context": "tactical-idle",
+      "slots": [
+        0,
+        1,
+        2
+      ],
+      "head_centroids": [
+        [
+          47.005434782608695,
+          21.934782608695652
+        ],
+        [
+          47.432291666666664,
+          21.609375
+        ],
+        [
+          47.28654970760234,
+          20.538011695906434
+        ]
+      ],
+      "head_centroid_drift_output_pixels": [
+        0.42685688405796895,
+        1.3967709127892185
+      ],
+      "ground_y": 80
+    }
+  ],
+  "compact_shadow_preserved": true,
+  "runtime_integrated": false,
+  "visual_acceptance": "offline_review_passed_user_acceptance_pending",
+  "errors": [],
+  "offline_visual_review": {
+    "artifacts": [
+      "model-comparison-light.png",
+      "up-dark.png",
+      "down-dark.png",
+      "idle-dark.png",
+      "decoded-vertical-idle.png"
+    ],
+    "notes": [
+      "按同一地面与64输出像素发顶至脚底高度对比，上下行走、待机与已确认横移使用相同蓝发、脸型、厚浅蓝肩胸甲、护臂、护膝与深蓝靴。",
+      "向上两相分别抬起左右脚，向下两相交替前后遮挡，持械、手臂和衣摆连贯。",
+      "待机三姿势保持原举剑顺序；采用完整头发部件定位，不把遮脸手臂作为脸部，不出现缩放反复。",
+      "深浅背景完整轮廓、剑尖、盾面及文字间距已检查；三条新动作视频首尾与换相画面已解码查看。"
+    ],
+    "browser_ui_checked": false
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "id": "rm_battle_circuit",
+  "path": "source/audio-20261024/content-review/candidates/rm_battle_circuit.ogg",
+  "source_path": "source/audio-20261024/content-review/raw/rm_battle_circuit_2026102815_float.wav",
+  "master_path": "source/audio-20261024/content-review/masters/rm_battle_circuit_v2_float.wav",
+  "sha256": "499e4ac96f87812cf05f76073da60dd78016d7fa68582539602f922ddb9ca484",
+  "bytes": 321776,
+  "source": {
+    "track_id": "rm_battle_circuit",
+    "seed": 2026102815,
+    "model": "local Stable Audio 3 sm-music/same-s",
+    "method": "owned-guide audio-conditioned generation",
+    "guide": {
+      "path": "source/audio-20261024/content-review/guides/rm_battle_circuit.wav",
+      "sha256": "56c41d5c59bd330dd961ceefcd8c9b8cfc19c8af7b21e978ad717db18696031e",
+      "period_seconds": 30.476190476190474,
+      "period_frames": 1344000
+    },
+    "prompt": "TrackType: Music, VocalType: Instrumental. Original early-console 8-bit fantasy tactics soundtrack. Strict sparse four-channel chiptune: two warm pulse-wave melody and harmony voices, one rounded triangle bass voice, and quiet band-limited noise percussion. Dry direct electronic tone, clear monophonic lines, memorable NEW melody. Straight rhythm, no swing, no jazz, no reggae. No acoustic instruments, no piano, no guitar, no flute, no orchestral pad, no realistic drum kit, no voice or choir. 126 BPM. An eerie minor-key battle melody for a dangerous ancient facility. Steady urgent pulse, sparse mysterious counterpoint, no dance groove. Repeating complete eight-bar phrases, A A B A form, stable accompaniment, no introduction or fadeout.",
+    "seconds": 30.796190476190475,
+    "cfg": 2.0,
+    "steps": 8,
+    "dit_dtype": "fp32",
+    "sha256": "82fec585115893b38c4a9d166fb4491125bb6b112f03a48a154af5acd97e88f5",
+    "source_format": "FLOAT WAV",
+    "offline": true,
+    "generation_wall_seconds": 3.56,
+    "raw_peak": 0.7235759496688843,
+    "raw_rms": 0.20173077285289764,
+    "post_guide": {
+      "path": "source/audio-20261024/content-review/guides/rm_battle_circuit_v2.wav",
+      "sha256": "dcde58fad2c183992c4280371171bc36886ab3f643572883f5d09246a47752d7",
+      "reason": "clearer pulse duties, stronger march percussion and legato bass across phrase boundary"
+    }
+  },
+  "editing": {
+    "method": "new sixteen-bar four-voice composition with local model texture and circular phase wrap",
+    "guide_mix": 0.85,
+    "model_mix": 0.15,
+    "bars": 16,
+    "guide_bpm": 126,
+    "period_frames": 1344000,
+    "period_seconds": 30.476190476190474,
+    "loop_offset_seconds": 0.0,
+    "model_wrap_seconds": 0.2
+  },
+  "gain_db": -3.2399999999999984,
+  "target_integrated_lufs": -20,
+  "metrics": {
+    "seconds": 30.476190476190474,
+    "rms_dbfs": -22.632963336412487,
+    "sample_peak_dbfs": -9.343144089029682,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "interior_silence_longest_seconds": 0.0,
+    "silent_frame_fraction": 0.0,
+    "rms_10ms_p10_dbfs": -25.213671866533485,
+    "rms_10ms_p90_dbfs": -21.305484111217684,
+    "seam_max_sample_delta": 0.01262790895998478,
+    "derivative_p99": 0.03420433774590492,
+    "seam_delta_over_derivative_p99": 0.3691902779639884,
+    "integrated_lufs": -19.97,
+    "true_peak_dbtp": -9.3,
+    "loudness_range_lu": 0.6
+  },
+  "errors": [],
+  "review_decision": "selected",
+  "review_reason": "Matches final published review index."
+}

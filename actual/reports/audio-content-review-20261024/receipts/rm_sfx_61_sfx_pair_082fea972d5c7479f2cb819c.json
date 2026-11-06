@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_61",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_61.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_61.ogg"
+  ],
+  "hashes": [
+    "3cb9031069b24fc993f8a0df2e6c034dce1068a2faf5320fc1675f7e64d700b7",
+    "0b4e429d6445a28b231b310629567189327785e18adf314442f05efa5f41c0e8"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "082fea972d5c7479f2cb819c",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    14515,
+    40896
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "The reference sound is a one-shot, short, sharp, and percussive. The replacement has a similar structure but sounds dull, muffled, and less impactful. The difference is noticeable in the timbre, attack, and decay. The density is also lower in the replacement.",
+  "generation_tokens": 57,
+  "generation_tps": 33.24999273320198,
+  "wall_seconds": 1.858,
+  "peak_memory_bytes": 7517914846,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

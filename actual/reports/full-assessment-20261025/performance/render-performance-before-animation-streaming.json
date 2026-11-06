@@ -1,0 +1,123 @@
+{
+  "background_render": true,
+  "checks": [
+    "phone logical and physical resolution preserved",
+    "legacy control rerender comparison exercised each frame",
+    "unchanged rails no longer rebuild every frame",
+    "cached controls match forced redraw pixel-for-pixel",
+    "game viewport keeps updating when control rails are cached",
+    "updated game viewport matches a full shell redraw pixel-for-pixel",
+    "turn counter change redraws rail text",
+    "cycle-unit enabled state redraws rail material",
+    "pressed control redraws and dispatches direction",
+    "focus loss clears held direction and pressed material",
+    "current phone text, borders and controls remain in safe areas",
+    "probe uses at least five current runtime battle atlases",
+    "current atlas loads: res://assets/character-art-sync-20261024/professions-class-7-ally-battle.png",
+    "current atlas loads: res://assets/character-art-sync-20261024/professions-class-7-enemy-battle.png",
+    "current atlas loads: res://assets/character-art-sync-20261024/hunapu-battle.png",
+    "current atlas loads: res://assets/character-art-sync-20261024/professions-class-5-enemy-battle.png",
+    "current atlas loads: res://assets/character-art-sync-20261024/professions-class-3-ally-battle.png",
+    "current atlas loads: res://assets/character-art-sync-20261024/professions-class-5-ally-battle.png",
+    "current atlas loads: res://assets/character-art-sync-20261024/professions-class-22-enemy-battle.png",
+    "released atlas also leaves ResourceLoader cache: res://assets/character-art-sync-20261024/professions-class-7-ally-battle.png",
+    "released atlas also leaves ResourceLoader cache: res://assets/character-art-sync-20261024/professions-class-7-enemy-battle.png",
+    "released atlas also leaves ResourceLoader cache: res://assets/character-art-sync-20261024/hunapu-battle.png",
+    "released atlas also leaves ResourceLoader cache: res://assets/character-art-sync-20261024/professions-class-5-enemy-battle.png",
+    "budget trimming releases actual Texture2D resources, not only dictionary entries",
+    "100 hot atlas lookups retain the same resource: res://assets/character-art-sync-20261024/professions-class-5-ally-battle.png",
+    "100 hot atlas lookups retain the same resource: res://assets/character-art-sync-20261024/professions-class-22-enemy-battle.png",
+    "evicted atlas reload preserves exact imported pixels"
+  ],
+  "errors": [],
+  "iphone_device_measured": false,
+  "measurements": {
+    "cached_rails": {
+      "frames": 90,
+      "mean_draw_usec": 0.0,
+      "rail_draw_calls": 0,
+      "rail_draw_cpu_usec": 0
+    },
+    "forced_legacy_rails": {
+      "frames": 90,
+      "mean_draw_usec": 214.733333333333,
+      "rail_draw_calls": 90,
+      "rail_draw_cpu_usec": 19326
+    },
+    "memory_before": {
+      "cache_count": 34,
+      "render_texture_bytes": 87938263,
+      "static_memory_bytes": 1442006999
+    },
+    "memory_reloaded": {
+      "cache_count": 33,
+      "render_texture_bytes": 253203368,
+      "static_memory_bytes": 1442023207
+    },
+    "memory_trimmed": {
+      "cache_count": 32,
+      "render_texture_bytes": 204269852,
+      "static_memory_bytes": 1442020163
+    },
+    "memory_unbounded": {
+      "cache_count": 41,
+      "render_texture_bytes": 462453939,
+      "static_memory_bytes": 1442026435
+    },
+    "textures": {
+      "budget": 134217728,
+      "hot": [
+        "res://assets/character-art-sync-20261024/professions-class-5-ally-battle.png",
+        "res://assets/character-art-sync-20261024/professions-class-22-enemy-battle.png"
+      ],
+      "paths": [
+        "res://assets/character-art-sync-20261024/professions-class-7-ally-battle.png",
+        "res://assets/character-art-sync-20261024/professions-class-7-enemy-battle.png",
+        "res://assets/character-art-sync-20261024/hunapu-battle.png",
+        "res://assets/character-art-sync-20261024/professions-class-5-enemy-battle.png",
+        "res://assets/character-art-sync-20261024/professions-class-3-ally-battle.png",
+        "res://assets/character-art-sync-20261024/professions-class-5-ally-battle.png",
+        "res://assets/character-art-sync-20261024/professions-class-22-enemy-battle.png"
+      ],
+      "released": [
+        "res://assets/character-art-sync-20261024/professions-class-7-ally-battle.png",
+        "res://assets/character-art-sync-20261024/professions-class-7-enemy-battle.png",
+        "res://assets/character-art-sync-20261024/hunapu-battle.png",
+        "res://assets/character-art-sync-20261024/professions-class-5-enemy-battle.png"
+      ],
+      "sizes": {
+        "res://assets/character-art-sync-20261024/hunapu-battle.png": [
+          5120,
+          2592
+        ],
+        "res://assets/character-art-sync-20261024/professions-class-22-enemy-battle.png": [
+          5120,
+          512
+        ],
+        "res://assets/character-art-sync-20261024/professions-class-3-ally-battle.png": [
+          5120,
+          1152
+        ],
+        "res://assets/character-art-sync-20261024/professions-class-5-ally-battle.png": [
+          6144,
+          2176
+        ],
+        "res://assets/character-art-sync-20261024/professions-class-5-enemy-battle.png": [
+          6144,
+          2720
+        ],
+        "res://assets/character-art-sync-20261024/professions-class-7-ally-battle.png": [
+          7168,
+          1280
+        ],
+        "res://assets/character-art-sync-20261024/professions-class-7-enemy-battle.png": [
+          7168,
+          1280
+        ]
+      }
+    }
+  },
+  "passed": true,
+  "player_saves_touched": false,
+  "measurement_note": "Static-memory fields include an extra full offline JSON parsed by the former texture fixture. Invalid as gameplay-startup baseline. Texture-resource lifetime and control draw observations remain valid; use startup-comparison.json for memory comparison."
+}

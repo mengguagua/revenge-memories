@@ -1,0 +1,222 @@
+{
+  "attempts": [
+    {
+      "attempt": "round1",
+      "outcome": "defeat",
+      "turn": 18,
+      "inputs": 581,
+      "new_dying": [
+        "eileen",
+        "mireille",
+        "lisa",
+        "carlo"
+      ],
+      "cover_hits": 0,
+      "releases": [
+        {
+          "action": "battlefield_release",
+          "cells": [
+            [
+              9,
+              12
+            ]
+          ],
+          "changed": [],
+          "interrupted": false,
+          "name": "封桥射击"
+        }
+      ],
+      "extra_actions": []
+    },
+    {
+      "attempt": "round1-retry1",
+      "outcome": "driver_turn_limit",
+      "turn": 91,
+      "inputs": 2804,
+      "new_dying": [],
+      "cover_hits": 0,
+      "releases": [
+        {
+          "action": "battlefield_release",
+          "cells": [
+            [
+              6,
+              17
+            ]
+          ],
+          "changed": [],
+          "interrupted": false,
+          "name": "封桥射击"
+        }
+      ],
+      "extra_actions": [
+        {
+          "kind": "ordinary retry from preserved failed attempt"
+        },
+        {
+          "kind": "ordinary deposit of healer focus to receive cabin shield"
+        }
+      ]
+    },
+    {
+      "attempt": "round1-retry2",
+      "outcome": "defeat",
+      "turn": 23,
+      "inputs": 1022,
+      "new_dying": [
+        "eileen"
+      ],
+      "cover_hits": 0,
+      "releases": [
+        {
+          "action": "battlefield_release",
+          "cells": [
+            [
+              6,
+              17
+            ]
+          ],
+          "changed": [],
+          "interrupted": false,
+          "name": "封桥射击"
+        }
+      ],
+      "extra_actions": [
+        {
+          "kind": "ordinary retry from preserved failed attempt"
+        },
+        {
+          "kind": "ordinary deposit of healer focus to receive cabin shield"
+        },
+        {
+          "action": "cover:choose",
+          "actor": "eileen",
+          "cell": [
+            21,
+            7
+          ],
+          "turn": 20
+        }
+      ]
+    },
+    {
+      "attempt": "round1-retry3",
+      "outcome": "victory",
+      "turn": 42,
+      "inputs": 1780,
+      "new_dying": [
+        "lisa"
+      ],
+      "cover_hits": 0,
+      "releases": [],
+      "extra_actions": [
+        {
+          "kind": "ordinary retry from preserved failed attempt"
+        },
+        {
+          "kind": "ordinary deposit of healer focus to receive cabin shield"
+        },
+        {
+          "action": "interact:F22_breakable_cargo",
+          "actor": "eileen",
+          "cell": [
+            17,
+            17
+          ],
+          "turn": 40
+        }
+      ]
+    },
+    {
+      "attempt": "round2",
+      "outcome": "defeat",
+      "turn": 9,
+      "inputs": 442,
+      "new_dying": [
+        "eileen"
+      ],
+      "cover_hits": 0,
+      "releases": [
+        {
+          "action": "battlefield_release",
+          "cells": [
+            [
+              6,
+              17
+            ]
+          ],
+          "changed": [],
+          "interrupted": false,
+          "name": "封桥射击"
+        }
+      ],
+      "extra_actions": [
+        {
+          "kind": "ordinary deposit of healer focus to receive cabin shield"
+        }
+      ]
+    },
+    {
+      "attempt": "round2-retry1",
+      "outcome": "defeat",
+      "turn": 37,
+      "inputs": 1253,
+      "new_dying": [
+        "eileen",
+        "mireille",
+        "lisa",
+        "carlo"
+      ],
+      "cover_hits": 1,
+      "releases": [
+        {
+          "action": "battlefield_release",
+          "cells": [
+            [
+              6,
+              16
+            ],
+            [
+              7,
+              16
+            ],
+            [
+              5,
+              16
+            ]
+          ],
+          "changed": [],
+          "interrupted": false,
+          "name": "封桥射击"
+        }
+      ],
+      "extra_actions": [
+        {
+          "kind": "ordinary retry from preserved failed attempt"
+        },
+        {
+          "kind": "ordinary deposit of healer focus to receive cabin shield"
+        },
+        {
+          "action": "cover:choose",
+          "actor": "carlo",
+          "cell": [
+            6,
+            20
+          ],
+          "turn": 9
+        },
+        {
+          "action": "cover:choose",
+          "actor": "carlo",
+          "cell": [
+            6,
+            19
+          ],
+          "turn": 11
+        }
+      ]
+    }
+  ],
+  "scope": "Independent F22 historical source, followed by ordinary retry from preserved failure saves. No numerical game changes. Includes defeats and one driver turn-limit. Full successful attempt is round1-retry3; second round remains a recorded defeat."
+}

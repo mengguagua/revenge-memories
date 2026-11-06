@@ -1,0 +1,54 @@
+{
+  "id": "rm_world_ch3",
+  "kind": "final_scene_mix",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_world_ch3_scene.wav"
+    }
+  ],
+  "asset_sha256": "5c9bc75ffc7582c25d2953def0ecdc9fa6b50c5c97349c521661662f4e9c75d6",
+  "fixture_sha256": "11918e09c9ad7d549c03502764aca4746b9adf87ffd62fd16b8f3175fcb2346e",
+  "prompt": "This is a final offline scene mix using the actual game gains and native event sequence. Describe only audible evidence. Check whether essential feedback attacks are clear, any intrusive click/distortion or excessive rumbling tail, and whether music continuity is distracted by the effects. Effects need not be as loud as music; a naturally masked quiet tail is not a failure. Report uncertainty and avoid inventing instruments/events. Under 90 words. Fixture context: 按游戏倍率合成：背景曲＋菜单／对白提示；不是实机录音",
+  "max_tokens": 170,
+  "key": "e7c8b61217162d00ab117c4d",
+  "source_sha256": [
+    "11918e09c9ad7d549c03502764aca4746b9adf87ffd62fd16b8f3175fcb2346e"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/11918e09c9ad7d549c03502764aca4746b9adf87ffd62fd16b8f3175fcb2346e.wav"
+  ],
+  "audio_input_samples": [
+    80800
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "bcbe7ace8d58cae0f59fb1edd1e4445f76548f2db3ca3a07d7a44a9144bb73ed"
+  ],
+  "response": "Music is a calm, ambient electronic loop with soft synth pads and a gentle arpeggio. Menu/UI sound effects are present: a crisp, high-pitched chime for selection, and a lower, resonant tone for confirmation. The effects are clear and distinct, with no intrusive clicks or distortion. The music maintains continuity without being disrupted by the effects. The tail of each effect is quiet and naturally masked by the music. No excessive rumbling is audible. All feedback attacks are clean and well-defined.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 103,
+    "prompt_tokens": 221,
+    "total_tokens": 324,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 193,
+    "prompt_ms": 606.107,
+    "prompt_per_token_ms": 3.1404507772020724,
+    "prompt_per_second": 318.42562451844316,
+    "predicted_n": 103,
+    "predicted_ms": 1685.99,
+    "predicted_per_token_ms": 16.529313725490198,
+    "predicted_per_second": 60.498579469629114
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 9.163,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

@@ -6,6 +6,7 @@ campaign_name=${CAMPAIGN_PACKAGE_NAME:-RevengeMemories}
 campaign_app="dist/.$campaign_name-build.app"
 export CAMPAIGN_BUILD_APP="$campaign_app"
 mkdir -p "$campaign_app/Contents/MacOS" "$campaign_app/Contents/Resources"
+python3 tools/build_runtime_animations.py
 "$campaign_engine" --headless --quiet --audio-driver Dummy --path "$PWD" --log-file "$PWD/reports/campaign/package-engine.log" --export-pack macOS "$PWD/dist/RevengeMemories.pck"
 cp "$campaign_engine" "$campaign_app/Contents/MacOS/RevengeMemories"
 cp dist/RevengeMemories.pck "$campaign_app/Contents/Resources/RevengeMemories.pck"

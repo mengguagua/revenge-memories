@@ -1,0 +1,53 @@
+{
+  "revision": "campaign-art-only-20261026",
+  "cells": {
+    "ally": {
+      "filled": {
+        "path": "res://assets/campaign-ui/health-ally-filled.svg",
+        "native_size": [
+          4,
+          8
+        ]
+      },
+      "empty": {
+        "path": "res://assets/campaign-ui/health-ally-empty.svg",
+        "native_size": [
+          4,
+          8
+        ]
+      }
+    },
+    "enemy": {
+      "filled": {
+        "path": "res://assets/campaign-ui/health-enemy-filled.svg",
+        "native_size": [
+          4,
+          8
+        ]
+      },
+      "empty": {
+        "path": "res://assets/campaign-ui/health-enemy-empty.svg",
+        "native_size": [
+          4,
+          8
+        ]
+      }
+    }
+  },
+  "layout": {
+    "cell_pitch": [
+      4,
+      8
+    ],
+    "cell_size": [
+      4,
+      8
+    ],
+    "original_cells_per_row": 26,
+    "original_max_hp": 52,
+    "original_gauge_width": 104,
+    "recommended_cells_per_row_for_100px_safe_area": 25,
+    "source_wrap": "L01B363-L01B395: above 13 tiles/26 HP, continue in the preceding PPU row; do not merge points into percentages.",
+    "native_layout": "Draw exactly max_hp cells, with hp filled and max_hp-hp empty. Wrap every available_width/4 cells; integer pixel coordinates and nearest filtering. Keep the complete 4x8 canvas inside the existing content safe area."
+  }
+}

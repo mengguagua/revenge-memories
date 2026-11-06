@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_37",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_37.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_37.ogg"
+  ],
+  "hashes": [
+    "a58a0590815a53d21638884f04e61c9f3127cd3ebde2ba2ce3c86c709a03898f",
+    "2d9a72b6a82b57d1c2b26543a8ae18b79a857d9bcf02f5b824af4bbb013e6231"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "92fec607e96bbf9062cc74ee",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    128000,
+    128000
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "Audio1: A heartbeat sound effect. Timbre is monotone, with a steady, strong attack and a slow decay. It has a low pitch and a consistent rhythm. Audio2: A sound similar to the heartbeat, but with a faster decay and a slightly higher pitch. There's a slight variation in timbre and attack.",
+  "generation_tokens": 67,
+  "generation_tps": 22.2577523198824,
+  "wall_seconds": 3.33,
+  "peak_memory_bytes": 7517914846,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

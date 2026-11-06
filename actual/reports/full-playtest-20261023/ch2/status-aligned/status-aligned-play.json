@@ -1,0 +1,300 @@
+{
+  "battles": [
+    {
+      "code": "F22",
+      "entry_map_revision": "0.10.6-ch2",
+      "entry_map_sha256": "6b21044549dc6e0ced875676c6c7a01e4143b4319a565e96dd8cb2b9f3cbe3b8",
+      "failures": [],
+      "final_turn": 0,
+      "final_view": "battle",
+      "key_inputs": 50,
+      "map_revision": "0.10.6-ch2",
+      "map_sha256": "6b21044549dc6e0ced875676c6c7a01e4143b4319a565e96dd8cb2b9f3cbe3b8",
+      "outcome": "entry_only",
+      "post_flow_map_revision": "0.10.6-ch2",
+      "post_flow_turn": 1,
+      "source": "res://reports/chapter2/play/natural-F22-deployment-save.json",
+      "source_sha256": "0d689970d417c49bf2c3d50aa3a4e7d6ed99b653fad14ac11c3cf99fd8db6397"
+    }
+  ],
+  "checkpoints": [
+    {
+      "name": "F22-entry",
+      "path": "res://reports/full-playtest-20261023/ch2/status-aligned/status-aligned-F22-entry.json",
+      "stage": 202,
+      "turn": 1,
+      "view": "battle"
+    }
+  ],
+  "entry_only": true,
+  "failures": [],
+  "forced_victories": false,
+  "native_graphics": false,
+  "observed_texts": [
+    {
+      "actions": [
+        "end_turn",
+        "assault",
+        "gather",
+        "roster",
+        "new:goal",
+        "new:focus_exit",
+        "new:focus_boss",
+        "new:prepare",
+        "new:battle_title"
+      ],
+      "items": [
+        "结束回合（第1回合）",
+        "自动进攻",
+        "集合队伍",
+        "人物状态",
+        "战场目标",
+        "定位出口或目的地",
+        "定位首领：搜捕首领",
+        "返回整备（重置本战）",
+        "保存并返回主菜单"
+      ],
+      "menu_context": "system",
+      "stage": 202,
+      "view": "battle"
+    },
+    {
+      "actions": [
+        "new:hub",
+        "travel:17",
+        "travel:19",
+        "travel:33",
+        "new:camp"
+      ],
+      "items": [
+        "进入据点",
+        "前往风灯岛",
+        "前往押送舰",
+        "前往漂泊渔船",
+        "部队整备"
+      ],
+      "menu_context": "world_routes",
+      "stage": 202,
+      "view": "world"
+    },
+    {
+      "actions": [
+        "new:camp",
+        "new:overview",
+        "new:save",
+        "title"
+      ],
+      "items": [
+        "部队整备",
+        "世界全图",
+        "保存进度",
+        "返回标题"
+      ],
+      "menu_context": "world_system",
+      "stage": 202,
+      "view": "world"
+    },
+    {
+      "actions": [
+        "camp:roster",
+        "camp:trade",
+        "camp:convoy",
+        "new:equipment",
+        "camp:formation",
+        "camp:save"
+      ],
+      "items": [
+        "部队状态 · 4/4可出阵",
+        "交换装备",
+        "装备行囊",
+        "装备说明",
+        "调整顺序",
+        "保存进度"
+      ],
+      "menu_context": "camp",
+      "stage": 202,
+      "view": "world"
+    },
+    {
+      "actions": [
+        "camp:deposit",
+        "camp:withdraw"
+      ],
+      "items": [
+        "存放装备",
+        "领取装备"
+      ],
+      "menu_context": "convoy",
+      "stage": 202,
+      "view": "world"
+    },
+    {
+      "actions": [
+        "camp:withdraw_item:0"
+      ],
+      "items": [
+        "铁剑"
+      ],
+      "menu_context": "stored_items",
+      "stage": 202,
+      "view": "world"
+    },
+    {
+      "actions": [
+        "new:battle",
+        "travel:18",
+        "new:camp"
+      ],
+      "items": [
+        "进入战场",
+        "前往海上拦截",
+        "部队整备"
+      ],
+      "menu_context": "world_routes",
+      "stage": 202,
+      "view": "world"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        212.0,
+        48.0
+      ],
+      "speaker": "战场提示",
+      "stage": 202,
+      "text": "打开囚舱、击败舰长，让三名普通俘虏\n都抵达总闸旁的接应旗标。接应人员会\n将他们转移到己方船；洛德阵亡不阻断",
+      "text_pixels": [
+        204.0,
+        44.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        212.0,
+        48.0
+      ],
+      "speaker": "战场提示",
+      "stage": 202,
+      "text": "主线。出口有旗标。S菜单可定位出口与\n首领。",
+      "text_pixels": [
+        212.0,
+        28.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        212.0,
+        48.0
+      ],
+      "speaker": "战场提示",
+      "stage": 202,
+      "text": "打开囚舱、击败舰长，并让三名普通俘\n虏抵达总闸旁的接应旗标。",
+      "text_pixels": [
+        204.0,
+        28.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        212.0,
+        48.0
+      ],
+      "speaker": "战场提示",
+      "stage": 202,
+      "text": "囚舱：未打开；舰长：未击败；普通俘\n虏：0/3。",
+      "text_pixels": [
+        204.0,
+        28.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        212.0,
+        48.0
+      ],
+      "speaker": "战场提示",
+      "stage": 202,
+      "text": "洛德：尚未撤离，保护他沿安全路线走\n向出口。他单独记录，不替代三名普通\n俘虏。",
+      "text_pixels": [
+        204.0,
+        44.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        212.0,
+        48.0
+      ],
+      "speaker": "战场提示",
+      "stage": 202,
+      "text": "获救者每次己方行动结束走两格，附近\n有敌人时停下。",
+      "text_pixels": [
+        204.0,
+        28.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        212.0,
+        48.0
+      ],
+      "speaker": "战场提示",
+      "stage": 202,
+      "text": "总闸位于敌舰中段，打开后两间囚舱都\n会开启。先清出撤离通道，再释放俘\n虏。",
+      "text_pixels": [
+        204.0,
+        44.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        212.0,
+        48.0
+      ],
+      "speaker": "战场提示",
+      "stage": 202,
+      "text": "总闸旁的旗标是接应点；三名普通俘虏\n全部抵达后，会由接应人员转移到己方\n船。洛德阵亡不阻断主线。",
+      "text_pixels": [
+        204.0,
+        44.0
+      ],
+      "view": "plot"
+    },
+    {
+      "layout_ok": true,
+      "safe_area_pixels": [
+        212.0,
+        48.0
+      ],
+      "speaker": "战场提示",
+      "stage": 202,
+      "text": "上方跳板可直接通行；下方备用跳板需\n要操作独立绞盘。留意敌舰船尾的增\n援。",
+      "text_pixels": [
+        204.0,
+        44.0
+      ],
+      "view": "plot"
+    }
+  ],
+  "passed": true,
+  "route_trace": [],
+  "scope": "Independent genuine deployment checkpoints, ordinary return-to-preparation and current-map reentry, actual input battles and post-battle hub actions; no live attributes, RNG, positions or win conditions edited.",
+  "screenshots": [],
+  "source_saves_modified": false,
+  "stat_edits": false,
+  "total_inputs": 50
+}

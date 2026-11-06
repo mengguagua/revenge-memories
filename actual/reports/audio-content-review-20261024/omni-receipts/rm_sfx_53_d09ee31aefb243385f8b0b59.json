@@ -1,0 +1,54 @@
+{
+  "id": "rm_sfx_53",
+  "kind": "final_scene_mix",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_sfx_53_new_context.wav"
+    }
+  ],
+  "asset_sha256": "4834c477967cfb7e8c4fe5d85f4670b744f5c43567fb6688bece97db693849d3",
+  "fixture_sha256": "105eb0b511d46f5d2f97f1993943795ac2cc91cfdf9d25363a1ae8c1f31fd8de",
+  "prompt": "This is a final offline scene mix using the actual game gains and native event sequence. Describe only audible evidence. Check whether essential feedback attacks are clear, any intrusive click/distortion or excessive rumbling tail, and whether music continuity is distracted by the effects. Effects need not be as loud as music; a naturally masked quiet tail is not a failure. Report uncertainty and avoid inventing instruments/events. Under 90 words. Fixture context: 实际源动画请求序列（同一当前双声部规则）：class_11_ally_item_28；叠加当前配乐0.50／音效0.65 The arrow-rain prelude is deliberately quiet and lasts only three native ticks (about 50ms) before contact replaces it; do not expect the full four-second isolated texture.",
+  "max_tokens": 170,
+  "key": "d09ee31aefb243385f8b0b59",
+  "source_sha256": [
+    "105eb0b511d46f5d2f97f1993943795ac2cc91cfdf9d25363a1ae8c1f31fd8de"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/105eb0b511d46f5d2f97f1993943795ac2cc91cfdf9d25363a1ae8c1f31fd8de.wav"
+  ],
+  "audio_input_samples": [
+    114755
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "3f654696e65e2f8d900709c65db37820c367ca9b60965240bbcaf2119a86cef8"
+  ],
+  "response": "The arrow-rain prelude is faint and brief, lasting approximately 50ms before being replaced by a sharper impact. The impact is clear and distinct, with no intrusive clicks or distortion. A low-frequency rumble follows the impact, fading naturally without excessive tail. The music continues underneath without disruption, maintaining continuity. Feedback attacks are audible and well-defined. No additional instruments or events are present.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 81,
+    "prompt_tokens": 304,
+    "total_tokens": 385,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 276,
+    "prompt_ms": 802.343,
+    "prompt_per_token_ms": 2.9070398550724637,
+    "prompt_per_second": 343.9925318722791,
+    "predicted_n": 81,
+    "predicted_ms": 1246.882,
+    "predicted_per_token_ms": 15.586025000000001,
+    "predicted_per_second": 64.16004080578594
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 4.395,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

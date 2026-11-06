@@ -481,3 +481,6 @@ if __name__ == '__main__':
         import_hunapu_story_shadow()
     else:
         import_hunapu_maps() if args.hunapu_maps_only else build()
+
+    from build_runtime_animations import build as build_runtime
+    build_runtime()

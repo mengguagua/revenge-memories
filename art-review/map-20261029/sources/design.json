@@ -1,0 +1,980 @@
+{
+  "confirmed": {
+    "before": [
+      0,
+      2,
+      4
+    ],
+    "after": [
+      0,
+      3,
+      6
+    ],
+    "cost_max_hp": [
+      0,
+      0.25,
+      0.4
+    ],
+    "eileen_advanced_center_bonus": 4
+  },
+  "cases": [
+    {
+      "key": "hunapu-base",
+      "map": "M11",
+      "name": "破阵",
+      "profession": "战士",
+      "palette": null,
+      "source_variant": "original_class_21_normal",
+      "map_actor": {
+        "source": "assets/hunapu-base-map-action-v4.png",
+        "position": [
+          509,
+          375
+        ],
+        "movement": "fixed tactical-map feet and position; upper-body attack action",
+        "kind": "sword",
+        "timeline": [
+          [
+            0,
+            0
+          ],
+          [
+            0.9,
+            1
+          ],
+          [
+            1.18,
+            2
+          ],
+          [
+            1.88,
+            0
+          ],
+          [
+            1.96,
+            3
+          ],
+          [
+            2.12,
+            5
+          ],
+          [
+            2.6,
+            4
+          ],
+          [
+            3.15,
+            0
+          ]
+        ],
+        "foot_lock_y": 84,
+        "rig": null,
+        "person_height_native_pixels": null,
+        "leg_layer_native_y": null
+      },
+      "portrait": "standing reference only",
+      "coverage": 6,
+      "seconds": 5.4,
+      "hit_rule": "2.12s + 0.09s per tile depth, once per target",
+      "stats": [
+        {
+          "power": 0,
+          "cost": 0,
+          "hp": 28,
+          "after": 28,
+          "damage": [
+            {
+              "raw": 8,
+              "actual": 8,
+              "after": 10,
+              "center": false
+            },
+            {
+              "raw": 8,
+              "actual": 8,
+              "after": 10,
+              "center": false
+            },
+            {
+              "raw": 8,
+              "actual": 8,
+              "after": 10,
+              "center": false
+            }
+          ]
+        },
+        {
+          "power": 2,
+          "cost": 7,
+          "hp": 28,
+          "after": 21,
+          "damage": [
+            {
+              "raw": 10,
+              "actual": 10,
+              "after": 8,
+              "center": false
+            },
+            {
+              "raw": 10,
+              "actual": 10,
+              "after": 8,
+              "center": false
+            },
+            {
+              "raw": 10,
+              "actual": 10,
+              "after": 8,
+              "center": false
+            }
+          ]
+        },
+        {
+          "power": 4,
+          "cost": 12,
+          "hp": 28,
+          "after": 16,
+          "damage": [
+            {
+              "raw": 12,
+              "actual": 12,
+              "after": 6,
+              "center": false
+            },
+            {
+              "raw": 12,
+              "actual": 12,
+              "after": 6,
+              "center": false
+            },
+            {
+              "raw": 12,
+              "actual": 12,
+              "after": 6,
+              "center": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "hunapu-advanced",
+      "map": "M41",
+      "name": "破晓·破阵",
+      "profession": "破晓勇士",
+      "palette": {
+        "main": "cyan / teal-blue",
+        "edge": "silver-ivory",
+        "wake": "lavender / blue-violet",
+        "debris": "dark slate with sparse muted bronze"
+      },
+      "source_variant": "original_class_21_promoted",
+      "map_actor": {
+        "source": "assets/hunapu-advanced-map-action-v4.png",
+        "position": [
+          621,
+          279
+        ],
+        "movement": "fixed tactical-map feet and position; upper-body attack action",
+        "kind": "sword",
+        "timeline": [
+          [
+            0,
+            0
+          ],
+          [
+            0.9,
+            1
+          ],
+          [
+            1.18,
+            2
+          ],
+          [
+            1.88,
+            0
+          ],
+          [
+            1.96,
+            3
+          ],
+          [
+            2.12,
+            5
+          ],
+          [
+            2.6,
+            4
+          ],
+          [
+            3.15,
+            0
+          ]
+        ],
+        "foot_lock_y": 84,
+        "rig": null,
+        "person_height_native_pixels": null,
+        "leg_layer_native_y": null
+      },
+      "portrait": "standing reference only",
+      "coverage": 12,
+      "seconds": 5.8,
+      "hit_rule": "2.12s + 0.09s per tile depth, once per target",
+      "stats": [
+        {
+          "power": 0,
+          "cost": 0,
+          "hp": 36,
+          "after": 36,
+          "damage": [
+            {
+              "raw": 12,
+              "actual": 12,
+              "after": 15,
+              "center": false
+            },
+            {
+              "raw": 12,
+              "actual": 12,
+              "after": 15,
+              "center": false
+            },
+            {
+              "raw": 12,
+              "actual": 12,
+              "after": 15,
+              "center": false
+            },
+            {
+              "raw": 12,
+              "actual": 12,
+              "after": 15,
+              "center": false
+            },
+            {
+              "raw": 12,
+              "actual": 12,
+              "after": 15,
+              "center": false
+            }
+          ]
+        },
+        {
+          "power": 3,
+          "cost": 9,
+          "hp": 36,
+          "after": 27,
+          "damage": [
+            {
+              "raw": 15,
+              "actual": 15,
+              "after": 12,
+              "center": false
+            },
+            {
+              "raw": 15,
+              "actual": 15,
+              "after": 12,
+              "center": false
+            },
+            {
+              "raw": 15,
+              "actual": 15,
+              "after": 12,
+              "center": false
+            },
+            {
+              "raw": 15,
+              "actual": 15,
+              "after": 12,
+              "center": false
+            },
+            {
+              "raw": 15,
+              "actual": 15,
+              "after": 12,
+              "center": false
+            }
+          ]
+        },
+        {
+          "power": 6,
+          "cost": 15,
+          "hp": 36,
+          "after": 21,
+          "damage": [
+            {
+              "raw": 18,
+              "actual": 18,
+              "after": 9,
+              "center": false
+            },
+            {
+              "raw": 18,
+              "actual": 18,
+              "after": 9,
+              "center": false
+            },
+            {
+              "raw": 18,
+              "actual": 18,
+              "after": 9,
+              "center": false
+            },
+            {
+              "raw": 18,
+              "actual": 18,
+              "after": 9,
+              "center": false
+            },
+            {
+              "raw": 18,
+              "actual": 18,
+              "after": 9,
+              "center": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "eileen-base",
+      "map": "F21",
+      "name": "焰环",
+      "profession": "女魔剑士",
+      "palette": null,
+      "source_variant": "class_11_ally_item_23",
+      "map_actor": {
+        "source": "assets/eileen-base-map-action-v5.png",
+        "position": [
+          619,
+          279
+        ],
+        "movement": "fixed tactical-map feet and position; upper-body attack action",
+        "kind": "casting",
+        "timeline": [
+          [
+            0,
+            0
+          ],
+          [
+            0.95,
+            1
+          ],
+          [
+            1.2,
+            2
+          ],
+          [
+            1.62,
+            3
+          ],
+          [
+            1.7,
+            4
+          ],
+          [
+            1.76,
+            5
+          ],
+          [
+            1.82,
+            6
+          ],
+          [
+            1.88,
+            7
+          ],
+          [
+            1.94,
+            8
+          ],
+          [
+            2,
+            9
+          ],
+          [
+            2.46,
+            10
+          ],
+          [
+            2.6,
+            11
+          ],
+          [
+            2.74,
+            12
+          ],
+          [
+            2.88,
+            13
+          ],
+          [
+            3.02,
+            14
+          ],
+          [
+            3.18,
+            15
+          ]
+        ],
+        "foot_lock_y": 84,
+        "rig": {
+          "part": "native bitmap forearm and sword",
+          "pivot": [
+            49,
+            53
+          ],
+          "angles_clockwise": [
+            0,
+            -15,
+            -30,
+            -20,
+            -5,
+            12,
+            30,
+            48,
+            63,
+            72,
+            60,
+            45,
+            30,
+            16,
+            6,
+            0
+          ],
+          "sweep_degrees": 102,
+          "body": "unchanged original pixels",
+          "effect_release_seconds": 1.8
+        },
+        "person_height_native_pixels": null,
+        "leg_layer_native_y": null
+      },
+      "portrait": "standing reference only",
+      "coverage": 5,
+      "seconds": 5.4,
+      "hit_rule": "2.42s simultaneous, once per target; advanced center +4",
+      "stats": [
+        {
+          "power": 0,
+          "cost": 0,
+          "hp": 20,
+          "after": 20,
+          "damage": [
+            {
+              "raw": 8,
+              "actual": 8,
+              "after": 11,
+              "center": false
+            },
+            {
+              "raw": 8,
+              "actual": 8,
+              "after": 11,
+              "center": false
+            },
+            {
+              "raw": 8,
+              "actual": 8,
+              "after": 11,
+              "center": false
+            }
+          ]
+        },
+        {
+          "power": 2,
+          "cost": 5,
+          "hp": 20,
+          "after": 15,
+          "damage": [
+            {
+              "raw": 10,
+              "actual": 10,
+              "after": 9,
+              "center": false
+            },
+            {
+              "raw": 10,
+              "actual": 10,
+              "after": 9,
+              "center": false
+            },
+            {
+              "raw": 10,
+              "actual": 10,
+              "after": 9,
+              "center": false
+            }
+          ]
+        },
+        {
+          "power": 4,
+          "cost": 8,
+          "hp": 20,
+          "after": 12,
+          "damage": [
+            {
+              "raw": 12,
+              "actual": 12,
+              "after": 7,
+              "center": false
+            },
+            {
+              "raw": 12,
+              "actual": 12,
+              "after": 7,
+              "center": false
+            },
+            {
+              "raw": 12,
+              "actual": 12,
+              "after": 7,
+              "center": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "eileen-advanced",
+      "map": "F41",
+      "name": "引光·焰环",
+      "profession": "引光剑使",
+      "palette": null,
+      "source_variant": "class_11_ally_item_23",
+      "map_actor": {
+        "source": "assets/eileen-advanced-map-action-v5.png",
+        "position": [
+          589,
+          279
+        ],
+        "movement": "fixed tactical-map feet and position; upper-body attack action",
+        "kind": "casting",
+        "timeline": [
+          [
+            0,
+            0
+          ],
+          [
+            0.95,
+            1
+          ],
+          [
+            1.2,
+            2
+          ],
+          [
+            1.62,
+            3
+          ],
+          [
+            1.7,
+            4
+          ],
+          [
+            1.76,
+            5
+          ],
+          [
+            1.82,
+            6
+          ],
+          [
+            1.88,
+            7
+          ],
+          [
+            1.94,
+            8
+          ],
+          [
+            2,
+            9
+          ],
+          [
+            2.46,
+            10
+          ],
+          [
+            2.6,
+            11
+          ],
+          [
+            2.74,
+            12
+          ],
+          [
+            2.88,
+            13
+          ],
+          [
+            3.02,
+            14
+          ],
+          [
+            3.18,
+            15
+          ]
+        ],
+        "foot_lock_y": 84,
+        "rig": {
+          "part": "native bitmap forearm and sword",
+          "pivot": [
+            45,
+            52
+          ],
+          "angles_clockwise": [
+            0,
+            -15,
+            -30,
+            -20,
+            -5,
+            12,
+            30,
+            48,
+            63,
+            72,
+            60,
+            45,
+            30,
+            16,
+            6,
+            0
+          ],
+          "sweep_degrees": 102,
+          "body": "unchanged original pixels",
+          "effect_release_seconds": 1.8
+        },
+        "person_height_native_pixels": null,
+        "leg_layer_native_y": null
+      },
+      "portrait": "standing reference only",
+      "coverage": 13,
+      "seconds": 5.8,
+      "hit_rule": "2.42s simultaneous, once per target; advanced center +4",
+      "stats": [
+        {
+          "power": 0,
+          "cost": 0,
+          "hp": 34,
+          "after": 34,
+          "damage": [
+            {
+              "raw": 17,
+              "actual": 17,
+              "after": 10,
+              "center": true
+            },
+            {
+              "raw": 13,
+              "actual": 13,
+              "after": 14,
+              "center": false
+            },
+            {
+              "raw": 13,
+              "actual": 13,
+              "after": 14,
+              "center": false
+            },
+            {
+              "raw": 13,
+              "actual": 13,
+              "after": 14,
+              "center": false
+            },
+            {
+              "raw": 13,
+              "actual": 13,
+              "after": 14,
+              "center": false
+            }
+          ]
+        },
+        {
+          "power": 3,
+          "cost": 9,
+          "hp": 34,
+          "after": 25,
+          "damage": [
+            {
+              "raw": 20,
+              "actual": 20,
+              "after": 7,
+              "center": true
+            },
+            {
+              "raw": 16,
+              "actual": 16,
+              "after": 11,
+              "center": false
+            },
+            {
+              "raw": 16,
+              "actual": 16,
+              "after": 11,
+              "center": false
+            },
+            {
+              "raw": 16,
+              "actual": 16,
+              "after": 11,
+              "center": false
+            },
+            {
+              "raw": 16,
+              "actual": 16,
+              "after": 11,
+              "center": false
+            }
+          ]
+        },
+        {
+          "power": 6,
+          "cost": 14,
+          "hp": 34,
+          "after": 20,
+          "damage": [
+            {
+              "raw": 23,
+              "actual": 23,
+              "after": 4,
+              "center": true
+            },
+            {
+              "raw": 19,
+              "actual": 19,
+              "after": 8,
+              "center": false
+            },
+            {
+              "raw": 19,
+              "actual": 19,
+              "after": 8,
+              "center": false
+            },
+            {
+              "raw": 19,
+              "actual": 19,
+              "after": 8,
+              "center": false
+            },
+            {
+              "raw": 19,
+              "actual": 19,
+              "after": 8,
+              "center": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "hunapu-bow",
+      "map": "M41",
+      "name": "破晓·破阵",
+      "profession": "破晓勇士",
+      "palette": {
+        "main": "cyan / teal-blue",
+        "edge": "silver-ivory",
+        "wake": "lavender / blue-violet",
+        "debris": "dark slate with sparse muted bronze"
+      },
+      "source_variant": "hunapu_tactical_map_bow_v6",
+      "map_actor": {
+        "source": "assets/hunapu-bow-map-action-v6.png",
+        "position": [
+          621,
+          279
+        ],
+        "movement": "fixed tactical-map feet and position; upper-body attack action",
+        "kind": "bow",
+        "timeline": [
+          [
+            0,
+            0
+          ],
+          [
+            1.05,
+            1
+          ],
+          [
+            1.3,
+            2
+          ],
+          [
+            1.94,
+            3
+          ],
+          [
+            2.12,
+            4
+          ],
+          [
+            2.72,
+            5
+          ],
+          [
+            3.15,
+            0
+          ]
+        ],
+        "foot_lock_y": 84,
+        "rig": null,
+        "person_height_native_pixels": 65,
+        "leg_layer_native_y": 58
+      },
+      "portrait": "same tactical-map bow sprite",
+      "coverage": 12,
+      "seconds": 5.8,
+      "hit_rule": "2.12s + 0.09s per tile depth, once per target",
+      "stats": [
+        {
+          "power": 0,
+          "cost": 0,
+          "hp": 36,
+          "after": 36,
+          "damage": [
+            {
+              "raw": 12,
+              "actual": 12,
+              "after": 15,
+              "center": false
+            },
+            {
+              "raw": 12,
+              "actual": 12,
+              "after": 15,
+              "center": false
+            },
+            {
+              "raw": 12,
+              "actual": 12,
+              "after": 15,
+              "center": false
+            },
+            {
+              "raw": 12,
+              "actual": 12,
+              "after": 15,
+              "center": false
+            },
+            {
+              "raw": 12,
+              "actual": 12,
+              "after": 15,
+              "center": false
+            }
+          ]
+        },
+        {
+          "power": 3,
+          "cost": 9,
+          "hp": 36,
+          "after": 27,
+          "damage": [
+            {
+              "raw": 15,
+              "actual": 15,
+              "after": 12,
+              "center": false
+            },
+            {
+              "raw": 15,
+              "actual": 15,
+              "after": 12,
+              "center": false
+            },
+            {
+              "raw": 15,
+              "actual": 15,
+              "after": 12,
+              "center": false
+            },
+            {
+              "raw": 15,
+              "actual": 15,
+              "after": 12,
+              "center": false
+            },
+            {
+              "raw": 15,
+              "actual": 15,
+              "after": 12,
+              "center": false
+            }
+          ]
+        },
+        {
+          "power": 6,
+          "cost": 15,
+          "hp": 36,
+          "after": 21,
+          "damage": [
+            {
+              "raw": 18,
+              "actual": 18,
+              "after": 9,
+              "center": false
+            },
+            {
+              "raw": 18,
+              "actual": 18,
+              "after": 9,
+              "center": false
+            },
+            {
+              "raw": 18,
+              "actual": 18,
+              "after": 9,
+              "center": false
+            },
+            {
+              "raw": 18,
+              "actual": 18,
+              "after": 9,
+              "center": false
+            },
+            {
+              "raw": 18,
+              "actual": 18,
+              "after": 9,
+              "center": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    [
+      "0–0.85s",
+      "范围预览"
+    ],
+    [
+      "0.85–1.95s",
+      "蓄势与动作准备"
+    ],
+    [
+      "1.95–2.42s",
+      "释放与推进"
+    ],
+    [
+      "2.42–2.85s",
+      "单次命中结算"
+    ],
+    [
+      "2.85–3.70s",
+      "特效消退"
+    ],
+    [
+      "3.70–4.20s",
+      "余波消退，原格站定"
+    ],
+    [
+      "4.20s–结束",
+      "结果停留"
+    ]
+  ],
+  "scope": "独立美术设计模拟；现行 Godot 后台截图与角色素材＋新增MAP特效。非机制实装、非手机录屏。"
+}

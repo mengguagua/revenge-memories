@@ -1,0 +1,83 @@
+{
+  "battles": [
+    {
+      "code": "S11",
+      "failures": [],
+      "final_view": "world",
+      "inputs": 11,
+      "outcome": "victory",
+      "scope": "No repeated combat; genuine defeat -> Retry -> current battle -> preparation",
+      "source": "res://reports/full-playtest-20261023/ch1/audit/working-S11.json",
+      "source_sha256": "5eba8f4ed0ab9a04a083d4f3d9431993e2aba20f4fa71f8604483b15da1b3528"
+    }
+  ],
+  "checkpoints": [
+    {
+      "name": "S11-retry-entry",
+      "path": "res://reports/full-playtest-20261023/ch1/failure-recovery/failure-recovery-S11-retry-entry.json",
+      "stage": 111,
+      "turn": 1,
+      "view": "battle"
+    },
+    {
+      "name": "after-failure-recovery",
+      "path": "res://reports/full-playtest-20261023/ch1/failure-recovery/failure-recovery-after-failure-recovery.json",
+      "stage": 111,
+      "turn": 1,
+      "view": "world"
+    }
+  ],
+  "entry_only": false,
+  "failures": [],
+  "forced_victories": false,
+  "native_graphics": false,
+  "observed_texts": [
+    {
+      "actions": [
+        "retry",
+        "title"
+      ],
+      "items": [
+        "重试本关",
+        "返回标题"
+      ],
+      "menu_context": "result",
+      "stage": 111,
+      "view": "defeat"
+    },
+    {
+      "actions": [
+        "end_turn",
+        "assault",
+        "gather",
+        "roster",
+        "new:goal",
+        "new:focus_exit",
+        "new:focus_boss",
+        "new:prepare",
+        "new:battle_title"
+      ],
+      "items": [
+        "结束回合（第1回合）",
+        "自动进攻",
+        "集合队伍",
+        "人物状态",
+        "战场目标",
+        "定位出口或目的地",
+        "定位首领：盗掠首领",
+        "返回整备（重置本战）",
+        "保存并返回主菜单"
+      ],
+      "menu_context": "system",
+      "stage": 111,
+      "view": "battle"
+    }
+  ],
+  "passed": true,
+  "route_trace": [],
+  "scope": "Independent genuine deployment checkpoints, ordinary return-to-preparation and current-map reentry, actual input battles and post-battle hub actions; no live attributes, RNG, positions or win conditions edited.",
+  "screenshots": [],
+  "source_saves_modified": false,
+  "stat_edits": false,
+  "total_inputs": 11
+}

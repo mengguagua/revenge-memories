@@ -1,0 +1,141 @@
+{
+  "status": "passed",
+  "revision": "eileen-front-sword-v5-20261024",
+  "affected_actions": 1,
+  "changed_slots": [
+    30,
+    31,
+    11,
+    23
+  ],
+  "front_carry_metrics": [
+    {
+      "slot": 30,
+      "grip": [
+        174.3400576368876,
+        182.34065934065933
+      ],
+      "blade_centroid": [
+        154.24193548387098,
+        203.0241935483871
+      ],
+      "identical_weapon_pixels": 124,
+      "physical_head_height": 29.978021978021978,
+      "floor": 251
+    },
+    {
+      "slot": 31,
+      "grip": [
+        175.0731707317073,
+        180.95238095238096
+      ],
+      "blade_centroid": [
+        155.24193548387098,
+        202.0241935483871
+      ],
+      "identical_weapon_pixels": 124,
+      "physical_head_height": 30.0,
+      "floor": 250
+    },
+    {
+      "slot": 11,
+      "grip": [
+        180.45558739255014,
+        183.26989619377161
+      ],
+      "blade_centroid": [
+        160.24193548387098,
+        204.0241935483871
+      ],
+      "identical_weapon_pixels": 124,
+      "physical_head_height": 30.08304498269896,
+      "floor": 258
+    },
+    {
+      "slot": 23,
+      "grip": [
+        181.76957831325302,
+        191.27450980392157
+      ],
+      "blade_centroid": [
+        162.24193548387098,
+        212.0241935483871
+      ],
+      "identical_weapon_pixels": 124,
+      "physical_head_height": 29.986928104575163,
+      "floor": 266
+    }
+  ],
+  "same_front_weapon_layer_for_all_four_poses": true,
+  "no_rear_blade": true,
+  "single_connected_character_and_weapon": true,
+  "native_floor_and_head_scale_preserved": true,
+  "all_native_frames_offsets_contacts_effects_and_timing_exact": true,
+  "decoded_videos": [
+    {
+      "path": "demos/videos/eileen-promoted-battle--original_class_11_normal.mp4",
+      "width": 2376,
+      "height": 840,
+      "duration": "5.191451",
+      "nb_read_frames": "312"
+    },
+    {
+      "path": "demos/videos/eileen-promoted-battle--original_class_11_normal--close.mp4",
+      "width": 1224,
+      "height": 584,
+      "duration": "5.191451",
+      "nb_read_frames": "312"
+    }
+  ],
+  "continuous_ticks": [
+    230,
+    245,
+    246,
+    251,
+    252,
+    257,
+    258,
+    265,
+    266,
+    300,
+    301,
+    306,
+    307,
+    309
+  ],
+  "page_links_checked": 626,
+  "runtime_integrated": false,
+  "browser_ui_checked": false,
+  "visual_acceptance": "offline_review_passed_user_acceptance_pending",
+  "promoted_used_effect_definitions_unchanged": 124,
+  "other_promoted_battle_slots_base_bitmaps_and_all_maps_unchanged": true,
+  "concurrent_work_record": "concurrent-work-preserved.json",
+  "offline_visual_review": {
+    "status": "passed",
+    "artifacts": [
+      {
+        "path": "eileen-front-sword-v5-20261024/front-carry-sequence-light.png",
+        "sha256": "d4155085809fda2f49de68472ee510c0fff7fde08b72a88c3633e211f8f671ca"
+      },
+      {
+        "path": "eileen-front-sword-v5-20261024/front-carry-sequence-dark.png",
+        "sha256": "a3ff01547cef1271de147995b8a6a80fff32d9c01ee505af3179461ac04ab498"
+      },
+      {
+        "path": "eileen-front-sword-v5-20261024/recovery-detail-light.png",
+        "sha256": "41de34f16bd9e06928cacf55d12ab0f880a471a3f43069cff351d4411d13254b"
+      },
+      {
+        "path": "eileen-front-sword-v5-20261024/decoded-video-recovery.png",
+        "sha256": "0801c9b4830071b7ed268d979a25671fdffeabb8dd6fb18b483bcc930d179a13"
+      }
+    ],
+    "notes": [
+      "检查29→30→31→11→23→1→0：握剑手和剑保持身前低位，剑尖持续向左下，不再切到身后。",
+      "四个替换姿势共用同一完整握剑手、剑格和剑刃图层；剑长、轮廓与角度一致。",
+      "头颅尺度与各姿势原落脚高度保持；剑与前臂连接，后手自然放松，身后无第二把剑残留。",
+      "近景视频第236、250、256、262、292、305帧解码抽查通过；深浅背景轮廓和标签间距已检查。"
+    ],
+    "browser_ui_checked": false
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "id": "rm_sfx_36",
+  "request": "36",
+  "path": "source/sfx-20261024/audio-guided/candidates/rm_sfx_36.ogg",
+  "sha256": "f2bf004efa076d374c1d1c9421265c03f1547e89ca8886ed62b375eae8b7da1a",
+  "bytes": 77135,
+  "source": {
+    "id": "rm_sfx_36",
+    "seed": 2026102654,
+    "model": "local Stable Audio 3 sm-sfx/same-s",
+    "method": "reference-conditioned audio-to-audio variation",
+    "reference_path": "actual/assets/original/audio/sfx_36.ogg",
+    "reference_sha256": "68dbcba9c14a23bac52c612c528fab80b8c42f9744e0be335fd15d44ee5ac3eb",
+    "reference_pcm_sha256": "19c878c502b2670033ea89e066048e4c5c6d60c47c9d31a0aeca506d7c98b53a",
+    "init_noise_level": 0.55,
+    "reference_input_gain_db": 6.360474417671835,
+    "prompt": "TrackType: SFX. A dry monophonic retro 8-bit game sound effect. Preserve the reference sound's electronic pitch contour, immediate attack, modulation speed and noise-pulse rhythm. A clearly defined pulse-wave or noise-channel effect, crisp upper-midrange, no muffled low drum or acoustic instrument. Create a variation in synthetic tone color, retaining the same sound gesture. No music, no vocal, no real-world ambience, no reverb. Continuous electronic modulation until stopped, stable presence from the opening, no musical beat.",
+    "cfg": 2.0,
+    "steps": 8,
+    "sha256": "fae172d043a1b5eab5362dfa3da644a42a0370d0755718047acdf6618351db7f",
+    "seconds": 8.2,
+    "offline": true,
+    "generation_wall_seconds": 1.99,
+    "raw_peak": 0.3344348967075348,
+    "raw_rms": 0.05573134124279022
+  },
+  "mastering": {
+    "method": "preserve reference duration and 25ms-smoothed amplitude gesture; rounded edges; constant active-RMS gain",
+    "gain_db": 1.8560379443165367,
+    "target_active_rms_dbfs": -23.0,
+    "peak_ceiling_dbfs": -8.459,
+    "transient_shaping": {
+      "applied": true,
+      "method": "smooth tanh knee at 2.3 times 25ms local RMS",
+      "reason": "generated peak crest would otherwise hide the audible body under the reference peak budget"
+    }
+  },
+  "metrics": {
+    "seconds": 8.0,
+    "sample_rate": 44100,
+    "channels": 2,
+    "rms_dbfs": -27.019262925219685,
+    "active_rms_dbfs": -23.113332696244417,
+    "sample_peak_dbfs": -10.006883821020162,
+    "first_50ms_rms_dbfs": -52.86335502792572,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "leading_onset_seconds": 0.06984126984126984,
+    "longest_internal_silence_seconds": 0.11972789115646258,
+    "last_10ms_rms_dbfs": -38.73840898196007,
+    "first_last_sample_delta": 0.0016533053712919354,
+    "lufs_note": "Measured gated integrated loudness",
+    "integrated_lufs": -24.2,
+    "true_peak_dbtp": -10.0
+  }
+}

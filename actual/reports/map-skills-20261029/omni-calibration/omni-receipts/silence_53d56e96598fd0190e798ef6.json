@@ -1,0 +1,52 @@
+{
+  "id": "silence",
+  "kind": "calibration",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/map-skills-20261029/omni-calibration/source/silence.wav"
+    }
+  ],
+  "prompt": "Describe only the audio actually audible. If silent, say silent. Under 35 words.",
+  "max_tokens": 75,
+  "key": "53d56e96598fd0190e798ef6",
+  "source_sha256": [
+    "643f8a8dc8bd9c19225afffad2becfec5426180b3749cb208abdf1a6c8354efc"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/map-skills-20261029/omni-calibration/inputs/643f8a8dc8bd9c19225afffad2becfec5426180b3749cb208abdf1a6c8354efc.wav"
+  ],
+  "audio_input_samples": [
+    16000
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "4f7988030a00d082fe445e00a2ac5dab502300ff1b80e8592dd569867b60ef74"
+  ],
+  "response": "A single, sustained, low-pitched electronic tone. The sound is constant and unwavering, with no discernible changes in pitch or volume.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 31,
+    "prompt_tokens": 79,
+    "total_tokens": 110,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 51,
+    "prompt_ms": 1964.164,
+    "prompt_per_token_ms": 38.513019607843134,
+    "prompt_per_second": 25.965245264652037,
+    "predicted_n": 31,
+    "predicted_ms": 460.015,
+    "predicted_per_token_ms": 15.333833333333333,
+    "predicted_per_second": 65.21526471962872
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 2.476,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

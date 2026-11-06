@@ -64,6 +64,13 @@ static func spawn_unit(caster: Dictionary, cid: int, spec: Dictionary = {}, rout
 	unit.source_template_index = index
 	unit.summoner_id = str(caster.get("id",""))
 	unit.summon_capacity = CAPACITY
+	if bool(spec.get("campaign_minion",false)):
+		unit.campaign_role="summoned_minion";unit.no_drop=true;unit.no_experience=true
+		unit.acted=true;unit.ai_flags=0;unit.raw_ai_flags=0
+		# These finite F43 bodies match the chapter threat budget, not source
+		# Mogall promotion minima (speed18 would outpace every local guard).
+		unit.max_hp=24;unit.hp=24;unit.strength=9;unit.skill=5;unit.speed=4
+		unit.defence=5 if cid==17 else 4;unit.luck=0
 	return unit
 
 static func available_slots(game, side: String) -> int:
@@ -100,6 +107,7 @@ static func cleanup(game, dead: Dictionary) -> Array[String]:
 		if str(unit.get("side","")) != side or int(unit.get("hp",0)) <= 0 or int(unit.get("class_id",0)) != target_class:
 			continue
 		if side == "player" and int(unit.get("character_id",0)) != 35: continue
+		if side=="enemy" and dead.has("campaign_role") and str(unit.get("summoner_id",""))!=str(dead.get("id","")):continue
 		unit.hp = 0
 		unit.acted = true
 		unit.no_drop = true

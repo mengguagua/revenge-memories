@@ -1,0 +1,23 @@
+{
+  "checks": [
+    "empty boot selects New Game",
+    "create valid isolated journal",
+    "valid saved journal defaults to Continue",
+    "corrupt second journal does not displace valid Continue",
+    "01-title-continue text lies inside content-safe panels: []",
+    "01-title-continue controls do not overlap: []",
+    "stage fixture enters 101",
+    "occupied-building-approach text lies inside content-safe panels: []",
+    "occupied-building-approach controls do not overlap: []",
+    "unit card keeps visit hint visible when an actor occupies approach"
+  ],
+  "errors": [],
+  "passed": true,
+  "scope": "Settled title and occupied-entrance hint only; previous menu/range/NPC images reused.",
+  "shots": [
+    {
+      "errors": [],
+      "file": "01-title-continue.png"
+    }
+  ]
+}

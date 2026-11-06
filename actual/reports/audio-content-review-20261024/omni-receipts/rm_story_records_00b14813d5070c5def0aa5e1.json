@@ -1,0 +1,76 @@
+{
+  "id": "rm_story_records",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_story_records.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/music_95.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_story_records.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_story_records_scene.mp3",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is tail 6 seconds then head 6 seconds, with the loop join at 6 seconds; assess rhythmic/harmonic continuity and distracting loudness changes there. Audio 4 is the current game-gain offline mix with interface or combat effects. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: H35/H43/H46/H48/H53/H56；D42; desired mood: 核对记录、验证、谨慎的希望",
+  "max_tokens": 340,
+  "key": "00b14813d5070c5def0aa5e1",
+  "source_sha256": [
+    "4341a28d5d310cfeaea61ade09d1f8c373619d5f31f229322fc3197c50791043",
+    "1a651426e19d08310cfd12d8cbf20f470912d409b4c4f929297218327971c594",
+    "4341a28d5d310cfeaea61ade09d1f8c373619d5f31f229322fc3197c50791043",
+    "bb176f24550678c8496d0a0a553155b0c9afa28fa6b4301b1f96e1a742572f2e"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "audio_input_samples": [
+    696323,
+    240000,
+    192001,
+    80800
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "2225121cf1507d6f0767adb26982c997e743fb254ddb0f4ad7881d1bd9afb94f",
+    "315564757b78383fa2a17364795b658eae607940a0b16a576e9ee40deb43666f",
+    "a404ad295a45c5140169c0145121fda23ecc1e5c0c8d0e8d1ed74f754e0a1eff",
+    "d18e169d9b551aefb6d86c0e818f8be0e39665db05f15ff25cfb1353bb1d6b67"
+  ],
+  "response": "Audio 1: The music features a gentle, plucked string instrument (possibly a kalimba or synthesized equivalent) playing a simple, repeating melody. A soft, sustained synth pad provides a calm harmonic background. The overall timbre is clean and clear, with a moderate, steady tempo. The mood is contemplative, hopeful, and cautious, fitting for a scene involving verification or careful review. There are no vocals or speech. The loop is seamless, with no abrupt changes in loudness or rhythm at the join point. The music remains consistent in energy and texture throughout.\n\nAudio 2: This is a short, high-pitched, arpeggiated sequence typical of retro video game soundtracks. The texture is sparse and electronic, with a clear, digital timbre. It serves as a reference for the original style but does not need to be replicated melodically.\n\nAudio 3: The loop joins cleanly at the 6-second mark. The harmonic and rhythmic continuity is maintained, with no distracting loudness changes or artifacts. The music remains consistent in mood and texture.\n\nAudio 4: The music is mixed at a lower level than interface or combat sound effects. These effects are clear and distinct, not masked by the music. The music does not obscure essential feedback.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 259,
+    "prompt_tokens": 1279,
+    "total_tokens": 1538,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 1251,
+    "prompt_ms": 5672.299,
+    "prompt_per_token_ms": 4.534211830535572,
+    "prompt_per_second": 220.54549663196525,
+    "predicted_n": 259,
+    "predicted_ms": 4833.395,
+    "predicted_per_token_ms": 18.734089147286824,
+    "predicted_per_second": 53.37862930714332
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 16.053,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/4341a28d5d310cfeaea61ade09d1f8c373619d5f31f229322fc3197c50791043.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/1a651426e19d08310cfd12d8cbf20f470912d409b4c4f929297218327971c594.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/4341a28d5d310cfeaea61ade09d1f8c373619d5f31f229322fc3197c50791043.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/bb176f24550678c8496d0a0a553155b0c9afa28fa6b4301b1f96e1a742572f2e.mp3"
+  ]
+}

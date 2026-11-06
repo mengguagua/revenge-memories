@@ -1,0 +1,46 @@
+{
+  "id": "rm_sfx_21",
+  "request": "21",
+  "path": "source/sfx-20261024/audio-guided/candidates/rm_sfx_21.ogg",
+  "sha256": "459320c33d7b84965f3654a5bbac71216cb6bf2873e406f3a31a25efe3a600e8",
+  "bytes": 16299,
+  "source": {
+    "method": "reference-analysed pitch/envelope with new additive and band-limited noise synthesis",
+    "reference_path": "actual/assets/original/audio/attack.ogg",
+    "reference_sha256": "5ef099c86d8304a5ca5f73d5d47f3bd3b108017d6d41e9524063fd9dfc1a826c",
+    "source_path": "source/sfx-20261024/audio-guided/ui-synthesis/rm_sfx_21_float.wav",
+    "copied_pcm": false,
+    "oscillator": "sin(f) + 0.16 sin(3f) + 0.035 sin(5f)",
+    "noise_weight": 0.10216259211301804,
+    "frequency_range_hz": [
+      430.6640625,
+      3488.37890625
+    ]
+  },
+  "mastering": {
+    "gain_db": 2.137106224657746,
+    "target_active_rms_dbfs": -22.0,
+    "peak_ceiling_dbfs": -13.429,
+    "smooth_local_crest_control": false
+  },
+  "metrics": {
+    "seconds": 1.1154875283446712,
+    "sample_rate": 44100,
+    "channels": 2,
+    "rms_dbfs": -22.09681437689826,
+    "active_rms_dbfs": -22.026249192520716,
+    "sample_peak_dbfs": -15.764306339519313,
+    "first_50ms_rms_dbfs": -23.071552755399466,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "leading_onset_seconds": 0.0,
+    "longest_internal_silence_seconds": 0.0,
+    "last_10ms_rms_dbfs": -76.90409340314417,
+    "first_last_sample_delta": 0.00223513413220644,
+    "lufs_note": "Measured gated integrated loudness",
+    "integrated_lufs": -18.5,
+    "true_peak_dbtp": -15.7
+  },
+  "review_decision": "selected",
+  "review_reason": "Matches final published review index."
+}

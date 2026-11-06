@@ -1,0 +1,28 @@
+{
+  "scope": "Design contract for later integration only; this revision does not edit runtime game code.",
+  "input": [
+    "current target static texture and name",
+    "pre_hit_hp and maximum_hp",
+    "already-resolved damage, final_hp and defeated state",
+    "actor ID, current weapon and unlocked form"
+  ],
+  "target_lifetime": {
+    "create_or_bind": "Before opening the cinema popup, bind the actual current target.",
+    "alive": "Keep the same target visual present during preparation, travel, attack, impact, recovery and return. Do not use impact windows to toggle enemy visibility.",
+    "hit": "Render contact flash, slash/fire/arrow/magic and single HP-loss text ABOVE the target. Natural VFX occlusion is allowed; do not remove the enemy node or set its alpha to zero just to simulate impact.",
+    "defeated": "Only the resolved defeated branch may remove or fade the target after defeat feedback. End the cinema without actor return, following the confirmed earlier behavior.",
+    "scene_exit": "Release cinema-only references when the overlay closes. The actual game target lifecycle remains owned by combat logic."
+  },
+  "preview_constants": {
+    "alive_target_position": [
+      502,
+      290
+    ],
+    "defeated_target_removal_seconds_after_hit": 0.35,
+    "defeated_cinema_close_seconds_after_hit": 1.05
+  },
+  "hp": "Receive pre-hit and final HP from combat logic, display that resolved change once, and never apply damage or repeat subtraction in game state. This HTML only computes illustrative display values.",
+  "identity": "Actor ID + unlocked form selects the same costume, hair, proportions and equipment through attack, turn, run and final stance. The initial standing frame is reused for the settled final stance.",
+  "stationary_recovery": "Bow and magic return to their exact initial standing frame once recovery is complete, and hold it to overlay close. No late-frame reversion.",
+  "effects": "Runtime target may be any species and needs only a static sprite; attacks are generic overlays."
+}

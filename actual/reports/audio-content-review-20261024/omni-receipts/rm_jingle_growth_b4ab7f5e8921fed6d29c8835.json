@@ -1,0 +1,68 @@
+{
+  "id": "rm_jingle_growth",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_jingle_growth.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/levelup.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_jingle_growth_scene.mp3",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is the current game-gain offline mix, including the background pause and resume. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: 升级81；职业进阶可用奖赏cue; desired mood: 轻快、成长确认",
+  "max_tokens": 340,
+  "key": "b4ab7f5e8921fed6d29c8835",
+  "source_sha256": [
+    "0cdc91a5a713998b18be4d5ec3c1277777efa80f2d97c88562ba8838d2f8320a",
+    "b7449e8e15eddef4480292ac575b8de20c3f08ac3a9dff209145e6667aaf6f18",
+    "70db41f8271252440813a66252efa9be4301b5a6eca9c05c7bd7f6e73d06376c"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "audio_input_samples": [
+    60000,
+    31491,
+    92000
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "f2a1f6934417d0aeb2949dbe2d8930f440972a2d06e1bbb41e71ac1bc11726df",
+    "fbb1369719fbd470b46d1e82e87351e6a458f1caead570b3efef595c35a030e7",
+    "db9ddbc0a098a83f6762f4d9e985f99b92aea21a94d2b74ceb47a73898d4af07"
+  ],
+  "response": "Audio 1: A single, sustained high-pitched chime with a clear, bell-like timbre. The sound is clean, with no speech or defects. It has a static, non-developing melody and creates a light, positive mood. The energy is low and static, lacking rhythmic or harmonic progression. It functions as a simple confirmation tone.\n\nAudio 2: A brief, high-pitched, synthesized beep—spare and retro in texture. It serves as a reference for minimalistic feedback.\n\nAudio 3: The chime from Audio 1 is layered over a low, sustained bass drone. The drone is present during the pause and resumes with the chime. The chime is masked by the drone’s low-frequency presence, reducing its clarity. The drone may obscure the chime’s feedback role, potentially masking essential confirmation cues. The chime’s timbre remains unchanged, but its perceptual prominence is diminished.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 190,
+    "prompt_tokens": 355,
+    "total_tokens": 545,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 327,
+    "prompt_ms": 1969.892,
+    "prompt_per_token_ms": 6.024134556574924,
+    "prompt_per_second": 165.99894816568624,
+    "predicted_n": 190,
+    "predicted_ms": 4048.457,
+    "predicted_per_token_ms": 21.420407407407406,
+    "predicted_per_second": 46.68445286685767
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 11.993,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/0cdc91a5a713998b18be4d5ec3c1277777efa80f2d97c88562ba8838d2f8320a.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/b7449e8e15eddef4480292ac575b8de20c3f08ac3a9dff209145e6667aaf6f18.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/70db41f8271252440813a66252efa9be4301b5a6eca9c05c7bd7f6e73d06376c.mp3"
+  ]
+}

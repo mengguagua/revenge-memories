@@ -1,0 +1,54 @@
+{
+  "id": "rm_jingle_award",
+  "kind": "final_scene_mix",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_jingle_award_scene.wav"
+    }
+  ],
+  "asset_sha256": "793388381ff8a9fdf31539a00c6dc2004c5e7b6ad7ea745a2eda8cfd30b32581",
+  "fixture_sha256": "2026e7b7a7e140dc414a165f2c7b65c5fd0c6d5c82925f52cda480a4a88adb80",
+  "prompt": "This is a final offline scene mix using the actual game gains and native event sequence. Describe only audible evidence. Check whether essential feedback attacks are clear, any intrusive click/distortion or excessive rumbling tail, and whether music continuity is distracted by the effects. Effects need not be as loud as music; a naturally masked quiet tail is not a failure. Report uncertainty and avoid inventing instruments/events. Under 90 words. Fixture context: 按游戏倍率：背景曲 1 秒 → 暂停并播提示 → 从原位置恢复 1 秒",
+  "max_tokens": 170,
+  "key": "b4900a75925c3a84dfc2dcad",
+  "source_sha256": [
+    "2026e7b7a7e140dc414a165f2c7b65c5fd0c6d5c82925f52cda480a4a88adb80"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/2026e7b7a7e140dc414a165f2c7b65c5fd0c6d5c82925f52cda480a4a88adb80.wav"
+  ],
+  "audio_input_samples": [
+    73280
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "2bc5743b88a2235e6fa9d5c44cc8a0f26706ef6867a0e26288e3b8588d3d44b1"
+  ],
+  "response": "Music plays for 1 second, then cuts abruptly. A short, clear notification chime sounds. Music resumes seamlessly from the same point. No intrusive clicks, distortion, or excessive rumble. Feedback attack is distinct. Music continuity is preserved; effects are naturally masked. No evidence of artificial tail or disruption.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 63,
+    "prompt_tokens": 218,
+    "total_tokens": 281,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 190,
+    "prompt_ms": 552.36,
+    "prompt_per_token_ms": 2.907157894736842,
+    "prompt_per_second": 343.97856470417844,
+    "predicted_n": 63,
+    "predicted_ms": 946.901,
+    "predicted_per_token_ms": 15.272596774193548,
+    "predicted_per_second": 65.47674994534805
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 1.511,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

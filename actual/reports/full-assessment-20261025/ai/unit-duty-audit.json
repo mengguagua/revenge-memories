@@ -1,0 +1,5105 @@
+{
+  "counts": {
+    "reactive_guard": 249,
+    "noncombat_duty": 22,
+    "locked_until_rescue": 30,
+    "armed_post_guard": 2,
+    "role_or_objective": 9,
+    "automatic_escort": 18
+  },
+  "units": [
+    {
+      "stage": "F21",
+      "category": "reactive_guard",
+      "id": "F21_boss",
+      "name_zh": "搜捕指挥官",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        24,
+        11
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F21",
+      "category": "noncombat_duty",
+      "id": "friendly_ship",
+      "name_zh": "己方船",
+      "side": "player",
+      "class_id": 14,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        5,
+        22
+      ],
+      "quest_kind": "ship",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "F21",
+      "category": "noncombat_duty",
+      "id": "injured_passengers",
+      "name_zh": "受伤乘客",
+      "side": "player",
+      "class_id": 14,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        8,
+        21
+      ],
+      "quest_kind": "witness",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "F22",
+      "category": "reactive_guard",
+      "id": "F22_boss",
+      "name_zh": "搜捕首领",
+      "side": "enemy",
+      "class_id": 8,
+      "move": 4,
+      "item_id": 49,
+      "position": [
+        22,
+        4
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F22",
+      "category": "reactive_guard",
+      "id": "F22_e6",
+      "name_zh": "重装兵",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        22,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F22",
+      "category": "reactive_guard",
+      "id": "F22_e7",
+      "name_zh": "重装兵",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        22,
+        20
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F22",
+      "category": "locked_until_rescue",
+      "id": "prisoners_0",
+      "name_zh": "俘虏1",
+      "side": "player",
+      "class_id": 14,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        25,
+        6
+      ],
+      "quest_kind": "prisoner",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "F22",
+      "category": "locked_until_rescue",
+      "id": "prisoners_1",
+      "name_zh": "俘虏2",
+      "side": "player",
+      "class_id": 14,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        27,
+        6
+      ],
+      "quest_kind": "prisoner",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "F22",
+      "category": "locked_until_rescue",
+      "id": "prisoners_2",
+      "name_zh": "俘虏3",
+      "side": "player",
+      "class_id": 14,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        25,
+        18
+      ],
+      "quest_kind": "prisoner",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "F22",
+      "category": "locked_until_rescue",
+      "id": "lord",
+      "name_zh": "洛德",
+      "side": "player",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 62,
+      "position": [
+        27,
+        18
+      ],
+      "quest_kind": "prisoner",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "F23",
+      "category": "reactive_guard",
+      "id": "F23_boss",
+      "name_zh": "魔物首领",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        26,
+        5
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F23",
+      "category": "reactive_guard",
+      "id": "F23_e9",
+      "name_zh": "重装兵",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        25,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F23",
+      "category": "reactive_guard",
+      "id": "F23_e10",
+      "name_zh": "重装兵",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        20,
+        11
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F23",
+      "category": "armed_post_guard",
+      "id": "roan",
+      "name_zh": "罗恩",
+      "side": "player",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 64,
+      "position": [
+        6,
+        21
+      ],
+      "quest_kind": "witness",
+      "locked": false,
+      "battle_guard": true,
+      "no_counter": false
+    },
+    {
+      "stage": "F23",
+      "category": "noncombat_duty",
+      "id": "fishers",
+      "name_zh": "渔民营地",
+      "side": "player",
+      "class_id": 14,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        8,
+        22
+      ],
+      "quest_kind": "camp",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "F24",
+      "category": "reactive_guard",
+      "id": "F24_boss",
+      "name_zh": "搜捕首领",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 2,
+      "position": [
+        25,
+        5
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F24",
+      "category": "role_or_objective",
+      "id": "F24_e4",
+      "name_zh": "海兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        12,
+        3
+      ],
+      "objective_role": "seize_beacon"
+    },
+    {
+      "stage": "F24",
+      "category": "role_or_objective",
+      "id": "F24_e5",
+      "name_zh": "海兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        15,
+        3
+      ],
+      "objective_role": "seize_beacon"
+    },
+    {
+      "stage": "F24",
+      "category": "reactive_guard",
+      "id": "F24_e10",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        22,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F24",
+      "category": "armed_post_guard",
+      "id": "shia",
+      "name_zh": "希雅",
+      "side": "player",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 62,
+      "position": [
+        12,
+        18
+      ],
+      "quest_kind": "witness",
+      "locked": false,
+      "battle_guard": true,
+      "no_counter": false
+    },
+    {
+      "stage": "F24",
+      "category": "noncombat_duty",
+      "id": "islanders",
+      "name_zh": "岛民",
+      "side": "player",
+      "class_id": 14,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        15,
+        19
+      ],
+      "quest_kind": "islanders",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "F25",
+      "category": "reactive_guard",
+      "id": "F25_boss",
+      "name_zh": "裴萨",
+      "side": "enemy",
+      "class_id": 8,
+      "move": 4,
+      "item_id": 11,
+      "position": [
+        22,
+        6
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F25",
+      "category": "reactive_guard",
+      "id": "F25_e5",
+      "name_zh": "重装兵",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        23,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F25",
+      "category": "reactive_guard",
+      "id": "F25_e6",
+      "name_zh": "重装兵",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        20,
+        15
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F25",
+      "category": "reactive_guard",
+      "id": "F25_e7",
+      "name_zh": "重装兵",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        28,
+        22
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F25",
+      "category": "reactive_guard",
+      "id": "F25_e11",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        30,
+        16
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F25",
+      "category": "reactive_guard",
+      "id": "F25_e12",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        8,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F25",
+      "category": "locked_until_rescue",
+      "id": "sailors0",
+      "name_zh": "幸存船员",
+      "side": "player",
+      "class_id": 14,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        25,
+        19
+      ],
+      "quest_kind": "witness",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "F25",
+      "category": "locked_until_rescue",
+      "id": "sailors1",
+      "name_zh": "引航者",
+      "side": "player",
+      "class_id": 14,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        27,
+        19
+      ],
+      "quest_kind": "witness",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "F26",
+      "category": "reactive_guard",
+      "id": "F26_boss",
+      "name_zh": "封航首领",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 6,
+      "position": [
+        11,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F26",
+      "category": "reactive_guard",
+      "id": "F26_e10",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        11,
+        14
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F26",
+      "category": "reactive_guard",
+      "id": "F26_e11",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        1,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F31",
+      "category": "reactive_guard",
+      "id": "F31_boss",
+      "name_zh": "扣船队长",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        29,
+        4
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F31",
+      "category": "reactive_guard",
+      "id": "F31_e5",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        19,
+        17
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F31",
+      "category": "reactive_guard",
+      "id": "F31_e6",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        30,
+        9
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F31",
+      "category": "reactive_guard",
+      "id": "F31_e7",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        30,
+        22
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F31",
+      "category": "reactive_guard",
+      "id": "F31_e8",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        17,
+        5
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F31",
+      "category": "reactive_guard",
+      "id": "F31_e9",
+      "name_zh": "重装守军",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        20,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F31",
+      "category": "reactive_guard",
+      "id": "F31_e10",
+      "name_zh": "重装守军",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        29,
+        13
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F31",
+      "category": "locked_until_rescue",
+      "id": "dock_patients0",
+      "name_zh": "北码头伤者",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        24,
+        4
+      ],
+      "quest_kind": "patient",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "F31",
+      "category": "locked_until_rescue",
+      "id": "dock_patients1",
+      "name_zh": "南码头伤者",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        24,
+        16
+      ],
+      "quest_kind": "patient",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "F32",
+      "category": "reactive_guard",
+      "id": "F32_boss",
+      "name_zh": "封路神官",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        26,
+        4
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F32",
+      "category": "reactive_guard",
+      "id": "F32_e5",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 20,
+      "position": [
+        23,
+        5
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F32",
+      "category": "reactive_guard",
+      "id": "F32_e6",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        20,
+        16
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F32",
+      "category": "reactive_guard",
+      "id": "F32_e7",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        25,
+        16
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F32",
+      "category": "reactive_guard",
+      "id": "F32_e8",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        25,
+        11
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F32",
+      "category": "reactive_guard",
+      "id": "F32_e9",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        25,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F32",
+      "category": "reactive_guard",
+      "id": "F32_e10",
+      "name_zh": "飞行守军",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        18,
+        5
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F32",
+      "category": "reactive_guard",
+      "id": "F32_e11",
+      "name_zh": "飞行守军",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        26,
+        17
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F32",
+      "category": "automatic_escort",
+      "id": "salt_guide",
+      "name_zh": "盐路向导",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        7,
+        24
+      ],
+      "quest_kind": "guide",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "F33",
+      "category": "reactive_guard",
+      "id": "F33_boss",
+      "name_zh": "控制神官",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 51,
+      "position": [
+        23,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F33",
+      "category": "reactive_guard",
+      "id": "F33_e1",
+      "name_zh": "重装守军",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        21,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F33",
+      "category": "reactive_guard",
+      "id": "F33_e2",
+      "name_zh": "重装守军",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        14,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F33",
+      "category": "reactive_guard",
+      "id": "F33_e5",
+      "name_zh": "佣兵",
+      "side": "enemy",
+      "class_id": 8,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        25,
+        11
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F33",
+      "category": "reactive_guard",
+      "id": "F33_e6",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        22,
+        15
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F33",
+      "category": "reactive_guard",
+      "id": "F33_e7",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        25,
+        20
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F33",
+      "category": "reactive_guard",
+      "id": "F33_e8",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        10,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F33",
+      "category": "reactive_guard",
+      "id": "F33_e9",
+      "name_zh": "遗迹骸卫",
+      "side": "enemy",
+      "class_id": 17,
+      "move": 5,
+      "item_id": 0,
+      "position": [
+        26,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F33",
+      "category": "reactive_guard",
+      "id": "F33_e10",
+      "name_zh": "遗迹骸卫",
+      "side": "enemy",
+      "class_id": 17,
+      "move": 5,
+      "item_id": 0,
+      "position": [
+        17,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F33",
+      "category": "reactive_guard",
+      "id": "F33_e11",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        22,
+        18
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F33",
+      "category": "locked_until_rescue",
+      "id": "ritual_worker0",
+      "name_zh": "维持设施的术士甲",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        6,
+        16
+      ],
+      "quest_kind": "witness",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "F33",
+      "category": "locked_until_rescue",
+      "id": "ritual_worker1",
+      "name_zh": "维持设施的术士乙",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        10,
+        16
+      ],
+      "quest_kind": "witness",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "F41",
+      "category": "reactive_guard",
+      "id": "F41_boss",
+      "name_zh": "强迁队长",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        24,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F41",
+      "category": "reactive_guard",
+      "id": "F41_e5",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        12,
+        6
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F41",
+      "category": "reactive_guard",
+      "id": "F41_e6",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        24,
+        19
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F41",
+      "category": "reactive_guard",
+      "id": "F41_e7",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        20,
+        9
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F41",
+      "category": "reactive_guard",
+      "id": "F41_e8",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        18,
+        9
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F41",
+      "category": "reactive_guard",
+      "id": "F41_e9",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        7,
+        11
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F41",
+      "category": "reactive_guard",
+      "id": "F41_e10",
+      "name_zh": "飞行守军",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        24,
+        17
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F41",
+      "category": "reactive_guard",
+      "id": "F41_e11",
+      "name_zh": "飞行守军",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        23,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F41",
+      "category": "reactive_guard",
+      "id": "F41_e12",
+      "name_zh": "飞行守军",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        17,
+        12
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F41",
+      "category": "noncombat_duty",
+      "id": "sand_resident",
+      "name_zh": "沙城居民",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        9,
+        23
+      ],
+      "quest_kind": "witness",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "F41",
+      "category": "noncombat_duty",
+      "id": "sand_guide",
+      "name_zh": "古道向导",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        16,
+        23
+      ],
+      "quest_kind": "witness",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "F42",
+      "category": "reactive_guard",
+      "id": "F42_boss",
+      "name_zh": "萨弥",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        17,
+        9
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F42",
+      "category": "role_or_objective",
+      "id": "F42_e1",
+      "name_zh": "焚毁兵",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        24,
+        6
+      ],
+      "behavior": "burn",
+      "ch4_burner": true
+    },
+    {
+      "stage": "F42",
+      "category": "reactive_guard",
+      "id": "F42_e2",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        18,
+        11
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F42",
+      "category": "role_or_objective",
+      "id": "F42_e3",
+      "name_zh": "观测隙行术师",
+      "side": "enemy",
+      "class_id": 16,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        26,
+        18
+      ],
+      "behavior": "advance",
+      "campaign_role": "short_blink"
+    },
+    {
+      "stage": "F42",
+      "category": "reactive_guard",
+      "id": "F42_e4",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        10,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F42",
+      "category": "reactive_guard",
+      "id": "F42_e5",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        23,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F42",
+      "category": "reactive_guard",
+      "id": "F42_e6",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        20,
+        12
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F42",
+      "category": "reactive_guard",
+      "id": "F42_e7",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        27,
+        19
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F42",
+      "category": "reactive_guard",
+      "id": "F42_e8",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        9,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F42",
+      "category": "reactive_guard",
+      "id": "F42_e9",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        25,
+        9
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F42",
+      "category": "reactive_guard",
+      "id": "F42_e10",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        17,
+        12
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F42",
+      "category": "reactive_guard",
+      "id": "F42_e11",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        25,
+        20
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F42",
+      "category": "reactive_guard",
+      "id": "F42_e12",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        12,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F42",
+      "category": "reactive_guard",
+      "id": "F42_e13",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        23,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F42",
+      "category": "noncombat_duty",
+      "id": "copyist",
+      "name_zh": "抄录工",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        8,
+        22
+      ],
+      "quest_kind": "witness",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "F42",
+      "category": "noncombat_duty",
+      "id": "local_mage",
+      "name_zh": "地方技术员",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        12,
+        18
+      ],
+      "quest_kind": "witness",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "F43",
+      "category": "reactive_guard",
+      "id": "F43_boss",
+      "name_zh": "召唤神官",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        28,
+        5
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F43",
+      "category": "role_or_objective",
+      "id": "F43_e3",
+      "name_zh": "裂目兽",
+      "side": "enemy",
+      "class_id": 18,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        27,
+        20
+      ],
+      "behavior": "advance",
+      "campaign_role": "bounded_divider"
+    },
+    {
+      "stage": "F43",
+      "category": "reactive_guard",
+      "id": "F43_e5",
+      "name_zh": "飞行魔物",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        29,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F43",
+      "category": "reactive_guard",
+      "id": "F43_e6",
+      "name_zh": "飞行魔物",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        19,
+        12
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F43",
+      "category": "reactive_guard",
+      "id": "F43_e7",
+      "name_zh": "飞行魔物",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        25,
+        18
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F43",
+      "category": "reactive_guard",
+      "id": "F43_e8",
+      "name_zh": "沼泽驭魔师",
+      "side": "enemy",
+      "class_id": 19,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        11,
+        5
+      ],
+      "behavior": "guard",
+      "campaign_role": "bounded_summoner"
+    },
+    {
+      "stage": "F43",
+      "category": "reactive_guard",
+      "id": "F43_e9",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        30,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F43",
+      "category": "automatic_escort",
+      "id": "marsh_group0",
+      "name_zh": "待转运居民1",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        6,
+        23
+      ],
+      "quest_kind": "escort",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "F43",
+      "category": "automatic_escort",
+      "id": "marsh_group1",
+      "name_zh": "待转运居民2",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        6,
+        24
+      ],
+      "quest_kind": "escort",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "F43",
+      "category": "automatic_escort",
+      "id": "marsh_group2",
+      "name_zh": "待转运居民3",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        7,
+        24
+      ],
+      "quest_kind": "escort",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "F44",
+      "category": "reactive_guard",
+      "id": "F44_boss",
+      "name_zh": "天翼守兽",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        24,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F44",
+      "category": "reactive_guard",
+      "id": "F44_e1",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        24,
+        9
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F44",
+      "category": "reactive_guard",
+      "id": "F44_e2",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        19,
+        16
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F44",
+      "category": "reactive_guard",
+      "id": "F44_e3",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        29,
+        21
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F44",
+      "category": "reactive_guard",
+      "id": "F44_e4",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        11,
+        11
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F44",
+      "category": "reactive_guard",
+      "id": "F44_e5",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        22,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F44",
+      "category": "reactive_guard",
+      "id": "F44_e6",
+      "name_zh": "飞行魔物",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        20,
+        14
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F44",
+      "category": "reactive_guard",
+      "id": "F44_e7",
+      "name_zh": "飞行魔物",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        29,
+        18
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F44",
+      "category": "reactive_guard",
+      "id": "F44_e8",
+      "name_zh": "飞行魔物",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        11,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F44",
+      "category": "reactive_guard",
+      "id": "F44_e9",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        26,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F44",
+      "category": "reactive_guard",
+      "id": "F44_e10",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        18,
+        15
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F44",
+      "category": "reactive_guard",
+      "id": "F44_e11",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        30,
+        16
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F44",
+      "category": "noncombat_duty",
+      "id": "repairer0",
+      "name_zh": "修复工匠甲",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        6,
+        24
+      ],
+      "quest_kind": "witness",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "F44",
+      "category": "noncombat_duty",
+      "id": "repairer1",
+      "name_zh": "修复工匠乙",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        14,
+        20
+      ],
+      "quest_kind": "witness",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "F51",
+      "category": "reactive_guard",
+      "id": "F51_boss",
+      "name_zh": "祭所守卫长",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        25,
+        5
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F51",
+      "category": "reactive_guard",
+      "id": "F51_e1",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        11,
+        3
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F51",
+      "category": "reactive_guard",
+      "id": "F51_e2",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        29,
+        6
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F51",
+      "category": "reactive_guard",
+      "id": "F51_e3",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        20,
+        18
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F51",
+      "category": "reactive_guard",
+      "id": "F51_e4",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        11,
+        18
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F51",
+      "category": "reactive_guard",
+      "id": "F51_e5",
+      "name_zh": "神宫弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        10,
+        3
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F51",
+      "category": "reactive_guard",
+      "id": "F51_e6",
+      "name_zh": "神宫弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        30,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F51",
+      "category": "reactive_guard",
+      "id": "F51_e7",
+      "name_zh": "神宫弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        29,
+        23
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F51",
+      "category": "reactive_guard",
+      "id": "F51_e8",
+      "name_zh": "日宫术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        4,
+        18
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F51",
+      "category": "reactive_guard",
+      "id": "F51_e9",
+      "name_zh": "日宫术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        13,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F51",
+      "category": "reactive_guard",
+      "id": "F51_e10",
+      "name_zh": "日宫术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        22,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F51",
+      "category": "locked_until_rescue",
+      "id": "repair_team0",
+      "name_zh": "第1修复工班",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        6,
+        11
+      ],
+      "quest_kind": "witness",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "F51",
+      "category": "locked_until_rescue",
+      "id": "repair_team1",
+      "name_zh": "第2修复工班",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        25,
+        15
+      ],
+      "quest_kind": "witness",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "F52",
+      "category": "reactive_guard",
+      "id": "F52_boss",
+      "name_zh": "下层神官",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        17,
+        9
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F52",
+      "category": "reactive_guard",
+      "id": "F52_e1",
+      "name_zh": "日宫术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        7,
+        16
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F52",
+      "category": "reactive_guard",
+      "id": "F52_e2",
+      "name_zh": "日宫术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        28,
+        18
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F52",
+      "category": "reactive_guard",
+      "id": "F52_e3",
+      "name_zh": "日宫术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        22,
+        9
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F52",
+      "category": "reactive_guard",
+      "id": "F52_e4",
+      "name_zh": "日宫术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        12,
+        9
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F52",
+      "category": "reactive_guard",
+      "id": "F52_e5",
+      "name_zh": "神宫弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        10,
+        15
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F52",
+      "category": "reactive_guard",
+      "id": "F52_e6",
+      "name_zh": "神宫弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        25,
+        18
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F52",
+      "category": "reactive_guard",
+      "id": "F52_e7",
+      "name_zh": "神宫弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        23,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F52",
+      "category": "reactive_guard",
+      "id": "F52_e8",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        11,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F52",
+      "category": "reactive_guard",
+      "id": "F52_e9",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        6,
+        14
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "F52",
+      "category": "reactive_guard",
+      "id": "F52_e10",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        30,
+        17
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J53",
+      "category": "reactive_guard",
+      "id": "J53_boss",
+      "name_zh": "前庭统领",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        19,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J53",
+      "category": "reactive_guard",
+      "id": "J53_e1",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        8,
+        19
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J53",
+      "category": "reactive_guard",
+      "id": "J53_e2",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        29,
+        19
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J53",
+      "category": "reactive_guard",
+      "id": "J53_e3",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        12,
+        12
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J53",
+      "category": "reactive_guard",
+      "id": "J53_e4",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        25,
+        12
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J53",
+      "category": "reactive_guard",
+      "id": "J53_e5",
+      "name_zh": "神宫弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        7,
+        18
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J53",
+      "category": "reactive_guard",
+      "id": "J53_e6",
+      "name_zh": "神宫弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        30,
+        18
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J53",
+      "category": "reactive_guard",
+      "id": "J53_e7",
+      "name_zh": "神宫弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        13,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J53",
+      "category": "reactive_guard",
+      "id": "J53_e8",
+      "name_zh": "日宫术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        24,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J53",
+      "category": "reactive_guard",
+      "id": "J53_e9",
+      "name_zh": "日宫术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        10,
+        18
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J53",
+      "category": "reactive_guard",
+      "id": "J53_e10",
+      "name_zh": "日宫术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        27,
+        18
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J53",
+      "category": "reactive_guard",
+      "id": "J53_e11",
+      "name_zh": "天翼守军",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        15,
+        11
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J53",
+      "category": "reactive_guard",
+      "id": "J53_e12",
+      "name_zh": "天翼守军",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        22,
+        11
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J53",
+      "category": "reactive_guard",
+      "id": "J53_e13",
+      "name_zh": "天翼守军",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        6,
+        17
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J53",
+      "category": "reactive_guard",
+      "id": "J53_e14",
+      "name_zh": "神宫剑豪",
+      "side": "enemy",
+      "class_id": 10,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        31,
+        17
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J53",
+      "category": "reactive_guard",
+      "id": "J53_e15",
+      "name_zh": "神宫剑豪",
+      "side": "enemy",
+      "class_id": 10,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        20,
+        12
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J54",
+      "category": "reactive_guard",
+      "id": "J54_boss",
+      "name_zh": "乌库布·卡基",
+      "side": "enemy",
+      "class_id": 21,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        16,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J54",
+      "category": "reactive_guard",
+      "id": "J54_e5",
+      "name_zh": "日宫术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        8,
+        15
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J54",
+      "category": "reactive_guard",
+      "id": "J54_e6",
+      "name_zh": "日宫术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        25,
+        15
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J54",
+      "category": "reactive_guard",
+      "id": "J54_e7",
+      "name_zh": "日宫术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        12,
+        11
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J54",
+      "category": "reactive_guard",
+      "id": "J54_e8",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        21,
+        11
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "J54",
+      "category": "reactive_guard",
+      "id": "J54_e9",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        12,
+        14
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M11",
+      "category": "reactive_guard",
+      "id": "M11_boss",
+      "name_zh": "追击队长",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 2,
+      "position": [
+        16,
+        4
+      ],
+      "behavior": "guard_exit"
+    },
+    {
+      "stage": "M11",
+      "category": "automatic_escort",
+      "id": "M11_refugees0",
+      "name_zh": "流民队1",
+      "side": "player",
+      "class_id": 14,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        8,
+        12
+      ],
+      "quest_kind": "escort",
+      "locked": false
+    },
+    {
+      "stage": "M11",
+      "category": "automatic_escort",
+      "id": "M11_refugees1",
+      "name_zh": "流民队2",
+      "side": "player",
+      "class_id": 14,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        9,
+        12
+      ],
+      "quest_kind": "escort",
+      "locked": false
+    },
+    {
+      "stage": "M12",
+      "category": "reactive_guard",
+      "id": "M12_boss",
+      "name_zh": "指挥官",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 62,
+      "position": [
+        26,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M12",
+      "category": "noncombat_duty",
+      "id": "fula",
+      "name_zh": "芙拉",
+      "side": "player",
+      "class_id": 18,
+      "move": 4,
+      "item_id": 65,
+      "position": [
+        4,
+        17
+      ],
+      "quest_kind": "witness",
+      "locked": false
+    },
+    {
+      "stage": "M13",
+      "category": "reactive_guard",
+      "id": "M13_boss",
+      "name_zh": "指挥官",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        28,
+        5
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M13",
+      "category": "locked_until_rescue",
+      "id": "M13_workers0",
+      "name_zh": "劳工队1",
+      "side": "player",
+      "class_id": 14,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        5,
+        8
+      ],
+      "quest_kind": "escort",
+      "locked": true
+    },
+    {
+      "stage": "M13",
+      "category": "locked_until_rescue",
+      "id": "M13_workers1",
+      "name_zh": "劳工队2",
+      "side": "player",
+      "class_id": 14,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        24,
+        11
+      ],
+      "quest_kind": "escort",
+      "locked": true
+    },
+    {
+      "stage": "M13",
+      "category": "locked_until_rescue",
+      "id": "lena",
+      "name_zh": "蕾娜",
+      "side": "player",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 62,
+      "position": [
+        7,
+        8
+      ],
+      "quest_kind": "witness",
+      "locked": true
+    },
+    {
+      "stage": "M15",
+      "category": "reactive_guard",
+      "id": "M15_boss",
+      "name_zh": "科兰",
+      "side": "enemy",
+      "class_id": 7,
+      "move": 9,
+      "item_id": 2,
+      "position": [
+        20,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M15",
+      "category": "locked_until_rescue",
+      "id": "M15_workers0",
+      "name_zh": "劳工队1",
+      "side": "player",
+      "class_id": 14,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        9,
+        7
+      ],
+      "quest_kind": "escort",
+      "locked": true
+    },
+    {
+      "stage": "M15",
+      "category": "locked_until_rescue",
+      "id": "M15_workers1",
+      "name_zh": "劳工队2",
+      "side": "player",
+      "class_id": 14,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        27,
+        20
+      ],
+      "quest_kind": "escort",
+      "locked": true
+    },
+    {
+      "stage": "M31",
+      "category": "reactive_guard",
+      "id": "M31_boss",
+      "name_zh": "追捕队长",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        4,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M31",
+      "category": "reactive_guard",
+      "id": "M31_e5",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        6,
+        15
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M31",
+      "category": "reactive_guard",
+      "id": "M31_e6",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        25,
+        11
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M31",
+      "category": "reactive_guard",
+      "id": "M31_e7",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        23,
+        19
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M31",
+      "category": "reactive_guard",
+      "id": "M31_e8",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        8,
+        6
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M31",
+      "category": "reactive_guard",
+      "id": "M31_e9",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        12,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M31",
+      "category": "reactive_guard",
+      "id": "M31_e10",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        25,
+        14
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M31",
+      "category": "locked_until_rescue",
+      "id": "detained0",
+      "name_zh": "被拘押的居民",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        21,
+        11
+      ],
+      "quest_kind": "escort",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "M31",
+      "category": "locked_until_rescue",
+      "id": "detained1",
+      "name_zh": "被拘押的家属",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        23,
+        11
+      ],
+      "quest_kind": "escort",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "M31",
+      "category": "automatic_escort",
+      "id": "street_resident",
+      "name_zh": "撤离居民",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        11,
+        21
+      ],
+      "quest_kind": "escort",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "M32",
+      "category": "reactive_guard",
+      "id": "M32_boss",
+      "name_zh": "护送长",
+      "side": "enemy",
+      "class_id": 1,
+      "move": 7,
+      "item_id": 3,
+      "position": [
+        22,
+        3
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M32",
+      "category": "reactive_guard",
+      "id": "M32_e5",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        19,
+        6
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M32",
+      "category": "reactive_guard",
+      "id": "M32_e6",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        14,
+        12
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M32",
+      "category": "reactive_guard",
+      "id": "M32_e7",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        24,
+        18
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M32",
+      "category": "reactive_guard",
+      "id": "M32_e8",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        11,
+        12
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M32",
+      "category": "reactive_guard",
+      "id": "M32_e9",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        23,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M32",
+      "category": "reactive_guard",
+      "id": "M32_e10",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        16,
+        11
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M32",
+      "category": "locked_until_rescue",
+      "id": "transport_cart",
+      "name_zh": "工匠运输车",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        20,
+        15
+      ],
+      "quest_kind": "transport",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "M32",
+      "category": "noncombat_duty",
+      "id": "road_worker",
+      "name_zh": "运输工",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        5,
+        21
+      ],
+      "quest_kind": "witness",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "M33",
+      "category": "reactive_guard",
+      "id": "M33_boss",
+      "name_zh": "石堡堡主",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 50,
+      "position": [
+        24,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M33",
+      "category": "reactive_guard",
+      "id": "M33_e1",
+      "name_zh": "重装守军",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        21,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M33",
+      "category": "reactive_guard",
+      "id": "M33_e2",
+      "name_zh": "重装守军",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        16,
+        11
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M33",
+      "category": "reactive_guard",
+      "id": "M33_e3",
+      "name_zh": "重装守军",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        23,
+        20
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M33",
+      "category": "reactive_guard",
+      "id": "M33_e5",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        22,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M33",
+      "category": "reactive_guard",
+      "id": "M33_e6",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        16,
+        14
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M33",
+      "category": "reactive_guard",
+      "id": "M33_e7",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        24,
+        18
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M33",
+      "category": "reactive_guard",
+      "id": "M33_e8",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        12,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M33",
+      "category": "reactive_guard",
+      "id": "M33_e9",
+      "name_zh": "石堡狙击手",
+      "side": "enemy",
+      "class_id": 13,
+      "move": 5,
+      "item_id": 0,
+      "position": [
+        24,
+        9
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M33",
+      "category": "reactive_guard",
+      "id": "M33_e10",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        18,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M33",
+      "category": "reactive_guard",
+      "id": "M33_e11",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        22,
+        21
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M33",
+      "category": "reactive_guard",
+      "id": "german",
+      "name_zh": "格曼",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 62,
+      "position": [
+        20,
+        21
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M33",
+      "category": "locked_until_rescue",
+      "id": "fort_workers",
+      "name_zh": "工房工匠",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        17,
+        21
+      ],
+      "quest_kind": "witness",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "M41",
+      "category": "reactive_guard",
+      "id": "M41_boss",
+      "name_zh": "封路指挥官",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        22,
+        23
+      ],
+      "behavior": "guard_exit"
+    },
+    {
+      "stage": "M41",
+      "category": "reactive_guard",
+      "id": "M41_e1",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        20,
+        12
+      ],
+      "behavior": "guard_exit"
+    },
+    {
+      "stage": "M41",
+      "category": "reactive_guard",
+      "id": "M41_e2",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        19,
+        15
+      ],
+      "behavior": "guard_exit"
+    },
+    {
+      "stage": "M41",
+      "category": "reactive_guard",
+      "id": "M41_e3",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        26,
+        10
+      ],
+      "behavior": "guard_exit"
+    },
+    {
+      "stage": "M41",
+      "category": "reactive_guard",
+      "id": "M41_e4",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        24,
+        18
+      ],
+      "behavior": "guard_exit"
+    },
+    {
+      "stage": "M41",
+      "category": "reactive_guard",
+      "id": "M41_e5",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        23,
+        22
+      ],
+      "behavior": "guard_exit"
+    },
+    {
+      "stage": "M41",
+      "category": "reactive_guard",
+      "id": "M41_e6",
+      "name_zh": "重装守军",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        21,
+        13
+      ],
+      "behavior": "guard_exit"
+    },
+    {
+      "stage": "M41",
+      "category": "reactive_guard",
+      "id": "M41_e7",
+      "name_zh": "重装守军",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        27,
+        12
+      ],
+      "behavior": "guard_exit"
+    },
+    {
+      "stage": "M41",
+      "category": "reactive_guard",
+      "id": "M41_e8",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        23,
+        12
+      ],
+      "behavior": "guard_exit"
+    },
+    {
+      "stage": "M41",
+      "category": "reactive_guard",
+      "id": "M41_e9",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        25,
+        21
+      ],
+      "behavior": "guard_exit"
+    },
+    {
+      "stage": "M41",
+      "category": "reactive_guard",
+      "id": "M41_e10",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        29,
+        11
+      ],
+      "behavior": "guard_exit"
+    },
+    {
+      "stage": "M41",
+      "category": "reactive_guard",
+      "id": "M41_e11",
+      "name_zh": "护日骑兵",
+      "side": "enemy",
+      "class_id": 1,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        24,
+        20
+      ],
+      "behavior": "guard_exit"
+    },
+    {
+      "stage": "M41",
+      "category": "reactive_guard",
+      "id": "M41_e12",
+      "name_zh": "护日骑兵",
+      "side": "enemy",
+      "class_id": 1,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        28,
+        17
+      ],
+      "behavior": "guard_exit"
+    },
+    {
+      "stage": "M41",
+      "category": "automatic_escort",
+      "id": "snow_group0",
+      "name_zh": "北村居民",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        7,
+        7
+      ],
+      "quest_kind": "escort",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "M41",
+      "category": "automatic_escort",
+      "id": "snow_group1",
+      "name_zh": "山道伤者",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        12,
+        11
+      ],
+      "quest_kind": "escort",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "M41",
+      "category": "automatic_escort",
+      "id": "snow_group2",
+      "name_zh": "南村居民",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        28,
+        20
+      ],
+      "quest_kind": "escort",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "M42",
+      "category": "reactive_guard",
+      "id": "M42_boss",
+      "name_zh": "铁骑统领",
+      "side": "enemy",
+      "class_id": 1,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        24,
+        6
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M42",
+      "category": "reactive_guard",
+      "id": "M42_e5",
+      "name_zh": "护日骑兵",
+      "side": "enemy",
+      "class_id": 1,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        22,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M42",
+      "category": "reactive_guard",
+      "id": "M42_e6",
+      "name_zh": "护日骑兵",
+      "side": "enemy",
+      "class_id": 1,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        22,
+        14
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M42",
+      "category": "reactive_guard",
+      "id": "M42_e7",
+      "name_zh": "护日骑兵",
+      "side": "enemy",
+      "class_id": 1,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        27,
+        18
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M42",
+      "category": "reactive_guard",
+      "id": "M42_e8",
+      "name_zh": "弓骑兵",
+      "side": "enemy",
+      "class_id": 20,
+      "move": 8,
+      "item_id": 0,
+      "position": [
+        12,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M42",
+      "category": "reactive_guard",
+      "id": "M42_e9",
+      "name_zh": "弓骑兵",
+      "side": "enemy",
+      "class_id": 20,
+      "move": 8,
+      "item_id": 0,
+      "position": [
+        25,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M42",
+      "category": "reactive_guard",
+      "id": "M42_e10",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        19,
+        9
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M42",
+      "category": "reactive_guard",
+      "id": "M42_e11",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        24,
+        23
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M42",
+      "category": "reactive_guard",
+      "id": "M42_e12",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        14,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M42",
+      "category": "reactive_guard",
+      "id": "M42_e13",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        26,
+        6
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M42",
+      "category": "noncombat_duty",
+      "id": "old_comrade",
+      "name_zh": "兰斯的旧同袍",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        6,
+        22
+      ],
+      "quest_kind": "witness",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "M42",
+      "category": "noncombat_duty",
+      "id": "station_worker",
+      "name_zh": "投送站工匠",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        4,
+        23
+      ],
+      "quest_kind": "witness",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "M43",
+      "category": "reactive_guard",
+      "id": "M43_boss",
+      "name_zh": "塔卫统领",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        22,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M43",
+      "category": "reactive_guard",
+      "id": "M43_e1",
+      "name_zh": "重装守军",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        21,
+        6
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M43",
+      "category": "reactive_guard",
+      "id": "M43_e2",
+      "name_zh": "重装守军",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        16,
+        14
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M43",
+      "category": "reactive_guard",
+      "id": "M43_e3",
+      "name_zh": "重装守军",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        22,
+        18
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M43",
+      "category": "reactive_guard",
+      "id": "M43_e4",
+      "name_zh": "重装守军",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        12,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M43",
+      "category": "reactive_guard",
+      "id": "M43_e5",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        20,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M43",
+      "category": "reactive_guard",
+      "id": "M43_e6",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        16,
+        17
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M43",
+      "category": "reactive_guard",
+      "id": "M43_e7",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        23,
+        17
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M43",
+      "category": "reactive_guard",
+      "id": "M43_e8",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        13,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M43",
+      "category": "reactive_guard",
+      "id": "M43_e9",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        21,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M43",
+      "category": "reactive_guard",
+      "id": "M43_e10",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        18,
+        14
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M43",
+      "category": "reactive_guard",
+      "id": "M43_e11",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        24,
+        15
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M43",
+      "category": "reactive_guard",
+      "id": "M43_e12",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        13,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M43",
+      "category": "reactive_guard",
+      "id": "M43_e13",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        25,
+        9
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M43",
+      "category": "noncombat_duty",
+      "id": "tower_worker",
+      "name_zh": "日塔工匠",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        5,
+        21
+      ],
+      "quest_kind": "witness",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "M43",
+      "category": "noncombat_duty",
+      "id": "tower_patients",
+      "name_zh": "塔下病人",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        8,
+        20
+      ],
+      "quest_kind": "witness",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "M44",
+      "category": "reactive_guard",
+      "id": "M44_boss",
+      "name_zh": "赫兰",
+      "side": "enemy",
+      "class_id": 1,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        24,
+        6
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M44",
+      "category": "reactive_guard",
+      "id": "M44_e5",
+      "name_zh": "重装守军",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        15,
+        11
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M44",
+      "category": "reactive_guard",
+      "id": "M44_e6",
+      "name_zh": "重装守军",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        18,
+        13
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M44",
+      "category": "reactive_guard",
+      "id": "M44_e7",
+      "name_zh": "重装守军",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        24,
+        19
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M44",
+      "category": "reactive_guard",
+      "id": "M44_e8",
+      "name_zh": "重装守军",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        11,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M44",
+      "category": "reactive_guard",
+      "id": "M44_e9",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        22,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M44",
+      "category": "reactive_guard",
+      "id": "M44_e10",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        20,
+        9
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M44",
+      "category": "reactive_guard",
+      "id": "M44_e11",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        27,
+        21
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M44",
+      "category": "reactive_guard",
+      "id": "M44_e12",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        10,
+        5
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M44",
+      "category": "reactive_guard",
+      "id": "M44_e13",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        27,
+        6
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M44",
+      "category": "noncombat_duty",
+      "id": "church_wounded0",
+      "name_zh": "教团伤者甲",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        2,
+        3
+      ],
+      "quest_kind": "witness",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "M44",
+      "category": "noncombat_duty",
+      "id": "church_wounded1",
+      "name_zh": "教团伤者乙",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        3,
+        5
+      ],
+      "quest_kind": "witness",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "M51",
+      "category": "reactive_guard",
+      "id": "M51_boss",
+      "name_zh": "神军队长",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        16,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M51",
+      "category": "reactive_guard",
+      "id": "M51_e5",
+      "name_zh": "神宫士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        14,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M51",
+      "category": "reactive_guard",
+      "id": "M51_e6",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        20,
+        15
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M51",
+      "category": "reactive_guard",
+      "id": "M51_e7",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        28,
+        19
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M51",
+      "category": "reactive_guard",
+      "id": "M51_e8",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        11,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M51",
+      "category": "reactive_guard",
+      "id": "M51_e9",
+      "name_zh": "日宫术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        18,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M51",
+      "category": "reactive_guard",
+      "id": "M51_e10",
+      "name_zh": "日宫术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        21,
+        13
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M51",
+      "category": "locked_until_rescue",
+      "id": "royal_wounded0",
+      "name_zh": "王都伤兵1",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        8,
+        15
+      ],
+      "quest_kind": "escort",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "M51",
+      "category": "locked_until_rescue",
+      "id": "royal_wounded1",
+      "name_zh": "王都伤兵2",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        25,
+        15
+      ],
+      "quest_kind": "escort",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "M52",
+      "category": "reactive_guard",
+      "id": "M52_boss",
+      "name_zh": "桥卫统领",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        38,
+        14
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M52",
+      "category": "reactive_guard",
+      "id": "M52_e5",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        17,
+        12
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M52",
+      "category": "reactive_guard",
+      "id": "M52_e6",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        27,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M52",
+      "category": "reactive_guard",
+      "id": "M52_e7",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        35,
+        14
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M52",
+      "category": "reactive_guard",
+      "id": "M52_e8",
+      "name_zh": "神宫弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        38,
+        11
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M52",
+      "category": "reactive_guard",
+      "id": "M52_e9",
+      "name_zh": "神宫弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        18,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M52",
+      "category": "reactive_guard",
+      "id": "M52_e10",
+      "name_zh": "神宫弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        28,
+        9
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M52",
+      "category": "reactive_guard",
+      "id": "M52_e11",
+      "name_zh": "天翼守军",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        28,
+        12
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M52",
+      "category": "reactive_guard",
+      "id": "M52_e12",
+      "name_zh": "天翼守军",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        37,
+        12
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "M52",
+      "category": "reactive_guard",
+      "id": "M52_e13",
+      "name_zh": "天翼守军",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        18,
+        14
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S11",
+      "category": "automatic_escort",
+      "id": "S11_miners0",
+      "name_zh": "矿工队1",
+      "side": "player",
+      "class_id": 14,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        4,
+        19
+      ],
+      "quest_kind": "escort",
+      "locked": false
+    },
+    {
+      "stage": "S11",
+      "category": "automatic_escort",
+      "id": "S11_miners1",
+      "name_zh": "矿工队2",
+      "side": "player",
+      "class_id": 14,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        7,
+        19
+      ],
+      "quest_kind": "escort",
+      "locked": false
+    },
+    {
+      "stage": "S11",
+      "category": "automatic_escort",
+      "id": "beck",
+      "name_zh": "贝克",
+      "side": "player",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 64,
+      "position": [
+        3,
+        18
+      ],
+      "quest_kind": "mine_guard",
+      "locked": false
+    },
+    {
+      "stage": "S12",
+      "category": "automatic_escort",
+      "id": "medicine_wagon",
+      "name_zh": "运药员与药车",
+      "side": "player",
+      "class_id": 14,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        7,
+        20
+      ],
+      "quest_kind": "medicine",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "S12",
+      "category": "noncombat_duty",
+      "id": "hervi",
+      "name_zh": "赫维",
+      "side": "neutral",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 66,
+      "position": [
+        24,
+        5
+      ],
+      "quest_kind": "clinic_staff",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "S21",
+      "category": "reactive_guard",
+      "id": "S21_boss",
+      "name_zh": "魔物首领",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        25,
+        5
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S21",
+      "category": "automatic_escort",
+      "id": "patients0",
+      "name_zh": "病人船组1",
+      "side": "player",
+      "class_id": 14,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        5,
+        18
+      ],
+      "quest_kind": "patient",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "S21",
+      "category": "automatic_escort",
+      "id": "patients1",
+      "name_zh": "病人船组2",
+      "side": "player",
+      "class_id": 14,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        8,
+        18
+      ],
+      "quest_kind": "patient",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "S22",
+      "category": "reactive_guard",
+      "id": "S22_boss",
+      "name_zh": "魔物首领",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        24,
+        4
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S22",
+      "category": "locked_until_rescue",
+      "id": "old_sailor",
+      "name_zh": "旧船员",
+      "side": "player",
+      "class_id": 14,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        17,
+        18
+      ],
+      "quest_kind": "sailor",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "S22",
+      "category": "locked_until_rescue",
+      "id": "wounded",
+      "name_zh": "同行伤者",
+      "side": "player",
+      "class_id": 14,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        17,
+        19
+      ],
+      "quest_kind": "sailor",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "S31",
+      "category": "reactive_guard",
+      "id": "S31_boss",
+      "name_zh": "狱卒首领",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        20,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S31",
+      "category": "reactive_guard",
+      "id": "S31_e5",
+      "name_zh": "重装守军",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        25,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S31",
+      "category": "reactive_guard",
+      "id": "S31_e6",
+      "name_zh": "重装守军",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        8,
+        11
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S31",
+      "category": "reactive_guard",
+      "id": "S31_e7",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        22,
+        14
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S31",
+      "category": "reactive_guard",
+      "id": "S31_e8",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        11,
+        9
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S31",
+      "category": "locked_until_rescue",
+      "id": "family0",
+      "name_zh": "山村家属甲",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        7,
+        6
+      ],
+      "quest_kind": "witness",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "S31",
+      "category": "locked_until_rescue",
+      "id": "family1",
+      "name_zh": "山村家属乙",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        24,
+        6
+      ],
+      "quest_kind": "witness",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "S32",
+      "category": "reactive_guard",
+      "id": "S32_boss",
+      "name_zh": "营长",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        25,
+        6
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S32",
+      "category": "reactive_guard",
+      "id": "S32_e5",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        24,
+        10
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S32",
+      "category": "reactive_guard",
+      "id": "S32_e6",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        16,
+        15
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S32",
+      "category": "reactive_guard",
+      "id": "S32_e7",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        18,
+        18
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S32",
+      "category": "reactive_guard",
+      "id": "S32_e8",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        11,
+        11
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S32",
+      "category": "locked_until_rescue",
+      "id": "noya",
+      "name_zh": "诺娅",
+      "side": "player",
+      "class_id": 16,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        6,
+        8
+      ],
+      "quest_kind": "witness",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "S32",
+      "category": "locked_until_rescue",
+      "id": "noya_brother",
+      "name_zh": "诺娅的弟弟",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        21,
+        14
+      ],
+      "quest_kind": "witness",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "S32",
+      "category": "locked_until_rescue",
+      "id": "salt_residents",
+      "name_zh": "盐原居民",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        23,
+        14
+      ],
+      "quest_kind": "witness",
+      "locked": true,
+      "no_counter": true
+    },
+    {
+      "stage": "S41",
+      "category": "role_or_objective",
+      "id": "S41_boss",
+      "name_zh": "焚毁兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        22,
+        5
+      ],
+      "behavior": "burn",
+      "ch4_burner": true
+    },
+    {
+      "stage": "S41",
+      "category": "reactive_guard",
+      "id": "S41_e5",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        18,
+        9
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S41",
+      "category": "reactive_guard",
+      "id": "S41_e6",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        22,
+        12
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S41",
+      "category": "reactive_guard",
+      "id": "S41_e7",
+      "name_zh": "弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        20,
+        17
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S41",
+      "category": "reactive_guard",
+      "id": "S41_e8",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        11,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S41",
+      "category": "noncombat_duty",
+      "id": "village_witness",
+      "name_zh": "黑钟村民",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        5,
+        19
+      ],
+      "quest_kind": "witness",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "S41",
+      "category": "noncombat_duty",
+      "id": "otto_comrade",
+      "name_zh": "奥托旧同袍",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        6,
+        20
+      ],
+      "quest_kind": "witness",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "S42",
+      "category": "reactive_guard",
+      "id": "S42_boss",
+      "name_zh": "清洗队长",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        22,
+        6
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S42",
+      "category": "role_or_objective",
+      "id": "S42_e1",
+      "name_zh": "骸翼兽",
+      "side": "enemy",
+      "class_id": 5,
+      "move": 8,
+      "item_id": 0,
+      "position": [
+        26,
+        3
+      ],
+      "behavior": "advance",
+      "advance_after": 3
+    },
+    {
+      "stage": "S42",
+      "category": "role_or_objective",
+      "id": "S42_e2",
+      "name_zh": "飞行魔物",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        17,
+        2
+      ],
+      "behavior": "advance",
+      "advance_after": 3
+    },
+    {
+      "stage": "S42",
+      "category": "role_or_objective",
+      "id": "S42_e3",
+      "name_zh": "飞行魔物",
+      "side": "enemy",
+      "class_id": 3,
+      "move": 7,
+      "item_id": 0,
+      "position": [
+        8,
+        2
+      ],
+      "behavior": "advance",
+      "advance_after": 3
+    },
+    {
+      "stage": "S42",
+      "category": "reactive_guard",
+      "id": "S42_e4",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        23,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S42",
+      "category": "reactive_guard",
+      "id": "S42_e5",
+      "name_zh": "术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        24,
+        4
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S42",
+      "category": "reactive_guard",
+      "id": "S42_e6",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        20,
+        9
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S42",
+      "category": "reactive_guard",
+      "id": "S42_e7",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        9,
+        8
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S42",
+      "category": "reactive_guard",
+      "id": "S42_e8",
+      "name_zh": "士兵",
+      "side": "enemy",
+      "class_id": 6,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        24,
+        9
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S42",
+      "category": "noncombat_duty",
+      "id": "celine",
+      "name_zh": "赛琳",
+      "side": "player",
+      "class_id": 17,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        20,
+        18
+      ],
+      "quest_kind": "witness",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "S42",
+      "category": "automatic_escort",
+      "id": "island_group0",
+      "name_zh": "待转运居民1",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        14,
+        19
+      ],
+      "quest_kind": "escort",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "S42",
+      "category": "automatic_escort",
+      "id": "island_group1",
+      "name_zh": "待转运居民2",
+      "side": "player",
+      "class_id": 6,
+      "move": 2,
+      "item_id": 0,
+      "position": [
+        19,
+        20
+      ],
+      "quest_kind": "escort",
+      "locked": false,
+      "no_counter": true
+    },
+    {
+      "stage": "S51",
+      "category": "reactive_guard",
+      "id": "S51_boss",
+      "name_zh": "书库守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        15,
+        7
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S51",
+      "category": "reactive_guard",
+      "id": "S51_e1",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        8,
+        13
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S51",
+      "category": "reactive_guard",
+      "id": "S51_e2",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        23,
+        17
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S51",
+      "category": "reactive_guard",
+      "id": "S51_e3",
+      "name_zh": "石像守卫",
+      "side": "enemy",
+      "class_id": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        17,
+        18
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S51",
+      "category": "reactive_guard",
+      "id": "S51_e4",
+      "name_zh": "神宫弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        5,
+        18
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S51",
+      "category": "reactive_guard",
+      "id": "S51_e5",
+      "name_zh": "神宫弓手",
+      "side": "enemy",
+      "class_id": 12,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        15,
+        12
+      ],
+      "behavior": "guard"
+    },
+    {
+      "stage": "S51",
+      "category": "reactive_guard",
+      "id": "S51_e6",
+      "name_zh": "日宫术士",
+      "side": "enemy",
+      "class_id": 15,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        21,
+        20
+      ],
+      "behavior": "guard"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "id": "rm_sfx_06",
+  "title": "火球与高能冲击脉冲",
+  "request": "06",
+  "revision": 3,
+  "status": "signal_checks_passed",
+  "errors": [],
+  "runtime_path": "actual/assets/sfx/20261024/rm_sfx_06.ogg",
+  "resource_path": "res://assets/sfx/20261024/rm_sfx_06.ogg",
+  "bytes": 8336,
+  "sha256": "605c6686956db086503df5f964d23521aeba5a52c711870d601ce63bfa6e6746",
+  "duration_seconds": 0.31231292517006803,
+  "loop": false,
+  "loop_offset_seconds": 0.0,
+  "manual_stop": false,
+  "default_enabled": true,
+  "sample_rate": 44100,
+  "channels": 2,
+  "codec": "vorbis",
+  "source": {
+    "method": "reference-analysed pitch/envelope with new additive and band-limited noise synthesis",
+    "reference_path": "actual/assets/original/audio/sfx_06.ogg",
+    "reference_sha256": "53516cfc666787a22ac9aa52abec6e192c5bea7d542f383a0a53d45175acdf52",
+    "source_path": "source/sfx-20261024/audio-guided/ui-synthesis/rm_sfx_06_float.wav",
+    "copied_pcm": false,
+    "oscillator": "sin(f) + 0.16 sin(3f) + 0.035 sin(5f)",
+    "noise_weight": 0.3788817822933197,
+    "frequency_range_hz": [
+      430.6640625,
+      861.328125
+    ]
+  },
+  "source_path": "source/sfx-20261024/audio-guided/ui-synthesis/rm_sfx_06_float.wav",
+  "master_path": "source/sfx-20261024/audio-guided/ui-synthesis/rm_sfx_06_float.wav",
+  "editing": {
+    "method": "reference-analysed pitch/envelope with new additive and band-limited noise synthesis",
+    "reference_audio_used": true
+  },
+  "mastering": {
+    "gain_db": 5.232958124605563,
+    "target_active_rms_dbfs": -22.0,
+    "peak_ceiling_dbfs": -12.327,
+    "smooth_local_crest_control": false,
+    "active_rms_delta_from_original_db": -0.5429396854095003,
+    "sample_peak_delta_from_original_db": 1.0600237624599114,
+    "runtime_gain_unchanged": true
+  },
+  "metrics": {
+    "seconds": 0.31231292517006803,
+    "sample_rate": 44100,
+    "channels": 2,
+    "rms_dbfs": -22.773040236979412,
+    "active_rms_dbfs": -22.2889396854095,
+    "sample_peak_dbfs": -12.266976237540089,
+    "first_50ms_rms_dbfs": -28.37179066911153,
+    "nonfinite_samples": 0,
+    "samples_at_or_above_full_scale": 0,
+    "leading_onset_seconds": 0.014965986394557823,
+    "longest_internal_silence_seconds": 0.0,
+    "last_10ms_rms_dbfs": -77.63216473318714,
+    "first_last_sample_delta": 3.9065894270606805e-06,
+    "lufs_note": "Integrated loudness is not meaningful for events shorter than 400ms; use active RMS and true peak.",
+    "integrated_lufs": null,
+    "true_peak_dbtp": -12.1
+  },
+  "auditory_review": true,
+  "auditory_review_note": "Waveform-conditioned local audio model review completed; no human-listening claim. See audio_content_review and the linked receipt.",
+  "source_baseline": {
+    "request": "06",
+    "seconds": 0.41968253968253966,
+    "sample_rate": 44100,
+    "channels": 2,
+    "peak_dbfs": -13.327,
+    "rms_dbfs": -24.274,
+    "active_rms_dbfs": -21.746,
+    "onset_seconds": 0.01995,
+    "tail_silence_seconds": 0.12535,
+    "manual_stop": false,
+    "default_enabled": true
+  },
+  "production_method": "audio_review_refinement",
+  "master_path_note": "Synthesis FLOAT WAV",
+  "audio_content_review": {
+    "model_review_completed": true,
+    "review_type": "local_waveform_conditioned_model",
+    "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+    "receipt": "actual/reports/audio-content-review-20261024/omni-receipts/rm_sfx_06_a4c1746a539c0e80f96bb143.json",
+    "conclusion": "原版替换听成低沉机械冲击，改为有音高调制的快速电子脉冲。",
+    "human_listening": false
+  }
+}

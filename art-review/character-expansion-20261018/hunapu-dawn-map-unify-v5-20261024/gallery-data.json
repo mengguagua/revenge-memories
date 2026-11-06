@@ -1,0 +1,5949 @@
+{
+  "schema": 1,
+  "builtAt": "2026-10-24T08:48:45.445640+00:00",
+  "title": "角色重绘 · 全动作对照",
+  "sourceRevision": "956365ef33c63751e7afd03f05e600d7728549da",
+  "profiles": [
+    {
+      "id": "hunapu-promoted-maps-tactical-walk",
+      "actor": "hunapu",
+      "actorName": "胡纳普",
+      "classId": "21",
+      "className": "破晓勇士",
+      "context": "tactical-walk",
+      "contextName": "战斗地图 · 行走",
+      "side": "ally",
+      "source_side": "ally",
+      "mapping": "hunapu-promoted/maps/frame_mapping.json",
+      "mappingStatus": "review_candidate",
+      "revision": "hunapu-dawn-map-unify-v5-20261024",
+      "modifiedBy": null,
+      "reviewNote": "以已确认左右横移为统一人物模型：相同纯色蓝发、脸型与头身比例、厚浅蓝肩胸甲、护臂与深蓝长靴、蓝芯银剑和小盾。向上／向下保留交替换腿、前后遮挡与原持械架势，待机保留斜举→平举→过顶的举剑循环，中心稳定。左右横移原图保持。",
+      "mapGround": "map-motion-review-v3/reference/grounds/tactical-M11.png",
+      "mapShadow": {
+        "path": "hunapu-story-shadow-20261018/story-shadow.png",
+        "size": [
+          8,
+          2
+        ],
+        "offset": [
+          0,
+          -0.75
+        ],
+        "alpha": 0.42,
+        "kind": "continuous_compact_centered_tactical_shadow",
+        "source": "Reuse continuous compact story projection; fixed under pelvis, no scattered peripheral pixels."
+      },
+      "motionReview": "../../hunapu-dawn-map-unify-v5-20261024/README.md",
+      "sourceAtlas": "source-input/corrected-tactical-walk/class-21-ally.png",
+      "sourceFrameSize": [
+        32,
+        24
+      ],
+      "sourceAtlasSize": [
+        256,
+        24
+      ],
+      "sourceColumns": 8,
+      "sourceFrameCount": 8,
+      "anchor": [
+        16,
+        24
+      ],
+      "sourceOamCutoff": 0,
+      "flipOriginOffset": [
+        0,
+        0
+      ],
+      "outputFrameSize": [
+        128,
+        96
+      ],
+      "newFrames": {
+        "0": "hunapu-dawn-map-unify-v5-20261024/tactical-walk/frame-000.png",
+        "1": "hunapu-dawn-map-unify-v5-20261024/tactical-walk/frame-001.png",
+        "2": "hunapu-dawn-strafe-v4-20261024/tactical-walk/frame-002.png",
+        "3": "hunapu-dawn-strafe-v4-20261024/tactical-walk/frame-003.png",
+        "4": "hunapu-dawn-map-unify-v5-20261024/tactical-walk/frame-004.png",
+        "5": "hunapu-dawn-map-unify-v5-20261024/tactical-walk/frame-005.png",
+        "6": "hunapu-dawn-strafe-v4-20261024/tactical-walk/frame-006.png",
+        "7": "hunapu-dawn-strafe-v4-20261024/tactical-walk/frame-007.png"
+      },
+      "frameErrors": {},
+      "sourceReviewPending": false,
+      "sourceReviewNote": "参考来源复核中：旧参考混用了场景动作表与图块银行，暂停作为战斗地图对照。",
+      "links": [
+        {
+          "label": "四倍重绘图集",
+          "href": "hunapu-dawn-map-unify-v5-20261024/tactical-walk-atlas.png"
+        }
+      ],
+      "heroProfession": "dawn_warrior",
+      "sourceClassName": "战士"
+    },
+    {
+      "id": "hunapu-promoted-maps-tactical-idle",
+      "actor": "hunapu",
+      "actorName": "胡纳普",
+      "classId": "21",
+      "className": "破晓勇士",
+      "context": "tactical-idle",
+      "contextName": "战斗地图 · 待机",
+      "side": "ally",
+      "source_side": "ally",
+      "mapping": "hunapu-promoted/maps/frame_mapping.json",
+      "mappingStatus": "review_candidate",
+      "revision": "hunapu-dawn-map-unify-v5-20261024",
+      "modifiedBy": null,
+      "reviewNote": "以已确认左右横移为统一人物模型：相同纯色蓝发、脸型与头身比例、厚浅蓝肩胸甲、护臂与深蓝长靴、蓝芯银剑和小盾。向上／向下保留交替换腿、前后遮挡与原持械架势，待机保留斜举→平举→过顶的举剑循环，中心稳定。左右横移原图保持。",
+      "mapGround": "map-motion-review-v3/reference/grounds/tactical-M11.png",
+      "mapShadow": {
+        "path": "hunapu-story-shadow-20261018/story-shadow.png",
+        "size": [
+          8,
+          2
+        ],
+        "offset": [
+          0,
+          -0.75
+        ],
+        "alpha": 0.42,
+        "kind": "continuous_compact_centered_tactical_shadow",
+        "source": "Reuse continuous compact story projection; fixed under pelvis, no scattered peripheral pixels."
+      },
+      "motionReview": "../../hunapu-dawn-map-unify-v5-20261024/README.md",
+      "sourceAtlas": "hunapu/maps/reference/tactical-idle-source-atlas.png",
+      "sourceFrameSize": [
+        24,
+        24
+      ],
+      "sourceAtlasSize": [
+        144,
+        24
+      ],
+      "sourceColumns": 6,
+      "sourceFrameCount": 6,
+      "anchor": [
+        12,
+        20
+      ],
+      "sourceOamCutoff": 0,
+      "flipOriginOffset": [
+        0,
+        0
+      ],
+      "outputFrameSize": [
+        96,
+        96
+      ],
+      "newFrames": {
+        "0": "hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-000.png",
+        "1": "hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-001.png",
+        "2": "hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-002.png",
+        "3": "hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-003.png",
+        "4": "hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-004.png",
+        "5": "hunapu-dawn-map-unify-v5-20261024/tactical-idle/frame-005.png"
+      },
+      "frameErrors": {},
+      "sourceReviewPending": false,
+      "sourceReviewNote": "参考来源复核中：旧参考混用了场景动作表与图块银行，暂停作为战斗地图对照。",
+      "links": [
+        {
+          "label": "四倍重绘图集",
+          "href": "hunapu-dawn-map-unify-v5-20261024/tactical-idle-atlas.png"
+        }
+      ],
+      "heroProfession": "dawn_warrior",
+      "sourceClassName": "战士"
+    }
+  ],
+  "actions": [
+    {
+      "id": "hunapu-promoted-maps-tactical-walk--walk-up",
+      "profile": "hunapu-promoted-maps-tactical-walk",
+      "key": "walk-up",
+      "name": "行走 · 向上",
+      "context": "tactical-walk",
+      "kind": "map_walk",
+      "fps": 60.0988,
+      "origin": [
+        32,
+        36
+      ],
+      "contactTick": null,
+      "frames": [
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        }
+      ],
+      "notes": "原地审查步态；每个腿姿势保持 16 帧，两姿势循环，共展示三个循环。 本次修改记录：hunapu-dawn-map-unify-v5-20261024。 以已确认左右横移为统一人物模型：相同纯色蓝发、脸型与头身比例、厚浅蓝肩胸甲、护臂与深蓝长靴、蓝芯银剑和小盾。向上／向下保留交替换腿、前后遮挡与原持械架势，待机保留斜举→平举→过顶的举剑循环，中心稳定。左右横移原图保持。",
+      "viewport": [
+        0,
+        0,
+        64,
+        48
+      ],
+      "defaultVideo": true,
+      "neededFrames": [
+        0,
+        1
+      ],
+      "missingFrames": [],
+      "effectIds": [],
+      "missingEffects": [],
+      "ready": true,
+      "sourceReviewPending": false,
+      "duration": 1.5973696646189275,
+      "revision": "hunapu-dawn-map-unify-v5-20261024",
+      "modifiedBy": null,
+      "contentDigest": "51256e9ac3f70774fcb227c0012c1226117bd6bd8a3cac82452726a0525e5de5",
+      "video": "demos/videos/hunapu-promoted-maps-tactical-walk--walk-up.mp4",
+      "closeVideo": null,
+      "still": "demos/stills/hunapu-promoted-maps-tactical-walk--walk-up.png"
+    },
+    {
+      "id": "hunapu-promoted-maps-tactical-walk--idle-up",
+      "profile": "hunapu-promoted-maps-tactical-walk",
+      "key": "idle-up",
+      "name": "静止 · 向上",
+      "context": "tactical-walk",
+      "kind": "map_idle",
+      "fps": 60.0988,
+      "origin": [
+        32,
+        36
+      ],
+      "contactTick": null,
+      "frames": [
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        }
+      ],
+      "notes": "停止行走时保持当前方向的第一个姿势。 本次修改记录：hunapu-dawn-map-unify-v5-20261024。 以已确认左右横移为统一人物模型：相同纯色蓝发、脸型与头身比例、厚浅蓝肩胸甲、护臂与深蓝长靴、蓝芯银剑和小盾。向上／向下保留交替换腿、前后遮挡与原持械架势，待机保留斜举→平举→过顶的举剑循环，中心稳定。左右横移原图保持。",
+      "viewport": [
+        0,
+        0,
+        64,
+        48
+      ],
+      "defaultVideo": false,
+      "neededFrames": [
+        0
+      ],
+      "missingFrames": [],
+      "effectIds": [],
+      "missingEffects": [],
+      "ready": true,
+      "sourceReviewPending": false,
+      "duration": 0.5324565548729758,
+      "revision": "hunapu-dawn-map-unify-v5-20261024",
+      "modifiedBy": null,
+      "contentDigest": "6a990a8f02edfba78610faf56da09890f6fa18118f45ced34e7dd0d1eae70029",
+      "video": null,
+      "closeVideo": null,
+      "still": "demos/stills/hunapu-promoted-maps-tactical-walk--idle-up.png"
+    },
+    {
+      "id": "hunapu-promoted-maps-tactical-walk--walk-right",
+      "profile": "hunapu-promoted-maps-tactical-walk",
+      "key": "walk-right",
+      "name": "行走 · 向右",
+      "context": "tactical-walk",
+      "kind": "map_walk",
+      "fps": 60.0988,
+      "origin": [
+        32,
+        36
+      ],
+      "contactTick": null,
+      "frames": [
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 3,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        }
+      ],
+      "notes": "原地审查步态；每个腿姿势保持 16 帧，两姿势循环，共展示三个循环。 本次修改记录：hunapu-dawn-map-unify-v5-20261024。 以已确认左右横移为统一人物模型：相同纯色蓝发、脸型与头身比例、厚浅蓝肩胸甲、护臂与深蓝长靴、蓝芯银剑和小盾。向上／向下保留交替换腿、前后遮挡与原持械架势，待机保留斜举→平举→过顶的举剑循环，中心稳定。左右横移原图保持。",
+      "viewport": [
+        0,
+        0,
+        64,
+        48
+      ],
+      "defaultVideo": true,
+      "neededFrames": [
+        2,
+        3
+      ],
+      "missingFrames": [],
+      "effectIds": [],
+      "missingEffects": [],
+      "ready": true,
+      "sourceReviewPending": false,
+      "duration": 1.5973696646189275,
+      "revision": "hunapu-dawn-map-unify-v5-20261024",
+      "modifiedBy": null,
+      "contentDigest": "eac42bc89154d79cefbd515d93c349bc824be962a4b163a3ea7a9b525cb8c77a",
+      "video": "demos/videos/hunapu-promoted-maps-tactical-walk--walk-right.mp4",
+      "closeVideo": null,
+      "still": "demos/stills/hunapu-promoted-maps-tactical-walk--walk-right.png"
+    },
+    {
+      "id": "hunapu-promoted-maps-tactical-walk--idle-right",
+      "profile": "hunapu-promoted-maps-tactical-walk",
+      "key": "idle-right",
+      "name": "静止 · 向右",
+      "context": "tactical-walk",
+      "kind": "map_idle",
+      "fps": 60.0988,
+      "origin": [
+        32,
+        36
+      ],
+      "contactTick": null,
+      "frames": [
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        }
+      ],
+      "notes": "停止行走时保持当前方向的第一个姿势。 本次修改记录：hunapu-dawn-map-unify-v5-20261024。 以已确认左右横移为统一人物模型：相同纯色蓝发、脸型与头身比例、厚浅蓝肩胸甲、护臂与深蓝长靴、蓝芯银剑和小盾。向上／向下保留交替换腿、前后遮挡与原持械架势，待机保留斜举→平举→过顶的举剑循环，中心稳定。左右横移原图保持。",
+      "viewport": [
+        0,
+        0,
+        64,
+        48
+      ],
+      "defaultVideo": false,
+      "neededFrames": [
+        2
+      ],
+      "missingFrames": [],
+      "effectIds": [],
+      "missingEffects": [],
+      "ready": true,
+      "sourceReviewPending": false,
+      "duration": 0.5324565548729758,
+      "revision": "hunapu-dawn-map-unify-v5-20261024",
+      "modifiedBy": null,
+      "contentDigest": "66817b71398afead7a92fd9f7bd27b1046e749b963a631505d4d0cc7fe5179e2",
+      "video": null,
+      "closeVideo": null,
+      "still": "demos/stills/hunapu-promoted-maps-tactical-walk--idle-right.png"
+    },
+    {
+      "id": "hunapu-promoted-maps-tactical-walk--walk-down",
+      "profile": "hunapu-promoted-maps-tactical-walk",
+      "key": "walk-down",
+      "name": "行走 · 向下",
+      "context": "tactical-walk",
+      "kind": "map_walk",
+      "fps": 60.0988,
+      "origin": [
+        32,
+        36
+      ],
+      "contactTick": null,
+      "frames": [
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 5,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        }
+      ],
+      "notes": "原地审查步态；每个腿姿势保持 16 帧，两姿势循环，共展示三个循环。 本次修改记录：hunapu-dawn-map-unify-v5-20261024。 以已确认左右横移为统一人物模型：相同纯色蓝发、脸型与头身比例、厚浅蓝肩胸甲、护臂与深蓝长靴、蓝芯银剑和小盾。向上／向下保留交替换腿、前后遮挡与原持械架势，待机保留斜举→平举→过顶的举剑循环，中心稳定。左右横移原图保持。",
+      "viewport": [
+        0,
+        0,
+        64,
+        48
+      ],
+      "defaultVideo": true,
+      "neededFrames": [
+        4,
+        5
+      ],
+      "missingFrames": [],
+      "effectIds": [],
+      "missingEffects": [],
+      "ready": true,
+      "sourceReviewPending": false,
+      "duration": 1.5973696646189275,
+      "revision": "hunapu-dawn-map-unify-v5-20261024",
+      "modifiedBy": null,
+      "contentDigest": "ad2ac7f1b293a9a68dcabf94b0d365868f2786032c911745b6767621b5c817ba",
+      "video": "demos/videos/hunapu-promoted-maps-tactical-walk--walk-down.mp4",
+      "closeVideo": null,
+      "still": "demos/stills/hunapu-promoted-maps-tactical-walk--walk-down.png"
+    },
+    {
+      "id": "hunapu-promoted-maps-tactical-walk--idle-down",
+      "profile": "hunapu-promoted-maps-tactical-walk",
+      "key": "idle-down",
+      "name": "静止 · 向下",
+      "context": "tactical-walk",
+      "kind": "map_idle",
+      "fps": 60.0988,
+      "origin": [
+        32,
+        36
+      ],
+      "contactTick": null,
+      "frames": [
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 4,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        }
+      ],
+      "notes": "停止行走时保持当前方向的第一个姿势。 本次修改记录：hunapu-dawn-map-unify-v5-20261024。 以已确认左右横移为统一人物模型：相同纯色蓝发、脸型与头身比例、厚浅蓝肩胸甲、护臂与深蓝长靴、蓝芯银剑和小盾。向上／向下保留交替换腿、前后遮挡与原持械架势，待机保留斜举→平举→过顶的举剑循环，中心稳定。左右横移原图保持。",
+      "viewport": [
+        0,
+        0,
+        64,
+        48
+      ],
+      "defaultVideo": false,
+      "neededFrames": [
+        4
+      ],
+      "missingFrames": [],
+      "effectIds": [],
+      "missingEffects": [],
+      "ready": true,
+      "sourceReviewPending": false,
+      "duration": 0.5324565548729758,
+      "revision": "hunapu-dawn-map-unify-v5-20261024",
+      "modifiedBy": null,
+      "contentDigest": "e305cbcb075d642c0e63c2025f448e7e1d683542b883ecb5d2910f57602f597d",
+      "video": null,
+      "closeVideo": null,
+      "still": "demos/stills/hunapu-promoted-maps-tactical-walk--idle-down.png"
+    },
+    {
+      "id": "hunapu-promoted-maps-tactical-walk--walk-left",
+      "profile": "hunapu-promoted-maps-tactical-walk",
+      "key": "walk-left",
+      "name": "行走 · 向左",
+      "context": "tactical-walk",
+      "kind": "map_walk",
+      "fps": 60.0988,
+      "origin": [
+        32,
+        36
+      ],
+      "contactTick": null,
+      "frames": [
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 7,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        }
+      ],
+      "notes": "原地审查步态；每个腿姿势保持 16 帧，两姿势循环，共展示三个循环。 本次修改记录：hunapu-dawn-map-unify-v5-20261024。 以已确认左右横移为统一人物模型：相同纯色蓝发、脸型与头身比例、厚浅蓝肩胸甲、护臂与深蓝长靴、蓝芯银剑和小盾。向上／向下保留交替换腿、前后遮挡与原持械架势，待机保留斜举→平举→过顶的举剑循环，中心稳定。左右横移原图保持。",
+      "viewport": [
+        0,
+        0,
+        64,
+        48
+      ],
+      "defaultVideo": true,
+      "neededFrames": [
+        6,
+        7
+      ],
+      "missingFrames": [],
+      "effectIds": [],
+      "missingEffects": [],
+      "ready": true,
+      "sourceReviewPending": false,
+      "duration": 1.5973696646189275,
+      "revision": "hunapu-dawn-map-unify-v5-20261024",
+      "modifiedBy": null,
+      "contentDigest": "32fe619daed0001460b2fd03b1c92d2a6c257f00efa5a48a21be29ca71f098b7",
+      "video": "demos/videos/hunapu-promoted-maps-tactical-walk--walk-left.mp4",
+      "closeVideo": null,
+      "still": "demos/stills/hunapu-promoted-maps-tactical-walk--walk-left.png"
+    },
+    {
+      "id": "hunapu-promoted-maps-tactical-walk--idle-left",
+      "profile": "hunapu-promoted-maps-tactical-walk",
+      "key": "idle-left",
+      "name": "静止 · 向左",
+      "context": "tactical-walk",
+      "kind": "map_idle",
+      "fps": 60.0988,
+      "origin": [
+        32,
+        36
+      ],
+      "contactTick": null,
+      "frames": [
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 6,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        }
+      ],
+      "notes": "停止行走时保持当前方向的第一个姿势。 本次修改记录：hunapu-dawn-map-unify-v5-20261024。 以已确认左右横移为统一人物模型：相同纯色蓝发、脸型与头身比例、厚浅蓝肩胸甲、护臂与深蓝长靴、蓝芯银剑和小盾。向上／向下保留交替换腿、前后遮挡与原持械架势，待机保留斜举→平举→过顶的举剑循环，中心稳定。左右横移原图保持。",
+      "viewport": [
+        0,
+        0,
+        64,
+        48
+      ],
+      "defaultVideo": false,
+      "neededFrames": [
+        6
+      ],
+      "missingFrames": [],
+      "effectIds": [],
+      "missingEffects": [],
+      "ready": true,
+      "sourceReviewPending": false,
+      "duration": 0.5324565548729758,
+      "revision": "hunapu-dawn-map-unify-v5-20261024",
+      "modifiedBy": null,
+      "contentDigest": "f0179dbde74e8363ea7ee1788e1f5d0bbff93f6328b0d078fb220a2c9f087d2a",
+      "video": null,
+      "closeVideo": null,
+      "still": "demos/stills/hunapu-promoted-maps-tactical-walk--idle-left.png"
+    },
+    {
+      "id": "hunapu-promoted-maps-tactical-idle--idle-cycle",
+      "profile": "hunapu-promoted-maps-tactical-idle",
+      "key": "idle-cycle",
+      "name": "战斗地图 · 原待机循环",
+      "context": "tactical-idle",
+      "kind": "map_idle",
+      "fps": 60.0988,
+      "origin": [
+        32,
+        36
+      ],
+      "contactTick": null,
+      "frames": [
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 0,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 2,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        },
+        {
+          "frame": 1,
+          "offset": [
+            0,
+            0
+          ],
+          "flip": false,
+          "effects": []
+        }
+      ],
+      "notes": "固定朝向，保留原待机 14／8／14／8 帧节奏。 本次修改记录：hunapu-dawn-map-unify-v5-20261024。 以已确认左右横移为统一人物模型：相同纯色蓝发、脸型与头身比例、厚浅蓝肩胸甲、护臂与深蓝长靴、蓝芯银剑和小盾。向上／向下保留交替换腿、前后遮挡与原持械架势，待机保留斜举→平举→过顶的举剑循环，中心稳定。左右横移原图保持。",
+      "viewport": [
+        0,
+        0,
+        64,
+        48
+      ],
+      "defaultVideo": true,
+      "neededFrames": [
+        0,
+        1,
+        2
+      ],
+      "missingFrames": [],
+      "effectIds": [],
+      "missingEffects": [],
+      "ready": true,
+      "sourceReviewPending": false,
+      "duration": 1.4642555259006835,
+      "revision": "hunapu-dawn-map-unify-v5-20261024",
+      "modifiedBy": null,
+      "contentDigest": "56c90269c01cd6b5bf98a9deb57ef5a33efcb415ec960ef0a943bb63a62d90e9",
+      "video": "demos/videos/hunapu-promoted-maps-tactical-idle--idle-cycle.mp4",
+      "closeVideo": null,
+      "still": "demos/stills/hunapu-promoted-maps-tactical-idle--idle-cycle.png"
+    }
+  ],
+  "effects": {},
+  "viewport": [
+    -16,
+    -32,
+    288,
+    176
+  ],
+  "summary": {
+    "profiles": 2,
+    "actions": 9,
+    "ready": 9,
+    "pending": 0
+  },
+  "validation": {
+    "structuralIssues": [],
+    "browserVisualInspection": "not performed; file URL access was denied by the environment, and no alternate server/browser was attempted"
+  },
+  "referenceCorrections": {
+    "label": "原作校正参考",
+    "note": "男主弓箭使用原生idle65起始及125/126/127完整弓姿势；冻结旧稿的138多出9个旧剑残留像素。只修隔离参考，不修改游戏数据或新增能力。",
+    "keys": [
+      "class_21_ally_bow",
+      "class_21_ally_bow_vs_heavy",
+      "class_21_ally_bow_far_ally",
+      "class_21_ally_bow_far_ally_vs_heavy",
+      "class_21_ally_bow_far_enemy",
+      "class_21_ally_bow_far_enemy_vs_heavy"
+    ]
+  },
+  "policy": "素材齐备表示能完整播放；男主、弓箭手和已验收士兵地图均已接入测试包；其余未验收素材保持审核状态。缺图不回退为旧美术。"
+}

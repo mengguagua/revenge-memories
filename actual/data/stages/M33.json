@@ -5394,7 +5394,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 50,
-      "exp_value": 55,
+      "exp_value": 142,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -5462,7 +5462,7 @@
       "resistance": 1,
       "move": 4,
       "item_id": 0,
-      "exp_value": 36,
+      "exp_value": 78,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -5529,7 +5529,7 @@
       "resistance": 1,
       "move": 4,
       "item_id": 0,
-      "exp_value": 36,
+      "exp_value": 78,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -5596,7 +5596,7 @@
       "resistance": 1,
       "move": 4,
       "item_id": 0,
-      "exp_value": 36,
+      "exp_value": 78,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -5663,7 +5663,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 36,
+      "exp_value": 45,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -5729,7 +5729,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 36,
+      "exp_value": 45,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -5796,7 +5796,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 36,
+      "exp_value": 45,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -5863,7 +5863,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 36,
+      "exp_value": 45,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -5930,7 +5930,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 36,
+      "exp_value": 45,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -5978,13 +5978,13 @@
     },
     {
       "id": "M33_e9",
-      "name_id": 188,
-      "character_id": 188,
-      "name_ja": "アーチャー",
-      "name_zh": "弓手",
-      "class": "archer",
-      "class_id": 12,
-      "class_name_zh": "弓箭手",
+      "name_id": 189,
+      "character_id": 189,
+      "name_ja": "スナイパー",
+      "name_zh": "石堡狙击手",
+      "class": "sniper",
+      "class_id": 13,
+      "class_name_zh": "狙击手",
       "level": 4,
       "hp": 23,
       "max_hp": 23,
@@ -5994,10 +5994,10 @@
       "speed": 4,
       "luck": 0,
       "defence": 4,
-      "resistance": 0,
-      "move": 4,
+      "resistance": 2,
+      "move": 5,
       "item_id": 0,
-      "exp_value": 36,
+      "exp_value": 71,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -6041,7 +6041,8 @@
       "side": "enemy",
       "acted": false,
       "ai_flags": 0,
-      "behavior": "guard"
+      "behavior": "guard",
+      "deployment_revision": "enemy-roles-20261023"
     },
     {
       "id": "M33_e10",
@@ -6064,7 +6065,7 @@
       "resistance": 0,
       "move": 4,
       "item_id": 0,
-      "exp_value": 36,
+      "exp_value": 45,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
       "magic_flags": 0,
@@ -6118,7 +6119,7 @@
       "name_zh": "术士",
       "class": "arcanist",
       "class_id": 15,
-      "class_name_zh": "妖术师",
+      "class_name_zh": "执令术师",
       "level": 4,
       "hp": 23,
       "max_hp": 23,
@@ -6131,7 +6132,7 @@
       "resistance": 8,
       "move": 4,
       "item_id": 0,
-      "exp_value": 36,
+      "exp_value": 65,
       "raw_ai_flags": 0,
       "raw_magic_flags": 1,
       "magic_flags": 1,
@@ -6254,7 +6255,9 @@
         21
       ],
       "behavior": "guard",
-      "no_drop": false
+      "no_drop": false,
+      "class_name_zh": "士兵",
+      "exp_value": 45
     }
   ],
   "npc_units": [
@@ -7248,9 +7251,9 @@
       19
     ]
   ],
-  "goal": "击败堡主并控制投送码头；格曼可投降，存活时不作为必须歼灭对象。",
+  "goal": "控制投送码头、取得工房记录并击败堡主；格曼存活时须交涉，可接纳或只解除武装。",
   "before": "格曼：里面有工匠，别把主楼拆了。／胡纳普：放下武器的人从南门出来。",
-  "during": "接近格曼且堡主败北：格曼请求带部下投降，玩家可接纳或只解除武装。",
+  "during": "堡主败北且格曼存活时：格曼请求投降，玩家可接纳或只解除武装；其他未投降守军仍会作战。",
   "after": "取得投送记录；与F33记录互证。D33在两队均到营站后只触发一次。",
   "optional": false,
   "event_boats": [],
@@ -7261,9 +7264,8 @@
     "格曼站在工房前庭，工匠偏在院侧，不堵住记录室唯一南门；投送码头、记录和堡主败北后的投降／解除武装／死亡分支均沿用。"
   ],
   "tactical_notes": [
-    "海崖石堡由连续北墙、西墙、东墙及海蚀崖围住旧石内庭，完整主楼位于北端；南侧外院与东侧工房码头分区清楚。",
-    "两格主道穿过南墙三格正门，西崖林缘路经西侧门进入内庭；东南两格港门直通工房接应路和真正伸入海面的投送栈桥，东北侧联络出口设在可达的墙内通路（26,2）。",
-    "格曼站在工房前庭，工匠偏在院侧，不堵住记录室唯一南门；投送码头、记录和堡主败北后的投降／解除武装／死亡分支均沿用。"
+    "正面可走南门，西侧小门可绕到内庭；东南港门通向投送码头和工房。",
+    "码头与工房记录都须确认。击败堡主后，存活的格曼须邻接交涉；接受投降或只解除武装均可，不必杀死他。"
   ],
   "visual_ground": [
     "~...........................~~~~",
@@ -7505,5 +7507,6 @@
     "version": "0.10.13-environment",
     "conclusion": "露天堡院使用风化砌石；既有树木脚下为未铺石的植土带，工房外观与海岸栈桥保持。",
     "geometry_and_rules_unchanged": true
-  }
+  },
+  "enemy_role_hint": "战场提示：东侧石堡狙击手使用弓，留意其射程；不要让工匠独自走进火力范围。"
 }

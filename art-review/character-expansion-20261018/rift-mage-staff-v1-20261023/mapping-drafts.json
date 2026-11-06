@@ -1,0 +1,1118 @@
+{
+  "maps": {
+    "schema_version": 1,
+    "width_height_scale": 4,
+    "character_id": "class-16-enemy",
+    "actor_id": "class-16-enemy",
+    "class_id": 16,
+    "source_side": "enemy",
+    "display_name": "敌方隙行术师",
+    "display_class_name": "隙行术师",
+    "revision": "rift-mage-staff-v1-20261023",
+    "status": "review_candidate",
+    "runtime_integrated": false,
+    "review_note": "隙行术师持弯曲木柄、龙形环首与蓝色晶石魔杖。蓝紫少色、纯色头发与哑光衣料；地图固定头颈腰胯，原步态、循环及节奏保留。前手依原作蓄力／释放，后手握杖；原法术程序与结算保持。",
+    "palette": [
+      "172638",
+      "4f4f7d",
+      "bbc1d6",
+      "dda77d",
+      "373e64",
+      "a394b1",
+      "77604f",
+      "77b8c7"
+    ],
+    "scenarios": [
+      {
+        "id": "tactical-walk",
+        "source_frame_size": [
+          32,
+          24
+        ],
+        "source_anchor": [
+          16,
+          24
+        ],
+        "output_frame_size": [
+          128,
+          96
+        ],
+        "output_anchor": [
+          64,
+          96
+        ],
+        "logical_render_scale": 0.25,
+        "default_facing": "right",
+        "directions": {
+          "up": [
+            0,
+            1
+          ],
+          "right": [
+            2,
+            3
+          ],
+          "down": [
+            4,
+            5
+          ],
+          "left": [
+            6,
+            7
+          ]
+        },
+        "direction_mirror_x": {},
+        "timing": {
+          "native_fps": 60.0988,
+          "frame_ticks": 16,
+          "cycle_ticks": 32,
+          "phase_source": "$36 & $10 selects phase; L0BB62C",
+          "movement_pixels_per_tick": 1,
+          "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+        },
+        "source_aliases": {
+          "0": 0,
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5,
+          "6": 6,
+          "7": 7
+        },
+        "native_actor_origin": [
+          16,
+          16
+        ],
+        "source_atlas": "../../../source-input/corrected-tactical-walk/class-16-enemy.png",
+        "revision": "rift-mage-staff-v1-20261023",
+        "status": "review_candidate",
+        "review_note": "隙行术师持弯曲木柄、龙形环首与蓝色晶石魔杖。蓝紫少色、纯色头发与哑光衣料；地图固定头颈腰胯，原步态、循环及节奏保留。前手依原作蓄力／释放，后手握杖；原法术程序与结算保持。",
+        "display_name": "敌方隙行术师",
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "output_index": 0,
+            "path": "../../../rift-mage-staff-v1-20261023/tactical-walk/frame-000.png",
+            "output_path": "../../../rift-mage-staff-v1-20261023/tactical-walk/frame-000.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1387,
+            "sha256": "02f9db86cd3273ac527340289f6e0c4570e5e542b46735e4eb0ebedf7fd951e6"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "output_index": 1,
+            "path": "../../../rift-mage-staff-v1-20261023/tactical-walk/frame-001.png",
+            "output_path": "../../../rift-mage-staff-v1-20261023/tactical-walk/frame-001.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1399,
+            "sha256": "1de7fa16e65108a9ec0c2b315521b3984ce45e8108e78f42edc5c6b4bf98517e"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "output_index": 2,
+            "path": "../../../rift-mage-staff-v1-20261023/tactical-walk/frame-002.png",
+            "output_path": "../../../rift-mage-staff-v1-20261023/tactical-walk/frame-002.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1519,
+            "sha256": "85522ef630ecc9b75632d8db0b7c52aaf144006840f85c3582662bf9bd67525a"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "output_index": 3,
+            "path": "../../../rift-mage-staff-v1-20261023/tactical-walk/frame-003.png",
+            "output_path": "../../../rift-mage-staff-v1-20261023/tactical-walk/frame-003.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1454,
+            "sha256": "925b6641da53827cf6b5b0d18d68f76c49c785e9852ffb6f9e921e4d94df954e"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "output_index": 4,
+            "path": "../../../rift-mage-staff-v1-20261023/tactical-walk/frame-004.png",
+            "output_path": "../../../rift-mage-staff-v1-20261023/tactical-walk/frame-004.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1465,
+            "sha256": "500e217f0205a0754dd1c1dc477850d8b538e8c14f90407da919b85b1050ad75"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "output_index": 5,
+            "path": "../../../rift-mage-staff-v1-20261023/tactical-walk/frame-005.png",
+            "output_path": "../../../rift-mage-staff-v1-20261023/tactical-walk/frame-005.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1471,
+            "sha256": "dbb7f401db8a481edee2194143543cf8e58b80730452a69cfab888befb43c9d0"
+          },
+          {
+            "source_index": 6,
+            "source_frame": 6,
+            "output_index": 6,
+            "path": "../../../rift-mage-staff-v1-20261023/tactical-walk/frame-006.png",
+            "output_path": "../../../rift-mage-staff-v1-20261023/tactical-walk/frame-006.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1493,
+            "sha256": "d2209456685ed362ff714a33666f006b67492e43f8cb943a3be7fed48449d64a"
+          },
+          {
+            "source_index": 7,
+            "source_frame": 7,
+            "output_index": 7,
+            "path": "../../../rift-mage-staff-v1-20261023/tactical-walk/frame-007.png",
+            "output_path": "../../../rift-mage-staff-v1-20261023/tactical-walk/frame-007.png",
+            "size": [
+              128,
+              96
+            ],
+            "bytes": 1475,
+            "sha256": "39aee3d8966a8fba9239360d419d4397616986e09196c71ca6de277f70508c57"
+          }
+        ],
+        "motion_review": {
+          "revision": "rift-mage-staff-v1-20261023",
+          "native_gait_body_reused": true,
+          "fixed_hand_staff_per_direction": true,
+          "whole_body_offset_added": [
+            0,
+            0
+          ],
+          "native_timing_modified": false
+        },
+        "source_audit": {
+          "class_id": 16,
+          "source_side": "enemy",
+          "status": "verified_native_tactical",
+          "scope": "reference_only",
+          "source_atlas": "class-16-enemy.png",
+          "source_frame_size": [
+            32,
+            24
+          ],
+          "source_columns": 8,
+          "source_frame_count": 8,
+          "source_anchor": [
+            16,
+            24
+          ],
+          "native_actor_origin": [
+            16,
+            16
+          ],
+          "anchor_note": "Rendering anchor is native actor origin+[0,8] matching map tile base; not inferred anatomical foot or wing tip. Native OAM Y adds hardware+1.",
+          "source_palette": [
+            15,
+            54,
+            37,
+            15
+          ],
+          "palette_evidence": "bank006:L06852C PPU palette payload sprite palette0(ally)/3(enemy), not BG palette.",
+          "source_chr": 26,
+          "frame_mapping": [
+            {
+              "direction": "up",
+              "direction_code": 0,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 26,
+              "source_frame_index": 95,
+              "source_frame_address": "L0887F8",
+              "oam": [
+                [
+                  71,
+                  236,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  237,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  238,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  239,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 26
+                },
+                {
+                  "register": "0xc000",
+                  "value": 26
+                }
+              ],
+              "cpu_instructions": 435,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 0,
+              "source_alpha_bounds": [
+                10,
+                8,
+                22,
+                24
+              ],
+              "rgba_sha256": "9e54810f6fc5e1dd40582f21605a5522adea40878a886dde31cbb302166d4892"
+            },
+            {
+              "direction": "up",
+              "direction_code": 0,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 26,
+              "source_frame_index": 96,
+              "source_frame_address": "L0887FE",
+              "oam": [
+                [
+                  71,
+                  230,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  231,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  232,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  233,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 26
+                },
+                {
+                  "register": "0xc000",
+                  "value": 26
+                }
+              ],
+              "cpu_instructions": 435,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 1,
+              "source_alpha_bounds": [
+                10,
+                8,
+                22,
+                24
+              ],
+              "rgba_sha256": "674883d9b893e5cd09df78d5213a4f7aa32e822aec09e211dbba3e5a6583167d"
+            },
+            {
+              "direction": "right",
+              "direction_code": 1,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 26,
+              "source_frame_index": 97,
+              "source_frame_address": "L088804",
+              "oam": [
+                [
+                  71,
+                  206,
+                  67,
+                  64
+                ],
+                [
+                  71,
+                  207,
+                  67,
+                  56
+                ],
+                [
+                  79,
+                  222,
+                  67,
+                  64
+                ],
+                [
+                  79,
+                  223,
+                  67,
+                  56
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 26
+                },
+                {
+                  "register": "0xc000",
+                  "value": 26
+                }
+              ],
+              "cpu_instructions": 512,
+              "source_global_flip": true,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 2,
+              "source_alpha_bounds": [
+                9,
+                8,
+                22,
+                24
+              ],
+              "rgba_sha256": "92bf0db6d94d35ebea81bf72ebdbd5c32b97f0c1568e08fb8023a63db1d09a72"
+            },
+            {
+              "direction": "right",
+              "direction_code": 1,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 26,
+              "source_frame_index": 98,
+              "source_frame_address": "L08880A",
+              "oam": [
+                [
+                  71,
+                  204,
+                  67,
+                  64
+                ],
+                [
+                  71,
+                  205,
+                  67,
+                  56
+                ],
+                [
+                  79,
+                  220,
+                  67,
+                  64
+                ],
+                [
+                  79,
+                  221,
+                  67,
+                  56
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 26
+                },
+                {
+                  "register": "0xc000",
+                  "value": 26
+                }
+              ],
+              "cpu_instructions": 512,
+              "source_global_flip": true,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 3,
+              "source_alpha_bounds": [
+                9,
+                8,
+                22,
+                24
+              ],
+              "rgba_sha256": "324fd399b8a219275c065c50a0d7ad0da7edd8252ceb8063a41e4a3ad05fa8ec"
+            },
+            {
+              "direction": "down",
+              "direction_code": 2,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 26,
+              "source_frame_index": 99,
+              "source_frame_address": "L088810",
+              "oam": [
+                [
+                  63,
+                  103,
+                  3,
+                  60
+                ],
+                [
+                  71,
+                  200,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  201,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  216,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  217,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 26
+                },
+                {
+                  "register": "0xc000",
+                  "value": 26
+                }
+              ],
+              "cpu_instructions": 479,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 4,
+              "source_alpha_bounds": [
+                10,
+                4,
+                22,
+                24
+              ],
+              "rgba_sha256": "ae7f5a0f967e9e507e32a9375bafe6fc653442123e39a4f697b3c01bab469a8e"
+            },
+            {
+              "direction": "down",
+              "direction_code": 2,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 26,
+              "source_frame_index": 100,
+              "source_frame_address": "L088817",
+              "oam": [
+                [
+                  63,
+                  102,
+                  3,
+                  60
+                ],
+                [
+                  71,
+                  198,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  199,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  214,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  215,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 26
+                },
+                {
+                  "register": "0xc000",
+                  "value": 26
+                }
+              ],
+              "cpu_instructions": 479,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 5,
+              "source_alpha_bounds": [
+                10,
+                3,
+                22,
+                23
+              ],
+              "rgba_sha256": "a94f30bc0eb797b9becbdf6e2cb937ffa6f92282901f5c9a45a8cde4a3db7d21"
+            },
+            {
+              "direction": "left",
+              "direction_code": 3,
+              "phase": 0,
+              "clock_value": 0,
+              "frame_ticks": 16,
+              "source_chr": 26,
+              "source_frame_index": 97,
+              "source_frame_address": "L088804",
+              "oam": [
+                [
+                  71,
+                  206,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  207,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  222,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  223,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 26
+                },
+                {
+                  "register": "0xc000",
+                  "value": 26
+                }
+              ],
+              "cpu_instructions": 435,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 6,
+              "source_alpha_bounds": [
+                10,
+                8,
+                23,
+                24
+              ],
+              "rgba_sha256": "306935fd2a208895f6d33963bbd4455ddf2abd23d28e9fa10f7cf3af0955b78b"
+            },
+            {
+              "direction": "left",
+              "direction_code": 3,
+              "phase": 1,
+              "clock_value": 16,
+              "frame_ticks": 16,
+              "source_chr": 26,
+              "source_frame_index": 98,
+              "source_frame_address": "L08880A",
+              "oam": [
+                [
+                  71,
+                  204,
+                  3,
+                  56
+                ],
+                [
+                  71,
+                  205,
+                  3,
+                  64
+                ],
+                [
+                  79,
+                  220,
+                  3,
+                  56
+                ],
+                [
+                  79,
+                  221,
+                  3,
+                  64
+                ]
+              ],
+              "chr_writes": [
+                {
+                  "register": "0xb000",
+                  "value": 26
+                },
+                {
+                  "register": "0xc000",
+                  "value": 26
+                }
+              ],
+              "cpu_instructions": 435,
+              "source_global_flip": false,
+              "lookup": {
+                "animation": "L0BB745",
+                "chr": "L0BB7F5",
+                "right_mirror_flag": "L0BB80B"
+              },
+              "source_slot": 7,
+              "source_alpha_bounds": [
+                10,
+                8,
+                23,
+                24
+              ],
+              "rgba_sha256": "334716217bbd8f801b2831e987c9058badaf59cb6b711118b5fab007291c2994"
+            }
+          ],
+          "exact_pixel_aliases": {
+            "0": 0,
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5,
+            "6": 6,
+            "7": 7
+          },
+          "unique_source_slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "directions": {
+            "up": [
+              0,
+              1
+            ],
+            "right": [
+              2,
+              3
+            ],
+            "down": [
+              4,
+              5
+            ],
+            "left": [
+              6,
+              7
+            ]
+          },
+          "direction_mirror_x": {},
+          "mirror_note": "Native whole-sprite right flip and individual tile flips are already applied by original CPU; do not apply an additional direction mirror.",
+          "timing": {
+            "native_fps": 60.0988,
+            "frame_ticks": 16,
+            "cycle_ticks": 32,
+            "phase_source": "$36 & $10 selects phase; L0BB62C",
+            "movement_pixels_per_tick": 1,
+            "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+          },
+          "old_frozen_source": "source-input/original-motion/original-walk-16.png",
+          "old_frozen_frame_rgba_matches_by_corrected_slot": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+          ],
+          "old_reference_classification": "Old PNG is CHR26 combined with village OAM selected via L08A779; this is not the native tactical renderer. Native village initializes CHR30, so this hybrid is retained only as current-game frozen historical reference.",
+          "exact_mirror_aliases": {
+            "6": {
+              "source_slot": 2,
+              "transform": "horizontal-mirror-full-canvas",
+              "rgba_exact": true
+            },
+            "7": {
+              "source_slot": 3,
+              "transform": "horizontal-mirror-full-canvas",
+              "rgba_exact": true
+            }
+          },
+          "unique_art_source_slots_after_exact_mirror": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "old_frozen_tight_shape_matches": [],
+          "verified_static_idle_reuse": [],
+          "static_idle_source": "source-input/legacy-assets/assets/original/graphics/map_units/class_16_enemy.png",
+          "overlay": "../../../source-input/corrected-tactical-walk/overlay.json"
+        },
+        "output_atlas": "../../../rift-mage-staff-v1-20261023/tactical-walk-atlas.png"
+      },
+      {
+        "id": "tactical-idle",
+        "source_frame_size": [
+          24,
+          24
+        ],
+        "source_anchor": [
+          12,
+          20
+        ],
+        "output_frame_size": [
+          96,
+          96
+        ],
+        "output_anchor": [
+          48,
+          80
+        ],
+        "logical_render_scale": 0.25,
+        "default_facing": "fixed",
+        "directions": {
+          "all": [
+            0,
+            1,
+            2,
+            1
+          ]
+        },
+        "direction_mirror_x": {},
+        "timing": {
+          "native_fps": 60.0988,
+          "cycle_frames": [
+            0,
+            1,
+            2,
+            1
+          ],
+          "frame_ticks": [
+            14,
+            8,
+            14,
+            8
+          ]
+        },
+        "source_aliases": {
+          "0": 0,
+          "1": 1,
+          "2": 2,
+          "3": 1,
+          "4": 0,
+          "5": 1
+        },
+        "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_16_enemy.png",
+        "revision": "rift-mage-staff-v1-20261023",
+        "status": "review_candidate",
+        "review_note": "隙行术师持弯曲木柄、龙形环首与蓝色晶石魔杖。蓝紫少色、纯色头发与哑光衣料；地图固定头颈腰胯，原步态、循环及节奏保留。前手依原作蓄力／释放，后手握杖；原法术程序与结算保持。",
+        "display_name": "敌方隙行术师",
+        "frame_mapping": [
+          {
+            "source_index": 0,
+            "source_frame": 0,
+            "output_index": 0,
+            "path": "../../../rift-mage-staff-v1-20261023/tactical-idle/frame-000.png",
+            "output_path": "../../../rift-mage-staff-v1-20261023/tactical-idle/frame-000.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1443,
+            "sha256": "7f80008377e296fb4f2f81f148620e933de05e3a06963847342d2f96ba96c425"
+          },
+          {
+            "source_index": 1,
+            "source_frame": 1,
+            "output_index": 1,
+            "path": "../../../rift-mage-staff-v1-20261023/tactical-idle/frame-001.png",
+            "output_path": "../../../rift-mage-staff-v1-20261023/tactical-idle/frame-001.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1434,
+            "sha256": "809ad6c2d3bd781a4f140cfe485b503f44eb9bb9073333893a8aee513641911e"
+          },
+          {
+            "source_index": 2,
+            "source_frame": 2,
+            "output_index": 2,
+            "path": "../../../rift-mage-staff-v1-20261023/tactical-idle/frame-002.png",
+            "output_path": "../../../rift-mage-staff-v1-20261023/tactical-idle/frame-002.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1459,
+            "sha256": "6417d2d67ae4a9caf2d24ed12c60f3280394205e1b3a9155c64def4b60bd0c2c"
+          },
+          {
+            "source_index": 3,
+            "source_frame": 3,
+            "output_index": 3,
+            "path": "../../../rift-mage-staff-v1-20261023/tactical-idle/frame-003.png",
+            "output_path": "../../../rift-mage-staff-v1-20261023/tactical-idle/frame-003.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1434,
+            "sha256": "809ad6c2d3bd781a4f140cfe485b503f44eb9bb9073333893a8aee513641911e"
+          },
+          {
+            "source_index": 4,
+            "source_frame": 4,
+            "output_index": 4,
+            "path": "../../../rift-mage-staff-v1-20261023/tactical-idle/frame-004.png",
+            "output_path": "../../../rift-mage-staff-v1-20261023/tactical-idle/frame-004.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1443,
+            "sha256": "7f80008377e296fb4f2f81f148620e933de05e3a06963847342d2f96ba96c425"
+          },
+          {
+            "source_index": 5,
+            "source_frame": 5,
+            "output_index": 5,
+            "path": "../../../rift-mage-staff-v1-20261023/tactical-idle/frame-005.png",
+            "output_path": "../../../rift-mage-staff-v1-20261023/tactical-idle/frame-005.png",
+            "size": [
+              96,
+              96
+            ],
+            "bytes": 1434,
+            "sha256": "809ad6c2d3bd781a4f140cfe485b503f44eb9bb9073333893a8aee513641911e"
+          }
+        ],
+        "motion_review": {
+          "revision": "rift-mage-staff-v1-20261023",
+          "native_gait_body_reused": true,
+          "fixed_hand_staff_per_direction": true,
+          "whole_body_offset_added": [
+            0,
+            0
+          ],
+          "native_timing_modified": false
+        },
+        "output_atlas": "../../../rift-mage-staff-v1-20261023/tactical-idle-atlas.png"
+      }
+    ]
+  },
+  "battle": {
+    "schema_version": 1,
+    "character_id": "class-16-enemy",
+    "display_name": "敌方隙行术师",
+    "display_class_name": "隙行术师",
+    "original_class_id": 16,
+    "source_side": "enemy",
+    "source_frame_size": [
+      80,
+      64
+    ],
+    "source_anchor": [
+      40,
+      64
+    ],
+    "output_frame_size": [
+      320,
+      256
+    ],
+    "source_idle_frame": 0,
+    "source_frame_count": 3,
+    "source_columns": 16,
+    "frame_mapping": {
+      "0": "../../../rift-mage-staff-v1-20261023/battle/frame-000.png",
+      "1": "../../../rift-mage-staff-v1-20261023/battle/frame-001.png",
+      "2": "../../../rift-mage-staff-v1-20261023/battle/frame-002.png"
+    },
+    "required_source_frames": [
+      0,
+      1,
+      2
+    ],
+    "variant_keys": [
+      "class_16_enemy_item_23",
+      "class_16_enemy_item_23_vs_heavy",
+      "class_16_enemy_item_23_far_ally",
+      "class_16_enemy_item_23_far_ally_vs_heavy",
+      "class_16_enemy_item_23_far_enemy",
+      "class_16_enemy_item_23_far_enemy_vs_heavy",
+      "class_16_enemy_item_24",
+      "class_16_enemy_item_24_vs_heavy",
+      "class_16_enemy_item_24_far_ally",
+      "class_16_enemy_item_24_far_ally_vs_heavy",
+      "class_16_enemy_item_24_far_enemy",
+      "class_16_enemy_item_24_far_enemy_vs_heavy",
+      "class_16_enemy_item_25",
+      "class_16_enemy_item_25_vs_heavy",
+      "class_16_enemy_item_25_far_ally",
+      "class_16_enemy_item_25_far_ally_vs_heavy",
+      "class_16_enemy_item_25_far_enemy",
+      "class_16_enemy_item_25_far_enemy_vs_heavy",
+      "class_16_enemy_item_26",
+      "class_16_enemy_item_26_vs_heavy",
+      "class_16_enemy_item_26_far_ally",
+      "class_16_enemy_item_26_far_ally_vs_heavy",
+      "class_16_enemy_item_26_far_enemy",
+      "class_16_enemy_item_26_far_enemy_vs_heavy",
+      "class_16_enemy_item_27",
+      "class_16_enemy_item_27_vs_heavy",
+      "class_16_enemy_item_27_far_ally",
+      "class_16_enemy_item_27_far_ally_vs_heavy",
+      "class_16_enemy_item_27_far_enemy",
+      "class_16_enemy_item_27_far_enemy_vs_heavy",
+      "class_16_enemy_item_28",
+      "class_16_enemy_item_28_vs_heavy",
+      "class_16_enemy_item_28_far_ally",
+      "class_16_enemy_item_28_far_ally_vs_heavy",
+      "class_16_enemy_item_28_far_enemy",
+      "class_16_enemy_item_28_far_enemy_vs_heavy",
+      "class_16_enemy_item_29",
+      "class_16_enemy_item_29_vs_heavy",
+      "class_16_enemy_item_29_far_ally",
+      "class_16_enemy_item_29_far_ally_vs_heavy",
+      "class_16_enemy_item_29_far_enemy",
+      "class_16_enemy_item_29_far_enemy_vs_heavy",
+      "class_16_enemy_item_31",
+      "class_16_enemy_item_31_vs_heavy",
+      "class_16_enemy_item_31_far_ally",
+      "class_16_enemy_item_31_far_ally_vs_heavy",
+      "class_16_enemy_item_31_far_enemy",
+      "class_16_enemy_item_31_far_enemy_vs_heavy",
+      "class_16_enemy_item_32",
+      "class_16_enemy_item_32_vs_heavy",
+      "class_16_enemy_item_32_far_ally",
+      "class_16_enemy_item_32_far_ally_vs_heavy",
+      "class_16_enemy_item_32_far_enemy",
+      "class_16_enemy_item_32_far_enemy_vs_heavy",
+      "class_16_enemy_item_33",
+      "class_16_enemy_item_33_vs_heavy",
+      "class_16_enemy_item_33_far_ally",
+      "class_16_enemy_item_33_far_ally_vs_heavy",
+      "class_16_enemy_item_33_far_enemy",
+      "class_16_enemy_item_33_far_enemy_vs_heavy",
+      "class_16_enemy_item_34",
+      "class_16_enemy_item_34_vs_heavy",
+      "class_16_enemy_item_34_far_ally",
+      "class_16_enemy_item_34_far_ally_vs_heavy",
+      "class_16_enemy_item_34_far_enemy",
+      "class_16_enemy_item_34_far_enemy_vs_heavy"
+    ],
+    "output_atlas": "../../../rift-mage-staff-v1-20261023/battle-atlas.png",
+    "output_atlas_order": [
+      0,
+      1,
+      2
+    ],
+    "revision": "rift-mage-staff-v1-20261023",
+    "status": "review_candidate",
+    "runtime_integrated": false,
+    "review_note": "隙行术师持弯曲木柄、龙形环首与蓝色晶石魔杖。蓝紫少色、纯色头发与哑光衣料；地图固定头颈腰胯，原步态、循环及节奏保留。前手依原作蓄力／释放，后手握杖；原法术程序与结算保持。",
+    "palette": [
+      "172638",
+      "4f4f7d",
+      "bbc1d6",
+      "dda77d",
+      "373e64",
+      "a394b1",
+      "77604f",
+      "77b8c7"
+    ],
+    "batches": [
+      {
+        "id": "隙行术师三姿势",
+        "review": "../../../rift-mage-staff-v1-20261023/battle-light.png",
+        "status": "review_candidate"
+      }
+    ],
+    "qa_report": "../../../rift-mage-staff-v1-20261023/checks.json",
+    "review_timeline": "../../../female-mage-complete-v1-20261023/enemy-spell-motion.json",
+    "shared_spell_ids": [
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      31,
+      32
+    ]
+  }
+}

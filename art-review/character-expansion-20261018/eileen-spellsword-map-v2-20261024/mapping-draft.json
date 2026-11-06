@@ -1,0 +1,667 @@
+{
+  "schema_version": 1,
+  "character_id": "eileen",
+  "actor_id": "eileen",
+  "class_id": 11,
+  "source_side": "ally",
+  "display_name": "艾琳",
+  "display_class_name": "女魔剑士",
+  "revision": "eileen-spellsword-map-v2-20261024",
+  "status": "review_candidate",
+  "runtime_integrated": false,
+  "palette": [
+    "172638",
+    "31445d",
+    "3976b5",
+    "e4e1c8",
+    "dda77d",
+    "89516d",
+    "9e4247",
+    "bd9d68",
+    "a7d7e5"
+  ],
+  "review_note": "艾琳女魔剑士地图姿态与遮挡修正；引光剑使与战斗场景沿用前版。",
+  "scenarios": [
+    {
+      "id": "story",
+      "source_atlas": "../../eileen-identity-complete-v1-20261023/source/original-personal-map.png",
+      "source_frame_size": [
+        32,
+        24
+      ],
+      "source_anchor": [
+        16,
+        24
+      ],
+      "output_frame_size": [
+        128,
+        96
+      ],
+      "output_anchor": [
+        64,
+        96
+      ],
+      "logical_render_scale": 0.25,
+      "directions": {
+        "down": [
+          0,
+          1
+        ],
+        "up": [
+          2,
+          3
+        ],
+        "right": [
+          4,
+          5
+        ],
+        "left": [
+          4,
+          5
+        ]
+      },
+      "direction_mirror_x": {
+        "left": true
+      },
+      "timing": {
+        "native_fps": 60.0988,
+        "frame_ticks": 16,
+        "phase": "continuous-clock"
+      },
+      "source_audit": {
+        "status": "verified_native_personal",
+        "source_character_id": 2
+      },
+      "revision": "eileen-spellsword-map-v2-20261024",
+      "display_name": "艾琳",
+      "review_note": "重绘向下的前后交替步态；脸部象牙白高光按皮肤材质归色。侧走两相为站直摆臂且辫子后扫、跨步垂臂且辫子下垂。大地图精确共用剧情帧。",
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "output_index": 0,
+          "path": "../../eileen-spellsword-map-v2-20261024/story/frame-000.png",
+          "output_path": "../../eileen-spellsword-map-v2-20261024/story/frame-000.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1422,
+          "sha256": "6a03ac54de135ff61712d439d27f5e40f13fe92a1d9723a359d3111cae85c2fb"
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "output_index": 1,
+          "path": "../../eileen-spellsword-map-v2-20261024/story/frame-001.png",
+          "output_path": "../../eileen-spellsword-map-v2-20261024/story/frame-001.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1403,
+          "sha256": "93c4ff875dad16d07533c347fb953197a98cea240699a567dba78c8e1bd15661"
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "output_index": 2,
+          "path": "../../eileen-identity-complete-v1-20261023/base/story/frame-002.png",
+          "output_path": "../../eileen-identity-complete-v1-20261023/base/story/frame-002.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1252,
+          "sha256": "373c8b8074e56f2e34deac82aec624985a0dea30fd58c9cb29fdac95bac580e5"
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "output_index": 3,
+          "path": "../../eileen-identity-complete-v1-20261023/base/story/frame-003.png",
+          "output_path": "../../eileen-identity-complete-v1-20261023/base/story/frame-003.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1251,
+          "sha256": "420bbd34b0eb09b33106eb2abf7b3bb41d65d0b8e7724a82fc3b43ecde654397"
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "output_index": 4,
+          "path": "../../eileen-spellsword-map-v2-20261024/story/frame-004.png",
+          "output_path": "../../eileen-spellsword-map-v2-20261024/story/frame-004.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1414,
+          "sha256": "4eb6bb4f6b92ab40e17a32e2951b41653d363700fe8784dd1cc7a420d1a28852"
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "output_index": 5,
+          "path": "../../eileen-spellsword-map-v2-20261024/story/frame-005.png",
+          "output_path": "../../eileen-spellsword-map-v2-20261024/story/frame-005.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1412,
+          "sha256": "c43a7a56bdf5a1f0ba5f31826c2dc4e9023f418a0dbb0f8a2c86c61af7c9ce1a"
+        }
+      ],
+      "motion_review": "../../eileen-spellsword-map-v2-20261024/README.md",
+      "ground_shadow": {
+        "path": "hunapu-story-shadow-20261018/story-shadow.png",
+        "size": [
+          11,
+          3
+        ],
+        "offset": [
+          0,
+          -1
+        ],
+        "alpha": 0.38
+      },
+      "output_atlas": "../../eileen-spellsword-map-v2-20261024/story-atlas.png"
+    },
+    {
+      "id": "world",
+      "source_atlas": "../../eileen-identity-complete-v1-20261023/source/original-personal-map.png",
+      "source_frame_size": [
+        32,
+        24
+      ],
+      "source_anchor": [
+        16,
+        24
+      ],
+      "output_frame_size": [
+        128,
+        96
+      ],
+      "output_anchor": [
+        64,
+        96
+      ],
+      "logical_render_scale": 0.25,
+      "directions": {
+        "down": [
+          0,
+          1
+        ],
+        "up": [
+          2,
+          3
+        ],
+        "right": [
+          4,
+          5
+        ],
+        "left": [
+          4,
+          5
+        ]
+      },
+      "direction_mirror_x": {
+        "left": true
+      },
+      "timing": {
+        "native_fps": 60.0988,
+        "frame_ticks": 16,
+        "phase": "continuous-clock"
+      },
+      "source_audit": {
+        "status": "verified_native_personal",
+        "source_character_id": 2
+      },
+      "revision": "eileen-spellsword-map-v2-20261024",
+      "display_name": "艾琳",
+      "review_note": "重绘向下的前后交替步态；脸部象牙白高光按皮肤材质归色。侧走两相为站直摆臂且辫子后扫、跨步垂臂且辫子下垂。大地图精确共用剧情帧。",
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "output_index": 0,
+          "path": "../../eileen-spellsword-map-v2-20261024/story/frame-000.png",
+          "output_path": "../../eileen-spellsword-map-v2-20261024/story/frame-000.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1422,
+          "sha256": "6a03ac54de135ff61712d439d27f5e40f13fe92a1d9723a359d3111cae85c2fb"
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "output_index": 1,
+          "path": "../../eileen-spellsword-map-v2-20261024/story/frame-001.png",
+          "output_path": "../../eileen-spellsword-map-v2-20261024/story/frame-001.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1403,
+          "sha256": "93c4ff875dad16d07533c347fb953197a98cea240699a567dba78c8e1bd15661"
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "output_index": 2,
+          "path": "../../eileen-identity-complete-v1-20261023/base/story/frame-002.png",
+          "output_path": "../../eileen-identity-complete-v1-20261023/base/story/frame-002.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1252,
+          "sha256": "373c8b8074e56f2e34deac82aec624985a0dea30fd58c9cb29fdac95bac580e5"
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "output_index": 3,
+          "path": "../../eileen-identity-complete-v1-20261023/base/story/frame-003.png",
+          "output_path": "../../eileen-identity-complete-v1-20261023/base/story/frame-003.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1251,
+          "sha256": "420bbd34b0eb09b33106eb2abf7b3bb41d65d0b8e7724a82fc3b43ecde654397"
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "output_index": 4,
+          "path": "../../eileen-spellsword-map-v2-20261024/story/frame-004.png",
+          "output_path": "../../eileen-spellsword-map-v2-20261024/story/frame-004.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1414,
+          "sha256": "4eb6bb4f6b92ab40e17a32e2951b41653d363700fe8784dd1cc7a420d1a28852"
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "output_index": 5,
+          "path": "../../eileen-spellsword-map-v2-20261024/story/frame-005.png",
+          "output_path": "../../eileen-spellsword-map-v2-20261024/story/frame-005.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1412,
+          "sha256": "c43a7a56bdf5a1f0ba5f31826c2dc4e9023f418a0dbb0f8a2c86c61af7c9ce1a"
+        }
+      ],
+      "motion_review": "../../eileen-spellsword-map-v2-20261024/README.md",
+      "ground_shadow": {
+        "path": "hunapu-story-shadow-20261018/story-shadow.png",
+        "size": [
+          11,
+          3
+        ],
+        "offset": [
+          0,
+          -1
+        ],
+        "alpha": 0.38
+      },
+      "output_atlas": "../../eileen-spellsword-map-v2-20261024/story-atlas.png"
+    },
+    {
+      "id": "tactical-walk",
+      "source_frame_size": [
+        32,
+        24
+      ],
+      "source_anchor": [
+        16,
+        24
+      ],
+      "output_frame_size": [
+        128,
+        96
+      ],
+      "output_anchor": [
+        64,
+        96
+      ],
+      "logical_render_scale": 0.25,
+      "default_facing": "right",
+      "directions": {
+        "up": [
+          0,
+          1
+        ],
+        "right": [
+          2,
+          3
+        ],
+        "down": [
+          4,
+          5
+        ],
+        "left": [
+          6,
+          7
+        ]
+      },
+      "direction_mirror_x": {},
+      "timing": {
+        "native_fps": 60.0988,
+        "frame_ticks": 16,
+        "cycle_ticks": 32,
+        "phase_source": "$36 & $10 selects phase; L0BB62C",
+        "movement_pixels_per_tick": 1,
+        "movement_source": "L06BE42→L06BE5F updates X/Y by1 each movement tick; four codes0up1right2down3left"
+      },
+      "source_aliases": {
+        "0": 0,
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4,
+        "5": 5,
+        "6": 6,
+        "7": 7
+      },
+      "native_actor_origin": [
+        16,
+        16
+      ],
+      "source_atlas": "../../source-input/corrected-tactical-walk/class-11-ally.png",
+      "revision": "eileen-spellsword-map-v2-20261024",
+      "status": "review_candidate",
+      "display_name": "艾琳",
+      "review_note": "上行双肩短披风与中央松辫，身前持剑手从背面被身体完全遮挡；下行前臂横过身前并握住剑柄。四方向持续阴影；上/下行是沿前后方向的左右脚交替。",
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "output_index": 0,
+          "path": "../../eileen-spellsword-map-v2-20261024/tactical-walk/frame-000.png",
+          "output_path": "../../eileen-spellsword-map-v2-20261024/tactical-walk/frame-000.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1447,
+          "sha256": "2cf6a8dd72c60145148127b8670b0f2d6ca3697f3ad7c65183c963ba044c4814"
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "output_index": 1,
+          "path": "../../eileen-spellsword-map-v2-20261024/tactical-walk/frame-001.png",
+          "output_path": "../../eileen-spellsword-map-v2-20261024/tactical-walk/frame-001.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1419,
+          "sha256": "3a72a37da6af84794db12d05c28bcbbabb957b907ad8c5866336f550fa21220d"
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "output_index": 2,
+          "path": "../../eileen-identity-complete-v1-20261023/base/tactical-walk/frame-002.png",
+          "output_path": "../../eileen-identity-complete-v1-20261023/base/tactical-walk/frame-002.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1604,
+          "sha256": "8e230a2ccd06aa70ed79732425cbdab7183508fe142eb9980dc7ba3c610bf6cd"
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "output_index": 3,
+          "path": "../../eileen-identity-complete-v1-20261023/base/tactical-walk/frame-003.png",
+          "output_path": "../../eileen-identity-complete-v1-20261023/base/tactical-walk/frame-003.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1603,
+          "sha256": "f99d66f85d334a8fd0427d703741335aefce2bbd766ef8d0036ab5e1bde8f8bc"
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "output_index": 4,
+          "path": "../../eileen-spellsword-map-v2-20261024/tactical-walk/frame-004.png",
+          "output_path": "../../eileen-spellsword-map-v2-20261024/tactical-walk/frame-004.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1519,
+          "sha256": "768a9711610015e8e9e0a7fc1b13e6366eab90ed7bd6d136eab43128ece817dd"
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "output_index": 5,
+          "path": "../../eileen-spellsword-map-v2-20261024/tactical-walk/frame-005.png",
+          "output_path": "../../eileen-spellsword-map-v2-20261024/tactical-walk/frame-005.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1544,
+          "sha256": "e1063d25a9cfc8a1aeabe86490297efb4b9c4c5458867d8d30ac20052bcd19b1"
+        },
+        {
+          "source_index": 6,
+          "source_frame": 6,
+          "output_index": 6,
+          "path": "../../eileen-identity-complete-v1-20261023/base/tactical-walk/frame-006.png",
+          "output_path": "../../eileen-identity-complete-v1-20261023/base/tactical-walk/frame-006.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1608,
+          "sha256": "1ab0b6e7cdbcd6872b43291a478f2267976ac5387e965afdbab04634eb56aee7"
+        },
+        {
+          "source_index": 7,
+          "source_frame": 7,
+          "output_index": 7,
+          "path": "../../eileen-identity-complete-v1-20261023/base/tactical-walk/frame-007.png",
+          "output_path": "../../eileen-identity-complete-v1-20261023/base/tactical-walk/frame-007.png",
+          "size": [
+            128,
+            96
+          ],
+          "bytes": 1614,
+          "sha256": "a635ee6072037e204c8bb52c060d05543a0fa35a11f20256940107c34d1771c1"
+        }
+      ],
+      "motion_review": "../../eileen-spellsword-map-v2-20261024/README.md",
+      "source_audit": {
+        "status": "verified_native_tactical",
+        "proof": "../../source-input/corrected-tactical-walk/verification.json",
+        "overlay": "../../source-input/corrected-tactical-walk/overlay.json",
+        "reference_key": "class-11-ally"
+      },
+      "output_atlas": "../../eileen-spellsword-map-v2-20261024/tactical-walk-atlas.png",
+      "ground_shadow": {
+        "path": "gold-knight-walk-v3-20261020/ground-shadow.png",
+        "size": [
+          10,
+          1.5
+        ],
+        "offset": [
+          0,
+          -1
+        ],
+        "alpha": 0.3
+      }
+    },
+    {
+      "id": "tactical-idle",
+      "source_frame_size": [
+        24,
+        24
+      ],
+      "source_anchor": [
+        12,
+        20
+      ],
+      "output_frame_size": [
+        96,
+        96
+      ],
+      "output_anchor": [
+        48,
+        80
+      ],
+      "logical_render_scale": 0.25,
+      "default_facing": "fixed",
+      "directions": {
+        "all": [
+          0,
+          1,
+          2,
+          1
+        ]
+      },
+      "direction_mirror_x": {},
+      "timing": {
+        "native_fps": 60.0988,
+        "cycle_frames": [
+          0,
+          1,
+          2,
+          1
+        ],
+        "frame_ticks": [
+          14,
+          8,
+          14,
+          8
+        ]
+      },
+      "source_aliases": {
+        "0": 0,
+        "1": 1,
+        "2": 2,
+        "3": 1,
+        "4": 0,
+        "5": 1
+      },
+      "source_atlas": "../../source-input/legacy-assets/assets/original/graphics/map_units/class_11_ally.png",
+      "revision": "eileen-spellsword-map-v2-20261024",
+      "status": "review_candidate",
+      "display_name": "艾琳",
+      "review_note": "重绘露出眼睛的刘海和面部，持剑手臂随剑移动，保留原待机相位和双腿支撑。",
+      "frame_mapping": [
+        {
+          "source_index": 0,
+          "source_frame": 0,
+          "output_index": 0,
+          "path": "../../eileen-spellsword-map-v2-20261024/tactical-idle/frame-000.png",
+          "output_path": "../../eileen-spellsword-map-v2-20261024/tactical-idle/frame-000.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 1529,
+          "sha256": "b23f66abe77395f95497130a4f30061ae80931b66fbdd9d4b85d487ad803332d"
+        },
+        {
+          "source_index": 1,
+          "source_frame": 1,
+          "output_index": 1,
+          "path": "../../eileen-spellsword-map-v2-20261024/tactical-idle/frame-001.png",
+          "output_path": "../../eileen-spellsword-map-v2-20261024/tactical-idle/frame-001.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 1548,
+          "sha256": "3bd43cafdfcc785afdca37c1a69ff67c25f3ef3f74104597230b6a1ae726e276"
+        },
+        {
+          "source_index": 2,
+          "source_frame": 2,
+          "output_index": 2,
+          "path": "../../eileen-spellsword-map-v2-20261024/tactical-idle/frame-002.png",
+          "output_path": "../../eileen-spellsword-map-v2-20261024/tactical-idle/frame-002.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 1528,
+          "sha256": "5719555b60710890ecb579576d375ed9ac6aa68c533e2a5cb40ed88997720f63"
+        },
+        {
+          "source_index": 3,
+          "source_frame": 3,
+          "output_index": 3,
+          "path": "../../eileen-spellsword-map-v2-20261024/tactical-idle/frame-003.png",
+          "output_path": "../../eileen-spellsword-map-v2-20261024/tactical-idle/frame-003.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 1548,
+          "sha256": "3bd43cafdfcc785afdca37c1a69ff67c25f3ef3f74104597230b6a1ae726e276"
+        },
+        {
+          "source_index": 4,
+          "source_frame": 4,
+          "output_index": 4,
+          "path": "../../eileen-spellsword-map-v2-20261024/tactical-idle/frame-004.png",
+          "output_path": "../../eileen-spellsword-map-v2-20261024/tactical-idle/frame-004.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 1529,
+          "sha256": "b23f66abe77395f95497130a4f30061ae80931b66fbdd9d4b85d487ad803332d"
+        },
+        {
+          "source_index": 5,
+          "source_frame": 5,
+          "output_index": 5,
+          "path": "../../eileen-spellsword-map-v2-20261024/tactical-idle/frame-005.png",
+          "output_path": "../../eileen-spellsword-map-v2-20261024/tactical-idle/frame-005.png",
+          "size": [
+            96,
+            96
+          ],
+          "bytes": 1548,
+          "sha256": "3bd43cafdfcc785afdca37c1a69ff67c25f3ef3f74104597230b6a1ae726e276"
+        }
+      ],
+      "motion_review": "../../eileen-spellsword-map-v2-20261024/README.md",
+      "output_atlas": "../../eileen-spellsword-map-v2-20261024/tactical-idle-atlas.png",
+      "ground_shadow": {
+        "path": "gold-knight-walk-v3-20261020/ground-shadow.png",
+        "size": [
+          10,
+          1.5
+        ],
+        "offset": [
+          0,
+          -2
+        ],
+        "alpha": 0.3
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_03",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/hit.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_03.ogg"
+  ],
+  "hashes": [
+    "73e68e3ad36e0ac989ea2915f4127d1eb1a8915e7aeb8d845b474cb9b15cf040",
+    "e3951491cfb2aeed93510918d054b0869d82ce79c4d91fd7bb7f14f5473c38e1"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "c1d6e078cd0bde56f1ccc719",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    10857,
+    12053
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "The actual sounds are sourceless sound effects with no specific source. The first sound has a quick, sharp attack and a fast decay, while the second sound has a longer attack and a slower decay. The first sound has a bright quality, while the second sound has a dark quality. There is no noticeable difference in timbre or pitch movement. The second sound is slightly more dense.",
+  "generation_tokens": 77,
+  "generation_tps": 38.694983117146705,
+  "wall_seconds": 2.141,
+  "peak_memory_bytes": 6987743686,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

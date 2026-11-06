@@ -90,8 +90,7 @@ static func held_captive(g,u: Dictionary) -> bool:
 static func ai_action(g,u: Dictionary) -> Dictionary:
 	if u.get("quest_kind","")=="transport":return {"destination":g.pos(u),"target":""}
 	if u.get("quest_kind","")=="guide":
-		if g.living("enemy").any(func(e):return _distance(g.pos(e),g.pos(u))<=maxi(4,g.Rules.attack_range(e).y+1)):return {"destination":g.pos(u),"target":""}
-		return g._toward(u,Vector2i(g.battle_data.exit[0],g.battle_data.exit[1]))
+		return g._safe_escort_move(u,Vector2i(g.battle_data.exit[0],g.battle_data.exit[1]))
 	return {}
 
 static func _distance(a: Vector2i,b: Vector2i) -> int:return absi(a.x-b.x)+absi(a.y-b.y)
@@ -125,7 +124,7 @@ static func interact(g,id: String) -> void:
 	if id.begins_with("german_"):
 		var u=g.find_unit("german");u.side="neutral";u.surrendered=true;u.no_counter=true
 		g.flags.quest.german_decision="accepted" if id=="german_accept" else "disarmed"
-		lines(g,"格曼：我带部下放下武器。工房的人不该再被带走。／胡纳普：先把押送记录交出来。接受投降，不等于免去责任。","M33-SURRENDER");return
+		lines(g,"格曼：我愿放下武器。工房的人不该再被带走。／胡纳普：先把押送记录交出来。接受投降，不等于免去责任。","M33-SURRENDER");return
 	if id.begins_with("old_unit:"):
 		var u=g.find_unit(id.substr(9));u.side="neutral";u.surrendered=true;u.no_counter=true
 		lines(g,"蕾娜：这些家庭已经被准许回家。放下武器，交出押送记录。／投降兵：我愿意作证。狱卒首领还在北侧，不肯开门。",id);return
@@ -172,7 +171,7 @@ static func check_outcome(g) -> String:
 			var german=g.find_unit("german")
 			if boss_down(g) and alive(g,"german") and not german.get("offering_surrender",false):
 				german.offering_surrender=true;german.no_counter=true
-				lines(g,"格曼：堡主已败。我愿意带部下投降，请到工房前听我说。","M33-OFFER")
+				lines(g,"格曼：堡主已败。我愿意投降，请到工房前听我说。","M33-OFFER")
 			ready=done(g,"dock_control") and done(g,"workshop") and (not alive(g,"german") or not str(q.german_decision).is_empty())
 		304:
 			var ids=["dock_patients0","dock_patients1"];var survivors=ids.filter(func(id):return alive(g,id))
@@ -197,7 +196,7 @@ static func on_victory(g) -> void:
 		311:g.flags.S31_families={"family0":alive(g,"family0"),"family1":alive(g,"family1")}
 		312:
 			g.flags.chapter3_recruits.noya=alive(g,"noya");g.flags.noya_brother_survived=alive(g,"noya_brother")
-	var endings={301:"居民：西门外有医者接应。码头的人还没到，我们在旧街等他们。",302:"工匠：工具和修塔的人都留下了。先到转运站清点，再去沿海石堡。",303:"工匠：投送记录找到了。把它带到工房，与另一岸的调节记录核对。",304:"舵手：活着的伤者已经上船。我们去城外旧街，与西队会合。",305:"艾琳：盐路已打开。先确认向导的路线和盐原来信。",306:"艾琳：调节记录已经复制。我们先验证，再要求胡纳普停塔。",311:"家属：请把活着的人送回去，没能回家的也请记下姓名。",312:"艾琳：先安置居民。诺娅，你要把泄露船团位置的经过说清楚。"}
+	var endings={301:"居民：西门外有医者接应。码头的人还没到，我们在旧街等他们。",302:"工匠：工具和修塔的人都留下了。先到转运站清点，再去沿海石堡。",303:"工匠：投送记录找到了。把它带到工房，与另一岸的调节记录核对。",304:"舵手：活着的伤者已经上船。我们去城外旧街，与西队会合。",305:"艾琳：盐路已打开。先确认向导的路线和盐原来信。",306:"艾琳：调节记录已经复制。我们先验证，再要求胡纳普停塔。",311:"家属：请把活着的人送回去，没能回家的也请记下姓名。",312:"艾琳：先安置居民。诺娅，你要把泄露船团位置的经过说清楚。" if alive(g,"noya") else "艾琳：先安置获救居民。诺娅未能获救，她留下的路线册和泄露船团位置的经过仍须如实登记。"}
 	lines(g,endings.get(g.stage_id,"旁白：战场已平息。"),str(g.battle_data.code)+"-END")
 
 static func status(g) -> Array[String]:
@@ -205,7 +204,7 @@ static func status(g) -> Array[String]:
 	var q: Dictionary=g.flags.quest
 	match g.stage_id:
 		301:result.append("拘押居民撤离：%d/2。西门在西侧绿旗处；必须救出两名被拘押者并击败队长。" % (["detained0","detained1"].filter(func(id):return q.evacuated.has(id)).size()))
-		302:result.append("运输车第5回合起北撤，每轮一格。控制任一运输站使车停止；两站与车锁均需确认。车逃出北口或损毁即失败。")
+		302:result.append("运输车第6己方回合起北撤，每轮一格。控制任一运输站或打开车锁可停车；两站与车锁均需确认。车逃出北口或损毁即失败。")
 		303:result.append("格曼："+("已处理" if not str(q.german_decision).is_empty() or not alive(g,"german") else "堡主败北后可邻接交涉；接受投降或只解除武装"))
 		304:result.append("南北两组伤者各自记录。解除两处封锁后，让存活伤者全部抵达西南己方船；全灭失败。")
 		305:result.append("向导已抵达。" if q.evacuated.has("salt_guide") else "向导仍在路上。" if alive(g,"salt_guide") else "向导遇难，请取回干道旁的路线册。")

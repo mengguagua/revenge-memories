@@ -1,0 +1,358 @@
+{
+  "id": "tactical-idle",
+  "source_atlas": "../../../source-input/legacy-assets/assets/original/graphics/map_units/class_14_enemy.png",
+  "source_frame_size": [
+    24,
+    24
+  ],
+  "source_anchor": [
+    12,
+    20
+  ],
+  "source_frame_count": 6,
+  "required_drawn_frames": [
+    0,
+    1,
+    2
+  ],
+  "static_facing": true,
+  "directions": {
+    "all": [
+      0,
+      1,
+      2,
+      1
+    ]
+  },
+  "timing": {
+    "native_fps": 60.0988,
+    "cycle_frames": [
+      0,
+      1,
+      2,
+      1
+    ],
+    "frame_ticks": [
+      14,
+      8,
+      14,
+      8
+    ],
+    "cycle_ticks": 44
+  },
+  "output_frame_size": [
+    96,
+    96
+  ],
+  "output_anchor": [
+    48,
+    80
+  ],
+  "logical_render_scale": 0.25,
+  "source_aliases": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 1,
+    "4": 0,
+    "5": 1
+  },
+  "class_id": 14,
+  "source_side": "enemy",
+  "character_id": "class-14-enemy",
+  "display_name": "敌方断路匪",
+  "frame_mapping": [
+    {
+      "source_index": 0,
+      "source_frame": 0,
+      "output_index": 0,
+      "canonical_frame": 0,
+      "path": "../../../brigand-idle-jaw-v3-20261023/frames/frame-000.png",
+      "output_path": "../../../brigand-idle-jaw-v3-20261023/frames/frame-000.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1315,
+      "sha256": "665d7e9ae5235add571f0f37536cfaf541918768d6a60aeba947fa202c819462",
+      "revision": "brigand-idle-jaw-v3-20261023",
+      "art_status": "review_candidate"
+    },
+    {
+      "source_index": 1,
+      "source_frame": 1,
+      "output_index": 1,
+      "canonical_frame": 1,
+      "path": "../../../brigand-idle-jaw-v3-20261023/frames/frame-001.png",
+      "output_path": "../../../brigand-idle-jaw-v3-20261023/frames/frame-001.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1301,
+      "sha256": "c649872a1786392d2c33538248fb7b29fc22b7851ce30adbd24988e026cdcf77",
+      "revision": "brigand-idle-jaw-v3-20261023",
+      "art_status": "review_candidate"
+    },
+    {
+      "source_index": 2,
+      "source_frame": 2,
+      "output_index": 2,
+      "canonical_frame": 2,
+      "path": "../../../brigand-idle-jaw-v3-20261023/frames/frame-002.png",
+      "output_path": "../../../brigand-idle-jaw-v3-20261023/frames/frame-002.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1302,
+      "sha256": "a12360273e0bd4070aa3f7717f2fba60ab5c8a7565fcd044d9a93aad2a1c6b2c",
+      "revision": "brigand-idle-jaw-v3-20261023",
+      "art_status": "review_candidate"
+    },
+    {
+      "source_index": 3,
+      "source_frame": 3,
+      "output_index": 3,
+      "canonical_frame": 1,
+      "path": "../../../brigand-idle-jaw-v3-20261023/frames/frame-003.png",
+      "output_path": "../../../brigand-idle-jaw-v3-20261023/frames/frame-003.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1301,
+      "sha256": "c649872a1786392d2c33538248fb7b29fc22b7851ce30adbd24988e026cdcf77",
+      "revision": "brigand-idle-jaw-v3-20261023",
+      "art_status": "review_candidate"
+    },
+    {
+      "source_index": 4,
+      "source_frame": 4,
+      "output_index": 4,
+      "canonical_frame": 0,
+      "path": "../../../brigand-idle-jaw-v3-20261023/frames/frame-004.png",
+      "output_path": "../../../brigand-idle-jaw-v3-20261023/frames/frame-004.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1315,
+      "sha256": "665d7e9ae5235add571f0f37536cfaf541918768d6a60aeba947fa202c819462",
+      "revision": "brigand-idle-jaw-v3-20261023",
+      "art_status": "review_candidate"
+    },
+    {
+      "source_index": 5,
+      "source_frame": 5,
+      "output_index": 5,
+      "canonical_frame": 1,
+      "path": "../../../brigand-idle-jaw-v3-20261023/frames/frame-005.png",
+      "output_path": "../../../brigand-idle-jaw-v3-20261023/frames/frame-005.png",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 1301,
+      "sha256": "c649872a1786392d2c33538248fb7b29fc22b7851ce30adbd24988e026cdcf77",
+      "revision": "brigand-idle-jaw-v3-20261023",
+      "art_status": "review_candidate"
+    }
+  ],
+  "output_atlas": "../../../brigand-idle-jaw-v3-20261023/idle-atlas.png",
+  "revision": "brigand-idle-jaw-v3-20261023",
+  "status": "review_candidate",
+  "review_note": "待机加入细的深色弧形下颌线；颈部与V领随扭肩小幅变化，头部中心及下半身保持稳定。",
+  "motion_review": {
+    "revision": "brigand-idle-jaw-v3-20261023",
+    "edit_region": [
+      37,
+      36,
+      62,
+      49
+    ],
+    "source": "ImageGen authored jaw/neck edit",
+    "upper_head_and_lower_body_pixels_unchanged": true,
+    "registration": [
+      {
+        "source": "jaw-neck-master.png",
+        "bounds": [
+          172,
+          155,
+          579,
+          619
+        ],
+        "head": [
+          186.5,
+          114
+        ],
+        "hip": [
+          178.5,
+          272
+        ],
+        "target_head": [
+          48,
+          34
+        ],
+        "target_hip": [
+          47,
+          55
+        ],
+        "scale": 0.13142857142857142,
+        "alpha_threshold": 200,
+        "source_sha256": "4cb523d939017ff9fbe9cfa55f8ffe7d28bb358e89657dcda1da8ca1412270d0",
+        "registered_size": [
+          53,
+          61
+        ],
+        "translation": [
+          24,
+          19
+        ],
+        "actual_landmarks": {
+          "head": [
+            48.28624078624078,
+            33.98706896551724
+          ],
+          "hip": [
+            47.24447174447174,
+            54.758620689655174
+          ]
+        },
+        "clipped_pixels": 0,
+        "method": "uniform whole-pose scale and integer translation; no neck or shoulder patch",
+        "head_template_offset": [
+          0,
+          -2
+        ],
+        "template_error": 67669,
+        "edit_region": [
+          37,
+          36,
+          62,
+          49
+        ]
+      },
+      {
+        "source": "jaw-neck-master.png",
+        "bounds": [
+          897,
+          156,
+          1303,
+          619
+        ],
+        "head": [
+          186.5,
+          113.5
+        ],
+        "hip": [
+          178.5,
+          271
+        ],
+        "target_head": [
+          48,
+          34
+        ],
+        "target_hip": [
+          47,
+          55
+        ],
+        "scale": 0.13161659513590845,
+        "alpha_threshold": 200,
+        "source_sha256": "4cb523d939017ff9fbe9cfa55f8ffe7d28bb358e89657dcda1da8ca1412270d0",
+        "registered_size": [
+          53,
+          61
+        ],
+        "translation": [
+          24,
+          19
+        ],
+        "actual_landmarks": {
+          "head": [
+            48.3460591133005,
+            33.953563714902806
+          ],
+          "hip": [
+            47.30172413793103,
+            54.704103671706264
+          ]
+        },
+        "clipped_pixels": 0,
+        "method": "uniform whole-pose scale and integer translation; no neck or shoulder patch",
+        "head_template_offset": [
+          0,
+          -2
+        ],
+        "template_error": 64973,
+        "edit_region": [
+          37,
+          36,
+          62,
+          49
+        ]
+      },
+      {
+        "source": "jaw-neck-master.png",
+        "bounds": [
+          1605,
+          155,
+          2000,
+          619
+        ],
+        "head": [
+          177.5,
+          114
+        ],
+        "hip": [
+          170.5,
+          272
+        ],
+        "target_head": [
+          48,
+          34
+        ],
+        "target_hip": [
+          47,
+          55
+        ],
+        "scale": 0.13142857142857142,
+        "alpha_threshold": 200,
+        "source_sha256": "4cb523d939017ff9fbe9cfa55f8ffe7d28bb358e89657dcda1da8ca1412270d0",
+        "registered_size": [
+          52,
+          61
+        ],
+        "translation": [
+          25,
+          19
+        ],
+        "actual_landmarks": {
+          "head": [
+            48.36708860759494,
+            33.98706896551724
+          ],
+          "hip": [
+            47.44556962025317,
+            54.758620689655174
+          ]
+        },
+        "clipped_pixels": 0,
+        "method": "uniform whole-pose scale and integer translation; no neck or shoulder patch",
+        "head_template_offset": [
+          8,
+          -2
+        ],
+        "template_error": 66277,
+        "edit_region": [
+          37,
+          36,
+          62,
+          49
+        ]
+      }
+    ],
+    "native_timing_modified": false,
+    "runtime_integrated": false
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "rm_sfx_12",
+  "kind": "final_scene_mix",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_sfx_12_new_context.wav"
+    }
+  ],
+  "asset_sha256": "b4d5d2cdc4ef072099ffba3896a8f1db0ad49de9cfd0f361f6ac2d9a56e7dd55",
+  "fixture_sha256": "f89d4f16a6cfd4a7fbcc1e0f88d77a8665103d1cabb1a5140d99041dc64aa5a7",
+  "prompt": "This is a final offline scene mix using the actual game gains and native event sequence. Describe only audible evidence. Check whether essential feedback attacks are clear, any intrusive click/distortion or excessive rumbling tail, and whether music continuity is distracted by the effects. Effects need not be as loud as music; a naturally masked quiet tail is not a failure. Report uncertainty and avoid inventing instruments/events. Under 90 words. Fixture context: 菜单每100ms连移示例，间隔0.4秒后为实际源战斗与HP刻度；含当前配乐",
+  "max_tokens": 170,
+  "key": "174b40f211534115be7430e8",
+  "source_sha256": [
+    "f89d4f16a6cfd4a7fbcc1e0f88d77a8665103d1cabb1a5140d99041dc64aa5a7"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/f89d4f16a6cfd4a7fbcc1e0f88d77a8665103d1cabb1a5140d99041dc64aa5a7.wav"
+  ],
+  "audio_input_samples": [
+    95917
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "4ea4ce620e326ab5c942a5604841a889cf46574abd1a11b1dd2fe4fbcbd5cdc7"
+  ],
+  "response": "A rapid sequence of high-pitched, synthesized beeps occurs at 100ms intervals, followed by a short pause and then a burst of rapid, lower-pitched electronic sounds. A continuous, low-frequency hum is present throughout. The background music is a simple, looping chiptune melody. The effects are clear and distinct, with no intrusive clicks or distortion. The music remains uninterrupted and is not distracted by the effects. The overall mix is clean, with the effects naturally masked by the music.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 103,
+    "prompt_tokens": 233,
+    "total_tokens": 336,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 205,
+    "prompt_ms": 569.896,
+    "prompt_per_token_ms": 2.779980487804878,
+    "prompt_per_second": 359.71475497283717,
+    "predicted_n": 103,
+    "predicted_ms": 1563.709,
+    "predicted_per_token_ms": 15.330480392156863,
+    "predicted_per_second": 65.2295280004144
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 2.149,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

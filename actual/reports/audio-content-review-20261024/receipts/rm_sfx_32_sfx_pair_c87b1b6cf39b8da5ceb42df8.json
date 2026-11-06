@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_32",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_32.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_32.ogg"
+  ],
+  "hashes": [
+    "3f22c3acbfbc44db7253d4fec470958dc25bf67d804fdaa491be2c327559b90f",
+    "c6dfda2230e427861143504a1c471b0eaf8d5ac377823fb56b788f2b78a106bc"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "c87b1b6cf39b8da5ceb42df8",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    128000,
+    128000
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "Audio 1: A repetitive, mechanical sound with a strange, hollow quality. Timbre is monotone, with little variation. Attack is sharp, with a clear, distinct sound. Pitch is static, showing little movement. Density is low, with a sparse, scattered sound. Decay is slow, lingering after the initial impact. Sound effects are common in video games, often used for onomatopoeia or to mimic other sounds.\nAudio 2: A repetitive, pulsating sound with a fuzzy, muffled quality. Timbre is monotone, with a slight wobble. Attack is slow, with a more diffuse sound. Pitch is static, showing little movement. Density is high, with a denser, more packed sound. Decay is fast, disappearing quickly after the initial impact. Sound effects are common in",
+  "generation_tokens": 165,
+  "generation_tps": 35.145878264854595,
+  "wall_seconds": 5.012,
+  "peak_memory_bytes": 7517914846,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

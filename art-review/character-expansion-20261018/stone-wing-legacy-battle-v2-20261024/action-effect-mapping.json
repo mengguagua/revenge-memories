@@ -1,0 +1,33 @@
+{
+  "actor": "class-3-enemy",
+  "class_name": "石翼兽",
+  "innate_attacks": [
+    {
+      "id": 1001,
+      "name": "裂石爪",
+      "action": "stone-claw",
+      "frames": 46,
+      "fps": 50,
+      "contact_tick": 26,
+      "resolution_count": 1
+    },
+    {
+      "id": 1002,
+      "name": "碎岩喷吐",
+      "actions": [
+        "stone-spit",
+        "stone-spit-far"
+      ],
+      "frames": 54,
+      "fps": 50,
+      "contact_tick": 34,
+      "projectiles": 1,
+      "resolution_count": 1
+    }
+  ],
+  "thick_armour": "Existing S22 passive identity only; no added shield/card",
+  "runtime_integrated": false,
+  "revision": "stone-wing-legacy-battle-v2-20261024",
+  "battle_retained": "legacy bitmap, original eight poses, existing innate sequence and original stone effect",
+  "removed_review_only_action": "original_class_3_enemy_normal"
+}

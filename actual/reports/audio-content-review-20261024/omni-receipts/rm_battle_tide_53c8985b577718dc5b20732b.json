@@ -1,0 +1,76 @@
+{
+  "id": "rm_battle_tide",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_tide.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/music_77.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_tide.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_battle_tide_scene.wav",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is tail 6 seconds then head 6 seconds, with the loop join at 6 seconds; assess rhythmic/harmonic continuity and distracting loudness changes there. Audio 4 is the current game-gain offline mix with interface or combat effects. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: F21/F22/F23/S21/S22; desired mood: 护航、救俘、海面行动",
+  "max_tokens": 340,
+  "key": "53c8985b577718dc5b20732b",
+  "source_sha256": [
+    "3e6c3b1b66f3233cd1b1577af608c238ae180f87e6a6d676eb76ea303efef873",
+    "aeec93fa2b63bea84f4bad00e167748119aab8d0f778fc24c38c2d5152c4b745",
+    "3e6c3b1b66f3233cd1b1577af608c238ae180f87e6a6d676eb76ea303efef873",
+    "65a043abd318247cb488d68a595007440b254dcff67249188ebb6c04ec54623b"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/3e6c3b1b66f3233cd1b1577af608c238ae180f87e6a6d676eb76ea303efef873.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/aeec93fa2b63bea84f4bad00e167748119aab8d0f778fc24c38c2d5152c4b745.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/3e6c3b1b66f3233cd1b1577af608c238ae180f87e6a6d676eb76ea303efef873.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/65a043abd318247cb488d68a595007440b254dcff67249188ebb6c04ec54623b.wav"
+  ],
+  "audio_input_samples": [
+    465455,
+    240000,
+    192000,
+    56717
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "f68f2611da9e30d26d65512d65deb3c1da6b13801c9d42e3384becb2203e71f5",
+    "52c349ea5e4f7d1c29f692026a5c5efd91be59fd16158163ee50c300b19f660b",
+    "c7772843d317c839cc39f357bcca0581ee61cb49750b89fbdd8e017acc7f5aeb",
+    "f5b9f23e6d235f1219f4065dc09eadd71f3992c4815f84f0ebe73f639179baef"
+  ],
+  "response": "Audio 1 features a synthesized chime melody with a bright, slightly metallic timbre. The energy is moderate and consistent, creating a calm, procedural mood suitable for a support or navigation screen. The melody is simple and repetitive, with no vocals or speech. There are no audible defects.\n\nAudio 2 is a short, clear retro chiptune track with sparse instrumentation, matching the original game's aesthetic. It is not a direct copy of Audio 1's melody.\n\nAudio 3 shows a loop with a 6-second tail and 6-second head. The join at 6 seconds is smooth, with no rhythmic or harmonic discontinuity. Loudness remains consistent; no distracting changes are present.\n\nAudio 4 includes a chime melody layered with a loud, rapid-fire digital effect. The effect is so prominent it masks the music, potentially obscuring essential feedback cues. The music is partially masked by the effect.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 187,
+    "prompt_tokens": 1064,
+    "total_tokens": 1251,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 1036,
+    "prompt_ms": 3505.417,
+    "prompt_per_token_ms": 3.3836071428571426,
+    "prompt_per_second": 295.54258451990165,
+    "predicted_n": 187,
+    "predicted_ms": 2998.536,
+    "predicted_per_token_ms": 16.121161290322583,
+    "predicted_per_second": 62.0302707721368
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 8.172,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

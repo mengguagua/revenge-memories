@@ -1,0 +1,507 @@
+{
+  "passed": true,
+  "registration": "independently inspected head/neck and garment-waist landmarks; uniformly scaled whole poses; no limb warping",
+  "logical_scale": 4,
+  "thresholds_output_pixels": {
+    "head_drift": 1,
+    "hip_drift": 2.1,
+    "head_size_difference": 3
+  },
+  "metrics": [
+    {
+      "group": "idle",
+      "order": [
+        0,
+        1,
+        2,
+        1
+      ],
+      "head_drift_output_pixels": [
+        0.9020453819111509,
+        0.10171701803955813
+      ],
+      "hip_drift_output_pixels": [
+        1.1357586512866078,
+        0.6911540969354562
+      ],
+      "head_size_difference_output_pixels": [
+        0.6946169772256727,
+        0.22169093675287854
+      ],
+      "head_drift_native_pixels": [
+        0.22551134547778773,
+        0.02542925450988953
+      ],
+      "hip_drift_native_pixels": [
+        0.28393966282165195,
+        0.17278852423386404
+      ],
+      "head_size_difference_native_pixels": [
+        0.17365424430641818,
+        0.055422734188219636
+      ],
+      "poses": [
+        {
+          "frame": 0,
+          "kind": "idle",
+          "head": [
+            46.45238095238095,
+            28.232558139534884
+          ],
+          "hip": [
+            44.08163265306122,
+            52.093023255813954
+          ],
+          "source_head_bounds": [
+            63,
+            7,
+            98,
+            52
+          ],
+          "head_size": [
+            9.761904761904763,
+            12.55813953488372
+          ],
+          "source_hip": [
+            72,
+            115
+          ],
+          "hip_definition": "manually measured garment waist transition, excludes arms and moving feet",
+          "anatomical_point_uncertainty_output_px": 1.0
+        },
+        {
+          "frame": 1,
+          "kind": "idle",
+          "head": [
+            45.92391304347826,
+            28.130841121495326
+          ],
+          "hip": [
+            45.21739130434783,
+            51.4018691588785
+          ],
+          "source_head_bounds": [
+            52,
+            7,
+            89,
+            51
+          ],
+          "head_size": [
+            10.456521739130435,
+            12.336448598130842
+          ],
+          "source_hip": [
+            68,
+            112
+          ],
+          "hip_definition": "manually measured garment waist transition, excludes arms and moving feet",
+          "anatomical_point_uncertainty_output_px": 1.0
+        },
+        {
+          "frame": 2,
+          "kind": "idle",
+          "head": [
+            45.5503355704698,
+            28.232558139534884
+          ],
+          "hip": [
+            44.98657718120805,
+            51.81395348837209
+          ],
+          "source_head_bounds": [
+            62,
+            7,
+            98,
+            52
+          ],
+          "head_size": [
+            10.14765100671141,
+            12.55813953488372
+          ],
+          "source_hip": [
+            78,
+            114
+          ],
+          "hip_definition": "manually measured garment waist transition, excludes arms and moving feet",
+          "anatomical_point_uncertainty_output_px": 1.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "group": "up",
+      "order": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "head_drift_output_pixels": [
+        0.5054727880814909,
+        0.018549511854949685
+      ],
+      "hip_drift_output_pixels": [
+        0.1474612344177615,
+        0.10934449093446119
+      ],
+      "head_size_difference_output_pixels": [
+        0.1967163271511101,
+        0.4432357043235706
+      ],
+      "head_drift_native_pixels": [
+        0.12636819702037272,
+        0.004637377963737421
+      ],
+      "hip_drift_native_pixels": [
+        0.03686530860444037,
+        0.027336122733615298
+      ],
+      "head_size_difference_native_pixels": [
+        0.04917908178777752,
+        0.11080892608089266
+      ],
+      "poses": [
+        {
+          "frame": 0,
+          "kind": "walk",
+          "head": [
+            62.45652173913044,
+            44.45188284518829
+          ],
+          "hip": [
+            62.21739130434783,
+            69.75732217573221
+          ],
+          "source_head_bounds": [
+            58,
+            7,
+            88,
+            31
+          ],
+          "head_size": [
+            7.173913043478261,
+            5.623430962343096
+          ],
+          "source_hip": [
+            72,
+            127
+          ],
+          "hip_definition": "manually measured garment waist transition, excludes arms and moving feet",
+          "anatomical_point_uncertainty_output_px": 1.0
+        },
+        {
+          "frame": 1,
+          "kind": "walk",
+          "head": [
+            61.951048951048946,
+            44.43333333333334
+          ],
+          "hip": [
+            62.06993006993007,
+            69.86666666666667
+          ],
+          "source_head_bounds": [
+            60,
+            6,
+            91,
+            32
+          ],
+          "head_size": [
+            7.370629370629371,
+            6.066666666666666
+          ],
+          "source_hip": [
+            76,
+            128
+          ],
+          "hip_definition": "manually measured garment waist transition, excludes arms and moving feet",
+          "anatomical_point_uncertainty_output_px": 1.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "group": "right",
+      "order": [
+        2,
+        3,
+        2,
+        3
+      ],
+      "head_drift_output_pixels": [
+        0.3893333333333331,
+        0.45629311319687815
+      ],
+      "hip_drift_output_pixels": [
+        0.3200000000000003,
+        0.21787477854422832
+      ],
+      "head_size_difference_output_pixels": [
+        0.8333333333333339,
+        1.8407780165102352
+      ],
+      "head_drift_native_pixels": [
+        0.09733333333333327,
+        0.11407327829921954
+      ],
+      "hip_drift_native_pixels": [
+        0.08000000000000007,
+        0.05446869463605708
+      ],
+      "head_size_difference_native_pixels": [
+        0.20833333333333348,
+        0.4601945041275588
+      ],
+      "poses": [
+        {
+          "frame": 2,
+          "kind": "walk",
+          "head": [
+            62.0,
+            44.15899581589958
+          ],
+          "hip": [
+            51.0,
+            68.84518828451883
+          ],
+          "source_head_bounds": [
+            95,
+            7,
+            137,
+            51
+          ],
+          "head_size": [
+            10.5,
+            10.861924686192468
+          ],
+          "source_hip": [
+            72,
+            129
+          ],
+          "hip_definition": "manually measured garment waist transition, excludes arms and moving feet",
+          "anatomical_point_uncertainty_output_px": 1.0
+        },
+        {
+          "frame": 3,
+          "kind": "walk",
+          "head": [
+            61.61066666666667,
+            43.7027027027027
+          ],
+          "hip": [
+            51.32,
+            69.06306306306305
+          ],
+          "source_head_bounds": [
+            231,
+            15,
+            356,
+            156
+          ],
+          "head_size": [
+            11.333333333333334,
+            12.702702702702704
+          ],
+          "source_hip": [
+            180,
+            367
+          ],
+          "hip_definition": "manually measured garment waist transition, excludes arms and moving feet",
+          "anatomical_point_uncertainty_output_px": 1.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "group": "down",
+      "order": [
+        4,
+        5,
+        4,
+        5
+      ],
+      "head_drift_output_pixels": [
+        0.12663398692810546,
+        0.5
+      ],
+      "hip_drift_output_pixels": [
+        0.3758169934640563,
+        0.7016806722689211
+      ],
+      "head_size_difference_output_pixels": [
+        0.05392156862745168,
+        0.9495798319327733
+      ],
+      "head_drift_native_pixels": [
+        0.031658496732026364,
+        0.125
+      ],
+      "hip_drift_native_pixels": [
+        0.09395424836601407,
+        0.17542016806723026
+      ],
+      "head_size_difference_native_pixels": [
+        0.01348039215686292,
+        0.23739495798319332
+      ],
+      "poses": [
+        {
+          "frame": 4,
+          "kind": "walk",
+          "head": [
+            62.375,
+            44.1890756302521
+          ],
+          "hip": [
+            62.5,
+            69.4747899159664
+          ],
+          "source_head_bounds": [
+            57,
+            6,
+            90,
+            52
+          ],
+          "head_size": [
+            8.25,
+            11.403361344537815
+          ],
+          "source_hip": [
+            74,
+            131
+          ],
+          "hip_definition": "manually measured garment waist transition, excludes arms and moving feet",
+          "anatomical_point_uncertainty_output_px": 1.0
+        },
+        {
+          "frame": 5,
+          "kind": "walk",
+          "head": [
+            62.248366013071895,
+            43.6890756302521
+          ],
+          "hip": [
+            62.124183006535944,
+            68.77310924369748
+          ],
+          "source_head_bounds": [
+            61,
+            6,
+            94,
+            55
+          ],
+          "head_size": [
+            8.196078431372548,
+            12.352941176470589
+          ],
+          "source_hip": [
+            77,
+            130
+          ],
+          "hip_definition": "manually measured garment waist transition, excludes arms and moving feet",
+          "anatomical_point_uncertainty_output_px": 1.0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "group": "left",
+      "order": [
+        6,
+        7,
+        6,
+        7
+      ],
+      "head_drift_output_pixels": [
+        0.18600000000000705,
+        0.6103225073813334
+      ],
+      "hip_drift_output_pixels": [
+        0.3199999999999932,
+        0.08407146642440466
+      ],
+      "head_size_difference_output_pixels": [
+        2.426666666666666,
+        0.5556438791732923
+      ],
+      "head_drift_native_pixels": [
+        0.04650000000000176,
+        0.15258062684533336
+      ],
+      "hip_drift_native_pixels": [
+        0.0799999999999983,
+        0.021017866606101165
+      ],
+      "head_size_difference_native_pixels": [
+        0.6066666666666665,
+        0.13891096979332307
+      ],
+      "poses": [
+        {
+          "frame": 6,
+          "kind": "walk",
+          "head": [
+            65.75,
+            44.313025210084035
+          ],
+          "hip": [
+            77.0,
+            68.97899159663865
+          ],
+          "source_head_bounds": [
+            7,
+            5,
+            39,
+            54
+          ],
+          "head_size": [
+            8.0,
+            12.147058823529411
+          ],
+          "source_hip": [
+            68,
+            129
+          ],
+          "hip_definition": "manually measured garment waist transition, excludes arms and moving feet",
+          "anatomical_point_uncertainty_output_px": 1.0
+        },
+        {
+          "frame": 7,
+          "kind": "walk",
+          "head": [
+            65.936,
+            43.7027027027027
+          ],
+          "hip": [
+            76.68,
+            69.06306306306305
+          ],
+          "source_head_bounds": [
+            19,
+            15,
+            134,
+            156
+          ],
+          "head_size": [
+            10.426666666666666,
+            12.702702702702704
+          ],
+          "source_hip": [
+            195,
+            367
+          ],
+          "hip_definition": "manually measured garment waist transition, excludes arms and moving feet",
+          "anatomical_point_uncertainty_output_px": 1.0
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "visual_review": {
+    "all_direction_pairs_have_alternating_or_passing_leg_phases": true,
+    "side_phase3_and7_newly_redrawn_complete_pose": true,
+    "bald_character_no_hair_highlight": true,
+    "deep_and_light_boards": "map-continuous-dark.png / map-continuous-light.png",
+    "user_visual_acceptance": "pending"
+  }
+}

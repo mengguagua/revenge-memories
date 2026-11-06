@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M15 · 海峡城·旧塔堡 · 对白与演出</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#101b23;color:#e9e7dd;font:16px/1.8 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:40px 24px 72px}h1{font-size:30px;line-height:1.4;margin:8px 0 16px}h2{font-size:22px;margin:36px 0 14px}p{margin:12px 0}a{color:#adcbd0}.meta,.small{color:#a9bcc6;font-size:14px}.flow{background:#1c2a35;border-radius:12px;padding:18px 22px;line-height:2.2}video{display:block;width:100%;max-height:640px;background:#0b121a;border-radius:12px;margin-top:20px}blockquote{border-left:3px solid #97adb8;margin:16px 0;padding:8px 20px;background:#1a2732}details{background:#172630;margin:16px 0;border-radius:10px;overflow:hidden}summary{padding:16px 20px;cursor:pointer;font-weight:600}.shots{padding:4px 16px 16px}figure{margin:12px 0 24px}img{display:block;width:100%;height:auto}figcaption{color:#b3c4c8;font-size:14px;padding:8px 2px}table{border-collapse:collapse;width:100%;margin:16px 0}th,td{padding:12px 16px;text-align:left;border-bottom:1px solid #30434d}.edge{image-rendering:pixelated}@media(max-width:640px){main{padding:24px 14px}h1{font-size:24px}th,td{padding:10px 8px}}
+</style>
+<main>
+<div class="meta">2026-11-01 · 当前 actual 工作区 · 已接入</div>
+<h1>M15 · 海峡城·旧塔堡<br>对白与剧情演出</h1>
+<p>按当前手工定稿接入开场、战中质问、低声撤离、临终及战后对白。科兰在本场因战伤身亡；胡纳普明确确认已替哥哥报仇。大地图地点仍为“海峡城”，战斗标题统一为“海峡城·旧塔堡”。</p>
+<div class="flow">粮车先走 → 科兰喝令死守、假意迎战 → 趁交战转向北门 → 真实战斗造成致命伤 → 撑地回应与起身失败 → 倒地身亡、停顿 → 胡纳普确认报仇 → 救援条件达成后处理战后事务</div>
+<h2>实际引擎演出预览</h2>
+<video controls playsinline preload="metadata" poster="05-last-words.png" src="m15-last-moments.mp4"></video>
+<p class="small">Godot原生后台渲染，约16.7秒。独立战斗尾声场景，以自动确认展示对白与动作衔接；视频未录制声音。游戏中使用现有D13回忆音乐，人物对白仍由玩家逐页确认。</p>
+<blockquote>科兰：不……我不能死在这里……<br>【撑起失败，因战伤倒地身亡，画面停留。】<br>胡纳普：哥……我替你报仇了。</blockquote>
+<h2>按真实战斗顺序播放</h2>
+<p>临终演出紧接致命一击。若此时劳工还没获救，演出结束先返回战斗继续救人；达到原有胜利条件后，再接赫兰公布军事记录、照护伤者与分粮。提前击败科兰会省略撤离，撤离后才首次接触则省略迎战挑衅。</p>
+<p>演出只改变画面与对白，不再追加攻击。普通战斗仍只产生一次死亡与掉落；地形、单位数值、撤离回合、劳工生死及奖励配置保持原样。最后一句、倒地中途与死亡停顿均支持保存后接续，旧待播D13与旧开战重试更新为现行稿。</p>
+<h2>运行截图</h2>
+<details><summary>开场：粮车北撤与公开死守</summary><div class="shots">
+<figure><img loading="lazy" src="01-grain-northbound.png" alt="粮车北撤"><figcaption>粮车沿北门道路离开；背景演出不增减战利品。</figcaption></figure>
+<figure><img loading="lazy" src="02-korlan-command.png" alt="科兰下令死守"><figcaption>科兰面向进攻者发令，仍留在中庭。</figcaption></figure>
+</div></details>
+<details><summary>转向北门：低声撤离</summary><div class="shots">
+<figure><img loading="lazy" src="03-quiet-departure.png" alt="科兰低声撤离"><figcaption>先转身、低声示意，再恢复原有AI向北门移动。</figcaption></figure>
+</div></details>
+<details><summary>临终：撑地、失力、身亡与停顿</summary><div class="shots">
+<figure><img loading="lazy" src="04-last-confrontation.png" alt="科兰撑地回应"><figcaption>战斗致命一击后，科兰撑地回应质问。</figcaption></figure>
+<figure><img loading="lazy" src="05-last-words.png" alt="科兰最后一句"><figcaption>试图起身，说出最后一句。</figcaption></figure>
+<figure><img loading="lazy" src="06-arm-gives-way.png" alt="科兰手臂失力"><figcaption>手臂失力，身体侧倒。</figcaption></figure>
+<figure><img loading="lazy" src="07-death-pause.png" alt="科兰身亡后的停顿"><figcaption>倒地后静止停留，明确身亡。</figcaption></figure>
+<figure><img loading="lazy" src="08-revenge-confirmed.png" alt="胡纳普确认复仇"><figcaption>胡纳普停顿后确认已经报仇。</figcaption></figure>
+</div></details>
+<details><summary>较窄横屏与北门截击</summary><div class="shots">
+<figure><img loading="lazy" src="09-compact-last-words.png" alt="较窄布局最后一句"><figcaption>1334×750：最后一句与文字边框间距。</figcaption></figure>
+<figure><img loading="lazy" src="10-compact-revenge.png" alt="较窄布局复仇确认"><figcaption>1334×750：死亡后回应。</figcaption></figure>
+<figure><img loading="lazy" src="11-northgate-farewell.png" alt="北门附近临终场景"><figcaption>北门附近被截住：胡纳普选可通行、无人占据的地面呈现，不改真实站位。</figcaption></figure>
+</div></details>
+<h2>新增临终位图</h2>
+<figure><img class="edge" loading="lazy" src="sprite-edge-check.png" alt="六姿势的深浅背景透明边缘检查"><figcaption>跪倒、撑地、试图起身、失力、侧倒、静止身亡。保持现有壁垒卫士的蓝紫铠甲、十字盾与钢枪；原图留在工程外层source目录，游戏仅引用优化图集。</figcaption></figure>
+<table><thead><tr><th>用途</th><th>尺寸</th><th>实际字节</th></tr></thead><tbody><tr><td>科兰临终六姿势运行图集</td><td>768×96；每帧128×96，4倍密度</td><td>30,488</td></tr></tbody></table>
+<p class="small">使用内置 image_gen 生成，裁图保持六姿势同一比例，并检查深浅背景及实际移动端显示尺寸。<a href="../../../source/m15-story-20261101/asset-record.json">完整提示词、参考来源、角色动作映射与素材记录</a> · <a href="image-sizes.json">全部图片规格与体积</a></p>
+<h2>验证范围</h2>
+<p>73项无窗口定向检查通过；同一套检查在后台图形模式共84项通过，含11张宽窄布局与北门场景检查。另有110项既有M15数值、回溯及跨章快照检查通过。确认普通战斗接触可触发临终，动画不追加伤害，奖励只结算一次，救援与撤离失败条件保留。</p>
+<p class="small">本轮为M15定向状态、普通战斗调用与演出检查，未重打全战役，也未进行真人难度评估或iPhone安装。M14战后与H05此前的新稿仍为文稿，本轮按用户要求接入M15。</p>
+<p><a href="logic.json">无窗口检查</a> · <a href="visual.json">后台图形与布局检查</a> · <a href="script-sync.json">台本逐句对应</a> · <a href="../m15-rewind-20261101/logic.json">既有回溯检查</a> · <a href="movie.json">录像记录</a></p>
+<h2>对应文件</h2>
+<p><a href="../../data/stages/M15.json">M15运行数据</a> · <a href="../../data/campaign.json">D13与撤离对白</a> · <a href="../../core/m15_story.gd">剧情触发与旧记录衔接</a> · <a href="../../core/m15_scene.gd">演出控制器</a> · <a href="../../../docs2/完整台词汇总.md#M15">台本</a></p>
+</main></html>

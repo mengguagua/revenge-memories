@@ -1,4 +1,5 @@
 extends RefCounted
+const ExperienceAward=preload("res://core/campaign_experience.gd")
 
 # The game runs on native data and state, never on a ROM/6502 emulator.
 # Canonical source coordinates are stored as [x,y] for JSON save compatibility.
@@ -495,6 +496,7 @@ func _summon(caster: Dictionary, class_id: int, count: int, spec: Dictionary = {
 		if result.size() >= count or Summons.available_slots(self, str(caster.side)) <= 0: break
 		var cell = pos(caster) + Vector2i(int(raw[1]), int(raw[0]))
 		var unit = template.duplicate(true)
+		if bool(spec.get("avoid_objectives",false)) and preload("res://core/campaign_enemy_roles.gd").protected_cell(self,cell):continue
 		if not in_bounds(cell) or cell.x <= 0 or cell.y <= 0 or cell.x >= int(battle_data.map.width)-1 or cell.y >= int(battle_data.map.height)-1 or not unit_at(cell).is_empty() or movement_cost(unit, cell) >= 255: continue
 		unit.id = "summon_" + str(frame_counter) + "_" + str(units.size())
 		unit.name_zh = "幻影" if caster.side == "player" else catalog.classes[str(class_id)].enemy_name_zh
@@ -948,21 +950,22 @@ func can_attack(unit: Dictionary, other: Dictionary) -> bool:
 	if unit.is_empty() or other.is_empty() or unit.side == other.side:
 		return false
 	var distance := absi(pos(unit).x - pos(other).x) + absi(pos(unit).y - pos(other).y)
-	return Rules.in_attack_range(unit, distance) and (Rules.magic_cost(unit) == 0 or int(unit.hp) > Rules.magic_cost(unit))
+	return Rules.can_attack(unit, distance)
 
 func targets(unit: Dictionary) -> Array:
 	return living("enemy" if unit.side == "player" else "player").filter(func(other):
 		return can_attack(unit, other))
 
-func plan_combat(attacker_id: String, defender_id: String) -> Dictionary:
+func plan_combat(attacker_id: String, defender_id: String, target_part:String="") -> Dictionary:
 	if battle_outcome != "":
 		return {}
 	var attacker = find_unit(attacker_id)
 	var defender = find_unit(defender_id)
 	if attacker.is_empty() or defender.is_empty() or int(attacker.hp) <= 0 or int(defender.hp) <= 0 or not targets(attacker).has(defender):
 		return {}
+	if not target_part.is_empty() and (attacker.side!="player" or not Rules.Body.Mechanical.valid_part(defender,target_part)):return {}
 	var distance := absi(pos(attacker).x - pos(defender).x) + absi(pos(attacker).y - pos(defender).y)
-	var virtual_a = attacker.duplicate(true)
+	var virtual_a = Rules.attack_context(attacker.duplicate(true), distance)
 	var virtual_b = Rules.default_counter(defender, distance)
 	for unit in [virtual_a, virtual_b]:
 		if int(unit.get("character_id", 0)) == 167:
@@ -972,7 +975,7 @@ func plan_combat(attacker_id: String, defender_id: String) -> Dictionary:
 	virtual_b.triangle_attack = Rules.combat_support(virtual_b, virtual_a, living(str(virtual_b.side)), distance)
 	var initial_a: Dictionary = virtual_a.duplicate(true)
 	var initial_b: Dictionary = virtual_b.duplicate(true)
-	var stats_a = Rules.attack_stats(initial_a, initial_b, terrain_avoid(pos(initial_b)))
+	var stats_a = Rules.attack_stats(initial_a, Rules.Body.Mechanical.defence_context(initial_b,target_part), terrain_avoid(pos(initial_b)))
 	var stats_b = Rules.attack_stats(initial_b, initial_a, terrain_avoid(pos(initial_a)))
 	stats_a.blocked = Rules.attack_blocked(initial_a, initial_b)
 	stats_b.blocked = Rules.attack_blocked(initial_b, initial_a)
@@ -995,43 +998,61 @@ func plan_combat(attacker_id: String, defender_id: String) -> Dictionary:
 			player_rolls[i].hit = safe.hits[i]
 			player_rolls[i].critical = safe.criticals[i]
 	var events: Array = []
+	var guard_shadow: Dictionary = {}
 	for roll in rolls:
 		var role: String = roll.role
 		var source = virtual_a if role == "attacker" else virtual_b
 		var target = virtual_b if role == "attacker" else virtual_a
+		var part_key=target_part if role=="attacker" else ""
 		if int(source.hp) <= 0 or int(target.hp) <= 0:
 			break
+		if not part_key.is_empty() and Rules.Body.Mechanical.part_hp(target)<=0:continue
 		if not Rules.can_attack(source, distance):
 			continue
 		var stats = stats_a if role == "attacker" else stats_b
 		var source_before := int(source.hp)
 		var initial_target = initial_b if role == "attacker" else initial_a
-		var target_for_effect = target.duplicate(true)
+		var target_for_effect = Rules.Body.Mechanical.defence_context(target.duplicate(true),part_key)
 		# Form, prayer ring and support state are fixed at exchange start.
 		if int(initial_target.get("character_id", 0)) == 167:
 			target_for_effect.hp = int(initial_target.hp)
 		var effect = Rules.strike_effect(source, target_for_effect, bool(roll.hit), bool(roll.critical), random_bounded(100) if Rules.weapon_index(source) == 14 else 99, distance, terrain_avoid(pos(target)))
 		if not effect.valid:
 			continue
-		var damage = mini(int(target.hp), int(stats.damage) * (3 if bool(roll.critical) else 1)) if bool(roll.hit) else 0
+		var damage = int(stats.get("unfatigued_damage",stats.damage)) * (3 if bool(roll.critical) else 1) if bool(roll.hit) else 0
 		damage = mini(damage, 120)
 		if int(effect.self_damage) > 0:
 			damage = 0
 		if Rules.weapon_index(source) == 34 and bool(roll.hit):
-			damage = maxi(0, int(target.hp) - 1)
+			damage = maxi(0, (int(target.hp) if part_key.is_empty() else Rules.Body.Mechanical.part_hp(target)) - 1)
+		damage=Rules.fatigue_damage(source,damage)
+		var cover: Dictionary = {}
+		if has_method("plan_cover_damage"):
+			cover = call("plan_cover_damage", target, damage, guard_shadow)
+			if not cover.is_empty(): damage = int(cover.remaining_damage)
+		var part_before=Rules.Body.Mechanical.part_hp(target) if not part_key.is_empty() else 0
+		damage = mini(part_before if not part_key.is_empty() else int(target.hp), damage)
 		var healing = mini(damage, int(source.max_hp) - int(source.hp) + int(effect.hp_cost)) if Rules.weapon_index(source) == 42 else 0
 		var before: int = int(target.hp)
-		target.hp = maxi(0, before - damage)
+		if part_key.is_empty():target.hp = maxi(0, before - damage)
+		else:target.parts[part_key].hp=maxi(0,part_before-damage)
+		var water_slow=Rules.weapon_index(source)==Rules.Body.Mechanical.WATER and bool(roll.hit) and int(target.hp)>0
+		if water_slow:target.water_slow=true
 		source.hp = clampi(int(source.hp) - int(effect.hp_cost) - int(effect.self_damage) + healing, 0, int(source.max_hp))
-		events.append({"attacker": str(source.id), "defender": str(target.id), "hit": bool(roll.hit),
+		var strike_event={"attacker": str(source.id), "defender": str(target.id), "hit": bool(roll.hit),
 			"critical": bool(effect.critical), "damage": damage, "hp_before": before,
 			"hp_after": int(target.hp), "hit_roll": roll.hit_roll, "critical_roll": roll.critical_roll,
 			"distance": distance, "weapon_index": Rules.weapon_index(source), "ranged": Rules.weapon_index(source) in [1, 20, 21, 22],
 			"source_hp_before": source_before, "source_hp_after": int(source.hp), "hp_cost": int(effect.hp_cost),
-			"self_damage": int(effect.self_damage), "heal": healing})
+			"self_damage": int(effect.self_damage), "heal": healing, "cover": cover,
+			"target_part":part_key,"part_hp_before":part_before,"part_hp_after":Rules.Body.Mechanical.part_hp(target) if not part_key.is_empty() else 0,"water_slow_applied":water_slow}
+		Rules.Body.Mechanical.reflect(strike_event,source,target)
+		source.hp=int(strike_event.source_hp_after)
+		events.append(strike_event)
 	return {"attacker": attacker_id, "defender": defender_id, "events": events,
 		"distance": distance, "initiative_side": attacker.side, "stats": {attacker_id: stats_a, defender_id: stats_b},
-		"initial_attacker_hp": int(attacker.hp), "initial_defender_hp": int(defender.hp)}
+		"initial_attacker_hp": int(attacker.hp), "initial_defender_hp": int(defender.hp),
+		"target_part":target_part,"initial_part_hp":Rules.Body.Mechanical.part_hp(defender) if not target_part.is_empty() else 0}
 
 func commit_strike(event: Dictionary) -> void:
 	var source = find_unit(str(event.attacker))
@@ -1068,34 +1089,11 @@ func finish_exchange(exchange: Dictionary) -> Dictionary:
 	var enemy = defender if initiator.side == "player" else initiator
 	var reward: Dictionary = {}
 	if int(player.hp) > 0 and not bool(player.get("no_experience", false)) and not bool(enemy.get("no_experience", false)):
-		var exp_before = int(player.get("exp", 0))
-		var level_before = int(player.level)
 		var before = int(exchange.initial_defender_hp) if initiator.side == "player" else int(exchange.initial_attacker_hp)
-		var gain = Rules.experience_gain(player, enemy, before, int(enemy.hp), int(enemy.hp) <= 0)
-		player.exp = int(player.get("exp", 0)) + gain
-		reward = {"unit": str(player.id), "gain": gain, "leveled": false, "growths": {},
-			"exp_before": exp_before, "level_before": level_before}
-		if int(player.exp) >= 100 and int(player.level) < 20:
-			player.exp -= 100
-			player.level += 1
-			var rolls: Array = []
-			for _i in range(6):
-				rolls.append(random_bounded(99) + 1)
-			var delta = Rules.growth_result(player, rolls)
-			for stat in delta:
-				if stat == "hp":
-					player.max_hp = mini(52, int(player.max_hp) + int(delta[stat]))
-					player.hp = mini(int(player.max_hp), int(player.hp) + int(delta[stat]))
-				else:
-					player[stat] = mini(40, int(player[stat]) + int(delta[stat]))
-			reward.leveled = true
-			reward.growths = delta
-			var learned = Progression.learn_spells(player)
-			player.magic_flags = learned.unit.magic_flags
-			player.magic_level = learned.unit.get("magic_level", 0)
-			reward.learned = learned.learned
-		reward.exp_after = int(player.exp)
-		reward.level_after = int(player.level)
+		var part_attack=initiator.side=="player" and not str(exchange.get("target_part","")).is_empty()
+		var gain = Rules.experience_gain(player, enemy, int(exchange.initial_part_hp) if part_attack else before, Rules.Body.Mechanical.part_hp(enemy) if part_attack else int(enemy.hp), false if part_attack else int(enemy.hp) <= 0)
+		reward=ExperienceAward.award(self,player,gain)
+		reward.victory_training=false
 	check_outcome()
 	return reward
 

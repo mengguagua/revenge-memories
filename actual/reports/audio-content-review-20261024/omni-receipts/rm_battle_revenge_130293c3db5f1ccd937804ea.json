@@ -1,0 +1,61 @@
+{
+  "id": "rm_battle_revenge",
+  "kind": "music_cadence_candidate",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_revenge.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/source/audio-20261024/content-review/candidates/rm_battle_revenge.ogg",
+      "seam": true
+    }
+  ],
+  "prompt": "These are two anonymous looping musical excerpts. Each consists of six seconds before a join and six after. Describe any obvious interruption, missing beat, sudden pitch leap, or unexpected level change at the join. Compare the musical arrival into the restart. Prefer 1, 2, or no clear difference, grounded in audio. Do not assume the later input is improved. Under 120 words.",
+  "max_tokens": 230,
+  "key": "130293c3db5f1ccd937804ea",
+  "source_sha256": [
+    "dae1a7372aa435d6d9f009c6d95fd12d83eb6cdaca8a4fca11599bcfa7268ccc",
+    "5cdaab540a18dc26121a2984fc4c8b86d4175d6d5df4966d48921f72fb3c3667"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/dae1a7372aa435d6d9f009c6d95fd12d83eb6cdaca8a4fca11599bcfa7268ccc.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/5cdaab540a18dc26121a2984fc4c8b86d4175d6d5df4966d48921f72fb3c3667.ogg"
+  ],
+  "audio_input_samples": [
+    192001,
+    192001
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "4da9d8794b72eeb0ea632fd5c19b9bf9992eae1e883127ee0edba84c526228b7",
+    "7e43c104b9273b7fc2ece8093b671caac202536f63e6999d31e908df092bd9e7"
+  ],
+  "response": "No clear difference. Both excerpts are identical in musical content and structure. The join at six seconds is seamless, with no audible interruption, missing beat, pitch leap, or level change. The musical arrival into the restart is consistent across both loops, maintaining the same rhythm, melody, and dynamics.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 60,
+    "prompt_tokens": 458,
+    "total_tokens": 518,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 430,
+    "prompt_ms": 1481.301,
+    "prompt_per_token_ms": 3.4448860465116278,
+    "prompt_per_second": 290.2853640144711,
+    "predicted_n": 60,
+    "predicted_ms": 899.734,
+    "predicted_per_token_ms": 15.249728813559322,
+    "predicted_per_second": 65.57493659237063
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 4.161,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

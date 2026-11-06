@@ -1,0 +1,76 @@
+{
+  "id": "professions-class-1-ally-battle",
+  "actor": "ally-cavalry",
+  "actorName": "盟军骑兵",
+  "classId": "1",
+  "className": "骑兵",
+  "context": "battle",
+  "contextName": "战斗场景",
+  "side": "ally",
+  "mapping": "professions/class-1-ally/battle/frame_mapping.json",
+  "mappingStatus": "review_candidate",
+  "revision": "cavalry-battle-lance-colors-v1-20261021",
+  "modifiedBy": null,
+  "reviewNote": "友方飞行投枪恢复手持武器的木色枪杆与金属枪头；敌方人物、战马和投枪统一蓝紫色。原动作、轨迹与命中时序保持，仅更新对照页。",
+  "sourceAtlas": "source-input/original-motion/class-1.png",
+  "sourceFrameSize": [
+    80,
+    64
+  ],
+  "sourceAtlasSize": [
+    1280,
+    128
+  ],
+  "sourceColumns": 16,
+  "sourceFrameCount": 20,
+  "anchor": [
+    40,
+    64
+  ],
+  "sourceOamCutoff": 9,
+  "flipOriginOffset": [
+    16,
+    0
+  ],
+  "outputFrameSize": [
+    320,
+    256
+  ],
+  "newFrames": {
+    "0": "professions/class-1-ally/battle/frames/frame-000.png",
+    "1": "professions/class-1-ally/battle/frames/frame-001.png",
+    "2": "professions/class-1-ally/battle/frames/frame-002.png",
+    "3": "professions/class-1-ally/battle/frames/frame-003.png",
+    "4": "professions/class-1-ally/battle/frames/frame-004.png",
+    "5": "professions/class-1-ally/battle/frames/frame-005.png",
+    "6": "professions/class-1-ally/battle/frames/frame-006.png",
+    "7": "professions/class-1-ally/battle/frames/frame-007.png",
+    "9": "professions/class-1-ally/battle/frames/frame-009.png",
+    "16": "professions/class-1-ally/battle/frames/frame-016.png",
+    "17": "professions/class-1-ally/battle/frames/frame-017.png",
+    "19": "professions/class-1-ally/battle/frames/frame-019.png"
+  },
+  "frameErrors": {},
+  "referenceArtAliases": {},
+  "links": [],
+  "revisedEffects": {
+    "5660a52a5bb041": {
+      "path": "cavalry-battle-lance-colors-v1-20261021/ally/flying-lance.png",
+      "frame_size": [
+        64,
+        16
+      ],
+      "frames": 1,
+      "anchor": [
+        32,
+        8
+      ],
+      "source_oam": "bank009:L09A3EC",
+      "default_facing": "left",
+      "flip_origin_offset": [
+        16,
+        0
+      ]
+    }
+  }
+}

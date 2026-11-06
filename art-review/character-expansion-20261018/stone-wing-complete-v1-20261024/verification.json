@@ -1,0 +1,141 @@
+{
+  "passed": true,
+  "checks": 3688,
+  "profiles": 3,
+  "actions": 18,
+  "native_attack_frames": 208,
+  "native_attack_contact_tick": 103,
+  "native_attack_rows_exact": true,
+  "innate_attacks": {
+    "1001": {
+      "frames": 46,
+      "contact_tick": 26,
+      "fps": 50,
+      "resolution_count": 1
+    },
+    "1002": {
+      "frames": 54,
+      "contact_tick": 34,
+      "fps": 50,
+      "projectiles": 1,
+      "resolution_count": 1
+    }
+  },
+  "map_landmarks": [
+    {
+      "group": "walk",
+      "slots": [
+        0,
+        1
+      ],
+      "registered_landmarks": [
+        [
+          63.57731958762887,
+          45.99041533546326
+        ],
+        [
+          63.82926829268293,
+          45.52307692307693
+        ]
+      ],
+      "drift_output_pixels": [
+        0.25194870505406186,
+        0.4673384123863329
+      ],
+      "method": "whole pose fixed head landmark; no per-frame root offsets"
+    },
+    {
+      "group": "walk",
+      "slots": [
+        2,
+        3
+      ],
+      "registered_landmarks": [
+        [
+          87.09190507388804,
+          51.75413096695227
+        ],
+        [
+          87.13950493632852,
+          51.9726974558993
+        ]
+      ],
+      "drift_output_pixels": [
+        0.04759986244047809,
+        0.21856648894703312
+      ],
+      "method": "whole pose fixed head landmark; no per-frame root offsets"
+    },
+    {
+      "group": "walk",
+      "slots": [
+        4,
+        5
+      ],
+      "registered_landmarks": [
+        [
+          63.604413139486155,
+          48.56935431537963
+        ],
+        [
+          63.94859408795962,
+          48.57081024930748
+        ]
+      ],
+      "drift_output_pixels": [
+        0.3441809484734648,
+        0.0014559339278505945
+      ],
+      "method": "whole pose fixed head landmark; no per-frame root offsets"
+    },
+    {
+      "group": "idle",
+      "slots": [
+        0,
+        1,
+        2
+      ],
+      "registered_landmarks": [
+        [
+          48.29277961302501,
+          54.17419710130416
+        ],
+        [
+          47.760117398117735,
+          54.21936729838818
+        ],
+        [
+          48.159558076828795,
+          54.119413803971
+        ]
+      ],
+      "drift_output_pixels": [
+        0.5326622149072762,
+        0.09995349441717849
+      ],
+      "method": "whole pose fixed head landmark; no per-frame root offsets"
+    }
+  ],
+  "source_native_chr": 28,
+  "runtime_files_unchanged": true,
+  "visual_acceptance": "offline_review_passed_user_acceptance_pending",
+  "errors": [],
+  "offline_visual_review": {
+    "artifacts": [
+      "maps-light.png",
+      "battle-light.png",
+      "previews/professions-class-3-enemy-battle--stone-spit-far-light.png",
+      "decoded-actions.png",
+      "sequence-check.png"
+    ],
+    "notes": [
+      "完整四足石翼兽保持蓝紫石甲与靛蓝翼膜，近远爪、翼根和石尾连接清楚，深浅背景轮廓完整；无头发／衣物，不引入高光。",
+      "地图待机和振翼以头胸登记，翼尖变化不移动整只兽；导出待机首尾与向上换相已解码查看。",
+      "裂石爪接触碎石位于新前爪位置；喷吐岩芯从新颚部出发，近远距均是一枚岩芯，接触后一次碎裂。",
+      "远距喷吐近景覆盖完整岩芯路径及碎裂；所有正常及近景视频完成边界、帧数、时长检查。",
+      "原作208帧逐行保留，四足形态为本篇明确改编；固有攻击46/54帧入口独立标明，不冒充运行场景已接入。",
+      "预览标题、并列面板标签与帧说明保持内边距，未压到边线或邻项。"
+    ],
+    "browser_ui_checked": false
+  }
+}

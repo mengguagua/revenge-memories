@@ -1,0 +1,46 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "assets": [
+    {
+      "key": "hunapu-base",
+      "prompt": "Use case: stylized-concept. Asset type: a production-ready transparent pixel-art VFX sprite sheet for a top-down fantasy tactics game, single effect called 破阵 (physical sword sweep). Input image is a STYLE REFERENCE ONLY: match the restrained hand-drawn pixel clusters, muted gray-blue hues and clarity of the supplied real game screenshot. Generate ONLY THE EFFECT, no characters, weapons, ground, UI, text or grid lines. One 1536x1024 transparent PNG arranged as exactly 3 columns by 2 rows, six 512x512 equal cells, generous transparent gutters. Read cells left-to-right then top-to-bottom: 1 small gray-blue wind gathering, 2 compact crescent release, 3 horizontal rightward advancing broad sword-wind crescent, 4 strongest impact crescent with sparse stone-colored flecks, 5 fragmented wind and dust, 6 faint fading dust. The sword wind faces RIGHT, is broad vertically and compact horizontally, consistent central anchor across all six cells, absolutely no clipped edges. A physical, low-saturation steel-blue / silver-gray stroke, sparse dust, a few pale highlights, no neon, no gold, no magical runes, no lightning, no opaque disk. Crisp deliberate 16-bit style pixels, limited palette, readable when each cell is rendered 48–80 game pixels wide. Entire unused background truly transparent alpha. All six phases belong to ONE sword-sweep effect."
+    },
+    {
+      "key": "hunapu-advanced",
+      "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art VFX animation sprite sheet for the advanced hero's physical MAP 破晓·破阵. Supplied real game screenshot is a STYLE REFERENCE ONLY: match its muted gray-blue palette, 16-bit pixel clusters and grounded tactical-game art. ONLY isolated VFX, no people, weapons, ground, UI, text, grid or lettering. Exactly 3 columns by 2 rows in a 1536x1024 transparent PNG, six equal 512x512 cells, generous clear gutters, same centered anchor. In reading order show six phases of ONE single rightward heavy sword-wind sweep: 1 compressed small steel-blue wind; 2 open broad crescent; 3 tall thick right-facing crescent with a long horizontal tapered wake, 4 peak forceful silver-gray crescent front with three shallow trailing wind streaks and sparse armor-like dark flecks; 5 crescent breaking apart; 6 fading blue-gray dust. Advanced version visibly more deliberate and forceful, wide vertically to cover three lanes, longer trailing wake, but remains physical steel wind with sparse silver highlights, absolutely no holy gold or giant glowing beam, no runes or magic. Keep the background mostly empty and shapes clean, crisp hand-crafted pixel art in a restrained palette. Preserve complete transparent contours. All six cells have no overlap and no cropped fragments."
+    },
+    {
+      "key": "eileen-base",
+      "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art VFX sprite sheet for top-down tactics MAP 焰环, a modest personal fire spell. Input screenshot is a STYLE REFERENCE ONLY for pixel density and muted game palette; do not copy the scene. ONLY the isolated fire effect, no characters, ground, weapons, UI, text, checkerboard or grid. Exactly six equal 512x512 cells, a 3-column 2-row 1536x1024 transparent PNG. Reading order: 1 small gathering orange ember; 2 a compact rising fire seed; 3 opening low elliptical fire ring viewed slightly from above; 4 strongest low crown of orange-red flames around a clearly OPEN transparent center; 5 ring breaking into sparse embers; 6 fading dark-red and amber sparks. All phases centered at the same point; clear transparent gutters. A small controlled blast, compact upright tongues of flame, dark brick-red outer pixels, muted burnt orange middles, a few ivory highlights, crisp 16-bit style pixel clusters. Avoid photorealism, neon, smoke clouds, opaque disks, oversized white cores, brown rectangular backgrounds, magical text. Effect must remain legible at 56–80 game pixels wide with true alpha transparency and complete unclipped flames."
+    },
+    {
+      "key": "eileen-advanced",
+      "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art VFX animation sprite sheet for the advanced heroine's MAP 引光·焰环. Input screenshot is a STYLE REFERENCE ONLY for restrained retro tactics pixel art and readable character scale. Isolated VFX only, no characters, weapons, ground, interface, labels, text or grid. Exactly 3 columns by 2 rows, six 512x512 cells in a 1536x1024 transparent PNG, generous transparent gutters, identical ground-center anchor. Reading order six phases: 1 a tiny ivory spark surrounded by muted red embers; 2 a narrow warm-white and orange rising pillar with modest fire at the foot; 3 broader outward low ring with tall CENTER flame column; 4 peak: elegant narrow ivory-orange CENTER flame pillar above a low wide elliptical ring of controlled orange-red fire, visually distinct central +4 damage zone, keep open spaces between flames; 5 center pillar collapses into embers as the outer ring fragments; 6 fading sparse orange and ivory motes. Clearly stronger and more structured than a basic fire ring, warm-white core limited to the narrow center, low saturation orange and brick-red rim, a few pale amber arc fragments, no occult letters. Crisp 16-bit pixel clusters, not smooth 3D or photo. No full-screen white bloom, no opaque disc, no opaque smoke. Keep the entire outline intact and true transparent alpha everywhere unused."
+    }
+  ],
+  "revisions": [
+    {
+      "tool": "built-in image_gen.imagegen",
+      "edit_target": "source/map-20261029/hunapu-advanced-original.png",
+      "prompt": "Use case: precise-object-edit. Edit target: the supplied transparent 1536x1024, 3-column by 2-row, six-frame physical sword-wind VFX sprite sheet. Recolor ONLY this ADVANCED version to make it immediately distinguishable from a basic muted gray-blue sword sweep on a snowy tactical-game map. Keep all six frames in exactly their original cells, preserve their silhouette, size, center anchors, facing RIGHT, pixel clusters, debris count, phase progression, clear gutters and alpha transparency. Do not redesign the shapes or add any new objects. New coherent multi-color palette: the main crescent and wake should be clearly CYAN / TEAL-BLUE (visible medium saturation, teal shadows and turquoise midtones), the narrow cutting rim should be SILVER-IVORY, the lower/shadow trailing streaks should use distinct LAVENDER / BLUE-VIOLET accents, and a very few existing fragments may get a muted pale bronze highlight. Make these color zones legible at a 100–150px effect display size; the crescent must no longer read as gray or desaturated white-blue overall. Use bounded crisp 16-bit pixel-art clusters, restrained soft glow, keep dark-slate debris. This remains a physical sword wind, not a new elemental spell: no fire, lightning, runes, magical circles, rainbow gradients, text, characters, UI, opaque backgrounds, extra particles or clipped contours. Maintain the original exact 1536x1024 canvas, six 512x512 cells, and genuinely transparent unused pixels. Palette change only; preserve the frame registration.",
+      "technical_extraction": {
+        "note": "按实测透明间隙分离底行帧，保留跨越名义512px边界的完整尾尖；不改绘图颜色或alpha。",
+        "registered_cell": [
+          640,
+          640
+        ],
+        "nominal_source_cell": [
+          512,
+          512
+        ],
+        "render_scale_compensation": 1.25,
+        "bottom_row_boundaries": [
+          0,
+          577,
+          1056,
+          1536
+        ]
+      }
+    }
+  ]
+}

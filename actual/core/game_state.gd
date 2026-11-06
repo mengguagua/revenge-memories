@@ -1,4 +1,5 @@
 extends "res://core/legacy_game_state.gd"
+signal character_recruited(id:String)
 ## New campaign. Inherit original combat formulas; isolate campaign/save semantics.
 const ChapterFive = preload("res://core/chapter5_rules.gd")
 const ChapterFour = preload("res://core/chapter4_rules.gd")
@@ -6,26 +7,50 @@ const ChapterThree = preload("res://core/chapter3_rules.gd")
 const ChapterTwo = preload("res://core/chapter2_rules.gd")
 const Equipment = preload("res://core/equipment_supply.gd")
 const Casualties = preload("res://core/casualty_rules.gd")
+const EnemyRoles = preload("res://core/campaign_enemy_roles.gd")
 const CampaignTactics = preload("res://core/campaign_tactics.gd")
 const CampaignExperience = preload("res://core/campaign_experience.gd")
 const RefugeeTactics = preload("res://core/refugee_tactics.gd")
+const Medicine = preload("res://core/clinic_medicine.gd")
+const EnemyBalance = preload("res://core/enemy_balance.gd")
+const EnemyExperience = preload("res://core/enemy_experience.gd")
+const MineEscort = preload("res://core/mine_escort.gd")
 const Journals = preload("res://core/journey_slots.gd")
 const EquipmentComparison = preload("res://core/equipment_comparison.gd")
 const HeroProfessions = preload("res://core/hero_professions.gd")
 const Armaments = preload("res://core/story_armaments.gd")
+const Accessories = preload("res://core/story_accessories.gd")
+const Cover = preload("res://core/cover_rules.gd")
+const Knockback = preload("res://core/knockback_rules.gd")
+const Battlefield = preload("res://core/battlefield_tactics.gd")
+const Training = preload("res://core/training_rules.gd")
+const MapSkills = preload("res://core/map_skills.gd")
+const VisitBuildings = preload("res://core/visit_buildings.gd")
+const Rewind = preload("res://core/battle_rewind.gd")
+const M15Story = preload("res://core/m15_story.gd")
+const Mechanical=preload("res://core/mechanical_puppets.gd")
+const ShipInterception=preload("res://core/ship_interception.gd")
 const CAMPAIGN_ID := "revenge-memories-1"
 const SAVE_FIELDS := ["chapter","route","parties","route_positions","previous_world_node","convoy","hub_id","hub_position","battle_return","battle_settled","story_events","stage_id","world_node","cleared_stages","roster","battle_start_snapshot","victory_rewards","flags","party","mode","units","phase","turn","rng_state","frame_counter","kills","selected_id","cursor","move_origin","battle_outcome"]
 var campaign: Dictionary
 var formal_world: Dictionary
 var hub_record := "P00"
 var _guard_target_context := false
+var _mechanical_victory_context := false
 var _casualty_legacy_path := ""
 var slot_directory := "user://"
 var active_slot := 1
 var play_seconds := 0.0
+var _escort_hint_stamp:Array=[]
+var _escort_hint_value:=""
+var battle_rewind:Dictionary={}
 
 func _init() -> void:
 	var original_classes=read_json("res://data/legacy/campaign.json").get("classes",{}).duplicate(true)
+	original_classes["25"]=original_classes["6"].duplicate(true)
+	original_classes["25"].merge({"id":25,"key":"water_monkey","name_zh":"水猴傀儡","enemy_name_zh":"水猴傀儡"},true)
+	original_classes["26"]=original_classes["6"].duplicate(true)
+	original_classes["26"].merge({"id":26,"key":"pseudo_titan","name_zh":"伪泰坦傀儡","enemy_name_zh":"伪泰坦傀儡"},true)
 	# Campaign display names are separate from source classes and saved class IDs.
 	var class_names=read_json("res://data/class_names.json")
 	for class_id in class_names:
@@ -33,12 +58,16 @@ func _init() -> void:
 			original_classes[class_id][name_key]=class_names[class_id][name_key]
 	campaign=read_json("res://data/campaign.json");formal_world=read_json("res://data/formal_world.json")
 	characters=campaign.characters.duplicate(true);stages.clear()
-	for key in campaign.stages:stages[int(key)]=read_json(str(campaign.stages[key].path))
+	for key in campaign.stages:
+		stages[int(key)]=read_json(str(campaign.stages[key].path))
+		EnemyExperience.prepare_stage(stages[int(key)])
 	catalog={"characters":characters,"classes":original_classes,"world_nodes":formal_world.nodes,"routes":{},"chapter_armies":{},"enemy_groups":{},"stages":{}}
+	Training.register(self)
 	battle_data=stages[101].duplicate(true);opening.characters=characters;save_path=Journals.path_for(slot_directory,active_slot)
 
 func new_game() -> void:
 	play_seconds=0.0
+	battle_rewind={}
 	flags={"campaign_id":CAMPAIGN_ID,"hub_record":"P00","quest":{},"world_previous":1}
 	chapter=1;route="alm";world_node=1;previous_world_node=1
 	route_positions={"alm":1,"celica":17}
@@ -70,12 +99,12 @@ func _restore_preparation_hp() -> void:
 		var unit: Dictionary=roster[id]
 		if Casualties.owner({"parties":parties},str(id)).is_empty():continue
 		if unit.get("side","player")!="player" or unit.get("temporary",false) or unit.get("neutral",false):continue
-		if can_deploy(unit):unit.hp=int(unit.max_hp)
+		if can_deploy(unit):unit.hp=int(unit.max_hp);Mechanical.end_action(unit)
 	for unit in units:
 		var member: Dictionary=roster.get(str(unit.id),{})
 		if Casualties.owner({"parties":parties},str(unit.id)).is_empty() or not can_deploy(member):continue
 		if unit.side!="player" or unit.get("temporary",false) or unit.get("neutral",false):continue
-		if can_deploy(unit):unit.hp=int(unit.max_hp)
+		if can_deploy(unit):unit.hp=int(unit.max_hp);Mechanical.end_action(unit)
 
 func treatment_remaining() -> int:
 	ensure_treatment_sources()
@@ -121,6 +150,7 @@ func can_return_to_final_preparation() -> bool:return false
 func needs_terrain_recovery() -> bool:return false
 
 func exit_marker() -> Dictionary:
+	if Training.active(self):return {"position":battle_data.training_target.duplicate(),"label":"演习据点"}
 	if stage_id==501:return {"position":battle_data.exit,"label":"南侧后撤门"}
 	if stage_id==511:return {"position":battle_data.exit,"label":"南门交接点"}
 	if stage_id in [401,407,412]:return {"position":battle_data.exit,"label":"南口接应" if stage_id==401 else "古道出口" if stage_id==407 else "己方船口"}
@@ -196,14 +226,23 @@ func start_battle(id: int=101,_groups: Array=[],_from_hub: bool=false) -> bool:
 		var local_slot=int(route_slots[owner]) if id in [533,534] else slot
 		u.position=positions[local_slot].duplicate();route_slots[owner]+=1;u.hp=int(u.max_hp);u.acted=false;u.side="player";u.player_slot=slot
 		u.erase("weapon_index");u.route=owner;units.append(u);slot+=1
+		Cover.clear(u)
+		MapSkills.clear(u)
+		Mechanical.end_action(u)
 	for i in range(battle_data.enemies.size()):
 		var u: Dictionary=battle_data.enemies[i].duplicate(true);u.enemy_slot=i;units.append(u)
 	for raw in battle_data.npc_units:
+		if ((id==112 and str(raw.id)=="hervi") or (id==111 and str(raw.id)=="beck")) and battle_party.has(str(raw.id)):continue
 		var u: Dictionary=raw.duplicate(true);u.player_slot=slot;u.route=route
 		if not u.get("battle_guard",false):u.move=int(battle_data.get("escort_move",2))
 		slot+=1;units.append(u)
 	turn=1;phase="player";kills=0;selected_id="";battle_outcome="";battle_settled=false
 	flags.quest={"objects":{},"evacuated":[],"freed":[],"burn_streak":0,"reinforced":false,"mid_done":false}
+	Medicine.prepare(self,units)
+	EnemyBalance.prepare(stage_id,units);MineEscort.prepare(self,units)
+	ShipInterception.prepare(self,units,true)
+	for u in units:Mechanical.prepare(u)
+	Mechanical.refresh(self,false)
 	ChapterTwo.initialize(self)
 	if chapter==5:ChapterFive.initialize(self)
 	elif chapter==4:ChapterFour.initialize(self)
@@ -213,9 +252,14 @@ func start_battle(id: int=101,_groups: Array=[],_from_hub: bool=false) -> bool:
 	if stage_id>=500:ChapterFive.before_lines(self)
 	elif stage_id>=400:ChapterFour.before_lines(self)
 	elif stage_id>=300:ChapterThree.lines(self,ChapterThree.before_lines(self),battle_data.code+"-BEGIN")
+	elif stage_id==105:M15Story.opening(self)
 	else:queue_lines(ChapterTwo.before_lines(self) if stage_id>=200 else str(battle_data.before),battle_data.code+"-BEGIN")
-	battle_start_snapshot=_capture_battle_start();return true
+	if battle_data.has("enemy_role_hint"):queue_lines(str(battle_data.enemy_role_hint),str(battle_data.code)+"-ENEMY-ROLES")
+	ShipInterception.queue_duty(self)
+	Battlefield.initialize(self)
+	battle_start_snapshot=_capture_battle_start();Rewind.reset(self);return true
 func retry_battle() -> bool:
+	if Training.active(self):return Training.retry(self)
 	if battle_start_snapshot.is_empty():return false
 	var previous_map_revision=str(battle_data.get("tactical_review_version","0.2.0"))
 	var s: Dictionary=battle_start_snapshot.duplicate(true)
@@ -225,10 +269,17 @@ func retry_battle() -> bool:
 	cleared_stages=s.cleared_stages.map(func(v):return int(v));battle_data=stages[stage_id].duplicate(true)
 	# Restore the genuine pre-battle roster, then redeploy through the ordinary
 	# entry path when geometry changed. Old coordinates must not land in a cliff.
-	if previous_map_revision!=str(battle_data.get("tactical_review_version","0.2.0")):
+	var starting_enemies=s.get("units",[]).filter(func(u):return str(u.side)=="enemy").map(func(u):return str(u.id))
+	# Preserve a loaded battle's live formation. A retry redeploys newly authored
+	# initial enemies from the restored entry roster rather than spawning mid-turn.
+	var added_deployment=battle_data.enemies.any(func(u):return not starting_enemies.has(str(u.id)))
+	if previous_map_revision!=str(battle_data.get("tactical_review_version","0.2.0")) or added_deployment:
 		return start_battle(stage_id)
-	battle_settled=false;battle_outcome="";phase="player";turn=1;mode="battle";selected_id="";flags.erase("active_plot")
-	cursor=pos(find_unit(leader_id()));victory_rewards.clear();return true
+	battle_settled=false;battle_outcome="";phase="player";turn=1;kills=0;mode="battle";selected_id="";flags.erase("active_plot")
+	EnemyExperience.prepare(stage_id,units)
+	cursor=pos(find_unit(leader_id()));victory_rewards.clear();ShipInterception.prepare(self,units,true);ShipInterception.restore(self);Battlefield.restore(self);Cover.refresh(self)
+	_refresh_chapter_one_opening()
+	M15Story.restore(self);Rewind.reset(self);return true
 
 func queue_pages(pages: Array,key: String="") -> void:
 	if not key.is_empty() and flags.get("seen_"+key,false):return
@@ -242,12 +293,23 @@ func speaker_alive(name: String) -> bool:
 			return not u.is_empty() and int(u.get("hp",0))>0 and not bool(u.get("dead",false))
 	return true
 func queue_lines(text: String,key: String="") -> void:
+	queue_pages(dialogue_pages(text),key)
+
+func dialogue_pages(text: String) -> Array:
+	var replacements := {}
+	var fallbacks: Dictionary=battle_data.get("dialogue_fallbacks",{})
+	for speaker in fallbacks:
+		if not speaker_alive(speaker):replacements.merge(fallbacks[speaker],true)
+	var fragments := PackedStringArray()
+	for original in text.split("／",false):
+		fragments.append_array(str(replacements.get(original,original)).split("／",false))
 	var pages=[]
-	for fragment in text.split("／"):
+	for fragment in fragments:
 		var ix=fragment.find("：");var who=fragment.substr(0,ix).strip_edges() if ix>=0 else "旁白"
 		var line=fragment.substr(ix+1).strip_edges() if ix>=0 else fragment
 		if who.contains("或"):
 			var names=who.split("或");who=names[0] if speaker_alive(names[0]) else names[-1]
+		if who in battle_data.get("dialogue_require_speaker_alive",[]) and not speaker_alive(who):continue
 		if not speaker_alive(who) and chapter==2:
 			var replacement={"米蕾":"地方医者","莉莎":"甲板护卫","卡洛":"固定舵手","洛德":"引航者","罗恩":"渔村长者","希雅":"留守骑士"}
 			who=replacement.get(who,"艾琳")
@@ -256,11 +318,26 @@ func queue_lines(text: String,key: String="") -> void:
 			who="村民" if who=="奥托" else "管理员" if who in ["芙拉","赫维"] else "教团兵" if who=="兰斯" else "胡纳普"
 			if who=="胡纳普":line="路已查清。我们先把这里的人带回去。"
 		pages.append({"speaker":who,"text":line})
-	queue_pages(pages,key)
+	return pages
+
+func _refresh_chapter_one_opening() -> void:
+	if chapter!=1 or stage_id==105:return
+	var opening_key=str(battle_data.get("code",""))+"-BEGIN"
+	for event in story_events:
+		if event.get("key","")==opening_key:
+			event.pages=dialogue_pages(str(battle_data.before))
 
 func movement_cost(unit: Dictionary,cell: Vector2i) -> int:
-	var value=super.movement_cost(unit,cell)
+	if ShipInterception.applies(self,unit) and not ShipInterception.left_deck(self,cell):return 255
+	if Mechanical.is_water(unit) and unit.get("mechanical_retreating",false) and Mechanical.water_cell(self,cell):return 1
+	var movement_unit=unit
+	if Mechanical.is_puppet(unit):movement_unit=unit.duplicate(false);movement_unit.class_id=6
+	var value=super.movement_cost(movement_unit,cell)
 	return 1 if unit.has("quest_kind") and value<255 else value
+
+func reachable(unit:Dictionary,unrestricted:bool=false)->Dictionary:
+	if Mechanical.is_puppet(unit) and unit.get("mechanical_retreating",false):return Mechanical.escape_graph(self,unit,unrestricted)
+	return super.reachable(unit,unrestricted)
 func unit_at(cell: Vector2i,alive_only: bool=true) -> Dictionary:
 	for unit in units:
 		if str(unit.side)=="evacuated" or bool(unit.get("hidden",false)):continue
@@ -274,11 +351,17 @@ func can_stop(unit: Dictionary,cell: Vector2i) -> bool:
 func _safe_escort_move(unit: Dictionary,target: Vector2i) -> Dictionary:
 	var action=_toward(unit,target);var safe=pos(unit)
 	for step in path_to(unit,action.destination):
-		if living("enemy").any(func(e):return absi(pos(e).x-step.x)+absi(pos(e).y-step.y)<=maxi(4,Rules.attack_range(e).y+1)):break
+		# Forecast the next enemy move and attack, including blockers. A flat
+		# four-tile distance lets fast troops intercept an automatic escort.
+		if int(RefugeeTactics.evaluate(self,unit,step).incoming)>0:break
 		# Allies may be crossed, but a route shortened by danger still needs an
 		# empty landing cell. Otherwise the escort disappears under its ally.
 		if can_stop(unit,step):safe=step
-	action.destination=safe;return action
+	action.destination=safe
+	if safe==pos(unit):
+		var retreat=RefugeeTactics.disengage(self,unit)
+		if not retreat.is_empty():return retreat
+	return action
 
 func _repair_overlapped_escorts() -> void:
 	if mode!="battle" or not battle_outcome.is_empty():return
@@ -321,12 +404,26 @@ func _toward(unit: Dictionary,destination: Vector2i) -> Dictionary:
 func _held_captive(unit: Dictionary) -> bool:
 	return ChapterThree.held_captive(self,unit) or (stage_id in [103,105,202,205] and bool(unit.get("neutral",false)) and bool(unit.get("locked",false)) and str(unit.get("quest_kind","")) in ["escort","prisoner","witness"])
 
+func _prepare_prison_rescue(actors: Array,released: bool=false) -> void:
+	if stage_id!=103:return
+	for unit in actors:
+		if str(unit.id)!="lena" or not unit.get("neutral",false) or unit.get("controllable",true):continue
+		if str(unit.get("quest_kind","")) not in ["witness","escort"]:continue
+		# Older saves unlocked the cell but kept the witness AI's permanent wait.
+		# Preserve HP/action/position and the post-battle invitation; release only
+		# the live rescued NPC, never the still-locked retry snapshot.
+		unit.quest_kind="escort"
+		if released:unit.locked=false
+
 func living(side: String) -> Array:
 	var result=super.living(side)
+	result=result.filter(func(u):return not u.get("escaped",false))
+	if _mechanical_victory_context and Mechanical.retreat_condition(self,side):result=result.filter(func(u):return not Mechanical.is_puppet(u))
 	if _guard_target_context and side=="player":return result.filter(func(u):return not _held_captive(u))
 	return result
 
 func can_attack(unit: Dictionary,other: Dictionary) -> bool:
+	if stage_id==112 and Medicine.is_staff(other):return false
 	# A held captive belongs to the guard's own prison detail until released.
 	# This controls target intent only; HP, damage and position stay ordinary.
 	if unit.get("side","")=="enemy" and _held_captive(other):return false
@@ -340,6 +437,16 @@ func ai_action(unit: Dictionary,gather: bool=false) -> Dictionary:
 	return action
 
 func _campaign_ai_action(unit: Dictionary,gather: bool=false) -> Dictionary:
+	if ShipInterception.applies(self,unit):return ShipInterception.action(self,unit,gather)
+	if Training.active(self):return super.ai_action(unit,gather)
+	var mechanical_action=Mechanical.action(self,unit,gather)
+	if not mechanical_action.is_empty():return mechanical_action
+	var battlefield_action=Battlefield.action(self,unit,gather)
+	if not battlefield_action.is_empty():return battlefield_action
+	if stage_id==112 and Medicine.is_staff(unit):return {"destination":pos(unit),"target":""}
+	if MineEscort.applies(self,unit):return MineEscort.action(self,unit,gather)
+	var role_action=EnemyRoles.action(self,unit,gather)
+	if not role_action.is_empty():return role_action
 	if unit.get("quest_kind","") in ["escort","medicine","prisoner","patient","sailor"] and not unit.get("locked",false):
 		if living("enemy").is_empty() and (battle_data.reinforcements.is_empty() or flags.quest.get("reinforced",false)):
 			unit.move=maxi(5,int(unit.move))
@@ -352,8 +459,6 @@ func _campaign_ai_action(unit: Dictionary,gather: bool=false) -> Dictionary:
 	if stage_id>=200:
 		var override=ChapterTwo.ai_action(self,unit)
 		if not override.is_empty():return override
-	var ranged=CampaignTactics.action(self,unit,gather)
-	if not ranged.is_empty():return ranged
 	if unit.has("quest_kind"):
 		if bool(unit.get("locked",false)) or str(unit.quest_kind)=="witness":return {"destination":pos(unit),"target":""}
 		# The two armed M11 refugees can fight during their automatic friendly
@@ -364,26 +469,102 @@ func _campaign_ai_action(unit: Dictionary,gather: bool=false) -> Dictionary:
 			and pos(unit)!=Vector2i(battle_data.exit[0],battle_data.exit[1])):
 			var attack=RefugeeTactics.safe_attack(self,unit)
 			if not str(attack.get("target","")).is_empty():return attack
-		# Escorted groups wait at an enemy-held stretch instead of marching into it.
-		var nearby=living("enemy").any(func(e):return absi(pos(e).x-pos(unit).x)+absi(pos(e).y-pos(unit).y)<=maxi(4,Rules.attack_range(e).y+1))
-		if nearby:return {"destination":pos(unit),"target":""}
+			var retreat=RefugeeTactics.disengage(self,unit)
+			if not retreat.is_empty():return retreat
 		var target=Vector2i(battle_data.exit[0],battle_data.exit[1])
 		if str(unit.quest_kind)=="medicine":target=Vector2i(battle_data.targets[0][0],battle_data.targets[0][1])
 		return _safe_escort_move(unit,target)
 	if bool(unit.get("burner",false)):
 		if turn<int(battle_data.get("burner_departure_turn",5)):return {"destination":pos(unit),"target":""}
 		return _toward(unit,Vector2i(battle_data.targets[0][0],battle_data.targets[0][1]))
-	if str(unit.id)=="M15_boss" and ((turn>=6 and int(unit.hp)*2<int(unit.max_hp)) or turn>=8):
-		if not flags.quest.get("escape_announced",false):flags.quest.escape_announced=true;queue_lines("科兰：去北门！撤离点就在旧塔后面。","M15-ESCAPE")
+	if M15Story.escaping(self,unit):
+		M15Story.announce_escape(self)
 		return _toward(unit,Vector2i(battle_data.exit[0],battle_data.exit[1]))
 	if bool(unit.get("offering_surrender",false)):return {"destination":pos(unit),"target":""}
-	if unit.get("behavior","")=="guard":
-		var previous=int(unit.move);unit.move=0
-		var action=super.ai_action(unit,gather);unit.move=previous;return action
+	var ranged=CampaignTactics.action(self,unit,gather)
+	if not ranged.is_empty():return ranged
 	return super.ai_action(unit,gather)
+func apply_ai_special(caster: Dictionary,action: Dictionary) -> Dictionary:
+	if str(action.get("special",""))=="battlefield_release":return Battlefield.apply_special(self,caster,action)
+	if str(action.get("special","")) in ["campaign_blink","campaign_summon"]:return EnemyRoles.apply_special(self,caster,action)
+	return super.apply_ai_special(caster,action)
+
+func commit_strike(event: Dictionary) -> void:
+	# Even a missed arrow reveals an attack. Remember it before phase recovery
+	# can erase a small wound, without changing damage or granting a counter.
+	var target=find_unit(str(event.get("defender","")))
+	var target_hp=int(target.get("hp",0))
+	var source=find_unit(str(event.get("attacker","")))
+	if source.get("side","")=="player" and target.get("side","")=="enemy" and str(target.get("behavior","")) in ["guard","guard_exit"]:
+		target.guard_alerted=true
+		target.guard_ai_revision=2
+	if str(event.get("kind",""))=="hero_map":Mechanical.reflect(event,source,target)
+	super.commit_strike(event)
+	if not str(event.get("target_part","")).is_empty() and str(event.target_part)==Mechanical.part_key(target) and Mechanical.is_puppet(target):
+		var before_part=Mechanical.part_hp(target)
+		target.parts[Mechanical.part_key(target)].hp=int(event.part_hp_after)
+		if before_part>0 and Mechanical.part_hp(target)==0:
+			log_lines.append(str(target.name_zh)+("的防护核心已破坏，双防加成与反伤停用" if Mechanical.is_titan(target) else "的背炮已破坏，水炮停用"))
+	if bool(event.get("water_slow_applied",false)) and int(target.get("hp",0))>0:target.water_slow=true
+	Battlefield.record_damage(self,str(target.get("id","")),maxi(0,target_hp-int(target.get("hp",0))))
+	var cover:Dictionary=event.get("cover",{})
+	if not cover.is_empty():
+		var guard=find_unit(str(cover.unit))
+		Cover.clear(guard)
+		super.commit_strike({"attacker":str(event.attacker),"defender":str(cover.unit),"hp_after":int(cover.hp_after)})
+		log_lines.append(str(guard.get("name_zh","同伴"))+"掩护分担"+str(int(cover.damage))+"伤害")
+	Cover.refresh(self)
+	Mechanical.refresh(self)
+
+func plan_cover_damage(target:Dictionary,damage:int,shadow:Dictionary)->Dictionary:
+	return Cover.split(self,target,damage,shadow)
+
+func cover_targets(actor:Dictionary)->Array:
+	return Cover.targets(self,actor)
+
+func begin_cover(target_id:String)->bool:
+	return Cover.start(self,find_unit(selected_id),target_id)
+
+func apply_tactical_damage(source:Dictionary,target:Dictionary,damage:int,kind:String)->Dictionary:
+	if int(target.get("hp",0))<=0:return {}
+	var cover=Cover.split(self,target,maxi(0,damage),{})
+	var remaining=int(cover.get("remaining_damage",maxi(0,damage)))
+	var before=int(target.hp)
+	var event={"attacker":str(source.id),"defender":str(target.id),"hit":true,"critical":false,
+		"damage":mini(before,remaining),"hp_before":before,"hp_after":maxi(0,before-remaining),"cover":cover,
+		"kind":kind,"source_hp_before":int(source.hp),"source_hp_after":int(source.hp)}
+	commit_strike(event)
+	return event
+
+func use_support(caster_id:String,spell_id:int,target_id:String="",destination:Vector2i=Vector2i(-1,-1))->Dictionary:
+	var result=super.use_support(caster_id,spell_id,target_id,destination)
+	if not result.is_empty():Mechanical.end_action(find_unit(caster_id))
+	if not result.is_empty() and not Training.active(self) and str(result.action) in ["recover","physic","fortify"]:
+		var caster=find_unit(caster_id);var restored=0
+		for change in result.changed:restored+=maxi(0,int(change.get("after",0))-int(change.get("before",0)))
+		if caster.get("side","")=="player" and party.has(caster_id) and not caster.get("temporary",false) and not caster.get("neutral",false):
+			var gain=Rules.healing_experience_gain(caster,restored)
+			if gain>0:
+				# Commit HP, action cost and EXP together. Reloading cannot re-award
+				# the already consumed action; the UI presents this receipt later.
+				result.source_hp_after_support=int(caster.hp)
+				result.reward=CampaignExperience.award(self,caster,gain)
+				result.reward.victory_training=false;result.reward.support_training=true
+	Cover.refresh(self)
+	return result
+
+func _summon(caster:Dictionary,class_id:int,count:int,spec:Dictionary={}) -> Array:
+	var spawned=super._summon(caster,class_id,count,spec)
+	EnemyExperience.prepare(stage_id,spawned.map(func(id):return find_unit(str(id))))
+	return spawned
+
 func mark_wait(id: String) -> void:
 	super.mark_wait(id);var u=find_unit(id)
+	Mechanical.end_action(u)
+	Mechanical.refresh(self)
+	Cover.refresh(self)
 	if u.is_empty():return
+	if Training.active(self):check_outcome();return
 	if stage_id>=400 and stage_id<500:ChapterFour.after_wait(self,u)
 	elif stage_id>=300:ChapterThree.after_wait(self,u)
 	if stage_id>=200:ChapterTwo.after_wait(self,u)
@@ -397,22 +578,27 @@ func mark_wait(id: String) -> void:
 	if bool(u.get("burner",false)) and turn>=int(battle_data.get("burner_departure_turn",5)):
 		var goal=Vector2i(battle_data.targets[0][0],battle_data.targets[0][1])
 		flags.quest.burn_streak=int(flags.quest.burn_streak)+1 if pos(u)==goal else 0
-		if int(flags.quest.burn_streak)==1:queue_lines("焚毁兵：下一轮就点火！／胡纳普：先阻止粮仓门口的人。","M12-BURN")
+		if int(flags.quest.burn_streak)==1:queue_lines("战场提示：敌方已在粮仓门前点火一次。若敌方连续两次在粮仓门前点火，战斗失败。／胡纳普：快拦住拿火把的人，别让火烧进粮仓！","M12-BURN")
 	check_outcome()
 func next_phase() -> void:
 	if not battle_outcome.is_empty():return
+	MapSkills.expire_after_player_phase(self)
+	if Training.active(self):
+		Training.before_phase(self);super.next_phase();MapSkills.StrongBody.expire_at_player_start(self);Cover.refresh(self,phase=="player");check_outcome();Rewind.record(self);return
 	ChapterTwo.before_phase(self)
 	if not battle_outcome.is_empty():return
 	var object_hp={}
 	for unit in units:
 		if unit.get("event_object",false):object_hp[str(unit.id)]=int(unit.hp)
 	super.next_phase()
+	MapSkills.StrongBody.expire_at_player_start(self)
+	Cover.refresh(self,phase=="player")
 	for id in object_hp:find_unit(id).hp=object_hp[id]
 	ChapterTwo.after_phase(self)
 	if stage_id>=500:ChapterFive.after_phase(self)
 	elif stage_id>=400:ChapterFour.after_phase(self)
 	elif stage_id>=300:ChapterThree.after_phase(self)
-	if phase=="player" and stage_id==102 and turn==int(battle_data.get("burner_departure_turn",5))-1:queue_lines("战场提示：焚毁兵下一回合从集合点出发。拦住他，别让他在门前连续点火。","M12-FIRE-WARNING")
+	if phase=="player" and stage_id==102 and turn==int(battle_data.get("burner_departure_turn",5))-1:queue_lines("战场提示：焚毁兵下一回合从集合点出发。若敌方连续两次在粮仓门前点火，战斗失败。","M12-FIRE-WARNING")
 	if phase=="enemy" and turn==int(battle_data.reinforcement_turn) and not flags.quest.reinforced:
 		flags.quest.reinforced=true
 		for raw in battle_data.reinforcements:
@@ -425,18 +611,84 @@ func next_phase() -> void:
 				var free=ChapterTwo.free_spawn(self,u,at)
 				if free==Vector2i(-1,-1):continue
 				u.position=[free.x,free.y]
-			u.enemy_slot=units.filter(func(z):return str(z.side)=="enemy").size();units.append(u)
+			u.enemy_slot=units.filter(func(z):return str(z.side)=="enemy").size()
+			if stage_id in [103,105]:EnemyBalance.prepare(stage_id,[u])
+			EnemyExperience.prepare(stage_id,[u])
+			units.append(u)
 	if phase=="player" and turn==maxi(1,int(battle_data.reinforcement_turn)-1) and int(battle_data.reinforcement_turn)>0:
 		queue_lines("斥候：后方路口有援军。下一回合抵达，只有这一队。",str(battle_data.code)+"-REINFORCEMENT-WARNING")
+	Battlefield.after_phase(self)
+	Mechanical.refresh(self)
+	Rewind.record(self)
 	check_outcome()
 
 func visit_fronts(object: Dictionary) -> Array:
 	var points: Array=object.get("approaches",[object.approach] if object.has("approach") else [])
 	return points.map(func(p):return Vector2i(p[0],p[1]))
 
+func escort_hint(unit: Dictionary) -> String:
+	var worker=stage_id==105 and str(unit.id).begins_with("M15_workers")
+	if not worker and str(unit.get("quest_kind",""))!="medicine":return "自动护送"
+	if worker and unit.get("locked",false):return "等待开门解救"
+	if worker and unit.get("acted",false):return "本阶段已自动行动"
+	if unit.get("hidden",false) or unit.side=="evacuated":return "已撤离" if worker else "药车已交付"
+	# The hover card asks on every draw. Snapshot the small tactical state,
+	# never rerun pathfinding/threat scans until something relevant changes.
+	var stamp=[stage_id,turn,phase,str(unit.id),battle_data.map.tiles.hash(),JSON.stringify(battle_data.targets),JSON.stringify(flags.get("quest",{}))]
+	for actor in units:
+		var row=[]
+		for field in ["id","side","hp","max_hp","class_id","item_id","move","strength","defence","resistance","speed","skill","luck","magic_flags","weapon_index","body_attack","hidden","locked","acted"]:row.append(actor.get(field,null))
+		row.append(pos(actor));stamp.append(row)
+	if stamp==_escort_hint_stamp:return _escort_hint_value
+	var goal=battle_data.exit if worker else battle_data.targets[0]
+	var destination=Vector2i(goal[0],goal[1])
+	if worker and pos(unit)==destination:return "已抵达北门通路"
+	var action=_safe_escort_move(unit,destination);var hint="阶段末自动前进" if worker else "运药员送药 · 自动前进"
+	if action.get("reason","")=="escort_disengage":hint="避开敌锋 · 暂向后撤"
+	elif action.destination==pos(unit) and pos(unit)!=destination:
+		hint="前路受阻 · 请让路" if _toward(unit,destination).destination==pos(unit) else "敌军可达 · 等待清路"
+	_escort_hint_stamp=stamp;_escort_hint_value=hint
+	return hint
+
+func interaction_hint(cell: Vector2i) -> Dictionary:
+	var tactical_hint=Battlefield.hint(self,cell)
+	if not tactical_hint.is_empty():return tactical_hint
+	# Read the same objects/approaches as interactions_for, without selecting an
+	# actor, mutating follows_unit positions, consuming RNG or awarding anything.
+	var modules=battle_data.get("art_modules",[])
+	for object in battle_data.get("objects",[]):
+		var p=Vector2i(object.position[0],object.position[1])
+		if object.has("follows_unit"):
+			var followed=find_unit(str(object.follows_unit))
+			if not followed.is_empty():p=pos(followed)
+		var kind=str(object.get("kind",""))
+		var matches=cell==p or visit_fronts(object).has(cell)
+		if kind=="visit" and VisitBuildings.visit_at(battle_data,cell).get("id","")==object.id:matches=true
+		for point in object.get("entrance_cells",[]):
+			if cell==Vector2i(point[0],point[1]):matches=true
+		if kind=="visit":
+			for module in modules:
+				var cells=module.get("cells",[])
+				if cells.any(func(point):return Vector2i(point[0],point[1])==p) and cells.any(func(point):return Vector2i(point[0],point[1])==cell):matches=true
+		if not matches:continue
+		var done=flags.get("quest",{}).get("objects",{}).get(str(object.id),false)
+		if stage_id==405:done=flags.get("quest",{}).get("wells",{}).get(str(object.id),false)
+		if stage_id in [406,411] and flags.get("quest",{}).get("record_lost",false) and object.id in ["observatory_record","black_register"]:
+			return {"object_id":str(object.id),"text":"记录已焚毁","available":false}
+		if done:return {"object_id":str(object.id),"text":"已访问" if kind=="visit" else "已完成","available":false}
+		var text="可访问 · 门前行动" if kind=="visit" else "可占领 · 格上行动" if kind=="occupy" else "可开门 · 邻格行动" if kind=="door" else "可救援 · 邻格行动" if kind=="rescue" else "可交互 · 行动菜单"
+		return {"object_id":str(object.id),"text":text,"available":true}
+	for module in modules:
+		if module.get("cells",[]).any(func(point):return Vector2i(point[0],point[1])==cell):return {"text":"仅作地形","available":false}
+	return {}
+
 func interactions_for(unit: Dictionary) -> Array:
 	var result=[]
 	if unit.is_empty() or unit.side!="player" or not bool(unit.get("controllable",true)) or bool(unit.get("acted",false)):return result
+	if Training.active(self):
+		if pos(unit)==Vector2i(battle_data.training_target[0],battle_data.training_target[1]):result.append(battle_data.objects[0])
+		return result
+	result.append_array(Battlefield.interactions_for(self,unit))
 	if stage_id>=400 and stage_id<500:result.append_array(ChapterFour.extra_interactions(self,unit))
 	elif stage_id>=300:result.append_array(ChapterThree.extra_interactions(self,unit))
 	for obj in battle_data.objects:
@@ -454,9 +706,20 @@ func interactions_for(unit: Dictionary) -> Array:
 	if not boss.is_empty() and bool(boss.get("offering_surrender",false)) and absi(pos(boss).x-pos(unit).x)+absi(pos(boss).y-pos(unit).y)==1:result.append({"id":"surrender","label":"接受投降"})
 	return result
 func interact(id: String) -> bool:
+	var actor=find_unit(selected_id)
+	var result=_campaign_interact(id)
+	if result and actor.get("acted",false):Mechanical.end_action(actor);Mechanical.refresh(self)
+	return result
+
+func _campaign_interact(id: String) -> bool:
+	if Training.active(self):
+		var done=Training.interact(self,id)
+		if done:Cover.refresh(self)
+		return done
 	var actor=find_unit(selected_id);var choices=interactions_for(actor)
 	if not choices.any(func(o):return str(o.id)==id):return false
 	var object=choices.filter(func(o):return str(o.id)==id)[0]
+	if str(object.get("kind",""))=="breakable":return Battlefield.interact(self,id)
 	if str(object.get("kind",""))=="visit":
 		var reward=int(object.get("reward_item",0));var receipt={}
 		if reward>0:
@@ -499,13 +762,27 @@ func interact(id: String) -> bool:
 				var x=int(o.position[0]);var y=int(o.position[1]);battle_data.map.tiles[y*int(battle_data.map.width)+x]=int(o.get("open_tile",208))
 				for u in units:
 					if str(u.id)==str(battle_data.code)+"_workers"+str(index) or (u.id=="lena" and index==0):u.locked=false
-				queue_lines("劳工：门开了。我们沿着清出的路撤离。",id+"-OPEN")
-				if index==0:queue_lines(str(battle_data.during),str(battle_data.code)+"-MID")
+				var laborers=find_unit(str(battle_data.code)+"_workers"+str(index))
+				if int(laborers.get("hp",0))>0:
+					var line="劳工：门开了！后面的跟上。" if stage_id==105 else "劳工：门开了！走得动的扶一下伤者。"
+					queue_lines(line,id+"-OPEN")
+				if stage_id==103 and index==0:
+					var other=find_unit("M13_workers1")
+					if other.get("locked",false) and int(other.get("hp",0))>0:
+						queue_lines(str(battle_data.during),"M13-MID")
 			if o.kind=="occupy":queue_lines(str(battle_data.during),"M12-MID")
 			if o.kind=="tools" and not flags.get("tools_reward",false):convoy.alm.append(2);flags.tools_reward=true
 	actor.acted=true;selected_id="";check_outcome();return true
 
 func check_outcome() -> String:
+	_mechanical_victory_context=true
+	var result=_campaign_check_outcome()
+	_mechanical_victory_context=false
+	return result
+
+func _campaign_check_outcome() -> String:
+	Cover.refresh(self)
+	if Training.active(self):return Training.check_outcome(self)
 	if battle_outcome=="defeat":return battle_outcome
 	if stage_id>=500:return ChapterFive.check_outcome(self)
 	if stage_id>=400:return ChapterFour.check_outcome(self)
@@ -523,7 +800,8 @@ func check_outcome() -> String:
 	if stage_id==104 and not boss.is_empty() and int(boss.hp)>0 and int(boss.hp)*2<=int(boss.max_hp) and not boss.get("offering_surrender",false):boss.offering_surrender=true;boss.no_counter=true;queue_lines(str(battle_data.during),"M14-SURRENDER")
 	var defeated=not boss.is_empty() and (int(boss.hp)<=0 or bool(boss.get("surrendered",false)));var ready=false
 	match stage_id:
-		101,111:ready=q.get("evacuated",[]).size()>=2
+		101:ready=q.get("evacuated",[]).size()>=2
+		111:ready=q.get("evacuated",[]).has("S11_miners0") and q.get("evacuated",[]).has("S11_miners1")
 		102,104:ready=battle_data.objects.filter(func(o):return not bool(o.get("optional",false))).all(func(o):return bool(q.get("objects",{}).get(str(o.id),false)))
 		103:ready=battle_data.objects.filter(func(o):return str(o.kind) in ["door","rescue"]).all(func(o):return bool(q.get("objects",{}).get(str(o.id),false))) and workers.any(func(u):return not bool(u.get("locked",false)))
 		105:ready=workers.any(func(u):return not bool(u.get("locked",false)))
@@ -532,12 +810,15 @@ func check_outcome() -> String:
 	return battle_outcome
 func _fail(reason: String) -> String:flags.quest.failed_reason=reason;battle_outcome="defeat";return battle_outcome
 func story_on_death(unit: Dictionary) -> void:
+	if Training.active(self):return
+	if stage_id==105 and str(unit.id)=="M15_boss":M15Story.last_words(self)
 	if not Casualties.owner({"parties":parties},str(unit.id)).is_empty():
 		Casualties.enter_dying(self,unit)
 		return
 	if unit.id in characters and bool(unit.get("neutral",false)):
 		var dead=_initial_character(unit.id);dead.hp=0;dead.dead=true;roster[unit.id]=dead
 func story_on_victory() -> void:
+	if Training.active(self):return
 	if stage_id>=500:
 		ChapterFive.on_victory(self);Equipment.award_clear(self,stage_id);return
 	if stage_id>=400:
@@ -551,17 +832,58 @@ func story_on_victory() -> void:
 	flags["clear_"+str(battle_data.code)]=true
 	if stage_id==101:flags.side_invites=true
 	if stage_id==103:flags.labor_rescued=true
-	if stage_id==105:queue_pages(campaign.scenes.D13,"D13");flags.korlan_defeated=true
+	if stage_id==105:
+		# Old pending victories still receive the farewell; new fights already
+		# play it immediately after the fatal exchange, even before labor rescue.
+		M15Story.last_words(self);flags.korlan_defeated=true
 	if stage_id in [104,105]:
 		for unit in living("enemy"):
 			unit.side="neutral";unit.surrendered=true;unit.no_counter=true
-	var after="赫兰：军令已经交给记录官，我会公布凯尔的事。／胡纳普：塔里的人先带出来。" if stage_id==105 else str(battle_data.after).split(" M12-MYTH")[0]
+	var after=str(battle_data.after).split(" M12-MYTH")[0]
+	if stage_id==104 and not units.any(func(u):return int(u.hp)>0 and bool(u.get("surrendered",false))):
+		after=str(battle_data.get("after_no_survivors",after))
+	if stage_id in [111,112]:
+		var companion="beck" if stage_id==111 else "hervi"
+		var unavailable=stage_id==112 and flags.get("clinic_hervi_unavailable",false)
+		if not unavailable and not party.has(companion) and speaker_alive(str(characters[companion].name_zh)):
+			for page in campaign.scenes[str(battle_data.code)+"_COMPANION_AFTER"]:
+				after+="／"+str(page.speaker)+"："+str(page.text)
 	queue_lines(after,str(battle_data.code)+"-END")
+	if stage_id==103:Training.queue_unlock(self,true)
 	if stage_id==111 and not flags.get("S11_reward",false):convoy.alm.append(11);flags.S11_reward=true
 	Equipment.award_clear(self,stage_id)
 
+func m15_full_rescue() -> bool:
+	if stage_id!=105:return false
+	for id in ["M15_workers0","M15_workers1"]:
+		var workers=find_unit(id)
+		if workers.is_empty() or int(workers.hp)<=0 or workers.get("locked",true):return false
+	return true
+
+func _award_m15_full_rescue() -> void:
+	if not m15_full_rescue() or flags.get("M15_full_rescue_reward",false):return
+	# Ordinary clear XP has already been committed to the roster. Include
+	# reserve/injured formal members without healing them or rewarding NPCs.
+	for id in party:
+		var member:Dictionary=roster.get(str(id),{})
+		if member.is_empty() or member.get("dead",false) or int(member.level)>=20 or member.get("no_experience",false):continue
+		var injured=int(member.hp)<=0
+		var receipt=CampaignExperience.award(self,member,20)
+		if injured:member.hp=0
+		receipt.full_rescue_bonus=20;victory_rewards.append(receipt)
+		var deployed=find_unit(str(id))
+		if not deployed.is_empty():
+			for field in ["level","exp","max_hp","hp","strength","skill","speed","luck","defence","magic_level","magic_flags"]:
+				if member.has(field):deployed[field]=member[field]
+	flags.M15_full_rescue_reward=true
+	queue_lines("战场提示：两队劳工均已获救。本队全体正式成员额外获得20点经验，未出阵成员也可获得；满级成员不再获得经验。","M15-FULL-RESCUE-REWARD")
+
 func complete_battle() -> bool:
+	if Training.active(self):return Training.complete(self)
 	if battle_outcome!="victory" or battle_settled:return false
+	if stage_id==112:
+		var clinic_npc=find_unit("hervi")
+		if not clinic_npc.is_empty() and int(clinic_npc.hp)<=0:flags.clinic_hervi_unavailable=true
 	victory_rewards.clear()
 	for unit in units:
 		if unit.side!="player" or unit.get("temporary",false) or unit.get("neutral",false):continue
@@ -574,8 +896,12 @@ func complete_battle() -> bool:
 			if int(unit.level)<20 and not unit.get("no_experience",false):gain+=int(stages[stage_id].get("clear_training_exp",0))
 			if gain>0:victory_rewards.append(CampaignExperience.award(self,unit,gain))
 		var persistent: Dictionary=unit.duplicate(true)
+		Cover.clear(persistent)
+		MapSkills.clear(persistent)
 		persistent.dead=false;persistent.acted=false;Casualties.initialize_unit(persistent)
 		roster[str(unit.id)]=persistent
+	_award_m15_full_rescue()
+	ShipInterception.award_survival(self)
 	if not stage_cleared(stage_id):cleared_stages.append(stage_id)
 	battle_settled=true
 	Scenario.on_victory(self);Inventory.on_victory(self)
@@ -585,17 +911,28 @@ func complete_battle() -> bool:
 	return true
 
 func return_to_preparation() -> bool:
+	if Training.active(self):return Training.leave(self)
 	if not retry_battle():return false
 	world_node=15 if stage_id in [533,534] else previous_world_node;route_positions[route]=world_node;story_events.clear();mode="world";battle_outcome="";selected_id=""
 	if stage_id in [533,534]:route_positions={"alm":15,"celica":15};flags.chapter5_previous={"alm":15,"celica":15};previous_world_node=15
+	Equipment.reconcile(self)
 	return true
 
 func support_targets(caster: Dictionary,spell_id: int) -> Array:
 	return super.support_targets(caster,spell_id).filter(func(u):return not bool(u.get("event_object",false)))
 
 func finish_exchange(exchange: Dictionary) -> Dictionary:
+	Cover.refresh(self)
+	var pushed=Knockback.apply_exchange(self,exchange)
+	if pushed.get("valid",false):
+		Cover.refresh(self)
+		queue_lines("战场提示："+str(find_unit(str(pushed.target)).get("name_zh","目标"))+"被击退一格。")
+	# A dynamic actor's actual profession/level determines V at settlement.
+	EnemyExperience.prepare(stage_id,[find_unit(str(exchange.get("attacker",""))),find_unit(str(exchange.get("defender","")))])
 	var reward=super.finish_exchange(exchange)
-	if stage_id==105 and str(exchange.get("defender",""))=="M15_boss":queue_lines(str(battle_data.during),"M15-MID")
+	Mechanical.end_action(find_unit(str(exchange.get("attacker",""))))
+	Mechanical.refresh(self)
+	if stage_id==105:M15Story.first_exchange(self,exchange)
 	if stage_id==205 and (str(exchange.get("defender",""))==str(battle_data.boss_id) or str(exchange.get("attacker",""))==str(battle_data.boss_id)):
 		if campaign.scenes.has("D22_FIRST"):queue_pages(campaign.scenes.D22_FIRST,"D22-FIRST")
 		else:queue_lines(str(battle_data.during),"F25-MID")
@@ -604,25 +941,47 @@ func finish_exchange(exchange: Dictionary) -> Dictionary:
 func save_game() -> bool:
 	if mode=="title" or flags.is_empty():return false
 	ensure_treatment_sources()
-	# Preserve the original schema-1/2 file before its first in-place upgrade.
-	if save_path==_casualty_legacy_path and FileAccess.file_exists(save_path) and not FileAccess.file_exists(save_path+".pre-casualty.bak"):
-		if DirAccess.copy_absolute(ProjectSettings.globalize_path(save_path),ProjectSettings.globalize_path(save_path+".pre-casualty.bak"))!=OK:return false
 	var state={"schema":3,"campaign_id":CAMPAIGN_ID,"hub_record":hub_record}
 	state.journal={"saved_unix":int(Time.get_unix_time_from_system()),"play_seconds":play_seconds}
 	state.map_revision=str(battle_data.get("tactical_review_version","0.2.0"))
+	state.battle_rewind=Rewind.for_save(self)
 	for key in SAVE_FIELDS:
 		var value=get(key);state[key]=[value.x,value.y] if value is Vector2i else value
+	# Never replace a usable checkpoint with a state the loader cannot resume.
+	# Validate the actual JSON representation: runtime dictionary keys may be
+	# StringName values, which JSON correctly converts to ordinary strings.
+	var contents=JSON.stringify(state)
+	if not SaveValidation.campaign_valid(self,JSON.parse_string(contents),SAVE_FIELDS):return false
+	# Preserve schema-1/2 originals, including an older recovered backup that
+	# would otherwise be rotated away by a later successful save.
+	var upgrading=_casualty_legacy_path in [save_path,save_path+".bak"]
+	if upgrading and FileAccess.file_exists(_casualty_legacy_path) and not FileAccess.file_exists(save_path+".pre-casualty.bak"):
+		if not _copy_checkpoint_atomic(_casualty_legacy_path,save_path+".pre-casualty.bak"):return false
 	var file=FileAccess.open(save_path+".tmp",FileAccess.WRITE)
 	if file==null:return false
-	file.store_string(JSON.stringify(state));file.flush()
+	file.store_string(contents);file.flush()
 	var write_error=file.get_error();file.close()
 	if write_error!=OK:return false
-	# Only a validated previous checkpoint may become the recovery copy.
-	if FileAccess.file_exists(save_path) and SaveValidation.campaign_valid(self,read_json(save_path),SAVE_FIELDS):
-		if DirAccess.copy_absolute(ProjectSettings.globalize_path(save_path),ProjectSettings.globalize_path(save_path+".bak"))!=OK:return false
+	if FileAccess.file_exists(save_path):
+		# The recovery copy has the same atomic-replace guarantee as the main
+		# journal. An interrupted copy must not destroy the previous backup.
+		if SaveValidation.campaign_valid(self,read_json(save_path),SAVE_FIELDS):
+			if not _copy_checkpoint_atomic(save_path,save_path+".bak"):return false
+		else:
+			# Recovery is visible in the slot picker; retain the damaged original
+			# before normal autosaves replace it. Content-addressing avoids loss
+			# of a different corrupt record on a subsequent recovery.
+			var preserved=save_path+".damaged-"+FileAccess.get_sha256(save_path).left(16)
+			if not FileAccess.file_exists(preserved) and not _copy_checkpoint_atomic(save_path,preserved):return false
 	var saved=DirAccess.rename_absolute(ProjectSettings.globalize_path(save_path+".tmp"),ProjectSettings.globalize_path(save_path))==OK
-	if saved and save_path==_casualty_legacy_path:_casualty_legacy_path=""
+	if saved and upgrading:_casualty_legacy_path=""
 	return saved
+
+func _copy_checkpoint_atomic(source: String,destination: String) -> bool:
+	var temporary=destination+".tmp"
+	if DirAccess.copy_absolute(ProjectSettings.globalize_path(source),ProjectSettings.globalize_path(temporary))!=OK:return false
+	return DirAccess.rename_absolute(ProjectSettings.globalize_path(temporary),ProjectSettings.globalize_path(destination))==OK
+
 func load_game() -> bool:
 	var s=read_json(save_path)
 	if not SaveValidation.campaign_valid(self,s,SAVE_FIELDS):return false
@@ -636,6 +995,7 @@ func load_game() -> bool:
 		if key in ["hub_position","cursor","move_origin"]:set(key,Vector2i(s[key][0],s[key][1]))
 		elif key=="cleared_stages":cleared_stages=s[key].map(func(v):return int(v))
 		else:set(key,s[key])
+	battle_rewind=s.get("battle_rewind",{}).duplicate(true)
 	stage_id=int(stage_id);world_node=int(world_node);previous_world_node=int(previous_world_node);chapter=int(chapter);turn=int(turn)
 	# Canonical object identity also applies to developmental saves made before tags.
 	for array in [units,battle_start_snapshot.get("units",[])]:
@@ -643,11 +1003,59 @@ func load_game() -> bool:
 			if str(unit.id)=="medicine_wagon":unit.no_counter=true;unit.event_object=true
 			if str(unit.id)=="M11_boss":unit.name_zh="追击队长";unit.objective_boss=true
 	hub_record=str(s.get("hub_record","H01"));battle_data=stages[stage_id].duplicate(true)
+	M15Story.restore(self)
 	# In-progress battles retain their geometry until a normal retry/re-entry.
 	# New walls and cargo must never appear underneath an old saved formation.
 	var saved_revision=str(s.get("map_revision","0.2.0"))
 	if saved_revision!=str(battle_data.get("tactical_review_version","0.2.0")) and mode in ["battle","victory","defeat"]:
 		battle_data=SaveValidation.campaign_stage(self,stage_id,saved_revision).duplicate(true)
+	# Current chapter-one prose is independent of saved terrain geometry.
+	if chapter==1:
+		for field in ["before","during","after","after_no_survivors","absent_branch","dialogue_require_speaker_alive","dialogue_fallbacks"]:
+			if stages[stage_id].has(field):battle_data[field]=stages[stage_id][field]
+		if stage_id==102:battle_data.burner_departure_turn=stages[stage_id].burner_departure_turn
+		if saved_revision!=str(stages[stage_id].get("tactical_review_version","0.2.0")):
+			for visit in battle_data.get("objects",[]):
+				if visit.get("kind")!="visit":continue
+				for current in stages[stage_id].objects:
+					if current.id==visit.id and current.has("dialogue"):
+						visit.dialogue=current.dialogue
+						break
+	_restore_battle_geometry()
+	if mode not in ["battle","victory","defeat"]:Equipment.reconcile(self)
+	# Older peaceful checkpoints retained the last battle's wounds until the
+	# next deployment. Active fights and unprocessed results keep their HP.
+	if mode in ["hub","world","chapter_end","ending"] or (mode=="victory" and battle_settled):_restore_preparation_hp()
+	var clinic_changed=Medicine.prepare(self,units)
+	Medicine.prepare(self,battle_start_snapshot.get("units",[]))
+	var beck_changed=MineEscort.applies(self,find_unit("beck")) and str(find_unit("beck").get("quest_kind",""))=="witness"
+	for actors in [units,battle_start_snapshot.get("units",[])]:
+		EnemyBalance.prepare(stage_id,actors);MineEscort.prepare(self,actors)
+	ShipInterception.prepare(self,battle_start_snapshot.get("units",[]),true)
+	for start in battle_rewind.get("starts",[]):EnemyBalance.prepare(stage_id,start.units)
+	_prepare_prison_rescue(units,bool(flags.get("quest",{}).get("objects",{}).get("M13_door_0",false)))
+	_prepare_prison_rescue(battle_start_snapshot.get("units",[]))
+	_refresh_chapter_one_opening()
+	if beck_changed and mode=="battle":queue_lines("战场提示：贝克会随矿工自动推进，并在安全时提供弓援；战后存活可邀请同行。","S11-BECK-DUTY")
+	if clinic_changed and mode=="battle":
+		queue_lines("战场提示：赫维留守北岸诊所。药车由运药员护送，前路安全时自动前进，敌军靠近时等待。","S12-CLINIC-DUTY")
+	_repair_overlapped_escorts()
+	Mechanical.refresh(self,false)
+	Battlefield.restore(self)
+	Cover.refresh(self)
+	Rewind.load_legacy(self)
+	ShipInterception.queue_duty(self)
+	_casualty_legacy_path=save_path if previous_schema<3 else ""
+	var journal=s.get("journal",{})
+	var seconds=journal.get("play_seconds",0.0) if journal is Dictionary else 0.0
+	play_seconds=maxf(0.0,float(seconds)) if seconds is float or seconds is int else 0.0
+	return true
+
+func _restore_battle_geometry() -> void:
+	EnemyExperience.prepare_stage(battle_data)
+	EnemyExperience.prepare(stage_id,units)
+	ShipInterception.restore(self)
+	# Both loading and rewinding rebuild mutable geometry from the same quest.
 	for o in battle_data.objects:
 		if flags.get("quest",{}).get("objects",{}).get(str(o.id),false):
 			if stage_id>=200:ChapterTwo.open_object(self,o)
@@ -659,16 +1067,6 @@ func load_game() -> bool:
 				if not followed.is_empty():o.position=followed.position.duplicate()
 	if stage_id==408 and flags.get("quest",{}).get("transfer_cut_snapshot",false):battle_data.reinforcements=[];battle_data.reinforcement_turn=0
 	if stage_id==404 and flags.get("quest",{}).get("mid_done",false) and find_unit(str(battle_data.boss_id)).get("surrendered",false):battle_data.reinforcements=[]
-	if mode not in ["battle","victory","defeat"]:Equipment.reconcile(self)
-	# Older peaceful checkpoints retained the last battle's wounds until the
-	# next deployment. Active fights and unprocessed results keep their HP.
-	if mode in ["hub","world","chapter_end","ending"] or (mode=="victory" and battle_settled):_restore_preparation_hp()
-	_repair_overlapped_escorts()
-	_casualty_legacy_path=save_path if previous_schema<3 else ""
-	var journal=s.get("journal",{})
-	var seconds=journal.get("play_seconds",0.0) if journal is Dictionary else 0.0
-	play_seconds=maxf(0.0,float(seconds)) if seconds is float or seconds is int else 0.0
-	return true
 
 func slot_records() -> Array:
 	var result=[]
@@ -722,18 +1120,28 @@ func finish_chapter_two() -> bool:
 func event_boats() -> Array:return ChapterTwo.event_boats(self)
 
 func recruit(id: String) -> void:
+	if id=="hervi" and not party.has(id) and not can_invite_hervi():return
 	if id=="celine" and not flags.get("celine_ready",false):return
 	if id in ["german","noya"] and not flags.get("chapter3_recruits",{}).get(id,false):return
 	if id in ["lord","roan","shia"] and not flags.get("east_recruit_ready",{}).get(id,false):return
+	var already_joined=parties.get("alm",[]).has(id) or parties.get("celica",[]).has(id)
 	super.recruit(id)
 	if roster.has(id):roster[id].route=route
 	Equipment.reconcile(self)
+	if not already_joined and party.has(id):character_recruited.emit(id)
+
+func can_invite_hervi() -> bool:
+	var member=roster.get("hervi",{})
+	var npc=find_unit("hervi") if stage_id==112 else {}
+	return stage_cleared(112) and bool(flags.get("clinic_staffed",false)) and not bool(flags.get("clinic_hervi_unavailable",false)) and (npc.is_empty() or int(npc.hp)>0) and not bool(member.get("dead",false)) and not is_dying(member)
 
 func objective_status() -> Array[String]:
-	if stage_id>=500:return ChapterFive.status(self)
-	if stage_id>=400:return ChapterFour.status(self)
-	if stage_id>=300:return ChapterThree.status(self)
-	if stage_id>=200:return ChapterTwo.status(self)
+	if Training.active(self):return Training.status(self)
+	var tactical=Battlefield.status(self)
+	if stage_id>=500:return ChapterFive.status(self)+tactical
+	if stage_id>=400:return ChapterFour.status(self)+tactical
+	if stage_id>=300:return ChapterThree.status(self)+tactical
+	if stage_id>=200:return ChapterTwo.status(self)+tactical
 	var result: Array[String]=[str(battle_data.get("goal","完成战场目标"))]
 	var q: Dictionary=flags.get("quest",{})
 	if not q.get("failed_reason","").is_empty():result.append(str(q.failed_reason))

@@ -18,7 +18,7 @@ func interact_all(g) -> void:
 func run() -> void:
 	var g=State.new();g.new_game();g.save_path="res://reports/campaign/round1-save.json"
 	check(g.party==["hunapu","daan","otto"] and g.mode=="hub","new campaign starts in prologue with exact initial party")
-	check(g.campaign.scenes.D00.size()==7 and not g.flags.get("prologue_done",false),"prologue dialogue and timeline marker")
+	check(g.campaign.scenes.D00.size()==12 and not g.flags.get("prologue_done",false),"prologue dialogue and timeline marker")
 	check(g.world_neighbors().is_empty(),"village departure blocked before introduction")
 	g.flags.village_ready=true;check(g.world_neighbors()==[2],"departure unlocks correct first route")
 	check(g.travel_to(2) and g.world_has_battle(2),"travel into first encounter")

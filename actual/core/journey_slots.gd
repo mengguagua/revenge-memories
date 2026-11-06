@@ -19,13 +19,20 @@ static func duration(seconds: float) -> String:
 static func info(game, slot: int) -> Dictionary:
 	var path=path_for(game.slot_directory,slot)
 	var legacy=false
-	if slot==1 and not FileAccess.file_exists(path):
-		var old=game.slot_directory.path_join(LEGACY)
-		if FileAccess.file_exists(old):path=old;legacy=true
-	var result={"slot":slot,"path":path,"exists":FileAccess.file_exists(path),"valid":false,"legacy":legacy,"time":"","location":"","chapter":"","seconds":0.0}
-	if not result.exists:return result
+	var recovered=false
 	var state=game.read_json(path)
-	result.valid=game.SaveValidation.campaign_valid(game,state,game.SAVE_FIELDS)
+	var valid=game.SaveValidation.campaign_valid(game,state,game.SAVE_FIELDS)
+	if not valid:
+		var backup=game.read_json(path+".bak")
+		if game.SaveValidation.campaign_valid(game,backup,game.SAVE_FIELDS):
+			path+=".bak";state=backup;valid=true;recovered=true
+	if slot==1 and not recovered and not FileAccess.file_exists(path):
+		var old=game.slot_directory.path_join(LEGACY)
+		if FileAccess.file_exists(old):
+			path=old;legacy=true;state=game.read_json(path)
+			valid=game.SaveValidation.campaign_valid(game,state,game.SAVE_FIELDS)
+	var result={"slot":slot,"path":path,"exists":FileAccess.file_exists(path),"valid":valid,"legacy":legacy,"recovered":recovered,"time":"","location":"","chapter":"","seconds":0.0}
+	if not result.exists:return result
 	if not result.valid:
 		result.time=timestamp(FileAccess.get_modified_time(path));return result
 	var meta=state.get("journal",{})

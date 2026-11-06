@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_12",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/hp_tick.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_12.ogg"
+  ],
+  "hashes": [
+    "0e1a4896f31c7865f764b17dd6da5c7677d7214d14262e42b0cd1e2f7a55054e",
+    "25a3637c3a5c4d92e94361e76820049b88c10418e02fce7eb04539e50e57f1bd"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "2f3e959bba9b95b30c423d72",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    23628,
+    14356
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "The first sound is a fast, sharp beeping with a short release time. The second is a similar, but slightly quieter, beeping with a longer release time. The main difference is the timbre; the first beep has a harsh, digital quality while the second is more mellow and analog sounding. The attack and pitch are also slightly different, with the second sound having a slightly slower attack and a slightly lower pitch. The density and decay are also not directly comparable as the first sound is purely beeping, while the second includes additional noise and a longer release time.",
+  "generation_tokens": 116,
+  "generation_tps": 43.73178302516824,
+  "wall_seconds": 2.79,
+  "peak_memory_bytes": 6987743686,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

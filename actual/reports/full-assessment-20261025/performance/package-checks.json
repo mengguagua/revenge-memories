@@ -1,0 +1,51 @@
+{
+  "checks": [
+    "first actual hero animation loads from packaged index",
+    "full offline JSON excluded from PCK: reviewed",
+    "indexed binary included in PCK: reviewed",
+    "packaged animation bytes exactly match source build: reviewed",
+    "packaged gameplay never falls back to full JSON: reviewed",
+    "all expected packaged actions readable: reviewed",
+    "full offline JSON excluded from PCK: legacy",
+    "indexed binary included in PCK: legacy",
+    "packaged animation bytes exactly match source build: legacy",
+    "packaged gameplay never falls back to full JSON: legacy",
+    "all expected packaged actions readable: legacy",
+    "full offline JSON excluded from PCK: party",
+    "indexed binary included in PCK: party",
+    "packaged animation bytes exactly match source build: party",
+    "packaged gameplay never falls back to full JSON: party",
+    "all expected packaged actions readable: party",
+    "all referenced portrait/body/effect/map textures load from standalone PCK",
+    "exported gameplay preserves lazy whole-library interfaces",
+    "all packaged program reads keep bounded cache"
+  ],
+  "device_installed": false,
+  "errors": [],
+  "first_hero_program_usec": 663,
+  "first_metadata_usec": 2,
+  "groups": {
+    "legacy": {
+      "frames": 183316,
+      "variants": 774
+    },
+    "party": {
+      "frames": 113492,
+      "variants": 508
+    },
+    "reviewed": {
+      "frames": 206065,
+      "variants": 1078
+    }
+  },
+  "missing_textures": [],
+  "passed": true,
+  "standalone_pck": true,
+  "textures": 2559,
+  "ui_static_memory_bytes": 191498228,
+  "variants": 2360,
+  "pck_path": "/private/tmp/revenge-performance-20261025/performance.pck",
+  "pck_bytes": 128843348,
+  "pck_sha256": "357c18a20171753a8fefb12f8fc2e802f3402e8978940b47b9b88a3a92930b63",
+  "production_iphone_installed": false
+}

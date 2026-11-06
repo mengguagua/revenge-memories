@@ -1,0 +1,23 @@
+﻿角色,当前进阶职业,指标,单位,外传参考值,当前值,差值,原版口径,当前规则,来源
+艾琳,引光剑使,物防,点,,8,,赛莉卡源实现仅重置等级并标记公主，无对应最低属性，留空,只补足到最低值，较高值保留；不回当前HP,actual/core/hero_professions.gd:DEFINITIONS; data/rules_full.json:promotion_bases.23; core/hub_controller.gd:_special
+艾琳,引光剑使,幸运,点,,12,,赛莉卡源实现仅重置等级并标记公主，无对应最低属性，留空,只补足到最低值，较高值保留；不回当前HP,actual/core/hero_professions.gd:DEFINITIONS; data/rules_full.json:promotion_bases.23; core/hub_controller.gd:_special
+艾琳,引光剑使,最大生命,点,,34,,赛莉卡源实现仅重置等级并标记公主，无对应最低属性，留空,只补足到最低值，较高值保留；不回当前HP,actual/core/hero_professions.gd:DEFINITIONS; data/rules_full.json:promotion_bases.23; core/hub_controller.gd:_special
+艾琳,引光剑使,魔防,点,,10,,赛莉卡源实现仅重置等级并标记公主，无对应最低属性，留空,只补足到最低值，较高值保留；不回当前HP,actual/core/hero_professions.gd:DEFINITIONS; data/rules_full.json:promotion_bases.23; core/hub_controller.gd:_special
+艾琳,引光剑使,技巧,点,,12,,赛莉卡源实现仅重置等级并标记公主，无对应最低属性，留空,只补足到最低值，较高值保留；不回当前HP,actual/core/hero_professions.gd:DEFINITIONS; data/rules_full.json:promotion_bases.23; core/hub_controller.gd:_special
+艾琳,引光剑使,速度,点,,12,,赛莉卡源实现仅重置等级并标记公主，无对应最低属性，留空,只补足到最低值，较高值保留；不回当前HP,actual/core/hero_professions.gd:DEFINITIONS; data/rules_full.json:promotion_bases.23; core/hub_controller.gd:_special
+艾琳,引光剑使,力量,点,,14,,赛莉卡源实现仅重置等级并标记公主，无对应最低属性，留空,只补足到最低值，较高值保留；不回当前HP,actual/core/hero_professions.gd:DEFINITIONS; data/rules_full.json:promotion_bases.23; core/hub_controller.gd:_special
+艾琳,引光剑使,基础移动,格,4,5,1,本地原版运行保留源职业21/11的移动,进阶覆盖基础移动,actual/core/hero_professions.gd; core/unit_progression.gd; core/hub_controller.gd
+艾琳,引光剑使,等级重置目标,级,1,,,原版剧情进阶重置到1级,当前保留进阶前等级与经验，不能把1级差值作属性收益,actual/core/hero_professions.gd:apply; core/unit_progression.gd:promote; core/hub_controller.gd:_special
+胡纳普,破晓勇士,物防,点,10,10,0,阿尔姆剧情转职23号最低基底,只补足到最低值，较高值保留；不回当前HP,actual/core/hero_professions.gd:DEFINITIONS; data/rules_full.json:promotion_bases.23; core/hub_controller.gd:_special
+胡纳普,破晓勇士,幸运,点,10,10,0,阿尔姆剧情转职23号最低基底,只补足到最低值，较高值保留；不回当前HP,actual/core/hero_professions.gd:DEFINITIONS; data/rules_full.json:promotion_bases.23; core/hub_controller.gd:_special
+胡纳普,破晓勇士,最大生命,点,36,36,0,阿尔姆剧情转职23号最低基底,只补足到最低值，较高值保留；不回当前HP,actual/core/hero_professions.gd:DEFINITIONS; data/rules_full.json:promotion_bases.23; core/hub_controller.gd:_special
+胡纳普,破晓勇士,技巧,点,14,14,0,阿尔姆剧情转职23号最低基底,只补足到最低值，较高值保留；不回当前HP,actual/core/hero_professions.gd:DEFINITIONS; data/rules_full.json:promotion_bases.23; core/hub_controller.gd:_special
+胡纳普,破晓勇士,速度,点,14,14,0,阿尔姆剧情转职23号最低基底,只补足到最低值，较高值保留；不回当前HP,actual/core/hero_professions.gd:DEFINITIONS; data/rules_full.json:promotion_bases.23; core/hub_controller.gd:_special
+胡纳普,破晓勇士,力量,点,16,16,0,阿尔姆剧情转职23号最低基底,只补足到最低值，较高值保留；不回当前HP,actual/core/hero_professions.gd:DEFINITIONS; data/rules_full.json:promotion_bases.23; core/hub_controller.gd:_special
+胡纳普,破晓勇士,基础移动,格,5,6,1,本地原版运行保留源职业21/11的移动,进阶覆盖基础移动,actual/core/hero_professions.gd; core/unit_progression.gd; core/hub_controller.gd
+胡纳普,破晓勇士,等级重置目标,级,1,,,原版剧情进阶重置到1级,当前保留进阶前等级与经验，不能把1级差值作属性收益,actual/core/hero_professions.gd:apply; core/unit_progression.gd:promote; core/hub_controller.gd:_special
+艾琳,引光剑使,火球每次施法费用,HP,1,1,0,已学攻击法术；辅助法术不减,主动/反击/追击逐次付费；正费用最低1；本表不等于施法次数,actual/core/item_rules.gd:cost_for; data/rules_full.json:items
+艾琳,引光剑使,雷电每次施法费用,HP,2,1,-1,已学攻击法术；辅助法术不减,主动/反击/追击逐次付费；正费用最低1；本表不等于施法次数,actual/core/item_rules.gd:cost_for; data/rules_full.json:items
+艾琳,引光剑使,圣光每次施法费用,HP,4,3,-1,已学攻击法术；辅助法术不减,主动/反击/追击逐次付费；正费用最低1；本表不等于施法次数,actual/core/item_rules.gd:cost_for; data/rules_full.json:items
+艾琳,引光剑使,风刃每次施法费用,HP,3,2,-1,已学攻击法术；辅助法术不减,主动/反击/追击逐次付费；正费用最低1；本表不等于施法次数,actual/core/item_rules.gd:cost_for; data/rules_full.json:items
+艾琳,引光剑使,诸神黄昏每次施法费用,HP,10,9,-1,已学攻击法术；辅助法术不减,主动/反击/追击逐次付费；正费用最低1；本表不等于施法次数,actual/core/item_rules.gd:cost_for; data/rules_full.json:items

@@ -25,7 +25,7 @@ func _ui():
 
 static func source() -> Dictionary:
 	if _cache.is_empty():
-		var raw = JSON.parse_string(FileAccess.get_file_as_string("res://data/legacy/full_map_effects.json"))
+		var raw = JSON.parse_string(FileAccess.get_file_as_string("res://data/campaign_map_effects.json"))
 		if raw is Dictionary: _cache = raw
 	return _cache
 

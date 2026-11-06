@@ -1,0 +1,20 @@
+{
+  "revision": 3,
+  "status": "Preview fixes prepared for review; no game integration",
+  "requested_fixes": {
+    "return_motion": "Removed programmed vertical bob; register every run pose by the measured head point with a common scale and a fixed screen Y. Feet remain free to articulate.",
+    "stationary_motion": "Bow and spellcasting use measured body/head X registration. Scene impact shake no longer translates stationary actors.",
+    "duan_zhen_anatomy": "New contact, low follow-through and recovery drawings use an independent sword arm with visible grip and a separate shield arm held in front; old invalid contact drawings are no longer selected."
+  },
+  "verification": "checks/v3/registration.json instruments actual canvas draw calls and their full transform at60Hz; checks body/head marker after source-image scaling and camera composition.",
+  "scope": "Only standalone HTML preview, artwork and MP4s; no runtime game source edits.",
+  "pending": [
+    "Ragnarok background cleanup",
+    "Draw intermediate turn poses",
+    "Further base Hunapu head-to-body consistency",
+    "More distinct advanced spell choreography",
+    "Additional scenery layers"
+  ],
+  "additional_generation_error": "Supplementary Ragnarok and turning image requests failed with a connection error. These candidates were not substituted with placeholders.",
+  "live_variants": 14
+}

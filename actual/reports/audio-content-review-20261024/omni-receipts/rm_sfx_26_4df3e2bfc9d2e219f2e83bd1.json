@@ -1,0 +1,54 @@
+{
+  "id": "rm_sfx_26",
+  "kind": "final_scene_mix",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_sfx_26_new_context.wav"
+    }
+  ],
+  "asset_sha256": "5f11ea7651042429220f2bf45b02e5fe7338d77943d201ecb13dafead22f46fd",
+  "fixture_sha256": "fd269258ca2d6c91568533063380fef2b2c6bf97be92c95f027adcbbd98a5cea",
+  "prompt": "This is a final offline scene mix using the actual game gains and native event sequence. Describe only audible evidence. Check whether essential feedback attacks are clear, any intrusive click/distortion or excessive rumbling tail, and whether music continuity is distracted by the effects. Effects need not be as loud as music; a naturally masked quiet tail is not a failure. Report uncertainty and avoid inventing instruments/events. Under 90 words. Fixture context: 实际源动画请求序列（同一当前双声部规则）：class_11_ally_item_32；叠加当前配乐0.50／音效0.65",
+  "max_tokens": 170,
+  "key": "4df3e2bfc9d2e219f2e83bd1",
+  "source_sha256": [
+    "fd269258ca2d6c91568533063380fef2b2c6bf97be92c95f027adcbbd98a5cea"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/fd269258ca2d6c91568533063380fef2b2c6bf97be92c95f027adcbbd98a5cea.wav"
+  ],
+  "audio_input_samples": [
+    113956
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "c41cc9aba5854579c80695b981c756c8c473b8053080136046d8f109e7f17431"
+  ],
+  "response": "The audio features a layered mix of chiptune-style music and discrete sound effects. The music maintains a steady, melodic two-part harmony throughout. Sound effects, including a rising tone and a sharp impact, are clearly audible and distinct from the music, with no masking. There is no intrusive distortion, clicks, or excessive rumbling tails. The effects are well-integrated, with natural, quiet tails that do not disrupt the musical continuity. All essential feedback attacks are clear and properly timed.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 100,
+    "prompt_tokens": 267,
+    "total_tokens": 367,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 239,
+    "prompt_ms": 680.614,
+    "prompt_per_token_ms": 2.8477573221757324,
+    "prompt_per_second": 351.15351726529275,
+    "predicted_n": 100,
+    "predicted_ms": 1521.535,
+    "predicted_per_token_ms": 15.369040404040405,
+    "predicted_per_second": 65.06587097897847
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 2.219,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

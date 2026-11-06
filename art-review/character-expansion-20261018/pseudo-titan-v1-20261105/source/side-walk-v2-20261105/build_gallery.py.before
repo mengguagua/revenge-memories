@@ -1,0 +1,90 @@
+# coding: utf-8
+"""Build this review extension; preserve every existing gallery record."""
+from pathlib import Path
+import json,re
+R=Path(__file__).resolve().parent;BASE=R.parent;PREFIX=R.name+'/'
+m=json.loads((R/'asset-manifest.json').read_text());profiles=[];actions=[]
+for group in ['battle','battle-broken','maps','maps-broken']:
+    fs=m['frames'][group];battle=group.startswith('battle');size=[96,88] if battle else [64,64]
+    profiles.append({'id':'pseudo-titan-'+group,'actor':'pseudo-titan','actorName':'敌方伪泰坦傀儡','classId':'elite-mechanical-puppet','className':'伪泰坦傀儡'+('（核心破坏）' if 'broken' in group else '（核心完整）'),'context':'battle' if battle else 'tactical-walk','contextName':'战斗场景' if battle else '地图与撤离','side':'enemy','mappingStatus':'review_only_not_integrated','revision':'pseudo-titan-enemy-pixel-v1-20261105','sourceAtlas':PREFIX+'assets/'+group+'-reference.png','sourceFrameSize':size,'sourceColumns':len(fs),'sourceFrameCount':len(fs),'sourceAtlasSize':[size[0]*len(fs),size[1]],'sourceOamCutoff':0,'flipOriginOffset':[0,0],'anchor':[48,80] if battle else [32,60],'outputFrameSize':[x*4 for x in size],'newFrames':{str(f['id']):PREFIX+f['path'] for f in fs},'reviewFrameSources':{str(f['id']):0 for f in fs},'reviewFrameLabels':{str(f['id']):'原生像素姿势 '+str(f['id']+1) for f in fs},'mapping':PREFIX+'action-effect-mapping.json','links':[{'label':'核心机制、F25投放与HTML示例','href':PREFIX+'index.html'},{'label':'像素规范与数值','href':PREFIX+'README.md'},{'label':'素材尺寸与字节','href':PREFIX+'asset-manifest.json'}]})
+hit=json.loads((BASE/'water-monkey-v1-20261104/source/motion-v2-20261104/soldier-hit-reference.json').read_text())['frames']
+companion={'path':PREFIX+'assets/soldier-reference.png','origin':[64,128],'size':[80,64],'anchor':[40,64],'flip':True}
+def action(key,name,group,segments,note,contact=None,scene=False):
+    battle=group.startswith('battle');rows=[]
+    for frame,ticks in segments:rows.extend({'frame':frame,'offset':[0,0],'flip':battle,'effects':[]} for _ in range(ticks))
+    a={'id':'pseudo-titan-'+key,'key':key,'name':name,'profile':'pseudo-titan-'+group,'context':'battle' if battle else 'tactical-walk','frames':rows,'fps':60.0988,'duration':len(rows)/60.0988,'origin':[176,128] if battle else [128,116],'viewport':[0,0,256,160],'closeCamera':{'offset':[-64,-84],'size':[128,96]},'contactTick':contact,'neededFrames':sorted({r['frame'] for r in rows}),'effectIds':[],'missingFrames':[],'ready':True,'referenceLabel':'新增精英 · 形象基准（无原作）','notes':'仅美术与规则预览，未改游戏代码或关卡。'+note}
+    if scene:a['reviewCompanions']=[companion]
+    actions.append(a);return a
+for broken in [False,True]:
+    prefix='broken-' if broken else '';group='battle-broken' if broken else 'battle';map_group='maps-broken' if broken else 'maps'
+    label='核心破坏 · ' if broken else ''
+    state='黑色破口与断裂暗管持续保留；双防4／2，无反伤。' if broken else '核心青色；双防14／12，本体被攻击后固定反伤2HP，未命中也触发。'
+    action(prefix+'idle',label+'战斗待机',group,[(0,180)],state)
+    walk=action(prefix+'battle-walk',label+'战斗行走',group,[(i,12) for i in [1,2,3,4]*3]+[(0,24)],state+'重型步幅，身体不缩小。',scene=True)
+    for i,row in enumerate(walk['frames']):row['offset']=[-round(28*min(i,144)/144),0]
+    a=action(prefix+'melee',label+'重臂锤击 · 跑近后回位',group,[(0,246)],state+'靠近→抬臂→单次锤击→收势→回位。威力14，1格，速度1；不追加连击或震波伤害。',contact=100,scene=True)
+    for i,row in enumerate(a['frames']):
+        if i<8 or i>=238:pass
+        elif i<76:row['frame']=1+((i-8)//10)%4;row['offset']=[-round(84*(i-8)/68),0]
+        elif i<100:row['frame']=5;row['offset']=[-84,0]
+        elif i<128:row['frame']=6;row['offset']=[-84,0]
+        elif i<154:row['frame']=7;row['offset']=[-84,0]
+        elif i<174:row['offset']=[-84,0]
+        else:row['frame']=1+((i-174)//10)%4;row['offset']=[-round(84*(238-i)/64),0];row['flip']=False
+        j=i-100
+        if 0<=j<len(hit):row['companionTint']=hit[j].get('tint',1);row['companionShake']=hit[j].get('shake',0)
+    a['neededFrames']=sorted({r['frame'] for r in a['frames']});a['soundEvents']=[{'tick':100,'path':PREFIX+'assets/hit.ogg','volume':.45}]
+    a=action(prefix+'hit',label+'普通受伤 · 闪烁',group,[(0,len(hit))],state+'与普通士兵相同：固定姿势闪烁、轻微位移和命中音。')
+    for row,ref in zip(a['frames'],hit):row.update({'tint':ref.get('tint',1),'shake':ref.get('shake',0)})
+    a['soundEvents']=[{'tick':0,'path':PREFIX+'assets/hit.ogg','volume':.4}]
+    a=action(prefix+'defeat',label+'本体被击败',group,[(0,16),(8,24),(9,48)],state+'仅本体归零时跪倒、倒下；核心破坏不等于击败。')
+    for i,row in enumerate(a['frames']):
+        if i>72:row['alpha']=max(0,1-(i-72)/15)
+    action(prefix+'map-idle',label+'地图待机 · 约3秒',map_group,[(1,90),(3,90)],state+'不拖慢行走；原生图64×64，游戏密度2，主体约24逻辑像素高。')
+    for key,name,start in [('down','向下行走',0),('right','向右行走',4),('up','向上行走',8),('left','向左行走',12)]:action(prefix+'walk-'+key,label+name,map_group,[(start+i,12) for i in range(4)],state+'四向独立姿势，脚底与主体尺度统一。')
+    a=action(prefix+'escape',label+'撤离至边缘',map_group,[(12+i%4,8) for i in range(28)],state+'移动4＋3＝7。此处只演示走向左缘，真实示例按F25合法路径计算。')
+    for i,row in enumerate(a['frames']):
+        row['offset']=[-min(170,round(i*.8)),0]
+        if i>=210:row['alpha']=0
+a=action('core-break','防护核心破坏', 'battle',[(0,20)]+[(0,4),(0,4)]*3, '核心耐久归零，本体生命不变；第21帧起切换为真正绘制的黑色破口，立即取消双防＋10和反伤。',contact=20)
+# Switch frames through a separate persistent broken profile, not a color overlay.
+broken_profile=next(p for p in profiles if p['id']=='pseudo-titan-battle-broken')
+intact_profile=next(p for p in profiles if p['id']=='pseudo-titan-battle')
+intact_profile['newFrames']['10']=broken_profile['newFrames']['0'];intact_profile['reviewFrameSources']['10']=0;intact_profile['reviewFrameLabels']['10']='核心已破坏'
+for i,row in enumerate(a['frames']):
+    if i>=20:row['frame']=10
+    elif i>=8:row['tint']=.35 if i%6<3 else 1
+a['neededFrames']=[0,10]
+# Supply one additional baseline column for the cross-state transition.
+import subprocess
+first=R/'assets/battle-00.png'
+subprocess.run(['/opt/homebrew/bin/magick',*([str(first)]*11),'+append','-strip',str(R/'assets/battle-reference.png')],check=True,capture_output=True)
+intact_profile.update({'sourceColumns':11,'sourceFrameCount':11,'sourceAtlasSize':[96*11,88]})
+from PIL import Image
+for entry in m['images']:
+    p=R/entry['path'];entry['pixels']=list(Image.open(p).size);entry['bytes']=p.stat().st_size
+(R/'asset-manifest.json').write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n')
+a=action('reflection','本体被攻击后 · 固定反伤2HP','battle',[(0,48)],'示意本体被攻击后向攻击者结算2HP，未命中同样触发。不是额外挥拳、远程武器或反击；攻击核心无反伤。',contact=12,scene=True)
+for i,row in enumerate(a['frames']):
+    if 8<=i<16:row['tint']=1.15
+    j=i-12
+    if 0<=j<len(hit):row['companionTint']=hit[j].get('tint',1);row['companionShake']=hit[j].get('shake',0)
+a['soundEvents']=[{'tick':12,'path':PREFIX+'assets/hit.ogg','volume':.3}]
+data={'profiles':profiles,'actions':actions,'effects':{}}
+(R/'gallery-extension.js').write_text("'use strict';\n(() => {\nconst extra = "+json.dumps(data,ensure_ascii=False,separators=(',',':'))+";\nwindow.PSEUDO_TITAN_DATA=extra;const d=window.GALLERY_DATA;if(d){d.profiles.push(...extra.profiles);d.actions.push(...extra.actions);d.summary.profiles=d.profiles.length;d.summary.actions=d.actions.length;d.summary.ready=d.actions.filter(a=>a.ready).length;d.summary.pending=d.actions.length-d.summary.ready;}\n})();\n")
+(R/'action-effect-mapping.json').write_text(json.dumps({'status':'review_only_not_integrated','unit':'pseudo_titan','mapping':[{'action':a['id'],'name':a['name'],'frames':len(a['frames']),'contact_frame':None if a['contactTick'] is None else a['contactTick']+1,'poses':a['neededFrames'],'rule':a['notes']} for a in actions]},ensure_ascii=False,indent=2)+'\n')
+# Patch the live page in place. Every old ID, link and script is retained.
+p=BASE/'index.html';s=p.read_text();start='<!-- PSEUDO TITAN CURRENT START -->';end='<!-- PSEUDO TITAN CURRENT END -->'
+if start in s:s=s[:s.index(start)]+s[s.index(end)+len(end):]
+block='''<!-- PSEUDO TITAN CURRENT START -->
+<section class="panel water-monkey-current" id="pseudo-titan-review" aria-label="伪泰坦傀儡设计预览" style="margin-bottom:24px"><div class="heading"><h2>伪泰坦傀儡 · 精英机械傀儡</h2><p>2026-11-05 · 敌军蓝紫像素稿 · 未接入游戏</p></div><div class="water-monkey-intro"><img src="pseudo-titan-v1-20261105/assets/concept.webp" width="576" height="576" alt="无明显人脸的蓝紫机械感应器、厚肩甲、重拳与胸口防护核心" style="image-rendering:pixelated"><div><p class="lead">先破核心，再拆重甲。也可直接攻本体，承担固定反伤。</p><p class="action-note">等级5 · 本体42 · 核心16<br>力量12＋锤击2＝威力14 · 技巧5 · 速度1 · 移动4<br>核心有效：本体物防14／魔防12；本体每次被攻击后反伤2HP，未命中也触发。<br>核心破坏：物防4／魔防2，反伤停用；本体攻击与移动保留。</p><p class="action-note">机械傀儡经验×1.5，基础价值70；等级5的经验价值98，最终所得按友方职业、等级与上限计算。同阵营仅剩机械傀儡时移动4→7并逐回合撤离，到合法边缘消失。</p><p class="action-note">拟在第二章F25「潮狩军港」新增1只，第19列第10行。保留裴萨、牢门、箱子及原目标；后续章节不安排。核心自身无双防加成和反伤，是可选弱点。</p><nav class="links"><a href="pseudo-titan-v1-20261105/index.html">核心机制、手机尺寸与F25交互示例 →</a><a href="pseudo-titan-v1-20261105/README.md">数值、边界与制作记录</a></nav></div></div><nav class="links" aria-label="伪泰坦傀儡动作入口"><a href="?action=pseudo-titan-idle#motion-player">完整待机</a><a href="?action=pseudo-titan-melee#motion-player">重臂锤击</a><a href="?action=pseudo-titan-reflection#motion-player">固定反伤</a><a href="?action=pseudo-titan-core-break#motion-player">核心破坏</a><a href="?action=pseudo-titan-broken-idle#motion-player">破损待机</a><a href="?action=pseudo-titan-broken-melee#motion-player">破损锤击</a><a href="?action=pseudo-titan-walk-up#motion-player">四向行走</a><a href="?action=pseudo-titan-broken-walk-up#motion-player">破损四向行走</a><a href="?action=pseudo-titan-broken-defeat#motion-player">破损击败</a><a href="?action=pseudo-titan-escape#motion-player">撤离</a></nav><p class="action-note">移动端优先：成组像素与有限色阶，矩形感应器代替人脸；完整／核心破坏均使用独立绘制的战斗、四向地图与倒地姿势。只更新预览；游戏代码、关卡和手机安装不改动。</p></section>
+<!-- PSEUDO TITAN CURRENT END -->'''
+s=s.replace('</header>','</header>\n'+block,1)
+record='''<section class="panel" id="pseudo-titan-design-20261105"><div class="heading"><h2>伪泰坦傀儡 · 精英设计与移动端像素修订</h2><p>2026-11-05 · 仅预览</p></div><p class="action-note">新增核心独立耐久、双防＋10、被攻击后固定反伤2HP、基础经验价值70与F25单只投放草案。按用户反馈撤下细碎纹理与人脸面具研究稿，重制敌军蓝紫、机械感应器和原生像素块版本；完整／破损战斗、四向地图与击败姿势全部补齐。手机实际尺寸像素风要求已写入游戏全局AGENTS与美术约定；未修改运行代码或关卡。</p><nav class="links"><a href="pseudo-titan-v1-20261105/source/prompts.json">生图提示词与来源</a><a href="pseudo-titan-v1-20261105/qa/browser-checks.json">浏览器检查</a></nav></section>'''
+if 'id="pseudo-titan-design-20261105"' not in s:s=s.replace('<div class="revision-history-content">','<div class="revision-history-content">'+record,1)
+s=re.sub(r'data-default-action="[^"]+"','data-default-action="pseudo-titan-melee"',s,count=1)
+s=s.replace('<span class="badge">水猴傀儡 · 新类别设计</span>','<span class="badge">伪泰坦傀儡 · 精英设计预览</span>')
+script='<script src="'+PREFIX+'gallery-extension.js?v=enemy-pixel-v1-20261105"></script>'
+if script not in s:s=s.replace('<script src="tools/gallery.js?',script+'<script src="tools/gallery.js?',1)
+p.write_text(s)
+print(json.dumps({'profiles':len(profiles),'actions':len(actions),'game_changed':False,'history_closed':True}))

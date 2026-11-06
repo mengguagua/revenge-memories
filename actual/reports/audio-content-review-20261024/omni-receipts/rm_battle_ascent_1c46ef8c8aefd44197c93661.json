@@ -1,0 +1,76 @@
+{
+  "id": "rm_battle_ascent",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_ascent.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/music_76.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_ascent.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_battle_ascent_scene.mp3",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is tail 6 seconds then head 6 seconds, with the loop join at 6 seconds; assess rhythmic/harmonic continuity and distracting loudness changes there. Audio 4 is the current game-gain offline mix with interface or combat effects. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: M51/M52/F51/F52/J53/S51; desired mood: 保护撤离者、合军、走向神座",
+  "max_tokens": 340,
+  "key": "1c46ef8c8aefd44197c93661",
+  "source_sha256": [
+    "d8d82489901349282e87d1c24ff45733c7ac91fd37b222cb7e7515749b16daa9",
+    "7f628eb5024e7a1f0db7114d30412be1a75294cda9dddea0efe33bdb31a537de",
+    "d8d82489901349282e87d1c24ff45733c7ac91fd37b222cb7e7515749b16daa9",
+    "3a5621474d3d01c4a6862da9667aaeb3b64623e32cf7714dc1ffd3e7aea3a3e5"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "audio_input_samples": [
+    752641,
+    240000,
+    192000,
+    55120
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "51b915ec3bc016f998b6448f1ea426551cb9795bb9f28ee005b92466717242f1",
+    "dd4c6f60cc9540737c2388e8671df0411400a92c7201e26ed7a988580cb75895",
+    "219fd27ae1b1b92762153879941aad3ae7e53e96d09f364e6c7c37c2f9a3fc38",
+    "b4d2c3a69936ae356d10ca7d2fb6ccc9e7f9b990bdef4b1657edf00b48ddf8e3"
+  ],
+  "response": "Audio 1 features a synthesized flute-like lead with a warm, slightly breathy timbre, supported by a steady electronic bass and crisp, simple percussion. The melody is calm and flowing, creating a contemplative, protective mood. The arrangement is sparse and clear, with no vocals or speech. The energy is low-to-moderate, consistent with a scene of cautious movement or preparation. The harmonic progression is gentle and repetitive, lacking abrupt changes. There are no audible defects.\n\nAudio 2 is a short, high-pitched chiptune melody with a retro, minimalist texture. It lacks the depth of Audio 1 but provides a clear reference for the original game’s style.\n\nAudio 3 shows a seamless loop: the tail of Audio 1 connects smoothly to its head, with no rhythmic or harmonic discontinuity. Loudness remains consistent; no distracting changes occur at the join.\n\nAudio 4 introduces a low-frequency electronic pulse and a sharp, high-pitched interface beep. These effects are distinct and do not mask the music, nor does the music obscure the feedback. The mix allows both elements to be heard clearly.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 228,
+    "prompt_tokens": 1302,
+    "total_tokens": 1530,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 1274,
+    "prompt_ms": 7156.143,
+    "prompt_per_token_ms": 5.61706671899529,
+    "prompt_per_second": 178.02886275469902,
+    "predicted_n": 228,
+    "predicted_ms": 5729.037,
+    "predicted_per_token_ms": 25.23804845814978,
+    "predicted_per_second": 39.62271495191949
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 19.903,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/d8d82489901349282e87d1c24ff45733c7ac91fd37b222cb7e7515749b16daa9.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/7f628eb5024e7a1f0db7114d30412be1a75294cda9dddea0efe33bdb31a537de.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/d8d82489901349282e87d1c24ff45733c7ac91fd37b222cb7e7515749b16daa9.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/3a5621474d3d01c4a6862da9667aaeb3b64623e32cf7714dc1ffd3e7aea3a3e5.mp3"
+  ]
+}

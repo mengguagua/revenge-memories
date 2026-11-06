@@ -1,0 +1,76 @@
+{
+  "id": "rm_battle_final",
+  "kind": "music_entire_loop_and_scene",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_final.ogg"
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/music_b0.ogg",
+      "end": 15.0
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/assets/music/20261024/rm_battle_final.ogg",
+      "seam": true
+    },
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_battle_final_scene.wav",
+      "end": 28.0
+    }
+  ],
+  "prompt": "Listen to every audio input. Audio 1 is the ENTIRE new game soundtrack cue; describe its actual timbres, energy, mood, melodic development and any unwanted speech, vocals, defects or sections inappropriate for the scene. Audio 2 is a short reference for the original game's clear, sparse retro texture; do not require copying its melody. Audio 3 is tail 6 seconds then head 6 seconds, with the loop join at 6 seconds; assess rhythmic/harmonic continuity and distracting loudness changes there. Audio 4 is the current game-gain offline mix with interface or combat effects. Discuss whether effects mask music or music masks essential feedback. Report uncertainty, avoid invented precise keys/BPM/timestamps and generic praise. Under 190 words. Intended scene: J54全阶段；攻击/法术/支援保持连续; desired mood: 直面曾救人又拒绝放手的神",
+  "max_tokens": 340,
+  "key": "50130c658fb6c93d3d6fbed6",
+  "source_sha256": [
+    "0e8c43478ad0470645594a3963709b48977d5feb5bb1b455e67accb0df201c43",
+    "c1b13634f7d23aa76fb35e11b30eb71d270d26b886177299b5c46e57fab38c22",
+    "0e8c43478ad0470645594a3963709b48977d5feb5bb1b455e67accb0df201c43",
+    "37e0f01162a6fc4f73bc168e47dcea1793758b18142999fb4afc6effa5e28a9a"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/0e8c43478ad0470645594a3963709b48977d5feb5bb1b455e67accb0df201c43.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/c1b13634f7d23aa76fb35e11b30eb71d270d26b886177299b5c46e57fab38c22.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/0e8c43478ad0470645594a3963709b48977d5feb5bb1b455e67accb0df201c43.ogg",
+    "actual/reports/audio-content-review-20261024/inputs/37e0f01162a6fc4f73bc168e47dcea1793758b18142999fb4afc6effa5e28a9a.wav"
+  ],
+  "audio_input_samples": [
+    420822,
+    240000,
+    192000,
+    114755
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "41349d173302f6610a64e7ca0560e9e6a53812020fb7b9e6e549b3ee20394d9b",
+    "d80053c88ab81e7a404f21398a55aa69ba4acc6f369d8be227df72a13e972aa3",
+    "f788cdd44f2bad6219f0667b3297a991eb35fe9946d4899d4e37fcb495897bdb",
+    "fb8535fda5c76defc5d4b40184d76efba45c6f3f9469c648428bad45cf153650"
+  ],
+  "response": "Audio 1 features a synthesized chiptune melody with a clear, bright timbre. The energy is moderate and consistent, creating a contemplative, slightly melancholic mood. The melody develops through stepwise motion and arpeggiated figures, maintaining harmonic continuity. No speech or defects are present.  \n\nAudio 2 is a reference to the original game’s sparse, retro texture—its timbre is similarly clear but more minimal.  \n\nAudio 3 shows a loop with a 6-second tail and head; the join at 6 seconds is smooth, with no distracting loudness changes or rhythmic/harmonic discontinuities.  \n\nAudio 4 includes combat effects (whooshes, impacts) layered over the music. The effects are loud enough to partially mask the music, especially during attacks. However, the music remains audible and provides essential feedback. The balance is functional but could be improved for clarity.  \n\nThe overall cue supports a scene of continuous magical action—attacks, spells, and support—while conveying emotional weight. The music’s reflective tone contrasts with the intensity of combat, fitting the theme of confronting a deity who once saved but now refuses to let go.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 238,
+    "prompt_tokens": 1076,
+    "total_tokens": 1314,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 1048,
+    "prompt_ms": 3561.415,
+    "prompt_per_token_ms": 3.3982967557251906,
+    "prompt_per_second": 294.26506037628303,
+    "predicted_n": 238,
+    "predicted_ms": 3998.57,
+    "predicted_per_token_ms": 16.871603375527428,
+    "predicted_per_second": 59.271189450228455
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 9.063,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

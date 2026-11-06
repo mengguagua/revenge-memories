@@ -1,0 +1,16 @@
+{
+  "checks": [
+    "two-tile move plus one-tile melee",
+    "stale selected spell cannot expand equipped attack range",
+    "unlocked lightning extends attack envelope",
+    "locked spell remains excluded even with stale weapon_index",
+    "range preview does not mutate live action state",
+    "unaffordable spell cannot create green cells",
+    "impassable column cannot be used as a landing",
+    "attack envelope cannot invent movement through the impassable column",
+    "attack and movement colors remain disjoint"
+  ],
+  "errors": [],
+  "passed": true,
+  "scope": "Range preview only: locked/stale spells, HP affordability, legal origins, no gameplay or save mutation."
+}

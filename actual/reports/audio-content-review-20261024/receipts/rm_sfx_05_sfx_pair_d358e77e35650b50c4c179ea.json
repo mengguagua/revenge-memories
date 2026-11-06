@@ -1,0 +1,31 @@
+{
+  "id": "rm_sfx_05",
+  "kind": "sfx_pair",
+  "paths": [
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/original/audio/sfx_05.ogg",
+    "/Users/gcc/gaocc/project/revenge-memories/actual/assets/sfx/20261024/rm_sfx_05.ogg"
+  ],
+  "hashes": [
+    "a74fb13762e00066caf3916cf7e74931c3dafbaff75bf20047f5095ad51751f4",
+    "51cefff3ac2beb6886b6d5d96f8690c62b9539f570ea38b16f2e898cf8f3576e"
+  ],
+  "prompt": "Compare the two audio inputs as game sound effects. Audio 1 is the reference; Audio 2 is the replacement. Describe each actual sound, then the most obvious difference in timbre, attack, pitch movement, density and decay. Do not assume the replacement is good. Avoid invented visual events. Under 100 words. Very short one-shots may be repeated four times with silent gaps for analysis.",
+  "max_tokens": 165,
+  "repeat_short": true,
+  "key": "d358e77e35650b50c4c179ea",
+  "model": "/Users/gcc/gaocc/project/StableAudio3SmallSFX/audio-reviewer/Qwen2-Audio-7B-Instruct-4bit",
+  "model_revision": "c65570002626f41b4dc08b7b54f42f99f3e82e7f",
+  "adapter_revision": 1,
+  "audio_input_samples": [
+    14047,
+    39936
+  ],
+  "audio_input_sample_rate": 16000,
+  "response": "The actual sounds are quiet, dull, and muffled. The first is slow, rhythmic, and has a dull, muffled sound. The second is similar but with a slightly faster tempo and a more pronounced 'thump' sound. The most obvious difference is the timbre, which is dull and muffled in the first sound and more vibrant and resonant in the second. The attack is also slightly different, with the second sound having a slightly quicker onset. There's no significant pitch movement, but the density and decay are similar, both being quiet and fading away quickly.",
+  "generation_tokens": 118,
+  "generation_tps": 43.06003182208586,
+  "wall_seconds": 2.893,
+  "peak_memory_bytes": 7027507842,
+  "review_type": "local_audio_model",
+  "human_listening": false
+}

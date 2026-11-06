@@ -1,0 +1,15 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "mode": "precise-object-edit",
+  "generated_source": "/Users/gcc/.codex/generated_images/01a1676d-d26b-7992-acd6-1335649650d5/exec-b8c51f81-ee84-4ea4-8dc5-ef0422a312a9.png",
+  "project_copy": "source/descending-arm-master.png",
+  "source_size": [1536, 1024],
+  "transparent_background": true,
+  "references": [
+    "bone-guard-complete-v1-20261024/battle/frame-008.png",
+    "bone-guard-complete-v1-20261024/battle/frame-004.png"
+  ],
+  "prompt": "Use case: precise-object-edit. Asset: ONE pixel-art animation inbetween sprite for the same skeleton enemy. Image 1 is the EDIT TARGET, the skeleton with curved sword straight overhead; image 2 is only a pose destination reference, sword down low toward screen-left. Produce the intermediate descending slash pose BETWEEN these two. Preserve image 1's skull, open attached jaw, rib cage, pelvis, both planted wide stance legs and boots, empty rear bent arm at screen-right, all proportions and same canvas registration. Change ONLY the foreground sword-bearing arm and its one curved sword: lower the shoulder-elbow-wrist smoothly from straight overhead until the wrist is at upper chest height to the LEFT of the skull, with curved blade reaching DIAGONALLY UPPER LEFT (roughly a 45-degree upward-left diagonal), on its way to down-cut. The one sword tip should be farther left than its grip. Foreground wrist wrap stays matte blue-purple. No duplicated arms, no second weapon, no shields, no armor, no flesh, no glow, no motion trails or arcs. Palette restricted to soft ivory #d9d8c5, muted bone shadow #9b9eb4, dark blue outlines #172638, muted blue-purple wraps #57577f #343c5d, steel #bac4d2, hilt #8f7b8d. Keep crisp stepped pixel-art edges, flat matte pixel clusters, no highlights. Subject faces screen LEFT, rear empty hand stays right. Single complete sprite on genuine transparent background, same overall composition as first image. No text. This is a small arm-pose edit, not a redesign.",
+  "postprocessing": "Uniform nearest-neighbor registration using skull and foot baseline; restrict to existing seven-color palette and binary alpha; composite only foreground sword-arm area over unchanged v1 body. Native sweep contour reused for visual arc phases.",
+  "runtime_integrated": false
+}

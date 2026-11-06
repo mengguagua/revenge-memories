@@ -1,0 +1,54 @@
+{
+  "id": "rm_story_divine",
+  "kind": "final_scene_mix",
+  "audios": [
+    {
+      "path": "/Users/gcc/gaocc/project/revenge-memories/actual/reports/audio-scene-review-20261024/audition/rm_story_divine_scene.wav"
+    }
+  ],
+  "asset_sha256": "49885f8e9e495dd9aacb5eb31df1b0fd391c9f8cf026f86fa698c3e3de44eb9a",
+  "fixture_sha256": "cd61ac317273441f7ff7eb032b40951091205a5432f6967c1f52a90279d1e884",
+  "prompt": "This is a final offline scene mix using the actual game gains and native event sequence. Describe only audible evidence. Check whether essential feedback attacks are clear, any intrusive click/distortion or excessive rumbling tail, and whether music continuity is distracted by the effects. Effects need not be as loud as music; a naturally masked quiet tail is not a failure. Report uncertainty and avoid inventing instruments/events. Under 90 words. Fixture context: 按游戏倍率合成：背景曲＋菜单／对白提示；不是实机录音",
+  "max_tokens": 170,
+  "key": "1402c0346fcbf2dc24f82fcf",
+  "source_sha256": [
+    "cd61ac317273441f7ff7eb032b40951091205a5432f6967c1f52a90279d1e884"
+  ],
+  "model": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+  "model_revision": "6e35a28f4a19b18730f8949b0c579c6429649ab8",
+  "archived_input_paths": [
+    "actual/reports/audio-content-review-20261024/inputs/cd61ac317273441f7ff7eb032b40951091205a5432f6967c1f52a90279d1e884.wav"
+  ],
+  "audio_input_samples": [
+    80800
+  ],
+  "input_sample_rate": 16000,
+  "input_pcm_sha256": [
+    "346cec0cb0c04e33b182d7ef9e44954f7fd1d54444e06987a97f26675531141c"
+  ],
+  "response": "Music is a calm, ambient electronic track with soft synth pads. Menu/UI sound effects are clear, short, and non-intrusive. No clicks, distortion, or excessive rumble. Music continues uninterrupted; effects are naturally masked by the mix. Feedback attacks are distinct. No evidence of real hardware recording. All elements blend cohesively.",
+  "reasoning": null,
+  "usage": {
+    "completion_tokens": 70,
+    "prompt_tokens": 221,
+    "total_tokens": 291,
+    "prompt_tokens_details": {
+      "cached_tokens": 28
+    }
+  },
+  "timings": {
+    "cache_n": 28,
+    "prompt_n": 193,
+    "prompt_ms": 592.187,
+    "prompt_per_token_ms": 3.0683264248704663,
+    "prompt_per_second": 325.9105654126146,
+    "predicted_n": 70,
+    "predicted_ms": 1137.618,
+    "predicted_per_token_ms": 16.48721739130435,
+    "predicted_per_second": 60.6530487386803
+  },
+  "finish_reason": "stop",
+  "wall_seconds": 1.751,
+  "human_listening": false,
+  "review_type": "local_waveform_conditioned_model"
+}

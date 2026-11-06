@@ -1,0 +1,109 @@
+{
+  "checks": [
+    "authentic S11 turn-four party and miner state loads",
+    "S11 ordinary legal landing: S11_miners0",
+    "S11 ordinary legal landing: S11_miners1",
+    "exposed miner never chooses a more dangerous tile; a blocked retreat still requires player cover",
+    "S11 ordinary legal landing: beck",
+    "cleared route resumes ordinary escort movement without free healing: S11_miners0",
+    "cleared route resumes ordinary escort movement without free healing: S11_miners1",
+    "automatic path never walks from safety into the mobile boss attack zone",
+    "M11 civilian landing remains legal: M11_refugees0",
+    "M11 civilian does not choose more incoming damage: M11_refugees0",
+    "M11 civilian landing remains legal: M11_refugees1",
+    "M11 civilian does not choose more incoming damage: M11_refugees1",
+    "S11 civilian landing remains legal: S11_miners0",
+    "S11 civilian does not choose more incoming damage: S11_miners0",
+    "S11 civilian landing remains legal: S11_miners1",
+    "S11 civilian does not choose more incoming damage: S11_miners1",
+    "S12 civilian landing remains legal: medicine_wagon",
+    "S12 civilian does not choose more incoming damage: medicine_wagon",
+    "S21 civilian landing remains legal: patients0",
+    "S21 civilian does not choose more incoming damage: patients0",
+    "S21 civilian landing remains legal: patients1",
+    "S21 civilian does not choose more incoming damage: patients1",
+    "M31 civilian landing remains legal: street_resident",
+    "M31 civilian does not choose more incoming damage: street_resident",
+    "F32 civilian landing remains legal: salt_guide",
+    "F32 civilian does not choose more incoming damage: salt_guide",
+    "M41 civilian landing remains legal: snow_group0",
+    "M41 civilian does not choose more incoming damage: snow_group0",
+    "M41 civilian landing remains legal: snow_group1",
+    "M41 civilian does not choose more incoming damage: snow_group1",
+    "M41 civilian landing remains legal: snow_group2",
+    "M41 civilian does not choose more incoming damage: snow_group2",
+    "F43 civilian landing remains legal: marsh_group0",
+    "F43 civilian does not choose more incoming damage: marsh_group0",
+    "F43 civilian landing remains legal: marsh_group1",
+    "F43 civilian does not choose more incoming damage: marsh_group1",
+    "F43 civilian landing remains legal: marsh_group2",
+    "F43 civilian does not choose more incoming damage: marsh_group2",
+    "S42 civilian landing remains legal: island_group0",
+    "S42 civilian does not choose more incoming damage: island_group0",
+    "S42 civilian landing remains legal: island_group1",
+    "S42 civilian does not choose more incoming damage: island_group1"
+  ],
+  "errors": [],
+  "mobile_civilian_cases": 17,
+  "observations": [
+    {
+      "action": {
+        "destination": "(5, 8)",
+        "kind": "objective_move",
+        "target": ""
+      },
+      "destination": "(5, 8)",
+      "hp": 18.0,
+      "id": "S11_miners0",
+      "incoming_after": 0,
+      "incoming_before": 0,
+      "kind": "authentic_S11_decision",
+      "origin": [
+        5.0,
+        11.0
+      ]
+    },
+    {
+      "action": {
+        "destination": "(12, 15)",
+        "kind": "objective_move",
+        "target": ""
+      },
+      "destination": "(12, 15)",
+      "hp": 18.0,
+      "id": "S11_miners1",
+      "incoming_after": 6,
+      "incoming_before": 6,
+      "kind": "authentic_S11_decision",
+      "origin": [
+        12.0,
+        15.0
+      ]
+    },
+    {
+      "action": {
+        "destination": "(5, 13)",
+        "target": ""
+      },
+      "destination": "(5, 13)",
+      "hp": 24.0,
+      "id": "beck",
+      "incoming_after": 0,
+      "incoming_before": 0,
+      "kind": "authentic_S11_decision",
+      "origin": [
+        5.0,
+        13.0
+      ]
+    },
+    {
+      "kind": "mobile_threat",
+      "previous_incoming": 66,
+      "previous_toward": "(12, 15)",
+      "safe_destination": "(12, 17)",
+      "safe_incoming": 0
+    }
+  ],
+  "passed": true,
+  "scope": "Actual failed S11 checkpoint inspected without changing HP/positions, plus explicitly controlled mobile-threat and authored initial-map fixtures. Not a guaranteed-survival claim or natural campaign victory."
+}
