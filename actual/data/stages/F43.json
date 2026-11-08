@@ -5051,70 +5051,46 @@
     },
     {
       "id": "F43_e4",
-      "name_id": 182,
-      "character_id": 182,
-      "name_ja": "ソルジャー",
-      "name_zh": "泥沼魔物",
-      "class": "soldier",
-      "class_id": 6,
-      "class_name_zh": "士兵",
-      "level": 6,
-      "hp": 27,
-      "max_hp": 27,
+      "name_id": 0,
+      "character_id": 0,
+      "name_zh": "水猴傀儡",
+      "class": "water_monkey",
+      "class_id": 25,
+      "class_name_zh": "水猴傀儡",
+      "unit_kind": "mechanical_puppet",
+      "mechanical_model": "water_monkey",
+      "level": 3,
+      "hp": 22,
+      "max_hp": 22,
       "exp": 0,
-      "strength": 11,
-      "skill": 7,
-      "speed": 5,
+      "exp_value": 60,
+      "strength": 5,
+      "skill": 4,
+      "speed": 8,
       "luck": 0,
-      "defence": 5,
-      "resistance": 0,
-      "move": 4,
+      "defence": 3,
+      "resistance": 1,
+      "move": 5,
+      "mechanical_base_move": 5,
       "item_id": 0,
-      "exp_value": 52,
-      "raw_ai_flags": 0,
-      "raw_magic_flags": 0,
-      "magic_flags": 0,
-      "raw_template": [
-        182,
-        6,
-        1,
-        0,
-        128,
-        0
-      ],
-      "group_id": 0,
-      "record_index": 8,
-      "provenance": [
-        {
-          "file": "src/bank008.asm",
-          "label": "L0894B7",
-          "line": 1940
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L089B98",
-          "line": 2611
-        },
-        {
-          "file": "src/bank015.asm",
-          "label": "L0FED55",
-          "line": 7381
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L08A31B",
-          "line": 3626
-        }
-      ],
-      "confidence": "source_count_bounded_template_constructor",
       "position": [
-        10,
-        7
+        8,
+        20
       ],
       "side": "enemy",
       "acted": false,
-      "ai_flags": 0,
-      "behavior": "advance"
+      "hidden": false,
+      "escaped": false,
+      "mechanical_retreating": false,
+      "no_drop": true,
+      "parts": {
+        "back_cannon": {
+          "hp": 10,
+          "max_hp": 10,
+          "defence": 2,
+          "resistance": 1
+        }
+      }
     },
     {
       "id": "F43_e5",
@@ -5252,70 +5228,46 @@
     },
     {
       "id": "F43_e7",
-      "name_id": 179,
-      "character_id": 179,
-      "name_ja": "ガーゴイル",
-      "name_zh": "飞行魔物",
-      "class": "gargoyle",
-      "class_id": 3,
-      "class_name_zh": "石翼兽",
+      "name_id": 0,
+      "character_id": 0,
+      "name_zh": "飞枭傀儡",
+      "class": "owl",
+      "class_id": 28,
+      "class_name_zh": "飞枭傀儡",
+      "unit_kind": "mechanical_puppet",
+      "mechanical_model": "owl",
       "level": 6,
       "hp": 27,
       "max_hp": 27,
       "exp": 0,
-      "strength": 11,
-      "skill": 7,
-      "speed": 5,
+      "exp_value": 82,
+      "strength": 9,
+      "skill": 8,
+      "speed": 11,
       "luck": 0,
       "defence": 5,
-      "resistance": 7,
-      "move": 7,
+      "resistance": 4,
+      "move": 8,
+      "mechanical_base_move": 8,
       "item_id": 0,
-      "exp_value": 75,
-      "raw_ai_flags": 0,
-      "raw_magic_flags": 0,
-      "magic_flags": 0,
-      "raw_template": [
-        179,
-        3,
-        1,
-        0,
-        64,
-        0
-      ],
-      "group_id": 0,
-      "record_index": 2,
-      "provenance": [
-        {
-          "file": "src/bank008.asm",
-          "label": "L0897D6",
-          "line": 2186
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L089B0E",
-          "line": 2542
-        },
-        {
-          "file": "src/bank015.asm",
-          "label": "L0FED40",
-          "line": 7372
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L08A31B",
-          "line": 3626
-        }
-      ],
-      "confidence": "source_count_bounded_template_constructor",
       "position": [
         25,
         18
       ],
       "side": "enemy",
       "acted": false,
-      "ai_flags": 0,
-      "behavior": "guard"
+      "hidden": false,
+      "escaped": false,
+      "mechanical_retreating": false,
+      "no_drop": true,
+      "parts": {
+        "engine": {
+          "hp": 12,
+          "max_hp": 12,
+          "defence": 3,
+          "resistance": 2
+        }
+      }
     },
     {
       "id": "F43_e8",
@@ -6631,9 +6583,9 @@
     ]
   ],
   "goal": "依次确认三处干地、撤离至少两组居民并击败神官。",
-  "before": "米蕾或船团医者：有几个人不能走路。／卡洛：我把船留在最后那块干地旁。",
+  "before": "照护者：提炼院在沼泽边有间病舍。维瑟把人手和器具调走，有些病人跑了出来。有人还会求救，也有人见人就扑。／居民：我们本来走大路。奉神令来的兵封了路，只好从沼泽过。／舵手：水猴堵着船口！飞枭还在追后面的人。／米蕾：有几个人走不快。把干地一块块探过，再送他们去东北的出口。／卡洛：我把船留在南边。别往毒沼里赶人。／战场提示：依次确认三处干地，分批护送居民抵达东北出口。／战场提示：西北驭魔师从第3回合起最多召唤两次，每次至多两名骸卫，间隔三回合。击败他只会清除他的召唤物。裂目兽只会分裂一次，子代不会再分裂，仍为近身攻击。",
   "during": "召唤神官败北：其指定召唤物退去，剩余自然魔物继续行动；恢复点可供有限站位。",
-  "after": "分批转运完成，艾琳不要求居民与正式成员共享物品槽。",
+  "after": "船团医者：人交给接应的了。东北的路通往沉没祭所，沼泽孤岛也有人求救。",
   "optional": false,
   "event_boats": [],
   "clear_training_exp": 20,
@@ -7063,5 +7015,7 @@
     "conclusion": "湿沼、草质干岛、土道、木栈与接应船各有用途，保留地形并延续黑昼；居民既有干地撤离路线保持。",
     "geometry_and_rules_unchanged": true
   },
-  "enemy_role_hint": "战场提示：西北驭魔师从第3回合起最多召唤两次，每次至多两名骸卫，间隔三回合；击败他只会清除他的召唤物。裂目兽只会分裂一次，子代不会再分裂，仍为近身攻击。"
+  "enemy_role_hint": "战场提示：西北驭魔师从第3回合起最多召唤两次，每次至多两名骸卫，间隔三回合；击败他只会清除他的召唤物。裂目兽只会分裂一次，子代不会再分裂，仍为近身攻击。",
+  "dialogue_revision": "2026-11-07",
+  "mechanical_revision": "story-20261107"
 }

@@ -1,0 +1,177 @@
+{
+  "effects": {
+    "puppet-pulse-refraction": {
+      "paths": [
+        "res://assets/battle-fx/puppet-pulse-refraction.png"
+      ],
+      "size": [
+        88,
+        68
+      ],
+      "pivot": [
+        40,
+        32
+      ],
+      "fps": 60,
+      "frames": 29,
+      "columns": 8,
+      "cells": 29,
+      "loop": false
+    },
+    "puppet-steel-rake": {
+      "paths": [
+        "res://assets/battle-fx/puppet-steel-rake.png"
+      ],
+      "size": [
+        88,
+        68
+      ],
+      "pivot": [
+        34,
+        32
+      ],
+      "fps": 60,
+      "frames": 25,
+      "columns": 8,
+      "cells": 25,
+      "loop": false
+    },
+    "puppet-anchor-impact": {
+      "paths": [
+        "res://assets/battle-fx/puppet-anchor-impact.png"
+      ],
+      "size": [
+        98,
+        53
+      ],
+      "pivot": [
+        44,
+        48
+      ],
+      "fps": 60,
+      "frames": 38,
+      "columns": 8,
+      "cells": 38,
+      "loop": false
+    },
+    "puppet-fire-core-crest": {
+      "paths": [
+        "res://assets/battle-fx/puppet-fire-core-crest.png"
+      ],
+      "size": [
+        94,
+        76
+      ],
+      "pivot": [
+        28,
+        43
+      ],
+      "fps": 60,
+      "frames": 37,
+      "columns": 8,
+      "cells": 37,
+      "loop": false
+    }
+  },
+  "plans": {
+    "cyclops:attack": {
+      "contact": 0,
+      "end": 0.48333333333333334,
+      "left": true,
+      "replace_sprites": [
+        "trio-violet-hit"
+      ],
+      "layers": [
+        {
+          "effect": "puppet-pulse-refraction",
+          "start": 0,
+          "end": 0.48333333333333334,
+          "at": [
+            1,
+            114
+          ],
+          "hit": true
+        }
+      ]
+    },
+    "owl:attack": {
+      "contact": 0,
+      "end": 0.4166666666666667,
+      "left": true,
+      "replace_sprites": [
+        "trio-talon-slash"
+      ],
+      "layers": [
+        {
+          "effect": "puppet-steel-rake",
+          "start": 0,
+          "end": 0.4166666666666667,
+          "at": [
+            0.982,
+            108
+          ],
+          "hit": true
+        }
+      ]
+    },
+    "prometheus:attack": {
+      "contact": 0,
+      "end": 0.6333333333333333,
+      "left": true,
+      "replace_sprites": [
+        "trio-physical-wave"
+      ],
+      "layers": [
+        {
+          "effect": "puppet-anchor-impact",
+          "start": 0,
+          "end": 0.6333333333333333,
+          "at": [
+            0.99,
+            126
+          ],
+          "hit": true
+        }
+      ]
+    },
+    "prometheus:ranged": {
+      "contact": 0,
+      "end": 0.6333333333333333,
+      "left": true,
+      "replace_sprites": [],
+      "layers": [
+        {
+          "effect": "puppet-anchor-impact",
+          "start": 0,
+          "end": 0.6333333333333333,
+          "at": [
+            0.99,
+            126
+          ],
+          "hit": true
+        }
+      ]
+    },
+    "prometheus:fire": {
+      "contact": 0,
+      "end": 0.6166666666666667,
+      "left": true,
+      "replace_sprites": [
+        "trio-flame-crest",
+        "trio-flame-embers"
+      ],
+      "layers": [
+        {
+          "effect": "puppet-fire-core-crest",
+          "start": 0,
+          "end": 0.6166666666666667,
+          "at": [
+            0.91,
+            106
+          ],
+          "hit": true
+        }
+      ]
+    }
+  }
+}

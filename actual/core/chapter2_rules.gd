@@ -262,39 +262,10 @@ static func status(g) -> Array[String]:
 
 
 static func _mid_lines(g) -> String:
-	match g.stage_id:
-		201:return "莉莎：另一条船的弓手换到右边了。"
-		202:return "洛德：我能把右边的跳板放下。后面的人跟我走。" if _alive(g,"lord") else "引航者：右边的跳板还能放下。后面的人沿甲板跟我走。"
-		203:return "莉莎：那几只硬甲的，我来试。你们看住天上的。"
-		204:
-			if not _alive(g,"islanders"):return "米蕾：东边那条船在靠岸。我们还得守住航灯。"
-			return "米蕾：伤者都进屋了。希雅，东边那条船在靠岸。" if _alive(g,"shia") else "米蕾：伤者已经进屋，东边那条船在靠岸。我们要守住航灯。"
-		205:return "引航者：牢门开了。箱子还在主楼，别忘了把它带走。"
-		206:return "卡洛：已经能看见西岸了。后面的船跟紧。"
-		211:return "米蕾或艾琳：让前排护住跳板，先清出病人前面的路。"
-		212:
-			return "旧船员：我不敢回去见他们的家属。／卡洛：遗物不能留在这里。把路清出来，我陪你走。" if g.speaker_alive("卡洛") else "旧船员：卡洛正在接受照护？这些遗物，请替我交给他们的家属。／艾琳：先离开这里。家属也该知道你还活着。"
 	return str(g.battle_data.during)
 
 static func _end_lines(g) -> String:
-	match g.stage_id:
-		203:
-			if not _alive(g,"roan"):return "渔村长者：军港的岸线我们熟悉。我会把航路交给你们，别走外面的礁道。"
-		204:
-			if not _alive(g,"shia"):return "留守骑士：岛上的航灯由我们看守。安全的军港航路已经记下，去灯屋确认吧。"
-		205:return "艾琳：先带引航者离开牢房。我去确认箱里的航图。"
-		206:return "舵手：居民船已经抵达西岸泊位，等候海峡城准许入港。／艾琳：先稳住船队。我去海峡城，争取让伤者上岸。"
-		211:return "渔民：风灯岛东侧还有一处避风泊位。你们救了船上的人，这条路我会给你们标清。"
-		212:
-			if not _alive(g,"old_sailor"):
-				return "卡洛：没来得及带他回去。这些遗物，我会交给家属。" if g.speaker_alive("卡洛") else "艾琳：把遗物带回去。至少让家属知道他们的下落。"
 	return str(g.battle_data.after)
 
-
 static func before_lines(g) -> String:
-	var line=str(g.battle_data.before)
-	if g.stage_id==202:
-		if not g.speaker_alive("米蕾"):line=line.replace("米蕾：先打开舱门", "艾琳：先打开舱门")
-		if not g.speaker_alive("卡洛"):line=line.replace("艾琳：卡洛，你挡住舰长那边。", "艾琳：护卫守住舰长一侧，其他人去开门。")
-	if g.stage_id==212 and not g.speaker_alive("卡洛"):return "艾琳：先清出通往洞室的路，里面还有人。"
-	return line
+	return str(g.battle_data.before)

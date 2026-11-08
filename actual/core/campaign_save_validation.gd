@@ -70,8 +70,8 @@ static func _body_fields(unit: Dictionary) -> bool:
 	if unit.has("body_armour") and (int(unit.class_id)!=3 or unit.body_armour!="thick_stone"):return false
 	if unit.has("recoverable_item_id") and not _carried_item(unit.recoverable_item_id):return false
 	if unit.has("innate_attack_index"):
-		if not _integer(unit.innate_attack_index,1001,1009):return false
-		var allowed={3:[1001,1002],5:[1003,1004],21:[1005,1006],25:[1007,1008],26:[1009]}
+		if not _integer(unit.innate_attack_index,1001,1013):return false
+		var allowed={3:[1001,1002],5:[1003,1004],21:[1005,1006],25:[1007,1008],26:[1009],27:[1010],28:[1011],29:[1012,1013]}
 		if not int(unit.innate_attack_index) in allowed.get(int(unit.class_id),[]):return false
 	if unit.has("innate_counter") and not unit.innate_counter is bool:return false
 	if unit.has("campaign_final_boss") and not unit.campaign_final_boss is bool:return false
@@ -435,7 +435,7 @@ static func campaign_valid(game, state: Dictionary, fields: Array) -> bool:
 
 static func campaign_stage(game, id: int, revision: String="") -> Dictionary:
 	var stage: Dictionary=game.stages[id]
-	if revision not in ["0.2.0","0.2.1","0.3.0","0.3.1","0.3.4","0.3.5","0.3.6","0.4.0","0.5.0"] or revision==str(stage.get("tactical_review_version","0.2.0")):return stage
+	if revision not in ["0.10.8-ch4","0.2.0","0.2.1","0.3.0","0.3.1","0.3.4","0.3.5","0.3.6","0.4.0","0.5.0"] or revision==str(stage.get("tactical_review_version","0.2.0")):return stage
 	var path="res://data/compat/"+revision+"/"+str(stage.code)+".json"
 	if not FileAccess.file_exists(path) and revision=="0.2.0":path="res://data/compat/0.2.1/"+str(stage.code)+".json"
 	if not FileAccess.file_exists(path):return stage
@@ -571,7 +571,7 @@ static func _campaign_unit(game, unit: Variant, tactical: bool) -> bool:
 	for key in ["exp","magic_level","magic_flags","raw_magic_flags","character_id","name_id","resistance","ai_flags","raw_ai_flags","record_index","exp_value"]:
 		if unit.has(key) and not _integer(unit[key],0,65535):return false
 	if unit.has("treatment_count") and not _integer(unit.treatment_count,0,1):return false
-	for key in ["dead","dying","ever_dying","acted","neutral","controllable","temporary","locked","hidden","event_object","no_counter","no_experience","no_drop","surrendered","battle_guard","guard_alerted","promoted"]:
+	for key in ["dead","dying","ever_dying","acted","neutral","controllable","temporary","locked","hidden","event_object","no_counter","no_experience","no_drop","surrendered","battle_guard","guard_alerted","promoted","viser_guard"]:
 		if unit.has(key) and not unit[key] is bool:return false
 	if unit.has("route") and unit.route not in ["alm","celica"]:return false
 	if unit.has("growths"):
@@ -656,8 +656,11 @@ static func _campaign_flags(game, flags: Dictionary, stage: Dictionary) -> bool:
 		if not flags.east_recruit_ready is Dictionary:return false
 		for id in flags.east_recruit_ready:
 			if id not in ["lord","roan","shia"] or not flags.east_recruit_ready[id] is bool:return false
+	if flags.has("prometheus_outcome") and flags.prometheus_outcome not in ["destroyed","maintenance"]:return false
 	if flags.has("quest"):
 		var q=flags.quest
+		for field in ["viser_captured","maintenance_pending"]:
+			if q.has(field) and not q[field] is bool:return false
 		if not q is Dictionary:return false
 		if q.is_empty():return true
 		for key in ["objects","evacuated","freed","burn_streak","reinforced","mid_done"]:

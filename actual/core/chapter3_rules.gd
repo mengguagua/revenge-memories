@@ -67,10 +67,7 @@ static func initialize(g) -> void:
 	g.flags.quest.transport_index=0;g.flags.quest.transport_stopped=false;g.flags.quest.german_decision=""
 
 static func before_lines(g) -> String:
-	var text = str(g.battle_data.before)
-	if g.stage_id==303:text+="／工匠：工房里还收着被押走的旧军械。先守住码头、取回记录，战后我们会一件件认领。"
-	if g.stage_id==306:text+="／术士：工房里封存着看守者征用的旧魔剑。先救人、稳住阵台，再整理兵器。"
-	return text
+	return str(g.battle_data.before)
 
 static func lines(g,text: String,key: String="") -> void:
 	var pages=[]
@@ -196,8 +193,7 @@ static func on_victory(g) -> void:
 		311:g.flags.S31_families={"family0":alive(g,"family0"),"family1":alive(g,"family1")}
 		312:
 			g.flags.chapter3_recruits.noya=alive(g,"noya");g.flags.noya_brother_survived=alive(g,"noya_brother")
-	var endings={301:"居民：西门外有医者接应。码头的人还没到，我们在旧街等他们。",302:"工匠：工具和修塔的人都留下了。先到转运站清点，再去沿海石堡。",303:"工匠：投送记录找到了。把它带到工房，与另一岸的调节记录核对。",304:"舵手：活着的伤者已经上船。我们去城外旧街，与西队会合。",305:"艾琳：盐路已打开。先确认向导的路线和盐原来信。",306:"艾琳：调节记录已经复制。我们先验证，再要求胡纳普停塔。",311:"家属：请把活着的人送回去，没能回家的也请记下姓名。",312:"艾琳：先安置居民。诺娅，你要把泄露船团位置的经过说清楚。" if alive(g,"noya") else "艾琳：先安置获救居民。诺娅未能获救，她留下的路线册和泄露船团位置的经过仍须如实登记。"}
-	lines(g,endings.get(g.stage_id,"旁白：战场已平息。"),str(g.battle_data.code)+"-END")
+	lines(g,str(g.battle_data.after),str(g.battle_data.code)+"-END")
 
 static func status(g) -> Array[String]:
 	var result: Array[String]=[str(g.battle_data.goal)]

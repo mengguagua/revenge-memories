@@ -9,6 +9,7 @@ const Reviewed = preload("res://core/reviewed_animations.gd")
 const CriticalCinema=preload("res://core/critical_cinema.gd")
 const Counter = preload("res://core/counter_animation.gd")
 const MechanicalArt=preload("res://core/mechanical_art.gd")
+const ReviewFx = preload("res://core/reviewed_battle_fx.gd")
 const FIELD := Rect2(0, 0, 256, 128)
 const FPS := 60.0988
 const EFFECT_PATH := "res://data/legacy/full_animation_effects.json"
@@ -30,13 +31,22 @@ var active_tick := -1
 var active_event: Dictionary = {}
 var contact_calls := 0
 var cinema
+var review_fx: ReviewFx
+var _reaction_actor := ""
+var _reaction_frame: Dictionary = {}
+var _review_trail: Array[Dictionary] = []
 
 func _init(owner) -> void:
 	_ui_ref = weakref(owner)
 	cinema=CriticalCinema.new(owner)
+	review_fx = ReviewFx.new(owner)
 
 func reset() -> void:
 	if cinema!=null:cinema.reset()
+	review_fx.reset()
+	_review_trail.clear()
+	_reaction_actor = ""
+	_reaction_frame = {}
 	flips.clear()
 	effects.clear()
 	target_alpha.clear()
@@ -61,6 +71,11 @@ func _source_metadata() -> Dictionary:
 		_source_metadata_cache={"sprites":CampaignEffects.sprites().duplicate(false)}
 		_source_metadata_cache.sprites.merge(Innate.effect_sprites(),true)
 		_source_metadata_cache.sprites.merge(MechanicalArt.data().effects,true)
+		_source_metadata_cache.sprites.merge(MechanicalArt.trio_data().effects,true)
+		for name in ReviewFx.data().water:
+			var graphic: Dictionary = _source_metadata_cache.sprites[name].duplicate(false)
+			graphic.path = ReviewFx.data().water[name]
+			_source_metadata_cache.sprites[name] = graphic
 	return _source_metadata_cache
 
 func _source_variant(key: String) -> Dictionary:
@@ -177,6 +192,10 @@ func _source_frame(event: Dictionary, frame: Dictionary, tick: int, sounds: bool
 	pose_tint[id] = float(frame.get("tint",1.0))
 	effects = frame.get("effects", []).duplicate(false)
 	active_tick = tick
+	if review_fx.plan.get("ghosts",false) and not review_fx.contacted:
+		_review_trail.append({"time":review_fx.clock,"frame":int(frame.frame),"offset":ui.combat_offsets[id],"flip":flips[id]})
+		while _review_trail.size()>1 and float(_review_trail[1].time)<review_fx.clock-.22:
+			_review_trail.pop_front()
 	if frame.has("target_palette"):
 		var hidden = true
 		for color in frame.target_palette:
@@ -184,7 +203,10 @@ func _source_frame(event: Dictionary, frame: Dictionary, tick: int, sounds: bool
 		target_alpha[str(event.defender)] = 0.0 if hidden else 1.0
 	if sounds and not bool(ui.instant_mode):
 		for request in frame.get("sound_requests", []):
-			ui.audio.play_request(int(request))
+			# Reviewed cues are registered to this source program's phases.
+			# Legacy stop requests would cut the continuous fireball cue short.
+			if not review_fx.plays_audio() or ui.audio.full_manifest.get("music_by_request",{}).has("%02X" % int(request)):
+				ui.audio.play_request(int(request))
 	ui.queue_redraw()
 
 func show_frame(event: Dictionary, tick: int) -> bool:
@@ -201,7 +223,44 @@ func show_frame(event: Dictionary, tick: int) -> bool:
 
 func _contact(event: Dictionary) -> void:
 	contact_calls += 1
+	if not cinema.active and not ui.instant_mode:
+		review_fx.contact()
+		_review_contact(event)
 	await ui._contact(event)
+
+func _review_contact(event: Dictionary) -> void:
+	if not event.has("hp_before") or event.get("visual_only",false):
+		return
+	var actor: Dictionary = ui.game.find_unit(str(event.attacker))
+	var target: Dictionary = ui.game.find_unit(str(event.defender))
+	var target_at := origin(target,ui.combat)
+	var facing_left := origin(actor,ui.combat).x > target_at.x
+	if not event.get("hit",true):
+		review_fx.extra("dust",target_at+Vector2(0,-4),.04,false,.65)
+		return
+	var lost := int(event.hp_before)-int(event.hp_after)
+	if not str(event.get("target_part","")).is_empty():
+		lost = int(event.part_hp_before)-int(event.part_hp_after)
+		if lost > 0 and int(event.part_hp_after) == 0 and not MechanicalArt.trio(target):
+			var core := Rules.Body.Mechanical.is_titan(target)
+			review_fx.extra("legacy-core" if core else "legacy-cannon",
+				target_at+Vector2(0,-25 if core else -13),.30,false,.9)
+	elif active_variant == "mechanical_cannon" and lost > 0:
+		review_fx.extra("legacy-water",target_at+Vector2(0,-8),0.0,false,.9)
+	elif review_fx.plan.is_empty() and lost > 0:
+		review_fx.extra("hit",target_at+Vector2(0,-2),0.0,facing_left,.86)
+	if lost > 0 and event.get("critical",false) and CriticalCinema.is_hero(actor):
+		review_fx.float_damage(lost,target_at+Vector2(0,-33))
+
+func hit_reaction_duration(unit: Dictionary) -> float:
+	var graphic := sprite(unit)
+	var variant: Dictionary
+	if Rules.Body.Mechanical.is_puppet(unit):
+		variant = MechanicalArt.reaction(unit,"hit",origin(unit,ui.combat),_left(unit,ui.combat))
+	else:
+		var key := str(graphic.get("reviewed_reactions",{}).get("hit",""))
+		variant = {} if key.is_empty() else Reviewed.variant(key)
+	return 11.0/FPS if variant.is_empty() else float(variant.frames.size())/float(variant.native_fps)
 
 func reaction(unit_id: String, kind: String) -> bool:
 	var unit:Dictionary=ui.game.find_unit(unit_id)
@@ -214,26 +273,36 @@ func reaction(unit_id: String, kind: String) -> bool:
 	if mechanical and kind not in ["hit","exit","part_break","reflection"]:return false
 	var key="mechanical" if mechanical else str(graphic.get("reviewed_reactions",{}).get(kind,""))
 	if key.is_empty():return false
-	var variant:Dictionary=MechanicalArt.reaction(unit,kind) if mechanical else Reviewed.variant(key)
-	var saved_pose=int(ui.combat_poses.get(unit_id,graphic.sequences.idle[0]))
-	var saved_offset:Vector2=ui.combat_offsets.get(unit_id,Vector2.ZERO)
-	var saved_flip=bool(flips.get(unit_id,graphic.get("idle_flip",false)))
-	var saved_effects=effects.duplicate(false)
-	var saved_tick=active_tick
+	var variant:Dictionary=MechanicalArt.reaction(unit,kind,origin(unit,ui.combat),_left(unit,ui.combat)) if mechanical else Reviewed.variant(key)
 	if not bool(ui.instant_mode):
+		_reaction_actor = unit_id
 		var deadline=float(Time.get_ticks_usec())
 		for row in variant.frames:
-			_source_frame({"attacker":unit_id},row,saved_tick,false)
+			_reaction_frame = row
+			ui.queue_redraw()
 			deadline+=1000000.0/(float(variant.native_fps)*float(ui.effective_animation_speed()))
 			while float(Time.get_ticks_usec())<deadline:await ui.get_tree().process_frame
-	ui.combat_poses[unit_id]=saved_pose
-	ui.combat_offsets[unit_id]=saved_offset
-	flips[unit_id]=saved_flip
-	pose_alpha.erase(unit_id);pose_tint.erase(unit_id)
-	effects=saved_effects;active_tick=saved_tick
+		_reaction_actor = ""
+		_reaction_frame = {}
+	if kind.begins_with("part_break") or kind=="revive":
+		ui.combat_poses[unit_id]=int(sprite(unit).sequences.idle[0])
 	if kind=="exit":ui.combat_fades[unit_id]=0.0
 	ui.queue_redraw()
 	return true
+
+func _source_contact(event: Dictionary, pending: Array[bool]) -> void:
+	await _contact(event)
+	pending[0] = false
+
+func _finish_source_pose(id: String, graphic: Dictionary) -> void:
+	ui.combat_offsets[id] = Vector2.ZERO
+	ui.combat_poses[id] = int(graphic.get("sequences", {"idle": [0]}).idle[0])
+	flips.erase(id)
+	pose_alpha.erase(id)
+	pose_tint.erase(id)
+	effects.clear()
+	target_alpha.clear()
+	ui.queue_redraw()
 
 func _body_frame(event: Dictionary, frame: Dictionary) -> void:
 	var actor = ui.game.find_unit(str(event.attacker))
@@ -254,9 +323,16 @@ func play(event: Dictionary) -> void:
 	var graphic = sprite(actor)
 	var chosen = selection(event)
 	var id = str(event.attacker)
+	var recipe := ReviewFx.puppet_plan(str(chosen.puppet_fx),chosen.variant) if chosen.has("puppet_fx") else ReviewFx.battle_plan(str(chosen.get("key","")),event)
+	review_fx.reset()
+	_review_trail.clear()
+	if not recipe.is_empty():
+		var target: Dictionary = ui.game.find_unit(str(event.defender))
+		review_fx.prepare(recipe,event,origin(actor,ui.combat),origin(target,ui.combat))
 	# Cost is a display update; the only gameplay commit remains _contact.
 	if int(event.get("hp_cost", 0)) > 0 and (not bool(event.get("visual_only", false)) or event.has("source_hp_before")):
 		ui.combat_hp[id] = maxi(0, int(event.get("source_hp_before", actor.hp)) - int(event.hp_cost))
+	var pending: Array[bool] = [false]
 	match str(chosen.kind):
 		"critical_cinema":
 			await cinema.play(event)
@@ -264,24 +340,34 @@ func play(event: Dictionary) -> void:
 			active_variant = str(chosen.key)
 			var variant: Dictionary = chosen.variant
 			var contact = int(variant.contact_tick)
+			var fps := float(variant.get("native_fps",FPS))
+			var medusa := int(event.get("weapon_index",0)) == 34
 			if bool(ui.instant_mode):
 				_source_frame(event, variant.frames[contact], contact, false)
 				await _contact(event)
 			else:
-				# A deadline clock avoids one Timer quantization error per NES
-				# tick. Contact feedback pauses this clock, as in the original.
+				# Run the source through recovery while the separate hit reaction
+				# and HP display play. A paused source would revive its contact
+				# frame or projectile after the HP display finishes.
 				var deadline=float(Time.get_ticks_usec())
+				var original_motion := bool(graphic.get("original_motion",false))
 				for tick in range(variant.frames.size()):
+					# Compress Medusa's travel and sustained gaze. Leave the
+					# opening cue, final flash, reaction and HP clock at normal speed.
+					var rate := 1.0
+					if medusa and tick/fps >= 1.12 and (contact-tick)/fps > .24:
+						rate = 2.0 if tick/fps < 2.55 else 4.4
+					review_fx.source_tick(tick,contact,rate)
 					_source_frame(event, variant.frames[tick], tick, true)
 					if tick == contact:
-						var before_contact=Time.get_ticks_usec()
-						await _contact(event)
-						deadline+=float(Time.get_ticks_usec()-before_contact)
+						if not original_motion:deadline=float(Time.get_ticks_usec())
+						pending[0] = true
+						_source_contact(event,pending)
 					var speed=float(ui.effective_animation_speed())
-					if not graphic.get("original_motion",false):
-						await ui._wait(1.0/float(variant.get("native_fps",FPS)))
+					if not original_motion and tick < contact:
+						await ui._wait(1.0/(fps*rate))
 						continue
-					deadline+=1000000.0/(float(variant.get("native_fps",FPS))*speed)
+					deadline+=1000000.0/(fps*speed*rate)
 					while float(Time.get_ticks_usec())<deadline:await ui.get_tree().process_frame
 		"melee":
 			var timeline: Dictionary = chosen.timeline
@@ -302,19 +388,18 @@ func play(event: Dictionary) -> void:
 			# Preserve the actual actor silhouette. No unrelated Fire/melee asset.
 			await ui._wait(0.25)
 			await _contact(event)
+	_finish_source_pose(id,graphic)
+	while pending[0]:await ui.get_tree().process_frame
 	if event.has("source_hp_after"):
 		ui.combat_hp[id] = int(event.source_hp_after)
 		if int(event.source_hp_after) <= 0:
 			ui.combat_fades[id] = 0.0
-	ui.combat_offsets[id] = Vector2.ZERO
-	ui.combat_poses[id] = int(graphic.get("sequences", {"idle": [0]}).idle[0])
-	flips.erase(id)
-	pose_alpha.erase(id)
-	pose_tint.erase(id)
-	effects.clear()
-	target_alpha.clear()
 	ui.combat_message = ""
 	ui.combat_hit_id = ""
+	if not ui.instant_mode and review_fx.contacted and not review_fx.plan.is_empty():
+		await ui._wait(minf(.8,review_fx.remaining()))
+	review_fx.reset()
+	_review_trail.clear()
 	if ui.audio.has_method("finish_combat_sfx"):ui.audio.finish_combat_sfx()
 	ui.queue_redraw()
 	await ui._wait(0.18)
@@ -341,44 +426,88 @@ func _draw_frame(graphic: Dictionary, frame: int, at: Vector2, flip: bool, color
 	if flip: destination.size.x = -destination.size.x
 	ui.draw_texture_rect_region(ui._tex(str(graphic.path)), destination, region.source, color)
 
+func _draw_review_trail(unit: Dictionary, graphic: Dictionary) -> void:
+	if _review_trail.is_empty() or review_fx.clock>=-.04:
+		return
+	var base := origin(unit,ui.combat)-_vec(graphic.anchor)
+	var current: Vector2 = ui.combat_offsets.get(str(unit.id),Vector2.ZERO)
+	for style in [[.20,.10],[.10,.19]]:
+		var old: Dictionary = _review_trail[0]
+		for pose in _review_trail:
+			if float(pose.time)>review_fx.clock-float(style[0]):break
+			old=pose
+		var offset: Vector2 = old.offset
+		if absf(current.x-offset.x)<5.0:continue
+		var flip := _left(unit,ui.combat) != bool(old.flip)
+		var at := base+offset
+		if flip and int(old.frame)<int(graphic.get("source_oam_frame_count",0)):
+			at+=_vec(graphic.get("oam_flip_origin_offset",[0,0]))
+		_draw_frame(graphic,int(old.frame),at,flip,Color(.63,.75,.8,float(style[1])))
+
+func _actor_offset(id: String) -> Vector2:
+	if id == _reaction_actor and not _reaction_frame.is_empty():
+		return _vec(_reaction_frame.get("offset",[0,0]))+Vector2(float(_reaction_frame.get("shake",0)),0)
+	return _vec(ui.combat_offsets.get(id,Vector2.ZERO))
+
 func draw_actors() -> void:
 	if ui.combat.is_empty(): return
+	review_fx.draw_layer(ui,"back",FIELD)
 	var a = ui.game.find_unit(str(ui.combat.attacker))
 	var b = ui.game.find_unit(str(ui.combat.defender))
 	var actors: Array = [b, a] if _left(b, ui.combat) else [a, b]
 	var drawn: Array[String] = []
+	var staged := review_fx.actor_pose()
 	for unit in actors:
 		if unit.is_empty() or str(unit.id) in drawn: continue
 		drawn.append(str(unit.id))
 		var id = str(unit.id)
+		var reacting := id == _reaction_actor and not _reaction_frame.is_empty()
+		if not reacting and id == str(active_event.get("attacker","")) and not staged.is_empty():
+			review_fx.draw_actor(ui,staged,FIELD,float(ui.combat_fades.get(id,1.0)))
+			continue
 		var graphic = sprite(unit)
 		if bool(graphic.get("missing", false)): continue
-		var frame = int(ui.combat_poses.get(id, graphic.sequences.idle[0]))
-		var flip = Innate.horizontal_flip(graphic,_left(unit,ui.combat),bool(flips.get(id,graphic.get("idle_flip",false)))) if Rules.Body.is_body(unit) else _left(unit, ui.combat) != bool(flips.get(id, graphic.get("idle_flip",false)))
-		var at = origin(unit, ui.combat) + _vec(ui.combat_offsets.get(id, Vector2.ZERO)) - _vec(graphic.anchor)
+		if not reacting and id == str(active_event.get("attacker","")):
+			_draw_review_trail(unit,graphic)
+		var frame = int(_reaction_frame.frame) if reacting else int(ui.combat_poses.get(id, graphic.sequences.idle[0]))
+		var pose_flip := bool(_reaction_frame.get("flip",false)) if reacting else bool(flips.get(id,graphic.get("idle_flip",false)))
+		var flip = Innate.horizontal_flip(graphic,_left(unit,ui.combat),pose_flip) if Rules.Body.is_body(unit) else _left(unit, ui.combat) != pose_flip
+		var at = origin(unit, ui.combat) + _actor_offset(id) - _vec(graphic.anchor)
 		if flip and frame < int(graphic.get("source_oam_frame_count", 0)):
 			at += _vec(graphic.get("oam_flip_origin_offset", [0, 0]))
-		var shade=float(pose_tint.get(id,1.0))
+		var shade := float(_reaction_frame.get("tint",1.0)) if reacting else float(pose_tint.get(id,1.0))
+		var alpha := float(_reaction_frame.get("alpha",1.0)) if reacting else float(target_alpha.get(id,1.0))*float(pose_alpha.get(id,1.0))
 		var color = Color(shade,shade,shade,1.0)
-		color.a = float(ui.combat_fades.get(id, 1.0)) * float(target_alpha.get(id, 1.0)) * float(pose_alpha.get(id,1.0))
+		color.a = float(ui.combat_fades.get(id, 1.0)) * alpha
 		if str(ui.combat_hit_id) == id and float(ui.combat_hit_time) > 0.0 and int(float(ui.elapsed) * 30.0) % 2 == 0:
 			color = Color(0.35, 0.35, 0.35, color.a)
 		_draw_frame(graphic, frame, at, flip, color)
-	if not effects.is_empty():
-		var sprites: Dictionary = _source_metadata().sprites
-		for effect in effects:
-			var graphic: Dictionary = CampaignEffects.graphic(str(effect.sprite),active_variant)
-			if graphic.is_empty():graphic=sprites.get(str(effect.sprite),{})
-			if graphic.is_empty():continue
-			var point=effect_position(effect)
-			var role=str(graphic.get("campaign_anchor_role",""))
-			if not role.is_empty() and not active_event.is_empty():
-				var owner=ui.game.find_unit(str(active_event.defender if role=="defender" else active_event.attacker))
-				if not owner.is_empty():point=origin(owner,ui.combat)+(Vector2(0,-52) if role=="attacker_charge" else Vector2.ZERO)
-			var at = point - _vec(graphic.anchor)
-			if bool(effect.flip): at += _vec(graphic.get("flip_origin_offset", [0, 0]))
-			var tint=effect.get("tint",[1,1,1,1])
-			_draw_frame(graphic, 0, at, bool(effect.flip), Color(float(tint[0]),float(tint[1]),float(tint[2]),float(tint[3])))
+	if not review_fx.replaces_native():
+		_draw_effects(effects,true)
+	_draw_effects(_reaction_frame.get("effects",[]),false)
+	review_fx.draw_layer(ui,"front",FIELD)
+
+func _draw_effects(layer: Array, strike: bool) -> void:
+	if layer.is_empty():return
+	var sprites: Dictionary = _source_metadata().sprites
+	for effect in layer:
+		if strike and review_fx.replaces_sprite(str(effect.sprite)):continue
+		var graphic: Dictionary = CampaignEffects.graphic(str(effect.sprite),active_variant)
+		if graphic.is_empty():graphic=sprites.get(str(effect.sprite),{})
+		if graphic.is_empty():continue
+		if effect.has("size") and str(effect.sprite).begins_with("trio-"):
+			graphic=graphic.duplicate(true)
+			var ratio=_vec(effect.size)/_vec(graphic.frame_size);graphic.logical_frame_size=effect.size
+			graphic.anchor=[float(graphic.anchor[0])*ratio.x,float(graphic.anchor[1])*ratio.y]
+		var point=effect_position(effect)
+		var role=str(graphic.get("campaign_anchor_role",""))
+		if not role.is_empty() and not active_event.is_empty():
+			var owner=ui.game.find_unit(str(active_event.defender if role=="defender" else active_event.attacker))
+			if not owner.is_empty():point=origin(owner,ui.combat)+(Vector2(0,-52) if role=="attacker_charge" else Vector2.ZERO)
+		var at = point - _vec(graphic.anchor)
+		if bool(effect.flip): at += _vec(graphic.get("flip_origin_offset", [0, 0]))
+		var tint=effect.get("tint",[1,1,1,1])
+		_draw_frame(graphic, 0, at, bool(effect.flip), Color(float(tint[0]),float(tint[1]),float(tint[2]),float(tint[3])))
 
 func effect_position(effect: Dictionary) -> Vector2:
 	# Review-only example targets never ship. Engulf the real defender at its
@@ -386,5 +515,5 @@ func effect_position(effect: Dictionary) -> Vector2:
 	if effect.get("bind_target", false) and not active_event.is_empty():
 		var target=ui.game.find_unit(str(active_event.get("defender", "")))
 		if not target.is_empty():
-			return origin(target,ui.combat)+_vec(ui.combat_offsets.get(str(target.id),Vector2.ZERO))
+			return origin(target,ui.combat)+_actor_offset(str(target.id))
 	return _vec(effect.position)

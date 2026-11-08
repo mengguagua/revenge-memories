@@ -112,8 +112,9 @@ for unit,u in D['units'].items():
     a['timelineLabel']='下向步态 · 正面双腿交替'
     a['notes']='正面朝向屏幕下方。画面左脚先落在近处，右脚经过，再由右脚落在近处、左脚经过。镜头方向和两侧装备始终一致。'
 
-  a=make(state,'escape','撤离至边缘','maps',[(12+i%4,8) for i in range(28)],note=f'同阵营仅剩机械时移动{u["stats"]["move"]}→{u["stats"]["move"]+3}；此处只演示撤离外观，具体合法路径见下方示意地图。')
-  for i,row in enumerate(a['frames']):row['offset']=[-round(min(170,i*.8)),0];row['alpha']=0 if i>=212 else 1
+  if unit not in D['common']['escape']['excluded_units']:
+   a=make(state,'escape','撤离至边缘','maps',[(12+i%4,8) for i in range(28)],note=f'同阵营仅剩机械时移动{u["stats"]["move"]}→{u["stats"]["move"]+3}；此处只演示撤离外观，具体合法路径见下方示意地图。')
+   for i,row in enumerate(a['frames']):row['offset']=[-round(min(170,i*.8)),0];row['alpha']=0 if i>=212 else 1
   if unit=='cyclops':
    presets=[('aura','治疗 · 部分空格',[0,1,3,4,6,7],[0,1,3,6,7]),('aura-full','治疗 · 八名受伤枪兵',list(range(8)),list(range(8))),('aura-empty','治疗 · 空地无特效',[],[])] if state=='intact' else [('aura','核心破坏 · 无治疗',[0,1,3,4,6,7],[])]
    for key,label,occupied,healed in presets:

@@ -41,6 +41,7 @@ var _last_context_view := ""
 var _battle_was_active := false
 var _jingle_player: AudioStreamPlayer
 var _sfx_players: Array[AudioStreamPlayer] = []
+var _reviewed_players: Array[AudioStreamPlayer] = []
 var _music_key := ""
 var _jingle_key := ""
 var _jingle_active := false
@@ -246,6 +247,38 @@ func play_sfx(key: String) -> void:
 	player.play()
 	sfx_played.emit(key)
 
+func play_reviewed_sfx(key: String, path: String, gain: float, offset: float, speed: float) -> void:
+	_ensure_initialized()
+	if not _sfx_enabled:
+		return
+	var stream := load(path) as AudioStream
+	if stream == null:
+		playback_failed.emit(key, "Reviewed battle cue could not be loaded")
+		return
+	var voice := _reviewed_players[0]
+	for player in _reviewed_players:
+		if not player.playing:
+			voice = player
+			break
+		if player.get_playback_position() > voice.get_playback_position():
+			voice = player
+	voice.stop()
+	voice.stream = stream
+	voice.set_meta("reviewed_gain", gain)
+	voice.volume_db = linear_to_db(maxf(.000001, _volume*SFX_GAIN*gain))
+	voice.pitch_scale = clampf(speed,.05,4.0)
+	voice.play(offset)
+	sfx_played.emit(key)
+
+func sync_reviewed_sfx(speed: float) -> void:
+	for player in _reviewed_players:
+		player.pitch_scale = clampf(speed,.05,4.0)
+
+func stop_reviewed_sfx() -> void:
+	for player in _reviewed_players:
+		player.stop()
+		player.stream = null
+
 func play_map_step(unit: Dictionary) -> void:
 	_ensure_initialized()
 	# A quiet dedicated movement voice cannot replace a UI/HP/spell voice.
@@ -433,6 +466,7 @@ func _stop_music() -> void:
 
 
 func _stop_sfx() -> void:
+	stop_reviewed_sfx()
 	if _step_player!=null:
 		_step_player.stop();_step_player.stream=null
 	for player in _sfx_players:
@@ -451,6 +485,7 @@ func _stop_sfx_cue(canonical: String) -> void:
 
 func finish_combat_sfx() -> void:
 	if _critical_active:finish_critical_audio()
+	stop_reviewed_sfx()
 	# Some extracted arrow-rain timelines end before the driver's explicit stop.
 	# The verified transition wash must never survive an action or duel exit.
 	_stop_sfx_cue("rm_sfx_53")
@@ -482,6 +517,8 @@ func _ensure_initialized() -> void:
 	_jingle_player.finished.connect(_on_jingle_finished)
 	for index in range(SFX_VOICES):
 		_sfx_players.append(_make_player("CampaignSfx%d" % index))
+	for index in range(4):
+		_reviewed_players.append(_make_player("ReviewedSfx%d" % index))
 	_step_player=_make_player("CampaignMapStep")
 	_critical_sfx=_make_player("CriticalEffects")
 	_critical_music=_make_player("CriticalTheme")
@@ -590,6 +627,8 @@ func _apply_volume() -> void:
 	_jingle_player.volume_db = linear_to_db(maxf(0.000001, gain))
 	for player in _sfx_players:
 		player.volume_db = linear_to_db(maxf(0.000001, _volume * SFX_GAIN))
+	for player in _reviewed_players:
+		player.volume_db = linear_to_db(maxf(.000001, _volume*SFX_GAIN*float(player.get_meta("reviewed_gain",1.0))))
 	if _step_player!=null:_step_player.volume_db=linear_to_db(maxf(0.000001,_volume*SFX_GAIN))
 	if _critical_sfx!=null:_critical_sfx.volume_db=linear_to_db(maxf(.000001,_volume*SFX_GAIN*_critical_gain))
 	if _critical_music!=null:_critical_music.volume_db=linear_to_db(maxf(.000001,_volume*SFX_GAIN*_critical_gain*_critical_music_gain))
@@ -622,7 +661,7 @@ func begin_critical_audio(sfx: AudioStream, theme: AudioStream, gain: float=1.0)
 	_music_player.stream_paused=true;_previous_music_player.stream_paused=true
 	_critical_sfx.stream=sfx;_critical_music.stream=theme
 	_apply_volume()
-	if _sfx_enabled:_critical_sfx.play()
+	if _sfx_enabled and sfx!=null:_critical_sfx.play()
 	if _music_enabled:_critical_music.play()
 
 func sync_critical_audio(time: float, speed: float, theme_gain: float) -> void:

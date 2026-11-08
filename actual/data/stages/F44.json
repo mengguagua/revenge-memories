@@ -4804,7 +4804,7 @@
     }
   ],
   "natural_props": [],
-  "tactical_review_version": "0.10.8-ch4",
+  "tactical_review_version": "0.10.8-ch4-prometheus",
   "surroundings": "sea",
   "nature_layout": {
     "biome": "sea",
@@ -4864,70 +4864,52 @@
   "enemies": [
     {
       "id": "F44_boss",
-      "name_id": 179,
-      "character_id": 179,
-      "name_ja": "ガーゴイル",
-      "name_zh": "天翼守兽",
-      "class": "gargoyle",
-      "class_id": 3,
-      "class_name_zh": "石翼兽",
-      "level": 8,
-      "hp": 38,
-      "max_hp": 38,
+      "name_id": 0,
+      "character_id": 0,
+      "name_zh": "普罗米修斯傀儡",
+      "class": "prometheus",
+      "class_id": 29,
+      "class_name_zh": "普罗米修斯傀儡",
+      "unit_kind": "mechanical_puppet",
+      "mechanical_model": "prometheus",
+      "level": 10,
+      "hp": 64,
+      "max_hp": 64,
       "exp": 0,
-      "strength": 14,
-      "skill": 7,
-      "speed": 5,
+      "exp_value": 171,
+      "strength": 16,
+      "skill": 9,
+      "speed": 6,
       "luck": 0,
-      "defence": 8,
-      "resistance": 7,
-      "move": 7,
+      "defence": 7,
+      "resistance": 6,
+      "move": 6,
+      "mechanical_base_move": 6,
       "item_id": 0,
-      "exp_value": 153,
-      "raw_ai_flags": 0,
-      "raw_magic_flags": 0,
-      "magic_flags": 0,
-      "raw_template": [
-        179,
-        3,
-        1,
-        0,
-        64,
-        0
-      ],
-      "group_id": 0,
-      "record_index": 2,
-      "provenance": [
-        {
-          "file": "src/bank008.asm",
-          "label": "L0897D6",
-          "line": 2186
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L089B0E",
-          "line": 2542
-        },
-        {
-          "file": "src/bank015.asm",
-          "label": "L0FED40",
-          "line": 7372
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L08A31B",
-          "line": 3626
-        }
-      ],
-      "confidence": "source_count_bounded_template_constructor",
       "position": [
         24,
         7
       ],
       "side": "enemy",
       "acted": false,
-      "ai_flags": 0,
-      "behavior": "guard",
+      "hidden": false,
+      "escaped": false,
+      "mechanical_retreating": false,
+      "no_drop": true,
+      "parts": {
+        "fire": {
+          "hp": 18,
+          "max_hp": 18,
+          "defence": 5,
+          "resistance": 3
+        },
+        "life": {
+          "hp": 22,
+          "max_hp": 22,
+          "defence": 4,
+          "resistance": 4
+        }
+      },
       "objective_boss": true
     },
     {
@@ -5132,55 +5114,55 @@
       "behavior": "guard"
     },
     {
-      "id": "F44_e4",
-      "name_id": 178,
-      "character_id": 178,
-      "name_ja": "アーマー",
-      "name_zh": "石像守卫",
-      "class": "knight",
-      "class_id": 2,
-      "class_name_zh": "重装兵",
+      "id": "F44_viser",
+      "name_id": 191,
+      "character_id": 191,
+      "name_ja": "ようじゅつし",
+      "name_zh": "维瑟",
+      "class": "arcanist",
+      "class_id": 15,
+      "class_name_zh": "执令术师",
       "level": 6,
-      "hp": 30,
-      "max_hp": 30,
+      "hp": 27,
+      "max_hp": 27,
       "exp": 0,
       "strength": 11,
       "skill": 7,
       "speed": 5,
       "luck": 0,
-      "defence": 8,
-      "resistance": 1,
-      "move": 4,
+      "defence": 5,
+      "resistance": 8,
+      "move": 0,
       "item_id": 0,
-      "exp_value": 90,
+      "exp_value": 75,
       "raw_ai_flags": 0,
-      "raw_magic_flags": 0,
-      "magic_flags": 0,
+      "raw_magic_flags": 1,
+      "magic_flags": 1,
       "raw_template": [
-        178,
-        2,
+        191,
+        15,
         1,
         0,
         128,
-        0
+        17
       ],
       "group_id": 0,
-      "record_index": 2,
+      "record_index": 1,
       "provenance": [
         {
           "file": "src/bank008.asm",
-          "label": "L0894B7",
-          "line": 1940
+          "label": "L0895AA",
+          "line": 2025
         },
         {
           "file": "src/bank008.asm",
-          "label": "L089B80",
-          "line": 2599
+          "label": "L089BCE",
+          "line": 2638
         },
         {
           "file": "src/bank015.asm",
-          "label": "L0FED39",
-          "line": 7369
+          "label": "L0FED94",
+          "line": 7408
         },
         {
           "file": "src/bank008.asm",
@@ -5190,13 +5172,14 @@
       ],
       "confidence": "source_count_bounded_template_constructor",
       "position": [
-        11,
-        11
+        10,
+        12
       ],
       "side": "enemy",
       "acted": false,
       "ai_flags": 0,
-      "behavior": "guard"
+      "behavior": "guard",
+      "no_drop": true
     },
     {
       "id": "F44_e5",
@@ -5598,7 +5581,8 @@
       "side": "enemy",
       "acted": false,
       "ai_flags": 0,
-      "behavior": "guard"
+      "behavior": "guard",
+      "viser_guard": true
     },
     {
       "id": "F44_e11",
@@ -5665,7 +5649,8 @@
       "side": "enemy",
       "acted": false,
       "ai_flags": 0,
-      "behavior": "guard"
+      "behavior": "guard",
+      "viser_guard": true
     }
   ],
   "npc_units": [
@@ -6736,6 +6721,31 @@
       "sprite": "white_flag",
       "name_zh": "西调节点",
       "completed_label": "已交接西调节点"
+    },
+    {
+      "id": "maintenance_panel",
+      "kind": "control",
+      "position": [
+        8,
+        12
+      ],
+      "label": "请求普罗米修斯检修",
+      "optional": true,
+      "approaches": [
+        [
+          8,
+          13
+        ],
+        [
+          9,
+          12
+        ],
+        [
+          7,
+          12
+        ]
+      ],
+      "sprite": "control_panel"
     }
   ],
   "reinforcements": [
@@ -6894,10 +6904,10 @@
       11
     ]
   ],
-  "goal": "交接三处调节点，保护工匠至下一回合并击败守兽。",
-  "before": "艾琳：三个调节点都要有人守住，别只往中央走。／希雅：我可以去最远的那一个。",
+  "goal": "制服维瑟，接管三处调节点并保护工匠完成试验；最终击毁或请求自愿检修，并击退其余守军。",
+  "before": "工匠：病房和水泵接到备用线上了，能撑住眼前这阵。底层还要修，不能一直这么用。／普罗米修斯：我撑着。把人抬走。／维瑟：回来守装置！／祭所病人：是我。你救我那回，我还躺着。现在已经能走了。／普罗米修斯：外面还在塌。回病房。／祭所病人：我女儿在海灯岛等我。我想过去。／艾琳：有船和医者接应。先让他走。／普罗米修斯：上次我松了手。梁下的人没能出来。／维瑟：普罗米修斯，守住这里。把他们赶开！／艾琳：别追上去，先护住工匠！／战场提示：维瑟被制服后，普罗米修斯仍会战斗，不会撤离。／战场提示：可正面击毁本体；也可先制服维瑟，取得检修通道钥匙，护送工匠接管三处装置并完成试验，争取它同意检修。钥匙不会直接令它停机。／战场提示：破坏火之核心或生命核心会停止对应能力，不会清除记忆。彻底击毁本体后，它的记忆无法修复。",
   "during": "M42信件到达或本关开始：明确告知投送援军有无；可在战前切西队，战中不悄改同一战快照。",
-  "after": "D42现场验证；修复不自动救治濒死成员、不全队回血、不新增攻击；最后一份救治材料另在D42确认后送至H10。",
+  "after": "技术员：这里能先维持住了。等北境日塔回信，再核对两边。／艾琳：到调节庭去。留下的人和上船的人都要有医者。／旁白：战后整理出银弓，已收入本队行囊，可在部队整备中分配。",
   "optional": false,
   "event_boats": [],
   "clear_training_exp": 20,
@@ -7076,5 +7086,7 @@
     "version": "0.10.14-environment",
     "conclusion": "沉没祭所是露天石台和木制检修桥，海水环绕，非室内大厅；战时延续冷暗光，局部试验成功后的祭所与邻近区域按实际剧情标记逐步恢复亮光。",
     "geometry_and_rules_unchanged": true
-  }
+  },
+  "dialogue_revision": "2026-11-07",
+  "mechanical_revision": "story-20261107"
 }

@@ -1,0 +1,236 @@
+{
+  "effects": {
+    "arrow": {
+      "path": "assets/fx/arrow.png",
+      "id": "preview/arrow",
+      "name": "Arrow",
+      "fps": 60,
+      "loop": true,
+      "frames": 36,
+      "frameSize": [
+        72,
+        24
+      ],
+      "pivot": [
+        60,
+        12
+      ],
+      "columns": 4,
+      "options": {
+        "palette": [
+          "#52656c",
+          "#809398",
+          "#c2d1c8",
+          "#e0e6da"
+        ],
+        "wood": [
+          "#352f29",
+          "#65523c",
+          "#967f59",
+          "#c2ae83"
+        ],
+        "steel": [
+          "#32404a",
+          "#667b81",
+          "#a3b2b5",
+          "#d5dfda"
+        ],
+        "wind": "#7899a5",
+        "light": 0.15
+      }
+    },
+    "slash": {
+      "path": "assets/fx/slash.png",
+      "id": "preview/slash",
+      "name": "Sword slash",
+      "fps": 60,
+      "loop": false,
+      "frames": 46,
+      "frameSize": [
+        96,
+        84
+      ],
+      "pivot": [
+        40,
+        70
+      ],
+      "columns": 7,
+      "act": {
+        "windup": 0.55,
+        "recovery": 0.10999999999999999,
+        "onBody": false,
+        "targets": [
+          58
+        ],
+        "hits": [
+          {
+            "t": 0.06,
+            "freeze": 0.14,
+            "shake": 0.18,
+            "amp": 2,
+            "push": 2.8
+          }
+        ],
+        "poses": [
+          {
+            "t": -0.55,
+            "how": "smooth",
+            "pose": {
+              "crouch": 3,
+              "fx": 12,
+              "fy": -21,
+              "bx": 9,
+              "by": -21,
+              "ffx": 7,
+              "fbx": -7,
+              "weapon": "sword",
+              "sa": -0.85,
+              "x": -8
+            }
+          },
+          {
+            "t": -0.3,
+            "how": "smooth",
+            "pose": {
+              "crouch": 4,
+              "fx": -7,
+              "fy": -35,
+              "bx": 9,
+              "by": -25,
+              "ffx": 9,
+              "fbx": -8,
+              "weapon": "sword",
+              "sa": -2.65,
+              "x": -8,
+              "lean": -4,
+              "armsFront": true
+            }
+          },
+          {
+            "t": -0.08,
+            "how": "smooth",
+            "pose": {
+              "crouch": 5,
+              "fx": -7,
+              "fy": -35,
+              "bx": 9,
+              "by": -25,
+              "ffx": 9,
+              "fbx": -8,
+              "weapon": "sword",
+              "sa": -2.65,
+              "x": -8,
+              "lean": -5,
+              "armsFront": true
+            }
+          },
+          {
+            "t": 0,
+            "how": "snap",
+            "pose": {
+              "crouch": 2,
+              "fx": 16,
+              "fy": -37,
+              "bx": -7,
+              "by": -24,
+              "ffx": 11,
+              "fbx": -10,
+              "weapon": "sword",
+              "sa": -1.45,
+              "x": 0,
+              "lean": 3,
+              "ghost": 1
+            }
+          },
+          {
+            "t": 0.06,
+            "how": "snap",
+            "pose": {
+              "crouch": 5,
+              "fx": 20,
+              "fy": -21,
+              "bx": -9,
+              "by": -24,
+              "ffx": 13,
+              "fbx": -10,
+              "weapon": "sword",
+              "sa": 0.62,
+              "x": 2,
+              "lean": 5,
+              "toeB": true
+            }
+          },
+          {
+            "t": 0.3,
+            "how": "smooth",
+            "pose": {
+              "crouch": 6,
+              "fx": 20,
+              "fy": -21,
+              "bx": -9,
+              "by": -24,
+              "ffx": 13,
+              "fbx": -10,
+              "weapon": "sword",
+              "sa": 0.62,
+              "x": 3,
+              "lean": 5,
+              "toeB": true
+            }
+          },
+          {
+            "t": 0.58,
+            "how": "smooth",
+            "pose": {
+              "crouch": 3,
+              "fx": 15,
+              "fy": -21,
+              "bx": -5,
+              "by": -21,
+              "ffx": 9,
+              "fbx": -7,
+              "weapon": "sword",
+              "sa": 0.1,
+              "x": 1
+            }
+          },
+          {
+            "t": 0.86,
+            "how": "smooth",
+            "pose": {
+              "crouch": 3,
+              "fx": 12,
+              "fy": -21,
+              "bx": 9,
+              "by": -21,
+              "ffx": 7,
+              "fbx": -7,
+              "weapon": "sword",
+              "sa": -0.85,
+              "x": -8
+            }
+          }
+        ]
+      },
+      "options": {
+        "palette": [
+          "#243840",
+          "#405663",
+          "#63818d",
+          "#91b2b9",
+          "#bdd0ce",
+          "#dce7df",
+          "#f1f0e2"
+        ],
+        "sparks": [
+          "#e3dbb8",
+          "#c7b998",
+          "#8b8f8d",
+          "#526a74"
+        ],
+        "radius": 22,
+        "light": 0.28
+      }
+    }
+  }
+}

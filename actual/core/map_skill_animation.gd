@@ -1,6 +1,7 @@
 extends RefCounted
 ## Short map-only presentation of an already committed MAP receipt.
 const Healing=preload("res://core/healing_map_animation.gd")
+const ReviewFx=preload("res://core/reviewed_battle_fx.gd")
 const DATA="res://data/map_skills_20261029.json"
 static var _data:Dictionary={}
 var _owner:WeakRef
@@ -43,23 +44,26 @@ func hit_time(hit:Dictionary)->float:
 	var p=Vector2i(hit.position[0],hit.position[1]);var d=Vector2i(receipt.facing[0],receipt.facing[1])
 	var delta=p-origin;var depth=delta.x*d.x+delta.y*d.y
 	return float(spec.impact)+float(depth)*(.025 if receipt.bow else .045)
-func _cue(key:String)->void:
+func _cue(key:String, reviewed := false)->void:
 	if _sounds.has(key):return
 	_sounds[key]=true;audit.sounds.append({"key":key,"time":elapsed})
 	var ui=_ui()
-	if ui!=null and not ui.instant_mode:ui.audio.play_sfx(key)
+	if ui!=null and not ui.instant_mode:
+		if reviewed:ReviewFx.play_sound(ui,key)
+		else:ui.audio.play_sfx(key)
 func _step(t:float)->void:
 	elapsed=minf(t,float(spec.duration));audit.time=elapsed;audit.pose=pose()
 	if receipt.get("support",false):
-		if elapsed>=float(spec.release):_cue(str(spec.sfx))
+		if elapsed>=float(spec.release):_cue("heal-charge",true)
+		if elapsed>=float(spec.impact):_cue("heal-resolve",true)
 		for hit in receipt.targets:
 			if elapsed>=float(spec.impact) and not _contacts.has(str(hit.id)):
 				_contacts[str(hit.id)]=true;audit.contacts.append(str(hit.id))
 		return
 	if receipt.bow and elapsed>=.10:_cue("map_bow_draw")
 	if receipt.magic:
-		if elapsed>=float(spec.release):_cue("rm_sfx_16")
-		if elapsed>=float(spec.impact):_cue(str(spec.sfx))
+		if elapsed>=float(spec.release):_cue("fieldfire-charge",true)
+		if elapsed>=float(spec.impact):_cue("fieldfire-resolve",true)
 	elif elapsed>=float(spec.release):_cue(str(spec.sfx))
 	for hit in receipt.targets:
 		if elapsed>=hit_time(hit) and not _contacts.has(str(hit.id)):
@@ -141,7 +145,6 @@ func draw()->void:
 				ui.draw_set_transform(ui._canvas_offset()+ui.map_offset+p,(to-from).angle()+PI)
 				ui.draw_texture_rect(ui._tex("res://assets/map-skills-20261029/arrow.png"),Rect2(-7,-2,14,4),false)
 				_base_transform()
-			if elapsed>=impact and elapsed<impact+.18:_fx(4,_point(hit.position)+Vector2(0,-5),21,1.-(elapsed-impact)/.18)
 	elif not receipt.magic and elapsed>=float(spec.release):
 		var u=clampf((elapsed-float(spec.release))/.38,0,1)
 		var end=hero+facing*float(receipt.depth)*16
@@ -167,6 +170,9 @@ func draw()->void:
 	_hp(hero,hero_hp,int(receipt.actor_unit.max_hp),Color(.60,.82,.73))
 	for hit in receipt.targets:
 		var dt=elapsed-hit_time(hit)
+		if int(hit.damage)>0:
+			ReviewFx.draw_effect(ui,"r2-map-hero-bow" if receipt.bow else "map-hit",
+				dt,_point(hit.position)+Vector2(0,-2),facing.x<0,.9,ui._visible_native_rect())
 		if dt>=0 and dt<.44:
 			var at=_point(hit.position)+Vector2(-3,-18-minf(5.,dt*14.))
 			var label=str(int(hit.damage));var bounds=ui._visible_native_rect();var w=ui._small_text_width(label)

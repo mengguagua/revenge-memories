@@ -1,4 +1,5 @@
 extends RefCounted
+const L=preload("res://core/late_dialogue.gd")
 ## Small explorable story rooms. Facing interaction and visual objects share cells.
 const FifthHub = preload("res://core/chapter5_hub.gd")
 const FourthHub = preload("res://core/chapter4_hub.gd")
@@ -239,6 +240,8 @@ func action(key: String) -> void:
 		else:ui._notice(str(result.reason),6)
 		return
 	if g.party.has(key) and g.is_dying(g.roster.get(key,{})):
+		if g.chapter>=2:
+			await L.say(self,["医者："+str(g.roster[key].name_zh)+"还在养伤，我们会照看。","界面提示：这位同伴暂不能出阵，可在部队状态查看伤情。"]);return
 		await ui.play_pages([{"speaker":"医者","text":str(g.roster[key].name_zh)+"仍在队伍中，由我们照护，暂时不能出阵。可在部队状态查看伤情。"}],"hub");return
 	if g.chapter==5:
 		await FifthHub.action(self,key);g.save_game();return
@@ -385,6 +388,14 @@ func _companion_invitable(id: String) -> bool:
 	return (room=="H08" and g.stage_cleared(111)) if id=="beck" else (room=="H09" and g.can_invite_hervi()) if id=="hervi" else false
 
 func finish_story(callback: String) -> void:
+	if callback=="prometheus_maintenance":
+		preload("res://core/prometheus_story.gd").accept(ui.game);return
+	if callback.begins_with("late_invite:"):
+		var id=callback.trim_prefix("late_invite:")
+		var prefix="fourth_recruit_" if id=="celine" else "third_recruit_"
+		ui._open_menu("recruit",["邀请同行","留在安置处"],["hub:"+prefix+id,"close"],Vector2(36,88));return
+	if callback.begins_with("late:"):
+		L.finish(self,callback);return
 	# The callback is saved with the dialogue, so resuming its final page still
 	# records the first conversation and restores the invitation choice.
 	if callback.begins_with("companion_invite:"):
@@ -684,60 +695,56 @@ func _east_action(key: String) -> void:
 	var g=ui.game
 	match key:
 		"east_departure":
-			if g.flags.get("east_departure_ready",false):
-				await _east_pages(["卡洛：船已整备好了。从南面的跳板下去，我们去找押送舰。"] if _east_alive("carlo") else ["船长：航线已经记下。船团会沿着灯线继续走。"]);return
-			await ui.play_pages(g.campaign.scenes.D21,"hub","east_departure")
-		"east_mireille":await _east_pages(["米蕾：岸边还有失散的人。我们走了以后，学舍的医者会留下来。", "艾琳：药和干净的布留给他们。我们的船也要留出伤者的位置。"])
-		"east_lisa":await _east_pages(["莉莎：残图只画到神幕外沿。完整那一张，你母亲没有留在学舍。", "艾琳：先找那艘押送舰。也许还有认得她的船员。"])
-		"east_chart_start":await _east_pages(["旁白：残图边缘写着薇娅的名字。两年前，她带着伤者出航，再也没有回来。", "艾琳：母亲教我读的灯线，现在还在海上。"])
+			if g.flags.get("east_departure_ready",false):await L.say(self,L.lines("H21","D21",1 if _east_alive("carlo") else 2));return
+			await L.say(self,L.lines("H21","D21"),"east_departure")
+
+		"east_mireille":
+			await L.say(self,L.lines("H21","米蕾"))
+
+		"east_lisa":
+			await L.say(self,L.lines("H21","莉莎"))
+
+		"east_chart_start":
+			await L.say(self,L.lines("H21","薇娅"))
+
 		"sea_route":
-			g.flags.F21_confirmed=true
-			await _east_pages(["船长：押送舰必须经过前面的灯线。船体已经修补好，跳板也收妥了。", "艾琳：记下它的航向。先让伤者坐稳，再动身。"])
+			await L.say(self,L.lines("H22","确认"),"late:F21_confirmed")
+
 		"invite_s21":
-			g.flags.S21_invited=true
-			var who="米蕾" if _east_alive("mireille") else "艾琳"
-			await _east_pages(["船员：西南方有条漂泊渔船。码头不准它靠岸，上面还有病人。",who+"：不能就这样走。让他们先到安全的停泊点。", "船长：这条支路可以现在去，也能之后返回。西渡古道前，请决定是否前往。"])
+			await L.say(self,L.lines("H22","漂泊渔船求救",0 if _east_alive("mireille") else 1),"late:S21_invited")
+
 		"s21_report":
-			if g.stage_cleared(211):await _east_pages(["地方医者：获救的人已经交给岸上的医者。备用停泊点和补给都登记好了，不必再冒险回去。"])
-			else:await _east_pages(["地方医者：我留在这里照顾伤者。治疗要消耗施法者的生命，请让前排护住病人，不必让一个人承担全部救援。"])
+			await L.say(self,L.lines("H22","漂泊渔船救援",0 if g.stage_cleared(211) else 1))
+
 		"prisoners_treat":
-			var lines=[]
-			lines.append("米蕾：放下武器的敌人也在流血。先把他们和船员一起抬进来。" if _east_alive("mireille") else "地方医者：囚舱的人已经接回来了。放下武器的敌人也需要包扎。")
-			if _east_alive("lisa"):lines.append("莉莎：再耽搁下去，裴萨会把箱子送得更远。")
-			lines.append("艾琳：先治伤。让船长记下去军港的路，我们不把伤者留在这艘船上。")
-			g.flags.F22_confirmed=true
-			await _east_pages(lines)
-		"captives_route":await _east_pages(["引航者：裴萨留下了那只箱子，要送到潮狩军港。箱上的七羽日冠和港口的封条一样。", "艾琳：先到安全岸边。你愿意的时候，再把母亲那趟航行告诉我。"])
+			var rows=L.lines("H23","照护",0 if _east_alive("mireille") else 1)
+			rows+=L.lines("H23","薇娅")+L.lines("H23","舰上的")
+			await L.say(self,rows,"late:F22_confirmed")
+
+		"captives_route":
+			await L.say(self,L.lines("H23","引航者"))
+
 		"lord","roan","shia":
 			if g.party.has(key):
 				var lines={"lord":"洛德：船上的铰链还用得上。我会帮他们修好渡船。","roan":"罗恩：我认得军港外的岸线。村里的渔船得留一部分，不能全被我们带走。","shia":"希雅：留下的骑士够守航灯了。我与你同行，岛上也会继续有船。"}
-				await _east_pages([lines[key]]);return
+				await L.say(self,L.lines({"lord":"H23","roan":"H24","shia":"H25"}[key],{"lord":"洛德的","roan":"罗恩的","shia":"希雅的"}[key],1).filter(func(row):return not str(row).begins_with("界面提示：")));return
 			if not g.flags.get("east_recruit_ready",{}).get(key,false) or bool(g.roster.get(key,{}).get("dead",false)):ui._notice("这位同伴未能获救");return
 			if key=="lord" and not g.flags.get("F22_confirmed",false):ui._notice("先在安置处照顾获救伤者");return
 			if key=="shia" and not g.flags.get("islanders_settled",false):ui._notice("先安置岛民，让留守骑士接手");return
 			ui._open_menu("recruit",["邀请同行","暂不邀请"],["hub:east_recruit_"+key,"close"],Vector2(48,88))
 		"reef_route":
-			g.flags.F23_confirmed=true
-			await _east_pages(["渔村长者：军港拿走了货船。经过海灯岛，就能看见军港外的岸线。", "渔村长者：黑昼已经持续太久，连岸上的魔物也不肯退。先让岛民留在营地。"])
+			await L.say(self,L.join_groups("H24","渔村岸线",[0,1,2]),"late:F23_confirmed")
+
 		"invite_s22":
-			g.flags.S22_invited=true
-			if g.stage_cleared(212):
-				await _east_pages(["渔村长者：海洞的遗物已经登记。送给家属的事情，我们会记住。"]);return
-			var lines=["船员：东边碎石海洞里有人躲着。他带着失踪船员的遗物，一直不敢回来。"]
-			lines.append("卡洛：他认得这块船牌。我去见他。" if _east_alive("carlo") else "艾琳：我会去看看。遗物该交回家属手里。")
-			lines.append("船员：海洞可以之后再去。西渡古道后，船团就不能折返这里了。")
-			await _east_pages(lines)
+			await L.say(self,L.lines("H24","海洞遗物",0 if g.stage_cleared(212) else (1 if _east_alive("carlo") else 2)),"late:S22_invited")
+
 		"holy_sword":_east_claim_item("F23_holy_sword_taken",16,"圣剑")
 		"holy_bow":_east_claim_item("F25_holy_bow_taken",21,"圣弓")
 		"islanders_settle":
-			var first=not g.flags.get("islanders_settled",false)
-			g.flags.islanders_settled=true
-			var report="留守骑士：伤者已经进屋，航灯和岛上的船都有人照看。军港的航线也已经确认。" if g.flags.get("islanders_survived",true) else "留守骑士：我们还在清点失踪者，会继续搜救。其他撤离的岛民已有安置处，航灯和留下的船由我们照看。"
-			var lines=[report, "艾琳：留足撤离用的船。我们只带已经准备好的这一队。"]
-			if first:
-				lines.append("地方医者：灯屋还留有一份救治泉液，可以救治一名濒死同伴；每人只能接受一次，未用时会保留。")
-				lines.append("地方医者：由我来主持救治。泉液只能修复活人的伤损，已经遇难的人无法救回。")
-			await _east_pages(lines)
+			if g.flags.get("islanders_settled",false):await L.say(self,L.lines("H25","安置",1));return
+			var rows=L.lines("H25","安置",0 if g.flags.get("islanders_survived",true) else 2)+L.lines("H25","灯屋")
+			await L.say(self,rows,"late:islanders_settled")
+
 		"east_training":
 			if not g.flags.get("islanders_settled",false):ui._notice("先让留守骑士安置岛民");return
 			ui._open_menu("east_training",["职业进阶","法术与训练","离开"],["hub:east_promotions","hub:east_magic_info","close"],Vector2(40,80))
@@ -749,7 +756,9 @@ func _east_action(key: String) -> void:
 					labels.append(str(g.roster[id].name_zh)+"→"+str(g.catalog.classes[str(int(option.class_id))].name_zh));actions.append("hub:promote_"+str(id)+"_"+str(int(option.class_id)))
 			if labels.is_empty():ui._notice("尚无成员达到转职等级");return
 			ui._open_menu("promotion",labels,actions,Vector2(24,72))
-		"east_magic_info":await _east_pages(["学舍导师：个人法术随着训练学会。职业进阶保留已学法术和训练计数，不是从头学习。", "学舍导师：施法会消耗生命。请在部队整备查看法术与装备，先给施法者留出安全的位置。"])
+		"east_magic_info":
+			await L.say(self,L.lines("H25","学舍"))
+
 		"resistance_spring":
 			if g.flags.get("lighthouse_spring_used",false):ui._notice("抗性泉已经用尽，不会再次补充");return
 			var labels=[];var actions=[]
@@ -758,37 +767,42 @@ func _east_action(key: String) -> void:
 			ui._open_menu("east_spring",labels,actions,Vector2(40,72))
 		"r05":await _east_relation()
 		"chart_recover":
-			if g.flags.get("sea_chart_collected",false):await _east_pages(["艾琳：航图和封航命令已经收好了。图上的旧石门，是通往西岸的路。"]);return
-			await ui.play_pages(g.campaign.scenes.F25_MYTH,"hub","east_chart")
+			await L.say(self,L.lines("H26","取回",1 if g.flags.get("sea_chart_collected",false) else 0),"east_chart")
+
 		"harbor_patients":
-			g.flags.harbor_patients_treated=true
-			await _east_pages([("米蕾" if _east_alive("mireille") else "地方医者")+"：撤离者都上船了。还有几个伤口要包扎，我们会在船上继续照顾。", "艾琳：母亲的航图拿回来了。剩下的路，我会把他们一起带出去。"])
+			await L.say(self,L.lines("H26","军港撤离",0 if _east_alive("mireille") else 1),"late:harbor_patients_treated")
+
 		"ancient_departure":
 			if not g.flags.get("sea_chart_collected",false):ui._notice("先面对神教箱，取回母亲航图");return
 			if not g.flags.get("harbor_patients_treated",false):ui._notice("先在安置处确认撤离者已经上船");return
-			if g.flags.get("east_departure_confirmed",false):await _east_pages(["船长：船团已准备沿古道西渡。你可以从南侧跳板返回地图。"]);return
+			if g.flags.get("east_departure_confirmed",false):await L.say(self,L.lines("H26","古道西渡").slice(0,1));return
 			var pending=[]
 			if not g.stage_cleared(211):pending.append("漂泊渔船")
 			if not g.stage_cleared(212):pending.append("碎石海洞")
 			if not pending.is_empty():
-				await _east_pages(["船长：西渡后，我们暂时不能折返。尚未完成："+"、".join(pending)+"。可以先回去，准备好再来找我。"])
+				ui._notice("西渡后不能折返。未完成支线："+"、".join(pending),6)
 			ui._open_menu("east_closure",["继续整备","确认西渡"],["close","hub:east_sail_confirm"],Vector2(44,112))
 		"east_sail_confirm":
-			g.flags.east_departure_confirmed=true
-			await _east_pages(["艾琳：航图、伤者和船都确认了。我们去西岸。", "船长：沿旧石门进入古道。海面的船由我们护航，你们走遗迹上的铺板。"])
+			await L.say(self,L.join_groups("H26","确认西渡",[0,1]),"late:east_departure_confirmed")
+
 		"east_finale":
 			if g.flags.get("chapter2_complete",false):g.mode="chapter_end";ui.view="chapter_end";return
 			if not g.stage_cleared(206):ui._notice("先护送船团通过断航古道");return
-			await ui.play_pages(g.campaign.scenes.D26_ARRIVAL,"hub","east_finale")
-		"arrival_captain":await _east_pages(["船长：至少这一队船抵达了西岸。伤者还在等靠岸的命令。", "艾琳：别把船开回去。我去广场见他们。"])
-		"arrival_altar":await _east_pages(["旁白：传光台的七羽日冠，与军港神教箱的封印一模一样。"])
+			await L.say(self,L.join_groups("H27","D26",[0,1]),"east_finale")
+
+		"arrival_captain":
+			await L.say(self,L.lines("H27","广场"))
+
+		"arrival_altar":
+			await L.say(self,L.lines("H27","认出"))
+
 		_:
 			if key.begins_with("east_recruit_"):
 				var id=key.substr(13)
 				if not g.flags.get("east_recruit_ready",{}).get(id,false) or bool(g.roster.get(id,{}).get("dead",false)):return
 				g.recruit(id)
 				var speech={"lord":"洛德：我能修船，也能挡住追兵。囚舱里的事，我会留下作证。","roan":"罗恩：军港拿走了我们的货船。我知道那里的岸线，让我带路。","shia":"希雅：留守的人够了。我与你去军港，但岛上的船不能全带走。"}
-				await _east_pages([speech[id]])
+				await L.say(self,L.lines({"lord":"H23","roan":"H24","shia":"H25"}[id],{"lord":"洛德接受","roan":"罗恩接受","shia":"希雅接受"}[id]))
 			elif key.begins_with("promote_"):
 				var parts=key.split("_");var result=g.promote_unit(parts[1],int(parts[2]));ui._notice("转职完成" if result.get("valid",false) else "未满足转职条件")
 			elif key.begins_with("east_spring_"):
@@ -808,17 +822,13 @@ func _east_claim_item(flag: String,item_id: int,label: String) -> void:
 	else:ui._notice("获得"+label+"，已放入东队行囊")
 
 func _east_relation() -> void:
-	var g=ui.game
-	if not _east_alive("carlo") or not _east_alive("shia"):
-		await _east_pages(["卡洛：报酬到这里已经结清。船团还要西渡，我会先把这一程护送做完。"] if _east_alive("carlo") else ["旁白：船团正在清点下一程的物资。"]);return
-	var promised=bool(g.flags.get("carlo_promise_completed",false))
-	if promised and not g.flags.get("R05_promise_seen",false):
-		g.flags.R05_promise_seen=true;g.flags.seen_R05=true
-		await _east_pages(["希雅：海洞的承诺已经兑现。接下来的航路，你还会留下吗？","卡洛：海洞那个人和我一样，一直不敢回家属面前。我答应陪他把遗物送回去。","卡洛：这笔预支报酬先留给岛上修船。欠下的事，不能总让后面的人收拾。","希雅：那就先把岛民的船修好。我也不会把岛上的责任全交给别人。"])
-	elif not g.flags.get("seen_R05",false):
-		g.flags.seen_R05=true
-		await _east_pages(["希雅：你收了钱，就能在下一个港口离开吗？","卡洛：以前我就是这么想的。那天有人来讨债，我提前下了薇娅的船。","希雅：我的岛民也在这些船上。我得知道护卫会不会走。","卡洛：先把这一路护送完。报酬到了，也不等于我没有别的事要做。"])
-	else:await _east_pages(["希雅：岛上的船仍有人修。我会按约定去检查。","卡洛：我也会。船团还在等我们。"])
+	var g=ui.game;var index=2;var callback=""
+	if _east_alive("carlo"):
+		if not _east_alive("shia"):index=4
+		elif g.flags.get("carlo_promise_completed",false) and not g.flags.get("R05_promise_seen",false):index=3;callback="late:R05_promise_seen,seen_R05"
+		elif not g.flags.get("seen_R05",false):index=0;callback="late:seen_R05"
+		else:index=1
+	await L.say(self,L.lines("H25","R05",index),callback)
 
 func _draw_chapel() -> void:
 	ui.draw_rect(ui._visible_native_rect(),Color("15171d"))

@@ -19,7 +19,7 @@ static func record_victory(g) -> void:
 	if results.has(str(id)):return
 	var q:Dictionary=g.flags.quest
 	var boss:Dictionary=g.find_unit(str(g.battle_data.boss_id))
-	var facts={"boss_defeated":not boss.is_empty() and int(boss.get("hp",0))<=0}
+	var facts={"boss_defeated":not boss.is_empty() and (int(boss.get("hp",0))<=0 or boss.get("surrendered",false))}
 	if id==53:
 		for i in range(2):
 			facts["ward_"+str(i+1)+"_open"]=bool(q.objects.get("ward_"+str(i+1),false))
@@ -49,10 +49,10 @@ static func delivery_pages(id:int) -> Array:
 	return [{"speaker":spec.speaker,"text":spec.handover},{"speaker":"旁白","text":str(spec.name_zh)+"已收入西队行囊，可在部队整备中分配。"}]
 
 static func talk(h,id:int) -> void:
-	var g=h.ui.game;var spec:Dictionary=Items.accessories().items[str(id)]
-	if claim(g,id):await h.ui.play_pages(delivery_pages(id),"hub","");return
-	var text="已经交付，去向已记在交接簿上。" if claimed(g,id) else ("本次需两处病房开门，两组伤兵均存活撤到南口，并击败队长。交接只依据当时的救援记录，不能事后补记。" if id==53 else "本次需在烧毁前保护名册、确认避难院，并击败焚毁队长。已烧毁的记录或未完成的确认，不能靠事后交谈补齐。")
-	await h.ui.play_pages([{"speaker":spec.speaker,"text":text}],"hub","")
+	var g=h.ui.game;var L=preload("res://core/late_dialogue.gd")
+	var area="H51" if id==53 else "H49";var heading="护途盾" if id==53 else "续愿戒"
+	var index=1 if claim(g,id) else 2 if claimed(g,id) else 0
+	await L.say(h,L.lines(area,heading,index))
 
 static func closing_reminder(g,id:int) -> String:
 	if claimed(g,id):return ""

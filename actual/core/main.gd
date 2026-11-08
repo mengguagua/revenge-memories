@@ -237,10 +237,13 @@ func _begin_existing_battle() -> void:
 func _accept() -> void:
 	if view=="battle" and game.phase=="player" and ui_mode=="target" and not busy and menu_items.is_empty() and not target_ids.is_empty():
 		var id=str(target_ids[target_index]);var enemy=game.find_unit(id)
-		if game.Mechanical.is_puppet(enemy) and game.Mechanical.part_hp(enemy)>0:
+		if game.Mechanical.is_puppet(enemy) and game.Mechanical.part_keys(enemy).any(func(key):return game.Mechanical.valid_part(enemy,key)):
 			if mechanical_target_id!=id or not mechanical_target_confirmed:
 				mechanical_target_id=id;mechanical_target_part="";mechanical_target_confirmed=false
-				_open_menu("mechanical_part",["本体 %d/%d"%[int(enemy.hp),int(enemy.max_hp)],"%s %d/%d"%[game.Mechanical.part_name(enemy),game.Mechanical.part_hp(enemy),game.Mechanical.part_max(enemy)]],["mechanical:body","mechanical:part"],Vector2(44,36));return
+				var labels=["本体 %d/%d"%[int(enemy.hp),int(enemy.max_hp)]];var actions=["mechanical:body"]
+				for key in game.Mechanical.part_keys(enemy):
+					if game.Mechanical.valid_part(enemy,key):labels.append("%s %d/%d"%[game.Mechanical.part_name(enemy,false,key),game.Mechanical.part_hp(enemy,key),game.Mechanical.part_max(enemy,key)]);actions.append("mechanical:part:"+key)
+				_open_menu("mechanical_part",labels,actions,Vector2(44,36));return
 			var part=mechanical_target_part;mechanical_target_confirmed=false
 			_play_combat(game.selected_id,id,part);return
 		mechanical_target_confirmed=false;mechanical_target_part=""
@@ -345,7 +348,7 @@ func _travel(node: int) -> void:
 
 func _menu_action(action: String,context: String) -> void:
 	if context=="mechanical_part":
-		mechanical_target_part=game.Mechanical.part_key(game.find_unit(mechanical_target_id)) if action=="mechanical:part" else ""
+		mechanical_target_part=action.trim_prefix("mechanical:part:") if action.begins_with("mechanical:part:") else (game.Mechanical.part_key(game.find_unit(mechanical_target_id)) if action=="mechanical:part" else "")
 		mechanical_target_confirmed=true;_clear_menu();ui_mode="target";queue_redraw();return
 	if action=="new:rewind":
 		var reason=game.Rewind.reason(game)
@@ -453,7 +456,7 @@ func _menu_action(action: String,context: String) -> void:
 			if game.begin_chapter_two():
 				busy=false;batch_running=false;ui_mode="inspect";held_direction=Vector2i.ZERO
 				hub_controller.enter_room("H21")
-				await play_pages([{"speaker":"旁白","text":"半年前，东群岛的风灯岛。两年前，艾琳的母亲薇娅带着伤者出航，此后失去了消息。"},{"speaker":"旁白","text":"艾琳一路追查旧船的下落。船坞的卡洛留着一块旧船牌，她要先问清船牌的来历。"}],"hub")
+				await play_pages(preload("res://core/late_dialogue.gd").pages(game,preload("res://core/late_dialogue.gd").lines("chapter2","开场")),"hub")
 		"new:battle":_enter_battle(game.stage_for_node(game.world_node))
 		"new:hub":hub_controller.enter_world()
 		"new:world":_continue_world()
@@ -861,6 +864,14 @@ func _play_casualty_messages() -> void:
 	# owns persistence; the ordinary withdrawal notice remains queued.
 	await play_pages(personal,"combat","",false)
 
+func _play_prometheus_revival() -> void:
+	var rows=[];var pending=[]
+	for event in game.story_events:
+		if event.get("key","")=="F44-REVIVE":rows.append_array(event.get("pages",[]))
+		else:pending.append(event)
+	game.story_events=pending
+	if not rows.is_empty():await play_pages(rows,"combat","",false)
+
 func _play_story_events() -> void:
 	var was_busy=busy;busy=true
 	while not game.story_events.is_empty():
@@ -868,7 +879,7 @@ func _play_story_events() -> void:
 		if game.stage_id==105 and not str(event.get("m15_scene","")).is_empty():
 			m15_scene.start(event,view)
 			while m15_scene.active:await get_tree().process_frame
-		else:await play_pages(event.get("pages",[]),view)
+		else:await play_pages(event.get("pages",[]),view,str(event.get("callback","")))
 	busy=was_busy;game.save_game()
 
 func _run_ai_unit(unit:Dictionary,gather:bool=false) -> void:
@@ -1519,7 +1530,7 @@ func _draw_preview() -> void:
 	var distance=absi(game.pos(attacker).x-game.pos(defender).x)+absi(game.pos(attacker).y-game.pos(defender).y)
 	attacker=Rules.attack_context(attacker,distance)
 	var reply=Rules.default_counter(defender,distance)
-	var part_selected=mechanical_target_confirmed and mechanical_target_id==str(defender.id) and mechanical_target_part==game.Mechanical.part_key(defender) and game.Mechanical.part_hp(defender)>0
+	var part_selected=mechanical_target_confirmed and mechanical_target_id==str(defender.id) and game.Mechanical.valid_part(defender,mechanical_target_part)
 	var placement=_attack_preview_placement();battle_preview_audit=placement
 	if not placement.valid:return
 	var rect: Rect2=placement.panel
@@ -1542,7 +1553,7 @@ func _draw_preview() -> void:
 	for i in range(2):
 		var unit=attacker.duplicate(true) if i==0 else reply.duplicate(true)
 		var other=(reply if i==0 else attacker).duplicate(true)
-		if i==0 and part_selected:other=game.Mechanical.defence_context(other,game.Mechanical.part_key(defender))
+		if i==0 and part_selected:other=game.Mechanical.defence_context(other,mechanical_target_part)
 		unit.triangle_attack=Rules.combat_support(unit,other,game.living(str(unit.side)),distance)
 		other.story_invulnerable=Rules.boss_guard(other,game.turn)
 		var stats=Rules.attack_stats(unit,other,game.terrain_avoid(game.pos(other)))
@@ -1553,7 +1564,7 @@ func _draw_preview() -> void:
 		var x=rect.position.x+12+(0 if placement.stacked else i*112);var y=rect.position.y+(i*88 if placement.stacked else 0)
 		_preview_text(str(unit.name_zh),Vector2(x,y+(10 if placement.compact else 12)))
 		var lines=["生命%d/%d"%[int(unit.hp),int(unit.max_hp)],"攻击无效" if blocked else ("伤害"+str(stats.damage)+" 命中"+str(stats.hit)+"%" if can_attack else "无法反击"),"不能造成伤害" if blocked else ("必杀"+str(stats.critical)+"%" if can_attack else "超出攻击范围")]
-		if i==1 and part_selected:lines[0]="%s%d/%d"%[game.Mechanical.part_name(defender,true),game.Mechanical.part_hp(defender),game.Mechanical.part_max(defender)]
+		if i==1 and part_selected:lines[0]="%s%d/%d"%[game.Mechanical.part_name(defender,false,mechanical_target_part),game.Mechanical.part_hp(defender,mechanical_target_part),game.Mechanical.part_max(defender,mechanical_target_part)]
 		if i==1 and can_attack and not blocked:lines[2]+=" "+Rules.weapon_name(unit)
 		if shared>0 and can_attack and not blocked:lines[2]="首击掩护分担"+str(shared)
 		if i==0 and game.Knockback.capable(game,unit):
@@ -1566,8 +1577,8 @@ func _draw_preview() -> void:
 			if _preview_text_width(line)>104:line=line.replace(" ","")
 			_preview_text(line,Vector2(x,y+(24+row*14 if placement.compact else 32+row*16)))
 			battle_preview_audit.text_rows.append({"unit":str(unit.id),"text":line})
-		_draw_preview_health(game.Mechanical.part_hp(defender) if i==1 and part_selected else int(unit.hp),game.Mechanical.part_max(defender) if i==1 and part_selected else int(unit.max_hp),Vector2(x,y+(66 if placement.compact else 82)),"ally" if unit.side=="player" else "enemy",largest_maximum)
-		if i==1 and game.Mechanical.is_puppet(defender):battle_preview_audit.mechanical_target={"part":game.Mechanical.part_key(defender) if part_selected else "body","body_hp":int(defender.hp),"part_hp":game.Mechanical.part_hp(defender)}
+		_draw_preview_health(game.Mechanical.part_hp(defender,mechanical_target_part) if i==1 and part_selected else int(unit.hp),game.Mechanical.part_max(defender,mechanical_target_part) if i==1 and part_selected else int(unit.max_hp),Vector2(x,y+(66 if placement.compact else 82)),"ally" if unit.side=="player" else "enemy",largest_maximum)
+		if i==1 and game.Mechanical.is_puppet(defender):battle_preview_audit.mechanical_target={"part":mechanical_target_part if part_selected else "body","body_hp":int(defender.hp),"part_hp":game.Mechanical.part_hp(defender,mechanical_target_part)}
 	if target_ids.size()>1:
 		if placement.stacked:
 			var sprite=_map_unit_sprite(defender);var arrow_y=-int(sprite.get("tile_origin",[4,4])[1])-9
@@ -1898,7 +1909,7 @@ func _draw_chapter_end() -> void:
 	draw_rect(Rect2(0,0,256,240),Color(.06,.1,.13));_panel(Rect2(12,20,232,196))
 	_center_text("第四章完成" if game.chapter==4 else "第三章完成" if game.chapter==3 else "第二章完成" if game.chapter==2 else "第一章完成",Rect2(24,38,208,24),Color(.94,.88,.67))
 	_center_text("故人的另一面" if game.chapter==4 else "另一种胜利" if game.chapter==3 else "没有归来的船" if game.chapter==2 else "庆典前夜",Rect2(24,74,208,20))
-	_center_text("两岸验证成功，村庄保住了日光。\n下一步，两队分别向神宫进发。" if game.chapter==4 else "两队已会合，记录得到互证。\n下一步是验证安全停用方案。" if game.chapter==3 else "船团抵达西岸。\n艾琳被带往庆典广场。" if game.chapter==2 else "科兰已败，日光重返西大陆。",Rect2(24,108,208,32))
+	_center_text("两岸保住了部分住处，\n仍有人不能回家。" if game.chapter==4 else "两队分别前往北境与盐原。" if game.chapter==3 else "船团抵达西岸。" if game.chapter==2 else "科兰已败，日光重返西大陆。",Rect2(24,108,208,32))
 	_center_text("两队成长与伤情已保存" if game.chapter>=2 else "成长与伤亡已保存",Rect2(24,158,208,20))
 	_center_text("确认打开菜单",Rect2(24,186,208,16))
 
@@ -1979,10 +1990,15 @@ func _draw_status(unit: Dictionary) -> void:
 		_center_text("濒死 · 不可出阵",Rect2(24,190,208,14))
 		_center_text("已救治过，无法再次救治" if int(unit.get("treatment_count",0))>0 else "可使用本队救治泉",Rect2(24,206,208,14));return
 	if game.Mechanical.is_puppet(unit):
-		var label=game.Mechanical.part_name(unit,true)
-		_center_text(label+"损毁 · 经验×1.5" if game.Mechanical.part_hp(unit)<=0 else "%s%d/%d · 经验×1.5"%[label,game.Mechanical.part_hp(unit),game.Mechanical.part_max(unit)],Rect2(24,182,208,12))
-		_center_text("核心有效：双防+10 · 反伤2HP" if game.Mechanical.core_active(unit) else ("核心失效 · 双防加成与反伤停用" if game.Mechanical.is_titan(unit) else "同阵营仅剩机械傀儡时撤离"),Rect2(24,196,208,12))
-		_center_text("仅剩傀儡撤离 · 移动4→7" if game.Mechanical.is_titan(unit) else "移动5→8 · 可穿过水面",Rect2(24,210,208,12))
+		var summary=[]
+		for key in game.Mechanical.part_keys(unit):summary.append("%s%d/%d"%[game.Mechanical.part_name(unit,true,key),game.Mechanical.part_hp(unit,key),game.Mechanical.part_max(unit,key)])
+		_center_text(" · ".join(summary),Rect2(24,182,208,12))
+		var effect="核心有效：双防+10 · 反伤2HP" if game.Mechanical.core_active(unit) else "核心已破坏" if game.Mechanical.is_titan(unit) else "掌击1格 · 水炮2–3格"
+		if game.Mechanical.is_cyclops(unit):effect="核心：本体命中减半 · 邻格回5" if game.Mechanical.active(unit,"eye") else "独眼核心损毁 · 治疗已停"
+		if game.Mechanical.is_owl(unit):effect="引擎：穿透2物防 · 战后移动3" if game.Mechanical.active(unit,"engine") else "引擎损毁 · 仍可飞行"
+		if game.Mechanical.is_prometheus(unit):effect="火核：必中魔法 · 生命核：回复"
+		_center_text(effect,Rect2(24,196,208,12))
+		_center_text("不撤离 · 生命核可复苏一次" if game.Mechanical.is_prometheus(unit) else "仅剩傀儡撤离 · 移动%d→%d"%[game.Mechanical.base_move(unit),game.Mechanical.base_move(unit)+3],Rect2(24,210,208,12))
 		return
 	_center_text(footer,Rect2(24,190 if advanced else 206,208,14))
 	if advanced:_center_text(game.HeroProfessions.summary(unit),Rect2(24,206,208,14))
@@ -1992,14 +2008,21 @@ func _draw_status(unit: Dictionary) -> void:
 		_center_text("远反："+Rules.weapon_name(reply)+" "+StatusStats.range_name(Rules.attack_range(reply))+"格",Rect2(24,190,208,14))
 
 func _draw_mechanical_part_meter(unit:Dictionary,x:float)->void:
-	var hp=game.Mechanical.part_hp(unit)
-	var maximum=game.Mechanical.part_max(unit)
-	_text("%s%d/%d"%[game.Mechanical.part_name(unit,true),hp,maximum],Vector2(x,166),Color(.8,.94,.98))
-	for i in range(maximum):
-		var state="filled" if i<hp else "empty"
-		var cell_width=mini(2,floori(20.0/maximum))
-		draw_texture_rect(_tex(health_ui.cells.enemy[state].path),Rect2(x+76+i*cell_width,170,cell_width,4),false)
-	presentation_audit.mechanical_part_hp=hp
+	var keys=game.Mechanical.part_keys(unit);var bounds=[]
+	for index in range(keys.size()):
+		var key=str(keys[index]);var hp=game.Mechanical.part_hp(unit,key);var maximum=game.Mechanical.part_max(unit,key)
+		var y=166+index*10 if keys.size()>1 else 166
+		_small_text("%s%d/%d"%[game.Mechanical.part_name(unit,false,key),hp,maximum],Vector2(x,y),Color(.8,.94,.98))
+		bounds.append(text_checks[-1].bounds)
+		for i in range(maximum):
+			var state="filled" if i<hp else "empty"
+			draw_texture_rect(_tex(health_ui.cells.enemy[state].path),Rect2(x+76+i,y+3,1,4),false)
+	presentation_audit.mechanical_parts=unit.get("parts",{}).duplicate(true)
+	presentation_audit.mechanical_part_rows=keys.size()
+	presentation_audit.mechanical_part_bounds=bounds
+	for i in range(bounds.size()):
+		for j in range(i+1,bounds.size()):
+			if bounds[i].intersects(bounds[j]):layout_errors.append("Core HP labels overlap")
 
 func _start_ending() -> void:
 	if not game.flags.get("campaign_complete",false):return

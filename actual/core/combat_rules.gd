@@ -75,7 +75,7 @@ static func attack_range(unit: Dictionary) -> Vector2i:
 	var maximum := 1
 	if Body.Mechanical.is_puppet(unit):
 		if index==47:return Vector2i.ZERO
-		return Vector2i(1,int(Body.profile(index).range)) if unit.has("innate_attack_index") else Vector2i(1,3 if Body.Mechanical.cannon_hp(unit)>0 and not unit.get("mechanical_retreating",false) else 1)
+		return Vector2i(2 if index==Body.Mechanical.WATER else 1,int(Body.profile(index).range)) if unit.has("innate_attack_index") or not Body.Mechanical.is_water(unit) else Vector2i(1,3 if Body.Mechanical.cannon_hp(unit)>0 and not unit.get("mechanical_retreating",false) else 1)
 	if Body.is_body(unit):return Vector2i(1,maxi(3 if bool(unit.get("guard_counter",false)) else 1,int(Body.profile(index).range)))
 	if index == 47 or Items.is_support(index):
 		return Vector2i.ZERO
@@ -118,6 +118,7 @@ static func attack_stats(attacker: Dictionary, defender: Dictionary, defender_av
 		might = 0 # L09832F: original falcon formula uses tripled STR only.
 	var power := 15 if index == 15 else strength + might
 	var defence := Items.magic_defence(defender) if magical else _defence(defender) + Items.physical_defence_bonus(defender, attacker)
+	if Body.Mechanical.is_owl(attacker) and Body.Mechanical.active(attacker,"engine") and not magical:defence=maxi(0,defence-2)
 	var damage := clampi(power - defence + (5 if bool(attacker.get("triangle_attack", false)) else 0), 1, 60)
 	var hit: int
 	if magical and index != 15:
@@ -128,6 +129,8 @@ static func attack_stats(attacker: Dictionary, defender: Dictionary, defender_av
 	# a legal lance strike, never the holder's default attack or selected magic.
 	if index == 10 and Items.can_use(attacker, 10):
 		hit = 100
+	if bool(weapon.get("certain",false)):hit=100
+	elif Body.Mechanical.is_cyclops(defender) and Body.Mechanical.active(defender,"eye") and not (index==10 and Items.can_use(attacker,10)):hit=floori(float(hit)/2.0)
 	var critical := (int(attacker.get("skill", 0)) + Items.effective_luck(attacker)) >> 1
 	critical = (critical + int(weapon.get("critical", 0))) >> 1
 	if _enemy(attacker) and not _class_id(attacker) in [10, 8, 9, 3]:

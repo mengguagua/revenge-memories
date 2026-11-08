@@ -6651,69 +6651,46 @@
     },
     {
       "id": "F26_e3",
-      "name_id": 179,
-      "character_id": 179,
-      "name_ja": "ガーゴイル",
-      "name_zh": "飞行魔物",
-      "class": "gargoyle",
-      "class_id": 3,
-      "class_name_zh": "石翼兽",
-      "level": 3,
-      "hp": 21,
-      "max_hp": 21,
+      "name_id": 0,
+      "character_id": 0,
+      "name_zh": "飞枭傀儡",
+      "class": "owl",
+      "class_id": 28,
+      "class_name_zh": "飞枭傀儡",
+      "unit_kind": "mechanical_puppet",
+      "mechanical_model": "owl",
+      "level": 6,
+      "hp": 27,
+      "max_hp": 27,
       "exp": 0,
-      "strength": 8,
-      "skill": 4,
-      "speed": 6,
+      "exp_value": 82,
+      "strength": 9,
+      "skill": 8,
+      "speed": 11,
       "luck": 0,
-      "defence": 3,
-      "resistance": 7,
-      "move": 7,
+      "defence": 5,
+      "resistance": 4,
+      "move": 8,
+      "mechanical_base_move": 8,
       "item_id": 0,
-      "exp_value": 60,
-      "raw_ai_flags": 0,
-      "raw_magic_flags": 0,
-      "magic_flags": 0,
-      "raw_template": [
-        179,
-        3,
-        1,
-        0,
-        64,
-        0
-      ],
-      "group_id": 0,
-      "record_index": 2,
-      "provenance": [
-        {
-          "file": "src/bank008.asm",
-          "label": "L0897D6",
-          "line": 2186
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L089B0E",
-          "line": 2542
-        },
-        {
-          "file": "src/bank015.asm",
-          "label": "L0FED40",
-          "line": 7372
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L08A31B",
-          "line": 3626
-        }
-      ],
-      "confidence": "source_count_bounded_template_constructor",
       "position": [
         35,
         21
       ],
       "side": "enemy",
       "acted": false,
-      "ai_flags": 0
+      "hidden": false,
+      "escaped": false,
+      "mechanical_retreating": false,
+      "no_drop": true,
+      "parts": {
+        "engine": {
+          "hp": 12,
+          "max_hp": 12,
+          "defence": 3,
+          "resistance": 2
+        }
+      }
     },
     {
       "id": "F26_e4",
@@ -8149,9 +8126,9 @@
   ],
   "goal": "护送船队穿过遗迹通道，击败封航守军。出口至少有一艘居民船抵达。",
   "cause": "薇娅的航图指出局部神幕薄处，神军阻止继续西渡。",
-  "before": "艾琳：母亲标的是左边那座石门。不要跟着外面的灯走。",
-  "during": "卡洛：已经能看见西岸了。后面的船跟紧。",
-  "after": "舵手：居民船已经抵达西岸泊位，等候海峡城准许入港。／艾琳：先稳住船队。我去海峡城，争取让伤者上岸。",
+  "before": "艾琳：母亲画的是左边那座石门。跟着图走，别跟外头的灯。",
+  "during": "卡洛：看得见西岸了。后头的船跟紧！",
+  "after": "舵手：先到的船停在海峡城外。守军还没准我们进港。／艾琳：在这儿等我。我进城，请他们先接伤者。",
   "absent_branch": "卡洛亡：舵手报告西岸；船团由至少一艘存活居民船抵达，不复活押送舰已死人员。",
   "optional": false,
   "contract": "至少一艘到达、西岸首领败北后归乡；序章拘押不清空已得物品。",
@@ -8868,5 +8845,7 @@
       ]
     ]
   },
-  "equipment_revision": "0.3.9"
+  "equipment_revision": "0.3.9",
+  "dialogue_revision": "2026-11-07",
+  "mechanical_revision": "story-20261107"
 }

@@ -29,7 +29,7 @@ static func allowed_nodes(g) -> Array[int]:
   if g.flags.get("M51_confirmed",false):result.append(14)
   if g.flags.get("west_palace_gate",false):result.append(15)
  else:
-  if g.flags.get("east_network_ready",false):result.append(30)
+  if g.flags.get("east_network_ready",false) and g.flags.get("F51_handover_seen",false):result.append(30)
   if g.flags.get("east_palace_gate",false):result.append(15)
   if g.flags.get("S51_invited",false):result.append(39)
  return result
@@ -38,7 +38,7 @@ static func selection(g,side:String) -> Array:
  if not g.flags.chapter5_deployment.has(side):g.flags.chapter5_deployment[side]=g.parties[side].filter(func(id):return g.can_deploy(g.roster[id])).slice(0,10)
  return g.flags.chapter5_deployment[side]
 static func merge(g) -> bool:
- if not g.flags.get("west_palace_gate",false) or not g.flags.get("east_palace_gate",false):return false
+ if not g.flags.get("west_palace_gate",false) or not g.flags.get("east_palace_gate",false) or not g.flags.get("H55_letters_seen",false):return false
  if int(g.route_positions.alm)!=15 or int(g.route_positions.celica)!=15:return false
  for side in ["alm","celica"]:
   var chosen=selection(g,side);var hero="hunapu" if side=="alm" else "eileen"
@@ -58,11 +58,8 @@ static func done(g,id:String) -> bool:return Prior.done(g,id)
 static func initialize(g) -> void:
  g.flags.quest.repair_since={"repair_1":-1,"repair_2":-1};g.flags.quest.final_phase=false;g.flags.quest.summon_wave=false
 static func before_lines(g) -> void:
- var text={501:"赫兰：城门后还有伤兵。神军不肯让他们离开。／胡纳普：你让他们守在那里，现在得把他们带出来。／赫兰：我会去。你把南边那条路留下来。／蕾娜或投降军官：赫兰已打开南侧后撤门。我们会留下照护并记录责任；去两间病房的南门接应伤者。",502:"胡纳普：桥还连着。先从西段解除桥锁，再向东推进。／斥候：桥外不能步行；飞行者能绕过侧翼，但门阵仍要有人确认。",503:"艾琳：两处装置都要交到地方工班手里。／技术员：未开始的工班在防护区内。到装置南面交接后，保护到下一己方回合。接通以后，我们会接手当地循环。",504:"艾琳：西阵和东阵都在装置南面。核对以后再开门，不把群岛居民系在神座上。",511:"记录官：早年的救援和失败试验都在旧书库。把原件带到南门，不要只抄对我们有利的部分。",533:"胡纳普：西侧入口通往左庭。／艾琳：东侧也是。两翼门阵都确认后，沿中轴去神座。伤者留在整备处，两边的人一起接应。",534:"乌库布·卡基：我把你从裂缝里拉出来时，你一直抓着我的手。／胡纳普：我记得。凯尔也记得。／乌库布·卡基：你们本来都能留在我保护的地方。／艾琳：我们在那里也失去了家人。现在还有人等在岸边。／乌库布·卡基：回去。我会重新安排。／战场提示：普通武器与法术始终有效。实体半血后只增援一次，不会回复满血。"}.get(g.stage_id,"")
- lines(g,text,str(g.battle_data.code)+"-BEGIN")
- if g.stage_id==501:lines(g,"军械官：两处病房都开门，两组伤兵都要存活并撤到南口，再击败队长。战后回王都内廷伤兵照护处找军械官，可领取护途盾；只救出一组仍可通关。","501-ACCESSORY-HINT")
- if g.stage_id==502:lines(g,"守卫：桥卫军械库还锁在通道后面。先解除桥锁，通路安全后再清点兵器。","M52-ARMAMENT-HINT")
- if g.stage_id==511:lines(g,"记录官：旁边的封存箱里还有镇关枪。把旧事记录带到南门完成交接，再让这把护送旧枪回到路上。","S51-ARMAMENT-HINT")
+ lines(g,str(g.battle_data.before),str(g.battle_data.code)+"-BEGIN")
+
 static func interact(g,id:String) -> void:
  if id.begins_with("bridge_"):
   var i=int(id.substr(7))
@@ -89,6 +86,10 @@ static func check_outcome(g) -> String:
   var u=g.find_unit(id)
   if not u.is_empty() and int(u.hp)<=0:return g._fail(str(u.name_zh)+"濒死，无法继续作战")
  var ready=true;var q:Dictionary=g.flags.quest
+ if g.stage_id==501:
+  var raymond=g.find_unit(str(g.battle_data.boss_id))
+  if int(raymond.hp)<=0 and not raymond.get("surrendered",false):
+   raymond.hp=1;raymond.dead=false;raymond.side="neutral";raymond.surrendered=true;raymond.no_counter=true
  for o in g.battle_data.objects:
   if not o.get("optional",false) and not done(g,o.id):ready=false
  if g.stage_id==501:
@@ -123,8 +124,8 @@ static func on_victory(g) -> void:
   511:g.flags.S51_records_saved=true
   533:g.flags.final_access=true
   534:g.flags.campaign_complete=true;g.flags.chapter5_complete=true
- var ending={501:"赫兰：撤下来的伤兵已交给照护处。我留下来，把此前的命令逐条交代。／胡纳普：先去照护处确认交接，再去登天桥。",502:"信使：西门已打开。东门未开时可在这里等候，从菜单切换东队。两队分别抵达前庭，才能确认合流。",503:"技术员：两处地方循环已经接上。居民不再依赖神座持续调度，我们会留在此处照看。",504:"记录官：东门已打开，南侧支路通向旧书库。合流出发后就不能折返；可以先查旧事，也可以直接前往前庭。",511:"记录官：早年的救援、失败的试验与后来的强迁命令，已一同收入档案。没有被删改的部分。",533:"艾琳：两翼已经接通。先回前庭整备，看看伤者和装备，再沿中轴去神座。／胡纳普：两个人一起去。",534:"旁白：乌库布·卡基的实体倒下了。远处仍有晨光。／艾琳：岸边的循环还在运转。日光没有随着他消失。／胡纳普：去接等在那里的船。"}
- lines(g,ending[g.stage_id],str(g.battle_data.code)+"-END")
+ lines(g,str(g.battle_data.after),str(g.battle_data.code)+"-END")
+
 static func status(g) -> Array[String]:
  var result:Array[String]=[str(g.battle_data.goal)]
  for o in g.battle_data.objects:result.append(str(o.label)+("：已确认" if done(g,o.id) else "：未确认"))

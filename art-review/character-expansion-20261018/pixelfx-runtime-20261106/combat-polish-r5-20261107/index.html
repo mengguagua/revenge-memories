@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>战斗动作与特效对照 · R5</title><link rel="stylesheet" href="style.css?v=20261107-r5"></head>
+<body>
+<header class="page-head"><div class="eyebrow">复仇与回忆 · PIXELFX R5</div><h1>战斗动作与特效对照</h1><p>火球统一实机色阶，必杀更新飘字与分格扣血。</p><div class="facts" id="facts"></div><p class="scope">同版 Godot 实机采样 · 仅供评审</p></header>
+<main>
+<section class="panel revision-shortcuts" aria-labelledby="revision-title">
+ <div class="section-line"><h2 id="revision-title">本轮修订</h2><span>选招式对照 · 法术可有声试听</span></div>
+ <div id="revision-list" class="revision-list"></div>
+ <div class="revision-links"><button type="button" id="all-critical">查看全部 14 段必杀</button></div>
+</section>
+<section id="viewer" class="viewer" aria-labelledby="case-title" aria-busy="true">
+ <div class="case-heading"><div><div class="eyebrow" id="group-label"></div><h2 id="case-title">正在准备对照</h2><p id="case-subtitle"></p></div><div class="view-controls" aria-label="显示尺寸"><button data-view="native" aria-pressed="false">原生 1×</button><button data-view="close" aria-pressed="true">近景 2×</button><button data-view="phone" aria-pressed="false">完整手机布局</button></div></div>
+ <div id="tier-peers" class="tier-peers" hidden></div>
+ <p id="native-hint" class="muted" hidden>保持原生像素，可左右滑动画面；选择「完整手机布局」可查看全景。</p>
+ <div id="sound-panel" class="sound-panel" hidden>
+  <div class="sound-buttons"><button id="sound-preview" type="button">有声试听</button><button id="sound-toggle" type="button" aria-pressed="false">开启音效</button></div>
+  <label class="sound-volume">音量 <input id="sound-volume" type="range" min="0" max="100" value="78" step="1"></label>
+  <span id="sound-status" role="status">候选侧静音</span>
+  <div id="sound-chapters" class="sound-chapters" hidden aria-label="连续音轨分段"></div>
+ </div>
+ <div class="phase-controls" aria-label="关键时刻"><span>关键时刻</span><button id="charge" hidden disabled>查看蓄势</button><button id="action" disabled>查看释放</button><button id="gather" hidden disabled>查看聚焰</button><button id="impact" disabled>查看命中</button><button id="damage" hidden disabled>查看飘字</button><button id="hp-stage" hidden disabled>查看扣血</button></div>
+ <div class="comparison"><article class="screen-card"><div class="screen-heading"><h3>实机原效果</h3><span>同版采样 · 原特效</span></div><div class="screen-well"><canvas id="before" width="256" height="240" aria-label="当前游戏动画"></canvas></div><p>同一采样基线中的角色、武器、受击与生命变化。</p></article><article class="screen-card"><div class="screen-heading"><h3>PixelFX 候选</h3><span id="candidate-label">同帧合成 · 原生像素</span></div><div class="screen-well"><canvas id="after" width="256" height="240" aria-label="PixelFX 候选效果"></canvas></div><div id="native-hud-panel" class="native-hud-panel" hidden><span>普通战斗血条</span><div class="native-hud-well"><canvas id="native-hud" width="256" height="112" aria-label="普通战斗分格血条"></canvas></div></div><p id="treatment"></p></article></div>
+ <div class="transport panel"><div class="transport-top"><div class="buttons"><button id="play" class="primary" disabled>播放</button><button id="restart" disabled>从头播放</button><button id="previous" disabled>上一帧</button><button id="next" disabled>下一帧</button></div><label class="speed-label">速度 <select id="speed"><option value=".25">0.25×</option><option value=".5">0.5×</option><option value="1" selected>1×</option></select></label><span id="clock">0.00 / 0.00 秒</span></div>
+ <div class="timeline-heading"><span id="phase" aria-live="off">正在载入…</span><span id="scale-label"></span></div><label class="sr-only" for="scrub">动画进度</label><input id="scrub" type="range" min="0" max="1" value="0" step="1" disabled><div class="timeline-heading muted"><span id="frame-label"></span><span id="contact-label"></span></div><p id="error" role="alert" hidden></p></div>
+ <details class="evidence panel"><summary>查看这一项的来源与结算</summary><p id="source-note"></p><div id="event-details" class="event-details"></div><p class="technical" id="source-program"></p><div id="module-links" class="module-links" hidden></div></details>
+ <div class="review panel"><span>这一项的意见</span><div class="buttons"><button data-vote="喜欢这个方向" aria-pressed="false">喜欢这个方向</button><button data-vote="保持原效果" aria-pressed="false">保持原效果</button><button data-vote="需要调整" aria-pressed="false">需要调整</button></div><label class="sr-only" for="review-note">调整意见</label><input id="review-note" placeholder="可记录颜色、强度或节奏上的意见"><span id="review-status" class="muted">仅记录意见</span></div>
+</section>
+<details id="stock-references" class="coverage panel">
+ <summary>核对 PixelFX 原库示例</summary>
+ <p>这里播放原库的渲染结果。灰色示范人物与木桩仅出现在这一栏。上方候选使用游戏原有角色与武器，按原结算时间适配了效果。</p>
+ <div id="stock-list" class="stock-list"></div>
+</details>
+<section class="panel progression" aria-labelledby="progression-title"><div class="section-line"><h2 id="progression-title">按职业晋阶看差异</h2><span>枪击与弓箭的职业差异</span></div><div id="progression"></div></section>
+<section class="tour panel" aria-labelledby="tour-title"><div class="section-line"><h2 id="tour-title">更多法术与特殊场景</h2><span>包含主角必杀、地图法术及已确认的水炮</span></div><div id="tour" class="tour-list"></div></section>
+<section class="library panel" aria-labelledby="library-title"><div class="section-line"><h2 id="library-title">本轮更新与原有目录</h2><div class="buttons"><button id="changes-only" aria-pressed="true">只看本轮更新</button><button id="export-reviews">导出我的意见</button></div></div><div class="filters"><label>类别<select id="family"><option value="">全部类别</option></select></label><label>角色／兵种<select id="profile"><option value="">全部角色／兵种</option></select></label><label>招式<select id="move"><option value="">全部招式</option></select></label><label class="search-label">搜索<input id="search" type="search" placeholder="例如：艾琳、弓箭、闪避、机械"></label></div><div class="section-line compact"><p id="result-count" class="muted"></p><button id="clear-filters">清除筛选</button></div><div id="case-list" class="case-list"></div><div class="pagination"><button id="page-back">上一页</button><span id="page-status"></span><button id="page-next">下一页</button></div></section>
+<details class="coverage panel">
+ <summary>覆盖范围与预览说明</summary>
+ <div id="coverage-copy"></div>
+ <p>左右使用同一版 Godot 实机采样。点击「有声试听」从当前招式的第一段音效前开始播放，声音对应右侧候选。普通招式、进阶必杀和地图法术都按各自的时间轴播放。</p>
+ <p>必杀的右侧场景显示原库 Damage number，分格扣血放在画面下方。伤害、恢复及结算次数沿用同一采样；额外的闪电只参与画面。</p>
+ <p><a href="../integrated-20261107/index.html">接入前后实机对照</a> · <a href="#approved-water">已确认水炮</a> · <a href="qa/verification.json">验收记录</a> · <a href="qa/r5-provenance.json">本轮特效来源</a> · <a href="qa/r4-fire-audio.json">火球音轨记录</a> · <a href="LICENSE">PixelFX 许可</a> · <a href="NOTICE.md">来源说明</a></p>
+</details>
+</main><footer><a href="使用说明.html">预览与 PixelFX Skill 使用说明</a></footer>
+<script src="approved-data.js"></script><script src="water-palette.js"></script><script src="catalog.js?v=20261107-r5"></script><script src="spell-audio-bank.js"></script><script src="r4-audio-bank.js"></script><script src="r5-audio-bank.js"></script><script src="spell-audio.js?v=20261107-r5"></script><script src="player.js?v=20261107-r5"></script>
+</body></html>

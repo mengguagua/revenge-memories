@@ -48,10 +48,13 @@ runtime={'revision':'water-monkey-motion-v2-20261104','approved_source':'art-rev
          'idle_frames':{'intact':poses['battle']['0'],'broken':poses['battle-broken']['0']},
          'maps':{},'effects':effects,'variants':variants,
          'scope':'Only real actor and bitmap effects; all review companions and review sound events stripped.'}
+map_anchor=[10,22]
+# Place the frame's foot anchor at the tile's bottom center.
+tile_origin=[map_anchor[0]-8,map_anchor[1]-16]
 for state,group in [('intact','maps'),('broken','maps-broken')]:
     runtime['maps'][state]={'path':'res://assets/mechanical-puppets-20261104/'+group+'.png',
-        'frame_size':[40,48],'frames':16,'columns':16,'anchor':[10,22],'native_density':2,
-        'tile_origin':[8,16],'default_facing':'left','original_motion':True,'static_facing':True,
+        'frame_size':[40,48],'frames':16,'columns':16,'anchor':map_anchor,'native_density':2,
+        'tile_origin':tile_origin,'default_facing':'left','original_motion':True,'static_facing':True,
         'directions':{'up':[8,8],'down':[1,1],'left':[12,12],'right':[4,4],'side':[12,12]},
         'native_cycle':[1,0,1,2],'cycle_ticks':[72,18,72,18],
         'direction_cycles':{k:{'frames':[v+i for i in range(4)],'ticks':[8,8,8,8]} for k,v in [('up',8),('down',0),('left',12),('right',4)]}}

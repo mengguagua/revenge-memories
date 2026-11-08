@@ -2,6 +2,7 @@ extends RefCounted
 ## Original tactical-map OAM/pose programs, separate from close-up combat.
 ## Assets and evidence: data/full_map_effects.json. No invented spell substitute.
 const FPS = 60.0988
+const ReviewFx = preload("res://core/reviewed_battle_fx.gd")
 static var _cache: Dictionary = {}
 var _owner: WeakRef
 var _generation = 0
@@ -9,6 +10,8 @@ var _program: Dictionary = {}
 var _cell := Vector2i.ZERO
 var _frame = 0
 var _active = false
+var _review_time := 0.0
+var _review_effect := ""
 var _hidden_ids: Array[String] = []
 var _saved_alpha: Dictionary = {}
 var _saved_modulate := Color.WHITE
@@ -50,6 +53,7 @@ func reset() -> void:
 	emphasis_register = 0
 	_active = false
 	_program = {}
+	_review_effect = ""
 
 func dispose() -> void:
 	reset()
@@ -79,8 +83,11 @@ func draw() -> void:
 	var offset = Vector2(_program.tile_origin_offset[0], _program.tile_origin_offset[1])
 	var anchor = Vector2(_program.anchor[0], _program.anchor[1])
 	ui._draw_frame(_program, _frame, ui._battle_cell_screen(_cell) + offset - anchor)
+	if not _review_effect.is_empty():
+		var point: Vector2 = ui._battle_cell_screen(_cell)+Vector2(8,8)
+		ReviewFx.draw_effect(ui,_review_effect,_review_time,point,false,.9,ui._visible_native_rect())
 
-func play_program(program: int, unit: Dictionary) -> void:
+func play_program(program: int, unit: Dictionary, family := "") -> void:
 	var ui = _ui()
 	if ui == null: return
 	if not source().programs.has(str(program)):
@@ -95,21 +102,37 @@ func play_program(program: int, unit: Dictionary) -> void:
 	var hide_body = program != 9 and program != 10
 	if hide_body: _hide(unit)
 	_active = true
-	ui.audio.play_request(int(_program.sound_request))
+	var sound := family
+	if sound.is_empty():
+		sound = str({1:"phantom",2:"warp",3:"summon",4:"expel",5:"summon",6:"expel",7:"summon",8:"expel",
+			9:"quake",10:"heal",11:"summon"}.get(program,""))
+	var reviewed: bool = not sound.is_empty() and not ui.instant_mode and ui.audio.has_method("play_reviewed_sfx")
+	if reviewed:
+		_review_effect = "map-hit" if program==9 else "map-heal" if program==10 else "map-warp"
+		ReviewFx.play_sound(ui,sound+"-charge",.67)
+	else:
+		ui.audio.play_request(int(_program.sound_request))
 	var timeline: Array = _program.cycle_timeline
 	# Source35=6 for service10/11, source35=2 for target feedback. The
 	# native player starts the shared divide-by-ten timer at its full phase.
-	var duration = 20 if program in [9, 10] else 60
-	for tick in range(duration):
+	var duration := 20 if program in [9, 10] else 60
+	var show_ticks := maxi(duration,42) if reviewed else duration
+	for tick in range(show_ticks):
 		if _ui() == null or token != _generation: return
-		_frame = int(timeline[tick % timeline.size()])
-		ticks_played += 1
+		if tick < duration:
+			_frame = int(timeline[tick % timeline.size()])
+			ticks_played += 1
+		_review_time = float(tick)/FPS-.08
+		if reviewed and tick == mini(18,duration-1):
+			ReviewFx.play_sound(ui,sound+"-resolve")
 		ui.queue_redraw()
 		await ui._wait(1.0 / FPS)
 	if token != _generation or _ui() == null: return
-	ui.audio.play_request(int(_program.end_sound_request))
+	if not reviewed:
+		ui.audio.play_request(int(_program.end_sound_request))
 	_active = false
 	_program = {}
+	_review_effect = ""
 	if hide_body: _restore(str(unit.id))
 	ui.queue_redraw()
 
@@ -159,14 +182,14 @@ func teleport(unit: Dictionary, landing: Vector2i) -> void:
 	if ui == null: return
 	var token = _generation
 	_hide(unit)
-	await play_program(2, unit)
+	await play_program(2, unit, "warp")
 	if _ui() == null or token != _generation: return
 	# play_program restores its owner alpha; keep actor hidden at the new
 	# coordinate until the original appearance OAM finishes.
 	_hide(unit)
 	unit.position = [landing.x, landing.y]
 	ui._focus_battle(landing, true)
-	await play_program(1, unit)
+	await play_program(1, unit, "warp")
 	if _ui() == null or token != _generation: return
 	_restore(str(unit.id))
 	ui.queue_redraw()

@@ -52,6 +52,13 @@ static func dialogue_emotion(page: Dictionary) -> String:
 	var text=str(page.get("text","")).replace("\n","")
 	return str(data().get("dialogue_emotions",{}).get(text,""))
 static func speaker(game, name: String, emotion: String="") -> Dictionary:
+	if name=="普罗米修斯":
+		var current=game.find_unit(str(game.battle_data.get("boss_id","")))
+		if game.Mechanical.is_prometheus(current):return {"path":preload("res://core/mechanical_art.gd").portrait(current),"key":"prometheus"}
+	if name in ["缇可","普罗米修斯"]:
+		var actor={"class_id":27 if name=="缇可" else 29,"mechanical_model":"cyclops" if name=="缇可" else "prometheus","unit_kind":"mechanical_puppet"}
+		preload("res://core/mechanical_puppets.gd").prepare(actor)
+		return {"path":preload("res://core/mechanical_art.gd").portrait(actor),"key":str(actor.mechanical_model)}
 	if name=="指挥官" and int(game.stage_id)==102:return entry("m12_commander")
 	var npc=PostbattleNpcs.portrait(game,name)
 	if not npc.is_empty():return npc
@@ -62,7 +69,7 @@ static func speaker(game, name: String, emotion: String="") -> Dictionary:
 				var expressive=entry(key+"_"+emotion)
 				if not expressive.is_empty():return expressive
 			return entry(key)
-	var direct={"赫兰":"herlan","科兰":"korlan","裴萨":"pesa","乌库布·卡基":"vucub","旧船员":"old_sailor","渔村长者":"island_elder","学舍导师":"scholar","船长":"sailor","舵手":"sailor","固定舵手":"sailor","船员":"sailor","求救船员":"sailor","守灯人":"sailor","矿工":"miner","洞民":"miner"}
+	var direct={"雷蒙":"west_armored","玛尔塔":"administrator_east","维瑟":"scholar","萨弥":"east_mage","赫兰":"herlan","科兰":"korlan","裴萨":"pesa","乌库布·卡基":"vucub","旧船员":"old_sailor","渔村长者":"island_elder","学舍导师":"scholar","船长":"sailor","舵手":"sailor","固定舵手":"sailor","船员":"sailor","求救船员":"sailor","守灯人":"sailor","矿工":"miner","洞民":"miner"}
 	if direct.has(name):return entry(direct[name])
 	var region="east" if game.route=="celica" else "west"
 	if name in ["医者","岛上医者","地方医者","医师","船医"]:return entry("medic_"+region)

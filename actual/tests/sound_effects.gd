@@ -166,10 +166,17 @@ func run():
 	check(mock.requests==[0x53],"action cleanup remains compatible with existing audio mocks")
 	frame_ui.audio=audio
 	var maps=MapEffects.new(frame_ui);var unit={"id":"fixture","side":"player","position":[3,4],"hp":20}
+	frame_ui.instant_mode=true
 	for program in range(1,12):
 		audio.requests.clear();await maps.play_program(program,unit)
 		var entry=MapEffects.source().programs[str(program)]
 		check(audio.requests==[int(entry.sound_request),int(entry.end_sound_request)] and stopped(),"actual map effect starts and stops through native players "+str(program))
+	frame_ui.instant_mode=false
+	var reviewed_start=played.size()
+	audio.requests.clear()
+	await maps.play_program(2,unit)
+	check(audio.requests.is_empty() and played.slice(reviewed_start)==["warp-charge","warp-resolve"],"reviewed warp cues replace legacy requests in live playback")
+	audio.stop_reviewed_sfx()
 	check(playback_errors.is_empty(),"all verified fixture routing loads without unexpected failures")
 	# Deliberate missing/corrupt mappings fail explicitly and never load old OGGs.
 	var original:Dictionary=audio._manifest.sfx.rm_sfx_03.duplicate(true)

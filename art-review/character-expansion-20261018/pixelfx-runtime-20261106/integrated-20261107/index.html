@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>战斗特效 · 接入前后实机对照</title>
+<link rel="stylesheet" href="review.css?v=impact-review">
+<script defer src="clips.js?v=magma"></script>
+<script defer src="review.js?v=magma"></script>
+</head>
+<body>
+<main>
+  <header class="intro">
+    <p class="eyebrow">复仇与回忆 · PixelFX</p>
+    <h1>接入前后实机对照</h1>
+    <p>使用相同的战斗输入对照两版。画面和音轨来自 Godot 手机布局的后台录制。</p>
+    <p id="coverage" class="facts"></p>
+  </header>
+
+  <section class="selection" aria-label="选择战斗">
+    <div class="chooser">
+      <label>武器与魔法<select id="category"></select></label>
+      <label>招式<select id="case-select"></select></label>
+      <label>搜索<input id="case-search" type="search" placeholder="角色、武器或法术"></label>
+      <output id="match-count" for="case-search" aria-live="polite"></output>
+    </div>
+    <div id="quick" class="button-list" aria-label="本轮调整"></div>
+  </section>
+
+  <section id="viewer" aria-labelledby="case-title" aria-busy="true">
+    <div class="case-heading">
+      <div><p class="eyebrow" id="family"></p><h2 id="case-title"></h2><p id="result"></p></div>
+      <div class="button-list" aria-label="画面尺寸">
+        <button type="button" data-view="native" aria-pressed="false">原生 1×</button>
+        <button type="button" data-view="close" aria-pressed="true">近景 2×</button>
+        <button type="button" data-view="phone" aria-pressed="false">完整手机布局</button>
+      </div>
+    </div>
+    <div class="screens">
+      <figure>
+        <figcaption><span id="before-label">接入前</span><small id="before-caption">Godot 原版</small></figcaption>
+        <div class="well"><canvas id="before" aria-label="接入前的实机画面"></canvas></div>
+      </figure>
+      <figure>
+        <figcaption><span id="after-label">接入后</span><small id="after-caption">Godot 已接入版</small></figcaption>
+        <div class="well"><canvas id="after" aria-label="接入后的实机画面"></canvas></div>
+      </figure>
+    </div>
+    <div class="controls">
+      <div class="button-list">
+        <button type="button" class="primary" id="play">播放</button>
+        <button type="button" id="restart">从头播放</button>
+        <button type="button" id="prev">上一帧</button>
+        <button type="button" id="next">下一帧</button>
+        <button type="button" id="cue">查看音效起点</button>
+        <button type="button" id="portrait" hidden>查看头像</button>
+        <button type="button" id="dash" hidden>查看突进</button>
+        <button type="button" id="first-slash" hidden>查看第一斩</button>
+        <button type="button" id="hit">查看命中</button>
+        <button type="button" id="hp">查看扣血</button>
+        <button type="button" id="full-duration" hidden aria-pressed="false">查看旧版全程</button>
+      </div>
+      <div class="settings">
+        <label>播放速度<select id="speed"><option value="1">1×</option><option value=".5">0.5×</option><option value=".25">0.25×</option></select></label>
+        <label>试听<select id="sound"><option value="none">静音</option><option value="after">接入后</option><option value="before">接入前</option></select></label>
+        <span id="time"></span>
+      </div>
+      <label class="scrub">同步进度<input type="range" id="scrub" min="0" max="0" value="0" step="1"></label>
+      <p id="status" role="status"></p>
+      <video id="pair" playsinline preload="auto" muted aria-hidden="true"></video>
+      <audio id="old-audio" preload="none"></audio>
+    </div>
+  </section>
+  <footer><a href="../combat-polish-r5-20261107/index.html">回看审定的 R5 预览</a><a href="verification.json">录制与结算校验</a></footer>
+</main>
+</body>
+</html>

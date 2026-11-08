@@ -20,8 +20,20 @@ func run():
 		if item.key=="5_enemy" and str(item.id).ends_with("--original_class_5_enemy_normal"):continue
 		if item.profile=="hunapu-battle" and str(item.id).ends_with("--original_class_21_promoted"):continue
 		var art: Dictionary = profile_art[item.profile];var event=fixture(item,art)
+		var hunapu_critical: bool = str(item.id).ends_with("--original_class_21_critical") and item.profile in ["hunapu-battle","hunapu-promoted-battle"]
+		var advanced: bool = item.profile=="hunapu-promoted-battle"
+		if hunapu_critical and advanced:
+			var hero: Dictionary = ui.game.find_unit(str(event.attacker))
+			hero.class_id=21
+			ui.game.HeroProfessions.apply(hero)
 		var started=Time.get_ticks_usec();var chosen=ui.battle_animation.selection(event);var elapsed_us=Time.get_ticks_usec()-started
 		max_load_usec=maxi(max_load_usec,elapsed_us);select_usec+=elapsed_us
+		if hunapu_critical:
+			# Real Hunapu criticals use the approved cinematic route. The
+			# original program is still checked by offline equivalence below.
+			var cinema_key := "hunapu-sword-advanced" if advanced else "hunapu-sword"
+			check(chosen.get("kind","")=="critical_cinema" and chosen.get("key","")==cinema_key,"cinematic selector "+item.id)
+			continue
 		check(chosen.get("key","")==item.runtime_key,"streamed selector "+item.id)
 		if chosen.get("key","")!=item.runtime_key:continue
 		selected+=1

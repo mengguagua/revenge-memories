@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-07",
+  "passed": true,
+  "surface": "Background in-app browser, locally served preview",
+  "cases_loaded": ["hit", "cannon-break", "core-break", "water"],
+  "checked": [
+    "Automatic playback advances through the captured timeline and loops",
+    "Pause stops the common time cursor",
+    "Next frame changes frame 406 to 407; previous returns to frame 406",
+    "Effect-time jump displays each corresponding PixelFX overlay",
+    "Speed selector accepts 0.5x",
+    "Native 1x, close 2x and full phone layout render",
+    "390px browser width uses native 1x by default and stacks comparisons",
+    "No text control exceeds the 390px viewport width",
+    "Browser viewport override reset after checking",
+    "No browser warnings or errors after the initial frame-time clamp fix"
+  ],
+  "narrow_view": {"width": 390, "height": 844, "oversized_text_controls": []},
+  "runtime_console_errors_after_fix": [],
+  "note": "The HTML overlays are proposals; gameplay code and assets have not been integrated or modified."
+}

@@ -14735,70 +14735,46 @@
     },
     {
       "id": "F41_e5",
-      "name_id": 188,
-      "character_id": 188,
-      "name_ja": "アーチャー",
-      "name_zh": "弓手",
-      "class": "archer",
-      "class_id": 12,
-      "class_name_zh": "弓箭手",
-      "level": 6,
-      "hp": 27,
-      "max_hp": 27,
+      "name_id": 0,
+      "character_id": 0,
+      "name_zh": "伪泰坦傀儡",
+      "class": "pseudo_titan",
+      "class_id": 26,
+      "class_name_zh": "伪泰坦傀儡",
+      "unit_kind": "mechanical_puppet",
+      "mechanical_model": "pseudo_titan",
+      "level": 5,
+      "hp": 42,
+      "max_hp": 42,
       "exp": 0,
-      "strength": 11,
-      "skill": 7,
-      "speed": 5,
+      "exp_value": 98,
+      "strength": 12,
+      "skill": 5,
+      "speed": 1,
       "luck": 0,
-      "defence": 5,
-      "resistance": 0,
+      "defence": 4,
+      "resistance": 2,
       "move": 4,
+      "mechanical_base_move": 4,
       "item_id": 0,
-      "exp_value": 52,
-      "raw_ai_flags": 0,
-      "raw_magic_flags": 0,
-      "magic_flags": 0,
-      "raw_template": [
-        188,
-        12,
-        1,
-        0,
-        192,
-        0
-      ],
-      "group_id": 0,
-      "record_index": 2,
-      "provenance": [
-        {
-          "file": "src/bank008.asm",
-          "label": "L089482",
-          "line": 1919
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L089B44",
-          "line": 2569
-        },
-        {
-          "file": "src/bank015.asm",
-          "label": "L0FED7F",
-          "line": 7399
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L08A31B",
-          "line": 3626
-        }
-      ],
-      "confidence": "source_count_bounded_template_constructor",
       "position": [
         12,
         6
       ],
       "side": "enemy",
       "acted": false,
-      "ai_flags": 0,
-      "behavior": "guard"
+      "hidden": false,
+      "escaped": false,
+      "mechanical_retreating": false,
+      "no_drop": true,
+      "parts": {
+        "protective_core": {
+          "hp": 16,
+          "max_hp": 16,
+          "defence": 3,
+          "resistance": 2
+        }
+      }
     },
     {
       "id": "F41_e6",
@@ -15003,70 +14979,46 @@
     },
     {
       "id": "F41_e9",
-      "name_id": 191,
-      "character_id": 191,
-      "name_ja": "ようじゅつし",
-      "name_zh": "术士",
-      "class": "arcanist",
-      "class_id": 15,
-      "class_name_zh": "执令术师",
-      "level": 6,
-      "hp": 27,
-      "max_hp": 27,
+      "name_id": 0,
+      "character_id": 0,
+      "name_zh": "独眼傀儡",
+      "class": "cyclops",
+      "class_id": 27,
+      "class_name_zh": "独眼傀儡",
+      "unit_kind": "mechanical_puppet",
+      "mechanical_model": "cyclops",
+      "level": 5,
+      "hp": 30,
+      "max_hp": 30,
       "exp": 0,
-      "strength": 11,
-      "skill": 7,
-      "speed": 5,
+      "exp_value": 84,
+      "strength": 8,
+      "skill": 6,
+      "speed": 3,
       "luck": 0,
-      "defence": 5,
-      "resistance": 8,
+      "defence": 3,
+      "resistance": 3,
       "move": 4,
+      "mechanical_base_move": 4,
       "item_id": 0,
-      "exp_value": 75,
-      "raw_ai_flags": 0,
-      "raw_magic_flags": 1,
-      "magic_flags": 1,
-      "raw_template": [
-        191,
-        15,
-        1,
-        0,
-        128,
-        17
-      ],
-      "group_id": 0,
-      "record_index": 1,
-      "provenance": [
-        {
-          "file": "src/bank008.asm",
-          "label": "L0895AA",
-          "line": 2025
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L089BCE",
-          "line": 2638
-        },
-        {
-          "file": "src/bank015.asm",
-          "label": "L0FED94",
-          "line": 7408
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L08A31B",
-          "line": 3626
-        }
-      ],
-      "confidence": "source_count_bounded_template_constructor",
       "position": [
-        7,
-        11
+        12,
+        7
       ],
       "side": "enemy",
       "acted": false,
-      "ai_flags": 0,
-      "behavior": "guard"
+      "hidden": false,
+      "escaped": false,
+      "mechanical_retreating": false,
+      "no_drop": true,
+      "parts": {
+        "eye": {
+          "hp": 12,
+          "max_hp": 12,
+          "defence": 2,
+          "resistance": 2
+        }
+      }
     },
     {
       "id": "F41_e10",
@@ -16478,9 +16430,9 @@
     ]
   ],
   "goal": "保住至少一井至第6己方回合，并击败强迁队长。",
-  "before": "莉莎：他们要把井封上。／艾琳：我们留在这里，让居民先把水取够。",
+  "before": "艾琳：这是你签的征调令。家属来要人时，你知道他们还被关着吗？／玛尔塔：有人来过。维瑟说还在养伤，我就没准家属进去。／获救者：这只手是院里治好的。我想回去干自己的活，他们不让。／艾琳：先撤掉征调，让他们出来。／玛尔塔：去开沙城的粮仓。守备带车接人，我签过的征调令，从今天停下。／传令兵：井台不听。他们拿萨弥神官的命令，说您管不到王都的军队。／玛尔塔：萨弥还管着进港的粮药。她一停船，仓里的撑不了多久。／艾琳：先让人取水领粮。船和药，我们再一起想办法。／居民：伪泰坦堵着井台，独眼在后头给守军治伤。／莉莎：南北两口井都留人！／战场提示：守至第6己方回合并击败队长。敌军连续占井整轮才失守，可夺回；两井同时失守则失败。",
   "during": "第4己方回合：莉莎主动要求守另一口井，避免所有法师挤在一点。",
-  "after": "居民向导加入剧情队伍，不能作为唯一可阵亡的开门角色。",
+  "after": "居民：水取够了。有人会把去盐原观测台的路画下来，图就留在井台。／旁白：战后整理出银盾，已收入本队行囊，可在部队整备中分配。",
   "optional": false,
   "event_boats": [],
   "clear_training_exp": 20,
@@ -16686,5 +16638,7 @@
     "version": "0.10.14-environment",
     "conclusion": "沙城保留沙地、压实土路、石制井台和居民区；冷暗光延续东部黑昼，据点同步沙地而非盐地。",
     "geometry_and_rules_unchanged": true
-  }
+  },
+  "dialogue_revision": "2026-11-07",
+  "mechanical_revision": "story-20261107"
 }

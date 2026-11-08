@@ -1,0 +1,34 @@
+{
+  "status": "complete",
+  "started_utc": "2026-11-06T22:32:48.575753+00:00",
+  "request": [
+    "Distinct lance effects for every profession, stronger with promotion",
+    "Distinct bow tiers and independent Hunapu bow design",
+    "Completely PixelFX-generated complex magic, including levin sword and lightning"
+  ],
+  "scope": "Preview source and HTML/assets only. This task made no production code or artwork writes; unrelated concurrent workspace changes are documented in verification.json.",
+  "source_captures": "../full-battle-20261107/captures",
+  "previous_preview": "../../full-battle-20261107/index.html",
+  "next": [],
+  "completed_utc": "2026-11-06T23:25:46.854078+00:00",
+  "preview": "/Users/gcc/gaocc/project/revenge-memories/art-review/character-expansion-20261018/pixelfx-runtime-20261106/weapon-magic-r2-20261107/index.html",
+  "url": "http://127.0.0.1:8766/weapon-magic-r2-20261107/index.html",
+  "revised_cases": 560,
+  "total_catalog_cases": 794,
+  "native_effect_atlases": 83,
+  "profession_lance_styles": 8,
+  "bow_styles": 5,
+  "magic_types": 13,
+  "full_magic_cases": 390,
+  "full_magic_cinemas": 8,
+  "validation": {
+    "exact_frame_comparisons": 3836,
+    "native_bounds": "passed",
+    "promotion_strength": "passed all five chains",
+    "visual_qa": "passed",
+    "browser_qa": "passed desktop and mobile",
+    "lossless_images": 1711,
+    "html_links": 17
+  },
+  "sampling_baseline": "Same isolated Godot snapshot as R1. Weapon/spell animation inputs and cinema program match current production; newly added story puppets are not part of this R2 iteration."
+}

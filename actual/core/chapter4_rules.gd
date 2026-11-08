@@ -2,6 +2,7 @@ extends RefCounted
 ## Fourth chapter: independent routes, reversible waiting points, explicit objective state.
 const STAGES=[401,402,403,404,405,406,407,408,411,412]
 const ROOMS=["H10","H41","H42","H43","H44","H45","H46","H47","H48","H49","H50"]
+const Prometheus=preload("res://core/prometheus_story.gd")
 const Prior=preload("res://core/chapter3_rules.gd")
 static func begin(g) -> bool:
  if g.chapter!=3 or not g.flags.get("chapter3_complete",false) or not g.flags.get("D33_done",false):return false
@@ -44,13 +45,12 @@ static func initialize(g) -> void:
  q.transfer_cut_snapshot=bool(g.flags.get("transfer_cut",false))
  if g.stage_id==408 and q.transfer_cut_snapshot:g.battle_data.reinforcements=[];g.battle_data.reinforcement_turn=0
 static func before_lines(g) -> void:
- if g.stage_id==404:g.queue_pages(g.campaign.scenes.D41,"D41")
- var text={401:"奥托或居民：北村的人沿村道向南撤。先疏通南口，再去接山道上的伤者。／胡纳普：我们挡住封路的人，至少带回两组居民。",402:"胡纳普：投送站还在往群岛运兵。先截断这里，再进北境。",403:"胡纳普：先夺控制室，谁都别拆塔。／芙拉或工匠：下面还有病人。控制室缺的步骤在东岸观测台；可以先守住这里，再等来信。",404:"蕾娜或投降军官：留下医舍旁的后撤门，让伤兵退到安全处。",405:"莉莎或艾琳：他们要把井封上。南北井台都留人接应，先让居民把水取够。／战场提示：守至第6己方回合并击败队长。敌军连续占井整轮才失守，可夺回；两井同时失守则失败。",406:"艾琳：记录在东楼，别让拿火把的人进去。先保护记录，再到中央设备南面复制。／地方技术员：焚毁兵第6回合才出发，会先警告。两次连续点火才烧毁，我们还有时间。",407:"米蕾或船团医者：有几个人走不快。把三处干地依次确认，再分组送往东北古道口。／卡洛或舵手：船留在南侧接应；不要把居民赶进毒沼。",408:"艾琳：三个调节点都要交给工匠，正式队员可以继续向前。先做局部隔离试验，再等两岸确认。",411:"奥托或村民：名字都在村中那间屋里。他们说要把村里腾空。／胡纳普：先护住名册屋。屋在村道东侧，门朝南。",412:"赛琳：我不能把病人留在这里。你们有能靠岸的船吗？／艾琳：船在西南，先守住诊疗处，让两组病人依次上船。／战场提示：北端飞行敌第3回合开始压近。先接住病人，不要直接冲向北面的队长。"}.get(g.stage_id,"")
- lines(g,text,str(g.battle_data.code)+"-BEGIN")
- if g.stage_id==411:lines(g,"保管人：烧毁前保护黑钟村名册，确认避难院，再击败焚毁队长并胜利；回黑钟村避难院找保管人，可领取续愿戒。不必删去凯尔做过的错事。","411-ACCESSORY-HINT")
- if g.stage_id==402 and g.speaker_alive("兰斯"):lines(g,"兰斯：营地西侧有人曾与我共事。让我到他旁边谈谈。／胡纳普：可以，但别一个人走进弓手面前。","M42-LANCE")
- if g.stage_id==408:lines(g,"信使：西队已切断投送站，本次不会有投送援军。" if g.flags.quest.transfer_cut_snapshot else "信使：投送站仍在运行，第5回合东侧平台会有两名援军。这次战斗按当前军情应对。","F44-SNAPSHOT")
+ lines(g,str(g.battle_data.before),str(g.battle_data.code)+"-BEGIN")
+ if g.stage_id==408:lines(g,"信使：西队已切断投送站。" if g.flags.quest.transfer_cut_snapshot else "战场提示：第5回合东侧平台抵达两名援军。","F44-SNAPSHOT")
+
 static func ai_action(g,u:Dictionary) -> Dictionary:
+ var escort=Prometheus.action(g,u)
+ if not escort.is_empty():return escort
  if u.has("advance_after") and g.turn<int(u.advance_after):
   var guard=u.duplicate(true);guard.behavior="guard_exit";return g.CampaignTactics.action(g,guard)
  if u.get("quest_kind","")=="escort":
@@ -71,6 +71,7 @@ static func extra_interactions(g,u:Dictionary) -> Array:
   return [{"id":"lance_parley","kind":"parley","label":"与旧同袍交涉"}]
  return []
 static func interact(g,id:String) -> void:
+ if Prometheus.interact(g,id):return
  if id=="lance_parley":
   g.flags.quest.old_comrades_talked=true
   for u in g.living("enemy"):
@@ -83,6 +84,8 @@ static func interact(g,id:String) -> void:
   if index>1 and not done(g,"dry_"+str(index-1)):
    lines(g,"舵手：先确认前一处干地，后面的病人才能沿线跟上。","F43-ORDER");return
  g.flags.quest.objects[id]=true
+ if g.stage_id==407 and id=="dry_2" and alive(g,"marsh_group2") and not g.flags.quest.evacuated.has("marsh_group2"):
+  var L=load("res://core/late_dialogue.gd");L.queue(g,L.lines("F43","战中交互",2),"F43-TIKO-RESCUE")
  match id:
   "transfer_station":g.flags.transfer_cut=true;lines(g,"工匠：投送已停止。信件送往东岸，已抵达的敌军不会因此消失。","M42-CUT")
   "tower_control":lines(g,"工匠：控制室归我们了。战后到这里核对观测步骤，不能直接拆塔。","M43-CONTROL")
@@ -161,6 +164,7 @@ static func check_outcome(g) -> String:
    ready=done(g,"regulator_1") and done(g,"regulator_2") and done(g,"regulator_3")
    if ready and int(q.repair_since)<0:q.repair_since=g.turn;lines(g,"工匠：三个调节点已接通。再保护到下一己方回合，完成局部隔离试验。","F44-TEST")
    ready=ready and g.turn>int(q.repair_since)
+   if Prometheus.applies(g):ready=Prometheus.ready(g)
   411:ready=q.record_lost or done(g,"black_register")
  if g.stage_id==407 and boss_down(g):
   for u in g.units:
@@ -176,12 +180,12 @@ static func on_victory(g) -> void:
  g.flags["survivors_"+str(g.battle_data.code)]=survivors
  match g.stage_id:
   403:g.flags.m43_seized=true
-  406:g.flags.obs_steps_ready=true
+  406:g.flags.observatory_captured=true
   408:g.flags.island_loop_safe=true
   411:g.flags.S41_register_saved=done(g,"black_register") and not g.flags.quest.record_lost
   412:g.flags.celine_ready=alive(g,"celine");g.flags.S42_settled=true
- var ending={401:"居民：活着的组别和伤亡分别登记。先到南口安置处确认，再沿山道去铁骑关。",402:"信使：投送站停止的消息已发往东岸。若祭所战斗已经结束，这封信会保护后面的船队。",403:"工匠：日塔已由我们驻守。请到控制室核对东岸的观测步骤；没收到信也不用重新作战。",404:"胡纳普：赫兰已失去指挥权。把伤兵交给照护处，我们回营站核对两岸结果。",405:"居民：水已经取够，古道路线就在井台。我们会留下多份路线册。",406:"信使：完整的停用步骤已送往北境日塔；祭所坐标也记下了。西队在控制室就能接续，不必重打。",407:"船团医者：获救居民已逐组交接。古道通向祭所，船口还收到孤岛的求援。",408:"技术员：局部隔离试验成功。再到调节庭核对西塔停用后的灯光，不能把局部成功当成两岸验证。",411:"村民：完整名册保住了，军令的前后都记下了。" if g.flags.get("S41_register_saved",false) else "村民：名册被烧掉了。我们仍会留下在场者的证言，但不把失去的记录补回来。",412:"医者：两组病人已上船，地方医者会接手。到诊疗处与赛琳交谈，再决定是否同行。" if alive(g,"celine") else "医者：两组病人已上船。赛琳未能获救，由留守医者接手照护；请到诊疗处确认病人交接。"}
- lines(g,ending[g.stage_id],str(g.battle_data.code)+"-END")
+ lines(g,str(g.battle_data.after),str(g.battle_data.code)+"-END")
+
 static func status(g) -> Array[String]:
  var q:Dictionary=g.flags.quest;var result:Array[String]=[str(g.battle_data.goal)]
  if g.stage_id in [401,407,412]:result.append("已撤离%d组；至少2组。居民遇敌等待，请清出连续通路；组别生死分别保存。"%q.evacuated.size())
@@ -189,6 +193,7 @@ static func status(g) -> Array[String]:
   result.append("北井："+("控制中" if q.wells.well_n else "失守")+"；南井："+("控制中" if q.wells.well_s else "失守")+"。至少保住一井，守至第6己方回合且击败队长。")
  if g.stage_id in [406,411]:result.append("记录已毁。" if q.record_lost else "记录已保护。" if done(g,"observatory_record") or done(g,"black_register") else "焚毁兵连续两次在门前点火才毁记录。第%d回合开始，提前一回合预告。"%int(g.battle_data.burn_start))
  if g.stage_id==403:result.append("先完成夺塔即可返回控制室。安全停塔需要东队在盐原观测台取得步骤，不必重战。")
+ if g.stage_id==408:result.append("制服维瑟取得钥匙。工匠会沿西侧通道前往检修台；三点试验完成后，可在检修台请求检修。最终击毁和自愿检修均可通关。")
  if g.stage_id==408:result.append(("投送援军已取消。" if q.transfer_cut_snapshot else "第5回合东侧平台来援军2名；当前战斗军情已固定。")+"三点交接后保护至下一己方回合，且至少一名工匠存活。")
  for o in g.battle_data.objects:
   if g.stage_id!=405 and not o.get("optional",false):result.append(str(o.label)+("：已完成" if done(g,str(o.id)) else "：未完成"))
@@ -197,6 +202,7 @@ static func missing(g) -> Array[String]:
  var result:Array[String]=[]
  if not g.flags.get("west_tower_safe",false):result.append("西队：北境日塔控制室，确认安全停用" if g.flags.get("obs_steps_ready",false) else "东队：盐原观测台，取得停用步骤；西队再到日塔控制室确认")
  if not g.stage_cleared(404):result.append("西队：王都城门，击败赫兰并占领门楼")
+ elif not g.flags.get("herlan_handover_seen",false):result.append("西队：王都伤兵后撤门，与赫兰确认伤兵去向")
  if not g.flags.get("island_loop_safe",false):result.append("东队：沉没祭所，完成三点隔离试验")
  if not g.flags.get("D42_done",false):result.append("东队：沉没祭所调节庭，两岸确认信")
  return result

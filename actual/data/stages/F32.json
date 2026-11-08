@@ -4368,69 +4368,46 @@
     },
     {
       "id": "F32_e3",
-      "name_id": 184,
-      "character_id": 184,
-      "name_ja": "ようへい",
-      "name_zh": "佣兵",
-      "class": "mercenary",
-      "class_id": 8,
-      "class_name_zh": "佣兵",
-      "level": 4,
-      "hp": 23,
-      "max_hp": 23,
+      "name_id": 0,
+      "character_id": 0,
+      "name_zh": "水猴傀儡",
+      "class": "water_monkey",
+      "class_id": 25,
+      "class_name_zh": "水猴傀儡",
+      "unit_kind": "mechanical_puppet",
+      "mechanical_model": "water_monkey",
+      "level": 3,
+      "hp": 22,
+      "max_hp": 22,
       "exp": 0,
-      "strength": 10,
-      "skill": 6,
-      "speed": 5,
+      "exp_value": 60,
+      "strength": 5,
+      "skill": 4,
+      "speed": 8,
       "luck": 0,
-      "defence": 4,
+      "defence": 3,
       "resistance": 1,
-      "move": 4,
+      "move": 5,
+      "mechanical_base_move": 5,
       "item_id": 0,
-      "exp_value": 45,
-      "raw_ai_flags": 0,
-      "raw_magic_flags": 0,
-      "magic_flags": 0,
-      "raw_template": [
-        184,
-        8,
-        1,
-        0,
-        128,
-        0
-      ],
-      "group_id": 0,
-      "record_index": 10,
-      "provenance": [
-        {
-          "file": "src/bank008.asm",
-          "label": "L089540",
-          "line": 1992
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L089BA4",
-          "line": 2617
-        },
-        {
-          "file": "src/bank015.asm",
-          "label": "L0FED63",
-          "line": 7387
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L08A31B",
-          "line": 3626
-        }
-      ],
-      "confidence": "source_count_bounded_template_constructor",
       "position": [
         22,
         19
       ],
       "side": "enemy",
       "acted": false,
-      "ai_flags": 0
+      "hidden": false,
+      "escaped": false,
+      "mechanical_retreating": false,
+      "no_drop": true,
+      "parts": {
+        "back_cannon": {
+          "hp": 10,
+          "max_hp": 10,
+          "defence": 2,
+          "resistance": 1
+        }
+      }
     },
     {
       "id": "F32_e4",
@@ -4634,70 +4611,46 @@
     },
     {
       "id": "F32_e7",
-      "name_id": 188,
-      "character_id": 188,
-      "name_ja": "アーチャー",
-      "name_zh": "弓手",
-      "class": "archer",
-      "class_id": 12,
-      "class_name_zh": "弓箭手",
-      "level": 4,
-      "hp": 23,
-      "max_hp": 23,
+      "name_id": 0,
+      "character_id": 0,
+      "name_zh": "独眼傀儡",
+      "class": "cyclops",
+      "class_id": 27,
+      "class_name_zh": "独眼傀儡",
+      "unit_kind": "mechanical_puppet",
+      "mechanical_model": "cyclops",
+      "level": 5,
+      "hp": 30,
+      "max_hp": 30,
       "exp": 0,
-      "strength": 10,
+      "exp_value": 84,
+      "strength": 8,
       "skill": 6,
-      "speed": 4,
+      "speed": 3,
       "luck": 0,
-      "defence": 4,
-      "resistance": 0,
+      "defence": 3,
+      "resistance": 3,
       "move": 4,
+      "mechanical_base_move": 4,
       "item_id": 0,
-      "exp_value": 45,
-      "raw_ai_flags": 0,
-      "raw_magic_flags": 0,
-      "magic_flags": 0,
-      "raw_template": [
-        188,
-        12,
-        1,
-        0,
-        192,
-        0
-      ],
-      "group_id": 0,
-      "record_index": 2,
-      "provenance": [
-        {
-          "file": "src/bank008.asm",
-          "label": "L089482",
-          "line": 1919
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L089B44",
-          "line": 2569
-        },
-        {
-          "file": "src/bank015.asm",
-          "label": "L0FED7F",
-          "line": 7399
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L08A31B",
-          "line": 3626
-        }
-      ],
-      "confidence": "source_count_bounded_template_constructor",
       "position": [
         25,
         16
       ],
       "side": "enemy",
       "acted": false,
-      "ai_flags": 0,
-      "behavior": "guard"
+      "hidden": false,
+      "escaped": false,
+      "mechanical_retreating": false,
+      "no_drop": true,
+      "parts": {
+        "eye": {
+          "hp": 12,
+          "max_hp": 12,
+          "defence": 2,
+          "resistance": 2
+        }
+      }
     },
     {
       "id": "F32_e8",
@@ -5979,7 +5932,7 @@
   "goal": "击败封路神官，护送向导至出口；若向导遇难，须取回路线册。",
   "before": "罗恩：这里以前是水路，现在他们把井也封了。／艾琳：先让向导穿过那条干道。",
   "during": "向导到中央井边：莉莎：右边的术士在等我们走沙地，换一条路。",
-  "after": "向导报告盐原营地囚犯，给出提炼院后门位置。",
+  "after": "艾琳：路通了。问问向导从哪进提炼院，盐原的信也带上。",
   "optional": false,
   "event_boats": [],
   "clear_training_exp": 20,
@@ -6160,5 +6113,7 @@
     "conclusion": "盐地、干土路与潮池保持；东部庇护继续流失，冷暗光衔接第二章黑昼。",
     "geometry_and_rules_unchanged": true
   },
-  "enemy_role_hint": "卡洛或船团护卫：盐路前排有两名剑士，移动五格，也比普通佣兵耐法术。先守住向导经过的干道。"
+  "enemy_role_hint": "卡洛或船团护卫：盐路前排有两名剑士，移动五格，也比普通佣兵耐法术。先守住向导经过的干道。",
+  "dialogue_revision": "2026-11-07",
+  "mechanical_revision": "story-20261107"
 }

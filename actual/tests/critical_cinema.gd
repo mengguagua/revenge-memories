@@ -16,6 +16,37 @@ func _initialize():call_deferred("run")
 func check(ok:bool,label:String):
 	checks.append(label)
 	if not ok:errors.append(label);push_error(label)
+
+func cutin_fits(spec:Dictionary)->bool:
+	var packed := FileAccess.get_file_as_bytes(str(spec.program))
+	var scene: Dictionary = JSON.parse_string(packed.decompress_dynamic(32*1024*1024,FileAccess.COMPRESSION_GZIP).get_string_from_utf8())
+	var images: Array = Cinema.data().images
+	var sampled := 0
+	for tick in range(scene.frames.size()):
+		var glyphs: Array = []
+		var portrait_edge := Cinema.FIELD.end.x
+		for op in scene.frames[tick]:
+			if int(op[0])!=1:continue
+			var image: Dictionary = images[int(op[1])]
+			var source := str(image.source)
+			if "portraits-" in source or "-cutins-" in source:
+				portrait_edge = minf(portrait_edge,Cinema.FIELD.end.x-float(op[2])-float(op[4]))
+			elif source.begins_with("Cinematic label:") and source!="Cinematic label: 必 杀" and float(op[3])>=Cinema.FIELD.position.y and float(op[3])<Cinema.FIELD.end.y:
+				glyphs.append([float(op[3]),float(image.width),float(image.height)])
+		for subframe in [.01,.5,.99]:
+			var boxes: Array[Rect2] = []
+			for glyph in glyphs:
+				var pos := Cinema.cutin_text_layout(float(tick)+subframe,float(glyph[1]))
+				if pos.y<=0.0:continue
+				sampled += 1
+				var box := Rect2(pos.x,glyph[0],glyph[1],glyph[2])
+				if not Cinema.FIELD.grow(-24.0).encloses(box) or box.end.x>=portrait_edge:return false
+				if pos.y>=.15 and portrait_edge-box.end.x<24.0:return false
+				for previous in boxes:
+					if previous.grow(4.0).intersects(box):return false
+				boxes.append(box)
+	return sampled>0
+
 func fixture(hero:String,advanced:bool,weapon:int,dead:bool=false)->Dictionary:
 	ui.battle_animation.reset();ui.game.new_game();ui.game.stage_id=101
 	ui.game.battle_data=ui.game.stages[101].duplicate(true);ui.game.mode="battle"
@@ -35,6 +66,7 @@ func run():
 	check(definitions.size()==14,"fourteen approved native programs")
 	for key in definitions:
 		var spec=definitions[key];var weapon=23 if spec.get("spell","")=="fire" else 26 if spec.get("spell","")=="holy" else 24 if spec.get("spell","")=="thunder" else 27 if spec.get("spell","")=="wind" else 1 if spec.weapon=="弓" else 0
+		check(cutin_fits(spec),"unclipped cut-in text stays clear of portrait and neighboring text "+key)
 		var e=fixture(str(spec.hero),bool(spec.advanced),weapon);var chosen=ui.battle_animation.selection(e)
 		check(chosen.kind=="critical_cinema" and chosen.key==key,"resolved event selects "+key)
 		var before=ui.game.strike_commits;var kills=ui.game.kills;var roster=ui.game.roster.duplicate(true)
@@ -84,6 +116,9 @@ func run():
 			e.cover={"unit":guard.id,"damage":5,"hp_after":25}
 		var start=Time.get_ticks_usec();await ui.battle_animation.play(e);var seconds=float(Time.get_ticks_usec()-start)/1000000.;times.append(seconds)
 		check(ui.game.strike_commits==commits+1 and ui.game.find_unit(e.defender).hp==23,"timed critical settles once "+str(fast))
+		var hp_steps: Array = ui.battle_animation.cinema.audit.hp_steps
+		check(hp_steps.map(func(row):return int(row[1]))==[29,28,27,26,25,24,23],"timed critical removes exactly one cell per point "+str(fast))
+		check(hp_steps.is_empty() or float(hp_steps[0][0])>float(definitions["hunapu-sword"].hit)+.15,"critical takes its HP steps after the hit reaction")
 		if fast:check(ui.game.find_unit("cover_guard").hp==25,"critical preserves actual guard damage without interrupting audiovisual clock")
 		check(not ui.audio._critical_active,"exclusive music released after playback "+str(fast))
 	check(times[0]>=7.1 and times[0]<8.3 and times[1]<times[0]*.48 and times[1]>times[0]*.22,"normal and held critical clocks preserve approximately 7.2 sec / 3x")

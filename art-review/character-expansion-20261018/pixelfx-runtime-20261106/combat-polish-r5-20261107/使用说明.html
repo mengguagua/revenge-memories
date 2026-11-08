@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PixelFX · 使用说明</title><link rel="stylesheet" href="style.css?v=20261107-r4"><style>main{max-width:900px}.guide h2{margin:0 0 16px}.guide p,.guide li{color:#bdcbcd}.guide li{margin:10px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#101c24;padding:20px;border-radius:12px;line-height:1.8;font-size:15px}code{font-family:ui-monospace,monospace}.guide{padding:28px}.back{text-align:center;margin:0 0 30px}</style></head><body>
+<header class="page-head"><div class="eyebrow">复仇与回忆 · PIXELFX R5</div><h1>查看战斗对照</h1><p>从「本轮修订」选择招式，通过关键时刻按钮查看细节。</p></header>
+<main><p class="back"><a href="index.html">返回全部战斗对照</a></p>
+<section class="panel guide">
+<h2>怎样看对照</h2>
+<ol>
+ <li>火球可分别查看原蓄力、飞行与撞击；诸神黄昏可跳到聚焰与火柱。必杀里点「查看飘字」或「查看扣血」，右侧显示实际伤害及普通分格血条。</li>
+ <li>左右共用时间轴。「有声试听」从第一段声音前开始，音量可单独调整。暂停、进度拖动和慢放会同步影响声音。音效对应右侧候选。</li>
+ <li>「原生 1×」看实际像素，「近景 2×」看细节，「完整手机布局」看全景。画面较宽时可在画框内横向滑动。</li>
+ <li>目录默认筛出 178 项本轮修订。点「查看全部 14 段必杀」可切到男女主的剑、弓与法术必杀。关闭筛选可查看全部 794 项。</li>
+ <li>对具体条目选择方向或补充文字。用「导出我的意见」保存 JSON，方便下一轮对照时继续使用。</li>
+</ol>
+</section>
+<section class="panel guide"><h2>怎样调用已安装的 Skill</h2><p>PixelFX 已安装到本机 <code>~/.codex/skills/pixelfx/</code>。重启 Codex 后，在游戏项目的对话中输入 <code>$pixelfx</code>，再用中文说明目标即可。</p>
+<pre>$pixelfx 直接使用 fire/fireball 原模块。保留实机蓄力，做同时间轴的飞行与命中对照，附原库来源，只出 HTML。</pre>
+<pre>$pixelfx 把水炮特效的颜色再暗一点，保留已确认的灰青色系，更新预览让我对比。</pre>
+<pre>$pixelfx 将我选中的剑击和水炮效果导出为 Godot 可用的 PNG 图集和 JSON，先不要接入游戏。</pre>
+<p>也可以让它查找已有特效、调整颜色和持续时间、制作候选，或根据导出的意见继续修改。当前安装包含固定版本的 244 个上游特效及导出工具。</p></section>
+<section class="panel guide">
+<h2>预览来源</h2>
+<p>火球以实机蓄力像素为色板，吸血与伤害飘字直接取自 PixelFX 原库。必杀下方的分格血条由普通战斗界面采样，扣血节奏取自同一目标的普通受击。左右的战斗结果一致。</p>
+<p>整套对照可保留在本机。打开 <code>index.html</code> 时保留同目录的资源、案例和脚本。</p>
+<p><a href="qa/verification.json">帧与规则验收记录</a> · <a href="qa/r5-provenance.json">本轮特效与实机采样来源</a> · <a href="qa/r4-fire-audio.json">火球混音记录</a> · <a href="LICENSE">PixelFX 许可</a></p>
+</section>
+</main><footer><a href="index.html">返回对照</a></footer></body></html>

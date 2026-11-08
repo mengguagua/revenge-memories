@@ -159,6 +159,8 @@ func _process(delta: float) -> void:
 	notice_time = maxf(0.0, notice_time - delta)
 	phase_time = maxf(0.0, phase_time - delta)
 	combat_hit_time = maxf(0.0, combat_hit_time - delta)
+	if view == "combat" and battle_animation != null:
+		battle_animation.review_fx.process(delta)
 	if view.begins_with("hub"):
 		hub_controller.process(delta)
 	if view == "reward":
@@ -1351,20 +1353,21 @@ func _contact(event: Dictionary) -> void:
 	var recoil = int(event.get("self_damage", 0)) > 0
 	var feedback_id = str(event.attacker) if recoil else target_id
 	var feedback_before = int(event.source_hp_before) - int(event.get("hp_cost", 0)) if recoil else int(event.hp_before)
-	var feedback_after = int(event.source_hp_after) if recoil else int(event.hp_after)
+	var feedback_after = int(event.source_hp_after) if recoil else (0 if event.get("prometheus_revived",false) else int(event.hp_after))
 	var part_hit=not recoil and not str(event.get("target_part","")).is_empty()
 	if part_hit:
 		feedback_before=int(event.part_hp_before);feedback_after=int(event.part_hp_after)
-		if feedback_before>0 and feedback_after==0:await battle_animation.reaction(feedback_id,"part_break")
+		if feedback_before>0 and feedback_after==0:await battle_animation.reaction(feedback_id,"part_break:"+str(event.target_part))
 	combat_message = "反噬" if recoil else ("必杀" if bool(event.critical) else "")
-	if part_hit:combat_message=game.Mechanical.part_name(game.find_unit(target_id),true)+("破坏" if feedback_after==0 else "受损")
+	if part_hit:combat_message=game.Mechanical.part_name(game.find_unit(target_id),true,str(event.target_part))+("破坏" if feedback_after==0 else "受损")
 	elif event.get("reflection_feedback",false):combat_message="反伤2HP"
 	elif event.get("water_slow_applied",false):combat_message="速度－1"
 	combat_hit_id = feedback_id
 	combat_hit_time = 0.5
 	# Source L059C18/L059C69 uses 0x43 for both misses and zero damage.
 	# Recoil compares the actor's actual HP change, not the untouched target.
-	audio.play_sfx("hit" if feedback_after < feedback_before else "miss")
+	if instant_mode or battle_animation == null or not battle_animation.review_fx.replaces_hit_sound() or feedback_after >= feedback_before:
+		audio.play_sfx("hit" if feedback_after < feedback_before else "miss")
 	# Original PPU horizontal-scroll hit feedback, one step per NTSC frame.
 	if not await battle_animation.reaction(feedback_id,"hit"):
 		for displacement in [3, 1, 2, 1, 3, 1, 2, 4, 2, 1, 0]:
@@ -1372,19 +1375,29 @@ func _contact(event: Dictionary) -> void:
 			await _wait(1.0 / 60.0988)
 	combat_shake = 0.0
 	for hp in range(feedback_before - 1, feedback_after - 1, -1):
-		if not part_hit:combat_hp[feedback_id] = hp
-		audio.play_sfx("hp_tick")
-		await _wait(1.0 / 60.0988)
+		await _combat_hp_tick(feedback_id, hp, not part_hit)
 	await _wait(16.0 / 60.0988)
 	# Reflected casualties are presented after their own HP feedback below.
 	if int(event.get("reflection_damage",0))==0 and has_method("_play_casualty_messages"):await call("_play_casualty_messages")
-	if feedback_after == 0 and not part_hit:
+	if event.get("prometheus_revived",false):
+		combat_message="生命核心毁坏 · 复苏24HP"
+		await battle_animation.reaction(feedback_id,"revive")
+		combat_hp[feedback_id]=int(event.hp_after)
+		if has_method("_play_prometheus_revival"):await call("_play_prometheus_revival")
+	if feedback_after == 0 and not part_hit and not event.get("prometheus_revived",false):
 		if not await battle_animation.reaction(feedback_id,"exit"):
 			for step in range(4):
 				combat_fades[feedback_id] = 1.0 - float(step + 1) / 4.0
 				await _wait(8.0 / 60.0988)
 		if game.find_unit(feedback_id).side == "player" and feedback_id not in ["alm", "celica"]:
 			audio.play_jingle("unit_death")
+
+func _combat_hp_tick(id: String, hp: int, show_hp := true) -> void:
+	if show_hp:
+		combat_hp[id] = hp
+	audio.play_sfx("hp_tick")
+	queue_redraw()
+	await _wait(1.0 / 60.0988)
 
 func set_touch_fast_forward(pressed: bool) -> void:
 	# This dedicated touch action never emits a confirmation key.
@@ -1457,12 +1470,16 @@ func _run_ai_unit(unit: Dictionary, gather: bool = false) -> void:
 	elif bool(action.get("support", false)):
 		await _play_support(str(unit.id), int(action.spell_id), str(action.target))
 	elif str(action.target) != "":
+		if action.has("innate_attack_index"):unit.innate_attack_index=int(action.innate_attack_index)
 		if int(action.get("spell_id", -1)) >= 0: unit.weapon_index = int(action.spell_id)
 		else: unit.erase("weapon_index")
 		await _play_combat(str(unit.id), str(action.target))
 		if view == "reward" and not result_sequence_running:
 			await _wait_for_reward()
 			if not result_sequence_running:view = "battle"
+		if unit.get("mechanical_canto_pending",false):
+			var extra=game.Mechanical.canto_path(game,unit)
+			if not extra.is_empty():await _animate_move(unit,extra)
 	else:
 		game.mark_wait(str(unit.id))
 	busy = true
@@ -1551,13 +1568,13 @@ func _map_spell_feedback(caster: Dictionary, result: Dictionary) -> void:
 		if not bool(result.get("divide", false)): await map_effects.flash("invoke")
 		for id in result.get("spawned", []):
 			var unit = game.find_unit(str(id))
-			await map_effects.play_program(map_effects.summon_program(unit), unit)
+			await map_effects.play_program(map_effects.summon_program(unit), unit, "phantom" if kind=="invoke" else "summon")
 			map_actor_alpha.erase(str(id))
 	elif kind == "expel":
 		await map_effects.flash("expel")
 		for change in result.get("changed", []):
 			var unit = game.find_unit(str(change.id))
-			await map_effects.play_program(map_effects.summon_program(unit, true), unit)
+			await map_effects.play_program(map_effects.summon_program(unit, true), unit, "expel")
 	elif kind == "battlefield_release":
 		for change in result.get("changed", []):
 			if int(change.before)!=int(change.after):await map_effects.play_program(9,game.find_unit(str(change.id)))
@@ -2236,6 +2253,8 @@ func _draw_combat(show_status:bool=true) -> void:
 		# visible around its panel while the strike is paused.
 		draw_rect(Rect2(0,128,256,112),Color(.03,.06,.1))
 		return
+	if battle_animation.cinema.active and battle_animation.cinema.draw():
+		return
 	# Source HUD includes Japanese labels and rules inside its colored texture.
 	# Use the clean panel's fixed-size corners instead of stretching those pixels.
 	for i in range(2):
@@ -2244,8 +2263,7 @@ func _draw_combat(show_status:bool=true) -> void:
 		var x = 12 + i * 128
 		_panel(Rect2(i * 128, 128, 128, 112))
 		safe_panels[-1] = Rect2(x, 138, 104, 94)
-		_text(str(unit.name_zh), Vector2(x, 138))
-		_text(("耐久" if unit.get("event_object",false) else "生命") + str(int(combat_hp.get(str(unit.id), unit.hp))), Vector2(x, 152))
+		_draw_combat_health_header(unit, Vector2(x, 138))
 		var stats = combat.get("stats", {}).get(str(unit.id), Rules.attack_stats(unit, other, game.terrain_avoid(GameState.pos(other))))
 		if Rules.Body.Mechanical.is_puppet(unit) and has_method("_draw_mechanical_part_meter"):
 			call("_draw_mechanical_part_meter",unit,x)
@@ -2259,9 +2277,11 @@ func _draw_combat(show_status:bool=true) -> void:
 		var defence_label = "魔防" if bool(incoming.get("magic",false)) else "物防"
 		# Keep the original red/blue bitmap panel and replace embedded labels.
 		var allied_panel = i == 1 or bool(combat.get("support",false))
-		var background = Color8(21, 95, 217) if allied_panel else Color8(181, 49, 32)
-		draw_rect(Rect2(x - 4, 180, 112, 52), background)
-		_draw_health(int(combat_hp.get(str(unit.id), unit.hp)), int(unit.max_hp), Vector2(x, 182), "ally" if allied_panel else "enemy")
+		var hp_top=190 if Rules.Body.Mechanical.is_prometheus(unit) else 182
+		_draw_combat_health_row(unit,Vector2(x,hp_top),allied_panel,234)
+		if Rules.Body.Mechanical.is_prometheus(unit):
+			for bounds in presentation_audit.get("mechanical_part_bounds",[]):
+				if bounds.intersects(health_checks[-1].bounds):layout_errors.append("Core labels overlap body HP cells")
 		if bool(combat.get("support", false)):
 			_text("支援魔法", Vector2(x, 204))
 			if str(unit.id)==str(combat.defender) and int(combat.get("healed_amount",0))>0:
@@ -2278,7 +2298,30 @@ func _draw_combat(show_status:bool=true) -> void:
 	if not combat_message.is_empty():
 		_center_text(combat_message, Rect2(16, 24, 224, 24), Color.WHITE, false)
 	draw_set_transform(_canvas_offset())
-	if battle_animation.cinema.active:battle_animation.cinema.draw()
+
+func _draw_combat_health_header(unit: Dictionary, at: Vector2) -> void:
+	_text(str(unit.name_zh), at)
+	_text(("耐久" if unit.get("event_object",false) else "生命") + str(int(combat_hp.get(str(unit.id),unit.hp))), at+Vector2(0,14))
+
+func _draw_combat_health_row(unit: Dictionary, at: Vector2, ally: bool, bottom: float) -> void:
+	var background := Color8(21,95,217) if ally else Color8(181,49,32)
+	draw_rect(Rect2(at.x-4,at.y-2,112,bottom-at.y),background)
+	_draw_health(int(combat_hp.get(str(unit.id),unit.hp)),int(unit.max_hp),at,"ally" if ally else "enemy")
+
+func _draw_cinema_health(at: Vector2) -> void:
+	var attacker: Dictionary = game.find_unit(str(combat.attacker))
+	var defender: Dictionary = game.find_unit(str(combat.defender))
+	var ally := attacker if attacker.side == "player" else defender
+	var enemy := defender if attacker.side == "player" else attacker
+	draw_set_transform(at.round())
+	for i in range(2):
+		var unit := enemy if i == 0 else ally
+		var x := i*128
+		_panel(Rect2(x,0,128,62))
+		safe_panels[-1] = Rect2(x+12,8,104,48)
+		_draw_combat_health_header(unit,Vector2(x+12,8))
+		_draw_combat_health_row(unit,Vector2(x+12,36),i==1,58)
+	draw_set_transform(_canvas_offset())
 
 func _draw_reward() -> void:
 	var unit = game.find_unit(str(reward.unit))

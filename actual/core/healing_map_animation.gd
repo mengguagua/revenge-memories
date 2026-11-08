@@ -1,6 +1,7 @@
 extends RefCounted
 ## Accepted map poses and foot-registered healing art. No gameplay mutations.
 const DATA="res://data/healer_map_20261104.json"
+const ReviewFx=preload("res://core/reviewed_battle_fx.gd")
 static var _data:Dictionary={}
 static func data()->Dictionary:
 	if _data.is_empty():_data=JSON.parse_string(FileAccess.get_file_as_string(DATA))
@@ -49,6 +50,8 @@ static func draw(player)->void:
 		var frame=lerpf(0,2,(t-.46)/.12) if t<.58 else lerpf(2,3,(t-.58)/.2) if t<.78 else lerpf(3,5,clampf((t-.78)/(float(spec.duration)-.78),0,1))
 		effect(player,frame,target+Vector2(0,7),54 if value.advanced else 42,clampf((float(spec.duration)-t)/.13,0,1))
 	var dt=t-float(spec.impact)
+	if int(hit.heal)>0:
+		ReviewFx.draw_effect(ui,"map-heal",dt,target+Vector2(0,4),false,.9,ui._visible_native_rect())
 	if dt>=0 and dt<.44 and int(hit.heal)>0:
 		var label="+"+str(int(hit.heal));var bounds=ui._visible_native_rect();var p=target+Vector2(-ui._small_text_width(label)/2,-24-minf(4.5,dt*11.5))
 		p.x=clampf(p.x,bounds.position.x+2,bounds.end.x-ui._small_text_width(label)-2);p.y=clampf(p.y,bounds.position.y+2,bounds.end.y-10)

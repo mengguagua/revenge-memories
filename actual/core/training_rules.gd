@@ -112,8 +112,8 @@ static func _stage(g, region: Dictionary, variant: int) -> Dictionary:
 		else:score = absi(int(field[cell]) - 6) * 100 + cell.y * 2 + cell.x
 		candidates.append({"cell":cell, "score":score})
 	candidates.sort_custom(func(a, b):return int(a.score) < int(b.score))
-	var templates: Array = base.enemies.filter(func(u):return not u.get("objective_boss", false) and int(u.class_id) not in [3, 5, 11, 16, 17, 18, 19, 21])
-	if templates.is_empty():templates = base.enemies
+	var templates: Array = base.enemies.filter(func(u):return not u.get("objective_boss", false) and not g.Mechanical.is_puppet(u) and int(u.class_id) not in [3, 5, 11, 16, 17, 18, 19, 21])
+	if templates.is_empty():templates = base.enemies.filter(func(u):return not g.Mechanical.is_puppet(u))
 	# Interleave distinct human professions. A second drill changes both its
 	# objective and opening formation; it is not the old boss fight replayed.
 	var ordered=[];var classes=[]

@@ -34,8 +34,8 @@ func run():
  var titan_count=0
  for stage in g.stages.values():
   for u in stage.get("enemies",[]):
-   if M.is_titan(u):titan_count+=1;check(stage.code=="F25","No later chapter deployment")
- check(titan_count==1,"Only one authored pseudo titan")
+   if M.is_titan(u):titan_count+=1;check(stage.code in ["F25","F33","F41"],"Titan only in approved F25/F33/F41")
+ check(titan_count==3,"Three approved story titans")
  check(Rules.weapon_index(t)==1009 and Rules.attack_speed(t)==1 and Rules.attack_range(t)==Vector2i(1,1),"Hammer physical range1, AS1")
  check(Rules.Items.weapon_profile(t,1009).might==2,"Innate hammer might2")
  check(Rules._defence(t)==14 and Rules.Items.magic_defence(t)==12,"Intact body DEF14 RES12")

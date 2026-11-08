@@ -51,6 +51,10 @@ func _init() -> void:
 	original_classes["25"].merge({"id":25,"key":"water_monkey","name_zh":"水猴傀儡","enemy_name_zh":"水猴傀儡"},true)
 	original_classes["26"]=original_classes["6"].duplicate(true)
 	original_classes["26"].merge({"id":26,"key":"pseudo_titan","name_zh":"伪泰坦傀儡","enemy_name_zh":"伪泰坦傀儡"},true)
+	for cid in [27,28,29]:
+		original_classes[str(cid)]=original_classes["6"].duplicate(true)
+		var name={27:"独眼傀儡",28:"飞枭傀儡",29:"普罗米修斯傀儡"}[cid]
+		original_classes[str(cid)].merge({"id":cid,"key":Mechanical.MODELS[cid],"name_zh":name,"enemy_name_zh":name},true)
 	# Campaign display names are separate from source classes and saved class IDs.
 	var class_names=read_json("res://data/class_names.json")
 	for class_id in class_names:
@@ -211,6 +215,11 @@ func start_battle(id: int=101,_groups: Array=[],_from_hub: bool=false) -> bool:
 	if not stages.has(id) or stage_cleared(id) or int(stages[id].node)!=world_node:return false
 	if int(stages[id].get("chapter",2 if id>=200 else 1))!=chapter:return false
 	stage_id=id;battle_data=stages[id].duplicate(true);encounter_groups=[]
+	if chapter>=2:
+		story_events.clear();flags.erase("active_plot")
+		for seen in flags.keys():
+			if str(seen).begins_with("seen_"+str(battle_data.code)+"-") or (id==205 and str(seen) in ["seen_D22-FIRST","seen_D22-DEFEAT"]):flags.erase(seen)
+		if id==408:flags.erase("prometheus_outcome")
 	Equipment.reconcile(self)
 	battle_return={"mode":"world","world_node":world_node,"previous_world_node":previous_world_node};units.clear();var slot=0
 	var battle_party=party.duplicate()
@@ -273,15 +282,24 @@ func retry_battle() -> bool:
 	# Preserve a loaded battle's live formation. A retry redeploys newly authored
 	# initial enemies from the restored entry roster rather than spawning mid-turn.
 	var added_deployment=battle_data.enemies.any(func(u):return not starting_enemies.has(str(u.id)))
+	if chapter>=2:
+		for current in battle_data.enemies:
+			var old=s.get("units",[]).filter(func(u):return str(u.id)==str(current.id))
+			if old.is_empty() or int(old[0].class_id)!=int(current.class_id) or old[0].get("mechanical_model","")!=current.get("mechanical_model","") or old[0].get("name_zh","")!=current.get("name_zh",""):added_deployment=true;break
 	if previous_map_revision!=str(battle_data.get("tactical_review_version","0.2.0")) or added_deployment:
 		return start_battle(stage_id)
 	battle_settled=false;battle_outcome="";phase="player";turn=1;kills=0;mode="battle";selected_id="";flags.erase("active_plot")
 	EnemyExperience.prepare(stage_id,units)
 	cursor=pos(find_unit(leader_id()));victory_rewards.clear();ShipInterception.prepare(self,units,true);ShipInterception.restore(self);Battlefield.restore(self);Cover.refresh(self)
 	_refresh_chapter_one_opening()
+	if chapter>=2:
+		for event in story_events:
+			if event.get("kind","")=="new_story":event.pages=preload("res://core/late_battle_dialogue.gd").resolve(self,event.get("pages",[]),str(event.get("key","")))
 	M15Story.restore(self);Rewind.reset(self);return true
 
 func queue_pages(pages: Array,key: String="") -> void:
+	pages=preload("res://core/late_battle_dialogue.gd").resolve(self,pages,key)
+	if pages.is_empty():return
 	if not key.is_empty() and flags.get("seen_"+key,false):return
 	if not key.is_empty():flags["seen_"+key]=true
 	story_events.append({"kind":"new_story","pages":pages,"key":key})
@@ -331,7 +349,7 @@ func movement_cost(unit: Dictionary,cell: Vector2i) -> int:
 	if ShipInterception.applies(self,unit) and not ShipInterception.left_deck(self,cell):return 255
 	if Mechanical.is_water(unit) and unit.get("mechanical_retreating",false) and Mechanical.water_cell(self,cell):return 1
 	var movement_unit=unit
-	if Mechanical.is_puppet(unit):movement_unit=unit.duplicate(false);movement_unit.class_id=6
+	if Mechanical.is_puppet(unit):movement_unit=unit.duplicate(false);movement_unit.class_id=5 if Mechanical.is_owl(unit) else 6
 	var value=super.movement_cost(movement_unit,cell)
 	return 1 if unit.has("quest_kind") and value<255 else value
 
@@ -418,7 +436,7 @@ func _prepare_prison_rescue(actors: Array,released: bool=false) -> void:
 func living(side: String) -> Array:
 	var result=super.living(side)
 	result=result.filter(func(u):return not u.get("escaped",false))
-	if _mechanical_victory_context and Mechanical.retreat_condition(self,side):result=result.filter(func(u):return not Mechanical.is_puppet(u))
+	if _mechanical_victory_context and Mechanical.retreat_condition(self,side):result=result.filter(func(u):return not Mechanical.is_puppet(u) or Mechanical.is_prometheus(u))
 	if _guard_target_context and side=="player":return result.filter(func(u):return not _held_captive(u))
 	return result
 
@@ -499,12 +517,16 @@ func commit_strike(event: Dictionary) -> void:
 		target.guard_alerted=true
 		target.guard_ai_revision=2
 	if str(event.get("kind",""))=="hero_map":Mechanical.reflect(event,source,target)
+	if event.get("prometheus_revived",false):target.parts.life.hp=0
+	elif Mechanical.is_prometheus(target):Mechanical.revive_event(target,event)
 	super.commit_strike(event)
-	if not str(event.get("target_part","")).is_empty() and str(event.target_part)==Mechanical.part_key(target) and Mechanical.is_puppet(target):
-		var before_part=Mechanical.part_hp(target)
-		target.parts[Mechanical.part_key(target)].hp=int(event.part_hp_after)
-		if before_part>0 and Mechanical.part_hp(target)==0:
-			log_lines.append(str(target.name_zh)+("的防护核心已破坏，双防加成与反伤停用" if Mechanical.is_titan(target) else "的背炮已破坏，水炮停用"))
+	if event.get("prometheus_revived",false):
+		var L=preload("res://core/late_dialogue.gd");L.queue(self,L.lines("F44","战中交互",2),"F44-REVIVE")
+	if not str(event.get("target_part","")).is_empty() and Mechanical.part_keys(target).has(str(event.target_part)):
+		var before_part=Mechanical.part_hp(target,str(event.target_part))
+		target.parts[str(event.target_part)].hp=int(event.part_hp_after)
+		if before_part>0 and Mechanical.part_hp(target,str(event.target_part))==0:
+			log_lines.append(str(target.name_zh)+"的"+Mechanical.part_name(target,false,str(event.target_part))+"已破坏")
 	if bool(event.get("water_slow_applied",false)) and int(target.get("hp",0))>0:target.water_slow=true
 	Battlefield.record_damage(self,str(target.get("id","")),maxi(0,target_hp-int(target.get("hp",0))))
 	var cover:Dictionary=event.get("cover",{})
@@ -515,6 +537,7 @@ func commit_strike(event: Dictionary) -> void:
 		log_lines.append(str(guard.get("name_zh","同伴"))+"掩护分担"+str(int(cover.damage))+"伤害")
 	Cover.refresh(self)
 	Mechanical.refresh(self)
+	preload("res://core/late_battle_dialogue.gd").after_action(self)
 
 func plan_cover_damage(target:Dictionary,damage:int,shadow:Dictionary)->Dictionary:
 	return Cover.split(self,target,damage,shadow)
@@ -562,6 +585,7 @@ func mark_wait(id: String) -> void:
 	super.mark_wait(id);var u=find_unit(id)
 	Mechanical.end_action(u)
 	Mechanical.refresh(self)
+	preload("res://core/late_battle_dialogue.gd").after_action(self)
 	Cover.refresh(self)
 	if u.is_empty():return
 	if Training.active(self):check_outcome();return
@@ -590,6 +614,7 @@ func next_phase() -> void:
 	var object_hp={}
 	for unit in units:
 		if unit.get("event_object",false):object_hp[str(unit.id)]=int(unit.hp)
+	Mechanical.phase_end(self)
 	super.next_phase()
 	MapSkills.StrongBody.expire_at_player_start(self)
 	Cover.refresh(self,phase=="player")
@@ -618,7 +643,9 @@ func next_phase() -> void:
 	if phase=="player" and turn==maxi(1,int(battle_data.reinforcement_turn)-1) and int(battle_data.reinforcement_turn)>0:
 		queue_lines("斥候：后方路口有援军。下一回合抵达，只有这一队。",str(battle_data.code)+"-REINFORCEMENT-WARNING")
 	Battlefield.after_phase(self)
+	Mechanical.phase_start(self)
 	Mechanical.refresh(self)
+	preload("res://core/late_battle_dialogue.gd").after_action(self)
 	Rewind.record(self)
 	check_outcome()
 
@@ -812,6 +839,8 @@ func _fail(reason: String) -> String:flags.quest.failed_reason=reason;battle_out
 func story_on_death(unit: Dictionary) -> void:
 	if Training.active(self):return
 	if stage_id==105 and str(unit.id)=="M15_boss":M15Story.last_words(self)
+	if stage_id==408:preload("res://core/prometheus_story.gd").death(self,unit)
+	if stage_id==205 and str(unit.id)==str(battle_data.boss_id):queue_pages(campaign.scenes.D22_DEFEAT,"D22-DEFEAT")
 	if not Casualties.owner({"parties":parties},str(unit.id)).is_empty():
 		Casualties.enter_dying(self,unit)
 		return
@@ -930,10 +959,13 @@ func finish_exchange(exchange: Dictionary) -> Dictionary:
 	# A dynamic actor's actual profession/level determines V at settlement.
 	EnemyExperience.prepare(stage_id,[find_unit(str(exchange.get("attacker",""))),find_unit(str(exchange.get("defender","")))])
 	var reward=super.finish_exchange(exchange)
+	var initiator=find_unit(str(exchange.get("attacker","")))
+	if Mechanical.is_owl(initiator) and Mechanical.active(initiator,"engine") and int(initiator.hp)>0 and phase==initiator.side and not exchange.get("events",[]).is_empty():initiator.mechanical_canto_pending=true
 	Mechanical.end_action(find_unit(str(exchange.get("attacker",""))))
 	Mechanical.refresh(self)
+	preload("res://core/late_battle_dialogue.gd").after_action(self)
 	if stage_id==105:M15Story.first_exchange(self,exchange)
-	if stage_id==205 and (str(exchange.get("defender",""))==str(battle_data.boss_id) or str(exchange.get("attacker",""))==str(battle_data.boss_id)):
+	if stage_id==205 and int(find_unit(str(battle_data.boss_id)).get("hp",0))>0 and (str(exchange.get("defender",""))==str(battle_data.boss_id) or str(exchange.get("attacker",""))==str(battle_data.boss_id)):
 		if campaign.scenes.has("D22_FIRST"):queue_pages(campaign.scenes.D22_FIRST,"D22-FIRST")
 		else:queue_lines(str(battle_data.during),"F25-MID")
 	return reward

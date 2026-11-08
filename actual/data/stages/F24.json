@@ -5937,70 +5937,46 @@
     },
     {
       "id": "F24_e10",
-      "name_id": 191,
-      "character_id": 191,
-      "name_ja": "ようじゅつし",
-      "name_zh": "术士",
-      "class": "arcanist",
-      "class_id": 15,
-      "class_name_zh": "执令术师",
-      "level": 3,
-      "hp": 21,
-      "max_hp": 21,
+      "name_id": 0,
+      "character_id": 0,
+      "name_zh": "独眼傀儡",
+      "class": "cyclops",
+      "class_id": 27,
+      "class_name_zh": "独眼傀儡",
+      "unit_kind": "mechanical_puppet",
+      "mechanical_model": "cyclops",
+      "level": 5,
+      "hp": 30,
+      "max_hp": 30,
       "exp": 0,
+      "exp_value": 84,
       "strength": 8,
-      "skill": 4,
-      "speed": 4,
+      "skill": 6,
+      "speed": 3,
       "luck": 0,
       "defence": 3,
-      "resistance": 8,
+      "resistance": 3,
       "move": 4,
+      "mechanical_base_move": 4,
       "item_id": 0,
-      "exp_value": 60,
-      "raw_ai_flags": 0,
-      "raw_magic_flags": 1,
-      "magic_flags": 1,
-      "raw_template": [
-        191,
-        15,
-        1,
-        0,
-        128,
-        17
-      ],
-      "group_id": 0,
-      "record_index": 1,
-      "provenance": [
-        {
-          "file": "src/bank008.asm",
-          "label": "L0894B7",
-          "line": 1940
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L089BCE",
-          "line": 2638
-        },
-        {
-          "file": "src/bank015.asm",
-          "label": "L0FED94",
-          "line": 7408
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L08A31B",
-          "line": 3626
-        }
-      ],
-      "confidence": "source_count_bounded_template_constructor",
       "position": [
         22,
         8
       ],
       "side": "enemy",
       "acted": false,
-      "ai_flags": 0,
-      "behavior": "guard"
+      "hidden": false,
+      "escaped": false,
+      "mechanical_retreating": false,
+      "no_drop": true,
+      "parts": {
+        "eye": {
+          "hp": 12,
+          "max_hp": 12,
+          "defence": 2,
+          "resistance": 2
+        }
+      }
     }
   ],
   "npc_units": [
@@ -7110,7 +7086,7 @@
       "door_visual": "native_building_art",
       "show_indicator": false,
       "optional": true,
-      "dialogue": "守灯人：石台正对航灯，东岸能绕到后方。夺回灯台后，还要防住下一轮争夺。",
+      "dialogue": "守灯人：石台就在灯对面。从东岸能绕到后头。夺回灯也别急着撤。",
       "reward_item": 62,
       "building": "visit_lighthouse"
     }
@@ -7267,9 +7243,9 @@
   ],
   "goal": "守住航灯至第6己方回合并击败搜捕首领；航灯失守则失败。",
   "cause": "希雅拒绝弃岛追敌；航灯熄灭会让撤离船失去方向。",
-  "before": "旁白：天早该亮了，海灯岛却仍被黑昼笼罩。岸边术士用自己的生命维持防护。／希雅：我不能现在离开。灯一灭，后面的船就进不来了。／艾琳：那我们先守住它。",
-  "during": "米蕾：伤者都进屋了。希雅，东边那条船在靠岸。",
-  "after": "希雅：留守的人够了。我与你去军港，但岛上的船不能全带走。",
+  "before": "守灯人：这些天越来越暗，后面的船找不到岸。／搜捕队长：接管航灯！没有许可的船都赶回去！／希雅：还有人没进港。能帮我守着灯吗？／艾琳：好，我们留下。",
+  "during": "米蕾或地方医者：希雅，伤者进屋了。东边那条船正在进港。",
+  "after": "希雅：有人接手守灯了。我去灯屋看看伤者。／守灯人：这支拒阵枪原是守岸口用的。你们拿去吧。／旁白：拒阵枪已收入东队行囊。士兵、重装兵、壁垒卫士可装备；主动近战造成伤害后，交战结束击退存活目标1格，身后受阻则不击退。／旁白：战后整理出投枪、钢盾，已收入本队行囊，可在部队整备中分配。",
   "absent_branch": "米蕾亡：岛上医者报告伤者；希雅死亡时留守骑士完成安置，主线军港航路仍在，失去飞骑招募。",
   "optional": false,
   "contract": "守至第6回合且首领败北才能胜；希雅生死与岛民安置分别记录。",
@@ -7708,5 +7684,7 @@
     ]
   },
   "equipment_revision": "0.3.9",
-  "landscape_revision": "M41 approved composition method; chapter2 islands and cave"
+  "landscape_revision": "M41 approved composition method; chapter2 islands and cave",
+  "dialogue_revision": "2026-11-07",
+  "mechanical_revision": "story-20261107"
 }

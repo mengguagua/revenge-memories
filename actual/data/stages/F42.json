@@ -5419,70 +5419,46 @@
     },
     {
       "id": "F42_e6",
-      "name_id": 188,
-      "character_id": 188,
-      "name_ja": "アーチャー",
-      "name_zh": "弓手",
-      "class": "archer",
-      "class_id": 12,
-      "class_name_zh": "弓箭手",
+      "name_id": 0,
+      "character_id": 0,
+      "name_zh": "飞枭傀儡",
+      "class": "owl",
+      "class_id": 28,
+      "class_name_zh": "飞枭傀儡",
+      "unit_kind": "mechanical_puppet",
+      "mechanical_model": "owl",
       "level": 6,
       "hp": 27,
       "max_hp": 27,
       "exp": 0,
-      "strength": 11,
-      "skill": 7,
-      "speed": 5,
+      "exp_value": 82,
+      "strength": 9,
+      "skill": 8,
+      "speed": 11,
       "luck": 0,
       "defence": 5,
-      "resistance": 0,
-      "move": 4,
+      "resistance": 4,
+      "move": 8,
+      "mechanical_base_move": 8,
       "item_id": 0,
-      "exp_value": 52,
-      "raw_ai_flags": 0,
-      "raw_magic_flags": 0,
-      "magic_flags": 0,
-      "raw_template": [
-        188,
-        12,
-        1,
-        0,
-        192,
-        0
-      ],
-      "group_id": 0,
-      "record_index": 2,
-      "provenance": [
-        {
-          "file": "src/bank008.asm",
-          "label": "L089482",
-          "line": 1919
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L089B44",
-          "line": 2569
-        },
-        {
-          "file": "src/bank015.asm",
-          "label": "L0FED7F",
-          "line": 7399
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L08A31B",
-          "line": 3626
-        }
-      ],
-      "confidence": "source_count_bounded_template_constructor",
       "position": [
         20,
         12
       ],
       "side": "enemy",
       "acted": false,
-      "ai_flags": 0,
-      "behavior": "guard"
+      "hidden": false,
+      "escaped": false,
+      "mechanical_retreating": false,
+      "no_drop": true,
+      "parts": {
+        "engine": {
+          "hp": 12,
+          "max_hp": 12,
+          "defence": 3,
+          "resistance": 2
+        }
+      }
     },
     {
       "id": "F42_e7",
@@ -5620,70 +5596,46 @@
     },
     {
       "id": "F42_e9",
-      "name_id": 178,
-      "character_id": 178,
-      "name_ja": "アーマー",
-      "name_zh": "石像守卫",
-      "class": "knight",
-      "class_id": 2,
-      "class_name_zh": "重装兵",
-      "level": 6,
+      "name_id": 0,
+      "character_id": 0,
+      "name_zh": "独眼傀儡",
+      "class": "cyclops",
+      "class_id": 27,
+      "class_name_zh": "独眼傀儡",
+      "unit_kind": "mechanical_puppet",
+      "mechanical_model": "cyclops",
+      "level": 5,
       "hp": 30,
       "max_hp": 30,
       "exp": 0,
-      "strength": 11,
-      "skill": 7,
-      "speed": 5,
+      "exp_value": 84,
+      "strength": 8,
+      "skill": 6,
+      "speed": 3,
       "luck": 0,
-      "defence": 8,
-      "resistance": 1,
+      "defence": 3,
+      "resistance": 3,
       "move": 4,
+      "mechanical_base_move": 4,
       "item_id": 0,
-      "exp_value": 90,
-      "raw_ai_flags": 0,
-      "raw_magic_flags": 0,
-      "magic_flags": 0,
-      "raw_template": [
-        178,
-        2,
-        1,
-        0,
-        128,
-        0
-      ],
-      "group_id": 0,
-      "record_index": 2,
-      "provenance": [
-        {
-          "file": "src/bank008.asm",
-          "label": "L0894B7",
-          "line": 1940
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L089B80",
-          "line": 2599
-        },
-        {
-          "file": "src/bank015.asm",
-          "label": "L0FED39",
-          "line": 7369
-        },
-        {
-          "file": "src/bank008.asm",
-          "label": "L08A31B",
-          "line": 3626
-        }
-      ],
-      "confidence": "source_count_bounded_template_constructor",
       "position": [
-        25,
-        9
+        24,
+        15
       ],
       "side": "enemy",
       "acted": false,
-      "ai_flags": 0,
-      "behavior": "guard"
+      "hidden": false,
+      "escaped": false,
+      "mechanical_retreating": false,
+      "no_drop": true,
+      "parts": {
+        "eye": {
+          "hp": 12,
+          "max_hp": 12,
+          "defence": 2,
+          "resistance": 2
+        }
+      }
     },
     {
       "id": "F42_e10",
@@ -7035,9 +6987,9 @@
     ]
   ],
   "goal": "保护东楼记录、复制设备，击败萨弥。",
-  "before": "艾琳：记录在东楼，别让拿火把的人进去。／莉莎：萨弥在中央，我从另一边过去。",
+  "before": "萨弥：奉神令，烧掉东楼的记录。供用照旧，不准再让各地自行调节！／维瑟：里边的设备是我们一点点修出来的。把火把拿远些！／艾琳：东楼还有人。拦住拿火把的，别让他们进去！／技术员：飞枭在追搬记录的人。独眼留在楼前给守军治伤。／战场提示：先保护东楼记录，再到中央设备南面复制。",
   "during": "萨弥半血或接近记录室：讨论地方控制；若诺娅在场，她主动承认曾泄露藏船处。",
-  "after": "复制记录并派固定信使；信使不占正式名册或玩家救治名单，不收取唯一道具。 F42-MYTH场景线索按5.2节播放，不追加战斗。",
+  "after": "信使：我在东楼等。记录核对完，就送去北境日塔。／旁白：战后整理出魔道戒，已收入本队行囊，可在部队整备中分配。",
   "optional": false,
   "event_boats": [],
   "clear_training_exp": 20,
@@ -7268,5 +7220,7 @@
     "conclusion": "观测台露天盐原、石质设备庭与潮池保持，冷暗光延续；东楼战后据点改真正室内，避免屋内再摆房屋。",
     "geometry_and_rules_unchanged": true
   },
-  "enemy_role_hint": "地方技术员：东侧的隙行术师会火球。从第2回合起，每隔三回合可短移至四格内；移形占满这次行动，下一轮才会攻击。"
+  "enemy_role_hint": "地方技术员：东侧的隙行术师会火球。从第2回合起，每隔三回合可短移至四格内；移形占满这次行动，下一轮才会攻击。",
+  "dialogue_revision": "2026-11-07",
+  "mechanical_revision": "story-20261107"
 }

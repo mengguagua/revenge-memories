@@ -1006,10 +1006,14 @@ func plan_combat(attacker_id: String, defender_id: String, target_part:String=""
 		var part_key=target_part if role=="attacker" else ""
 		if int(source.hp) <= 0 or int(target.hp) <= 0:
 			break
-		if not part_key.is_empty() and Rules.Body.Mechanical.part_hp(target)<=0:continue
+		if not part_key.is_empty() and Rules.Body.Mechanical.part_hp(target,part_key)<=0:continue
 		if not Rules.can_attack(source, distance):
 			continue
-		var stats = stats_a if role == "attacker" else stats_b
+		if Rules.Body.Mechanical.is_puppet(source):source=Rules.attack_context(source,distance,role=="defender")
+		var stats = Rules.attack_stats(source,Rules.Body.Mechanical.defence_context(target,part_key),terrain_avoid(pos(target))) if Rules.Body.Mechanical.is_puppet(source) else (stats_a if role == "attacker" else stats_b)
+		if Rules.Body.Mechanical.is_puppet(source):
+			roll.hit=int(roll.hit_roll)<int(stats.hit)
+			roll.critical=bool(roll.hit) and int(roll.critical_roll)<=int(stats.critical)
 		var source_before := int(source.hp)
 		var initial_target = initial_b if role == "attacker" else initial_a
 		var target_for_effect = Rules.Body.Mechanical.defence_context(target.duplicate(true),part_key)
@@ -1024,13 +1028,13 @@ func plan_combat(attacker_id: String, defender_id: String, target_part:String=""
 		if int(effect.self_damage) > 0:
 			damage = 0
 		if Rules.weapon_index(source) == 34 and bool(roll.hit):
-			damage = maxi(0, (int(target.hp) if part_key.is_empty() else Rules.Body.Mechanical.part_hp(target)) - 1)
+			damage = maxi(0, (int(target.hp) if part_key.is_empty() else Rules.Body.Mechanical.part_hp(target,part_key)) - 1)
 		damage=Rules.fatigue_damage(source,damage)
 		var cover: Dictionary = {}
 		if has_method("plan_cover_damage"):
 			cover = call("plan_cover_damage", target, damage, guard_shadow)
 			if not cover.is_empty(): damage = int(cover.remaining_damage)
-		var part_before=Rules.Body.Mechanical.part_hp(target) if not part_key.is_empty() else 0
+		var part_before=Rules.Body.Mechanical.part_hp(target,part_key) if not part_key.is_empty() else 0
 		damage = mini(part_before if not part_key.is_empty() else int(target.hp), damage)
 		var healing = mini(damage, int(source.max_hp) - int(source.hp) + int(effect.hp_cost)) if Rules.weapon_index(source) == 42 else 0
 		var before: int = int(target.hp)
@@ -1045,14 +1049,15 @@ func plan_combat(attacker_id: String, defender_id: String, target_part:String=""
 			"distance": distance, "weapon_index": Rules.weapon_index(source), "ranged": Rules.weapon_index(source) in [1, 20, 21, 22],
 			"source_hp_before": source_before, "source_hp_after": int(source.hp), "hp_cost": int(effect.hp_cost),
 			"self_damage": int(effect.self_damage), "heal": healing, "cover": cover,
-			"target_part":part_key,"part_hp_before":part_before,"part_hp_after":Rules.Body.Mechanical.part_hp(target) if not part_key.is_empty() else 0,"water_slow_applied":water_slow}
+			"target_part":part_key,"part_hp_before":part_before,"part_hp_after":Rules.Body.Mechanical.part_hp(target,part_key) if not part_key.is_empty() else 0,"water_slow_applied":water_slow}
+		Rules.Body.Mechanical.revive_event(target,strike_event)
 		Rules.Body.Mechanical.reflect(strike_event,source,target)
 		source.hp=int(strike_event.source_hp_after)
 		events.append(strike_event)
 	return {"attacker": attacker_id, "defender": defender_id, "events": events,
 		"distance": distance, "initiative_side": attacker.side, "stats": {attacker_id: stats_a, defender_id: stats_b},
 		"initial_attacker_hp": int(attacker.hp), "initial_defender_hp": int(defender.hp),
-		"target_part":target_part,"initial_part_hp":Rules.Body.Mechanical.part_hp(defender) if not target_part.is_empty() else 0}
+		"target_part":target_part,"initial_part_hp":Rules.Body.Mechanical.part_hp(defender,target_part) if not target_part.is_empty() else 0}
 
 func commit_strike(event: Dictionary) -> void:
 	var source = find_unit(str(event.attacker))
@@ -1091,7 +1096,12 @@ func finish_exchange(exchange: Dictionary) -> Dictionary:
 	if int(player.hp) > 0 and not bool(player.get("no_experience", false)) and not bool(enemy.get("no_experience", false)):
 		var before = int(exchange.initial_defender_hp) if initiator.side == "player" else int(exchange.initial_attacker_hp)
 		var part_attack=initiator.side=="player" and not str(exchange.get("target_part","")).is_empty()
-		var gain = Rules.experience_gain(player, enemy, int(exchange.initial_part_hp) if part_attack else before, Rules.Body.Mechanical.part_hp(enemy) if part_attack else int(enemy.hp), false if part_attack else int(enemy.hp) <= 0)
+		if Rules.Body.Mechanical.is_prometheus(enemy) and not part_attack:
+			var dealt=0
+			for event in exchange.events:
+				if str(event.defender)==str(enemy.id):dealt+=int(event.get("damage",0))
+			before=int(enemy.hp)+dealt
+		var gain = Rules.experience_gain(player, enemy, int(exchange.initial_part_hp) if part_attack else before, Rules.Body.Mechanical.part_hp(enemy,str(exchange.get("target_part",""))) if part_attack else int(enemy.hp), false if part_attack else int(enemy.hp) <= 0)
 		reward=ExperienceAward.award(self,player,gain)
 		reward.victory_training=false
 	check_outcome()

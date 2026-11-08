@@ -110,7 +110,8 @@ func interface():
 		await ui._play_map_skill()
 		var a=ui.hero_map_animation.audit
 		check(a.duration<=1.5 and a.contacts.size()==ui.game.units.filter(func(u):return u.get("side","")=="enemy" and int(u.hp)<100).size(),"short timeline with one visual contact per damaged target "+str(case))
-		check(a.sounds.any(func(s):return str(s.key)=="map_"+str(a.case)),"distinct attack audio cue "+str(case))
+		var cue := "fieldfire-resolve" if case[0]=="eileen" else "map_"+str(a.case)
+		check(a.sounds.any(func(s):return str(s.key)==cue),"distinct attack audio cue "+str(case))
 		check(ui.view=="battle" and not ui.busy and not ui.hero_map_animation.active and ui.map_actor_alpha.is_empty(),"no trailing result wait; actor masks restored "+str(case))
 	ui.instant_mode=false;ui.animation_speed=1.0
 	for case in [["hunapu",false,false],["hunapu",true,false],["eileen",false,false],["eileen",true,false],["hunapu",true,true]]:

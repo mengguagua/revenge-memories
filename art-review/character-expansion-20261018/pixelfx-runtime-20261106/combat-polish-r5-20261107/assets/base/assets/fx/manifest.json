@@ -1,0 +1,1319 @@
+{
+  "upstream": "patch-gg/pixelfx",
+  "commit": "a84159688af3ca37a4be05a0d422b94451b2e24e",
+  "effects": {
+    "hit": {
+      "path": "assets/fx/hit.png",
+      "id": "revenge/hit",
+      "name": "Hit spark",
+      "fps": 60,
+      "loop": false,
+      "frames": 31,
+      "frameSize": [
+        72,
+        56
+      ],
+      "pivot": [
+        28,
+        44
+      ],
+      "columns": 5,
+      "module": "rm-hit",
+      "options": {
+        "palette": [
+          "#302e35",
+          "#5a4d43",
+          "#8d7959",
+          "#b9a77d",
+          "#d7c9a4",
+          "#e5ddc3",
+          "#f1ecda",
+          "#f7f1df"
+        ],
+        "light": 0.3
+      }
+    },
+    "cannon": {
+      "path": "assets/fx/cannon.png",
+      "id": "revenge/cannon",
+      "name": "Hit spark",
+      "fps": 60,
+      "loop": false,
+      "frames": 31,
+      "frameSize": [
+        72,
+        56
+      ],
+      "pivot": [
+        28,
+        44
+      ],
+      "columns": 5,
+      "module": "rm-hit",
+      "options": {
+        "palette": [
+          "#302e35",
+          "#5a4d43",
+          "#8d7959",
+          "#b9a77d",
+          "#d7c9a4",
+          "#e5ddc3",
+          "#f1ecda",
+          "#f7f1df"
+        ],
+        "light": 0.3
+      }
+    },
+    "core": {
+      "path": "assets/fx/core.png",
+      "id": "revenge/core",
+      "name": "Zap hit",
+      "fps": 60,
+      "loop": false,
+      "frames": 55,
+      "frameSize": [
+        72,
+        64
+      ],
+      "pivot": [
+        36,
+        32
+      ],
+      "columns": 7,
+      "module": "rm-core",
+      "options": {
+        "palette": [
+          "#37303e",
+          "#605765",
+          "#8e8391",
+          "#b9aeba",
+          "#d4cbd0",
+          "#e4dcd5",
+          "#efeadb",
+          "#f6f0e1"
+        ],
+        "light": 0.3
+      }
+    },
+    "water": {
+      "path": "assets/fx/water.png",
+      "id": "revenge/water",
+      "name": "Splash",
+      "fps": 60,
+      "loop": false,
+      "frames": 67,
+      "frameSize": [
+        80,
+        64
+      ],
+      "pivot": [
+        40,
+        58
+      ],
+      "columns": 8,
+      "module": "rm-water",
+      "options": {
+        "palette": [
+          "#1f3642",
+          "#2e4d59",
+          "#466a76",
+          "#638b95",
+          "#88abb0",
+          "#b0cace",
+          "#d1dfdf",
+          "#e9eeee"
+        ],
+        "light": 0.12
+      }
+    },
+    "arrow": {
+      "path": "assets/fx/arrow.png",
+      "id": "revenge/arrow",
+      "name": "Arrow",
+      "fps": 60,
+      "loop": true,
+      "frames": 36,
+      "frameSize": [
+        72,
+        24
+      ],
+      "pivot": [
+        60,
+        12
+      ],
+      "columns": 4,
+      "module": "rm-arrow",
+      "options": {
+        "palette": [
+          "#243840",
+          "#405663",
+          "#63818d",
+          "#91b2b9",
+          "#bdd0ce",
+          "#dce7df",
+          "#f1f0e2"
+        ],
+        "wood": [
+          "#352f29",
+          "#65523c",
+          "#967f59",
+          "#c2ae83"
+        ],
+        "steel": [
+          "#32404a",
+          "#667b81",
+          "#a3b2b5",
+          "#d5dfda"
+        ],
+        "wind": "#7899a5",
+        "light": 0.15
+      }
+    },
+    "slash": {
+      "path": "assets/fx/slash.png",
+      "id": "revenge/slash",
+      "name": "Sword slash",
+      "fps": 60,
+      "loop": false,
+      "frames": 46,
+      "frameSize": [
+        96,
+        84
+      ],
+      "pivot": [
+        40,
+        70
+      ],
+      "columns": 7,
+      "act": {
+        "windup": 0.55,
+        "recovery": 0.10999999999999999,
+        "onBody": false,
+        "targets": [
+          58
+        ],
+        "hits": [
+          {
+            "t": 0.06,
+            "freeze": 0.14,
+            "shake": 0.18,
+            "amp": 2,
+            "push": 2.8
+          }
+        ],
+        "poses": [
+          {
+            "t": -0.55,
+            "how": "smooth",
+            "pose": {
+              "crouch": 3,
+              "fx": 12,
+              "fy": -21,
+              "bx": 9,
+              "by": -21,
+              "ffx": 7,
+              "fbx": -7,
+              "weapon": "sword",
+              "sa": -0.85,
+              "x": -8
+            }
+          },
+          {
+            "t": -0.3,
+            "how": "smooth",
+            "pose": {
+              "crouch": 4,
+              "fx": -7,
+              "fy": -35,
+              "bx": 9,
+              "by": -25,
+              "ffx": 9,
+              "fbx": -8,
+              "weapon": "sword",
+              "sa": -2.65,
+              "x": -8,
+              "lean": -4,
+              "armsFront": true
+            }
+          },
+          {
+            "t": -0.08,
+            "how": "smooth",
+            "pose": {
+              "crouch": 5,
+              "fx": -7,
+              "fy": -35,
+              "bx": 9,
+              "by": -25,
+              "ffx": 9,
+              "fbx": -8,
+              "weapon": "sword",
+              "sa": -2.65,
+              "x": -8,
+              "lean": -5,
+              "armsFront": true
+            }
+          },
+          {
+            "t": 0,
+            "how": "snap",
+            "pose": {
+              "crouch": 2,
+              "fx": 16,
+              "fy": -37,
+              "bx": -7,
+              "by": -24,
+              "ffx": 11,
+              "fbx": -10,
+              "weapon": "sword",
+              "sa": -1.45,
+              "x": 0,
+              "lean": 3,
+              "ghost": 1
+            }
+          },
+          {
+            "t": 0.06,
+            "how": "snap",
+            "pose": {
+              "crouch": 5,
+              "fx": 20,
+              "fy": -21,
+              "bx": -9,
+              "by": -24,
+              "ffx": 13,
+              "fbx": -10,
+              "weapon": "sword",
+              "sa": 0.62,
+              "x": 2,
+              "lean": 5,
+              "toeB": true
+            }
+          },
+          {
+            "t": 0.3,
+            "how": "smooth",
+            "pose": {
+              "crouch": 6,
+              "fx": 20,
+              "fy": -21,
+              "bx": -9,
+              "by": -24,
+              "ffx": 13,
+              "fbx": -10,
+              "weapon": "sword",
+              "sa": 0.62,
+              "x": 3,
+              "lean": 5,
+              "toeB": true
+            }
+          },
+          {
+            "t": 0.58,
+            "how": "smooth",
+            "pose": {
+              "crouch": 3,
+              "fx": 15,
+              "fy": -21,
+              "bx": -5,
+              "by": -21,
+              "ffx": 9,
+              "fbx": -7,
+              "weapon": "sword",
+              "sa": 0.1,
+              "x": 1
+            }
+          },
+          {
+            "t": 0.86,
+            "how": "smooth",
+            "pose": {
+              "crouch": 3,
+              "fx": 12,
+              "fy": -21,
+              "bx": 9,
+              "by": -21,
+              "ffx": 7,
+              "fbx": -7,
+              "weapon": "sword",
+              "sa": -0.85,
+              "x": -8
+            }
+          }
+        ]
+      },
+      "module": "rm-slash",
+      "options": {
+        "palette": [
+          "#243840",
+          "#405663",
+          "#63818d",
+          "#91b2b9",
+          "#bdd0ce",
+          "#dce7df",
+          "#f1f0e2"
+        ],
+        "sparks": [
+          "#302e35",
+          "#5a4d43",
+          "#8d7959",
+          "#b9a77d",
+          "#d7c9a4",
+          "#e5ddc3",
+          "#f1ecda",
+          "#f7f1df"
+        ],
+        "radius": 22,
+        "light": 0.22
+      }
+    },
+    "thrust": {
+      "path": "assets/fx/thrust.png",
+      "id": "revenge/thrust",
+      "name": "Thrust",
+      "fps": 60,
+      "loop": false,
+      "frames": 46,
+      "frameSize": [
+        112,
+        64
+      ],
+      "pivot": [
+        38,
+        52
+      ],
+      "columns": 6,
+      "act": {
+        "windup": 0.46,
+        "recovery": 0,
+        "onBody": false,
+        "targets": [
+          80
+        ],
+        "hits": [
+          {
+            "t": 0.07,
+            "freeze": 0.12,
+            "shake": 0.14,
+            "amp": 2,
+            "push": 2.8
+          }
+        ],
+        "poses": [
+          {
+            "t": -0.46,
+            "how": "smooth",
+            "pose": {
+              "crouch": 3,
+              "fx": 12,
+              "fy": -21,
+              "bx": 9,
+              "by": -21,
+              "ffx": 7,
+              "fbx": -7,
+              "weapon": "sword",
+              "x": -14,
+              "sa": -0.3
+            }
+          },
+          {
+            "t": -0.24,
+            "how": "smooth",
+            "pose": {
+              "crouch": 5,
+              "fx": -3,
+              "fy": -19,
+              "bx": 8,
+              "by": -30,
+              "ffx": 10,
+              "fbx": -8,
+              "weapon": "sword",
+              "x": -14,
+              "sa": -0.05,
+              "lean": -3,
+              "armsFront": true
+            }
+          },
+          {
+            "t": -0.05,
+            "how": "smooth",
+            "pose": {
+              "crouch": 6,
+              "fx": -5,
+              "fy": -19,
+              "bx": 8,
+              "by": -30,
+              "ffx": 10,
+              "fbx": -8,
+              "weapon": "sword",
+              "x": -14,
+              "sa": -0.05,
+              "lean": -3,
+              "armsFront": true
+            }
+          },
+          {
+            "t": 0,
+            "how": "snap",
+            "pose": {
+              "crouch": 6,
+              "fx": 23,
+              "fy": -20,
+              "bx": -8,
+              "by": -24,
+              "ffx": 15,
+              "fbx": -11,
+              "weapon": "sword",
+              "x": -14,
+              "sa": 0,
+              "lean": 6,
+              "toeB": true,
+              "ghost": 1
+            }
+          },
+          {
+            "t": 0.07,
+            "how": "snap",
+            "pose": {
+              "crouch": 6,
+              "fx": 23,
+              "fy": -20,
+              "bx": -8,
+              "by": -24,
+              "ffx": 15,
+              "fbx": -11,
+              "weapon": "sword",
+              "x": -14,
+              "sa": 0,
+              "lean": 6,
+              "toeB": true
+            }
+          },
+          {
+            "t": 0.3,
+            "how": "smooth",
+            "pose": {
+              "crouch": 5,
+              "fx": 23,
+              "fy": -20,
+              "bx": -8,
+              "by": -24,
+              "ffx": 15,
+              "fbx": -11,
+              "weapon": "sword",
+              "x": -14,
+              "sa": 0,
+              "lean": 5,
+              "toeB": true
+            }
+          },
+          {
+            "t": 0.7,
+            "how": "smooth",
+            "pose": {
+              "crouch": 3,
+              "fx": 12,
+              "fy": -21,
+              "bx": 9,
+              "by": -21,
+              "ffx": 7,
+              "fbx": -7,
+              "weapon": "sword",
+              "x": -14,
+              "sa": -0.3
+            }
+          }
+        ]
+      },
+      "module": "native-thrust",
+      "options": {
+        "palette": [
+          "#243840",
+          "#405663",
+          "#63818d",
+          "#91b2b9",
+          "#bdd0ce",
+          "#dce7df",
+          "#f1f0e2"
+        ],
+        "sparks": [
+          "#302e35",
+          "#5a4d43",
+          "#8d7959",
+          "#b9a77d",
+          "#d7c9a4",
+          "#e5ddc3",
+          "#f1ecda",
+          "#f7f1df"
+        ],
+        "reach": 23,
+        "light": 0.2
+      }
+    },
+    "blunt": {
+      "path": "assets/fx/blunt.png",
+      "id": "revenge/blunt",
+      "name": "Blunt hit",
+      "fps": 60,
+      "loop": false,
+      "frames": 55,
+      "frameSize": [
+        88,
+        72
+      ],
+      "pivot": [
+        44,
+        62
+      ],
+      "columns": 7,
+      "module": "native-blunt",
+      "options": {
+        "palette": [
+          "#302e35",
+          "#5a4d43",
+          "#8d7959",
+          "#b9a77d",
+          "#d7c9a4",
+          "#e5ddc3",
+          "#f1ecda",
+          "#f7f1df"
+        ],
+        "warm": "#c3ac84",
+        "dust": "#8e8c86",
+        "clod": "#61594d",
+        "light": 0.2
+      }
+    },
+    "heal": {
+      "path": "assets/fx/heal.png",
+      "id": "revenge/heal",
+      "name": "Heal",
+      "fps": 60,
+      "loop": false,
+      "frames": 115,
+      "frameSize": [
+        64,
+        76
+      ],
+      "pivot": [
+        32,
+        66
+      ],
+      "columns": 12,
+      "act": {
+        "windup": 0.3,
+        "recovery": 0,
+        "onBody": true,
+        "targets": [],
+        "hits": [],
+        "poses": [
+          {
+            "t": -0.3,
+            "how": "smooth",
+            "pose": {
+              "turn": 0.8,
+              "crouch": 5,
+              "lean": 3,
+              "hy": 1,
+              "fx": 1,
+              "fy": -21,
+              "bx": 7,
+              "by": -15,
+              "ffx": 4,
+              "fbx": -3
+            }
+          },
+          {
+            "t": 0.16,
+            "how": "smooth",
+            "pose": {
+              "turn": 0.8,
+              "crouch": 6,
+              "lean": 3,
+              "hy": 1,
+              "fx": 1,
+              "fy": -21,
+              "bx": 7,
+              "by": -15,
+              "ffx": 4,
+              "fbx": -3
+            }
+          },
+          {
+            "t": 0.5,
+            "how": "smooth",
+            "pose": {
+              "turn": 0.8,
+              "crouch": 3,
+              "lean": 1,
+              "hy": 0,
+              "fx": 1,
+              "fy": -21,
+              "bx": 7,
+              "by": -15,
+              "ffx": 4,
+              "fbx": -3
+            }
+          },
+          {
+            "t": 0.78,
+            "how": "smooth",
+            "pose": {
+              "turn": 1.15,
+              "crouch": -1,
+              "fx": -13,
+              "fy": -36,
+              "bx": 14,
+              "by": -36,
+              "hy": -1,
+              "ffx": -3,
+              "fbx": 4
+            }
+          },
+          {
+            "t": 1.2,
+            "how": "smooth",
+            "pose": {
+              "turn": 1.15,
+              "crouch": 0,
+              "fx": -13,
+              "fy": -30,
+              "bx": 14,
+              "by": -30,
+              "hy": 0,
+              "ffx": -3,
+              "fbx": 4
+            }
+          },
+          {
+            "t": 1.9,
+            "how": "smooth",
+            "pose": {
+              "crouch": 3,
+              "fx": 11,
+              "fy": -21,
+              "bx": 9,
+              "by": -21,
+              "ffx": 7,
+              "fbx": -7
+            }
+          }
+        ]
+      },
+      "module": "native-heal",
+      "options": {
+        "palette": [
+          "#243c38",
+          "#405b50",
+          "#628571",
+          "#83a38b",
+          "#a8c1a3",
+          "#c6d8b7",
+          "#dce4ca",
+          "#eceddb"
+        ],
+        "light": 0.16
+      }
+    },
+    "lightning": {
+      "path": "assets/fx/lightning.png",
+      "id": "revenge/lightning",
+      "name": "Zap hit",
+      "fps": 60,
+      "loop": false,
+      "frames": 55,
+      "frameSize": [
+        72,
+        64
+      ],
+      "pivot": [
+        36,
+        32
+      ],
+      "columns": 7,
+      "module": "rm-core",
+      "options": {
+        "palette": [
+          "#243840",
+          "#405663",
+          "#63818d",
+          "#91b2b9",
+          "#bdd0ce",
+          "#dce7df",
+          "#f1f0e2"
+        ],
+        "light": 0.23
+      }
+    },
+    "slime": {
+      "path": "assets/fx/slime.png",
+      "id": "revenge/slime",
+      "name": "Splash",
+      "fps": 60,
+      "loop": false,
+      "frames": 67,
+      "frameSize": [
+        80,
+        64
+      ],
+      "pivot": [
+        40,
+        58
+      ],
+      "columns": 8,
+      "module": "rm-water",
+      "options": {
+        "palette": [
+          "#263a35",
+          "#3e5743",
+          "#5c7551",
+          "#789369",
+          "#9cb187",
+          "#bfcead",
+          "#d9e1c8",
+          "#e8eadb"
+        ],
+        "light": 0.08
+      }
+    },
+    "map-warp": {
+      "path": "assets/fx/map-warp.png",
+      "id": "revenge/map-warp",
+      "name": "Native feedback",
+      "fps": 60,
+      "loop": false,
+      "frames": 49,
+      "frameSize": [
+        32,
+        32
+      ],
+      "pivot": [
+        16,
+        24
+      ],
+      "columns": 7,
+      "module": "native-feedback",
+      "options": {
+        "mode": "map-warp",
+        "palette": [
+          "#252738",
+          "#403c54",
+          "#5e5877",
+          "#7f7595",
+          "#a095af",
+          "#bfb0c6",
+          "#d9cbdc",
+          "#e9dfea"
+        ],
+        "light": 0.1
+      }
+    },
+    "void": {
+      "path": "assets/fx/void.png",
+      "id": "revenge/void",
+      "name": "Dark explosion",
+      "fps": 60,
+      "loop": false,
+      "frames": 76,
+      "frameSize": [
+        80,
+        72
+      ],
+      "pivot": [
+        40,
+        64
+      ],
+      "columns": 9,
+      "module": "native-shadow",
+      "options": {
+        "palette": [
+          "#252738",
+          "#403c54",
+          "#5e5877",
+          "#7f7595",
+          "#a095af",
+          "#bfb0c6",
+          "#d9cbdc",
+          "#e9dfea"
+        ],
+        "light": 0.12
+      }
+    },
+    "drain": {
+      "path": "assets/fx/drain.png",
+      "id": "revenge/drain",
+      "name": "Dark explosion",
+      "fps": 60,
+      "loop": false,
+      "frames": 76,
+      "frameSize": [
+        80,
+        72
+      ],
+      "pivot": [
+        40,
+        64
+      ],
+      "columns": 9,
+      "module": "native-shadow",
+      "options": {
+        "palette": [
+          "#342631",
+          "#573747",
+          "#89546a",
+          "#ad7888",
+          "#c699aa",
+          "#d9bbc2",
+          "#e6d1d0",
+          "#f1e5d8"
+        ],
+        "light": 0.1
+      }
+    },
+    "cinema-hit": {
+      "path": "assets/fx/cinema-hit.png",
+      "id": "revenge/cinema-hit",
+      "name": "Hit spark",
+      "fps": 60,
+      "loop": false,
+      "frames": 31,
+      "frameSize": [
+        112,
+        96
+      ],
+      "pivot": [
+        48,
+        84
+      ],
+      "columns": 6,
+      "module": "cinema-hit",
+      "options": {
+        "palette": [
+          "#302e35",
+          "#5a4d43",
+          "#8d7959",
+          "#b9a77d",
+          "#d7c9a4",
+          "#e5ddc3",
+          "#f1ecda",
+          "#f7f1df"
+        ],
+        "light": 0.25
+      }
+    },
+    "cinema-fire": {
+      "path": "assets/fx/cinema-fire.png",
+      "id": "revenge/cinema-fire",
+      "name": "Cinematic contact",
+      "fps": 60,
+      "loop": false,
+      "frames": 82,
+      "frameSize": [
+        128,
+        120
+      ],
+      "pivot": [
+        64,
+        108
+      ],
+      "columns": 9,
+      "module": "cinema-impact",
+      "options": {
+        "mode": "fire",
+        "palette": [
+          "#2d2026",
+          "#65302c",
+          "#9f4230",
+          "#c76635",
+          "#df903f",
+          "#ecb65b",
+          "#f5d68b",
+          "#f5e5b7",
+          "#fff0d6"
+        ],
+        "light": 0.2
+      }
+    },
+    "cinema-holy": {
+      "path": "assets/fx/cinema-holy.png",
+      "id": "revenge/cinema-holy",
+      "name": "Cinematic contact",
+      "fps": 60,
+      "loop": false,
+      "frames": 82,
+      "frameSize": [
+        128,
+        120
+      ],
+      "pivot": [
+        64,
+        108
+      ],
+      "columns": 9,
+      "module": "cinema-impact",
+      "options": {
+        "mode": "holy",
+        "palette": [
+          "#37303e",
+          "#605765",
+          "#8e8391",
+          "#b9aeba",
+          "#d4cbd0",
+          "#e4dcd5",
+          "#efeadb",
+          "#f6f0e1"
+        ],
+        "light": 0.2
+      }
+    },
+    "cinema-wind": {
+      "path": "assets/fx/cinema-wind.png",
+      "id": "revenge/cinema-wind",
+      "name": "Cinematic contact",
+      "fps": 60,
+      "loop": false,
+      "frames": 82,
+      "frameSize": [
+        128,
+        120
+      ],
+      "pivot": [
+        64,
+        108
+      ],
+      "columns": 9,
+      "module": "cinema-impact",
+      "options": {
+        "mode": "wind",
+        "palette": [
+          "#243840",
+          "#405663",
+          "#63818d",
+          "#91b2b9",
+          "#bdd0ce",
+          "#dce7df",
+          "#f1f0e2"
+        ],
+        "light": 0.2
+      }
+    },
+    "cinema-lightning": {
+      "path": "assets/fx/cinema-lightning.png",
+      "id": "revenge/cinema-lightning",
+      "name": "Cinematic contact",
+      "fps": 60,
+      "loop": false,
+      "frames": 82,
+      "frameSize": [
+        128,
+        120
+      ],
+      "pivot": [
+        64,
+        108
+      ],
+      "columns": 9,
+      "module": "cinema-impact",
+      "options": {
+        "mode": "lightning",
+        "palette": [
+          "#243840",
+          "#405663",
+          "#63818d",
+          "#91b2b9",
+          "#bdd0ce",
+          "#dce7df",
+          "#f1f0e2"
+        ],
+        "light": 0.2
+      }
+    },
+    "fire": {
+      "path": "assets/fx/fire.png",
+      "id": "revenge/fire",
+      "name": "Native feedback",
+      "fps": 60,
+      "loop": false,
+      "frames": 64,
+      "frameSize": [
+        80,
+        72
+      ],
+      "pivot": [
+        40,
+        64
+      ],
+      "columns": 8,
+      "module": "native-feedback",
+      "options": {
+        "mode": "fire",
+        "palette": [
+          "#2d2026",
+          "#65302c",
+          "#9f4230",
+          "#c76635",
+          "#df903f",
+          "#ecb65b",
+          "#f5d68b",
+          "#f5e5b7",
+          "#fff0d6"
+        ],
+        "light": 0.15
+      }
+    },
+    "holy": {
+      "path": "assets/fx/holy.png",
+      "id": "revenge/holy",
+      "name": "Native feedback",
+      "fps": 60,
+      "loop": false,
+      "frames": 64,
+      "frameSize": [
+        80,
+        72
+      ],
+      "pivot": [
+        40,
+        64
+      ],
+      "columns": 8,
+      "module": "native-feedback",
+      "options": {
+        "mode": "holy",
+        "palette": [
+          "#37303e",
+          "#605765",
+          "#8e8391",
+          "#b9aeba",
+          "#d4cbd0",
+          "#e4dcd5",
+          "#efeadb",
+          "#f6f0e1"
+        ],
+        "light": 0.15
+      }
+    },
+    "wind": {
+      "path": "assets/fx/wind.png",
+      "id": "revenge/wind",
+      "name": "Native feedback",
+      "fps": 60,
+      "loop": false,
+      "frames": 64,
+      "frameSize": [
+        80,
+        72
+      ],
+      "pivot": [
+        40,
+        64
+      ],
+      "columns": 8,
+      "module": "native-feedback",
+      "options": {
+        "mode": "wind",
+        "palette": [
+          "#243840",
+          "#405663",
+          "#63818d",
+          "#91b2b9",
+          "#bdd0ce",
+          "#dce7df",
+          "#f1f0e2"
+        ],
+        "light": 0.15
+      }
+    },
+    "stone": {
+      "path": "assets/fx/stone.png",
+      "id": "revenge/stone",
+      "name": "Native feedback",
+      "fps": 60,
+      "loop": false,
+      "frames": 64,
+      "frameSize": [
+        80,
+        72
+      ],
+      "pivot": [
+        40,
+        64
+      ],
+      "columns": 8,
+      "module": "native-feedback",
+      "options": {
+        "mode": "stone",
+        "palette": [
+          "#302e35",
+          "#5a4d43",
+          "#8d7959",
+          "#b9a77d",
+          "#d7c9a4",
+          "#e5ddc3",
+          "#f1ecda",
+          "#f7f1df"
+        ],
+        "light": 0.15
+      }
+    },
+    "warp": {
+      "path": "assets/fx/warp.png",
+      "id": "revenge/warp",
+      "name": "Native feedback",
+      "fps": 60,
+      "loop": false,
+      "frames": 64,
+      "frameSize": [
+        80,
+        72
+      ],
+      "pivot": [
+        40,
+        64
+      ],
+      "columns": 8,
+      "module": "native-feedback",
+      "options": {
+        "mode": "warp",
+        "palette": [
+          "#252738",
+          "#403c54",
+          "#5e5877",
+          "#7f7595",
+          "#a095af",
+          "#bfb0c6",
+          "#d9cbdc",
+          "#e9dfea"
+        ],
+        "light": 0.15
+      }
+    },
+    "wake": {
+      "path": "assets/fx/wake.png",
+      "id": "revenge/wake",
+      "name": "Native feedback",
+      "fps": 60,
+      "loop": true,
+      "frames": 60,
+      "frameSize": [
+        48,
+        24
+      ],
+      "pivot": [
+        36,
+        12
+      ],
+      "columns": 6,
+      "module": "native-feedback",
+      "options": {
+        "mode": "wake",
+        "palette": [
+          "#243840",
+          "#405663",
+          "#63818d",
+          "#91b2b9",
+          "#bdd0ce",
+          "#dce7df",
+          "#f1f0e2"
+        ],
+        "light": 0.15
+      }
+    },
+    "dust": {
+      "path": "assets/fx/dust.png",
+      "id": "revenge/dust",
+      "name": "Native feedback",
+      "fps": 60,
+      "loop": false,
+      "frames": 64,
+      "frameSize": [
+        80,
+        72
+      ],
+      "pivot": [
+        40,
+        64
+      ],
+      "columns": 8,
+      "module": "native-feedback",
+      "options": {
+        "mode": "dust",
+        "palette": [
+          "#302e35",
+          "#5a4d43",
+          "#8d7959",
+          "#b9a77d",
+          "#d7c9a4",
+          "#e5ddc3",
+          "#f1ecda",
+          "#f7f1df"
+        ],
+        "light": 0.15
+      }
+    },
+    "map-hit": {
+      "path": "assets/fx/map-hit.png",
+      "id": "revenge/map-hit",
+      "name": "Native feedback",
+      "fps": 60,
+      "loop": false,
+      "frames": 49,
+      "frameSize": [
+        32,
+        32
+      ],
+      "pivot": [
+        16,
+        24
+      ],
+      "columns": 7,
+      "module": "native-feedback",
+      "options": {
+        "mode": "map-hit",
+        "palette": [
+          "#302e35",
+          "#5a4d43",
+          "#8d7959",
+          "#b9a77d",
+          "#d7c9a4",
+          "#e5ddc3",
+          "#f1ecda",
+          "#f7f1df"
+        ],
+        "light": 0.15
+      }
+    },
+    "map-heal": {
+      "path": "assets/fx/map-heal.png",
+      "id": "revenge/map-heal",
+      "name": "Native feedback",
+      "fps": 60,
+      "loop": false,
+      "frames": 49,
+      "frameSize": [
+        32,
+        32
+      ],
+      "pivot": [
+        16,
+        24
+      ],
+      "columns": 7,
+      "module": "native-feedback",
+      "options": {
+        "mode": "map-heal",
+        "palette": [
+          "#243c38",
+          "#405b50",
+          "#628571",
+          "#83a38b",
+          "#a8c1a3",
+          "#c6d8b7",
+          "#dce4ca",
+          "#eceddb"
+        ],
+        "light": 0.15
+      }
+    }
+  }
+}
