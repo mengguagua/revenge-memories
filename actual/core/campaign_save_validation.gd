@@ -636,6 +636,7 @@ static func _campaign_flags(game, flags: Dictionary, stage: Dictionary) -> bool:
 			if not _loot_record(record) or (key=="pending_loot" and not game.characters.has(record.unit_id)):return false
 	for key in ["chapter4_started","chapter4_complete","chapter4_closed","chapter5_pending","west_tower_safe","island_loop_safe","D42_done","obs_steps_ready","m43_seized","transfer_cut","M41_confirmed","F41_confirmed","F43_confirmed","S41_invited","S42_invited","celine_ready","S42_settled","S41_register_saved","chapter3_started","chapter3_complete","chapter4_pending","D31_done","D32_done","D33_done","M32_confirmed","M33_confirmed","F32_confirmed","F33_confirmed","S31_invited","S32_invited","chapter1_complete","chapter2_started","chapter2_complete","chapter3_pending","east_departure_ready","F21_confirmed","F22_confirmed","F23_confirmed","islanders_settled","sea_chart_collected","east_departure_confirmed","S21_invited","S22_invited"]:
 		if flags.has(key) and not flags[key] is bool:return false
+	if flags.has("east_martin_pending") and not flags.east_martin_pending is bool:return false
 	if flags.has("active_plot"):
 		var plot=flags.active_plot
 		if not plot is Dictionary or not _campaign_pages(plot.get("pages")) or not _integer(plot.get("index"),0,plot.pages.size()-1):return false

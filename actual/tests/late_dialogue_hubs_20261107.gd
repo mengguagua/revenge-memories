@@ -2,16 +2,19 @@ extends SceneTree
 const State=preload("res://core/game_state.gd")
 const Hub=preload("res://core/story_hub.gd")
 const L=preload("res://core/late_dialogue.gd")
+const Portraits=preload("res://core/portrait_library.gd")
 const Third=preload("res://core/chapter3_hub.gd")
 const Fourth=preload("res://core/chapter4_hub.gd")
 const Fifth=preload("res://core/chapter5_hub.gd")
 class UIProbe extends RefCounted:
  const GameState=preload("res://core/game_state.gd")
  var game;var hub;var spoken=[];var menus=[];var view="hub"
+ var busy=false;var instant_mode=true;var held_direction=Vector2i.ZERO
  func play_pages(pages:Array,_return:String,callback:String=""):
   spoken+=pages
   if not callback.is_empty():hub.finish_story(callback)
  func _notice(_text:String,_seconds:float=0):pass
+ func queue_redraw():pass
  func _open_menu(_context:String,_labels:Array,actions:Array,_position:Vector2):menus=actions
 var checks=[];var errors=[];var probes=[]
 func _initialize():call_deferred("run")
@@ -26,8 +29,23 @@ func probe(code:String,ch:int):
  ui.game.save_path="/private/tmp/revenge-dialogue-hubs.json";ui.hub=Hub.new(ui);probes.append(ui);return ui
 func run():
  var ui=probe("F22",2);var h=ui.hub;var g=ui.game
+ g.flags.erase("east_departure_ready")
+ h.room="H21";h._configure_east_room();g.hub_position=Vector2i(8,6)
+ await h._east_action("east_martin")
+ check(ui.spoken.is_empty() and not g.flags.get("east_departure_ready",false),"H21 the captain cannot begin the pursuit before Carlo speaks")
+ await h._east_action("east_departure")
+ check(words(ui).contains("我喜欢玩骰子") and words(ui).contains("接了个长途护送的活") and words(ui).contains("你母亲船上的舵手"),"D21 uses the revised Carlo dialogue")
+ var captain=ui.spoken.filter(func(p):return p.speaker=="马丁")
+ check(g.flags.get("east_departure_ready",false) and captain.size()==3 and captain[0].text.contains("学舍") and captain[1].text.contains("她没回来我也很担心") and captain[2].text.contains("我和船员不擅长战斗"),"D21 plays the revised Martin dialogue before departure")
+ check(g.hub_position+h.facing==h._martin_cell() and not g.flags.has("east_martin_pending"),"D21 ends facing the on-map captain and clears the departure checkpoint")
+ check(Portraits.speaker(g,"马丁").get("key","")=="sailor","Martin uses the existing captain portrait")
+ ui.spoken.clear()
+ g.flags.erase("F21_confirmed")
+ await h._east_action("sea_route")
+ check(g.flags.get("F21_confirmed",false) and words(ui).contains("马丁：给学舍送药"),"H22 the same captain confirms the route")
+ ui.spoken.clear()
  await h._east_action("prisoners_treat")
- check(words(ui).contains("海峡城。裴萨不放行") and words(ui).contains("清掉记忆"),"H23 mother motive and repair-book clue are mandatory")
+ check(words(ui).contains("卡洛在外岛看见你") and words(ui).contains("送他们去海峡城") and words(ui).contains("裴萨不放行") and words(ui).contains("清掉记忆"),"H23 the rescued helmsman gives mandatory testimony alongside the repair-book clue")
  check(g.flags.get("F22_confirmed",false),"H23 completion callback unlocks route")
  ui.spoken.clear();await h._east_action("reef_route")
  check(words(ui).contains("刻了个号"),"H24 fixed villager supplies numbered clasp")
@@ -35,9 +53,12 @@ func run():
  check(words(ui).contains("普罗米修斯是谁") and words(ui).contains("不肯让我走"),"H25 rescue and confinement both introduced")
  # Named comrade missing never turns into a generic speaker telling their personal history.
  g.roster.mireille.hp=0;g.roster.lisa.hp=0;g.roster.carlo.hp=0;ui.spoken.clear()
+ await h._east_action("east_martin")
+ check(ui.spoken.size()==1 and ui.spoken[0].speaker=="马丁" and ui.spoken[0].text=="船好了，出发。","H21 the captain still speaks from his own position when Carlo cannot participate")
+ ui.spoken.clear()
  await h._east_action("prisoners_treat")
  check(not ui.spoken.any(func(p):return p.speaker in ["米蕾","莉莎","卡洛"]),"Unavailable comrades never speak in mandatory H23")
- check(words(ui).contains("获救船员"),"Missing comrades do not remove mother testimony")
+ check(words(ui).contains("薇娅的舵手") and words(ui).contains("他们把我关在外岛"),"Missing comrades do not remove the helmsman's testimony")
  ui=probe("M33",3);h=ui.hub;g=ui.game
  if not g.stage_cleared(303):g.cleared_stages.append(303)
  g.flags.erase("M33_confirmed");g.flags.story_armaments_claimed={};g.convoy.alm.erase(18)
@@ -61,7 +82,7 @@ func run():
   g.flags.prometheus_outcome=outcome;g.flags.island_loop_safe=true;g.flags.erase("D42_done");ui.spoken.clear()
   await Fourth.action(h,"fourth_d42")
   check(words(ui).contains("没有清掉" if outcome=="maintenance" else "再也醒不过来了"),"D42 letter branches: "+outcome)
-  check(words(ui).contains("外头新来的船还是进不来"),"D42 concrete reason to seek god: "+outcome)
+  check(words(ui).contains("马丁：外头新来的船还是进不来"),"D42 Martin reports the remaining blockade: "+outcome)
  ui=probe("M51",5);h=ui.hub;g=ui.game
  g.flags.prometheus_outcome="maintenance";ui.spoken.clear()
  await Fifth.action(h,"fifth_repair_report")
@@ -83,6 +104,13 @@ func run():
   var ending=preload("res://core/late_battle_dialogue.gd").resolve(g,[],str(stage.code)+"-END")
   check(not opening.is_empty() and not ending.is_empty(),str(stage.code)+" opening and victory branch resolve")
   check(not opening.any(func(p):return str(p.text).contains("拟补") or str(p.text).contains("演出说明")),str(stage.code)+" no director notes in speech")
+  if stage.code=="F22":
+   var helmsman=g.find_unit("prisoners_0")
+   check(helmsman.get("name_zh")=="薇娅的舵手" and opening[0].text.contains("从外岛押走的舵手") and opening.any(func(p):return p.text.contains("护卫去挡舰长")) and ending[0].text.contains("那位舵手"),"F22 identifies the same mandatory captive even without Carlo in the battle")
+  if stage.code=="F33":
+   check(opening.any(func(p):return p.speaker=="船团护卫" and p.text.contains("工房的门")) and not opening.any(func(p):return p.speaker=="马丁"),"F33 a guard covers Carlo's position while Martin stays with the boats")
+  if stage.code=="J54":
+   check(ending.any(func(p):return p.speaker=="船团信使" and p.text.contains("马丁船长")),"J54 the messenger refers to the same captain")
  var f=FileAccess.open("res://reports/dialogue-ch2-5-20261107/hub-checks.json",FileAccess.WRITE);f.store_string(JSON.stringify({"checks":checks,"errors":errors},"  "));f.close()
  for probe_ui in probes:
   probe_ui.hub.ui=null;probe_ui.hub=null;probe_ui.game=null

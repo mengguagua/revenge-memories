@@ -26,7 +26,8 @@ for n,line in enumerate(s[:end].splitlines(),1):
   current['lines'].append(text)
  elif line.startswith('#'):current=None
 out=ROOT/'actual/data/dialogue_ch2_5.json'
-out.write_text(json.dumps({'source':'docs2/完整台词汇总.md','updated':'2026-11-07','sections':groups},ensure_ascii=False,indent=2)+'\n')
+updated=re.search(r'更新于 (\d{4}-\d{2}-\d{2})',s).group(1)
+out.write_text(json.dumps({'source':'docs2/完整台词汇总.md','updated':updated,'sections':groups},ensure_ascii=False,indent=2)+'\n')
 report=[]
 for a,subs in groups.items():
  for h,gs in subs.items():

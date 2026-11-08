@@ -216,6 +216,7 @@ func _resume_journey() -> void:
 	if game.flags.has("active_plot"):
 		_resume_plot()
 		while not plot_finished:await get_tree().process_frame
+	if view=="hub":await hub_controller.resume_east_departure()
 	if not game.story_events.is_empty():await _play_story_events()
 	if view in ["victory","defeat"]:_show_result()
 	elif view=="battle":
@@ -553,16 +554,23 @@ func _unit_action_menu() -> void:
 		menu_items.append("战术说明");menu_actions.append("tactics:unit_info")
 	var options=game.interactions_for(game.find_unit(game.selected_id))
 	for o in options:menu_items.push_front(str(o.label));menu_actions.push_front("interact:"+str(o.id))
-	var wait_index=menu_actions.find("wait")
-	if wait_index>0:
-		var wait_label=menu_items[wait_index]
-		menu_items.remove_at(wait_index);menu_actions.remove_at(wait_index)
-		menu_items.push_front(wait_label);menu_actions.push_front("wait")
-	var attack_index=menu_actions.find("attack")
-	if attack_index>0:
-		var attack_label=menu_items[attack_index]
-		menu_items.remove_at(attack_index);menu_actions.remove_at(attack_index)
-		menu_items.push_front(attack_label);menu_actions.push_front("attack")
+	var priority := ["wait"]
+	if game.MapSkills.Healing.eligible(actor):
+		for id in Items.spells(actor):
+			if str(Items.spell(id).get("action", "")) not in ["recover", "physic", "fortify"]:
+				continue
+			if game.support_targets(actor, id).any(func(target): return int(target.hp) < int(target.max_hp)):
+				priority.append("magic")
+				break
+	priority.append("attack")
+	for action in priority:
+		var index := menu_actions.find(action)
+		if index <= 0:
+			continue
+		var label = menu_items.pop_at(index)
+		menu_actions.remove_at(index)
+		menu_items.push_front(label)
+		menu_actions.push_front(action)
 
 func _choose_map_skill()->void:
 	var actor=game.find_unit(game.selected_id);var spec=game.MapSkills.profile(actor)

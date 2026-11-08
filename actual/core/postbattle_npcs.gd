@@ -15,7 +15,8 @@ static func profile(game,name:String)->String:
 		if name=="管理员":return "village_elder_woman"
 	return ""
 static func hub(game,object:Dictionary)->Dictionary:
-	var key=profile(game,str(object.get("name","")))
+	var name=str(object.get("name",""))
+	var key="village_man" if name=="马丁" else profile(game,name)
 	return data().profiles.get(key,{}).get("hub",{}).duplicate(true)
 static func portrait(game,name:String)->Dictionary:
 	var key=profile(game,name);var path=str(data().profiles.get(key,{}).get("portrait",""))

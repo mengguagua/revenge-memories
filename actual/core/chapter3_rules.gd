@@ -71,7 +71,7 @@ static func before_lines(g) -> String:
 
 static func lines(g,text: String,key: String="") -> void:
 	var pages=[]
-	var replacements={"蕾娜":"城外军官","达恩":"居民","奥托":"工匠","兰斯":"运输工","米蕾":"船医","莉莎":"艾琳","卡洛":"船长","罗恩":"舵手","希雅":"留守骑士"}
+	var replacements={"蕾娜":"城外军官","达恩":"居民","奥托":"工匠","兰斯":"运输工","米蕾":"船医","莉莎":"艾琳","卡洛":"船团护卫","罗恩":"舵手","希雅":"留守骑士"}
 	for fragment in text.split("／"):
 		var parts=fragment.split("：",true,1)
 		var who=str(parts[0]);var line=str(parts[1]) if parts.size()>1 else ""

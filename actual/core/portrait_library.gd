@@ -69,12 +69,12 @@ static func speaker(game, name: String, emotion: String="") -> Dictionary:
 				var expressive=entry(key+"_"+emotion)
 				if not expressive.is_empty():return expressive
 			return entry(key)
-	var direct={"雷蒙":"west_armored","玛尔塔":"administrator_east","维瑟":"scholar","萨弥":"east_mage","赫兰":"herlan","科兰":"korlan","裴萨":"pesa","乌库布·卡基":"vucub","旧船员":"old_sailor","渔村长者":"island_elder","学舍导师":"scholar","船长":"sailor","舵手":"sailor","固定舵手":"sailor","船员":"sailor","求救船员":"sailor","守灯人":"sailor","矿工":"miner","洞民":"miner"}
+	var direct={"雷蒙":"west_armored","玛尔塔":"administrator_east","维瑟":"scholar","萨弥":"east_mage","赫兰":"herlan","科兰":"korlan","裴萨":"pesa","乌库布·卡基":"vucub","旧船员":"old_sailor","渔村长者":"island_elder","学舍导师":"scholar","马丁":"sailor","船长":"sailor","舵手":"sailor","固定舵手":"sailor","船员":"sailor","求救船员":"sailor","守灯人":"sailor","矿工":"miner","洞民":"miner"}
 	if direct.has(name):return entry(direct[name])
 	var region="east" if game.route=="celica" else "west"
 	if name in ["医者","岛上医者","地方医者","医师","船医"]:return entry("medic_"+region)
 	if name in ["管理员","仓吏","记录员","文书","账房"]:return entry("administrator_"+region)
-	if name in ["教团守卫","教团兵","教团守军","护日军士兵","指挥官","士兵","守军","焚毁兵","投降兵","斥候","甲板护卫","留守骑士"]:return entry(region+"_infantry")
+	if name in ["教团守卫","教团兵","教团守军","护日军士兵","指挥官","士兵","守军","焚毁兵","投降兵","斥候","甲板护卫","船团护卫","留守骑士"]:return entry(region+"_infantry")
 	return entry("civilian_"+region)
 static func source(game, source_id: int) -> Dictionary:
 	for id in game.characters:

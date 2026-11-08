@@ -158,6 +158,14 @@ func enter_room(id: String,resuming: bool=false,checkpoint: bool=true) -> void:
 				scenery.append({"name":entry[0],"rect":Rect2i(entry[1],entry[2],module.footprint[0],module.footprint[1])});break
 	if room=="H06":scenery.append({"name":"medicine_wagon","rect":Rect2i(4,5,2,1)})
 	if chapter2_rooms.has(room):_configure_east_room()
+	if room=="H21":
+		var martin=_martin_cell()
+		if ui.game.hub_position==martin:
+			ui.game.hub_position=martin+Vector2i.RIGHT
+			render_position=Vector2(ui.game.hub_position)*16
+			motion_origin=render_position;motion_target=render_position
+		var to_martin=martin-ui.game.hub_position
+		if ui.game.flags.get("east_martin_pending",false) and absi(to_martin.x)+absi(to_martin.y)==1:facing=to_martin
 	if room=="H04":
 		var positions={"cooperate":[8,3],"lance":[10,6],"shrine":[6,2],"treatment":[1,6]}
 		for o in objects:
@@ -210,10 +218,14 @@ func direction(d: Vector2i) -> void:
 	if not east_data.is_empty() and not east_walkable(at):return
 	if objects.any(func(o):return object_occupies(o,at)):return
 	if scenery.any(func(d):return bool(d.get("blocking",true)) and d.rect.has_point(at)):return
+	_step_to(at)
+	ui.game.save_game()
+
+func _step_to(at: Vector2i) -> void:
 	motion_origin=Vector2(ui.game.hub_position)*16;motion_target=Vector2(at)*16
 	motion_left=0.0 if ui.instant_mode else STEP
 	render_position=motion_target if ui.instant_mode else motion_origin
-	ui.game.hub_position=at;ui.game.save_game();ui.queue_redraw()
+	ui.game.hub_position=at;ui.queue_redraw()
 
 func accept() -> void:
 	if ui.busy or motion_left>0.0:return
@@ -420,7 +432,10 @@ func finish_story(callback: String) -> void:
 		"grave":ui.game.flags.village_ready=true
 		"cooperate":ui.game.flags.cooperation_done=true;ui.game.recruit("lance")
 		"ceremony":ui.game.flags.chapter1_complete=true;ui.game.mode="chapter_end";ui.view="chapter_end"
-		"east_departure":ui.game.flags.east_departure_ready=true
+		"east_carlo":ui.game.flags.east_martin_pending=true
+		"east_departure":
+			ui.game.flags.east_departure_ready=true
+			ui.game.flags.erase("east_martin_pending")
 		"east_chart":ui.game.flags.sea_chart_collected=true
 		"east_finale":
 			if ui.game.finish_chapter_two():ui.view="chapter_end"
@@ -553,8 +568,6 @@ func _configure_east_room() -> void:
 	title=str(east_data.title);hint=str(east_data.hint);objects=[];scenery=[]
 	for raw in east_data.objects:
 		var o: Dictionary=raw.duplicate(true)
-		if o.action=="east_departure" and not _east_alive("carlo"):
-			o.name="船长";o.source=5
 		if o.has("party") and not _east_alive(str(o.party)):continue
 		if o.has("recruit"):
 			var id=str(o.recruit)
@@ -594,7 +607,9 @@ func _east_exit_allowed() -> bool:
 	if ui.game.chapter==3:
 		if room=="H30":ui._notice("先面对赫兰，接续庆典");return false
 		return true
-	var guards={"H21":["east_departure_ready","先与卡洛确认船牌与出航"],"H22":["F21_confirmed","先向船长确认押送舰的灯线"],"H23":["F22_confirmed","先在安置处照顾全部伤者"],"H24":["F23_confirmed","先向渔村长者确认岸线"],"H25":["islanders_settled","先请留守骑士安置岛民"]}
+	if room=="H21" and ui.game.flags.get("east_martin_pending",false):
+		ui._notice("先在南边跳板旁和马丁谈谈");return false
+	var guards={"H21":["east_departure_ready","先与卡洛谈谈，确认出航"],"H22":["F21_confirmed","先向马丁确认押送舰的航路"],"H23":["F22_confirmed","先在安置处照顾全部伤者"],"H24":["F23_confirmed","先向渔村长者确认岸线"],"H25":["islanders_settled","先请留守骑士安置岛民"]}
 	if room=="H27":ui._notice("先向广场前的守卫交涉");return false
 	if guards.has(room) and not ui.game.flags.get(guards[room][0],false):ui._notice(guards[room][1]);return false
 	return true
@@ -689,14 +704,52 @@ func _east_pages(lines: Array,callback: String="") -> void:
 		result.append({"speaker":parts[0],"text":parts[1] if parts.size()>1 else ""})
 	await ui.play_pages(result,"hub",callback)
 
+func _martin_cell() -> Vector2i:
+	for o in objects:
+		if o.action=="east_martin":return Vector2i(int(o.position[0]),int(o.position[1]))
+	return Vector2i(-1,-1)
+
+func resume_east_departure() -> void:
+	if room!="H21" or not ui.game.flags.get("east_martin_pending",false):return
+	var martin=_martin_cell()
+	var target=martin+Vector2i.RIGHT
+	var grid=AStarGrid2D.new()
+	grid.region=Rect2i(1,1,12,7)
+	grid.diagonal_mode=AStarGrid2D.DIAGONAL_MODE_NEVER
+	grid.update()
+	for y in range(1,8):
+		for x in range(1,13):
+			var cell=Vector2i(x,y)
+			grid.set_point_solid(cell,not east_walkable(cell))
+	var start: Vector2i=ui.game.hub_position
+	var path: Array[Vector2i]=[]
+	if grid.region.has_point(start) and grid.region.has_point(target):path=grid.get_id_path(start,target)
+	if path.is_empty():
+		ui._notice("去南边跳板旁找马丁");return
+	var was_busy=ui.busy
+	ui.busy=true;ui.held_direction=Vector2i.ZERO
+	for cell in path.slice(1):
+		facing=cell-ui.game.hub_position
+		_step_to(cell)
+		while motion_left>0.0:await ui.get_tree().process_frame
+	facing=martin-ui.game.hub_position
+	await L.say(self,L.lines("H21","艾琳与马丁"),"east_departure")
+	ui.busy=was_busy
+
 func _east_action(key: String) -> void:
 	if key=="east_promotions" or key.begins_with("promote_"):
 		ui.field_notes.open_promotions();return
 	var g=ui.game
 	match key:
 		"east_departure":
-			if g.flags.get("east_departure_ready",false):await L.say(self,L.lines("H21","D21",1 if _east_alive("carlo") else 2));return
-			await L.say(self,L.lines("H21","D21"),"east_departure")
+			if g.flags.get("east_departure_ready",false):await L.say(self,L.lines("H21","D21",1));return
+			if not g.flags.get("east_martin_pending",false):await L.say(self,L.lines("H21","D21"),"east_carlo")
+			await resume_east_departure()
+
+		"east_martin":
+			if g.flags.get("east_departure_ready",false):await L.say(self,L.lines("H21","艾琳与马丁",1));return
+			if not g.flags.get("east_martin_pending",false):ui._notice("先和卡洛谈谈");return
+			await L.say(self,L.lines("H21","艾琳与马丁"),"east_departure")
 
 		"east_mireille":
 			await L.say(self,L.lines("H21","米蕾"))

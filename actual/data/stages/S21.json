@@ -526,7 +526,7 @@
       96,
       191,
       196,
-      191,
+      218,
       191,
       191,
       191,
@@ -861,7 +861,7 @@
     "~~sssssssssss~~~~~sssssssssss~~~",
     "~~sssssssssss~~~~~sssssss##ss~~~",
     "~~s#sssss##ss~~~~~sssssss##ss~~~",
-    "~~s#sssss##ss~~~~~ss###ssssss~~~",
+    "~~s#+ssss##ss~~~~~ss###ssssss~~~",
     "~~ssssssssssssssssss###ssssss~~~",
     "~~sssssssssssssssssssssssssss~~~",
     "~~~ssssssssss~~~~~sssssssssss~~~",
@@ -1425,7 +1425,7 @@
         31,
         3934,
         3966,
-        3968,
+        24,
         3968,
         3969,
         3969,
@@ -6416,7 +6416,8 @@
   "tactical_notes": [
     "击败全部海上魔物，并让至少一组病人存活靠岸。两组病人都在左船后甲板。",
     "飞行魔物能绕过跳板直扑后方。护卫应先拦截来敌，再向右船推进。",
-    "前后跳板连通两船，南侧短跳板通往靠岸点；及时调动成员保护病人。"
+    "前后跳板连通两船，南侧短跳板通往靠岸点；及时调动成员保护病人。",
+    "左船后甲板的舷边货物右侧有一处船医补给点。停在该格，下一次我方阶段开始时恢复5点生命。"
   ],
   "tactical_review_version": "0.10.6-ch2",
   "building_sites": [
@@ -6448,7 +6449,7 @@
     "~~sssssssssss~~~~~sssssssssss~~~",
     "~~sssssssssss~~~~~sssssssssss~~~",
     "~~sssssssssss~~~~~sssssssssss~~~",
-    "~~sssssssssss~~~~~sssssssssss~~~",
+    "~~ss+ssssssss~~~~~sssssssssss~~~",
     "~~sssssssssssssssssssssssssss~~~",
     "~~sssssssssssssssssssssssssss~~~",
     "~~~ssssssssss~~~~~sssssssssss~~~",
@@ -6578,5 +6579,14 @@
     "prison": "Not applicable",
     "geometry_and_animation_unchanged": true
   },
-  "dialogue_revision": "2026-11-07"
+  "dialogue_revision": "2026-11-07",
+  "recovery_sites": [
+    {
+      "position": [
+        4,
+        16
+      ],
+      "label": "船医补给点"
+    }
+  ]
 }
