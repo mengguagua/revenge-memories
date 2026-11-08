@@ -43,6 +43,7 @@ func run():
  g.flags.erase("F21_confirmed")
  await h._east_action("sea_route")
  check(g.flags.get("F21_confirmed",false) and words(ui).contains("马丁：给学舍送药"),"H22 the same captain confirms the route")
+ check(words(ui).contains("看看谁需要包扎"),"H22 checks injuries without assuming the escort survived")
  ui.spoken.clear()
  await h._east_action("prisoners_treat")
  check(words(ui).contains("卡洛在外岛看见你") and words(ui).contains("送他们去海峡城") and words(ui).contains("裴萨不放行") and words(ui).contains("清掉记忆"),"H23 the rescued helmsman gives mandatory testimony alongside the repair-book clue")
@@ -104,6 +105,12 @@ func run():
   var ending=preload("res://core/late_battle_dialogue.gd").resolve(g,[],str(stage.code)+"-END")
   check(not opening.is_empty() and not ending.is_empty(),str(stage.code)+" opening and victory branch resolve")
   check(not opening.any(func(p):return str(p.text).contains("拟补") or str(p.text).contains("演出说明")),str(stage.code)+" no director notes in speech")
+  if stage.code=="F21":
+   check(opening.any(func(p):return p.text.contains("学舍派来的护卫中箭")) and opening.any(func(p):return p.speaker=="受伤护卫" and p.text.contains("守船")),"F21 explains the escort's starting injury before boarding")
+   check(opening.any(func(p):return p.text.contains("水猴傀儡")),"F21 names the puppet in the opening")
+   g.units=g.units.filter(func(u):return not g.Mechanical.is_water(u))
+   var no_puppet=preload("res://core/late_battle_dialogue.gd").resolve(g,[],"F21-BEGIN")
+   check(not no_puppet.any(func(p):return p.text.contains("水猴")) and no_puppet.any(func(p):return p.text.contains("要登船了")),"F21 a legacy deployment without a puppet still warns about boarding")
   if stage.code=="F22":
    var helmsman=g.find_unit("prisoners_0")
    check(helmsman.get("name_zh")=="薇娅的舵手" and opening[0].text.contains("从外岛押走的舵手") and opening.any(func(p):return p.text.contains("护卫去挡舰长")) and ending[0].text.contains("那位舵手"),"F22 identifies the same mandatory captive even without Carlo in the battle")

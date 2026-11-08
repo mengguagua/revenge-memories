@@ -943,9 +943,11 @@ func _plot_layout(speaker: String) -> Dictionary:
 		"text":Rect2(left,panel.position.y+30,panel.end.x-20-left,48),"has_portrait":has_face}
 
 func _paginate_plot(page: Dictionary) -> Array:
-	var speaker=str(page.get("speaker","旁白"));var out: Array=[]
+	# Pending and paused dialogue pages may come from an older journal.
+	var speaker=str(page.get("speaker","旁白")).replace("提炼院","研究院");var out: Array=[]
 	var emotion=Portraits.dialogue_emotion(page)
-	var lines=_wrapped_lines(str(page.text).replace("\n",""),_plot_layout(speaker).text.size.x)
+	var text=str(page.text).replace("\n","").replace("提炼院","研究院")
+	var lines=_wrapped_lines(text,_plot_layout(speaker).text.size.x)
 	for start in range(0,lines.size(),3):
 		var chunk=page.duplicate(true)
 		chunk.speaker=speaker;chunk.text="\n".join(lines.slice(start,mini(start+3,lines.size())))

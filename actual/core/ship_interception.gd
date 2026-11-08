@@ -1,6 +1,8 @@
 extends RefCounted
-## F21 passenger duty, deck terrain and a one-time, ordinary-growth event reward.
+## F21 escort duty, deck terrain and a one-time, ordinary-growth event reward.
 const PASSENGER="injured_passengers"
+const DUTY="战场提示：受伤护卫只在己方左侧甲板移动并谨慎助战。低于半血会停止主动攻击并后退。护卫存活通关，本队全体正式成员额外获得20经验。两条跳板回避＋20，无需交互。"
+const REWARD="战场提示：受伤护卫平安获救。本队全体正式成员额外获得20点经验，未出阵成员也可获得，满级成员除外。"
 
 static func applies(g,u:Dictionary)->bool:
 	return g.stage_id==201 and str(u.get("id",""))==PASSENGER and u.get("neutral",false) and u.get("temporary",false)
@@ -26,6 +28,7 @@ static func plank(g,cell:Vector2i)->bool:
 static func prepare(g,actors:Array,initial:bool=false)->void:
 	for u in actors:
 		if not applies(g,u):continue
+		u.name_zh="受伤护卫"
 		u.no_counter=false
 		# Only a genuine deployment/retry checkpoint gets the new starting HP.
 		# An active old save keeps its wound, action and position unchanged.
@@ -54,6 +57,11 @@ static func restore(g)->void:
 	for o in g.battle_data.objects:
 		if o.id=="F21_visit_0":o.dialogue=g.stages[201].objects[0].dialogue
 	prepare(g,g.units)
+	for event in g.story_events:
+		match str(event.get("key","")):
+			"F21-BEGIN":event.pages=preload("res://core/late_battle_dialogue.gd").resolve(g,event.pages,"F21-BEGIN")
+			"F21-PASSENGER-DUTY":event.pages=g.dialogue_pages(DUTY)
+			"F21-PASSENGER-REWARD":event.pages=g.dialogue_pages(REWARD)
 
 static func hurt(u:Dictionary)->bool:return int(u.hp)*2<int(u.max_hp)
 
@@ -62,7 +70,7 @@ static func hint(u:Dictionary)->String:
 
 static func queue_duty(g)->void:
 	if g.stage_id!=201 or g.mode!="battle" or g.battle_settled:return
-	g.queue_lines("战场提示：受伤乘客只在己方左侧甲板移动并谨慎助战；低于半血会停止主动攻击并后退。乘客存活通关，本队全体正式成员额外获得20经验。两条跳板回避＋20，无需交互。","F21-PASSENGER-DUTY")
+	g.queue_lines(DUTY,"F21-PASSENGER-DUTY")
 
 static func action(g,u:Dictionary,gather:bool=false)->Dictionary:
 	if int(u.hp)<=0 or u.get("acted",false):return {"destination":g.pos(u),"target":""}
@@ -102,4 +110,4 @@ static func award_survival(g)->void:
 			for field in ["level","exp","max_hp","hp","strength","skill","speed","luck","defence","magic_level","magic_flags"]:
 				if member.has(field):deployed[field]=member[field]
 	g.flags.F21_passenger_survival_reward=true
-	g.queue_lines("战场提示：受伤乘客平安获救。本队全体正式成员额外获得20点经验，未出阵成员也可获得；满级成员不再获得经验。","F21-PASSENGER-REWARD")
+	g.queue_lines(REWARD,"F21-PASSENGER-REWARD")

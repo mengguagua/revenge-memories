@@ -40,7 +40,7 @@ func comparison():
  evidence.experience=rows
 func passenger_checks():
  var g=fresh();var p=g.find_unit("injured_passengers")
- check(p.hp==19 and p.max_hp==24 and not p.no_counter,"passenger starts19/24 (80% rounded) and can defend")
+ check(p.name_zh=="受伤护卫" and p.hp==19 and p.max_hp==24 and not p.no_counter,"injured escort starts19/24 (80% rounded) and can defend")
  var initial=g.pos(p);var action=g.ai_action(p)
  check(action.destination!=initial and g.ShipInterception.left_deck(g,action.destination),"passenger follows left-deck formation")
  var graph=g.reachable(p,true)
@@ -63,7 +63,8 @@ func passenger_checks():
  check(not path.is_empty() and path.all(func(c):return g.ShipInterception.left_deck(g,c)),"retreat uses a real path confined to left deck")
  evidence.passenger={"initial_hp":19,"maximum":24,"retreat_from":str(origin),"retreat_to":str(action.destination)}
  # Migrate a genuine old-style ongoing save without resetting HP/action/position.
- g=fresh();p=g.find_unit("injured_passengers");p.hp=11;p.acted=true;p.no_counter=true
+ g=fresh();p=g.find_unit("injured_passengers");p.name_zh="受伤乘客";p.hp=11;p.acted=true;p.no_counter=true
+ g.story_events.append({"kind":"new_story","key":"F21-BEGIN","pages":[{"speaker":"卡洛","text":"那是水猴！"}]})
  g.flags.quest.objects.plank_1=true
  for u in g.battle_start_snapshot.units:
   if str(u.id)==p.id:u.hp=24;u.no_counter=true
@@ -71,7 +72,8 @@ func passenger_checks():
  var restored=State.new();restored.save_path=g.save_path
  check(restored.load_game(),"old-style F21 checkpoint loads")
  var old=restored.find_unit("injured_passengers")
- check(old.hp==11 and old.acted and restored.pos(old)==g.pos(p) and not old.no_counter,"migration preserves live wounds, action and position; enables duty")
+ check(old.name_zh=="受伤护卫" and old.hp==11 and old.acted and restored.pos(old)==g.pos(p) and not old.no_counter,"migration updates the escort label and preserves live wounds, action and position")
+ check(restored.story_events[0].pages.any(func(page):return page.text.contains("水猴傀儡")),"saved opening uses the revised puppet name")
  check(restored.retry_battle() and restored.find_unit("injured_passengers").hp==19,"old retry starts at revised80 percent rather than full HP")
  check(not restored.flags.quest.objects.has("plank_1"),"retired inspection flag is cleaned after legacy restoration")
  restored.turn=2
@@ -130,7 +132,8 @@ func terrain_checks():
  check(g.movement_cost(puppet,Vector2i(16,14))==255,"water monkey ordinary water movement unchanged")
  puppet.mechanical_retreating=true
  check(g.movement_cost(puppet,Vector2i(16,14))==1,"water monkey retreat water movement unchanged")
- check(not str(g.battle_data.before).contains("上层跳板旁") and str(g.battle_data.before).contains("药车右边"),"opening identifies nearby actual supply position")
+ var opening=preload("res://core/late_battle_dialogue.gd").resolve(g,[],"F21-BEGIN")
+ check(opening.any(func(p):return p.speaker=="战场提示" and p.text.contains("后甲板药车右侧")),"live opening identifies the actual supply position")
  var graph=g.reachable(hero,true)
  for point in g.battle_data.recovery_sites:
   var cell=Vector2i(point.position[0],point.position[1])
@@ -182,7 +185,7 @@ func interface_checks():
    for a in range(last.size()):
     for b in range(a+1,last.size()):check(not last[a].bounds.intersects(last[b].bounds),"monkey detail text rows do not overlap "+spec[2]+str(a)+"/"+str(b))
   ui.ui_mode="inspect";g.cursor=Vector2i(14,19);ui._focus_battle(g.cursor,true);await frame(spec[2]+"-jumpboard")
-  ui.view="plot";ui.plot_pages=[{"speaker":"战场提示","text":"受伤乘客平安获救。本队全体正式成员额外获得20点经验，未出阵成员也可获得；满级成员不再获得经验。"}];ui.plot_index=0;ui.plot_return="battle";ui.dialogue_reveal=200;await frame(spec[2]+"-survival-reward")
+  ui.view="plot";ui.plot_pages=g.dialogue_pages(g.ShipInterception.REWARD);ui.plot_index=0;ui.plot_return="battle";ui.dialogue_reveal=200;await frame(spec[2]+"-survival-reward")
 func run():
  DirAccess.make_dir_recursive_absolute(CACHE+"slots")
  visual=DisplayServer.get_name()!="headless" and OS.get_environment("CHRONO_BACKGROUND_GUARD_ACTIVE")=="1"

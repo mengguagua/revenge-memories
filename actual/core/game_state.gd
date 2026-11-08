@@ -1089,6 +1089,11 @@ func _restore_battle_geometry() -> void:
 	ShipInterception.restore(self)
 	# Both loading and rewinding rebuild mutable geometry from the same quest.
 	for o in battle_data.objects:
+		if stage_id==211 and o.id=="S21_visit_0":
+			for current in stages[stage_id].objects:
+				if current.id==o.id:
+					o.reward_item=current.reward_item
+					break
 		if flags.get("quest",{}).get("objects",{}).get(str(o.id),false):
 			if stage_id>=200:ChapterTwo.open_object(self,o)
 			elif o.kind in ["door","rescue"]:battle_data.map.tiles[int(o.position[1])*int(battle_data.map.width)+int(o.position[0])]=int(o.get("open_tile",208))

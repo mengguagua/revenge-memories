@@ -3,7 +3,10 @@ const L=preload("res://core/late_dialogue.gd")
 const FALLBACKS={"米蕾":"船医","莉莎":"甲板护卫","卡洛":"固定舵手","洛德":"引航者","罗恩":"舵手","希雅":"留守骑士","蕾娜":"城外军官","达恩":"居民","兰斯":"运输工","芙拉":"工匠","奥托":"村民"}
 static func begin(g,code:String)->Array:
  var rows=L.lines(code,"开场")
- if code in ["F21","F23","F25","M32","F32","F33","F42","F51"]:rows+=L.lines(code,"开场",1)
+ if code in ["F23","F25","M32","F32","F33","F42","F51"]:rows+=L.lines(code,"开场",1)
+ if code=="F21":
+  if g.units.any(func(u):return g.Mechanical.is_water(u)):rows+=L.lines(code,"开场",1)
+  rows+=L.lines(code,"开场",2)
  if code=="S21" and not g.speaker_alive("米蕾"):rows=L.lines(code,"开场",1)
  if code=="S22" and not g.speaker_alive("卡洛"):rows=L.lines(code,"开场",1)
  if code=="F22" and not g.speaker_alive("卡洛"):

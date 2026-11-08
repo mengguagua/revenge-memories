@@ -46,11 +46,10 @@ static func data() -> Dictionary:
 		var additions = _integer_tables(JSON.parse_string(FileAccess.get_file_as_string("res://data/equipment_progression.json")))
 		for id in additions.get("weapon_overrides",{}):
 			_rules.items[int(id)].merge(additions.weapon_overrides[id],true)
-		for entry in additions.items:
-			assert(int(entry.id) == _rules.items.size())
-			_rules.items.append(entry)
 		var tactics = _integer_tables(JSON.parse_string(FileAccess.get_file_as_string("res://data/knockback_equipment.json")))
-		for entry in tactics.items:
+		var campaign_items: Array = additions.items + tactics.items
+		campaign_items.sort_custom(func(a,b):return int(a.id)<int(b.id))
+		for entry in campaign_items:
 			assert(int(entry.id) == _rules.items.size())
 			_rules.items.append(entry)
 	return _rules
@@ -92,9 +91,11 @@ static func can_use(unit: Dictionary, item_id: int) -> bool:
 		return false
 	if item_id >= 59:
 		var cid := int(unit.get("class_id", 0))
-		if item(item_id).has("allowed_classes"):
-			return item(item_id).allowed_classes.has(cid)
-		match str(item(item_id).get("family", "")):
+		var entry := item(item_id)
+		if entry.has("allowed_classes"):
+			return entry.allowed_classes.has(cid)
+		if entry.get("kind", "") == "accessory":return true
+		match str(entry.get("family", "")):
 			"sword": return cid in [8, 9, 10, 11, 21, 14]
 			"lance": return cid in [1, 2, 3, 4, 5, 6, 7, 22]
 			"bow": return cid in [12, 13, 20] or (cid == 21 and bool(unit.get("promoted", unit.get("alm_promoted", false))))
@@ -233,6 +234,7 @@ static func physical_defence_bonus(unit: Dictionary, attacker: Dictionary = {}) 
 	if id == 51:
 		return (13 if int(attacker.get("class_id", 0)) in [3, 5, 11, 17, 18] else 0)+bonus
 	if is_story_accessory(id):return int(accessories().items[str(id)].get("physical_defence_bonus",0))+bonus
+	if id>=59:return int(item(id).get("physical_defence_bonus",0))+bonus
 	return int({48: 3, 49: 5, 50: 7}.get(id, 0))+bonus
 
 static func magic_defence(unit: Dictionary) -> int:

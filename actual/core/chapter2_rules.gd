@@ -220,9 +220,9 @@ static func status(g) -> Array[String]:
 			result.append("船体耐久：%d/%d。敌人可以攻击船体，船体不能反击或接受治疗。" % [int(ship.get("hp",0)),int(ship.get("max_hp",0))])
 			result.append("步兵沿甲板和两块跳板通行，海面不可落脚。")
 			result.append("两条跳板回避＋20，踏上即生效，无需交互。药车右侧两格为船医补给位，己方阶段开始恢复5生命。")
-			var passenger=g.find_unit("injured_passengers")
-			result.append("乘客只在己方左侧甲板自动助战；低于半血时停止主动攻击并后退。")
-			result.append("乘客存活通关，本队全体正式成员额外获得20经验。" if not passenger.is_empty() and int(passenger.hp)>0 else "乘客已阵亡，本场无法取得乘客存活奖励；不影响主线通关。")
+			var guard=g.find_unit("injured_passengers")
+			result.append("受伤护卫只在己方左侧甲板助战。低于半血时停止主动攻击并后退。")
+			result.append("护卫存活通关，本队全体正式成员额外获得20经验。" if not guard.is_empty() and int(guard.hp)>0 else "护卫已阵亡。本关仍可继续，失去护卫存活奖励。")
 		202:
 			var count=_units_of_kind(g,"prisoner").filter(func(u):return str(u.id)!="lord" and evacuated.has(str(u.id))).size()
 			result.append("打开囚舱、击败舰长，并让三名普通俘虏抵达总闸旁的接应旗标。")
