@@ -1092,11 +1092,17 @@ func _restore_battle_geometry() -> void:
 		if stage_id==211 and o.id=="S21_visit_0":
 			for current in stages[stage_id].objects:
 				if current.id==o.id:
-					o.reward_item=current.reward_item
+					o.erase("reward_item")
+					o.dialogue=current.dialogue
 					break
 		if flags.get("quest",{}).get("objects",{}).get(str(o.id),false):
 			if stage_id>=200:ChapterTwo.open_object(self,o)
 			elif o.kind in ["door","rescue"]:battle_data.map.tiles[int(o.position[1])*int(battle_data.map.width)+int(o.position[0])]=int(o.get("open_tile",208))
+	if stage_id==211:
+		for event in story_events:
+			var key=str(event.get("key",""))
+			if key in ["S21-BEGIN","S21-MID","S21_visit_0-VISIT"]:
+				event.pages=preload("res://core/late_battle_dialogue.gd").resolve(self,event.pages,key)
 	if stage_id==302:
 		for o in battle_data.objects:
 			if o.has("follows_unit"):

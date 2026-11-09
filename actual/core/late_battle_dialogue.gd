@@ -34,6 +34,7 @@ static func ending(g,code:String)->Array:
  var index=0
  if code=="F23" and not g.speaker_alive("罗恩"):index=1
  if code=="F25":index=1
+ if code=="S21" and g.flags.get("seen_S21_visit_0-REWARD",false):index=1
  if code=="S32" and not g.speaker_alive("诺娅"):index=1
  if code=="S41" and not g.flags.get("S41_register_saved",false):index=1
  if code=="S42" and not g.speaker_alive("赛琳"):index=1
@@ -44,7 +45,7 @@ static func ending(g,code:String)->Array:
  if code in ["F24","F33","S42","S51"]:rows=rows.slice(0,1)
  if code=="F24" and not g.speaker_alive("希雅"):rows=L.lines(code,"胜利",1)
  if code=="M52":rows=rows.slice(0,2)
- if code in ["S21","M31"]:rows+=L.lines(code,"胜利",1)
+ if code=="M31":rows+=L.lines(code,"胜利",1)
  if code=="F33":rows+=L.lines(code,"医舍")
  if code=="F42":rows+=L.lines(code,"维瑟")
  # A dead guide cannot supply a route; the mandatory well conversation reads his notes.
@@ -56,12 +57,12 @@ static func resolve(g,original:Array,key:String)->Array:
  if code=="F44" and not g.Mechanical.is_prometheus(g.find_unit(str(g.battle_data.boss_id))):return original
  if key==code+"-BEGIN":rows=begin(g,code)
  elif key==code+"-END":rows=ending(g,code)
- elif key.ends_with("-ENEMY-ROLES") or key in ["D41","M42-LANCE","411-ACCESSORY-HINT","501-ACCESSORY-HINT","M52-ARMAMENT-HINT","S51-ARMAMENT-HINT"]:return []
+ elif key.ends_with("-ENEMY-ROLES") or key in ["F21-MID","D41","M42-LANCE","411-ACCESSORY-HINT","501-ACCESSORY-HINT","M52-ARMAMENT-HINT","S51-ARMAMENT-HINT"]:return []
  elif key.ends_with("-VISIT"):
   for heading in L.data().get(code,{}):
    if str(heading).begins_with("战场访问"):rows=L.lines(code,heading);break
   if rows.is_empty():return original
- elif key in ["F21-MID","F22-MID","F23-MID","F25-MID","S21-MID","S22-MID"]:
+ elif key in ["F22-MID","F23-MID","F25-MID","S21-MID","S22-MID"]:
   var i=0
   if code=="F22" and not g.speaker_alive("洛德"):i=1
   if code in ["S21","S22"] and not g.speaker_alive("米蕾" if code=="S21" else "卡洛"):i=1

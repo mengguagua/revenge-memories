@@ -6384,7 +6384,7 @@
       "door_visual": "native_building_art",
       "show_indicator": false,
       "optional": true,
-      "dialogue": "船员：两条跳板都接上了。受了伤就去后甲板找船医。",
+      "dialogue": "船员：我们正面对抗了军队。受伤的找船医。后面都要小心了。",
       "reward_item": 48,
       "building": "captain_cabin"
     }
@@ -6408,10 +6408,10 @@
   ],
   "goal": "击败搜捕船指挥官，保住己方船。甲板两端是地面通路，水面不能作为步兵落点。",
   "cause": "船团去追载着薇娅舵手的押送舰。搜捕船拦路放箭，学舍派来的护卫受伤。",
-  "before": "卡洛或固定舵手：潮狩军的旗。潮狩军指挥官裴萨大人的军队在这一带查船，没许可会被扣留。／马丁：扶稳，我试试开船绕开！／米蕾或船医：学舍派来的护卫中箭了！来，我给你包扎。／受伤护卫：箭擦伤了胳膊。我还能守船。",
-  "during": "莉莎：另一条船的弓手换到右边了。",
-  "after": "艾琳：外岛开出来的那艘押送舰，往哪边走了？／俘虏：前面那排航灯。我们过来时，它刚从那儿走。／旁白：战后整理出铁剑，已收入本队行囊，可在部队整备中分配。",
-  "absent_branch": "莉莎亡：甲板护卫报告右侧弓手；卡洛亡：固定舵手执行已获得的航线，不延续卡洛私人承诺。",
+  "before": "卡洛或固定舵手：潮狩军的旗。潮狩军指挥官裴萨大人的军队在这一带查船，没许可会被扣留。／马丁：扶稳，我试试开船绕开！／米蕾或船医：学舍派来随行的护卫中箭了，我来医治，大家小心。／受伤护卫：只是擦伤胳膊。我能战斗。",
+  "during": "",
+  "after": "艾琳：潮狩军刚在附近开走的那艘押送舰，往哪边走了？／俘虏：那边，前面那排航灯。它刚从那走了。／旁白：战后整理出铁剑，已收入本队行囊，可在部队整备中分配。",
+  "absent_branch": "卡洛无法参与时由固定舵手认旗，甲板护卫示警。米蕾无法参与时由船医救治护卫。",
   "optional": false,
   "contract": "己方船完整度用事件状态显示；不要把船血量等同单个正式成员。",
   "ai_and_timing": "海兵经两块跳板登船，弓手留船头，术士守中央；无水面行走。",
@@ -6523,6 +6523,30 @@
     "原敌人身份、属性和AI保持，己方船体必须存活；原两格普通恢复地形和一处舵楼哨位均保留。"
   ],
   "art_props": [
+    {
+      "path": "res://assets/ship-hulls-20261109/F21-hulls.png",
+      "position": [
+        24,
+        -7
+      ],
+      "tag": "ship_hulls"
+    },
+    {
+      "path": "res://assets/ship-hulls-20261109/F21-boarding-1.png",
+      "position": [
+        187,
+        158
+      ],
+      "tag": "boarding_plank"
+    },
+    {
+      "path": "res://assets/ship-hulls-20261109/F21-boarding-2.png",
+      "position": [
+        187,
+        286
+      ],
+      "tag": "boarding_plank"
+    },
     {
       "path": "res://assets/chapter2/modules/bow.png",
       "position": [
@@ -6655,22 +6679,6 @@
         400,
         64
       ]
-    },
-    {
-      "path": "res://assets/chapter2/modules/gangplank.png",
-      "position": [
-        208,
-        176
-      ],
-      "tag": "boarding_plank"
-    },
-    {
-      "path": "res://assets/chapter2/modules/gangplank.png",
-      "position": [
-        208,
-        304
-      ],
-      "tag": "boarding_plank"
     }
   ],
   "tactical_notes": [

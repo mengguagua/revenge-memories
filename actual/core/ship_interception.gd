@@ -53,13 +53,15 @@ static func restore(g)->void:
 		for x in range(int(g.battle_data.map.width)):
 			if plank(g,Vector2i(x,y)):g.battle_data.map.tiles[y*int(g.battle_data.map.width)+x]=208
 	# Text is independent of an ongoing legacy battle's preserved geometry.
-	for field in ["before","tactical_notes"]:g.battle_data[field]=g.stages[201][field]
+	for field in ["before","during","after","tactical_notes"]:g.battle_data[field]=g.stages[201][field]
 	for o in g.battle_data.objects:
 		if o.id=="F21_visit_0":o.dialogue=g.stages[201].objects[0].dialogue
 	prepare(g,g.units)
+	g.story_events=g.story_events.filter(func(event):return event.get("key","")!="F21-MID")
 	for event in g.story_events:
-		match str(event.get("key","")):
-			"F21-BEGIN":event.pages=preload("res://core/late_battle_dialogue.gd").resolve(g,event.pages,"F21-BEGIN")
+		var key=str(event.get("key",""))
+		match key:
+			"F21-BEGIN","F21-END","F21_visit_0-VISIT":event.pages=preload("res://core/late_battle_dialogue.gd").resolve(g,event.pages,key)
 			"F21-PASSENGER-DUTY":event.pages=g.dialogue_pages(DUTY)
 			"F21-PASSENGER-REWARD":event.pages=g.dialogue_pages(REWARD)
 

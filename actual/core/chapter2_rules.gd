@@ -127,7 +127,6 @@ static func _beacon_enemy(g) -> Dictionary:
 
 static func after_phase(g) -> void:
 	if g.stage_id<200:return
-	if g.stage_id==201 and g.phase=="enemy" and g.turn==3:g.queue_lines(_mid_lines(g),"F21-MID")
 	if g.stage_id==204:
 		var occupied=not _beacon_enemy(g).is_empty();g.flags.quest.beacon_contested=occupied
 		if not occupied:g.flags.quest.beacon_since=-1
@@ -200,6 +199,8 @@ static func on_victory(g) -> void:
 			if g.campaign.scenes.has("D22_DEFEAT"):g.queue_pages(g.campaign.scenes.D22_DEFEAT,"D22-DEFEAT")
 		206:g.flags.east_boats_arrived=_boats(g).filter(func(b):return int(b.hp)>0 and bool(b.arrived)).size()
 		211:
+			if not g.flags.get("drifting_fishers_rescued",false) and not g.flags.get("seen_S21_visit_0-REWARD",false):
+				g.convoy.celica.append(int(g.stages[211].victory_gift_item))
 			g.flags.drifting_fishers_rescued=true
 		212:
 			g.flags.old_sailor_rescued=_alive(g,"old_sailor") and g.flags.quest.evacuated.has("old_sailor");g.flags.sailor_rescued=g.flags.old_sailor_rescued

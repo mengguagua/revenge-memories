@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>船战地图 · 船体重绘对照</title>
+<style>
+  :root { color-scheme: dark; --deep:#121c23; --panel:#1b2a33; --raised:#22343d; --line:#31454e; --text:#f2ede3; --muted:#bbcbcd; --brass:#dfc192; --ink:#202322; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--deep); color:var(--text); font:15px/1.65 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; }
+  main { max-width:1440px; margin:auto; padding:42px clamp(16px,4vw,60px) 56px; }
+  h1,h2,h3,p,figure { margin:0; }
+  header { margin-bottom:26px; padding:clamp(20px,4vw,40px); border:1px solid var(--line); border-radius:20px; background:linear-gradient(118deg,#21323c,#19262e 76%); }
+  .kicker { display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; font-weight:650; color:var(--brass); letter-spacing:.08em; font-size:13px; }
+  .status { display:inline-flex; justify-content:center; align-items:center; background:#3a332a; padding:3px 10px; border-radius:999px; letter-spacing:0; color:#f0d2a4; }
+  h1 { margin:8px 0; font-size:clamp(28px,4.3vw,52px); line-height:1.22; letter-spacing:.01em; }
+  header p { color:var(--muted); max-width:730px; }
+  .map-switch { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:9px; margin-bottom:20px; }
+  button { font:inherit; color:inherit; cursor:pointer; border:0; padding:8px 12px; border-radius:8px; text-align:center; line-height:1.4; }
+  button:focus-visible, .shot:focus-visible, summary:focus-visible { outline:none; box-shadow:0 0 9px 3px #e5ca9b7a, 0 3px 15px #e5ca9b26; }
+  .map-switch button { display:flex; align-items:center; justify-content:center; gap:6px 10px; flex-wrap:wrap; min-height:56px; background:var(--panel); box-shadow:inset 0 0 0 1px var(--line); font-weight:650; }
+  .map-switch button:focus-visible { box-shadow:0 0 9px 3px #e5ca9b7a, 0 3px 15px #e5ca9b26; }
+  .map-switch button:hover { background:var(--raised); }
+  .map-switch button[aria-pressed="true"] { background:#d6bb91; color:var(--ink); }
+  .map-switch code { font:700 13px/1.2 ui-monospace,SFMono-Regular,monospace; letter-spacing:.04em; }
+  .section-top { display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px 26px; align-items:end; margin-bottom:14px; }
+  h2 { font-size:clamp(22px,3vw,32px); line-height:1.3; }
+  .meta { color:var(--muted); margin-top:4px; font-size:13px; }
+  .controls { display:flex; gap:8px 14px; flex-wrap:wrap; align-items:center; }
+  .group { display:flex; gap:3px; padding:4px; border-radius:11px; background:var(--panel); }
+  .group[hidden] { display:none; }
+  .group button { min-height:37px; padding:6px 11px; background:transparent; font-size:13px; color:var(--muted); }
+  .group button:hover { background:var(--raised); color:var(--text); }
+  .group button[aria-pressed="true"] { background:#3a4d52; color:#fff3dc; box-shadow:0 1px 7px #0f141a75; }
+  .group button:focus-visible { box-shadow:0 0 9px 3px #e5ca9b7a, 0 3px 15px #e5ca9b26; }
+  .compare { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+  figure { min-width:0; padding:12px; border:1px solid var(--line); border-radius:15px; background:var(--panel); }
+  figure:last-child { background:#223139; border-color:#6d6553; }
+  figcaption { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; column-gap:10px; row-gap:2px; min-height:38px; padding:2px 4px 10px; font-weight:700; }
+  figcaption small { font-weight:500; color:var(--muted); font-size:12px; }
+  figure:last-child figcaption { color:#f2d8ae; }
+  .shot { overflow:auto; border-radius:8px; background:#354d60; scrollbar-color:#7b939a #263b49; }
+  .shot img { display:block; width:100%; height:auto; margin-inline:auto; aspect-ratio:var(--image-ratio,1.2); image-rendering:pixelated; }
+  .compare[data-zoom="1"] .shot, .compare[data-zoom="2"] .shot { max-height:min(69vh,550px); }
+  .compare[data-zoom="1"] .shot img { width:var(--native-w); max-width:none; }
+  .compare[data-zoom="2"] .shot img { width:calc(2 * var(--native-w)); max-width:none; }
+  .notes { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:14px 0 26px; }
+  .notes section { border-radius:13px; background:var(--panel); padding:16px 18px; }
+  h3 { font-size:15px; color:var(--brass); margin-bottom:4px; }
+  .notes p,.scope p { color:var(--muted); }
+  .play { margin:0 0 24px; border-radius:13px; background:var(--panel); padding:10px 14px 14px; }
+  .play-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr)); gap:12px; margin-top:10px; }
+  .play-grid figure { max-width:635px; background:var(--raised); border-color:var(--line); }
+  .play-grid figure[hidden] { display:none; }
+  .play-grid figcaption { color:var(--text); }
+  .play-grid img { width:100%; height:auto; display:block; border-radius:8px; image-rendering:pixelated; }
+  .results { margin-bottom:24px; }
+  .results h2 { font-size:20px; margin-bottom:6px; }
+  .results ul { margin:0; padding-left:22px; color:var(--muted); }
+  .results p { color:var(--muted); margin-top:6px; }
+  .results a { color:var(--brass); }
+  .scope { border-top:1px solid var(--line); padding-top:14px; }
+  summary { width:fit-content; cursor:pointer; padding:6px 9px; border-radius:8px; color:var(--text); font-weight:650; }
+  .scope ul { padding-left:27px; margin:8px 0 14px; color:var(--muted); }
+  .scope p { padding:0 9px; font-size:13px; }
+  @media(max-width:690px) {
+    main { padding-top:19px; }
+    header { margin-bottom:15px; }
+    .map-switch { grid-template-columns:repeat(2,minmax(0,1fr)); margin-bottom:17px; }
+    .map-switch button { min-height:46px; }
+    .compare,.notes { grid-template-columns:minmax(0,1fr); gap:10px; }
+    .section-top { align-items:start; }
+    .notes section { padding:14px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="kicker"><span>地图美术审阅 / 2026.11.09</span><span class="status">已接入游戏</span></div>
+    <h1>船战地图 · 船体重绘对照</h1>
+    <p>F21、F22、S21 的双船和 F31 的单船靠岸已接入游戏。全图沿用原有通行格，新增船舷、船体厚度和独立跳板。右图取自当前 Godot 运行版本，实战截图取自本轮试玩存档。</p>
+  </header>
+
+  <nav class="map-switch" aria-label="选择战斗地图">
+    <button type="button" data-map="F21" aria-pressed="false"><code>F21</code><span>海上拦截</span></button>
+    <button type="button" data-map="F22" aria-pressed="true"><code>F22</code><span>押送舰救援</span></button>
+    <button type="button" data-map="S21" aria-pressed="false"><code>S21</code><span>漂泊渔船</span></button>
+    <button type="button" data-map="F31" aria-pressed="false"><code>F31</code><span>码头脱围</span></button>
+  </nav>
+
+  <section aria-labelledby="map-title">
+    <div class="section-top">
+      <div aria-live="polite">
+        <h2 id="map-title">F22 押送舰救援</h2>
+        <p class="meta" id="map-meta">第二章 · 双船 · 34 × 28 格</p>
+      </div>
+      <div class="controls">
+        <div class="group" id="bridge" role="group" aria-label="备用跳板状态">
+          <button type="button" data-open="false" aria-pressed="true">备用跳板收起</button>
+          <button type="button" data-open="true" aria-pressed="false">放下后</button>
+        </div>
+        <div class="group" role="group" aria-label="画面比例">
+          <button type="button" data-zoom="fit" aria-pressed="true">适应</button>
+          <button type="button" data-zoom="1" aria-pressed="false">1× 原像素</button>
+          <button type="button" data-zoom="2" aria-pressed="false">2×</button>
+        </div>
+      </div>
+    </div>
+    <div class="compare" data-zoom="fit">
+      <figure>
+        <figcaption><span>修改前</span><small>接入前 · Godot 场景</small></figcaption>
+        <div class="shot" aria-label="原图画布">
+          <img id="before" src="images/F22-before.webp" width="608" height="512" alt="押送舰救援现行地图，左右甲板以同材质连接">
+        </div>
+      </figure>
+      <figure>
+        <figcaption><span>修改后</span><small>接入后 · Godot 实机全图</small></figcaption>
+        <div class="shot" aria-label="接入后画布">
+          <img id="after" src="images/F22-runtime.webp" width="608" height="512" alt="押送舰救援接入后，两艘船各有连续船舷和独立的主跳板">
+        </div>
+      </figure>
+    </div>
+    <div class="notes">
+      <section><h3>船体与周围空间</h3><p id="design">接应小船用暖木，押送舰用深灰木与较厚的舷板。囚栏、桅杆和舱口留在原来的甲板上。</p></section>
+      <section><h3>登船路线</h3><p id="route">上方主跳板开局可走。下方两侧只露出收起的连接件，中间留海水；放下后才会出现第二条路。</p></section>
+    </div>
+    <details class="play">
+      <summary>查看这张图的实战截图</summary>
+      <div class="play-grid">
+        <figure>
+          <figcaption><span id="play-caption">备用跳板收起 · 海面不能落脚</span><small>真实战斗界面</small></figcaption>
+          <img id="play-image" width="608" height="512" alt="F22 备用跳板收起时的战斗界面" loading="lazy">
+        </figure>
+        <figure id="evacuation-shot" hidden>
+          <figcaption><span>两组伤者撤离后胜利</span><small>真实结算界面</small></figcaption>
+          <img src="images/F31-evacuated.webp" width="576" height="480" alt="F31 两组伤者撤离后的战斗胜利画面" loading="lazy">
+        </figure>
+      </div>
+    </details>
+  </section>
+
+  <section class="results" aria-labelledby="results-title">
+    <h2 id="results-title">两轮试玩记录</h2>
+    <ul>
+      <li>两套独立的战前存档分别试玩。四关在两轮中都正常胜利并返回大地图。</li>
+      <li>核对了各跳板、岸边接点和旁侧水面。F21 两条跳板的回避加成仍为 20。</li>
+      <li>F22 两轮都放下了备用跳板。五格从海面变为可走甲板，存档重读后状态一致。第二轮另用键盘让艾琳从押送舰踏上了备用跳板。</li>
+      <li>F31 两轮均打开北院、南院的封锁，两组伤者都从西南船口撤离。</li>
+    </ul>
+    <p>通过 Godot 战斗界面的键盘输入跑完两轮。<a href="runtime-verification.json">查看回合与截图记录</a></p>
+  </section>
+
+  <details class="scope">
+    <summary>查看盘点依据与其他涉船地图</summary>
+    <ul>
+      <li>F21、F22、S21 各有两块可战斗的船甲板。S21 另有一条通往陆地的跳板。</li>
+      <li>F31 左下是一艘接应船，另一端是海峡城的固定码头。</li>
+      <li>F26 的两艘居民船是沿水路移动的小艇。F43、F44、S42 用到小艇摆件。F25 和 H22／H23 是港口或固定栈桥。</li>
+    </ul>
+    <p>对照图按每格 16 原生像素绘制。舷板伸进水面的部分表现船体厚度。对照保留原船内面积、通行格、机关坐标和撤离点。F22 的接入前开板图为旧版机关状态预览，接入后开板图取自本轮操作机关后的战斗存档。</p>
+  </details>
+</main>
+<script>
+  const maps = {
+    F21: {
+      title: "F21 海上拦截", meta: "第二章 · 双船 · 32 × 26 格", w: 576, h: 480,
+      design: "己方运输船用暖木，搜捕舰用深灰舷板。两船各有朝北的船艏、南端船尾和完整的侧舷，两船之间留出清楚的水道。",
+      route: "两条跳板开局可走，两端舷口对齐通路。跳板上的回避仍为 +20。",
+      play: "上方主跳板 · 显示通行与回避"
+    },
+    F22: {
+      title: "F22 押送舰救援", meta: "第二章 · 双船 · 34 × 28 格", w: 608, h: 512,
+      design: "接应小船用暖木，押送舰用深灰木与较厚的舷板。囚栏、桅杆和舱口留在原来的甲板上。",
+      route: "上方主跳板开局可走。下方两侧只露出收起的连接件，中间留海水；放下后才会出现第二条路。",
+      opened: "操作押送舰上的机关后，下方窄跳板跨水接上接应船。实战截图取自先开启囚栏、再放下跳板的那一轮。",
+      play: "备用跳板收起 · 海面不能落脚",
+      playOpened: "艾琳已踏上备用跳板 · 移动消耗为 1"
+    },
+    S21: {
+      title: "S21 漂泊渔船", meta: "第二章 · 双船及靠岸点 · 32 × 26 格", w: 576, h: 480,
+      design: "两艘渔船沿用低舷木船的尺度。船身保持各自轮廓，病人所在的左船在南端与海滩相接。",
+      route: "两条横向跳板负责船间换船。第三条从左船船尾朝南接沙岸石路，落地后进入陆地。",
+      play: "船尾跳板 · 接入南侧沙岸"
+    },
+    F31: {
+      title: "F31 码头脱围", meta: "第三章 · 单船靠岸 · 32 × 26 格", w: 576, h: 480,
+      design: "西南是暖木接应船，右侧是带直梁、桩脚的灰木岸栈。船、跨水跳板和石地港口分为三个层次。",
+      route: "从石地码头沿现有西南跳板回船，船尾接应点用于撤离伤者。跳板靠岸一端收窄，对齐现有通路。",
+      play: "己方船口 · 伤者撤离点"
+    }
+  };
+  const mapButtons = [...document.querySelectorAll("[data-map]")];
+  const stateButtons = [...document.querySelectorAll("button[data-open]")];
+  const zoomButtons = [...document.querySelectorAll("button[data-zoom]")];
+  const compare = document.querySelector(".compare");
+  const shots = [...document.querySelectorAll(".shot")];
+  const before = document.querySelector("#before");
+  const after = document.querySelector("#after");
+  const playImage = document.querySelector("#play-image");
+  const playCaption = document.querySelector("#play-caption");
+  const evacuationShot = document.querySelector("#evacuation-shot");
+  let code = "F22";
+  let opened = false;
+
+  function resetScroll() {
+    for (const shot of shots) shot.scrollTo(0, 0);
+  }
+
+  function show() {
+    const data = maps[code];
+    const showOpen = code === "F22" && opened;
+    const suffix = showOpen ? "-open" : "";
+    document.querySelector("#map-title").textContent = data.title;
+    document.querySelector("#map-meta").textContent = data.meta;
+    document.querySelector("#design").textContent = data.design;
+    document.querySelector("#route").textContent = showOpen ? data.opened : data.route;
+    document.querySelector("#bridge").hidden = code !== "F22";
+    mapButtons.forEach(button => button.setAttribute("aria-pressed", String(button.dataset.map === code)));
+    stateButtons.forEach(button => button.setAttribute("aria-pressed", String((button.dataset.open === "true") === opened)));
+    compare.style.setProperty("--native-w", data.w + "px");
+    compare.style.setProperty("--image-ratio", data.w + "/" + data.h);
+    for (const [img, version, caption] of [[before, "before", "接入前地图"], [after, "runtime", "接入后实机全图"]]) {
+      img.width = data.w;
+      img.height = data.h;
+      img.src = "images/" + code + "-" + version + suffix + ".webp";
+      img.alt = data.title + "，" + caption + (showOpen ? "，备用跳板已放下" : "");
+    }
+    playCaption.textContent = showOpen ? data.playOpened : data.play;
+    playImage.width = data.w;
+    playImage.height = data.h;
+    playImage.alt = data.title + "，" + playCaption.textContent;
+    playImage.src = "images/" + code + "-play" + suffix + ".webp";
+    evacuationShot.hidden = code !== "F31";
+    resetScroll();
+  }
+
+  mapButtons.forEach(button => button.addEventListener("click", () => {
+    code = button.dataset.map;
+    show();
+  }));
+  stateButtons.forEach(button => button.addEventListener("click", () => {
+    opened = button.dataset.open === "true";
+    show();
+  }));
+  zoomButtons.forEach(button => button.addEventListener("click", () => {
+    compare.dataset.zoom = button.dataset.zoom;
+    zoomButtons.forEach(item => item.setAttribute("aria-pressed", String(item === button)));
+    for (const shot of shots) {
+      if (button.dataset.zoom === "fit") shot.removeAttribute("tabindex");
+      else shot.tabIndex = 0;
+    }
+    resetScroll();
+  }));
+  for (const [i, shot] of shots.entries()) {
+    shot.addEventListener("scroll", () => {
+      const other = shots[1 - i];
+      if (other.scrollLeft !== shot.scrollLeft || other.scrollTop !== shot.scrollTop) {
+        other.scrollTo(shot.scrollLeft, shot.scrollTop);
+      }
+    }, { passive:true });
+  }
+  show();
+</script>
+</body>
+</html>

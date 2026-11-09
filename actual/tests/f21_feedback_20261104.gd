@@ -132,8 +132,9 @@ func terrain_checks():
  check(g.movement_cost(puppet,Vector2i(16,14))==255,"water monkey ordinary water movement unchanged")
  puppet.mechanical_retreating=true
  check(g.movement_cost(puppet,Vector2i(16,14))==1,"water monkey retreat water movement unchanged")
- var opening=preload("res://core/late_battle_dialogue.gd").resolve(g,[],"F21-BEGIN")
- check(opening.any(func(p):return p.speaker=="战场提示" and p.text.contains("后甲板药车右侧")),"live opening identifies the actual supply position")
+ check(g.ChapterTwo.status(g).any(func(line):return line.contains("药车右侧两格为船医补给位")),"objectives identify the actual supply position")
+ g.turn=3;g.phase="enemy";g.ChapterTwo.after_phase(g);g.phase="player";g.turn=1
+ check(not g.story_events.any(func(event):return event.key=="F21-MID"),"turn three does not queue the retired boarding dialogue")
  var graph=g.reachable(hero,true)
  for point in g.battle_data.recovery_sites:
   var cell=Vector2i(point.position[0],point.position[1])
