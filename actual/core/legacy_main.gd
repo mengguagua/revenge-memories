@@ -2073,7 +2073,7 @@ func _enemy_movement_cells(unit: Dictionary) -> Array:
 	var stamp = str([game.stage_id, game.turn, game.battle_data.map.tiles.hash(), blockers.hash(), unit.id, unit.get("move", 0), unit.get("item_id", 0)])
 	if stamp != enemy_range_key:
 		enemy_range_key = stamp
-		enemy_range_cells = game.reachable(unit).costs.keys().filter(func(cell): return game.can_stop(unit, cell))
+		enemy_range_cells = TacticalRanges.from_current_cell(game,unit) if Rules.platform_bow(game.combatant_at(unit,game.pos(unit))) else game.reachable(unit).costs.keys().filter(func(cell): return game.can_stop(unit, cell))
 	return enemy_range_cells
 
 func _draw_medicine_transport(_unit: Dictionary,at: Vector2) -> void:

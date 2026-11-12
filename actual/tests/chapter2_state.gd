@@ -138,9 +138,18 @@ func run() -> void:
 				check(not path.is_empty(),str(rescued.stage_id)+" escorted movement uses a real legal path")
 				escorted.position=[action.destination.x,action.destination.y];rescued.mark_wait(id)
 			check(rescued.flags.quest.evacuated.has(id),str(rescued.stage_id)+" escort naturally walks to shared exit: "+str(id))
-	var bridge=fixture(202);var cells=bridge.battle_data.objects[1].opens;var foot=bridge.find_unit("carlo")
-	check(cells.any(func(p):return bridge.movement_cost(foot,Vector2i(p[0],p[1]))>=255),"reserve gangplank contains an impassable water gap before lever")
-	interact(bridge,"reserve_bridge");check(cells.all(func(p):return bridge.movement_cost(foot,Vector2i(p[0],p[1]))<255),"lever creates actual continuous foot-passable gangplank")
+	var bridge=fixture(202);var reserve=bridge.battle_data.objects[1];var cells=reserve.opens
+	var foot=bridge.find_unit("carlo");var caster=bridge.find_unit("eileen");var hook=Vector2i(11,22)
+	check(cells.all(func(p):return bridge.movement_cost(foot,Vector2i(p[0],p[1]))>=255),"water gap stays blocked until the ladder drops")
+	foot.position=reserve.position.duplicate()
+	check(not bridge.interactions_for(foot).any(func(o):return o.id=="reserve_bridge"),"walking to the ladder cannot release the hook")
+	caster.position=[6,22]
+	check(not bridge.MapSkills.preview(bridge,"eileen",hook).valid,"launcher obeys normal MAP range")
+	caster.position=[10,22]
+	var cast=bridge.MapSkills.apply(bridge,"eileen",hook)
+	check(cast.valid and cast.opens_hook_bridge and cast.targets.is_empty() and cast.reward.is_empty(),"MAP can hit the launcher without an enemy or experience")
+	check(caster.acted and caster.map_uses==1 and not bridge.MapSkills.preview(bridge,"eileen",hook).valid,"opening the ladder spends exactly one action and MAP use")
+	check(cells.all(func(p):return bridge.movement_cost(foot,Vector2i(p[0],p[1]))<255),"hook drops an actual continuous foot-passable ladder")
 	var assault=fixture(204);var beacon_at=Vector2i(assault.battle_data.targets[0][0],assault.battle_data.targets[0][1]);var seizure=assault.find_unit("F24_e4")
 	check(seizure.get("objective_role","")=="seize_beacon" and assault.reachable(seizure,true).costs.has(beacon_at),"beacon assault unit has an actual ground route")
 	# Isolate destination choice from combat targeting while retaining every wall/water cell.

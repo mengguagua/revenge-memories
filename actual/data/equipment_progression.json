@@ -144,6 +144,23 @@
       "kind": "accessory",
       "physical_defence_bonus": 4,
       "story_description": "物理防御 +4。"
+    },
+    {
+      "id": 69,
+      "name_zh": "雷剑",
+      "kind": "weapon",
+      "family": "sword",
+      "might": 3,
+      "weight": 3,
+      "hit": 85,
+      "critical": 0,
+      "effective": 0,
+      "hp_cost": 0,
+      "target_flags": 14,
+      "effect_kind": 0,
+      "action": "attack",
+      "base_weapon": 15,
+      "story_description": "用剑士的力量发动雷击，伤害按目标魔防结算。"
     }
   ],
   "starter_items": {
@@ -189,7 +206,7 @@
       60
     ],
     "202": [
-      62
+      69
     ],
     "204": [
       4,
@@ -285,8 +302,8 @@
     "F21": {},
     "F22": {
       "F22_boss": [
-        49,
-        100
+        69,
+        0
       ]
     },
     "F23": {},
@@ -729,6 +746,9 @@
   "weapon_overrides": {
     "11": {
       "hit": 85
+    },
+    "15": {
+      "fixed_power": 15
     },
     "20": {
       "hit": 75

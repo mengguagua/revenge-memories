@@ -7,6 +7,7 @@ const Professions=preload("res://core/hero_professions.gd")
 const Experience=preload("res://core/campaign_experience.gd")
 const Healing=preload("res://core/healing_map_skills.gd")
 const StrongBody=preload("res://core/strong_body.gd")
+const HookBridge=preload("res://core/hook_bridge.gd")
 const LIMIT=3
 
 static func eligible(unit:Dictionary)->bool:
@@ -87,7 +88,9 @@ static func preview(g,id:String,center:Vector2i,facing:Vector2i=Vector2i.RIGHT)-
 			"raw_damage":damage,"center_bonus":bonus,"blocked":blocked,"reflection_damage":2 if Rules.Body.Mechanical.core_active(target) else 0})
 	result.reflection_damage=result.targets.reduce(func(total,hit):return total+int(hit.reflection_damage),0)
 	result.hp_after_reflection=maxi(0,int(result.hp_after)-int(result.reflection_damage))
-	if result.targets.is_empty():result.reason="范围内没有可攻击的敌人";return result
+	result.opens_hook_bridge=id=="eileen" and result.cells.any(func(cell):return HookBridge.closed_at(g,cell))
+	if result.targets.is_empty() and not result.opens_hook_bridge:
+		result.reason="范围内没有可攻击的目标";return result
 	result.valid=true;result.reason="";return result
 
 static func apply(g,id:String,center:Vector2i,facing:Vector2i=Vector2i.RIGHT)->Dictionary:
@@ -115,6 +118,10 @@ static func apply(g,id:String,center:Vector2i,facing:Vector2i=Vector2i.RIGHT)->D
 		receipt.reward.victory_training=false;receipt.reward.map_skill=true
 	actor.erase("weapon_index")
 	receipt.hp_after=int(actor.hp)
+	if receipt.opens_hook_bridge:g.ChapterTwo.interact(g,"reserve_bridge")
 	g.mark_wait(id);g.selected_id="";g.Cover.refresh(g)
-	g.log_lines.append(str(actor.name_zh)+"释放"+str(receipt.name)+"，命中"+str(receipt.targets.size())+"名敌人")
+	var log=str(actor.name_zh)+"释放"+str(receipt.name)
+	if not receipt.targets.is_empty():log+="，命中"+str(receipt.targets.size())+"名敌人"
+	if receipt.opens_hook_bridge:log+="，钩索拉下了备用梯"
+	g.log_lines.append(log)
 	return receipt

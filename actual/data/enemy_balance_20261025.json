@@ -1,5 +1,5 @@
 {
-  "revision": 10,
+  "revision": 13,
   "stages": {
     "102": {
       "M12_e1": {
@@ -1329,6 +1329,139 @@
               "max_hp": 23,
               "speed": 4,
               "defence": 4
+            }
+          }
+        }
+      }
+    },
+    {
+      "revision": 11,
+      "stages": {
+        "202": {
+          "F22_boss": {
+            "before": {
+              "name_zh": "搜捕首领",
+              "defence": 7
+            },
+            "after": {
+              "name_zh": "舰队首领",
+              "defence": 10
+            }
+          },
+          "F22_e1": {
+            "before": {
+              "max_hp": 21
+            },
+            "after": {
+              "max_hp": 22
+            }
+          },
+          "F22_e2": {
+            "before": {
+              "luck": 0
+            },
+            "after": {
+              "luck": 1
+            }
+          },
+          "F22_e3": {
+            "before": {
+              "resistance": 0
+            },
+            "after": {
+              "resistance": 1
+            }
+          },
+          "F22_e4": {
+            "before": {
+              "defence": 3
+            },
+            "after": {
+              "defence": 4
+            }
+          },
+          "F22_e5": {
+            "before": {
+              "skill": 4
+            },
+            "after": {
+              "skill": 5
+            }
+          },
+          "F22_e6": {
+            "before": {
+              "resistance": 1,
+              "skill": 4
+            },
+            "after": {
+              "resistance": 2,
+              "skill": 5
+            }
+          },
+          "F22_e7": {
+            "before": {
+              "strength": 9,
+              "resistance": 1
+            },
+            "after": {
+              "strength": 10,
+              "resistance": 2
+            }
+          },
+          "F22_r0": {
+            "before": {
+              "luck": 0
+            },
+            "after": {
+              "luck": 1
+            }
+          },
+          "F22_r1": {
+            "before": {
+              "max_hp": 21
+            },
+            "after": {
+              "max_hp": 22
+            }
+          }
+        }
+      }
+    },
+    {
+      "revision": 12,
+      "stages": {
+        "202": {
+          "F22_boss": {
+            "before": {
+              "defence": 10
+            },
+            "after": {
+              "defence": 6
+            }
+          }
+        }
+      }
+    },
+    {
+      "revision": 13,
+      "stages": {
+        "202": {
+          "F22_boss": {
+            "before": {
+              "strength": 11,
+              "defence": 6,
+              "item_id": 49,
+              "drop_chance": 100,
+              "no_drop": false,
+              "counter_uses_weapon_range": false
+            },
+            "after": {
+              "strength": 10,
+              "defence": 7,
+              "item_id": 69,
+              "drop_chance": 0,
+              "no_drop": true,
+              "counter_uses_weapon_range": true
             }
           }
         }

@@ -14,18 +14,19 @@ static func safe_attack(game,unit: Dictionary,minimum_hp_ratio:float=0.6) -> Dic
 		if game.stage_id==101 and str(unit.id) in ["M11_refugees0","M11_refugees1"] and not _has_cover(game,cell):continue
 		var risk=evaluate(game,unit,cell)
 		if not risk.safe_position:continue
+		var attack=game.combatant_at(unit,cell)
 		for target in game.living("enemy"):
 			var distance=_distance(cell,game.pos(target))
-			if not Rules.can_attack(unit,distance) or Rules.attack_blocked(unit,target):continue
-			var counter=Rules.default_counter(target,distance)
-			var strikes=Rules.strike_sequence(unit,counter,distance)
+			if not Rules.can_attack(attack,distance) or Rules.attack_blocked(attack,target):continue
+			var counter=Rules.default_counter(game.combatant_at(target,game.pos(target)),distance)
+			var strikes=Rules.strike_sequence(attack,counter,distance)
 			var damage=_damage(counter,unit,game.terrain_avoid(cell))
 			var counter_loss=strikes.count("defender")*damage
 			var total=counter_loss+int(risk.incoming)
 			var reserve=maxi(5,ceili(int(unit.max_hp)*.35))
 			if int(unit.hp)-total<reserve:continue
 			if int(risk.threats)>=2 and total>int(unit.max_hp)*.30:continue
-			var own=Rules.attack_stats(unit,target,game.terrain_avoid(game.pos(target)))
+			var own=Rules.attack_stats(attack,target,game.terrain_avoid(game.pos(target)))
 			var value=float(own.damage)*float(own.hit)/100.0-total*2-float(graph.costs[cell])*.1
 			if value>score:
 				score=value
@@ -71,6 +72,7 @@ static func evaluate(game,unit: Dictionary,cell: Vector2i) -> Dictionary:
 		if int(actor.hp)>0 and actor.side!="evacuated" and str(actor.id)!=str(unit.id):occupied[game.pos(actor)]=actor
 	occupied[cell]=unit
 	var threats=0;var incoming=0
+	var defender=game.combatant_at(unit,cell)
 	for enemy in game.living("enemy"):
 		if enemy.get("locked",false) or enemy.get("hidden",false) or enemy.get("offering_surrender",false):continue
 		if not Rules.can_attack(enemy) or Rules.attack_blocked(enemy,unit):continue
@@ -79,15 +81,16 @@ static func evaluate(game,unit: Dictionary,cell: Vector2i) -> Dictionary:
 		for at in graph:
 			if occupied.has(at) and str(occupied[at].id)!=str(enemy.id):continue
 			var distance=_distance(at,cell)
-			var attack=Rules.attack_context(enemy,distance)
+			var attack=Rules.attack_context(game.combatant_at(enemy,at),distance)
 			if not Rules.can_attack(attack,distance):continue
-			var sequence=Rules.strike_sequence(attack,Rules.default_counter(unit,distance),distance)
+			var sequence=Rules.strike_sequence(attack,Rules.default_counter(defender,distance),distance)
 			worst=maxi(worst,sequence.count("attacker")*_damage(attack,unit,game.terrain_avoid(cell)))
 		if worst>0:threats+=1;incoming+=worst
 	return {"threats":threats,"incoming":incoming,"safe_position":threats<3}
 
 static func _enemy_reach(game,enemy: Dictionary,occupied: Dictionary) -> Dictionary:
 	var start=game.pos(enemy);var costs={start:0};var queue=[start]
+	if Rules.platform_bow(game.combatant_at(enemy,start)):return costs
 	# A guard can leave its post when a combatant enters its threat range.
 	# Forecast its real movement rather than inviting escorts into a false
 	# safe zone. Explicit, finite deployment delays remain stationary.

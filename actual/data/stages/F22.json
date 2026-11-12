@@ -639,27 +639,13 @@
       96,
       96,
       191,
-      196,
-      196,
-      191,
-      191,
-      191,
       191,
       196,
       191,
-      191,
-      191,
-      191,
-      191,
+      196,
       196,
       191,
-      96,
-      96,
-      96,
-      96,
-      96,
-      191,
-      191,
+      196,
       191,
       191,
       191,
@@ -678,6 +664,20 @@
       191,
       191,
       191,
+      191,
+      196,
+      191,
+      96,
+      96,
+      96,
+      96,
+      96,
+      191,
+      191,
+      191,
+      191,
+      196,
+      196,
       191,
       196,
       191,
@@ -742,8 +742,8 @@
       96,
       191,
       191,
-      196,
-      196,
+      191,
+      191,
       191,
       191,
       191,
@@ -776,8 +776,8 @@
       96,
       191,
       191,
-      196,
-      196,
+      191,
+      191,
       191,
       191,
       191,
@@ -983,11 +983,11 @@
     "~~sssssssss~~~~~stsssssssssssss~~~",
     "~~s###sssss~~~~~ssssstsssssssss~~~",
     "~~s###sssss~~~~~sssssss#######s~~~",
-    "~~sssssssss~~~~~s##ssss#sssss#s~~~",
-    "~~sssssss#s~~~~~sssssss#sssss#s~~~",
+    "~~sssssssss~~~~~ss#s##s#sssss#s~~~",
+    "~~sssssss#s~~~~~ssss##s#sssss#s~~~",
     "~~s##++ss#s~~~~~sssssss#sssss#s~~~",
-    "~~sssssssss~~~~~ss##sss#######s~~~",
-    "~~sssssssss~~~~~ss##sssssssssss~~~",
+    "~~sssssssss~~~~~sssssss#######s~~~",
+    "~~sssssssss~~~~~sssssssssssssss~~~",
     "~~sssssssss~~~~~sssssssssssssss~~~",
     "~~sssssssss~~~~~~~~ssssssssss~~~~~",
     "~~~~ssssss~~~~~~~~~~~ssssss~~~~~~~",
@@ -4422,26 +4422,6 @@
       "purpose": ""
     },
     {
-      "name": "crates",
-      "origin": [
-        17,
-        18
-      ],
-      "footprint": [
-        1,
-        1
-      ],
-      "cells": [
-        [
-          17,
-          18
-        ]
-      ],
-      "logic": "#",
-      "runtime_prop": true,
-      "purpose": ""
-    },
-    {
       "name": "grain_sacks",
       "origin": [
         18,
@@ -4464,8 +4444,8 @@
     {
       "name": "hatch",
       "origin": [
-        18,
-        21
+        20,
+        18
       ],
       "footprint": [
         2,
@@ -4473,20 +4453,20 @@
       ],
       "cells": [
         [
-          18,
-          21
+          20,
+          18
         ],
         [
-          19,
-          21
+          21,
+          18
         ],
         [
-          18,
-          22
+          20,
+          19
         ],
         [
-          19,
-          22
+          21,
+          19
         ]
       ],
       "logic": "#",
@@ -5594,7 +5574,7 @@
       "name_id": 184,
       "character_id": 184,
       "name_ja": "ようへい",
-      "name_zh": "搜捕首领",
+      "name_zh": "舰队首领",
       "class": "mercenary",
       "class_id": 8,
       "class_name_zh": "佣兵",
@@ -5602,14 +5582,14 @@
       "hp": 29,
       "max_hp": 29,
       "exp": 0,
-      "strength": 11,
+      "strength": 10,
       "skill": 6,
       "speed": 4,
       "luck": 0,
       "defence": 7,
       "resistance": 1,
       "move": 4,
-      "item_id": 49,
+      "item_id": 69,
       "exp_value": 119,
       "raw_ai_flags": 0,
       "raw_magic_flags": 0,
@@ -5656,7 +5636,10 @@
       "ai_flags": 0,
       "objective_boss": true,
       "behavior": "guard",
-      "drop_chance": 100
+      "drop_chance": 0,
+      "enemy_balance_revision": 13,
+      "no_drop": true,
+      "counter_uses_weapon_range": true
     },
     {
       "id": "F22_e1",
@@ -5668,8 +5651,8 @@
       "class_id": 6,
       "class_name_zh": "士兵",
       "level": 3,
-      "hp": 21,
-      "max_hp": 21,
+      "hp": 22,
+      "max_hp": 22,
       "exp": 0,
       "strength": 8,
       "skill": 4,
@@ -5722,7 +5705,8 @@
       ],
       "side": "enemy",
       "acted": false,
-      "ai_flags": 0
+      "ai_flags": 0,
+      "enemy_balance_revision": 11
     },
     {
       "id": "F22_e2",
@@ -5740,7 +5724,7 @@
       "strength": 8,
       "skill": 4,
       "speed": 4,
-      "luck": 0,
+      "luck": 1,
       "defence": 3,
       "resistance": 0,
       "move": 4,
@@ -5788,7 +5772,8 @@
       ],
       "side": "enemy",
       "acted": false,
-      "ai_flags": 0
+      "ai_flags": 0,
+      "enemy_balance_revision": 11
     },
     {
       "id": "F22_e3",
@@ -5808,7 +5793,7 @@
       "speed": 4,
       "luck": 0,
       "defence": 3,
-      "resistance": 0,
+      "resistance": 1,
       "move": 4,
       "item_id": 0,
       "exp_value": 42,
@@ -5854,7 +5839,8 @@
       ],
       "side": "enemy",
       "acted": false,
-      "ai_flags": 0
+      "ai_flags": 0,
+      "enemy_balance_revision": 11
     },
     {
       "id": "F22_e4",
@@ -5873,7 +5859,7 @@
       "skill": 4,
       "speed": 4,
       "luck": 0,
-      "defence": 3,
+      "defence": 4,
       "resistance": 0,
       "move": 4,
       "item_id": 0,
@@ -5920,7 +5906,8 @@
       ],
       "side": "enemy",
       "acted": false,
-      "ai_flags": 0
+      "ai_flags": 0,
+      "enemy_balance_revision": 11
     },
     {
       "id": "F22_e5",
@@ -5936,7 +5923,7 @@
       "max_hp": 21,
       "exp": 0,
       "strength": 8,
-      "skill": 4,
+      "skill": 5,
       "speed": 4,
       "luck": 0,
       "defence": 3,
@@ -5986,7 +5973,8 @@
       ],
       "side": "enemy",
       "acted": false,
-      "ai_flags": 0
+      "ai_flags": 0,
+      "enemy_balance_revision": 11
     },
     {
       "id": "F22_e6",
@@ -6002,11 +5990,11 @@
       "max_hp": 26,
       "exp": 0,
       "strength": 9,
-      "skill": 4,
+      "skill": 5,
       "speed": 3,
       "luck": 0,
       "defence": 6,
-      "resistance": 1,
+      "resistance": 2,
       "move": 4,
       "item_id": 0,
       "exp_value": 72,
@@ -6053,7 +6041,8 @@
       "side": "enemy",
       "acted": false,
       "ai_flags": 0,
-      "behavior": "guard"
+      "behavior": "guard",
+      "enemy_balance_revision": 11
     },
     {
       "id": "F22_e7",
@@ -6068,12 +6057,12 @@
       "hp": 26,
       "max_hp": 26,
       "exp": 0,
-      "strength": 9,
+      "strength": 10,
       "skill": 4,
       "speed": 3,
       "luck": 0,
       "defence": 6,
-      "resistance": 1,
+      "resistance": 2,
       "move": 4,
       "item_id": 0,
       "exp_value": 72,
@@ -6120,7 +6109,8 @@
       "side": "enemy",
       "acted": false,
       "ai_flags": 0,
-      "behavior": "guard"
+      "behavior": "guard",
+      "enemy_balance_revision": 11
     },
     {
       "id": "F22_e8",
@@ -6181,8 +6171,8 @@
       ],
       "confidence": "source_count_bounded_template_constructor",
       "position": [
-        13,
-        12
+        16,
+        11
       ],
       "side": "enemy",
       "acted": false,
@@ -6248,8 +6238,8 @@
       ],
       "confidence": "source_count_bounded_template_constructor",
       "position": [
-        29,
-        15
+        16,
+        14
       ],
       "side": "enemy",
       "acted": false,
@@ -6591,6 +6581,32 @@
       "locked": true,
       "no_counter": true,
       "player_slot": 13
+    },
+    {
+      "id": "F22_school_archer",
+      "name_zh": "学舍弓手",
+      "class": "archer",
+      "class_id": 12,
+      "level": 3,
+      "hp": 23,
+      "max_hp": 23,
+      "strength": 8,
+      "skill": 5,
+      "speed": 5,
+      "luck": 4,
+      "defence": 5,
+      "resistance": 2,
+      "move": 4,
+      "item_id": 0,
+      "position": [
+        7,
+        13
+      ],
+      "side": "player",
+      "controllable": true,
+      "temporary": true,
+      "no_experience": true,
+      "acted": false
     }
   ],
   "terrain": {
@@ -7551,13 +7567,15 @@
       "id": "reserve_bridge",
       "kind": "bridge",
       "position": [
-        20,
+        16,
         22
       ],
-      "label": "放下备用跳板",
-      "adjacent": true,
+      "label": "拉下备用梯",
+      "name_zh": "靠在船沿的备用梯",
+      "completed_label": "备用梯已铺好",
+      "adjacent": false,
       "sprite": "open_gate",
-      "sprite_path": "res://assets/chapter2/modules/bollard.png",
+      "sprite_path": "res://assets/chapter2/modules/gangplank.png",
       "opens": [
         [
           11,
@@ -7581,16 +7599,7 @@
         ]
       ],
       "open_tile": 191,
-      "open_art_props": [
-        {
-          "path": "res://assets/ship-hulls-20261109/F22-reserve-open.png",
-          "position": [
-            161,
-            351
-          ],
-          "tag": "reserve_gangway"
-        }
-      ]
+      "map_only": true
     },
     {
       "id": "F22_visit_0",
@@ -7620,7 +7629,7 @@
       "door_visual": "native_building_art",
       "show_indicator": false,
       "optional": true,
-      "dialogue": "船员：总闸在甲板中间。要放右边那块跳板，去转旁边的绞盘。",
+      "dialogue": "船员：过了跳板就能看见绿旗。打开旗旁的总闸，两间囚舱的门就会开。",
       "reward_item": 48,
       "building": "captain_cabin"
     }
@@ -7642,7 +7651,7 @@
       "strength": 8,
       "skill": 4,
       "speed": 4,
-      "luck": 0,
+      "luck": 1,
       "defence": 3,
       "resistance": 0,
       "move": 4,
@@ -7690,7 +7699,8 @@
       ],
       "side": "enemy",
       "acted": false,
-      "ai_flags": 0
+      "ai_flags": 0,
+      "enemy_balance_revision": 11
     },
     {
       "id": "F22_r1",
@@ -7702,8 +7712,8 @@
       "class_id": 6,
       "class_name_zh": "士兵",
       "level": 3,
-      "hp": 21,
-      "max_hp": 21,
+      "hp": 22,
+      "max_hp": 22,
       "exp": 0,
       "strength": 8,
       "skill": 4,
@@ -7756,7 +7766,8 @@
       ],
       "side": "enemy",
       "acted": false,
-      "ai_flags": 0
+      "ai_flags": 0,
+      "enemy_balance_revision": 11
     }
   ],
   "reinforcement_turn": 4,
@@ -7771,16 +7782,16 @@
       14
     ],
     [
-      20,
+      11,
       22
     ]
   ],
-  "goal": "打开囚舱、击败舰长，让三名普通俘虏都抵达总闸旁的接应旗标。接应人员会将他们转移到己方船；洛德阵亡不阻断主线。",
-  "cause": "艾琳追上押送舰，想见薇娅的舵手。舰长下令扣船，囚舱里又有人求救。",
-  "before": "艾琳：你们从外岛押走的舵手，是我母亲船上的人。我要见他。／舰长：谁准你们靠过来的？把他们的船也扣下！／舱内俘虏：外面有人吗？开开门，有人快撑不住了！／米蕾或艾琳：先开舱门！里头有人站不起来了。／艾琳：卡洛，你去挡舰长。／战场提示：封桥射击会提前标出至多三处落点。弓手在下一敌方阶段原地射击。离开标记格或推开弓手都能避开。／战场提示：可在邻格消耗一次行动打破松动的货箱，打开西侧甲板的一格通路。敌我都能通过。囚舱要开总闸，备用跳板要转绞盘。",
-  "during": "洛德：跟我来，我去放右边的跳板。",
-  "after": "艾琳：那位舵手接出来了吗？我想问问母亲的船。／引航者：船医在栈桥给他包扎。要找那条船，可以去潮狩军港。裴萨把扣下的航图都装进一个箱子，送去了那儿。／引航者：那里还关着一位替裴萨领过路的人。他见过箱里的图。／旁白：战后整理出铁枪，已收入本队行囊，可在部队整备中分配。",
-  "absent_branch": "米蕾亡：艾琳先指出囚舱伤者；卡洛亡：护卫留跳板；洛德死亡则普通引航者打开备用闸，失去招募。",
+  "goal": "打开囚舱、击败舰队首领，让三名普通俘虏都抵达总闸旁的接应旗标。接应人员会将他们转移到己方船；洛德阵亡不阻断主线。",
+  "cause": "艾琳追上押送舰，想见薇娅的舵手。舰队首领认出他们与搜捕船交过战，下令扣船。",
+  "before": "马丁：旗号打过了。他们叫我们停船。／艾琳：从外岛押走的一个舵手。能让我见他一面吗？／舰队首领：囚犯不许见外人。你们是……这船……是你们！你们打伤了搜捕船的士兵！／艾琳：我只是找母亲的下落，我们不是军队的敌人。／舰队首领：士兵！把船钩住！把人押回军港。／马丁：他们钩住船舷了，跳板上有士兵过来！／舰队首领：弓手，准备放箭接战。／艾琳：马丁，抱歉，你们留在船内接应。卡洛，挡住舰队首领，其他人跟我突击！／战场提示：学舍弓手随队参战。从上方跳板登舰，打开绿旗旁的总闸，护送三名俘虏到绿旗。",
+  "during": "洛德：跟着绿旗走，有人在那儿接应。",
+  "after": "艾琳：那位舵手接出来了吗？我想问问母亲的事。／引航者：他受伤了，船医在栈桥给他包扎。稍后可以来问他。／旁白：战后整理出雷剑，已收入本队行囊，可在部队整备中分配。",
+  "absent_branch": "卡洛不能参与时，由艾琳带队突击；洛德不能参与时，由引航者指向接应绿旗。",
   "optional": false,
   "contract": "洛德不能在战中被重复加入；战后见面才正式招募。",
   "ai_and_timing": "救出者走甲板2格/己方结束，遇敌停止；第4回合R1后舱出兵2。普通俘虏合计至少3人撤出，洛德可另死。",
@@ -7877,7 +7888,7 @@
         14
       ],
       [
-        20,
+        11,
         22
       ]
     ],
@@ -7889,7 +7900,7 @@
   "visual_notes": [
     "押送舰以中轴通道连接前后两间真实囚舱，牢墙完整围合；总闸同时打开两处南门，三名普通俘虏与洛德均有连续的撤离通道。",
     "接应旗位放在敌舰中段、已连接己船的跳板落点旁，与总闸相邻；获救者到达旗位即转交接应人员，原故事目标不变。",
-    "上跳板初始可通行，下跳板仍由独立绞盘放下；船尾增援、原恢复格和舵楼哨位保留，紧凑甲板减少空走与追逐。"
+    "备用梯立在押送舰左舷，下端固定在船沿。己方船尾的钩索发射架对准梯子上端。"
   ],
   "detention_bays": {
     "gates": [
@@ -8153,13 +8164,6 @@
       ]
     },
     {
-      "path": "res://assets/battle_tiles/modules/crates.png",
-      "position": [
-        272,
-        288
-      ]
-    },
-    {
       "path": "res://assets/battle_tiles/modules/grain_sacks.png",
       "position": [
         288,
@@ -8169,8 +8173,8 @@
     {
       "path": "res://assets/chapter2/modules/hatch.png",
       "position": [
-        288,
-        336
+        320,
+        288
       ]
     },
     {
@@ -8205,9 +8209,11 @@
   "tactical_notes": [
     "总闸位于敌舰中段，打开后两间囚舱都会开启。先清出撤离通道，再释放俘虏。",
     "总闸旁的旗标是接应点；三名普通俘虏全部抵达后，会由接应人员转移到己方船。洛德阵亡不阻断主线。",
-    "上方跳板可直接通行；下方备用跳板需要操作独立绞盘。留意敌舰船尾的增援。"
+    "上方跳板可直接通行。艾琳的焰环烧断己方船尾发射架的束绳后，钩索拉倒备用梯，打开下方通路。留意船尾增援。",
+    "桥口上下各有一座固定箭台。两座合起来覆盖上方跳板；打倒守台弓手后，我方弓手可以站上去射击。",
+    "我方登上押送舰甲板后，舰队首领会离开原位主动迎击。"
   ],
-  "tactical_review_version": "0.10.6-ch2",
+  "tactical_review_version": "0.11.2-f22-hook-bridge",
   "building_sites": [
     {
       "position": [
@@ -8394,35 +8400,25 @@
     "prison": "Dry indoor wooden planks in cutaway iron-bar cabins; opened thresholds keep matching floor",
     "geometry_and_animation_unchanged": true
   },
-  "battlefield_tactics": {
-    "intro": "舰上弓手会瞄准登舰通道。封桥射击提前标出落点，最多三个格，以实际标记为准；下一敌方阶段原地射击。离开标记格或推动弓手都能应对。",
-    "attacks": [
-      {
-        "actor": "F22_e8",
-        "name": "封桥射击",
-        "shape": "line",
-        "kind": "physical",
-        "range": 3,
-        "power_bonus": 0,
-        "first_turn": 2,
-        "interval": 3,
-        "warning": "封住这段甲板！箭只落在标记格。"
-      }
+  "dialogue_revision": "2026-11-07",
+  "arrow_platforms": [
+    [
+      16,
+      11
+    ],
+    [
+      16,
+      14
     ]
-  },
-  "breakable_obstacles": [
-    {
-      "id": "F22_breakable_cargo",
-      "name_zh": "松动货箱",
-      "position": [
-        17,
-        18
-      ],
-      "open_tile": 191,
-      "base_art_tile": 3967,
-      "remove_prop": "res://assets/battle_tiles/modules/crates.png",
-      "effect_text": "清出西侧甲板的一格通路，敌我都能通过；囚舱仍须打开总闸，备用跳板仍须操作绞盘。"
-    }
   ],
-  "dialogue_revision": "2026-11-07"
+  "hook_bridge": {
+    "target": [
+      11,
+      22
+    ],
+    "atlas_origin": [
+      152,
+      280
+    ]
+  }
 }

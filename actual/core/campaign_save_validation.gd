@@ -435,7 +435,7 @@ static func campaign_valid(game, state: Dictionary, fields: Array) -> bool:
 
 static func campaign_stage(game, id: int, revision: String="") -> Dictionary:
 	var stage: Dictionary=game.stages[id]
-	if revision not in ["0.10.8-ch4","0.2.0","0.2.1","0.3.0","0.3.1","0.3.4","0.3.5","0.3.6","0.4.0","0.5.0"] or revision==str(stage.get("tactical_review_version","0.2.0")):return stage
+	if revision not in ["0.10.6-ch2","0.10.7-ch3","0.10.8-ch4","0.11.0-arrow-platforms","0.11.1-f22-clear-deck","0.2.0","0.2.1","0.3.0","0.3.1","0.3.4","0.3.5","0.3.6","0.4.0","0.5.0"] or revision==str(stage.get("tactical_review_version","0.2.0")):return stage
 	var path="res://data/compat/"+revision+"/"+str(stage.code)+".json"
 	if not FileAccess.file_exists(path) and revision=="0.2.0":path="res://data/compat/0.2.1/"+str(stage.code)+".json"
 	if not FileAccess.file_exists(path):return stage
@@ -571,7 +571,7 @@ static func _campaign_unit(game, unit: Variant, tactical: bool) -> bool:
 	for key in ["exp","magic_level","magic_flags","raw_magic_flags","character_id","name_id","resistance","ai_flags","raw_ai_flags","record_index","exp_value"]:
 		if unit.has(key) and not _integer(unit[key],0,65535):return false
 	if unit.has("treatment_count") and not _integer(unit.treatment_count,0,1):return false
-	for key in ["dead","dying","ever_dying","acted","neutral","controllable","temporary","locked","hidden","event_object","no_counter","no_experience","no_drop","surrendered","battle_guard","guard_alerted","promoted","viser_guard"]:
+	for key in ["dead","dying","ever_dying","acted","neutral","controllable","temporary","locked","hidden","event_object","no_counter","no_experience","no_drop","surrendered","battle_guard","guard_alerted","counter_uses_weapon_range","promoted","viser_guard"]:
 		if unit.has(key) and not unit[key] is bool:return false
 	if unit.has("route") and unit.route not in ["alm","celica"]:return false
 	if unit.has("growths"):

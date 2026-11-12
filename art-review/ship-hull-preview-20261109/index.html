@@ -141,7 +141,7 @@
   </section>
 
   <section class="results" aria-labelledby="results-title">
-    <h2 id="results-title">两轮试玩记录</h2>
+    <h2 id="results-title">11 月 9 日船体接入试玩</h2>
     <ul>
       <li>两套独立的战前存档分别试玩。四关在两轮中都正常胜利并返回大地图。</li>
       <li>核对了各跳板、岸边接点和旁侧水面。F21 两条跳板的回避加成仍为 20。</li>
@@ -179,9 +179,9 @@
     },
     S21: {
       title: "S21 漂泊渔船", meta: "第二章 · 双船及靠岸点 · 32 × 26 格", w: 576, h: 480,
-      design: "两艘渔船沿用低舷木船的尺度。船身保持各自轮廓，病人所在的左船在南端与海滩相接。",
-      route: "两条横向跳板负责船间换船。第三条从左船船尾朝南接沙岸石路，落地后进入陆地。",
-      play: "船尾跳板 · 接入南侧沙岸"
+      design: "两艘渔船各有完整船舷。11 月 10 日起，两组病人从右船后甲板出发，接应队从左船出发。",
+      route: "病人经下方船间跳板跨到左船，再从船尾上岸。清敌并救到一组即可结算，两组都靠岸时全队额外获得 20 点经验。",
+      play: "更新后的开局 · 两组病人位于右船", playFile: "S21-rescue-20261110.webp"
     },
     F31: {
       title: "F31 码头脱围", meta: "第三章 · 单船靠岸 · 32 × 26 格", w: 576, h: 480,
@@ -230,7 +230,7 @@
     playImage.width = data.w;
     playImage.height = data.h;
     playImage.alt = data.title + "，" + playCaption.textContent;
-    playImage.src = "images/" + code + "-play" + suffix + ".webp";
+    playImage.src = "images/" + (data.playFile ?? code + "-play" + suffix + ".webp");
     evacuationShot.hidden = code !== "F31";
     resetScroll();
   }

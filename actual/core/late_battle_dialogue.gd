@@ -9,9 +9,17 @@ static func begin(g,code:String)->Array:
   rows+=L.lines(code,"开场",2)
  if code=="S21" and not g.speaker_alive("米蕾"):rows=L.lines(code,"开场",1)
  if code=="S22" and not g.speaker_alive("卡洛"):rows=L.lines(code,"开场",1)
- if code=="F22" and not g.speaker_alive("卡洛"):
-  for i in range(rows.size()):
-   if str(rows[i]).begins_with("艾琳：卡洛"):rows[i]=L.lines(code,"开场",1)[0]
+ if code=="F22":
+  if g.battle_data.get("arrow_platforms",[]).is_empty():
+   rows=rows.filter(func(s):return not str(s).begins_with("战场提示："))
+   rows.append("战场提示：登上押送舰，打开绿旗旁的总闸，护送三名俘虏到绿旗。")
+   if g.battle_data.has("battlefield_tactics"):
+    rows.append("战场提示：封桥射击会提前标出落点。离开标记格或推开弓手都能避开。")
+  if g.battle_data.has("hook_bridge"):
+   rows.append(L.lines(code,"战场提示 · 船尾钩索")[0])
+  if not g.speaker_alive("卡洛"):
+   for i in range(rows.size()):
+    if str(rows[i]).begins_with("艾琳：") and str(rows[i]).contains("卡洛，"):rows[i]=L.lines(code,"开场",1)[0]
  if code=="M42" and not g.speaker_alive("兰斯"):
   rows=rows.filter(func(s):return not str(s).begins_with("兰斯：") and not str(s).begins_with("胡纳普：去吧"))
  if code=="S31" and not g.speaker_alive("蕾娜"):rows=L.lines(code,"开场",1)
@@ -57,6 +65,7 @@ static func resolve(g,original:Array,key:String)->Array:
  if code=="F44" and not g.Mechanical.is_prometheus(g.find_unit(str(g.battle_data.boss_id))):return original
  if key==code+"-BEGIN":rows=begin(g,code)
  elif key==code+"-END":rows=ending(g,code)
+ elif key=="F22-ARROW-PLATFORMS":rows=L.lines("F22","战场提示 · 固定箭台")
  elif key.ends_with("-ENEMY-ROLES") or key in ["F21-MID","D41","M42-LANCE","411-ACCESSORY-HINT","501-ACCESSORY-HINT","M52-ARMAMENT-HINT","S51-ARMAMENT-HINT"]:return []
  elif key.ends_with("-VISIT"):
   for heading in L.data().get(code,{}):
@@ -68,6 +77,7 @@ static func resolve(g,original:Array,key:String)->Array:
   if code in ["S21","S22"] and not g.speaker_alive("米蕾" if code=="S21" else "卡洛"):i=1
   if code=="S22" and not g.ChapterThree.alive(g,"old_sailor"):return []
   rows=L.lines(code,"战中推进",i)
+  if code=="F22":rows+=L.lines(code,"囚舱开启提示")
  elif key=="F24-MID":rows=L.lines(code,"战中推进",2 if not g.ChapterThree.alive(g,"islanders") else (1 if g.speaker_alive("希雅") else 3))
  elif key=="F26-MID":rows=L.lines(code,"战中推进",1 if g.speaker_alive("卡洛") else 2)
  elif key=="D22-FIRST":rows=L.lines("F25","D22_FIRST")

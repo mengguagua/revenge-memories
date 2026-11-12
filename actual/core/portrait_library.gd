@@ -52,6 +52,9 @@ static func dialogue_emotion(page: Dictionary) -> String:
 	var text=str(page.get("text","")).replace("\n","")
 	return str(data().get("dialogue_emotions",{}).get(text,""))
 static func speaker(game, name: String, emotion: String="") -> Dictionary:
+	if name == "舰队首领" and game.stage_id == 202:
+		var commander = game.find_unit("F22_boss")
+		if not commander.is_empty():return unit(game, commander)
 	if name=="普罗米修斯":
 		var current=game.find_unit(str(game.battle_data.get("boss_id","")))
 		if game.Mechanical.is_prometheus(current):return {"path":preload("res://core/mechanical_art.gd").portrait(current),"key":"prometheus"}

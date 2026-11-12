@@ -73,7 +73,7 @@ static func _stage(g, region: Dictionary, variant: int) -> Dictionary:
 	stage.clear_training_exp = 0
 	stage.objects = []
 	stage.optional = true
-	for key in ["enemy_role_hint", "summon_template", "final_phase", "recovery_sites", "training_target", "battlefield_tactics", "breakable_obstacles", "special_ai", "tactical_notes", "tactical_routes", "ai_and_timing", "contract", "cause", "absent_branch", "burner_departure_turn", "transport_path"]:
+	for key in ["enemy_role_hint", "summon_template", "final_phase", "recovery_sites", "training_target", "battlefield_tactics", "breakable_obstacles", "arrow_platforms", "special_ai", "tactical_notes", "tactical_routes", "ai_and_timing", "contract", "cause", "absent_branch", "burner_departure_turn", "transport_path"]:
 		stage.erase(key)
 	stage.tactical_notes=["营地演习不推进主线；失败、退出均不发放经验，也不消耗次数。"]
 	var at: Array = base.player_positions[0]

@@ -243,7 +243,7 @@ func start_battle(id: int=101,_groups: Array=[],_from_hub: bool=false) -> bool:
 	for raw in battle_data.npc_units:
 		if ((id==112 and str(raw.id)=="hervi") or (id==111 and str(raw.id)=="beck")) and battle_party.has(str(raw.id)):continue
 		var u: Dictionary=raw.duplicate(true);u.player_slot=slot;u.route=route
-		if not u.get("battle_guard",false):u.move=int(battle_data.get("escort_move",2))
+		if not u.get("battle_guard",false) and not u.get("controllable",false):u.move=int(battle_data.get("escort_move",2))
 		slot+=1;units.append(u)
 	turn=1;phase="player";kills=0;selected_id="";battle_outcome="";battle_settled=false
 	flags.quest={"objects":{},"evacuated":[],"freed":[],"burn_streak":0,"reinforced":false,"mid_done":false}
@@ -263,6 +263,7 @@ func start_battle(id: int=101,_groups: Array=[],_from_hub: bool=false) -> bool:
 	elif stage_id>=300:ChapterThree.lines(self,ChapterThree.before_lines(self),battle_data.code+"-BEGIN")
 	elif stage_id==105:M15Story.opening(self)
 	else:queue_lines(ChapterTwo.before_lines(self) if stage_id>=200 else str(battle_data.before),battle_data.code+"-BEGIN")
+	if not battle_data.get("arrow_platforms",[]).is_empty():queue_lines("战场提示："+ArrowPlatforms.GUIDE,battle_data.code+"-ARROW-PLATFORMS")
 	if battle_data.has("enemy_role_hint"):queue_lines(str(battle_data.enemy_role_hint),str(battle_data.code)+"-ENEMY-ROLES")
 	ShipInterception.queue_duty(self)
 	Battlefield.initialize(self)
@@ -286,10 +287,11 @@ func retry_battle() -> bool:
 		for current in battle_data.enemies:
 			var old=s.get("units",[]).filter(func(u):return str(u.id)==str(current.id))
 			if old.is_empty() or int(old[0].class_id)!=int(current.class_id) or old[0].get("mechanical_model","")!=current.get("mechanical_model","") or old[0].get("name_zh","")!=current.get("name_zh",""):added_deployment=true;break
-	if previous_map_revision!=str(battle_data.get("tactical_review_version","0.2.0")) or added_deployment:
+	if previous_map_revision!=str(battle_data.get("tactical_review_version","0.2.0")) or added_deployment or ChapterTwo.s21_patient_start_changed(self,s.get("units",[])):
 		return start_battle(stage_id)
 	battle_settled=false;battle_outcome="";phase="player";turn=1;kills=0;mode="battle";selected_id="";flags.erase("active_plot")
 	EnemyExperience.prepare(stage_id,units)
+	ChapterTwo.restore_s21_combatants(self)
 	cursor=pos(find_unit(leader_id()));victory_rewards.clear();ShipInterception.prepare(self,units,true);ShipInterception.restore(self);Battlefield.restore(self);Cover.refresh(self)
 	_refresh_chapter_one_opening()
 	if chapter>=2:
@@ -308,7 +310,8 @@ func speaker_alive(name: String) -> bool:
 		if characters[id].name_zh==name:
 			var u: Dictionary=find_unit(id)
 			if u.is_empty():u=roster.get(id,{})
-			return not u.is_empty() and int(u.get("hp",0))>0 and not bool(u.get("dead",false))
+			if u.is_empty():return bool(flags.get("east_recruit_ready",{}).get(id,false))
+			return int(u.get("hp",0))>0 and not bool(u.get("dead",false))
 	return true
 func queue_lines(text: String,key: String="") -> void:
 	queue_pages(dialogue_pages(text),key)
@@ -405,8 +408,8 @@ func _repair_overlapped_escorts() -> void:
 			if not can_stop(unit,cell) or movement_cost(unit,cell)>=255:continue
 			unit.position=[cell.x,cell.y];break
 
-func _toward(unit: Dictionary,destination: Vector2i) -> Dictionary:
-	var graph=reachable(unit);var best=pos(unit);var best_distance=999999
+func _toward(unit: Dictionary,destination: Vector2i,flee:bool=false) -> Dictionary:
+	var graph=reachable(unit);var best=pos(unit);var best_score=INF
 	var seen={destination:0};var q: Array[Vector2i]=[destination]
 	while not q.is_empty():
 		var p=q.pop_front()
@@ -414,10 +417,18 @@ func _toward(unit: Dictionary,destination: Vector2i) -> Dictionary:
 			var n=p+d
 			if not in_bounds(n) or seen.has(n) or movement_cost(unit,n)>=255:continue
 			seen[n]=int(seen[p])+1;q.append(n)
+	var start_distance=int(seen.get(best,999999))
 	for cell in graph.costs:
 		if not can_stop(unit,cell):continue
 		var dist=int(seen.get(cell,999999))
-		if dist<best_distance:best_distance=dist;best=cell
+		if dist>=999999 or (flee and dist>=start_distance):continue
+		var score=float(dist)
+		if flee:
+			# Escape even under threat, but allow a shorter stride when it
+			# gives the patient a better chance of surviving the next phase.
+			var incoming=int(RefugeeTactics.evaluate(self,unit,cell).incoming)
+			score+=minf(6.0,3.0*incoming/maxi(1,int(unit.hp)))
+		if score<best_score:best_score=score;best=cell
 	return {"destination":best,"target":"","kind":"objective_move"}
 func _held_captive(unit: Dictionary) -> bool:
 	return ChapterThree.held_captive(self,unit) or (stage_id in [103,105,202,205] and bool(unit.get("neutral",false)) and bool(unit.get("locked",false)) and str(unit.get("quest_kind","")) in ["escort","prisoner","witness"])
@@ -456,6 +467,7 @@ func ai_action(unit: Dictionary,gather: bool=false) -> Dictionary:
 
 func _campaign_ai_action(unit: Dictionary,gather: bool=false) -> Dictionary:
 	if ShipInterception.applies(self,unit):return ShipInterception.action(self,unit,gather)
+	if ChapterTwo.s21_patient(self,unit):return _toward(unit,Vector2i(battle_data.exit[0],battle_data.exit[1]),true)
 	if Training.active(self):return super.ai_action(unit,gather)
 	var mechanical_action=Mechanical.action(self,unit,gather)
 	if not mechanical_action.is_empty():return mechanical_action
@@ -637,8 +649,8 @@ func next_phase() -> void:
 				if free==Vector2i(-1,-1):continue
 				u.position=[free.x,free.y]
 			u.enemy_slot=units.filter(func(z):return str(z.side)=="enemy").size()
-			if stage_id in [103,105]:EnemyBalance.prepare(stage_id,[u])
-			EnemyExperience.prepare(stage_id,[u])
+			if stage_id in [103,105,202]:EnemyBalance.prepare(stage_id,[u])
+			else:EnemyExperience.prepare(stage_id,[u])
 			units.append(u)
 	if phase=="player" and turn==maxi(1,int(battle_data.reinforcement_turn)-1) and int(battle_data.reinforcement_turn)>0:
 		queue_lines("斥候：后方路口有援军。下一回合抵达，只有这一队。",str(battle_data.code)+"-REINFORCEMENT-WARNING")
@@ -678,12 +690,17 @@ func escort_hint(unit: Dictionary) -> String:
 	return hint
 
 func interaction_hint(cell: Vector2i) -> Dictionary:
+	if MapSkills.HookBridge.closed_at(self,cell):
+		return {"text":"艾琳的焰环可烧断束绳","available":true}
+	if ArrowPlatforms.has_at(battle_data,cell):
+		return {"text":"箭台 1～6格 力量-2","available":false,"kind":"arrow_platform"}
 	var tactical_hint=Battlefield.hint(self,cell)
 	if not tactical_hint.is_empty():return tactical_hint
 	# Read the same objects/approaches as interactions_for, without selecting an
 	# actor, mutating follows_unit positions, consuming RNG or awarding anything.
 	var modules=battle_data.get("art_modules",[])
 	for object in battle_data.get("objects",[]):
+		if object.get("map_only",false):continue
 		var p=Vector2i(object.position[0],object.position[1])
 		if object.has("follows_unit"):
 			var followed=find_unit(str(object.follows_unit))
@@ -719,6 +736,7 @@ func interactions_for(unit: Dictionary) -> Array:
 	if stage_id>=400 and stage_id<500:result.append_array(ChapterFour.extra_interactions(self,unit))
 	elif stage_id>=300:result.append_array(ChapterThree.extra_interactions(self,unit))
 	for obj in battle_data.objects:
+		if obj.get("map_only",false):continue
 		if stage_id in [406,411] and flags.quest.get("record_lost",false) and obj.id in ["observatory_record","black_register"]:continue
 		if obj.has("follows_unit"):
 			var followed=find_unit(str(obj.follows_unit))
@@ -749,21 +767,28 @@ func _campaign_interact(id: String) -> bool:
 	if str(object.get("kind",""))=="breakable":return Battlefield.interact(self,id)
 	if str(object.get("kind",""))=="visit":
 		var reward=int(object.get("reward_item",0));var receipt={}
+		var recipient: Dictionary={}
+		var to_bag=stage_id==202 and id=="F22_visit_0"
 		if reward>0:
-			if int(actor.get("item_id",0))==0 and Items.can_use(actor,reward):
-				roster[actor.id].item_id=reward
+			if to_bag:receipt=receive_equipment(reward,false)
+			elif int(actor.get("item_id",0))==0 and Items.can_use(actor,reward):
 				receipt={"valid":true,"destination":"unit","recipient":actor.id}
 			else:receipt=receive_equipment(reward)
 			if not bool(receipt.valid):
-				queue_lines("旁白：运输队已满。整理装备后，可以再来领取。")
+				queue_lines("旁白：行囊已满。整理装备后，可以再来领取。" if to_bag else "旁白：运输队已满。整理装备后，可以再来领取。")
 				return false
 			if str(receipt.destination)=="unit":
-				var recipient=find_unit(str(receipt.recipient))
+				recipient=find_unit(str(receipt.recipient))
+				if recipient.is_empty():recipient=roster.get(str(receipt.recipient),{})
 				if not recipient.is_empty():recipient.item_id=reward
+				if roster.has(str(receipt.recipient)):roster[str(receipt.recipient)].item_id=reward
 		flags.quest.objects[id]=true
 		queue_lines(str(object.dialogue),id+"-VISIT")
 		if reward>0:
-			var destination=str(roster[receipt.recipient].name_zh)+"装备" if str(receipt.destination)=="unit" else "收入运输队"
+			var destination=str(recipient.name_zh)+"装备" if str(receipt.destination)=="unit" else "收入运输队"
+			if to_bag:
+				destination=str(actor.name_zh)+"将装备放入行囊"
+				flags.bagged_F22_visit_0=true
 			queue_lines("旁白：获得"+str(Items.item(reward).name_zh)+"，"+destination+"。",id+"-REWARD")
 		actor.acted=true;selected_id="";check_outcome();return true
 	if stage_id>=500:
@@ -1035,6 +1060,9 @@ func load_game() -> bool:
 			if str(unit.id)=="medicine_wagon":unit.no_counter=true;unit.event_object=true
 			if str(unit.id)=="M11_boss":unit.name_zh="追击队长";unit.objective_boss=true
 	hub_record=str(s.get("hub_record","H01"));battle_data=stages[stage_id].duplicate(true)
+	# Older journals could enter H22 from the fishing boat's world node.
+	if mode == "hub" and hub_record == "H22" and ChapterTwo.at_s21(self) and stage_cleared(211):
+		travel_to(ChapterTwo.MOORING_NODE)
 	M15Story.restore(self)
 	# In-progress battles retain their geometry until a normal retry/re-entry.
 	# New walls and cargo must never appear underneath an old saved formation.
@@ -1087,6 +1115,8 @@ func _restore_battle_geometry() -> void:
 	EnemyExperience.prepare_stage(battle_data)
 	EnemyExperience.prepare(stage_id,units)
 	ShipInterception.restore(self)
+	ChapterTwo.restore_s21_combatants(self)
+	ChapterTwo.restore_f22_dialogue(self)
 	# Both loading and rewinding rebuild mutable geometry from the same quest.
 	for o in battle_data.objects:
 		if stage_id==211 and o.id=="S21_visit_0":
@@ -1190,15 +1220,16 @@ func objective_status() -> Array[String]:
 	if not q.get("failed_reason","").is_empty():result.append(str(q.failed_reason))
 	return result
 
-func receive_equipment(item_id: int) -> Dictionary:
+func receive_equipment(item_id: int,auto_equip: bool=true) -> Dictionary:
 	var definition=Items.item(item_id)
 	if item_id<=0 or definition.get("kind","") not in ["weapon","accessory"]:return {"valid":false,"reason":"unsupported_item"}
-	for id in party:
-		var recipient: Dictionary=roster.get(id,{})
-		if not can_deploy(recipient):continue
-		if int(recipient.get("item_id",0))==0 and Items.can_use(recipient,item_id):
-			recipient.item_id=item_id
-			return {"valid":true,"destination":"unit","recipient":id,"item_id":item_id,"route":route}
+	if auto_equip:
+		for id in party:
+			var recipient: Dictionary=roster.get(id,{})
+			if not can_deploy(recipient):continue
+			if int(recipient.get("item_id",0))==0 and Items.can_use(recipient,item_id):
+				recipient.item_id=item_id
+				return {"valid":true,"destination":"unit","recipient":id,"item_id":item_id,"route":route}
 	if convoy[route].size()>=40:return {"valid":false,"reason":"convoy_full"}
 	convoy[route].append(item_id)
 	return {"valid":true,"destination":"convoy","item_id":item_id,"route":route}

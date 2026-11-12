@@ -53,9 +53,22 @@ func run():
  check(words(ui).contains("被魔物挡道了回不来"),"H22 reports what delayed the boat after S21 clears")
  g.cleared_stages.erase(211)
  ui.spoken.clear()
+ h.room="H23"
+ g.flags.east_recruit_ready.lord=true
+ g.flags.F22_soldiers_surrendered=true
  await h._east_action("prisoners_treat")
- check(words(ui).contains("卡洛在外岛看见你") and words(ui).contains("送他们去海峡城") and words(ui).contains("裴萨不放行") and words(ui).contains("清掉记忆"),"H23 the rescued helmsman gives mandatory testimony alongside the repair-book clue")
+ check(words(ui).contains("箭伤不治去世了") and words(ui).contains("去潮狩军港找他") and words(ui).contains("东边牢里"),"H23 states the fate and gives a direct lead to the harbor and the captive")
+ check(words(ui).contains("留下他们军队的随军医生") and words(ui).contains("洛德：船上找到一本维修册") and words(ui).contains("缇可"),"H23 survivors and the rescued Lord get their own dialogue")
  check(g.flags.get("F22_confirmed",false),"H23 completion callback unlocks route")
+ ui.spoken.clear()
+ await h._east_action("lord")
+ check(words(ui).contains("盔甲是我自己打的") and ui.menus.has("hub:east_recruit_lord"),"Lord introduces himself before the invitation choice")
+ ui.spoken.clear()
+ await h._east_action("east_recruit_lord")
+ check(g.party.has("lord") and words(ui).contains("修船、挡追兵"),"Lord responds once the invitation is accepted")
+ ui.spoken.clear()
+ await h._east_action("lord")
+ check(words(ui).contains("铰链") and not words(ui).contains("要一起走吗"),"Lord has separate dialogue after joining")
  ui.spoken.clear();await h._east_action("reef_route")
  check(words(ui).contains("刻了个号"),"H24 fixed villager supplies numbered clasp")
  ui.spoken.clear();await h._east_action("islanders_settle")
@@ -65,9 +78,12 @@ func run():
  await h._east_action("east_martin")
  check(ui.spoken.size()==1 and ui.spoken[0].speaker=="马丁" and ui.spoken[0].text=="船好了，出发。","H21 the captain still speaks from his own position when Carlo cannot participate")
  ui.spoken.clear()
+ g.flags.east_recruit_ready.lord=false
+ g.flags.F22_soldiers_surrendered=false
  await h._east_action("prisoners_treat")
  check(not ui.spoken.any(func(p):return p.speaker in ["米蕾","莉莎","卡洛"]),"Unavailable comrades never speak in mandatory H23")
- check(words(ui).contains("薇娅的舵手") and words(ui).contains("他们把我关在外岛"),"Missing comrades do not remove the helmsman's testimony")
+ check(words(ui).contains("薇娅的舵手") and words(ui).contains("船匠：船上找到一本维修册"),"Missing comrades do not remove the helmsman's testimony or the repair book")
+ check(not words(ui).contains("投降的士兵") and not words(ui).contains("缇可"),"H23 has no enemy prisoners or Lord-only clue when those characters are absent")
  ui=probe("M33",3);h=ui.hub;g=ui.game
  if not g.stage_cleared(303):g.cleared_stages.append(303)
  g.flags.erase("M33_confirmed");g.flags.story_armaments_claimed={};g.convoy.alm.erase(18)
@@ -121,7 +137,10 @@ func run():
    check(not no_puppet.any(func(p):return p.text.contains("水猴")) and no_puppet.any(func(p):return p.text.contains("要登船了")),"F21 a legacy deployment without a puppet still warns about boarding")
   if stage.code=="F22":
    var helmsman=g.find_unit("prisoners_0")
-   check(helmsman.get("name_zh")=="薇娅的舵手" and opening[0].text.contains("从外岛押走的舵手") and opening.any(func(p):return p.text.contains("护卫去挡舰长")) and ending[0].text.contains("那位舵手"),"F22 identifies the same mandatory captive even without Carlo in the battle")
+   check(helmsman.get("name_zh")=="薇娅的舵手" and opening[0].speaker=="马丁" and opening.any(func(p):return p.text.contains("从外岛押走的一个舵手")) and ending[0].text.contains("那位舵手"),"F22 plays the reviewed boarding scene and identifies the same captive")
+   check(opening.any(func(p):return p.text.contains("其他人跟我突击") and not p.text.contains("卡洛，")) and opening.any(func(p):return p.text.contains("烧断己方船尾钩索")),"F22 plays the Carlo fallback and the hook hint")
+   var mid=preload("res://core/late_battle_dialogue.gd").resolve(g,[],"F22-MID")
+   check(mid.any(func(p):return p.text.contains("走到旗子那一格就算撤离")),"F22 opening the cells displays the evacuation hint")
   if stage.code=="F33":
    check(opening.any(func(p):return p.speaker=="船团护卫" and p.text.contains("工房的门")) and not opening.any(func(p):return p.speaker=="马丁"),"F33 a guard covers Carlo's position while Martin stays with the boats")
   if stage.code=="J54":

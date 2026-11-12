@@ -4,6 +4,7 @@ extends RefCounted
 const Body = preload("res://core/innate_attacks.gd")
 const Items = preload("res://core/item_rules.gd")
 const COMBAT_EXPERIENCE_CAP=180
+const ARROW_PLATFORM_RANGE = 6
 
 const WEAPON_MIGHT: Array[int] = [0, 0, 4, 8, 3, 3, 3, 15, 10, 20, 10, 4, 8, 5, 13, 15, 3, 10, 7, 12, 3, 5, 7]
 const WEAPON_WEIGHT: Array[int] = [0, 0, 1, 1, 2, 0, 1, 0, 0, 2, 1, 1, 1, 0, 5, 3, 0, 0, 0, 0, 1, 0, 2]
@@ -69,6 +70,12 @@ static func attack_speed(unit: Dictionary) -> int:
 	return maxi(0, Items.effective_speed(unit) - int(Items.weapon_profile(unit, weapon_index(unit)).get("weight", 0)))
 
 
+static func platform_bow(unit: Dictionary) -> bool:
+	return bool(unit.get("fixed_arrow_platform", false)) and weapon_index(unit) in [1, 20, 21, 22]
+
+static func attack_strength(unit: Dictionary) -> int:
+	return int(unit.get("strength", 0)) - (2 if platform_bow(unit) else 0)
+
 static func attack_range(unit: Dictionary) -> Vector2i:
 	# L09844A: distance is Manhattan distance minus1. All ranges start at1.
 	var index := weapon_index(unit)
@@ -79,6 +86,7 @@ static func attack_range(unit: Dictionary) -> Vector2i:
 	if Body.is_body(unit):return Vector2i(1,maxi(3 if bool(unit.get("guard_counter",false)) else 1,int(Body.profile(index).range)))
 	if index == 47 or Items.is_support(index):
 		return Vector2i.ZERO
+	if platform_bow(unit):return Vector2i(1, ARROW_PLATFORM_RANGE)
 	if _class_id(unit) == 20 or (_class_id(unit) in [11, 15, 16, 17, 18, 19] and index >= 23 and int(unit.get("item_id", 0)) == 57):
 		maximum = 5
 	elif index in [20, 21, 22]:
@@ -108,7 +116,7 @@ static func attack_stats(attacker: Dictionary, defender: Dictionary, defender_av
 	var speed := attack_speed(attacker)
 	var defender_speed := attack_speed(defender)
 	var might := int(weapon.get("might", 0))
-	var strength := int(attacker.get("strength", 0))
+	var strength := attack_strength(attacker)
 	var effective := Items.effective_against(index, defender, weapon)
 	if effective:
 		might *= 3
@@ -116,7 +124,7 @@ static func attack_stats(attacker: Dictionary, defender: Dictionary, defender_av
 	if falcon_bonus:
 		strength *= 3
 		might = 0 # L09832F: original falcon formula uses tripled STR only.
-	var power := 15 if index == 15 else strength + might
+	var power := int(weapon.get("fixed_power", strength + might))
 	var defence := Items.magic_defence(defender) if magical else _defence(defender) + Items.physical_defence_bonus(defender, attacker)
 	if Body.Mechanical.is_owl(attacker) and Body.Mechanical.active(attacker,"engine") and not magical:defence=maxi(0,defence-2)
 	var damage := clampi(power - defence + (5 if bool(attacker.get("triangle_attack", false)) else 0), 1, 60)
@@ -242,16 +250,16 @@ static func default_counter(unit: Dictionary, distance: int = 1) -> Dictionary:
 	var copy := unit.duplicate(true)
 	copy.erase("weapon_index")
 	if _enemy(copy) and str(copy.get("behavior","")) in ["guard","guard_exit"]:
-		copy.guard_counter=true
+		copy.guard_counter=not bool(copy.get("counter_uses_weapon_range",false))
 		# Guard reach is a counter-only weapon choice, not a permanent item grant.
 		# Keep an existing ranged weapon/spell; ordinary melee uses a visible
 		# javelin or lightning sword with that weapon's real combat profile.
-		if distance>1:
+		if copy.guard_counter and distance>1:
 			var index=weapon_index(copy)
 			if index<23 and index not in [1,4,7,15,20,21,22]:
 				if _class_id(copy) in [1,2,4,6,7,22]:copy.weapon_index=4
 				elif _class_id(copy) in [8,9,10]:copy.weapon_index=15
-	if not _enemy(copy) and _class_id(copy) == 11 and distance > 1:
+	if not _enemy(copy) and _class_id(copy) == 11 and distance > 1 and not Items.weapon_profile(copy,15).has("base_weapon"):
 		copy.weapon_index = 23
 	return copy
 

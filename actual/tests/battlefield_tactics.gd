@@ -24,7 +24,9 @@ func enemy(g,id:String) -> Dictionary:
 func same(a,b)->bool:return JSON.parse_string(JSON.stringify(a))==JSON.parse_string(JSON.stringify(b))
 
 func telegraph_checks():
-	var g=fixture(202);var bow=enemy(g,"F22_e8");var target=player(g,Vector2i(13,14));g.units=[bow,target]+g.battle_data.npc_units.duplicate(true)
+	var g=fixture(202)
+	g.battle_data=g.SaveValidation.campaign_stage(g,202,"0.10.6-ch2").duplicate(true)
+	var bow=enemy(g,"F22_e8");var target=player(g,Vector2i(13,14));g.units=[bow,target]+g.battle_data.npc_units.duplicate(true)
 	var rng=g.rng_state;Tactics.initialize(g)
 	check(Tactics.warning_cells(g).is_empty(),"F22 has no unannounced first-turn special attack")
 	g.turn=2;Tactics.after_phase(g)
@@ -46,6 +48,45 @@ func telegraph_checks():
 	check(Tactics.warning_cells(g).is_empty(),"moving the source immediately clears the threat overlay")
 	check(Tactics.apply_special(g,bow,Tactics.action(g,bow)).interrupted,"knockback interrupts the prepared shot")
 	check(int(target.hp)==before,"interrupted shot deals no damage")
+
+func arrow_platform_checks():
+	var g=fixture(202)
+	var upper=enemy(g,"F22_e8");var lower=enemy(g,"F22_e9")
+	var target=player(g,Vector2i(11,12),"eileen")
+	g.units=[upper,lower,target];g.phase="enemy"
+	for x in range(11,16):
+		for y in [12,13]:
+			target.position=[x,y]
+			check(g.can_attack(upper,target) or g.can_attack(lower,target),"at least one F22 platform covers bridge cell "+str(target.position))
+	target.position=[11,12]
+	var order=g.ai_action(upper)
+	check(order.destination==g.pos(upper) and order.target==target.id,"mounted enemy fires from its post at six tiles")
+	check(not g.can_attack(lower,target),"other post cannot shoot at seven tiles")
+	Tactics.initialize(g);g.phase="player";g.turn=2;Tactics.after_phase(g)
+	check(Tactics.warning_cells(g).is_empty(),"new F22 does not queue the old volley")
+	check(g.movement_cost(target,Vector2i(17,18))==1 and g.interaction_hint(Vector2i(17,18)).is_empty(),"former cargo tile is ordinary deck in new F22")
+	check(g.movement_cost(target,Vector2i(18,18))>=255,"neighboring sacks still block their own tile")
+	var ally=g.battle_data.npc_units.filter(func(u):return u.id=="F22_school_archer")[0].duplicate(true)
+	check(ally.controllable and ally.temporary,"F22 has a controllable bow user before Roan joins")
+	ally.position=[16,12]
+	var defender=enemy(g,"F22_e1");defender.position=[22,11]
+	g.units=[ally,defender]
+	var preview=preload("res://core/tactical_ranges.gd").preview(g,ally)
+	check(preview.attack.has(g.pos(defender)) and not g.can_attack(ally,defender),"movement preview includes attacks from a reachable empty platform")
+	check(g.select_unit(ally.id) and g.move_selected(Vector2i(16,11)),"allied archer can claim the vacated post through ordinary movement")
+	var prepared=g.combatant_at(ally,g.pos(ally))
+	check(g.Rules.attack_range(prepared)==Vector2i(1,6) and g.Rules.attack_strength(prepared)==int(ally.strength)-2,"allied post uses the same range and strength cost")
+	check(not g.plan_combat(ally.id,defender.id).is_empty(),"six-tile attack reaches real combat settlement")
+	var empty_target=player(g,Vector2i(16,14),"eileen")
+	check(not g.Rules.platform_bow(g.combatant_at(empty_target,g.pos(empty_target))),"non-bow unit gets no platform effect")
+	g.cancel_move()
+	check(not g.can_attack(ally,defender) and not ally.has("fixed_arrow_platform"),"canceling movement leaves no persistent platform bonus")
+	g=fixture(303)
+	var guard=enemy(g,"M33_e10");target=player(g,Vector2i(16,13))
+	g.units=[guard,target];g.phase="enemy"
+	check(g.ai_action(guard).target==target.id,"M33 platform guards the front approach")
+	target.position=[11,9]
+	check(g.ai_action(guard).target.is_empty(),"M33 west gate stays beyond the platform")
 
 func final_boss_checks():
 	var g=fixture(534);var boss=enemy(g,"J54_boss");var target=player(g,Vector2i(16,14));g.units=[boss,target]
@@ -90,7 +131,10 @@ func command_checks():
 
 func obstacle_checks():
 	for stage in [202,402]:
-		var g=fixture(stage);var obstacle:Dictionary=g.battle_data.breakable_obstacles[0]
+		var g=fixture(stage)
+		if stage==202:g.battle_data=g.SaveValidation.campaign_stage(g,202,"0.11.0-arrow-platforms").duplicate(true)
+		var initial=g.battle_data.duplicate(true)
+		var obstacle:Dictionary=g.battle_data.breakable_obstacles[0]
 		var cell=Tactics._point(obstacle.position);var actor=player(g,cell+Vector2i.LEFT)
 		g.units=[actor];g.selected_id=str(actor.id);Tactics.initialize(g)
 		var before=int(g.battle_data.map.tiles[cell.y*int(g.battle_data.map.width)+cell.x])
@@ -104,12 +148,12 @@ func obstacle_checks():
 		check(g.flags.quest.objects.is_empty(),"breaking does not bypass required switches: "+str(stage))
 		check(not Tactics.interact(g,str(obstacle.id)),"repeated break cannot repeat effects: "+str(stage))
 		var state=g.flags.quest.battlefield.duplicate(true)
-		g.battle_data=g.stages[stage].duplicate(true);g.flags.quest.battlefield=JSON.parse_string(JSON.stringify(state));Tactics.restore(g)
+		g.battle_data=initial.duplicate(true);g.flags.quest.battlefield=JSON.parse_string(JSON.stringify(state));Tactics.restore(g)
 		check(g.movement_cost(actor,cell)<255,"reload reconstructs the broken route: "+str(stage))
 		check(g.battle_data.art_layers[1][cell.y][cell.x]==null and g.battle_data.art_layers[2][cell.y][cell.x]==null,"reload removes the intact obstacle art: "+str(stage))
 		check(Tactics.hint(g,cell).text=="已破坏 · 敌我可通行","broken hover explains resulting route: "+str(stage))
 		Tactics.initialize(g,true)
-		g.battle_data=g.stages[stage].duplicate(true)
+		g.battle_data=initial.duplicate(true)
 		check(Tactics._state(g).broken.is_empty() and g.movement_cost(actor,cell)>=255,"new attempt restores intact initial layout: "+str(stage))
 
 func validation_checks():
@@ -158,7 +202,7 @@ func cover_feedback_checks():
 	check(g.story_events.any(func(e):return e.get("pages",[]).any(func(p):return "掩护分担" in str(p.get("text","")))),"cover loss has a visible story notice as well as its hit feedback")
 
 func run():
-	telegraph_checks();final_boss_checks();command_checks();obstacle_checks();validation_checks();cover_feedback_checks()
+	telegraph_checks();arrow_platform_checks();final_boss_checks();command_checks();obstacle_checks();validation_checks();cover_feedback_checks()
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT.get_base_dir()))
 	var f=FileAccess.open(OUT,FileAccess.WRITE)
 	f.store_string(JSON.stringify({"checks":checks,"errors":errors,"passed":errors.is_empty(),"scope":"Deterministic authored-map state, real shared damage entry, save-state JSON restore; not natural full-stage clears."},"  "));f.close()

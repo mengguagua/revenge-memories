@@ -26,7 +26,7 @@ static func stats(unit: Dictionary) -> Dictionary:
 	var actor=automatic(unit);var index=Rules.weapon_index(actor);var profile=Items.weapon_profile(actor,index)
 	var target={"side":"enemy","class_id":6,"character_id":128,"hp":52,"max_hp":52,"strength":0,"skill":0,"speed":0,"luck":0,"defence":0,"resistance":0,"item_id":0}
 	var forecast=Rules.attack_stats(actor,target,0);var reach=Rules.attack_range(actor)
-	var power=15 if index==15 else int(actor.strength)+int(profile.get("might",0))
+	var power=int(profile.get("fixed_power",Rules.attack_strength(actor)+int(profile.get("might",0))))
 	if not forecast.can_attack:power=0
 	return {"power":power,"hit":int(forecast.hit) if forecast.can_attack else 0,"critical":int(forecast.critical) if forecast.can_attack else 0,
 		"speed":Rules.attack_speed(actor),"defence":Rules._defence(actor)+Items.physical_defence_bonus(actor),"resistance":Items.magic_defence(actor),

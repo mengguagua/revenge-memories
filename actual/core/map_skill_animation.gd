@@ -2,6 +2,7 @@ extends RefCounted
 ## Short map-only presentation of an already committed MAP receipt.
 const Healing=preload("res://core/healing_map_animation.gd")
 const ReviewFx=preload("res://core/reviewed_battle_fx.gd")
+const HookBridge=preload("res://core/hook_bridge.gd")
 const DATA="res://data/map_skills_20261029.json"
 static var _data:Dictionary={}
 var _owner:WeakRef
@@ -38,6 +39,12 @@ func prepare(value:Dictionary)->void:
 	for id in [str(value.actor)]+value.targets.map(func(t):return str(t.id)):
 		_saved[id]={"had":ui.map_actor_alpha.has(id),"value":ui.map_actor_alpha.get(id,1.0)}
 		ui.map_actor_alpha[id]=0.0
+func duration()->float:
+	var normal=float(spec.duration)
+	return maxf(normal,float(spec.impact)+HookBridge.DURATION) if receipt.get("opens_hook_bridge",false) else normal
+func hook_bridge_frame()->int:
+	if not active or not receipt.get("opens_hook_bridge",false):return -1
+	return HookBridge.frame_at(elapsed-float(spec.impact))
 func hit_time(hit:Dictionary)->float:
 	if receipt.get("support",false) or receipt.magic:return float(spec.impact)
 	var origin=Vector2i(receipt.actor_unit.position[0],receipt.actor_unit.position[1])
@@ -52,7 +59,7 @@ func _cue(key:String, reviewed := false)->void:
 		if reviewed:ReviewFx.play_sound(ui,key)
 		else:ui.audio.play_sfx(key)
 func _step(t:float)->void:
-	elapsed=minf(t,float(spec.duration));audit.time=elapsed;audit.pose=pose()
+	elapsed=minf(t,duration());audit.time=elapsed;audit.pose=pose()
 	if receipt.get("support",false):
 		if elapsed>=float(spec.release):_cue("heal-charge",true)
 		if elapsed>=float(spec.impact):_cue("heal-resolve",true)
@@ -75,9 +82,9 @@ func play(value:Dictionary)->void:
 	prepare(value)
 	var ui=_ui();var token=_token
 	if ui.instant_mode:
-		_step(float(spec.duration));reset();return
+		_step(duration());reset();return
 	var previous=Time.get_ticks_usec()
-	while active and elapsed<float(spec.duration):
+	while active and elapsed<duration():
 		await ui.get_tree().process_frame
 		if _ui()==null or token!=_token:return
 		var now=Time.get_ticks_usec()

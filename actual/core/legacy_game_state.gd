@@ -4,6 +4,7 @@ const ExperienceAward=preload("res://core/campaign_experience.gd")
 # The game runs on native data and state, never on a ROM/6502 emulator.
 # Canonical source coordinates are stored as [x,y] for JSON save compatibility.
 const Rules = preload("res://core/combat_rules.gd")
+const ArrowPlatforms = preload("res://core/arrow_platforms.gd")
 const Items = preload("res://core/item_rules.gd")
 const Progression = preload("res://core/unit_progression.gd")
 const Scenario = preload("res://core/scenario_rules.gd")
@@ -944,13 +945,16 @@ func cancel_move() -> void:
 	cursor = move_origin
 	selected_id = ""
 
+func combatant_at(unit: Dictionary, cell: Vector2i) -> Dictionary:
+	return ArrowPlatforms.combatant(battle_data, unit, cell)
+
 func can_attack(unit: Dictionary, other: Dictionary) -> bool:
 	# Range also drives previews/HUD after a unit's death, so HP is checked by
 	# the target selector/planner rather than here.
 	if unit.is_empty() or other.is_empty() or unit.side == other.side:
 		return false
 	var distance := absi(pos(unit).x - pos(other).x) + absi(pos(unit).y - pos(other).y)
-	return Rules.can_attack(unit, distance)
+	return Rules.can_attack(combatant_at(unit, pos(unit)), distance)
 
 func targets(unit: Dictionary) -> Array:
 	return living("enemy" if unit.side == "player" else "player").filter(func(other):
@@ -965,8 +969,8 @@ func plan_combat(attacker_id: String, defender_id: String, target_part:String=""
 		return {}
 	if not target_part.is_empty() and (attacker.side!="player" or not Rules.Body.Mechanical.valid_part(defender,target_part)):return {}
 	var distance := absi(pos(attacker).x - pos(defender).x) + absi(pos(attacker).y - pos(defender).y)
-	var virtual_a = Rules.attack_context(attacker.duplicate(true), distance)
-	var virtual_b = Rules.default_counter(defender, distance)
+	var virtual_a = Rules.attack_context(combatant_at(attacker.duplicate(true), pos(attacker)), distance)
+	var virtual_b = Rules.default_counter(combatant_at(defender, pos(defender)), distance)
 	for unit in [virtual_a, virtual_b]:
 		if int(unit.get("character_id", 0)) == 167:
 			unit.weapon_index = Rules.boss_weapon(unit, frame_counter)

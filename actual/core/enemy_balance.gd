@@ -27,12 +27,14 @@ static func _apply(unit:Dictionary,changes:Dictionary)->void:
 	if not changes.has(str(unit.id)):return
 	var patch:Dictionary=changes[str(unit.id)]
 	var old_class=int(unit.get("class_id",0))
+	var old_item=int(unit.get("item_id",0))
 	for key in patch.after:
-		if unit.get(key)!=patch.before[key]:continue
+		# Optional boolean flags are false when absent from an older journal.
+		if unit.get(key,false if patch.before[key] is bool else null)!=patch.before[key]:continue
 		if key=="max_hp":
 			# Preserve missing HP when a known maximum changes; never revive a corpse.
 			var old_hp=int(unit.get("hp",0));var delta=int(patch.after[key])-int(patch.before[key])
 			unit.max_hp=int(patch.after[key])
 			unit.hp=0 if old_hp<=0 else clampi(old_hp+delta,1,int(unit.max_hp))
 		else:unit[key]=patch.after[key]
-	if old_class!=int(unit.get("class_id",0)):unit.erase("weapon_index")
+	if old_class!=int(unit.get("class_id",0)) or old_item!=int(unit.get("item_id",0)):unit.erase("weapon_index")

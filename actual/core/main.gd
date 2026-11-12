@@ -1,6 +1,8 @@
 extends "res://core/legacy_main.gd"
 ## Original native combat controller, new world / story / hub presentation.
 const EnvironmentBorder = preload("res://core/environment_border.gd")
+const MapAmbient = preload("res://core/map_ambient.gd")
+var map_ambient = MapAmbient.new()
 const BattlePanels = preload("res://core/battle_panel_layout.gd")
 const SpellInfo=preload("res://core/spell_info.gd")
 const Portraits = preload("res://core/portrait_library.gd")
@@ -14,6 +16,7 @@ const StoryIntro = preload("res://core/story_intro.gd")
 const PrologueScene = preload("res://core/prologue_scene.gd")
 const M15Scene = preload("res://core/m15_scene.gd")
 const HeroMapAnimation=preload("res://core/map_skill_animation.gd")
+const HookBridge=preload("res://core/hook_bridge.gd")
 var hero_map_animation
 var map_facing:=Vector2i.RIGHT
 var story_intro
@@ -294,9 +297,12 @@ func _accept() -> void:
 		return
 	if view=="world" and menu_items.is_empty() and not busy:
 		var entries: Array=[];var actions: Array=[]
+		var at_s21: bool = game.ChapterTwo.at_s21(game)
 		if game.world_has_battle(game.world_node):entries.append("进入战场");actions.append("new:battle")
-		else:entries.append("进入据点");actions.append("new:hub")
-		for n in game.world_neighbors():entries.append("前往"+str(world.nodes[str(n)].name_zh));actions.append("travel:"+str(n))
+		elif not at_s21:entries.append("进入据点");actions.append("new:hub")
+		for n in game.world_neighbors():
+			var destination := "返回船团停泊栈桥" if at_s21 and n == game.ChapterTwo.MOORING_NODE else "前往"+str(world.nodes[str(n)].name_zh)
+			entries.append(destination);actions.append("travel:"+str(n))
 		entries.append("部队整备");actions.append("new:camp")
 		if game.can_switch_route():entries.append("切换队伍");actions.append("new:switch")
 		_open_menu("world_routes",entries,actions,Vector2(24,56));return
@@ -475,6 +481,9 @@ func _menu_action(action: String,context: String) -> void:
 			# Resume the current battle instead of silently discarding this turn.
 			if game.save_game():_show_title()
 			else:_notice("保存失败，仍停留在当前战场",3.0)
+		"new:s21_finish_rescue":
+			_clear_menu()
+			if game.ChapterTwo.finish_s21_early(game):await _show_result()
 		"new:goal":
 			var text=str(game.battle_data.goal)
 			if not game.exit_marker().is_empty():text+="\n出口有旗标。"+("菜单" if get_meta("phone",false) else "S菜单")+"可定位出口与首领。"
@@ -603,6 +612,9 @@ func _play_map_skill()->void:
 	var result=game.MapSkills.apply(game,game.selected_id,game.cursor,map_facing)
 	if not result.get("valid",false):_notice(str(result.get("reason","无法释放MAP")));_refresh_map_forecast();return
 	busy=true;held_direction=Vector2i.ZERO;_clear_menu();ui_mode="whole_capture";notice_time=0.0;phase_time=0.0
+	if result.get("opens_hook_bridge",false):
+		var target: Array=game.battle_data.hook_bridge.target
+		_focus_battle(Vector2i(target[0]+2,target[1]),true)
 	# Cost, uses, damage, loot and one action's EXP are checkpointed together.
 	game.save_game()
 	await hero_map_animation.play(result)
@@ -627,9 +639,10 @@ func _draw_map_forecast()->void:
 	var actor=game.find_unit(game.selected_id)
 	rows.append("HP "+str(int(actor.hp))+" > "+str(int(actor.hp)-int(value.cost))+"  额外威力+"+str(int(value.power)))
 	var damages=value.targets.map(func(t):return int(t.damage))
-	if damages.is_empty():rows.append(str(value.get("reason","选择目标")))
-	else:
+	if not damages.is_empty():
 		rows.append("目标"+str(damages.size())+"名  伤害"+str(damages.min())+("~"+str(damages.max()) if damages.min()!=damages.max() else "")+(" · 中心+4" if value.magic and value.advanced else ""))
+	elif not value.get("opens_hook_bridge",false):rows.append(str(value.get("reason","选择目标")))
+	if value.get("opens_hook_bridge",false):rows.append("烧断束绳 · 放下备用梯")
 	if int(value.get("reflection_damage",0))>0:rows.append("反伤%dHP · 结算后HP%d"%[int(value.reflection_damage),int(value.hp_after_reflection)])
 	if int(value.tier)==2:rows.append("本次后虚脱：移动-2 伤害-25%")
 	rows.append("方向选"+("朝向" if value.male else "落点")+" · 确认释放／返回")
@@ -676,6 +689,8 @@ func _open_system_menu() -> void:
 		var end_index=menu_actions.find("end_turn")
 		if end_index>=0:menu_items[end_index]="结束回合（第%d回合）" % game.turn
 		menu_items.insert(1,"回溯到上回合（剩余%d次）" % game.Rewind.remaining(game));menu_actions.insert(1,"new:rewind")
+		if game.ChapterTwo.can_finish_s21_early(game):
+			menu_items.insert(1,"结算救援");menu_actions.insert(1,"new:s21_finish_rescue")
 		menu_items.append("战场目标");menu_actions.append("new:goal")
 		if not game.exit_marker().is_empty():menu_items.append("定位出口或目的地");menu_actions.append("new:focus_exit")
 		var boss=game.find_unit(str(game.battle_data.boss_id))
@@ -851,6 +866,8 @@ func _draw_hub_caption(title: String,hint: String) -> void:
 	presentation_audit.hub_caption=rect
 
 func _continue_world() -> void:
+	if view == "victory" and game.stage_id == 211 and game.battle_settled and game.ChapterTwo.at_s21(game):
+		game.travel_to(game.ChapterTwo.MOORING_NODE)
 	view="world";game.mode="world";busy=false;_clear_menu();ui_mode="inspect";held_direction=Vector2i.ZERO
 	world_actor=Vector2(world.nodes[str(game.world_node)].position[0],world.nodes[str(game.world_node)].position[1])*16
 	audio.play_world(1);game.save_game()
@@ -1060,6 +1077,7 @@ func _draw_ocean(origin: Vector2) -> void:
 func _draw_nature_props(props: Array,origin: Vector2,tint: Color=Color.WHITE) -> void:
 	for p in EnvironmentBorder.visible_props(props,nature_sprites,origin,_visible_native_rect()):
 		var sprite: Dictionary=nature_sprites[str(p.key)]
+		if map_ambient.draw_tree(self,p,sprite,origin,tint):continue
 		var at=Vector2(p.position[0],p.position[1])+origin
 		var dimensions=p.get("size",sprite.size)
 		var size=Vector2(dimensions[0],dimensions[1])
@@ -1115,12 +1133,22 @@ func _draw_art_props(props: Array,origin: Vector2,tint: Color=Color.WHITE) -> vo
 
 func _draw_map(map: Dictionary,atlas: Texture2D,origin: Vector2) -> void:
 	if game.mode in ["battle","victory","defeat"] or view in ["battle","combat","reward","victory","defeat","loot","loot_confirm"]:
+		map_ambient.prepare(self)
 		var values=game.battle_data.get("map_tint",[1.0,1.0,1.0,1.0]);var tint=Color(values[0],values[1],values[2],values[3])
 		_draw_battle_surroundings(origin,tint)
 		_draw_layers(game.battle_data.art_layers,int(game.battle_data.get("art_columns",32)),_tex(str(game.battle_data.get("art_atlas","res://assets/battle_tiles/battle-tiles.png"))),origin,tint)
+		map_ambient.draw_surface(self,origin,tint)
 		_draw_nature_props(game.battle_data.get("natural_props",[]),origin,tint)
 		_draw_art_props(game.VisitBuildings.props(game.battle_data),origin,tint)
 		_draw_art_props(game.VisitBuildings.entrances(game.battle_data),origin,tint)
+		_draw_art_props(game.ArrowPlatforms.props(game.battle_data),origin,tint)
+		map_ambient.draw_air(self,origin,tint)
+		var hook: Dictionary=game.battle_data.get("hook_bridge",{})
+		if not hook.is_empty():
+			var frame: int=hero_map_animation.hook_bridge_frame() if hero_map_animation!=null else -1
+			if frame<0:frame=HookBridge.FRAME_TIMES.size()-1 if game.flags.quest.objects.get("reserve_bridge",false) else 0
+			var at=origin+Vector2(hook.atlas_origin[0],hook.atlas_origin[1])
+			draw_texture_rect_region(_tex(HookBridge.ATLAS),Rect2(at,HookBridge.FRAME_SIZE),HookBridge.region(frame),tint)
 		presentation_audit.erase("spell_attack")
 		if view=="battle" and menu_context=="magic" and not menu_items.is_empty():
 			var caster=game.find_unit(game.selected_id);var spell_id=_highlighted_spell()
@@ -1152,7 +1180,7 @@ func _draw_map(map: Dictionary,atlas: Texture2D,origin: Vector2) -> void:
 		for obj in game.battle_data.objects:
 			# Visit entrances belong to the complete building artwork. This also
 			# suppresses the old generic door and arrow in compatible old saves.
-			if obj.get("kind","")=="visit":continue
+			if obj.get("kind","")=="visit" or obj.get("map_only",false):continue
 			if obj.has("follows_unit"):
 				var followed=game.find_unit(str(obj.follows_unit))
 				if not followed.is_empty():obj.position=followed.position.duplicate()
@@ -1369,7 +1397,8 @@ func _personal_hub_sprite(original: Dictionary) -> Dictionary:
 	return shared if CampaignArt.valid(shared) else CampaignArt.map_sprite("hub",game.roster.get(game.leader_id(),{}))
 
 func _party_hub_sprite(object: Dictionary,original: Dictionary) -> Dictionary:
-	if game.hub_record=="H06" and str(object.get("action",""))=="treat":
+	var action := str(object.get("action", ""))
+	if (game.hub_record == "H06" and action == "treat") or (game.hub_record == "H22" and action == "s21_report"):
 		return PartySprites.Reviewed.metadata().maps["18_ally"]["tactical-idle"].duplicate(true)
 	if game.hub_record=="H21":
 		var ids={"east_departure":"carlo","east_mireille":"mireille","east_lisa":"lisa"}
@@ -1536,10 +1565,10 @@ func _draw_preview() -> void:
 	var defender=game.find_unit(str(target_ids[target_index]))
 	# Combat completion can clear either selection before target mode redraws.
 	if attacker.is_empty() or defender.is_empty():return
-	attacker=attacker.duplicate(true)
+	attacker=game.combatant_at(attacker.duplicate(true),game.pos(attacker))
 	var distance=absi(game.pos(attacker).x-game.pos(defender).x)+absi(game.pos(attacker).y-game.pos(defender).y)
 	attacker=Rules.attack_context(attacker,distance)
-	var reply=Rules.default_counter(defender,distance)
+	var reply=Rules.default_counter(game.combatant_at(defender,game.pos(defender)),distance)
 	var part_selected=mechanical_target_confirmed and mechanical_target_id==str(defender.id) and game.Mechanical.valid_part(defender,mechanical_target_part)
 	var placement=_attack_preview_placement();battle_preview_audit=placement
 	if not placement.valid:return
@@ -1549,9 +1578,9 @@ func _draw_preview() -> void:
 	# the same faction colors as combat, independent of attacker/defender order.
 	battle_preview_audit.factions=[]
 	var material=_tex(graphics.panel.path)
-	for i in range(2):
-		var unit=attacker if i==0 else reply
-		var field=Rect2(rect.position+Vector2(8+i*112,8),Vector2(112,rect.size.y-16)) if not placement.stacked else Rect2(rect.position+Vector2(8,8+i*82),Vector2(rect.size.x-16,82))
+	for slot in range(2):
+		var unit=reply if slot==0 else attacker
+		var field=Rect2(rect.position+Vector2(8+slot*112,8),Vector2(112,rect.size.y-16)) if not placement.stacked else Rect2(rect.position+Vector2(8,8+slot*82),Vector2(rect.size.x-16,82))
 		var tint=Color(.7,1.15,2.1) if unit.side=="player" else Color(2.8,.8,.8)
 		draw_texture_rect_region(material,field,Rect2((material.get_size()/2).floor(),Vector2.ONE),tint)
 		battle_preview_audit.factions.append({"unit":str(unit.id),"side":str(unit.side),"bounds":field,"tint":tint})
@@ -1560,7 +1589,10 @@ func _draw_preview() -> void:
 	battle_preview_audit.text_rows=[]
 	for unit in [attacker,reply]:
 		if int(unit.get("character_id",0))==167:unit.weapon_index=Rules.boss_weapon(unit,game.frame_counter)
-	for i in range(2):
+	for slot in range(2):
+		# Defender/enemy first, attacker/ally second. Keep combat calculations
+		# tied to their original roles while moving the complete presentation.
+		var i=1-slot
 		var unit=attacker.duplicate(true) if i==0 else reply.duplicate(true)
 		var other=(reply if i==0 else attacker).duplicate(true)
 		if i==0 and part_selected:other=game.Mechanical.defence_context(other,mechanical_target_part)
@@ -1571,7 +1603,7 @@ func _draw_preview() -> void:
 		var shared=mini(int(guard.get("hp",0)),ceili(float(stats.damage)/2.0)) if not guard.is_empty() else 0
 		stats.damage-=shared
 		var can_attack=Rules.can_attack(unit,distance);var blocked=Rules.attack_blocked(unit,other)
-		var x=rect.position.x+12+(0 if placement.stacked else i*112);var y=rect.position.y+(i*88 if placement.stacked else 0)
+		var x=rect.position.x+12+(0 if placement.stacked else slot*112);var y=rect.position.y+(slot*88 if placement.stacked else 0)
 		_preview_text(str(unit.name_zh),Vector2(x,y+(10 if placement.compact else 12)))
 		var lines=["生命%d/%d"%[int(unit.hp),int(unit.max_hp)],"攻击无效" if blocked else ("伤害"+str(stats.damage)+" 命中"+str(stats.hit)+"%" if can_attack else "无法反击"),"不能造成伤害" if blocked else ("必杀"+str(stats.critical)+"%" if can_attack else "超出攻击范围")]
 		if i==1 and part_selected:lines[0]="%s%d/%d"%[game.Mechanical.part_name(defender,false,mechanical_target_part),game.Mechanical.part_hp(defender,mechanical_target_part),game.Mechanical.part_max(defender,mechanical_target_part)]
@@ -1590,13 +1622,11 @@ func _draw_preview() -> void:
 		_draw_preview_health(game.Mechanical.part_hp(defender,mechanical_target_part) if i==1 and part_selected else int(unit.hp),game.Mechanical.part_max(defender,mechanical_target_part) if i==1 and part_selected else int(unit.max_hp),Vector2(x,y+(66 if placement.compact else 82)),"ally" if unit.side=="player" else "enemy",largest_maximum)
 		if i==1 and game.Mechanical.is_puppet(defender):battle_preview_audit.mechanical_target={"part":mechanical_target_part if part_selected else "body","body_hp":int(defender.hp),"part_hp":game.Mechanical.part_hp(defender,mechanical_target_part)}
 	if target_ids.size()>1:
-		if placement.stacked:
-			var sprite=_map_unit_sprite(defender);var arrow_y=-int(sprite.get("tile_origin",[4,4])[1])-9
-			_draw_map_indicator("left",_battle_cell_screen(game.cursor)+Vector2(-8,arrow_y))
-			_draw_map_indicator("right",_battle_cell_screen(game.cursor)+Vector2(16,arrow_y))
-		else:
-			_draw_indicator("left",rect.position+Vector2(110,14))
-			_draw_indicator("right",rect.position+Vector2(220,14))
+		# Target cycling follows the enemy sprite, so neither panel's name
+		# competes with arrows after the faction fields exchange places.
+		var sprite=_map_unit_sprite(defender);var arrow_y=-int(sprite.get("tile_origin",[4,4])[1])-9
+		_draw_map_indicator("left",_battle_cell_screen(game.cursor)+Vector2(-8,arrow_y))
+		_draw_map_indicator("right",_battle_cell_screen(game.cursor)+Vector2(16,arrow_y))
 	# The whole panel is outside this protected sprite/arrow rectangle.
 	var target_sprite=_map_unit_sprite(defender)
 	_draw_map_indicator("down",_battle_cell_screen(game.cursor)+Vector2(4,-int(target_sprite.get("tile_origin",[4,4])[1])-9))
@@ -1647,10 +1677,11 @@ func _draw_unit_card(unit: Dictionary) -> void:
 	if not cover.is_empty():tactical.append_array(_small_lines(cover,120))
 	if game.Knockback.capable(game,unit):tactical.append("主动近战命中可击退1格")
 	var extra_footer=maxi(0,footer_lines.size()-1)*12
+	var arrow_padding=4 if hint.get("kind","")=="arrow_platform" else 0
 	var protected=[objective_badge_rect] if objective_badge_rect.has_area() else []
 	if unit.get("side","")=="enemy":
 		for cell in presentation_audit.get("enemy_range",[]):protected.append(Rect2(_battle_cell_screen(cell),Vector2(16,16)).grow(1))
-	var placement=BattlePanels.place(screen,Vector2(144,(108 if recovery else 92)+tactical.size()*12+extra_footer+(4 if not tactical.is_empty() else 0)+(32 if strong_turns>0 else 0)),_visible_native_rect(),neighbours,protected)
+	var placement=BattlePanels.place(screen,Vector2(144,(108 if recovery else 92)+tactical.size()*12+extra_footer+arrow_padding+(4 if not tactical.is_empty() else 0)+(32 if strong_turns>0 else 0)),_visible_native_rect(),neighbours,protected)
 	battle_card_audit=placement
 	presentation_audit.range_card_hidden=not placement.valid and unit.get("side","")=="enemy"
 	if not placement.valid:return
@@ -1703,6 +1734,8 @@ func _contact(event:Dictionary)->void:
 
 func _terrain_name(cell: Vector2i) -> String:
 	if not game.in_bounds(cell):return "地图边界"
+	if HookBridge.closed_at(game,cell):return "钩索发射架"
+	if game.ArrowPlatforms.has_at(game.battle_data,cell):return "固定箭台"
 	if game.ShipInterception.plank(game,cell):return "登舰跳板"
 	var visit=game.VisitBuildings.visit_at(game.battle_data,cell)
 	if not visit.is_empty():return str(visit.label).trim_prefix("访问")
@@ -1721,6 +1754,7 @@ func _terrain_name(cell: Vector2i) -> String:
 		if obj.get("kind","")=="visit" and game.visit_fronts(obj).has(cell):return "访问门前"
 		if obj.get("kind","")=="control" and cell==Vector2i(obj.position[0],obj.position[1]):
 			return str(obj.get("name_zh","道路哨卡"))+("已控制" if game.flags.quest.objects.get(str(obj.id),false) else "待控制")
+		if obj.get("kind","")=="bridge" and cell==Vector2i(obj.position[0],obj.position[1]):return str(obj.get("name_zh",obj.label))
 		if not obj.get("optional",false) and cell==Vector2i(obj.position[0],obj.position[1]):return str(obj.label)
 	if game.chapter==3 and game.category(cell) in [0,6,8]:
 		var ground=str(game.battle_data.visual_ground[cell.y][cell.x])
@@ -1788,6 +1822,7 @@ func _draw_terrain_card() -> void:
 	var hint=game.interaction_hint(game.cursor)
 	var hint_lines=_wrapped_lines(str(hint.get("text","")),152) if not hint.is_empty() else []
 	var height=68+(16 if recovery else 0)+hint_lines.size()*16
+	if hint.get("kind","")=="arrow_platform":height+=4
 	var neighbours=[]
 	for actor in game.units:
 		if int(actor.hp)>0:neighbours.append(Rect2(_battle_cell_screen(game.pos(actor))-Vector2(4,8),Vector2(24,28)))
@@ -1982,7 +2017,7 @@ func _draw_status(unit: Dictionary) -> void:
 	if strong_turns>0:
 		_draw_strong_body_icon(Vector2(212,82),strong_turns)
 		_small_text("强身 "+str(strong_turns)+"回合 · 物防+2",Vector2(96,114),Color("a9dfb6"))
-	var equipped=StatusStats.stats(unit)
+	var equipped=StatusStats.stats(game.combatant_at(unit,game.pos(unit)) if view=="battle" else unit)
 	presentation_audit.status_stats=equipped;presentation_audit.status_unit=str(unit.id)
 	var stats = [["攻击",equipped.power],["技巧",int(unit.skill)],
 		["速度",equipped.speed],["幸运",equipped.luck],

@@ -1,5 +1,38 @@
 extends RefCounted
 ## Chapter-two objectives use explicit event state, never fabricated formal units.
+const S21_RESCUE_EXP := 20
+const S21_NODE := 33
+const MOORING_NODE := 18
+
+static func at_s21(g) -> bool:
+	return g.chapter == 2 and g.world_node == S21_NODE
+
+static func s21_patient(g,u: Dictionary) -> bool:
+	return g.stage_id==211 and str(u.get("id","")) in ["patients0","patients1"] and u.get("quest_kind","")=="patient"
+
+static func restore_s21_combatants(g) -> void:
+	if g.stage_id!=211:return
+	var boss=g.find_unit("S21_boss")
+	# A journal stores the live enemy separately from the stage definition.
+	if not boss.is_empty():
+		boss.guard_alerted=true
+		boss.guard_ai_revision=2
+	for unit in g.units:
+		if not s21_patient(g,unit):continue
+		for authored in g.stages[211].npc_units:
+			if authored.id!=unit.id:continue
+			for field in ["strength","speed","defence","move","no_counter"]:
+				unit[field]=authored[field]
+			break
+
+static func s21_patient_start_changed(g,actors: Array) -> bool:
+	if g.stage_id!=211:return false
+	for authored in g.stages[211].npc_units:
+		if not s21_patient(g,authored):continue
+		if not actors.any(func(u):return u.id==authored.id and u.position==authored.position):
+			return true
+	return false
+
 static func allowed_nodes(g) -> Array[int]:
 	if g.flags.get("chapter2_complete",false):return [6]
 	var nodes: Array[int]=[17]
@@ -94,6 +127,7 @@ static func event_boats(g) -> Array:
 	return result
 
 static func before_phase(g) -> void:
+	alert_f22_commander(g)
 	if g.stage_id!=206:return
 	for boat in _boats(g):
 		if int(boat.hp)<=0 or bool(boat.arrived):continue
@@ -120,6 +154,34 @@ static func before_phase(g) -> void:
 				g.queue_lines("舵手：岸上的敌人正在射击居民船。请先清出沿岸的通路！","F26-BOAT-HIT")
 	g.check_outcome()
 
+static func alert_f22_commander(g) -> void:
+	if g.stage_id!=202:return
+	var boss=g.find_unit("F22_boss")
+	if boss.is_empty() or int(boss.hp)<=0 or boss.get("guard_alerted",false):return
+	for u in g.living("player"):
+		if not u.get("controllable",true) or u.get("neutral",false) or u.get("hidden",false) or u.get("event_object",false):continue
+		if not _on_f22_enemy_deck(g,g.pos(u)):continue
+		# Keep the alert after a boarding party retreats; saves and rewinds
+		# carry this ordinary guard state with the rest of the combatants.
+		boss.guard_alerted=true
+		boss.guard_ai_revision=2
+		return
+
+static func _on_f22_enemy_deck(g,cell: Vector2i) -> bool:
+	if not g.in_bounds(cell) or g.category(cell) in [7,12]:return false
+	for zone in g.battle_data.get("deck_zones",[]):
+		if zone.get("label","")!="押送舰":continue
+		var b=zone.bounds
+		return cell.x>=int(b[0]) and cell.y>=int(b[1]) and cell.x<=int(b[2]) and cell.y<=int(b[3])
+	# Early checkpoints predate deck zones. Find the enemy hull's left edge
+	# on the commander's authored row, beyond the water separating the ships.
+	for enemy in g.battle_data.enemies:
+		if enemy.id!="F22_boss":continue
+		var origin=g.pos(enemy);var left=origin.x
+		while left>0 and g.category(Vector2i(left-1,origin.y))!=7:left-=1
+		return cell.x>=left
+	return false
+
 static func _beacon_enemy(g) -> Dictionary:
 	if g.stage_id!=204:return {}
 	var target=g.battle_data.targets[0];var u=g.unit_at(Vector2i(target[0],target[1]))
@@ -144,6 +206,37 @@ static func _all_dead(values: Array) -> bool:return not values.is_empty() and va
 static func _boss_defeated(g) -> bool:
 	var boss=g.find_unit(str(g.battle_data.boss_id));return not boss.is_empty() and (int(boss.hp)<=0 or bool(boss.get("surrendered",false)))
 
+static func _s21_rescued(g,patients: Array) -> int:
+	var evacuated: Array=g.flags.quest.evacuated
+	return patients.filter(func(u):return int(u.hp)>0 and evacuated.has(str(u.id))).size()
+
+static func can_finish_s21_early(g) -> bool:
+	if g.stage_id!=211 or g.mode!="battle" or g.phase!="player" or not g.battle_outcome.is_empty():return false
+	var patients=_units_of_kind(g,"patient")
+	return _s21_rescued(g,patients)==1 and patients.filter(func(u):return int(u.hp)>0).size()>1 and g.living("enemy").is_empty() and _boss_defeated(g)
+
+static func finish_s21_early(g) -> bool:
+	if not can_finish_s21_early(g):return false
+	g.battle_outcome="victory"
+	return true
+
+static func _award_s21_full_rescue(g) -> void:
+	if g.flags.get("S21_full_rescue_reward",false) or _s21_rescued(g,_units_of_kind(g,"patient"))<2:return
+	for id in g.party:
+		var member: Dictionary=g.roster.get(str(id),{})
+		if member.is_empty() or member.get("dead",false) or int(member.level)>=20 or member.get("no_experience",false):continue
+		var injured=int(member.hp)<=0
+		var receipt=g.CampaignExperience.award(g,member,S21_RESCUE_EXP)
+		if injured:member.hp=0
+		receipt.s21_full_rescue_bonus=S21_RESCUE_EXP
+		g.victory_rewards.append(receipt)
+		var deployed=g.find_unit(str(id))
+		if not deployed.is_empty():
+			for field in ["level","exp","max_hp","hp","strength","skill","speed","luck","defence","magic_level","magic_flags"]:
+				if member.has(field):deployed[field]=member[field]
+	g.flags.S21_full_rescue_reward=true
+	g.queue_lines("战场提示：两组病人都已靠岸。本队全体正式成员额外获得20点经验，未出阵成员也可获得。","S21-FULL-RESCUE-REWARD")
+
 static func check_outcome(g) -> String:
 	if g.battle_outcome=="defeat":return g.battle_outcome
 	for id in ["hunapu","eileen"]:
@@ -155,6 +248,7 @@ static func check_outcome(g) -> String:
 			if not _alive(g,"friendly_ship"):return g._fail("己方船损毁")
 			ready=true
 		202:
+			alert_f22_commander(g)
 			var prisoners=_units_of_kind(g,"prisoner").filter(func(u):return str(u.id)!="lord")
 			if prisoners.filter(func(u):return int(u.hp)>0).size()<3:return g._fail("无法救出三名普通俘虏")
 			ready=objects.get("prison_door",false) and prisoners.filter(func(u):return evacuated.has(str(u.id))).size()>=3
@@ -178,7 +272,10 @@ static func check_outcome(g) -> String:
 			var patients=_units_of_kind(g,"patient")
 			if patients.any(func(u):return int(u.hp)<int(u.max_hp)):g.queue_lines(_mid_lines(g),"S21-MID")
 			if _all_dead(patients):return g._fail("载病人的船组均未能获救")
-			ready=g.living("enemy").is_empty() and patients.any(func(u):return int(u.hp)>0 and evacuated.has(str(u.id)))
+			var rescued=_s21_rescued(g,patients)
+			# One arrival unlocks settlement. Keep the battle open if the
+			# other survivor is still moving so the bonus remains attainable.
+			ready=rescued>0 and rescued==patients.filter(func(u):return int(u.hp)>0).size() and g.living("enemy").is_empty()
 		212:
 			var sailor=g.find_unit("old_sailor")
 			ready=g.living("enemy").is_empty() and objects.get("relics",false) and (not sailor.is_empty() and (int(sailor.hp)<=0 or evacuated.has("old_sailor")))
@@ -189,7 +286,9 @@ static func on_victory(g) -> void:
 	var code=str(g.battle_data.code);g.flags["clear_"+code]=true
 	if not g.flags.has("east_recruit_ready"):g.flags.east_recruit_ready={}
 	match g.stage_id:
-		202:g.flags.east_recruit_ready.lord=_alive(g,"lord") and g.flags.quest.evacuated.has("lord")
+		202:
+			g.flags.east_recruit_ready.lord=_alive(g,"lord") and g.flags.quest.evacuated.has("lord")
+			g.flags.F22_soldiers_surrendered=not g.living("enemy").is_empty()
 		203:g.flags.east_recruit_ready.roan=_alive(g,"roan")
 		204:
 			g.flags.east_recruit_ready.shia=_alive(g,"shia")
@@ -202,6 +301,7 @@ static func on_victory(g) -> void:
 			if not g.flags.get("drifting_fishers_rescued",false) and not g.flags.get("seen_S21_visit_0-REWARD",false):
 				g.convoy.celica.append(int(g.stages[211].victory_gift_item))
 			g.flags.drifting_fishers_rescued=true
+			_award_s21_full_rescue(g)
 		212:
 			g.flags.old_sailor_rescued=_alive(g,"old_sailor") and g.flags.quest.evacuated.has("old_sailor");g.flags.sailor_rescued=g.flags.old_sailor_rescued
 			g.flags.carlo_promise_completed=g.flags.old_sailor_rescued and g.speaker_alive("卡洛")
@@ -226,8 +326,8 @@ static func status(g) -> Array[String]:
 			result.append("护卫存活通关，本队全体正式成员额外获得20经验。" if not guard.is_empty() and int(guard.hp)>0 else "护卫已阵亡。本关仍可继续，失去护卫存活奖励。")
 		202:
 			var count=_units_of_kind(g,"prisoner").filter(func(u):return str(u.id)!="lord" and evacuated.has(str(u.id))).size()
-			result.append("打开囚舱、击败舰长，并让三名普通俘虏抵达总闸旁的接应旗标。")
-			result.append("囚舱：%s；舰长：%s；普通俘虏：%d/3。" % ["已打开" if objects.get("prison_door",false) else "未打开",boss_state,count])
+			result.append("打开囚舱、击败舰队首领，并让三名普通俘虏抵达总闸旁的接应旗标。")
+			result.append("囚舱：%s；舰队首领：%s；普通俘虏：%d/3。" % ["已打开" if objects.get("prison_door",false) else "未打开",boss_state,count])
 			var lord=g.find_unit("lord");var lord_state="已撤离，可在据点交谈招募" if evacuated.has("lord") else "阵亡，失去招募" if not lord.is_empty() and int(lord.hp)<=0 else "尚未撤离，保护他沿安全路线走向出口"
 			result.append("洛德："+lord_state+"。他单独记录，不替代三名普通俘虏。")
 			result.append("获救者每次己方行动结束走两格，附近有敌人时停下。")
@@ -250,11 +350,14 @@ static func status(g) -> Array[String]:
 			for b in event_boats(g):result.append("%s：%d/%d，%s。" % ["居民船一" if str(b.id).ends_with("0") else "居民船二",b.hp,b.max_hp,"已抵达" if b.arrived else "损毁" if b.hp<=0 else "等候前船出发" if b.waiting else "前方有敌，暂时停船" if b.stopped else "沿指定水路前进"])
 			result.append("每次己方行动结束船队前进；先清除沿岸敌人。敌方回合结束，射程内的敌人会损伤船体。")
 		211:
-			var survivors=_units_of_kind(g,"patient").filter(func(u):return int(u.hp)>0).size()
-			var arrived=_units_of_kind(g,"patient").filter(func(u):return int(u.hp)>0 and evacuated.has(str(u.id))).size()
+			var patients=_units_of_kind(g,"patient")
+			var survivors=patients.filter(func(u):return int(u.hp)>0).size()
+			var arrived=_s21_rescued(g,patients)
 			result.append("清除全部海上魔物，护送至少一组病人抵达安全停泊口。")
 			result.append("剩余魔物：%d；存活病人组：%d；已靠岸：%d。" % [g.living("enemy").size(),survivors,arrived])
-			result.append("病人组会避开近敌，先清出甲板。治疗仍支付施法者正常生命消耗。")
+			result.append("病人每回合自动向出口移动，最多3格。请清理敌人，让出通道。")
+			result.append("两组均靠岸，本队全体正式成员额外获得20点经验。")
+			if can_finish_s21_early(g):result.append("已达到基本目标。可继续护送，或在菜单选择结算救援。")
 		212:
 			result.append("清除洞内魔物、取遗物箱，并护送旧船员到出口。")
 			result.append("剩余魔物：%d；遗物箱：%s；船员：%s。" % [g.living("enemy").size(),"已取得" if objects.get("relics",false) else "未取得","已撤离" if evacuated.has("old_sailor") else "阵亡，将记录遗憾后日谈" if not _alive(g,"old_sailor") else "等待救援"])
@@ -270,3 +373,38 @@ static func _end_lines(g) -> String:
 
 static func before_lines(g) -> String:
 	return str(g.battle_data.before)
+
+static func restore_f22_dialogue(g) -> void:
+	if g.stage_id != 202:return
+	g.battle_data.goal = g.stages[202].goal
+	alert_f22_commander(g)
+	_restore_f22_visit_reward(g)
+	for event in g.story_events:
+		if event.get("key", "") == "F22-BEGIN":_rename_f22_pages(event.pages)
+		if event.get("key", "") == "F22_visit_0-REWARD":_repair_f22_reward_pages(g,event.pages)
+	var plot: Dictionary = g.flags.get("active_plot", {})
+	if plot.get("return", "") == "battle":
+		_rename_f22_pages(plot.pages)
+		_repair_f22_reward_pages(g,plot.pages)
+
+static func _restore_f22_visit_reward(g) -> void:
+	if g.flags.get("bagged_F22_visit_0",false) or not g.flags.get("quest",{}).get("objects",{}).get("F22_visit_0",false):return
+	var archer=g.find_unit("F22_school_archer")
+	if archer.is_empty() or int(archer.get("item_id",0))!=48:return
+	# Transfer the existing reward, rather than awarding a second copy.
+	# Like automatic supply reconciliation, migration preserves it even
+	# when manual storage is full. Later manual claims still respect capacity.
+	g.convoy.celica.append(48)
+	archer.item_id=0
+	g.flags.bagged_F22_visit_0=true
+
+static func _repair_f22_reward_pages(g,pages: Array) -> void:
+	if not g.flags.get("bagged_F22_visit_0",false):return
+	for page in pages:
+		if page.get("speaker","")=="旁白" and page.get("text","") in ["获得皮盾，<null>装备。","获得皮盾，学舍弓手装备。"]:
+			page.text="获得皮盾，学舍弓手将装备放入行囊。"
+
+static func _rename_f22_pages(pages: Array) -> void:
+	for page in pages:
+		if page.speaker in ["舰长", "搜捕首领"]:page.speaker = "舰队首领"
+		page.text = str(page.text).replace("舰长", "舰队首领")

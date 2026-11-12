@@ -79,7 +79,8 @@ func enter_world() -> void:
 		enter_room(ui.game.ChapterThree.room_for(ui.game));return
 	if ui.game.flags.get("chapter2_complete",false) and ui.game.route=="celica" and ui.game.world_node==6:
 		enter_room("H27");return
-	var rooms={1:"H01",2:"H07",3:"H02",4:"H03",5:"H05",6:"H06",31:"H08",32:"H09",17:"H21",18:"H22",19:"H23",20:"H24",21:"H25",22:"H26",23:"H27",33:"H22",34:"H24"}
+	if ui.game.ChapterTwo.at_s21(ui.game):return
+	var rooms={1:"H01",2:"H07",3:"H02",4:"H03",5:"H05",6:"H06",31:"H08",32:"H09",17:"H21",18:"H22",19:"H23",20:"H24",21:"H25",22:"H26",23:"H27",34:"H24"}
 	enter_room(rooms.get(ui.game.world_node,"H07"))
 
 func enter_room(id: String,resuming: bool=false,checkpoint: bool=true) -> void:
@@ -566,8 +567,11 @@ func _draw_player() -> void:
 func _configure_east_room() -> void:
 	east_data=chapter2_rooms[room].duplicate(true)
 	title=str(east_data.title);hint=str(east_data.hint);objects=[];scenery=[]
+	var s21_rescued: bool = room == "H22" and ui.game.stage_cleared(211)
+	if s21_rescued:hint = "向地方医者报告渔船救援"
 	for raw in east_data.objects:
 		var o: Dictionary=raw.duplicate(true)
+		if s21_rescued and o.action == "invite_s21":continue
 		if o.has("party") and not _east_alive(str(o.party)):continue
 		if o.has("recruit"):
 			var id=str(o.recruit)
@@ -770,8 +774,12 @@ func _east_action(key: String) -> void:
 			await L.say(self,L.lines("H22","漂泊渔船救援",0 if g.stage_cleared(211) else 1))
 
 		"prisoners_treat":
-			var rows=L.lines("H23","照护",0 if _east_alive("mireille") else 1)
-			rows+=L.lines("H23","薇娅")+L.lines("H23","舰上的")
+			var treatment_branch=0 if _east_alive("mireille") else 1
+			var survivors=g.stage_id==202 and g.stage_cleared(202) and not g.living("enemy").is_empty()
+			if not g.flags.get("F22_soldiers_surrendered",survivors):treatment_branch+=2
+			var lord_present=g.flags.get("east_recruit_ready",{}).get("lord",false) and g.speaker_alive("洛德")
+			var rows=L.lines("H23","照护",treatment_branch)
+			rows+=L.lines("H23","薇娅")+L.lines("H23","舰上的",0 if lord_present else 1)
 			await L.say(self,rows,"late:F22_confirmed")
 
 		"captives_route":
@@ -779,11 +787,16 @@ func _east_action(key: String) -> void:
 
 		"lord","roan","shia":
 			if g.party.has(key):
-				var lines={"lord":"洛德：船上的铰链还用得上。我会帮他们修好渡船。","roan":"罗恩：我认得军港外的岸线。村里的渔船得留一部分，不能全被我们带走。","shia":"希雅：留下的骑士够守航灯了。我与你同行，岛上也会继续有船。"}
-				await L.say(self,L.lines({"lord":"H23","roan":"H24","shia":"H25"}[key],{"lord":"洛德的","roan":"罗恩的","shia":"希雅的"}[key],1).filter(func(row):return not str(row).begins_with("界面提示：")));return
+				var group=1
+				if key=="lord":group=2 if _east_alive(key) else 0
+				await L.say(self,L.lines({"lord":"H23","roan":"H24","shia":"H25"}[key],{"lord":"洛德的","roan":"罗恩的","shia":"希雅的"}[key],group).filter(func(row):return not str(row).begins_with("界面提示：")));return
 			if not g.flags.get("east_recruit_ready",{}).get(key,false) or bool(g.roster.get(key,{}).get("dead",false)):ui._notice("这位同伴未能获救");return
 			if key=="lord" and not g.flags.get("F22_confirmed",false):ui._notice("先在安置处照顾获救伤者");return
 			if key=="shia" and not g.flags.get("islanders_settled",false):ui._notice("先安置岛民，让留守骑士接手");return
+			if key=="lord":
+				var available=g.speaker_alive("洛德")
+				await L.say(self,L.lines("H23","洛德的",1 if available else 0))
+				if not available:return
 			ui._open_menu("recruit",["邀请同行","暂不邀请"],["hub:east_recruit_"+key,"close"],Vector2(48,88))
 		"reef_route":
 			await L.say(self,L.join_groups("H24","渔村岸线",[0,1,2]),"late:F23_confirmed")
@@ -854,7 +867,6 @@ func _east_action(key: String) -> void:
 				var id=key.substr(13)
 				if not g.flags.get("east_recruit_ready",{}).get(id,false) or bool(g.roster.get(id,{}).get("dead",false)):return
 				g.recruit(id)
-				var speech={"lord":"洛德：我能修船，也能挡住追兵。囚舱里的事，我会留下作证。","roan":"罗恩：军港拿走了我们的货船。我知道那里的岸线，让我带路。","shia":"希雅：留守的人够了。我与你去军港，但岛上的船不能全带走。"}
 				await L.say(self,L.lines({"lord":"H23","roan":"H24","shia":"H25"}[id],{"lord":"洛德接受","roan":"罗恩接受","shia":"希雅接受"}[id]))
 			elif key.begins_with("promote_"):
 				var parts=key.split("_");var result=g.promote_unit(parts[1],int(parts[2]));ui._notice("转职完成" if result.get("valid",false) else "未满足转职条件")

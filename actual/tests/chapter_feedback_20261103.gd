@@ -99,7 +99,7 @@ func forecast(g,name:String):
  if visual:
   check(ui.battle_preview_audit.valid,"forecast has a safe placement "+name)
   var fields=ui.battle_preview_audit.factions
-  check(fields.size()==2 and fields[0].tint.b>fields[0].tint.r and fields[1].tint.r>fields[1].tint.b,"forecast paints ally blue enemy red "+name)
+  check(fields.size()==2 and fields[0].side=="enemy" and fields[0].tint.r>fields[0].tint.b and fields[1].side=="player" and fields[1].tint.b>fields[1].tint.r,"forecast places red enemy first and blue ally second "+name)
   for f in fields:check(ui.battle_preview_audit.panel.grow(-7).encloses(f.bounds),"faction fill clears original bitmap frame "+name)
   check(not fields[0].bounds.intersects(fields[1].bounds),"forecast color fields cannot overlap "+name)
 func tasks_frame(g,name:String,capture:bool=true):

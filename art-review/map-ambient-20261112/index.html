@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>全部40张地图 · 环境动效对照</title>
+<style>
+:root{color-scheme:dark;--bg:#111d24;--panel:#20323b;--raised:#2d444d;--text:#f0eee3;--muted:#b7c9cd;--gold:#e1c38f;--line:#344b56}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+main{max-width:1460px;margin:auto;padding:32px clamp(16px,4vw,54px) 48px}h1,h2,p{margin:0}
+header{padding:clamp(20px,4vw,36px);border-radius:20px;background:linear-gradient(120deg,#293c44,#1a2a33);margin-bottom:22px}
+.kicker{font-size:12px;letter-spacing:.12em;color:var(--gold);font-weight:700}h1{font-size:clamp(27px,4vw,46px);line-height:1.3;margin:8px 0 12px}
+header p{max-width:900px;color:var(--muted)}button,select{font:inherit;color:inherit}button{border:0;border-radius:9px;padding:9px 14px;cursor:pointer;text-align:center;background:var(--panel);line-height:1.4;min-height:40px}
+button:hover{background:var(--raised)}button:focus-visible,select:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:none;box-shadow:0 0 9px 3px #e6c8977d,0 2px 16px #e6c8972e}
+button[aria-pressed=true]{background:#dec394;color:#202725;font-weight:650}
+.catalog{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px;margin-bottom:21px}.catalog-label{display:block;font-size:12px;color:var(--muted);margin:0 0 8px 4px}
+.map-list{display:flex;flex-wrap:wrap;gap:6px}.map-list button{padding:8px 11px;font:600 13px/1.5 ui-monospace,monospace;min-width:52px}
+.top{display:flex;justify-content:space-between;align-items:end;gap:14px;flex-wrap:wrap;margin-bottom:14px}h2{font-size:25px;line-height:1.3}
+#scene-note{font-size:14px;color:var(--muted);margin-top:6px;max-width:740px}.group{display:flex;flex-wrap:wrap;gap:4px;padding:4px;border-radius:12px;background:#192a33}.group button{font-size:13px;background:transparent}
+.group button[aria-pressed=true]{background:#435b61;color:#fff4dd;box-shadow:0 2px 6px #071b2870}.group button:hover{background:var(--raised)}
+.player{background:#0b1319;border:1px solid var(--line);border-radius:15px;overflow:hidden}
+.labels{display:grid;grid-template-columns:1fr 1fr;background:#1f3039;font-weight:650;text-align:center;line-height:1.5}
+.labels span{padding:12px}.labels span:last-child{background:#2b3d42;color:var(--gold)}
+.screen{width:100%;aspect-ratio:var(--ratio,2.36);overflow:hidden;position:relative;background:#0c151b}
+video{display:block;width:100%;height:100%;image-rendering:pixelated;pointer-events:none}
+.player[data-layout=after] .screen,.player[data-layout=before] .screen{aspect-ratio:var(--single-ratio,1.18)}
+.player[data-layout=after] video,.player[data-layout=before] video{width:200%;max-width:none}
+.player[data-layout=after] video{transform:translateX(-50%)}
+.player[data-layout=after] .labels,.player[data-layout=before] .labels{grid-template-columns:1fr}
+.player[data-layout=after] .labels span:first-child,.player[data-layout=before] .labels span:last-child{display:none}
+.controls{display:flex;align-items:center;gap:10px;padding:13px 15px;flex-wrap:wrap;background:#1b2c35}
+.controls button{background:#344c55;font-size:13px}.controls button:hover{background:#48616b}
+input[type=range]{accent-color:var(--gold);flex:1;min-width:100px;margin:0;cursor:pointer}output{font:12px/1.4 ui-monospace,monospace;color:var(--muted);min-width:75px;text-align:center}
+.hint{color:var(--muted);font-size:13px;margin:10px 2px 20px}.details{padding:17px 20px;background:var(--panel);border-radius:12px;color:var(--muted)}
+.details p+p{margin-top:9px}.details a{color:var(--gold)}details{margin-top:20px}summary{cursor:pointer;width:fit-content;padding:5px 8px;border-radius:7px;font-weight:650;color:var(--text)}
+#catalog-table{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:8px}.entry{padding:12px 14px;border-radius:10px;background:var(--panel)}.entry strong{font-size:13px}.entry p{font-size:12px;color:var(--muted);margin-top:4px}
+#loading{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);background:#101c24;pointer-events:none}#loading[hidden]{display:none}
+.player:fullscreen{border:0;border-radius:0;display:flex;flex-direction:column;justify-content:center;background:#0b1319}.player:fullscreen .screen{width:100%;max-height:calc(100vh - 112px)}.player:fullscreen .controls{flex-shrink:0}
+@media(max-width:700px){main{padding-top:16px}.catalog{gap:12px;grid-template-columns:1fr}header{margin-bottom:16px}.top{align-items:start}#catalog-table{grid-template-columns:1fr 1fr}.controls{gap:7px;padding:10px}.controls button{padding:8px 10px}h2{font-size:22px}}
+</style>
+<main>
+<header>
+ <div class="kicker">环境动效 · 全五章40张地图 · 2026.11.12</div>
+ <h1>让地图里的风、水与火动起来</h1>
+ <p>40 张战斗地图逐图提供全图与手机横屏动效。同一段 Godot 场景分别关闭、开启环境特效，两边时间一致。手机视图使用 1334 × 750 的游戏触控布局，以整数像素倍率显示。</p>
+</header>
+<nav class="catalog" aria-label="选择地图">
+ <div><span class="catalog-label">第1章 · 7 张战斗地图</span><div class="map-list" id="chapter-1"></div></div>
+ <div><span class="catalog-label">第2章 · 8 张战斗地图</span><div class="map-list" id="chapter-2"></div></div>
+ <div><span class="catalog-label">第3章 · 8 张战斗地图</span><div class="map-list" id="chapter-3"></div></div>
+ <div><span class="catalog-label">第4章 · 10 张战斗地图</span><div class="map-list" id="chapter-4"></div></div>
+ <div><span class="catalog-label">第5章 · 7 张战斗地图</span><div class="map-list" id="chapter-5"></div></div>
+</nav>
+<div class="top">
+ <div aria-live="polite"><h2 id="scene-title">M11 流民林路</h2><p id="scene-note"></p></div>
+ <div class="group" aria-label="画面视图">
+  <button type="button" data-view="phone" aria-pressed="true">手机横屏</button>
+  <button type="button" data-view="map" aria-pressed="false">完整地图</button>
+ </div>
+</div>
+<div class="top">
+ <div class="group" aria-label="比较方式">
+  <button type="button" data-layout="compare" aria-pressed="true">并排对照</button>
+  <button type="button" data-layout="after" aria-pressed="false">只看新增效果</button>
+  <button type="button" data-layout="before" aria-pressed="false">只看修改前</button>
+ </div>
+</div>
+<section class="player" id="player" data-layout="compare" aria-label="同一时钟的实机前后对比">
+ <div class="labels"><span>修改前 · 环境静态</span><span>修改后 · 环境动效</span></div>
+ <div class="screen">
+  <video id="film" playsinline muted preload="metadata"></video>
+  <div id="loading">正在载入实机动效…</div>
+ </div>
+ <div class="controls">
+  <button type="button" id="play">暂停</button>
+  <button type="button" id="step" title="暂停并前进一帧">下一帧</button>
+  <input id="timeline" type="range" min="0" max="8" step="0.083333" value="0" aria-label="同步时间轴">
+  <output id="clock">0.00 / 8.00</output>
+  <button type="button" id="fullscreen">全屏查看</button>
+ </div>
+</section>
+<p class="hint">手机上可选「只看新增效果」并横屏全屏播放，观察实际游玩尺寸。播放、暂停、拖动和逐帧都作用于同一份对照影片。</p>
+<div class="details">
+ <p>树冠整体摆幅减半，仅树梢从静止轻偏一个原生像素再回位，下部树冠和树干固定。河面与海面出现移动短波，浪花沿真实沙岸进退。雪地有少量飘雪与缓慢云影；矿洞有石壁火把和浮尘，潮洞有滴水、水纹和火盆跳焰。盐地与沙地仅在对应裸地上有少量贴地风尘；室内不加室外天气，湿地和人工池使用缓纹。</p>
+ <p>画面由当前 Godot 工程后台渲染，手机部分为手机布局模拟。两边保留相同单位、人物动画和战场状态。全部五章均已接入当前工程源码，保留人物现有动画。</p>
+ <p>火焰、水纹与云雪的制作参考并复用了 <a href="https://github.com/patch-gg/pixelfx">PixelFX 的 MIT 源码</a>，按每格 16 原生像素调整了形状、配色和密度。<a href="map-verification.json">全图检查记录</a> · <a href="phone-verification.json">手机布局检查记录</a> · <a href="play-verification.json">操作试玩记录</a> · <a href="asset-manifest.json">素材与授权</a></p>
+</div>
+<details><summary>查看逐图配置</summary><div id="catalog-table"></div></details>
+<details><summary>查看 M13 树冠摆幅调整对照</summary>
+ <div class="details" style="margin-top:10px">
+  <p>左侧为上一版实机树冠，右侧为本次收敛后的树梢。总行程由两个原生像素减为一个，树干与下部树冠固定。画面取自同一时钟的手机布局局部。</p>
+  <div class="labels" style="margin-top:12px"><span>之前 · 原摆幅</span><span>现在 · 摆幅减半</span></div>
+  <video src="media/tree-sway-comparison.mp4" poster="media/tree-sway-comparison.webp" controls playsinline muted loop preload="metadata" style="max-width:720px;height:auto;margin:auto;pointer-events:auto"></video>
+ </div>
+</details>
+</main>
+<script>
+const scenes=[
+ [
+  "M11",
+  "流民林路",
+  "树梢轻摆、细雪、云影与河面短波",
+  1
+ ],
+ [
+  "M12",
+  "丘堡粮站",
+  "雪松树梢轻摆、细雪与缓慢云影",
+  1
+ ],
+ [
+  "M13",
+  "南岗押送所",
+  "雪林、风雪、河面；囚室内排除天气",
+  1
+ ],
+ [
+  "S11",
+  "旧矿道救援",
+  "石壁火把跳焰与矿巷浮尘，保持通路清晰",
+  1
+ ],
+ [
+  "S12",
+  "林村诊所道路",
+  "雪林轻摆与河面短波，桥面保持清楚",
+  1
+ ],
+ [
+  "M14",
+  "旧塔外营",
+  "营外树梢、雪花与地面云影",
+  1
+ ],
+ [
+  "M15",
+  "海峡城·旧塔堡",
+  "临海水面、薄雪与云影；囚室内排除天气",
+  1
+ ],
+ [
+  "F21",
+  "海上拦截",
+  "双船外侧海面短波、甲板云影",
+  2
+ ],
+ [
+  "F22",
+  "押送舰救援",
+  "海面短波与云影；囚舱内排除云影",
+  2
+ ],
+ [
+  "F23",
+  "礁岛登岸",
+  "贴岸浪花、海面起伏、树梢轻摆",
+  2
+ ],
+ [
+  "S21",
+  "漂泊渔船",
+  "双船海面短波与甲板云影",
+  2
+ ],
+ [
+  "S22",
+  "碎石海洞",
+  "潮水扩散纹、洞顶滴水与火盆跳焰",
+  2
+ ],
+ [
+  "F24",
+  "海灯岛防卫",
+  "冷色海面、贴岸浪花与树梢轻摆",
+  2
+ ],
+ [
+  "F25",
+  "潮狩军港",
+  "港湾海面、沿岸浪花与云影",
+  2
+ ],
+ [
+  "F26",
+  "断航古道",
+  "古堤外海面、沿岸细浪与树梢轻摆",
+  2
+ ],
+ [
+  "M31",
+  "西街撤离",
+  "日返街区的树梢轻摆与慢云影，保留巷道可读性",
+  3
+ ],
+ [
+  "M32",
+  "军需大道截运",
+  "军需大道林冠轻摆、移动云影；车场与道路清晰",
+  3
+ ],
+ [
+  "M33",
+  "沿海石堡",
+  "海崖水面短波、石堡庭院云影与林梢",
+  3
+ ],
+ [
+  "F31",
+  "码头脱围",
+  "接应船外海水短波、码头云影；船和跳板不晃动",
+  3
+ ],
+ [
+  "F32",
+  "盐路解围",
+  "盐盘上稀疏的贴地风尘、潮池缓纹与冷暗云影",
+  3
+ ],
+ [
+  "F33",
+  "研究院后庭",
+  "露天水院缓纹、既有灯具明暗；室内工房排除风尘与云影",
+  3
+ ],
+ [
+  "S31",
+  "山村地牢",
+  "无雪山村树梢与云影；室内牢室排除天气",
+  3
+ ],
+ [
+  "S32",
+  "盐原营地",
+  "盐地风尘与营地云影；两间拘押室排除天气",
+  3
+ ],
+ [
+  "M41",
+  "雪峡撤离战",
+  "雪峡的细雪、轻摆树梢、谷水短波和缓慢云影",
+  4
+ ],
+ [
+  "M42",
+  "铁骑封锁线",
+  "林缘轻摆与军道云影，不遮挡骑兵路线",
+  4
+ ],
+ [
+  "M43",
+  "北境日塔",
+  "北境雪林、细雪与既有灯光，露天庭院保持冬季",
+  4
+ ],
+ [
+  "M44",
+  "王都城门",
+  "王都露天门院的林梢与云影，保留伤兵撤离路",
+  4
+ ],
+ [
+  "F41",
+  "沙城守井战",
+  "沙城裸沙上的稀疏风尘，井台与石路不扬沙",
+  4
+ ],
+ [
+  "F42",
+  "盐原观测台",
+  "露盐风尘、潮池缓纹和观测院灯光",
+  4
+ ],
+ [
+  "F43",
+  "亡潮沼泽",
+  "沼泽水道使用缓纹，干岛树梢轻摆，不添加海滩白浪",
+  4
+ ],
+ [
+  "F44",
+  "沉没祭所",
+  "沉没石台外的海面短波、设备灯光和移动云影",
+  4
+ ],
+ [
+  "S41",
+  "黑钟村名册",
+  "寒区山村的细雪、轻摆树梢与云影",
+  4
+ ],
+ [
+  "S42",
+  "沼泽孤岛",
+  "湿地水面缓纹、岛上树梢与冷暗云影，保持病人撤离路",
+  4
+ ],
+ [
+  "M51",
+  "王都内廷",
+  "室外内廷树梢、庭池缓纹与云影；两间病房排除天气",
+  5
+ ],
+ [
+  "M52",
+  "登天桥",
+  "露天石桥外海面短波、桥面慢云影；桥与栏杆固定",
+  5
+ ],
+ [
+  "F51",
+  "祭所底层",
+  "地下水渠缓纹、少量滴水、既有火盆与设备灯光",
+  5
+ ],
+ [
+  "F52",
+  "日宫下层",
+  "室内蓄水池缓纹、灯具明暗和少量浮尘，无室外天气",
+  5
+ ],
+ [
+  "S51",
+  "神宫旧书库",
+  "书库仅用既有灯具明暗和稀疏浮尘，无雪、云影或海浪",
+  5
+ ],
+ [
+  "J53",
+  "神宫前庭",
+  "室外神宫园林树梢、人工池缓纹和慢云影",
+  5
+ ],
+ [
+  "J54",
+  "太阳神乌库布·卡基",
+  "露天神座园林树梢、人工池缓纹和慢云影，保持召唤区清楚",
+  5
+ ]
+];
+const requested=new URLSearchParams(location.search).get("map");
+let code=scenes.some(s=>s[0]===requested)?requested:"M11",view="phone",playing=true;
+const film=document.querySelector("#film"),player=document.querySelector("#player"),timeline=document.querySelector("#timeline"),clock=document.querySelector("#clock"),play=document.querySelector("#play"),loading=document.querySelector("#loading");
+const mapButtons=[];
+for(const [i,s] of scenes.entries()){
+ const button=document.createElement("button");
+ button.type="button";button.textContent=s[0];button.dataset.map=s[0];button.title=s[1];
+ button.addEventListener("click",()=>{code=s[0];loadScene()});
+ document.querySelector("#chapter-"+s[3]).append(button);
+ mapButtons.push(button);
+ const entry=document.createElement("div");entry.className="entry";
+ const title=document.createElement("strong");title.textContent=s[0]+" "+s[1];
+ const desc=document.createElement("p");desc.textContent=s[2];
+ entry.append(title,desc);document.querySelector("#catalog-table").append(entry);
+}
+function renderTime(){
+ timeline.max=film.duration||8;timeline.value=film.currentTime||0;
+ clock.textContent=(film.currentTime||0).toFixed(2)+" / "+(film.duration||8).toFixed(2);
+}
+function setPlaying(want){
+ playing=want;
+ if(want)film.play().catch(()=>{playing=false;play.textContent="播放"});
+ else film.pause();
+ play.textContent=want?"暂停":"播放";
+}
+function loadScene(){
+ const resume=playing;
+ film.pause();loading.hidden=false;
+ const data=scenes.find(s=>s[0]===code);
+ document.querySelector("#scene-title").textContent=data[0]+" "+data[1];
+ document.querySelector("#scene-note").textContent=data[2];
+ mapButtons.forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.map===code)));
+ document.querySelectorAll("[data-view]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.view===view)));
+ film.poster="media/"+code+"-"+view+".webp";
+ film.src="media/"+code+"-"+view+".mp4";
+ film.load();
+ playing=resume;renderTime();
+}
+film.addEventListener("loadedmetadata",()=>{
+ player.style.setProperty("--ratio",film.videoWidth+"/"+film.videoHeight);
+ player.style.setProperty("--single-ratio",(film.videoWidth/2)+"/"+film.videoHeight);
+ renderTime();loading.hidden=true;
+ if(playing)setPlaying(true);
+});
+film.addEventListener("error",()=>{loading.textContent="该段影片载入失败，请重新打开本地页面。";loading.hidden=false});
+film.addEventListener("timeupdate",renderTime);
+film.addEventListener("ended",()=>{film.currentTime=0;if(playing)film.play()});
+play.addEventListener("click",()=>setPlaying(!playing));
+timeline.addEventListener("input",()=>{film.currentTime=Number(timeline.value);renderTime()});
+document.querySelector("#step").addEventListener("click",()=>{
+ setPlaying(false);film.currentTime=Math.min(film.duration||8,film.currentTime+1/12);renderTime();
+});
+document.querySelectorAll("[data-view]").forEach(button=>button.addEventListener("click",()=>{view=button.dataset.view;loadScene()}));
+document.querySelectorAll("button[data-layout]").forEach(button=>button.addEventListener("click",()=>{
+ player.dataset.layout=button.dataset.layout;
+ document.querySelectorAll("button[data-layout]").forEach(b=>b.setAttribute("aria-pressed",String(b===button)));
+}));
+document.querySelector("#fullscreen").addEventListener("click",()=>{
+ if(document.fullscreenElement)document.exitFullscreen();
+ else if(player.requestFullscreen)player.requestFullscreen();
+ else if(film.webkitEnterFullscreen)film.webkitEnterFullscreen();
+});
+if(innerWidth<700){
+ player.dataset.layout="after";
+ document.querySelectorAll("button[data-layout]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.layout==="after")));
+}
+loadScene();
+</script>
+</html>

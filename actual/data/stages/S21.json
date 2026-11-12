@@ -4684,6 +4684,8 @@
       "ai_flags": 0,
       "objective_boss": true,
       "behavior": "guard",
+      "guard_alerted": true,
+      "guard_ai_revision": 2,
       "drop_chance": 100,
       "body_attack": "stone_spit",
       "recoverable_item_id": 4
@@ -5099,15 +5101,15 @@
       "hp": 28,
       "max_hp": 28,
       "exp": 0,
-      "strength": 9,
+      "strength": 2,
       "skill": 4,
-      "speed": 4,
+      "speed": 5,
       "luck": 2,
       "defence": 4,
       "magic_flags": 0,
       "magic_level": 0,
       "item_id": 0,
-      "move": 2,
+      "move": 3,
       "resistance": 2,
       "growths": {
         "strength": 30,
@@ -5155,8 +5157,8 @@
       ],
       "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
       "position": [
-        5,
-        18
+        18,
+        16
       ],
       "side": "player",
       "neutral": true,
@@ -5182,15 +5184,15 @@
       "hp": 28,
       "max_hp": 28,
       "exp": 0,
-      "strength": 9,
+      "strength": 2,
       "skill": 4,
-      "speed": 4,
+      "speed": 5,
       "luck": 2,
       "defence": 4,
       "magic_flags": 0,
       "magic_level": 0,
       "item_id": 0,
-      "move": 2,
+      "move": 3,
       "resistance": 2,
       "growths": {
         "strength": 30,
@@ -5238,7 +5240,7 @@
       ],
       "confidence": "source_character_slot_and_runtime_id_indexed_growth_resistance",
       "position": [
-        8,
+        18,
         18
       ],
       "side": "player",
@@ -6182,7 +6184,7 @@
       22
     ]
   ],
-  "goal": "击败海上魔物，保住载病人船至靠岸；至少一组居民存活。",
+  "goal": "清除海上魔物，并让至少一组病人从左船南侧跳板撤至沙岸。",
   "cause": "西南边的渔船被魔物挡住，载着病人发出求救信号。船团靠过去救人。",
   "before": "米蕾：我们把船靠过去。",
   "during": "米蕾：守住甲板，有病人，把人接过来。",
@@ -6422,9 +6424,9 @@
     }
   ],
   "tactical_notes": [
-    "击败全部海上魔物，并让至少一组病人存活靠岸。两组病人都在左船后甲板。",
-    "飞行魔物能绕过跳板直扑后方。护卫应先拦截来敌，再向右船推进。",
-    "前后跳板连通两船，南侧短跳板通往靠岸点；及时调动成员保护病人。",
+    "两组病人在右船后甲板，会经船间跳板和左船南侧的短跳板撤到沙岸。",
+    "病人每回合自动向出口前进，移动3格，不会攻击或反击。飞行魔物能越过海面，护卫应优先保护撤离路线。",
+    "清除魔物并救到一组即可结算。两组均靠岸，本队全体正式成员额外获得20点经验。",
     "左船后甲板的舷边货物右侧有一处船医补给点。停在该格，下一次我方阶段开始时恢复5点生命。"
   ],
   "tactical_review_version": "0.10.6-ch2",
@@ -6521,7 +6523,7 @@
   "landscape_revision": "Compact ship composition following approved M41/first-chapter design method",
   "deck_zones": [
     {
-      "label": "载病人渔船",
+      "label": "接应渔船",
       "bounds": [
         2,
         3,
@@ -6534,7 +6536,7 @@
       ]
     },
     {
-      "label": "漂泊伴船",
+      "label": "载病人渔船",
       "bounds": [
         18,
         1,
