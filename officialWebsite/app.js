@@ -1,4 +1,4 @@
-import {extraCopy,companionData,chapterMaps,atlasRoutes,mapSkills,criticalClips} from './content.js?v=critical-20261104';
+import {extraCopy,companionData,chapterMaps,atlasRoutes,mapSkills,criticalClips,latestReels,puppetData} from './content.js?v=latest-20261113';
 const copy = {
   en: {
     pageTitle: 'Revenge & Memories — Official Website', description: 'Two paths of revenge. One fractured world. Discover Revenge & Memories, a pixel-art tactical RPG for PC and mobile.',
@@ -54,12 +54,14 @@ const gallery=[{id:'prologue',title:'storyName',alt:'prologueAlt'},{id:'tactics'
 function mapImageAsset(skill,view){return `assets/images/${view==='impact'&&skill.impactAsset?skill.impactAsset:`map-${skill.id}-${view}`}.webp`;}
 const mapMedia=mapSkills.flatMap(x=>['impact','range'].map(view=>({id:`map-${x.id}-${view}`,title:x.name,alt:x.body,view:view==='range'?'mapRange':'mapImpact',type:'image',poster:mapImageAsset(x,view),kicker:'mapCapture'})));
 const criticalMedia=[...criticalClips.map(c=>({...c,id:'critical-'+c.id,type:'video',poster:`assets/images/critical-${c.id}-portrait-20261104.webp`,src:`assets/video/critical-${c.id}-20261104.mp4`,kicker:'criticalFootage'})),...criticalClips.map(c=>({id:'critical-'+c.id+'-impact',title:c.title,type:'image',poster:`assets/images/critical-${c.id}-impact-20261104.webp`,kicker:'criticalCapture'}))];
-const mediaItems=[...Object.keys(clips).map(id=>({id,type:'video',...clips[id]})),...gallery.map(x=>({...x,type:'image',poster:`assets/images/${x.id}.webp`})),...mapMedia,{id:'map-reel',type:'video',title:'mapReelTitle',poster:'assets/images/map-eileen-advanced-impact.webp',src:'assets/video/map-skills-20261102.mp4',duration:'00:06',kicker:'mapFootage'},...criticalMedia];
+const latestAsset=id=>`assets/images/latest-${id}-20261113.webp`;
+const latestMedia=[...latestReels.map(x=>({...x,id:'latest-'+x.id,type:'video',poster:latestAsset(x.poster),src:`assets/video/latest-${x.id}-20261113.mp4`,kicker:'latestFootage'})),...['snow','shore','cave'].map(id=>({id:'latest-environment-'+id,type:'image',title:'environment'+({snow:'Snow',shore:'Shore',cave:'Cave'}[id]),poster:latestAsset('environment-'+id),kicker:'latestCapture'})),...['sword','bow','fire','thunder'].map(id=>({id:'latest-attack-'+id,type:'image',title:'latest'+id[0].toUpperCase()+id.slice(1),poster:latestAsset('attack-'+id+'-impact'),kicker:'latestCapture'})),...puppetData.flatMap(x=>['intact','broken','impact'].map(state=>({id:`latest-puppet-${x.id}-${state}`,type:'image',title:x.key+'Name',view:state==='impact'?'mapImpact':state==='intact'?'puppetIntact':'puppetBroken',poster:latestAsset(`puppet-${x.id}-${state}`),kicker:'latestCapture'})))];
+const mediaItems=[...Object.keys(clips).map(id=>({id,type:'video',...clips[id]})),...gallery.map(x=>({...x,type:'image',poster:`assets/images/${x.id}.webp`})),...mapMedia,{id:'map-reel',type:'video',title:'mapReelTitle',poster:'assets/images/map-eileen-advanced-impact.webp',src:'assets/video/map-skills-20261102.mp4',duration:'00:06',kicker:'mapFootage'},...criticalMedia,...latestMedia];
 const tactics={position:{image:'tactics',caption:'positionCaption',note:'positionNote',alt:'tacticsAlt'},mission:{image:'prison',caption:'missionCaption',note:'missionNote',alt:'prisonAlt'},growth:{image:'dawn-thunder',caption:'dawnCaption',note:'dawnNote',alt:'dawnAlt'}};
 let savedLanguage;try{savedLanguage=localStorage.getItem('revenge-memories-language');}catch{}
 const requestedLanguage=new URLSearchParams(location.search).get('lang');
 let language=Object.hasOwn(copy,requestedLanguage)?requestedLanguage:Object.hasOwn(copy,savedLanguage)?savedLanguage:'en';
-let selectedCharacter='hunapu',selectedTactic='position',selectedClip='journey',mediaIndex=0,selectedEra=0,selectedAtlas=1,selectedMapSkill='hunapu-base',selectedMapView='impact';
+let selectedCharacter='hunapu',selectedTactic='position',selectedClip='journey',mediaIndex=0,selectedEra=0,selectedAtlas=1,selectedMapSkill='hunapu-base',selectedMapView='impact',selectedPuppet='water_monkey';
 const t=key=>copy[language][key]??copy.en[key]??key;
 const video=$('#game-video'),mediaDialog=$('#media-dialog');
 let mapZoom=1,mapPan={x:0,y:0},mapBase={w:0,h:0};
@@ -71,10 +73,31 @@ function setLanguage(next,remember=false){
   $$('[data-language]').forEach(b=>b.setAttribute('aria-checked',String(b.dataset.language===next)));
   $('header .brand').setAttribute('aria-label',t('pageTitle'));
   $$('[data-i18n]').forEach(el=>{el.innerHTML=t(el.dataset.i18n);});$$('[data-i18n-alt]').forEach(el=>{el.alt=t(el.dataset.i18nAlt);});$$('[data-i18n-aria]').forEach(el=>el.setAttribute('aria-label',t(el.dataset.i18nAria)));
-  renderCriticalCards();renderMapSkill();renderRoster();renderCharacter();renderTactic();renderClip();renderMediaRail();renderMediaLabels();renderEra(false);
+  renderLatest();renderPuppet();renderCriticalCards();renderMapSkill();renderRoster();renderCharacter();renderTactic();renderClip();renderMediaRail();renderMediaLabels();renderEra(false);
   if(remember){try{localStorage.setItem('revenge-memories-language',next);}catch{}const url=new URL(location.href);url.searchParams.set('lang',next);history.replaceState(null,'',url);}
 }
 function make(tag,className,text){const el=document.createElement(tag);if(className)el.className=className;if(text!==undefined)el.textContent=text;return el;}
+function latestPoster(reel){
+  const article=make('div','latest-reel'),button=make('button','critical-poster');button.dataset.play='latest-'+reel.id;button.setAttribute('aria-label',t(reel.watch));
+  const img=make('img','pixel-art');img.src=latestAsset(reel.poster);img.alt='';img.width=1278;img.height=720;img.loading='lazy';const orb=make('span','critical-play');orb.setAttribute('aria-hidden','true');orb.innerHTML='<svg><use href="#i-play"/></svg>';button.append(img,orb,make('span','critical-duration',reel.duration));
+  const caption=make('div','latest-reel-caption');caption.append(make('span','',t(reel.title)),make('span','',t(reel.watch)+' ↗'));article.append(button,caption);return article;
+}
+function latestImage(id,title,className=''){
+  const figure=make('figure',className),button=make('button','image-button');button.dataset.gallery='latest-'+id;button.setAttribute('aria-label',t(title));const img=make('img','pixel-art');img.src=latestAsset(id);img.alt=t(title);img.width=1278;img.height=720;img.loading='lazy';button.append(img);figure.append(button,make('figcaption','',t(title)));return figure;
+}
+function renderLatest(){
+  for(const reel of latestReels)$('#'+reel.id+'-reel').replaceChildren(latestPoster(reel));
+  $('#environment-scenes').replaceChildren(...['Snow','Shore','Cave'].map(key=>{
+    const figure=latestImage('environment-'+key.toLowerCase(),'environment'+key,'environment-scene');figure.append(make('p','',t('environment'+key+'Body')));return figure;
+  }));
+  $('#latest-impact-grid').replaceChildren(...['bow','fire'].map(key=>latestImage('attack-'+key+'-impact',key==='bow'?'latestBow':'latestFire')));
+}
+function renderPuppet(){
+  $('#puppet-picker').replaceChildren(...puppetData.map(x=>{const b=make('button','puppet-choice');b.dataset.puppet=x.id;b.setAttribute('aria-pressed',String(selectedPuppet===x.id));const img=make('img','pixel-art');img.src=latestAsset('portrait-'+x.id);img.alt='';img.width=48;img.height=48;b.append(img,make('span','',t(x.key+'Name')));return b;}));
+  const x=puppetData.find(x=>x.id===selectedPuppet);
+  $('#puppet-states').replaceChildren(...['intact','broken'].map(state=>latestImage('puppet-'+x.id+'-'+state,state==='intact'?'puppetIntact':'puppetBroken')));
+  $('#puppet-name').textContent=t(x.key+'Name');$('#puppet-part').textContent=t(x.key+'Part');$('#puppet-threat').textContent=t(x.key+'Threat');$('#puppet-counter').textContent=t(x.key+'Counter');
+}
 function renderCriticalCards(){
   $('#critical-grid').replaceChildren(...criticalClips.map((c,i)=>{
     const article=make('article','critical-card');const button=make('button','critical-poster');button.dataset.play='critical-'+c.id;button.setAttribute('aria-label',`${t('criticalWatch')} · ${t(c.title)}`);
@@ -177,7 +200,7 @@ $('#atlas-viewport').addEventListener('wheel',e=>{if(e.ctrlKey){e.preventDefault
 $('#atlas-viewport').addEventListener('keydown',e=>{if(['+','=','-','0','ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key))e.preventDefault();if(e.key==='+'||e.key==='=')zoomMap(mapZoom+.5);else if(e.key==='-')zoomMap(mapZoom-.5);else if(e.key==='0')$('#map-reset').click();else{if(e.key==='ArrowLeft')mapPan.x+=40;if(e.key==='ArrowRight')mapPan.x-=40;if(e.key==='ArrowUp')mapPan.y+=40;if(e.key==='ArrowDown')mapPan.y-=40;applyMap();}});
 new ResizeObserver(updateMapGeometry).observe($('#atlas-viewport'));
 
-document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.language){setLanguage(b.dataset.language,true);closeLanguage(true);}if(b.dataset.play)openMedia(b.dataset.play);if(b.dataset.mapSkill){selectedMapSkill=b.dataset.mapSkill;renderMapSkill();$(`[data-map-skill="${selectedMapSkill}"]`).focus({preventScroll:true});}if(b.dataset.mapView){selectedMapView=b.dataset.mapView;renderMapSkill();}if(b.dataset.gallery)openMedia(b.dataset.gallery);if(b.dataset.mediaIndex!==undefined)showMedia(Number(b.dataset.mediaIndex),mediaItems[Number(b.dataset.mediaIndex)].type==='video');if(b.dataset.close)document.getElementById(b.dataset.close).close();if(b.dataset.character){selectedCharacter=b.dataset.character;renderCharacter();if(b.classList.contains('companion-card'))$('#character-panel').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'center'});}if(b.dataset.tactic){selectedTactic=b.dataset.tactic;renderTactic();}if(b.dataset.clip){selectedClip=b.dataset.clip;renderClip();}if(b.dataset.era!==undefined){selectedEra=Number(b.dataset.era);selectedAtlas=selectedEra===0?1:selectedEra===1?3:5;renderEra();}if(b.dataset.atlasChapter){selectedAtlas=Number(b.dataset.atlasChapter);renderEra();}});
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.language){setLanguage(b.dataset.language,true);closeLanguage(true);}if(b.dataset.play)openMedia(b.dataset.play);if(b.dataset.puppet){selectedPuppet=b.dataset.puppet;renderPuppet();$(`[data-puppet="${selectedPuppet}"]`).focus({preventScroll:true});}if(b.dataset.mapSkill){selectedMapSkill=b.dataset.mapSkill;renderMapSkill();$(`[data-map-skill="${selectedMapSkill}"]`).focus({preventScroll:true});}if(b.dataset.mapView){selectedMapView=b.dataset.mapView;renderMapSkill();}if(b.dataset.gallery)openMedia(b.dataset.gallery);if(b.dataset.mediaIndex!==undefined)showMedia(Number(b.dataset.mediaIndex),mediaItems[Number(b.dataset.mediaIndex)].type==='video');if(b.dataset.close)document.getElementById(b.dataset.close).close();if(b.dataset.character){selectedCharacter=b.dataset.character;renderCharacter();if(b.classList.contains('companion-card'))$('#character-panel').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'center'});}if(b.dataset.tactic){selectedTactic=b.dataset.tactic;renderTactic();}if(b.dataset.clip){selectedClip=b.dataset.clip;renderClip();}if(b.dataset.era!==undefined){selectedEra=Number(b.dataset.era);selectedAtlas=selectedEra===0?1:selectedEra===1?3:5;renderEra();}if(b.dataset.atlasChapter){selectedAtlas=Number(b.dataset.atlasChapter);renderEra();}});
 $('#menu-toggle').addEventListener('click',()=>{const open=$('#menu-toggle').getAttribute('aria-expanded')==='true';$('#menu-toggle').setAttribute('aria-expanded',String(!open));$('#mobile-nav').hidden=open;});$$('#mobile-nav a').forEach(a=>a.addEventListener('click',()=>{$('#mobile-nav').hidden=true;$('#menu-toggle').setAttribute('aria-expanded','false');}));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLanguage();$('#mobile-nav').hidden=true;$('#menu-toggle').setAttribute('aria-expanded','false');}if(!mediaDialog.open||e.target.matches('input,video'))return;if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();showMedia(mediaIndex+(e.key==='ArrowRight'?1:-1));}if(e.code==='Space'&&mediaItems[mediaIndex].type==='video'&&!e.target.closest('button')){e.preventDefault();toggleVideo();}});
 setLanguage(language);

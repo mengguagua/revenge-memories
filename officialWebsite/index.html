@@ -18,8 +18,8 @@
   <title>Revenge & Memories — Official Website</title>
   <link rel="icon" href="assets/images/hunapu.webp" type="image/webp">
   <link rel="preload" href="assets/images/coast.webp" as="image" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=critical-20261104">
-  <script src="app.js?v=critical-20261104" type="module"></script>
+  <link rel="stylesheet" href="styles.css?v=latest-20261113">
+  <script src="app.js?v=latest-20261113" type="module"></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
@@ -68,7 +68,7 @@
         <p class="hero-hook" data-i18n="heroHook">Two paths of revenge.<br>One fractured world.</p>
         <p class="hero-description" data-i18n="heroDescription">Lead two young heroes from opposite shores through a pixel-art world where every victory carries a cost.</p>
         <div class="hero-buttons"><button class="button button-gold" data-play="journey"><svg><use href="#i-play"/></svg><span data-i18n="watchGameplay">Watch gameplay</span></button><a class="button button-ghost" href="#story"><span data-i18n="discoverStory">Discover the story</span><svg><use href="#i-arrow"/></svg></a></div>
-        <div class="hero-tags"><span data-i18n="tagTactical">Turn-based tactics</span><span data-i18n="tagPixel">Pixel art</span><span data-i18n="tagSolo">Single player</span></div>
+        <a class="latest-hero-link" href="#latest-update" data-i18n="latestJump">Explore what’s new ↗</a><div class="hero-tags"><span data-i18n="tagTactical">Turn-based tactics</span><span data-i18n="tagPixel">Pixel art</span><span data-i18n="tagSolo">Single player</span></div>
       </div>
       <div class="hero-bottom container"><div class="platform-inline"><span><svg><use href="#i-pc"/></svg>PC</span><span class="tiny-plus">+</span><span><svg><use href="#i-phone"/></svg><span data-i18n="mobile">Mobile</span></span></div><a href="#story" class="scroll-link"><span data-i18n="beginJourney">THE JOURNEY BEGINS</span><span class="scroll-arrow" aria-hidden="true">↓</span></a><span class="hero-footnote" data-i18n="heroFootnote">A world to fight for. People to come home to.</span></div>
     </section>
@@ -90,6 +90,21 @@
     <section class="section container gameplay-section" id="gameplay" aria-labelledby="gameplay-title"><div class="section-heading reveal"><div><p class="eyebrow" data-i18n="gameplayEyebrow">03 — THE TACTICS</p><h2 id="gameplay-title" data-i18n="gameplayTitle">Think beyond<br>the next strike.</h2></div><p data-i18n="gameplayIntro">Read the terrain. Protect your people. Make the move that changes the battle.</p></div>
       <div class="gameplay-layout"><div class="tactic-options" role="group" aria-label="Explore gameplay" data-i18n-aria="exploreGameplay"><button data-tactic="position" aria-pressed="true"><span class="tactic-number">01</span><span><strong data-i18n="tacticPosition">Every square matters</strong><span data-i18n="tacticPositionBody">Shape the front line with terrain, weapon ranges, and adjacent allies. Cover a companion before the enemy strikes.</span></span><svg><use href="#i-arrow"/></svg></button><button data-tactic="mission" aria-pressed="false"><span class="tactic-number">02</span><span><strong data-i18n="tacticMission">A battle with a purpose</strong><span data-i18n="tacticMissionBody">Free prisoners, protect supplies, and escort civilians. Winning means more than clearing the map.</span></span><svg><use href="#i-arrow"/></svg></button><button data-tactic="growth" aria-pressed="false"><span class="tactic-number">03</span><span><strong data-i18n="tacticGrowth">A company of your own</strong><span data-i18n="tacticGrowthBody">Recruit allies, choose training paths, and equip your company. Wounded companions stay with the party, but need care before returning to battle.</span></span><svg><use href="#i-arrow"/></svg></button></div><figure class="tactic-figure"><button class="image-button" id="tactic-expand" data-gallery="tactics" data-i18n-aria="expandTactics"><img class="pixel-art" id="tactic-image" src="assets/images/tactics.webp" loading="lazy" width="1278" height="720" alt=""><span class="image-expand"><svg><use href="#i-expand"/></svg></span></button><figcaption class="image-caption"><span data-i18n="pcCapture">PC BUILD · IN-GAME CAPTURE</span><span id="tactic-caption"></span></figcaption><div class="tactic-note"><span aria-hidden="true">✦</span><p id="tactic-note"></p></div></figure></div>
     </section>
+
+    <section class="latest-section" id="latest-update" aria-labelledby="latest-title"><div class="container">
+      <div class="section-heading latest-heading"><div><p class="eyebrow" data-i18n="latestEyebrow"></p><h2 id="latest-title" data-i18n="latestTitle"></h2></div><p data-i18n="latestIntro"></p></div>
+      <nav class="latest-links" aria-label="Latest features" data-i18n-aria="latestEyebrow"><a href="#living-world" data-i18n="latestEnvironmentLink"></a><a href="#attack-effects" data-i18n="latestCombatLink"></a><a href="#mechanical-enemies" data-i18n="latestPuppetLink"></a></nav>
+      <article class="latest-feature" id="living-world" aria-labelledby="environment-title"><div class="latest-feature-heading"><p class="eyebrow" data-i18n="environmentEyebrow"></p><h3 id="environment-title" data-i18n="environmentTitle"></h3><p data-i18n="environmentIntro"></p></div>
+        <div class="latest-environment-layout"><div id="environment-reel"></div><div class="environment-scenes" id="environment-scenes"></div></div><p class="latest-rule" data-i18n="environmentRule"></p>
+      </article>
+      <article class="latest-feature" id="attack-effects" aria-labelledby="combat-fx-title"><div class="latest-combat-layout"><div><div class="latest-feature-heading"><p class="eyebrow" data-i18n="combatFxEyebrow"></p><h3 id="combat-fx-title" data-i18n="combatFxTitle"></h3><p data-i18n="combatFxIntro"></p></div><div class="latest-combat-points"><div><span>01</span><div><h4 data-i18n="combatFxPhysical"></h4><p data-i18n="combatFxPhysicalBody"></p></div></div><div><span>02</span><div><h4 data-i18n="combatFxMagic"></h4><p data-i18n="combatFxMagicBody"></p></div></div><div><span>03</span><div><h4 data-i18n="combatFxDamage"></h4><p data-i18n="combatFxDamageBody"></p></div></div></div></div><div><div id="combat-reel"></div><div class="latest-impact-grid" id="latest-impact-grid"></div></div></div>
+      </article>
+      <article class="latest-feature puppet-feature" id="mechanical-enemies" aria-labelledby="puppet-title"><div class="latest-feature-heading puppet-heading"><div><p class="eyebrow" data-i18n="puppetEyebrow"></p><h3 id="puppet-title" data-i18n="puppetTitle"></h3></div><p data-i18n="puppetIntro"></p></div>
+        <div class="puppet-picker" id="puppet-picker" role="group" data-i18n-aria="puppetChoose"></div>
+        <div class="puppet-showcase"><div class="puppet-states" id="puppet-states"></div><div class="puppet-description" aria-live="polite"><p class="eyebrow" data-i18n="puppetTarget"></p><p class="puppet-part" id="puppet-part"></p><h4 id="puppet-name"></h4><dl><div><dt data-i18n="puppetThreat"></dt><dd id="puppet-threat"></dd></div><div><dt data-i18n="puppetCounter"></dt><dd id="puppet-counter"></dd></div></dl></div></div>
+        <div class="puppet-film"><div id="puppets-reel"></div><p data-i18n="puppetNote"></p></div>
+      </article><p class="latest-media-note" data-i18n="latestMediaNote"></p>
+    </div></section>
 
     <section class="section critical-section" id="critical-strikes" aria-labelledby="critical-title">
       <div class="container"><div class="section-heading"><div><p class="eyebrow" data-i18n="criticalEyebrow">HERO CRITICAL STRIKES</p><h2 id="critical-title" data-i18n="criticalTitle">Critical strikes.<br>Up close.</h2></div><p data-i18n="criticalIntro">Hunapu’s sword and bow. Eileen’s flame-wreathed blade and elemental magic. A portrait close-up leads into the attack, the impact, and the return.</p></div>

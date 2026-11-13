@@ -1,7 +1,7 @@
 import {readFileSync,existsSync,writeFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
-import {extraCopy,companionData,chapterMaps,mapSkills,criticalClips} from '../content.js';
+import {extraCopy,companionData,chapterMaps,mapSkills,criticalClips,latestReels,puppetData} from '../content.js';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const html=readFileSync(path.join(root,'index.html'),'utf8');
 const js=readFileSync(path.join(root,'app.js'),'utf8');
@@ -9,6 +9,14 @@ const prefix=js.slice(0,js.indexOf('const $=')).replace(/^import .*;\n/,'');
 const translations=Function('extraCopy',prefix+';return copy;')(extraCopy);
 const errors=[];
 const keys=Object.keys(translations.en);
+const latestReport=JSON.parse(readFileSync(path.join(root,'reports/latest-assets-20261113.json'),'utf8'));
+if(latestReels.length!==3||puppetData.length!==5||!latestReport.background_guard||latestReport.layout_errors.length||latestReport.attack_contacts.some(x=>x.count!==1))errors.push('Latest PC capture manifest incomplete');
+for(const asset of [...latestReport.images,...latestReport.videos])if(!existsSync(path.join(root,asset.asset)))errors.push('Missing latest asset: '+asset.asset);
+if(!latestReport.images.every(x=>x.pixel_identical)||!latestReport.videos.every(x=>x.delivery_streams_preserved))errors.push('Latest asset integrity checks failed');
+for(const lang of ['en','zh','ja']){
+  for(const x of latestReels)for(const key of ['title','watch'])if(!translations[lang][x[key]])errors.push('Missing latest reel copy: '+x.id+' '+lang);
+  for(const x of puppetData)for(const key of ['Name','Part','Threat','Counter'])if(!translations[lang][x.key+key])errors.push('Missing puppet copy: '+x.id+' '+key+' '+lang);
+}
 for(const [lang,values] of Object.entries(translations)){
   for(const key of keys)if(!(key in values)||!values[key]?.length)errors.push(`${lang}: missing ${key}`);
   for(const key of Object.keys(values))if(!(key in translations.en))errors.push(`${lang}: unknown ${key}`);
@@ -46,7 +54,7 @@ const videoReport=JSON.parse(readFileSync(path.join(root,'reports/video-assets.j
 if(!videoReport.every(v=>v.video_and_audio_packet_hash_equal))errors.push('Video stream data changed');
 const expansion=JSON.parse(readFileSync(path.join(root,'source/captures/expansion-report.json'),'utf8'));
 if(!expansion.passed||expansion.shots.some(x=>x.layout_errors.length))errors.push('Expansion capture errors');
-const report={critical_clips:criticalClips.length,critical_pc_images:criticalReport.images.length,critical_video_bytes:criticalReport.videos.reduce((n,x)=>n+x.bytes,0),map_skill_variants:mapSkills.length,map_capture_images:mapReport.images.length,map_video_stream_identical:mapReport.video.video_and_audio_packet_hash_equal,companion_profiles:companionData.length,chapter_maps:chapterMaps.length,expansion_captures:expansion.shots.length,passed:errors.length===0,translation_languages:Object.keys(translations),translation_keys:keys.length,html_translation_references:used.length,html_resources_checked:resources.length,pc_captures:capture.shots.length,pc_capture_text_safe:true,image_assets:images.length,image_bytes:images.reduce((s,r)=>s+r.bytes,0),videos:videoReport.map(v=>({asset:v.asset,bytes:v.bytes,stream_identical:v.video_and_audio_packet_hash_equal})),errors};
+const report={latest_reels:latestReels.length,mechanical_enemies:puppetData.length,latest_images:latestReport.images.length,critical_clips:criticalClips.length,critical_pc_images:criticalReport.images.length,critical_video_bytes:criticalReport.videos.reduce((n,x)=>n+x.bytes,0),map_skill_variants:mapSkills.length,map_capture_images:mapReport.images.length,map_video_stream_identical:mapReport.video.video_and_audio_packet_hash_equal,companion_profiles:companionData.length,chapter_maps:chapterMaps.length,expansion_captures:expansion.shots.length,passed:errors.length===0,translation_languages:Object.keys(translations),translation_keys:keys.length,html_translation_references:used.length,html_resources_checked:resources.length,pc_captures:capture.shots.length,pc_capture_text_safe:true,image_assets:images.length,image_bytes:images.reduce((s,r)=>s+r.bytes,0),videos:videoReport.map(v=>({asset:v.asset,bytes:v.bytes,stream_identical:v.video_and_audio_packet_hash_equal})),errors};
 writeFileSync(path.join(root,'reports/static-checks.json'),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify(report,null,2));
 process.exitCode=errors.length?1:0;

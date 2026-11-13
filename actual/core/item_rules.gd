@@ -35,6 +35,7 @@ static func data() -> Dictionary:
 				if entry.from_class==change.from_class and entry.to_class==change.to_class:entry.level=change.level
 		# Confirmed display name; the original spell ID, cost and effect stay.
 		_rules.items[31].name_zh = "鬼火"
+		_rules.items[45].hp_cost = 10
 		# Adapted display/ownership metadata overlays source IDs and numeric rules.
 		var adapted:Dictionary=armaments().items.duplicate(true)
 		adapted.merge(accessories().items)

@@ -30,6 +30,7 @@ const Rewind = preload("res://core/battle_rewind.gd")
 const M15Story = preload("res://core/m15_story.gd")
 const Mechanical=preload("res://core/mechanical_puppets.gd")
 const ShipInterception=preload("res://core/ship_interception.gd")
+const Phantoms=preload("res://core/phantom_rules.gd")
 const CAMPAIGN_ID := "revenge-memories-1"
 const SAVE_FIELDS := ["chapter","route","parties","route_positions","previous_world_node","convoy","hub_id","hub_position","battle_return","battle_settled","story_events","stage_id","world_node","cleared_stages","roster","battle_start_snapshot","victory_rewards","flags","party","mode","units","phase","turn","rng_state","frame_counter","kills","selected_id","cursor","move_origin","battle_outcome"]
 var campaign: Dictionary
@@ -572,6 +573,7 @@ func apply_tactical_damage(source:Dictionary,target:Dictionary,damage:int,kind:S
 	return event
 
 func use_support(caster_id:String,spell_id:int,target_id:String="",destination:Vector2i=Vector2i(-1,-1))->Dictionary:
+	if spell_id==45:return Phantoms.cast(self,find_unit(caster_id))
 	var result=super.use_support(caster_id,spell_id,target_id,destination)
 	if not result.is_empty():Mechanical.end_action(find_unit(caster_id))
 	if not result.is_empty() and not Training.active(self) and str(result.action) in ["recover","physic","fortify"]:
@@ -962,6 +964,7 @@ func complete_battle() -> bool:
 	parties[route]=party.duplicate()
 	_restore_preparation_hp()
 	ensure_treatment_sources()
+	units=units.filter(func(unit):return not Phantoms.is_phantom(unit))
 	return true
 
 func return_to_preparation() -> bool:
@@ -984,6 +987,8 @@ func finish_exchange(exchange: Dictionary) -> Dictionary:
 	# A dynamic actor's actual profession/level determines V at settlement.
 	EnemyExperience.prepare(stage_id,[find_unit(str(exchange.get("attacker",""))),find_unit(str(exchange.get("defender","")))])
 	var reward=super.finish_exchange(exchange)
+	var phantom_reward=Phantoms.reward(self,exchange)
+	if not phantom_reward.is_empty():reward=phantom_reward
 	var initiator=find_unit(str(exchange.get("attacker","")))
 	if Mechanical.is_owl(initiator) and Mechanical.active(initiator,"engine") and int(initiator.hp)>0 and phase==initiator.side and not exchange.get("events",[]).is_empty():initiator.mechanical_canto_pending=true
 	Mechanical.end_action(find_unit(str(exchange.get("attacker",""))))

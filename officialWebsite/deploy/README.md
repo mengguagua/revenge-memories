@@ -52,3 +52,9 @@
 版本 `20261104-113043` 已上线；上一版本 `20261102-112101` 保留。新增 `#critical-strikes` 三语介绍、四段PC引擎演示与八张无损截图，点击才播放。77个服务器文件校验通过，公网16个更新资源SHA-256与本地一致，4段视频均返回206并命中缓存；本地4段、线上2段完整播放通过。
 
 未调整Nginx、DNS和TLS配置。部署记录：`../reports/deployment-20261104.json`；公网检查：`../reports/critical-public-20261104.json`；浏览器检查：`../reports/critical-browser-20261104.json`、`../reports/critical-online-20261104.json`。回滚指向记录：`/srv/www/revenge-web/backups/20261104-113043-previous.txt`。
+
+## 2026-11-13 · 环境、攻击特效与机械傀儡
+
+版本 `20261113-102549` 已切换上线，上一版本 `20261104-113043` 保留。新增三语专题、27张无损WebP、3段点击播放的PC演示；视频进入已有统一影像浏览器。服务器107个公开文件SHA-256校验通过，公网34个更新资源与本地一致；三段新视频Range均返回206并命中Cloudflare缓存。Nginx、DNS与TLS配置保持。
+
+报告：`../reports/latest-assets-20261113.json`、`../reports/latest-browser-20261113.json`、`../reports/latest-public-20261113.json`。回滚记录：`/srv/www/revenge-web/backups/20261113-102549-previous.txt`。切换前检查current仍指向本版本，再采用原子符号链接切回上一版本。

@@ -83,6 +83,7 @@ static func available_slots(game, side: String) -> int:
 	for unit in game.units:
 		if str(unit.get("side","")) != side: continue
 		if side == "player":
+			if unit.get("phantom",false):continue
 			if int(unit.get("character_id",0)) != 35 or int(unit.get("hp",0)) > 0: occupied += 1
 		else:
 			var commander := int(unit.enemy_slot) == 0 if unit.has("enemy_slot") else first_enemy
@@ -97,6 +98,11 @@ static func cleanup(game, dead: Dictionary) -> Array[String]:
 	if int(dead.get("hp",1)) > 0 or bool(dead.get("retreated",false)) or bool(dead.get("rescued",false)) or bool(dead.get("vanished",false)):
 		return removed
 	var side := str(dead.get("side","player"))
+	if side=="player":
+		for unit in game.units:
+			if unit.get("phantom",false) and str(unit.get("summoner_id",""))==str(dead.get("id","")) and int(unit.hp)>0:
+				unit.hp=0;unit.acted=true;unit.no_drop=true;unit.no_experience=true;unit.vanished=true
+				removed.append(str(unit.id))
 	var target_class := 0
 	if side == "player":
 		target_class = int({15:6,14:10,30:3}.get(int(dead.get("character_id",0)),0))
@@ -104,6 +110,7 @@ static func cleanup(game, dead: Dictionary) -> Array[String]:
 		target_class = int(Items.enemy_summon_spec(dead,0).class_id)
 	if target_class == 0: return removed
 	for unit in game.units:
+		if unit.get("phantom",false):continue
 		if str(unit.get("side","")) != side or int(unit.get("hp",0)) <= 0 or int(unit.get("class_id",0)) != target_class:
 			continue
 		if side == "player" and int(unit.get("character_id",0)) != 35: continue

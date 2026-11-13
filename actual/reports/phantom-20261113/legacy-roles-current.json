@@ -1,0 +1,28 @@
+{
+  "checks": 99,
+  "errors": [
+    "two brigands replace selected raiders, remaining armoured guards retained"
+  ],
+  "observations": {
+    "blink": {
+      "origin": "(26, 18)",
+      "result": "{ \"destination\": (22, 18), \"target\": \"\", \"spell_id\": -1, \"support\": false, \"teleport\": true, &\"teleport_position\": (22, 18), &\"special\": \"campaign_blink\", &\"blink_origin\": (26, 18) }"
+    },
+    "cantor": {
+      "removed": [
+        "summon_79_19",
+        "summon_79_20",
+        "summon_79_21",
+        "summon_79_22"
+      ],
+      "spawned": [
+        "summon_79_19",
+        "summon_79_20",
+        "summon_79_21",
+        "summon_79_22"
+      ]
+    }
+  },
+  "passed": false,
+  "scope": "Headless authored deployment fixtures, controlled AI, bounded generation, save/retry; not full natural campaign play."
+}

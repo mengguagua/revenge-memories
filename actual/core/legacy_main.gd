@@ -1034,6 +1034,10 @@ func _camp_action(action: String) -> void:
 
 func _choose_spell(id: int) -> void:
 	var caster = game.find_unit(game.selected_id)
+	if id==45 and game.get("campaign")!=null:
+		var unavailable=game.Phantoms.reason(game,caster)
+		if not unavailable.is_empty():
+			_notice(unavailable);_unit_action_menu();return
 	if int(caster.hp) <= Items.cost_for(caster,id):
 		_notice("施放"+str(Items.spell(id).name_zh)+"需生命高于"+str(Items.cost_for(caster,id)))
 		_unit_action_menu()
@@ -1489,12 +1493,11 @@ func _enemy_phase() -> void:
 	batch_running = true
 	busy = true
 	if game.phase == "player":
-		# Source slot order includes newly invoked allies in this same phase.
-		for slot in range(20):
-			for unit in game.living("player"):
-				if int(unit.get("player_slot", -1)) == slot and not bool(unit.get("controllable", true)):
-					await _run_ai_unit(unit)
-					if game.battle_outcome != "": break
+		# Formal/NPC slots retain their order; independent phantoms follow.
+		var automatic=game.living("player").filter(func(unit):return not bool(unit.get("controllable",true)))
+		automatic.sort_custom(func(a,b):return int(a.get("player_slot",20+int(a.get("phantom_slot",0))))<int(b.get("player_slot",20+int(b.get("phantom_slot",0)))))
+		for unit in automatic:
+			await _run_ai_unit(unit)
 			if game.battle_outcome != "": break
 		if game.battle_outcome != "":
 			busy = false

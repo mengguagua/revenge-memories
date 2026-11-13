@@ -472,12 +472,17 @@ static func _campaign_core(game, state: Dictionary, snapshot: bool, revision: St
 		var u=state.roster[id]
 		if not id is String or not game.characters.has(id) or not _campaign_unit(game,u,false):return false
 		if u.id!=id or u.side!="player":return false
-	if not state.units is Array or state.units.size()>40:return false
+	if not state.units is Array or state.units.size()>46:return false
 	var stage: Dictionary=campaign_stage(game,int(state.stage_id),revision);var seen={};var side_counts={"player":0,"enemy":0}
+	var phantom_count=0;var phantom_slots=[]
 	for unit in state.units:
 		if not _campaign_unit(game,unit,true) or seen.has(unit.id):return false
 		seen[unit.id]=true
-		if side_counts.has(unit.side):
+		if game.Phantoms.is_phantom(unit):
+			phantom_count+=1
+			if phantom_count>6 or phantom_slots.has(int(unit.phantom_slot)):return false
+			phantom_slots.append(int(unit.phantom_slot))
+		elif side_counts.has(unit.side):
 			side_counts[unit.side]+=1
 			if side_counts[unit.side]>20:return false
 		if int(unit.position[0])<0 or int(unit.position[1])<0 or int(unit.position[0])>=int(stage.map.width) or int(unit.position[1])>=int(stage.map.height):return false
@@ -578,6 +583,7 @@ static func _campaign_unit(game, unit: Variant, tactical: bool) -> bool:
 		if not unit.growths is Dictionary:return false
 		for key in unit.growths:
 			if not _integer(unit.growths[key],0,255):return false
+	if unit.has("phantom") and not game.Phantoms.valid_unit(game,unit):return false
 	return true
 
 static func _campaign_pages(value: Variant) -> bool:
@@ -593,6 +599,14 @@ static func _campaign_story(value: Variant) -> bool:
 	return true
 
 static func _campaign_flags(game, flags: Dictionary, stage: Dictionary) -> bool:
+	if flags.has("phantom_training"):
+		if not flags.phantom_training is Dictionary:return false
+		for id in flags.phantom_training:
+			if not id is String or not game.characters.has(id) or not _integer(flags.phantom_training[id],0,12):return false
+	if flags.has("phantom_maps"):
+		if not flags.phantom_maps is Dictionary:return false
+		for id in flags.phantom_maps:
+			if not id is String or str(int(id))!=id or not game.stages.has(int(id)) or flags.phantom_maps[id]!=true:return false
 	if not game.Battlefield.validate(game,flags,stage):return false
 	if flags.has("knockback_clear_rewards"):
 		if not flags.knockback_clear_rewards is Dictionary:return false

@@ -24,7 +24,15 @@ static func describe(game,caster:Dictionary,id:int)->Dictionary:
 			"warp":
 				info.effect="传送邻接友军至可落脚空格"
 				info.stats="先选友军，再选传送落点"
-			"invoke","conjure":
+			"invoke":
+				if game.get("campaign")!=null:
+					var level=game.Phantoms.rank(game,caster);var uses=game.Phantoms.uses(game,caster)
+					info.title="幻影%d级 · 消耗10HP"%level
+					info.effect="召唤%d名不同职业优先的幻影"%(level*2)
+					info.stats="全队每图1次 · "+("已满级" if level==3 else "熟练%d/6"%(uses%6))
+				else:
+					info.effect="在周围可落脚空格召唤援军";info.stats="数量由力量与随机结果决定"
+			"conjure":
 				info.effect="在周围可落脚空格召唤援军"
 				info.stats="数量由力量与随机结果决定"
 			"expel":
@@ -33,6 +41,9 @@ static func describe(game,caster:Dictionary,id:int)->Dictionary:
 		info.range="施法范围1格，须相邻" if Items.support_range(id).y==1 else "施法范围全地图"
 		if action in ["invoke","conjure"]:info.range="召唤范围为周围合法空格"
 		info.availability="可选%d名友军"%game.support_targets(caster,id).size() if action in ["recover","physic","warp"] else "确认后施放"
+		if action=="invoke" and game.get("campaign")!=null:
+			var unavailable=game.Phantoms.reason(game,caster)
+			info.availability=unavailable if not unavailable.is_empty() else "本次可生成%d名 · 当回合待机"%game.Phantoms.plan(game,caster,false).size()
 	else:
 		var preview=actor(caster,id);var profile=Items.weapon_profile(preview,id);var reach=Rules.attack_range(preview)
 		if id==26:info.effect="对指定魔物特效，伤害按魔防"

@@ -1,0 +1,93 @@
+{
+  "passed": true,
+  "source_only": true,
+  "rule_checks": 71,
+  "real_input_plays": [
+    {
+      "label": "round1",
+      "code": "F32",
+      "turns": 22,
+      "inputs": 1092,
+      "experience_receipts": 13,
+      "source_unchanged": true,
+      "newborn_wait": true
+    },
+    {
+      "label": "round2",
+      "code": "S51",
+      "turns": 10,
+      "inputs": 601,
+      "experience_receipts": 3,
+      "source_unchanged": true,
+      "newborn_wait": true
+    }
+  ],
+  "capacity_queue": {
+    "birth_turn_no_actions": true,
+    "normal_friends_at_start": 20,
+    "ordinary_key_inputs": 4,
+    "passed": true,
+    "phantoms_at_start": 6,
+    "six_next_turn_actions": [
+      {
+        "acted": true,
+        "born": 1,
+        "turn": 2,
+        "unit": "phantom_305_94_32"
+      },
+      {
+        "acted": true,
+        "born": 1,
+        "turn": 2,
+        "unit": "phantom_305_94_33"
+      },
+      {
+        "acted": true,
+        "born": 1,
+        "turn": 2,
+        "unit": "phantom_305_94_34"
+      },
+      {
+        "acted": true,
+        "born": 1,
+        "turn": 2,
+        "unit": "phantom_305_94_35"
+      },
+      {
+        "acted": true,
+        "born": 1,
+        "turn": 2,
+        "unit": "phantom_305_94_36"
+      },
+      {
+        "acted": true,
+        "born": 1,
+        "turn": 2,
+        "unit": "phantom_305_94_37"
+      }
+    ]
+  },
+  "victory_cleanup": {
+    "natural_archive_handover": true,
+    "ordinary_inputs": 169,
+    "passed": true,
+    "save_reload": true,
+    "source_unchanged": true,
+    "temporary_units_removed": true
+  },
+  "existing_regression_differences": {
+    "enemy_experience": {
+      "same_as_unchanged_HEAD": true,
+      "result": "591 checks; [\"exact approved25 defined classes, reserved princess excluded\", \"F22 authored identity, position, stats and flags unchanged F22_boss\", \"F22 authored identity, position, stats and flags unchanged F22_e1\", \"F22 authored identity, position, stats and flags unchanged F22_e2\", \"F22 authored identity, position, stats and flags unchanged F22_e3\", \"F22 authored identity, position, stats and flags unchanged F22_e4\", \"F22 authored identity, position, stats and flags unchanged F22_e5\", \"F22 authored identity, position, stats and flags unchanged F22_e6\", \"F22 authored identity, position, stats and flags unchanged F22_e7\", \"F22 authored identity, position, stats and flags unchanged F22_e8\", \"F22 authored identity, position, stats and flags unchanged F22_e9\", \"F22 authored identity, position, stats and flags unchanged F22_r0\", \"F22 authored identity, position, stats and flags unchanged F22_r1\", \"F24 authored identity, position, stats and flags unchanged F24_e10\"]",
+      "baseline": "591 checks; [\"exact approved25 defined classes, reserved princess excluded\", \"F22 authored identity, position, stats and flags unchanged F22_boss\", \"F22 authored identity, position, stats and flags unchanged F22_e1\", \"F22 authored identity, position, stats and flags unchanged F22_e2\", \"F22 authored identity, position, stats and flags unchanged F22_e3\", \"F22 authored identity, position, stats and flags unchanged F22_e4\", \"F22 authored identity, position, stats and flags unchanged F22_e5\", \"F22 authored identity, position, stats and flags unchanged F22_e6\", \"F22 authored identity, position, stats and flags unchanged F22_e7\", \"F22 authored identity, position, stats and flags unchanged F22_e8\", \"F22 authored identity, position, stats and flags unchanged F22_e9\", \"F22 authored identity, position, stats and flags unchanged F22_r0\", \"F22 authored identity, position, stats and flags unchanged F22_r1\", \"F24 authored identity, position, stats and flags unchanged F24_e10\"]"
+    },
+    "enemy_roles": {
+      "same_as_unchanged_HEAD": true,
+      "result": "99 checks; errors: [\"two brigands replace selected raiders, remaining armoured guards retained\"]"
+    },
+    "rewind": "M15_REWIND110checksPASS",
+    "scope": "Existing stale roster/balance snapshot failures reproduced identically on unchanged HEAD in isolated temporary checkout. No existing test expectations changed."
+  },
+  "preview": "/Users/gcc/gaocc/project/revenge-memories/art-review/phantom-20261113/index.html",
+  "capture": "Guarded offscreen Godot mobile layout; no iPhone installation or recording."
+}

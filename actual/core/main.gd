@@ -541,6 +541,8 @@ func play_victory_rewards() -> void:
 	view="victory"
 
 func _support_experience_feedback(result: Dictionary) -> bool:
+	if str(result.get("action",""))=="invoke" and int(result.get("phantom_rank_after",0))>int(result.get("phantom_rank_before",0)):
+		_notice("幻影升至%d级\n下次最多召唤%d名"%[int(result.phantom_rank_after),int(result.phantom_rank_after)*2])
 	var receipt=result.get("reward",{})
 	if receipt.is_empty() or int(receipt.get("gain",0))<=0:return false
 	reward=receipt;reward_elapsed=0.0;reward_dismissed=false;busy=false;view="reward"
